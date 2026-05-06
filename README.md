@@ -22,8 +22,15 @@ fixtures.
 - `bom/`: component lists and sourcing notes.
 - `docs/`: assembly, test, and hardware security guides.
 
-## License Plan
+## Quality Baseline
 
-Hardware design files should use CERN-OHL-S v2 or another open hardware license
-that preserves modifiability and source availability.
+Run the repository verification loop with:
 
+```sh
+make ci
+```
+
+## License
+
+Hardware design files, PCB sources, BOMs, enclosure files, and assembly
+artifacts are released under CERN-OHL-P-2.0 unless a file says otherwise.
