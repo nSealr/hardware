@@ -1,0 +1,12 @@
+designator,category,description,required,notes
+U1,mcu,ESP32-S3 module with native USB support,true,Exact module to be selected after RF and availability review.
+J1,usb,USB-C receptacle for native USB device mode,true,Must support reliable cable orientation and ESD strategy.
+U2,power,3.3 V regulator sized for ESP32-S3 peak current,true,Final part depends on input and battery decision.
+DS1,display,Local display module or connector,true,Minimum usable review surface must be validated with real Nostr events.
+SW1,input,Physical approve button,true,Must be distinct from reject action.
+SW2,input,Physical reject button,true,Must be distinct from approve action.
+J2,programming,UART or tagged debug/provisioning header,true,Must support documented debug-lock policy.
+TP1,programming,Manufacturing/provisioning test point,true,No private key should be exposed during normal signing transport.
+U3,security_optional,TROPIC01 secure element footprint,false,Only populate after feasibility decision.
+J3,camera_optional,Camera connector or module footprint,false,Only for QR signer variants.
+MECH1,mechanical,Enclosure and mounting datum,true,Exact enclosure remains open until board and UI dimensions are proven.

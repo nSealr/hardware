@@ -15,6 +15,15 @@ fixtures.
 - 3D-printable enclosure files.
 - Provisioning and debug jig documentation.
 
+## Current Capabilities
+
+- Machine-readable ESP32-S3 signer reference requirements.
+- First open BOM scaffold for a reference USB signer board.
+- Validation script and tests for required interfaces, security/review
+  requirements, BOM headers, BOM categories, and duplicate designators.
+
+The current files are requirements and BOM scaffolding, not routed PCB files.
+
 ## Initial Layout
 
 - `pcb/`: KiCad and board design files.

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "device_class": "esp32_s3_usb_signer",
+  "mandatory_interfaces": [
+    "usb_c_native",
+    "display",
+    "physical_buttons",
+    "secure_boot_capable",
+    "flash_encryption_capable",
+    "debug_lock_capable"
+  ],
+  "optional_interfaces": [
+    "camera",
+    "tropic01_spi",
+    "battery_power",
+    "qwiic_i2c"
+  ],
+  "security_requirements": [
+    "Support ESP32-S3 secure boot and signed firmware verification.",
+    "Support ESP32-S3 flash encryption for key-at-rest experiments.",
+    "Expose a documented debug-lock and recovery policy before production use.",
+    "Keep private-key provisioning separate from normal USB signing transport."
+  ],
+  "review_requirements": [
+    "Provide a local display large enough to show event kind, content summary, tags, and risk warnings.",
+    "Provide physical approve and reject controls with distinct tactile actions.",
+    "Require explicit approval for each sign_event request.",
+    "Reject signing when the displayed request id does not match the pending request."
+  ],
+  "notes": [
+    "This is a requirements scaffold, not a routed PCB.",
+    "TROPIC01 is optional until direct Schnorr or secure-key-wrapper feasibility is proven.",
+    "Camera support is optional and belongs to QR signer variants."
+  ]
+}
