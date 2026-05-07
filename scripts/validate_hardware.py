@@ -34,6 +34,11 @@ REQUIRED_BOM_CATEGORIES = {
     "programming",
 }
 
+REQUIRED_REVIEW_KEYWORDS = {
+    "request id",
+    "approval_digest",
+}
+
 
 def validate_requirements(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
@@ -51,6 +56,10 @@ def validate_requirements(path: Path) -> None:
             raise ValueError(f"{path}: {field} must be a non-empty list")
         if not all(isinstance(item, str) and item for item in items):
             raise ValueError(f"{path}: {field} must contain non-empty strings")
+    review_text = "\n".join(value["review_requirements"]).lower()
+    missing_review_keywords = sorted(keyword for keyword in REQUIRED_REVIEW_KEYWORDS if keyword not in review_text)
+    if missing_review_keywords:
+        raise ValueError(f"{path}: review_requirements must mention {', '.join(missing_review_keywords)}")
 
 
 def validate_bom(path: Path) -> None:

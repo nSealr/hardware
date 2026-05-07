@@ -35,6 +35,19 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "missing mandatory interfaces"):
                 validate_requirements(path)
 
+    def test_requirements_reject_missing_approval_digest_review_binding(self) -> None:
+        original = json.loads((ROOT / "pcb/reference-esp32-s3-signer/requirements.json").read_text(encoding="utf-8"))
+        original["review_requirements"] = [
+            item for item in original["review_requirements"] if "approval_digest" not in item
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "approval_digest"):
+                validate_requirements(path)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -4,7 +4,7 @@
 
 - ESP32-S3 USB signer requirements JSON.
 - Reference BOM scaffold.
-- Validator and tests.
+- Validator and tests, including review approval-digest binding.
 
 Status: implemented as the first open hardware foundation.
 

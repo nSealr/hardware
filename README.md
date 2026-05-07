@@ -20,7 +20,8 @@ fixtures.
 - Machine-readable ESP32-S3 signer reference requirements.
 - First open BOM scaffold for a reference USB signer board.
 - Validation script and tests for required interfaces, security/review
-  requirements, BOM headers, BOM categories, and duplicate designators.
+  requirements, approval-digest review binding, BOM headers, BOM categories,
+  and duplicate designators.
 
 The current files are requirements and BOM scaffolding, not routed PCB files.
 

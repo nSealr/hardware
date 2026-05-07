@@ -25,4 +25,6 @@ PCB work must follow proven firmware and UX requirements, not precede them.
 The reference requirements make TROPIC01 and camera support optional until their
 respective feasibility tracks are proven. Mandatory hardware focuses on native
 USB, local review display, physical approve/reject controls, and ESP32-S3
-security capabilities.
+security capabilities. Review hardware must support a flow that binds physical
+approval to both displayed request id and displayed approval digest before
+firmware signing is enabled.

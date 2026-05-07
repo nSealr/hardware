@@ -14,6 +14,7 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Reference requirements validation.
 - Reference BOM validation.
 - Negative requirements test for missing mandatory interfaces.
+- Negative requirements test for missing approval-digest review binding.
 
 ## Required Tests
 
