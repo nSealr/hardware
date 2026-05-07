@@ -16,16 +16,15 @@
   "optional_interfaces": [
     "qwiic_i2c",
     "touch_navigation",
-    "micro_sd",
-    "tropic01_spi"
+    "micro_sd"
   ],
   "security_requirements": [
     "Wireless must be disabled or excluded in high-assurance QR vault builds.",
-    "Support ESP32-S3 secure boot and signed firmware verification before production-key experiments.",
-    "Support ESP32-S3 flash encryption for key-at-rest experiments.",
+    "Support ESP32-S3 secure boot and signed firmware verification as firmware integrity hardening.",
+    "Support ESP32-S3 flash encryption for firmware/config hardening only; the stateless QR vault must not store persistent signing secrets.",
     "Expose a documented debug-lock and recovery policy before production use.",
     "Keep camera input, display output, local approval, storage, and signing paths inside firmware-controlled trust boundaries.",
-    "Treat TROPIC01 as optional research only; the ESP32-S3 QR signer MVP must not require it."
+    "Do not add secure-element or persistent-secret storage requirements to the stateless ESP32 QR vault."
   ],
   "review_requirements": [
     "Provide a local display large enough to show event kind, content summary, tags, risk warnings, request id, and approval_digest.",

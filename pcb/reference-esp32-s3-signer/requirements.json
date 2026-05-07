@@ -10,8 +10,6 @@
     "debug_lock_capable"
   ],
   "optional_interfaces": [
-    "camera",
-    "tropic01_spi",
     "battery_power",
     "qwiic_i2c"
   ],
@@ -30,7 +28,7 @@
   ],
   "notes": [
     "This is a requirements scaffold, not a routed PCB.",
-    "TROPIC01 is optional until direct Schnorr or secure-key-wrapper feasibility is proven.",
-    "Camera support is optional and belongs to QR signer variants."
+    "TROPIC01 is out of scope for the ESP32 USB/NIP-46 MVP; TROPIC01-assisted persistent-secret research belongs to the custom hardware-wallet family.",
+    "Camera support belongs to the ESP32 stateless QR vault family, not this USB/display signer requirement set."
   ]
 }

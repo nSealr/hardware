@@ -81,6 +81,19 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Wireless must be disabled"):
                 validate_requirements(path)
 
+    def test_qr_requirements_reject_tropic01_interfaces(self) -> None:
+        original = json.loads(
+            (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")
+        )
+        original["optional_interfaces"].append("tropic01_spi")
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "TROPIC01"):
+                validate_requirements(path)
+
 
 if __name__ == "__main__":
     unittest.main()

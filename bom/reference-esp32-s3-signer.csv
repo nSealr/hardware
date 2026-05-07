@@ -7,6 +7,4 @@ SW1,input,Physical approve button,true,Must be distinct from reject action.
 SW2,input,Physical reject button,true,Must be distinct from approve action.
 J2,programming,UART or tagged debug/provisioning header,true,Must support documented debug-lock policy.
 TP1,programming,Manufacturing/provisioning test point,true,No private key should be exposed during normal signing transport.
-U3,security_optional,TROPIC01 secure element footprint,false,Only populate after feasibility decision.
-J3,camera_optional,Camera connector or module footprint,false,Only for QR signer variants.
 MECH1,mechanical,Enclosure and mounting datum,true,Exact enclosure remains open until board and UI dimensions are proven.

@@ -63,6 +63,11 @@ def validate_requirements(path: Path) -> None:
     missing = sorted(required_interfaces - mandatory)
     if missing:
         raise ValueError(f"{path}: missing mandatory interfaces: {', '.join(missing)}")
+    optional = set(value.get("optional_interfaces", []))
+    if device_class == "esp32_s3_qr_signer":
+        interface_text = " ".join(sorted(mandatory | optional)).lower()
+        if "tropic01" in interface_text:
+            raise ValueError(f"{path}: TROPIC01 interfaces are not allowed on stateless QR vault requirements")
     for field in ("security_requirements", "review_requirements"):
         items = value.get(field)
         if not isinstance(items, list) or not items:
