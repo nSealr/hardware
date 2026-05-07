@@ -18,6 +18,8 @@ fixtures.
 ## Current Capabilities
 
 - Machine-readable ESP32-S3 signer reference requirements.
+- Machine-readable ESP32-S3 QR signer requirements for the T-Display S3 Pro
+  OV5640 candidate line.
 - First open BOM scaffold for a reference USB signer board.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, BOM headers, BOM categories,

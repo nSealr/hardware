@@ -17,6 +17,17 @@ REQUIRED_INTERFACES = {
     "debug_lock_capable",
 }
 
+REQUIRED_QR_INTERFACES = REQUIRED_INTERFACES | {
+    "camera",
+    "battery_power",
+    "wireless_disable_capable",
+}
+
+VALID_DEVICE_CLASSES = {
+    "esp32_s3_qr_signer",
+    "esp32_s3_usb_signer",
+}
+
 REQUIRED_BOM_HEADERS = {
     "designator",
     "category",
@@ -44,10 +55,12 @@ def validate_requirements(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
     if value.get("schema_version") != 1:
         raise ValueError(f"{path}: schema_version must be 1")
-    if value.get("device_class") != "esp32_s3_usb_signer":
-        raise ValueError(f"{path}: device_class must be esp32_s3_usb_signer")
+    device_class = value.get("device_class")
+    if device_class not in VALID_DEVICE_CLASSES:
+        raise ValueError(f"{path}: device_class must be one of {', '.join(sorted(VALID_DEVICE_CLASSES))}")
     mandatory = set(value.get("mandatory_interfaces", []))
-    missing = sorted(REQUIRED_INTERFACES - mandatory)
+    required_interfaces = REQUIRED_QR_INTERFACES if device_class == "esp32_s3_qr_signer" else REQUIRED_INTERFACES
+    missing = sorted(required_interfaces - mandatory)
     if missing:
         raise ValueError(f"{path}: missing mandatory interfaces: {', '.join(missing)}")
     for field in ("security_requirements", "review_requirements"):
@@ -60,6 +73,15 @@ def validate_requirements(path: Path) -> None:
     missing_review_keywords = sorted(keyword for keyword in REQUIRED_REVIEW_KEYWORDS if keyword not in review_text)
     if missing_review_keywords:
         raise ValueError(f"{path}: review_requirements must mention {', '.join(missing_review_keywords)}")
+    if device_class == "esp32_s3_qr_signer":
+        security_text = "\n".join(value["security_requirements"])
+        if "Wireless must be disabled" not in security_text:
+            raise ValueError(f"{path}: security_requirements must mention Wireless must be disabled")
+        review_text_original = "\n".join(value["review_requirements"])
+        if "Touch must not be accepted as approve/reject consent" not in review_text_original:
+            raise ValueError(
+                f"{path}: review_requirements must mention Touch must not be accepted as approve/reject consent"
+            )
 
 
 def validate_bom(path: Path) -> None:
@@ -94,6 +116,7 @@ def validate_bom(path: Path) -> None:
 
 def main() -> int:
     validate_requirements(ROOT / "pcb/reference-esp32-s3-signer/requirements.json")
+    validate_requirements(ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json")
     validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
     print("NostrSeal hardware validation passed")
     return 0

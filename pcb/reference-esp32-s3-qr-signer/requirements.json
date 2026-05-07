@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "device_class": "esp32_s3_qr_signer",
+  "primary_devkit_candidate": "LILYGO T-Display S3 Pro With OV5640 Camera",
+  "mandatory_interfaces": [
+    "usb_c_native",
+    "display",
+    "camera",
+    "physical_buttons",
+    "battery_power",
+    "wireless_disable_capable",
+    "secure_boot_capable",
+    "flash_encryption_capable",
+    "debug_lock_capable"
+  ],
+  "optional_interfaces": [
+    "qwiic_i2c",
+    "touch_navigation",
+    "micro_sd",
+    "tropic01_spi"
+  ],
+  "security_requirements": [
+    "Wireless must be disabled or excluded in high-assurance QR vault builds.",
+    "Support ESP32-S3 secure boot and signed firmware verification before production-key experiments.",
+    "Support ESP32-S3 flash encryption for key-at-rest experiments.",
+    "Expose a documented debug-lock and recovery policy before production use.",
+    "Keep camera input, display output, local approval, storage, and signing paths inside firmware-controlled trust boundaries.",
+    "Treat TROPIC01 as optional research only; the ESP32-S3 QR signer MVP must not require it."
+  ],
+  "review_requirements": [
+    "Provide a local display large enough to show event kind, content summary, tags, risk warnings, request id, and approval_digest.",
+    "Provide physical approve and reject controls with distinct tactile actions.",
+    "Touch must not be accepted as approve/reject consent.",
+    "Require explicit approval for each sign_event request.",
+    "Reject signing when the displayed request id does not match the pending request.",
+    "Reject signing when the displayed approval_digest does not match the pending request review.",
+    "Require camera/display acceptance tests before any signing backend is enabled."
+  ],
+  "qr_requirements": [
+    "Decode the shared nseal1 QR envelope from NostrSeal/specs.",
+    "Reject malformed static and animated QR input before request review.",
+    "Render signed-event QR output only after trusted review and physical approval.",
+    "Test scanning at multiple brightness, angle, and distance conditions."
+  ],
+  "notes": [
+    "This is a requirements scaffold for devkit-based validation, not a routed PCB.",
+    "Primary candidate is the T-Display S3 Pro OV5640 line; T-Camera Plus S3 remains secondary evaluation hardware.",
+    "The current hardware repo still contains requirements/BOM validation only; no custom PCB design exists yet."
+  ]
+}

@@ -12,9 +12,12 @@ bytecode compilation, and validation of the reference requirements and BOM.
 ## Implemented Tests
 
 - Reference requirements validation.
+- ESP32-S3 QR signer requirements validation.
 - Reference BOM validation.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
+- Negative QR requirements tests for missing camera and missing disabled
+  wireless policy.
 
 ## Required Tests
 
