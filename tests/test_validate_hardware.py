@@ -27,6 +27,16 @@ class HardwareValidationTests(unittest.TestCase):
     def test_reference_manual_hardware_report_is_valid(self) -> None:
         validate_manual_report(REFERENCE_REPORT)
 
+    def test_manual_report_accepts_protocol_smoke_type(self) -> None:
+        original = load_reference_report()
+        original["report_type"] = "protocol_smoke"
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            validate_manual_report(path)
+
     def test_requirements_reject_missing_required_interfaces(self) -> None:
         with tempfile.TemporaryDirectory() as temp_root:
             path = Path(temp_root) / "requirements.json"

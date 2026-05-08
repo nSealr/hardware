@@ -54,6 +54,7 @@ REQUIRED_REVIEW_KEYWORDS = {
 VALID_MANUAL_REPORT_TYPES = {
     "board_detection",
     "firmware_build",
+    "protocol_smoke",
     "display_smoke",
     "camera_smoke",
     "qr_flow_smoke",

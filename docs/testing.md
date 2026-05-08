@@ -16,6 +16,7 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Reference BOM validation.
 - Manual hardware report validation.
 - ESP32-S3 DevKitC-1 build/flash/protocol smoke report validation.
+- ESP32-S3 DevKitC-1 dynamic serial protocol-smoke report validation.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera and missing disabled
