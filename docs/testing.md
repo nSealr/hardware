@@ -23,6 +23,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   unknown top-level field rejection, parameterless-method `params` rejection,
   structurally invalid `sign_event` `params`/`event_template` shapes, and
   deterministic `unsupported_request` responses.
+- ESP32-S3 DevKitC-1 QR review I/O transcript protocol-smoke report validation
+  for revision `b7aa30a`, confirming the host-core transcript helper can be
+  compiled into the ESP-IDF component while the attached-board smoke still
+  returns only capability, development public-key, `signing_disabled`, and
+  deterministic invalid-request responses over USB serial.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera and missing disabled
