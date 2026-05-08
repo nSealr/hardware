@@ -21,7 +21,9 @@ ESP32-S3 DevKitC-1 protocol-smoke reports rebuild and reflash the firmware,
 then verify that serial-wrapped invalid signing-request vectors from
 `NostrSeal/specs` are rejected with deterministic `unsupported_request` frames
 while runtime signing remains disabled. The latest report covers revision
-`351d693` and includes unknown top-level request-field rejection.
+`c47b655` and includes unknown top-level request-field rejection plus
+parameterless-method `params` rejection for `get_capabilities` and
+`get_public_key`.
 
 ## M14: Reference Designs
 
