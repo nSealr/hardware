@@ -30,12 +30,29 @@ class HardwareValidationTests(unittest.TestCase):
     def test_manual_report_accepts_protocol_smoke_type(self) -> None:
         original = load_reference_report()
         original["report_type"] = "protocol_smoke"
+        original["expected_result"] = "The device refuses sign_event with signing_disabled."
+        original["observed_result"] = "sign_event returned signing_disabled."
+        original["limitations"] = ["Protocol smoke only; signing disabled."]
 
         with tempfile.TemporaryDirectory() as temp_root:
             path = Path(temp_root) / "report.json"
             path.write_text(json.dumps(original), encoding="utf-8")
 
             validate_manual_report(path)
+
+    def test_protocol_smoke_report_rejects_missing_disabled_signing_evidence(self) -> None:
+        original = load_reference_report()
+        original["report_type"] = "protocol_smoke"
+        original["expected_result"] = "The device answers capability requests."
+        original["observed_result"] = "The device answered capability requests."
+        original["limitations"] = ["Protocol smoke only; no production signing claim."]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "signing_disabled"):
+                validate_manual_report(path)
 
     def test_requirements_reject_missing_required_interfaces(self) -> None:
         with tempfile.TemporaryDirectory() as temp_root:

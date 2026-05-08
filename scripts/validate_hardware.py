@@ -179,6 +179,20 @@ def _require_non_empty_string_list(value: object, path: Path, field: str) -> Non
         raise ValueError(f"{path}: {field} must contain non-empty strings")
 
 
+def _report_text(value: dict) -> str:
+    fields = [
+        str(value.get("expected_result", "")),
+        str(value.get("observed_result", "")),
+        " ".join(str(item) for item in value.get("limitations", [])),
+    ]
+    return " ".join(fields).lower()
+
+
+def _mentions_signing_disabled(value: dict) -> bool:
+    text = _report_text(value)
+    return "signing_disabled" in text or "signing disabled" in text
+
+
 def validate_manual_report(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
     missing = sorted(REQUIRED_MANUAL_REPORT_FIELDS - set(value))
@@ -212,6 +226,13 @@ def validate_manual_report(path: Path) -> None:
         raise ValueError(f"{path}: stateless targets must not report persistent secrets")
     if value["target_family"] in STATELESS_TARGET_FAMILIES and value["tropic01_used"]:
         raise ValueError(f"{path}: stateless targets must not report TROPIC01 usage")
+    if (
+        value["report_type"] == "protocol_smoke"
+        and value["target_family"] == "esp32_usb_nip46_signer"
+        and not _mentions_signing_disabled(value)
+    ):
+        raise ValueError(f"{path}: ESP32 USB protocol_smoke reports must mention signing_disabled evidence")
+
 
 def main() -> int:
     validate_requirements(ROOT / "pcb/reference-esp32-s3-signer/requirements.json")

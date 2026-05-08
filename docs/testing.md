@@ -35,6 +35,8 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Negative manual report tests for missing production-signing safety flags,
   persistent secrets on stateless targets, and TROPIC01 usage on stateless
   targets.
+- Negative ESP32 USB protocol-smoke report test requiring explicit
+  `signing_disabled` evidence whenever production signing remains disabled.
 
 ## Required Tests
 
