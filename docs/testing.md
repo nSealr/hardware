@@ -14,10 +14,14 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Reference requirements validation.
 - ESP32-S3 QR signer requirements validation.
 - Reference BOM validation.
+- Manual hardware report validation.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera and missing disabled
   wireless policy.
+- Negative manual report tests for missing production-signing safety flags,
+  persistent secrets on stateless targets, and TROPIC01 usage on stateless
+  targets.
 
 ## Required Tests
 
@@ -27,3 +31,8 @@ bytecode compilation, and validation of the reference requirements and BOM.
 
 Manual hardware tests must include exact parts, firmware commit, procedure,
 result, photos or logs where useful, and known limitations.
+
+Committed report files under `reports/` must keep `production_signing_enabled`
+false unless the project explicitly creates a later production-signing release
+gate. Stateless QR vault reports must also keep `persistent_secret_present` and
+`tropic01_used` false.

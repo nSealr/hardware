@@ -3,10 +3,15 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.validate_hardware import validate_bom, validate_requirements
+from scripts.validate_hardware import validate_bom, validate_manual_report, validate_requirements
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REFERENCE_REPORT = ROOT / "reports/esp32-s3-devkitc-1-detection-2026-05-08.json"
+
+
+def load_reference_report() -> dict:
+    return json.loads(REFERENCE_REPORT.read_text(encoding="utf-8"))
 
 
 class HardwareValidationTests(unittest.TestCase):
@@ -18,6 +23,9 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_reference_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
+
+    def test_reference_manual_hardware_report_is_valid(self) -> None:
+        validate_manual_report(REFERENCE_REPORT)
 
     def test_requirements_reject_missing_required_interfaces(self) -> None:
         with tempfile.TemporaryDirectory() as temp_root:
@@ -93,6 +101,41 @@ class HardwareValidationTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "TROPIC01"):
                 validate_requirements(path)
+
+    def test_manual_report_rejects_missing_production_signing_flag(self) -> None:
+        original = load_reference_report()
+        del original["production_signing_enabled"]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "production_signing_enabled"):
+                validate_manual_report(path)
+
+    def test_manual_report_rejects_persistent_secrets_on_stateless_targets(self) -> None:
+        original = load_reference_report()
+        original["target_family"] = "esp32_stateless_qr_vault"
+        original["persistent_secret_present"] = True
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "stateless targets must not report persistent secrets"):
+                validate_manual_report(path)
+
+    def test_manual_report_rejects_tropic01_on_stateless_targets(self) -> None:
+        original = load_reference_report()
+        original["target_family"] = "esp32_stateless_qr_vault"
+        original["tropic01_used"] = True
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "stateless targets must not report TROPIC01 usage"):
+                validate_manual_report(path)
 
 
 if __name__ == "__main__":

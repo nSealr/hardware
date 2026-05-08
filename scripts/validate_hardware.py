@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import json
+from datetime import date
 from pathlib import Path
 
 
@@ -48,6 +49,52 @@ REQUIRED_BOM_CATEGORIES = {
 REQUIRED_REVIEW_KEYWORDS = {
     "request id",
     "approval_digest",
+}
+
+VALID_MANUAL_REPORT_TYPES = {
+    "board_detection",
+    "firmware_build",
+    "display_smoke",
+    "camera_smoke",
+    "qr_flow_smoke",
+    "pcsc_card_smoke",
+}
+
+VALID_TARGET_FAMILIES = {
+    "esp32_usb_nip46_signer",
+    "esp32_stateless_qr_vault",
+    "raspberry_stateless_qr_vault",
+    "smartcard_signer",
+    "custom_persistent_secret_wallet",
+}
+
+STATELESS_TARGET_FAMILIES = {
+    "esp32_stateless_qr_vault",
+    "raspberry_stateless_qr_vault",
+}
+
+VALID_MANUAL_RESULTS = {
+    "pass",
+    "fail",
+    "blocked",
+}
+
+REQUIRED_MANUAL_REPORT_FIELDS = {
+    "schema_version",
+    "report_type",
+    "date",
+    "target_family",
+    "hardware",
+    "source_repo",
+    "firmware_commit",
+    "procedure",
+    "expected_result",
+    "observed_result",
+    "result",
+    "production_signing_enabled",
+    "persistent_secret_present",
+    "tropic01_used",
+    "limitations",
 }
 
 
@@ -119,10 +166,58 @@ def validate_bom(path: Path) -> None:
             raise ValueError(f"{path}: missing required BOM categories: {', '.join(missing_categories)}")
 
 
+def _require_non_empty_string(value: object, path: Path, field: str) -> None:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{path}: {field} must be a non-empty string")
+
+
+def _require_non_empty_string_list(value: object, path: Path, field: str) -> None:
+    if not isinstance(value, list) or not value:
+        raise ValueError(f"{path}: {field} must be a non-empty list")
+    if not all(isinstance(item, str) and item.strip() for item in value):
+        raise ValueError(f"{path}: {field} must contain non-empty strings")
+
+
+def validate_manual_report(path: Path) -> None:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    missing = sorted(REQUIRED_MANUAL_REPORT_FIELDS - set(value))
+    if missing:
+        raise ValueError(f"{path}: missing manual report fields: {', '.join(missing)}")
+    if value.get("schema_version") != 1:
+        raise ValueError(f"{path}: schema_version must be 1")
+    if value.get("report_type") not in VALID_MANUAL_REPORT_TYPES:
+        raise ValueError(f"{path}: report_type must be one of {', '.join(sorted(VALID_MANUAL_REPORT_TYPES))}")
+    if value.get("target_family") not in VALID_TARGET_FAMILIES:
+        raise ValueError(f"{path}: target_family must be one of {', '.join(sorted(VALID_TARGET_FAMILIES))}")
+    try:
+        date.fromisoformat(value["date"])
+    except ValueError as error:
+        raise ValueError(f"{path}: date must use YYYY-MM-DD") from error
+    if not isinstance(value.get("hardware"), dict) or not value["hardware"]:
+        raise ValueError(f"{path}: hardware must be a non-empty object")
+    for field in ("source_repo", "firmware_commit", "expected_result", "observed_result"):
+        _require_non_empty_string(value.get(field), path, field)
+    _require_non_empty_string_list(value.get("procedure"), path, "procedure")
+    _require_non_empty_string_list(value.get("limitations"), path, "limitations")
+    if value.get("result") not in VALID_MANUAL_RESULTS:
+        raise ValueError(f"{path}: result must be one of {', '.join(sorted(VALID_MANUAL_RESULTS))}")
+    if value.get("production_signing_enabled") is not False:
+        raise ValueError(f"{path}: production_signing_enabled must be false for hardware validation reports")
+    if not isinstance(value.get("persistent_secret_present"), bool):
+        raise ValueError(f"{path}: persistent_secret_present must be boolean")
+    if not isinstance(value.get("tropic01_used"), bool):
+        raise ValueError(f"{path}: tropic01_used must be boolean")
+    if value["target_family"] in STATELESS_TARGET_FAMILIES and value["persistent_secret_present"]:
+        raise ValueError(f"{path}: stateless targets must not report persistent secrets")
+    if value["target_family"] in STATELESS_TARGET_FAMILIES and value["tropic01_used"]:
+        raise ValueError(f"{path}: stateless targets must not report TROPIC01 usage")
+
 def main() -> int:
     validate_requirements(ROOT / "pcb/reference-esp32-s3-signer/requirements.json")
     validate_requirements(ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json")
     validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
+    for report_path in sorted((ROOT / "reports").glob("*.json")):
+        validate_manual_report(report_path)
     print("NostrSeal hardware validation passed")
     return 0
 

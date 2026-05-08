@@ -6,11 +6,13 @@
 - ESP32-S3 QR signer requirements JSON for T-Display S3 Pro OV5640 devkit
   validation.
 - Reference BOM scaffold.
+- Manual hardware validation report schema.
 - Validator and tests, including review approval-digest binding.
 
 Status: implemented as the first open hardware foundation. This remains
-requirements/BOM validation only; no custom PCB, schematic, or manufacturing
-package exists yet.
+requirements/BOM/report validation only; no custom PCB, schematic, or
+manufacturing package exists yet. The first report records ESP32-S3 detection
+only and is not a flash, display, GPIO, camera, or signing smoke test.
 
 ## M14: Reference Designs
 

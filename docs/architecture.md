@@ -23,6 +23,8 @@ PCB work must follow proven firmware and UX requirements, not precede them.
   on the T-Display S3 Pro OV5640 candidate.
 - `bom/reference-esp32-s3-signer.csv`: first BOM scaffold with required and
   optional component categories.
+- `reports/esp32-s3-devkitc-1-detection-2026-05-08.json`: first manual
+  hardware validation report, recording ESP32-S3 board detection only.
 - `scripts/validate_hardware.py`: validation for requirements and BOM quality.
 
 The USB/NIP-46 reference requirements keep TROPIC01 out of the MVP and leave
@@ -36,3 +38,9 @@ The QR signer requirements add camera, battery, wireless-disable, physical
 approval, and touch-not-approval constraints for stateless devkit validation.
 They explicitly exclude persistent signing secrets and TROPIC01 interfaces.
 They are not a custom PCB, schematic, or manufacturing package.
+
+Manual hardware reports are structured evidence for bring-up work. They must
+record hardware, source repo, firmware commit, exact procedure, expected and
+observed results, limitations, and safety flags. Validation rejects reports
+that enable production signing, and stateless target reports must not claim
+persistent secrets or TROPIC01 usage.

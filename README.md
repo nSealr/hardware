@@ -21,9 +21,12 @@ fixtures.
 - Machine-readable ESP32 stateless QR vault requirements for the T-Display S3
   Pro OV5640 candidate line.
 - First open BOM scaffold for a reference USB signer board.
+- Machine-readable manual hardware validation reports, starting with ESP32-S3
+  board detection evidence.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, stateless QR vault exclusion of
-  TROPIC01 interfaces, BOM headers, BOM categories, and duplicate designators.
+  TROPIC01 interfaces, BOM headers, BOM categories, duplicate designators, and
+  manual hardware report safety flags.
 
 The current files are requirements and BOM scaffolding, not routed PCB files.
 
@@ -32,6 +35,7 @@ The current files are requirements and BOM scaffolding, not routed PCB files.
 - `pcb/`: KiCad and board design files.
 - `enclosures/`: 3D case designs and mechanical notes.
 - `bom/`: component lists and sourcing notes.
+- `reports/`: manual hardware validation reports.
 - `docs/`: assembly, test, and hardware security guides.
 
 ## Quality Baseline
