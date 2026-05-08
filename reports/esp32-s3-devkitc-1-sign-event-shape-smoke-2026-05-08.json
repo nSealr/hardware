@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-08",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "ESP32-S3 DevKitC-1",
+    "candidate_role": "USB/display signer bring-up",
+    "connected_port": "/dev/cu.usbmodem101",
+    "detected_chip": "ESP32-S3 QFN56 revision v0.2",
+    "detected_transport": "native USB/JTAG serial",
+    "detected_serial": "EC:DA:3B:95:32:98",
+    "mac": "ec:da:3b:95:32:98",
+    "flash_size": "16MB",
+    "psram": "8MB"
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "9ae6e7a",
+  "specs_commit": "854a1a3",
+  "smoke_tool_commit": "9ae6e7a",
+  "procedure": [
+    "Built firmware revision 9ae6e7a with local ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
+    "Flashed the firmware to the attached ESP32-S3 DevKitC-1 on /dev/cu.usbmodem101.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities from NostrSeal/esp32.",
+    "Verified static fixture requests, dynamic request-id variants, invalid metadata requests, and 25 serial-wrapped invalid signing-request vectors loaded from NostrSeal/specs revision 854a1a3.",
+    "Verified structurally invalid sign_event shapes: missing params, non-object params, unknown params fields, missing event_template, and non-object event_template all returned unsupported_request."
+  ],
+  "expected_result": "The device returns valid responses for capability and development public-key requests without params, refuses sign_event with signing_disabled, and rejects invalid metadata plus every shared invalid signing-request vector with deterministic unsupported_request error frames.",
+  "observed_result": "The device returned 33 protocol frames: six valid static/dynamic response frames and 27 unsupported_request error frames. The error frames covered two invalid metadata vectors and 25 serial-wrapped invalid signing-request vectors, including parameterless-method params misuse and structurally invalid sign_event params/event_template shapes. No capability response, public-key response, parser exception, malformed_frame response, or real signing output was observed for invalid requests.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "Protocol smoke only; no trusted display, GPIO, camera, storage, secure boot, flash encryption, debug-lock, or real signing acceptance was tested.",
+    "get_public_key uses the deterministic development fixture key, not production key custody.",
+    "sign_event is expected to remain disabled until the parser limits, trusted display review, physical approval, provisioning, storage, signed-output verification, and firmware hardening gates are complete."
+  ]
+}

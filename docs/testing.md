@@ -19,9 +19,10 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - ESP32-S3 DevKitC-1 dynamic serial protocol-smoke report validation, including
   invalid metadata rejection.
 - ESP32-S3 DevKitC-1 invalid signing-request protocol-smoke report validation,
-  including 20 serial-wrapped invalid request vectors from `NostrSeal/specs`,
+  including 25 serial-wrapped invalid request vectors from `NostrSeal/specs`,
   unknown top-level field rejection, parameterless-method `params` rejection,
-  and deterministic `unsupported_request` responses.
+  structurally invalid `sign_event` `params`/`event_template` shapes, and
+  deterministic `unsupported_request` responses.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera and missing disabled
