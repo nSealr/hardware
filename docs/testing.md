@@ -28,6 +28,10 @@ bytecode compilation, and validation of the reference requirements and BOM.
   compiled into the ESP-IDF component while the attached-board smoke still
   returns only capability, development public-key, `signing_disabled`, and
   deterministic invalid-request responses over USB serial.
+- ESP32-S3 DevKitC-1 reflash-recovery protocol-smoke report validation for
+  revision `f307b41`, recording a non-bootable factory app partition diagnosed
+  from boot logs, a clean ESP-IDF reflash with image hash verification, and a
+  passing post-reflash `idf-smoke-capabilities` run.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera and missing disabled
