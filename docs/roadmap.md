@@ -16,7 +16,11 @@ only and is not a flash, display, GPIO, camera, or signing smoke test. A later
 ESP32-S3 DevKitC-1 report records build, flash, and protocol smoke evidence for
 the hardened firmware while keeping production signing disabled. A follow-up
 protocol-smoke report records dynamic serial request-id handling against the
-same flashed firmware and now includes invalid metadata rejection evidence.
+same flashed firmware and includes invalid metadata rejection evidence. The
+latest ESP32-S3 DevKitC-1 protocol-smoke report rebuilds and reflashes firmware
+revision `2597403`, then verifies that serial-wrapped invalid `sign_event`
+request vectors from `NostrSeal/specs` are rejected with deterministic
+`unsupported_request` frames while runtime signing remains disabled.
 
 ## M14: Reference Designs
 
