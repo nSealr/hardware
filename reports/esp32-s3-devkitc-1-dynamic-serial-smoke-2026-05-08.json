@@ -20,10 +20,11 @@
     "Used the already-flashed firmware revision 1cfb514 on the attached ESP32-S3 DevKitC-1.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
     "Ran the expanded NostrSeal/esp32 smoke command make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities after adding dynamic request-id exchanges in revision 2f1ca8c.",
-    "Verified static fixture requests and dynamic request-id variants for get_capabilities, get_public_key, and sign_event."
+    "Reran the expanded smoke after revision 0d9fb0b added invalid dynamic metadata exchanges.",
+    "Verified static fixture requests, dynamic request-id variants, and invalid metadata requests for get_capabilities, get_public_key, and sign_event."
   ],
-  "expected_result": "The device echoes static and dynamic request ids for get_capabilities/get_public_key and refuses static and dynamic sign_event requests with signing_disabled.",
-  "observed_result": "The device returned six valid nseal1f response frames: three shared fixture responses and three dynamic request-id responses. Dynamic get_capabilities and get_public_key returned ok=true, and dynamic sign_event returned ok=false with error.code signing_disabled.",
+  "expected_result": "The device echoes static and dynamic request ids for get_capabilities/get_public_key, refuses static and dynamic sign_event requests with signing_disabled, and rejects invalid dynamic metadata with unsupported_request error frames.",
+  "observed_result": "The device returned eight valid nseal1f frames: three shared fixture responses, three dynamic request-id responses, and two invalid-metadata error frames. Dynamic get_capabilities and get_public_key returned ok=true, dynamic sign_event returned ok=false with error.code signing_disabled, and invalid version/request_id requests returned nseal1f:error with unsupported_request.",
   "result": "pass",
   "production_signing_enabled": false,
   "persistent_secret_present": false,
