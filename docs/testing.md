@@ -32,6 +32,10 @@ bytecode compilation, and validation of the reference requirements and BOM.
   revision `f307b41`, recording a non-bootable factory app partition diagnosed
   from boot logs, a clean ESP-IDF reflash with image hash verification, and a
   passing post-reflash `idf-smoke-capabilities` run.
+- ESP32-S3 DevKitC-1 serial review-boundary protocol-smoke report validation
+  for revision `dfdeec9`, confirming the firmware builds, flashes, preserves
+  `signing_disabled`, and keeps deterministic invalid-request rejection after
+  compiling the serial `sign_event` trusted-review boundary into host-core.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera and missing disabled

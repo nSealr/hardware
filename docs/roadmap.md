@@ -21,11 +21,12 @@ ESP32-S3 DevKitC-1 protocol-smoke reports rebuild and reflash the firmware,
 then verify that serial-wrapped invalid signing-request vectors from
 `NostrSeal/specs` are rejected with deterministic `unsupported_request` frames
 while runtime signing remains disabled. The latest report covers revision
-`b7aa30a` after the QR review I/O transcript helper was compiled into host-core.
-It confirms the USB serial scaffold still builds, flashes, answers capability
-and development public-key requests, returns `signing_disabled` for
-`sign_event`, and rejects invalid request vectors. It does not test real camera,
-display, GPIO, storage, secure boot, debug lock, or signing acceptance.
+`dfdeec9` after the serial `sign_event` trusted-review boundary was compiled
+into host-core. It confirms the USB serial scaffold still builds, flashes,
+answers capability and development public-key requests, returns
+`signing_disabled` for `sign_event`, and rejects invalid request vectors. It
+does not test real camera, display, GPIO, storage, secure boot, debug lock, or
+signing acceptance.
 
 ## M14: Reference Designs
 
