@@ -12,7 +12,9 @@
 Status: implemented as the first open hardware foundation. This remains
 requirements/BOM/report validation only; no custom PCB, schematic, or
 manufacturing package exists yet. The first report records ESP32-S3 detection
-only and is not a flash, display, GPIO, camera, or signing smoke test.
+only and is not a flash, display, GPIO, camera, or signing smoke test. A later
+ESP32-S3 DevKitC-1 report records build, flash, and protocol smoke evidence for
+the hardened firmware while keeping production signing disabled.
 
 ## M14: Reference Designs
 
