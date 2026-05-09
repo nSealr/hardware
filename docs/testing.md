@@ -52,6 +52,10 @@ bytecode compilation, and validation of the reference requirements and BOM.
   and approval-digest binding as implemented in `get_signing_status`, keeps the
   remaining production signing gates missing, and preserves
   `signing_disabled`.
+- LILYGO T-Display S3 raster-regression protocol-smoke report validation for
+  revision `1dc19f5`, confirming the firmware still builds and flashes after
+  moving boot/review-frame rasterization into a host-buildable module, passes
+  35 USB serial exchanges, and preserves `signing_disabled`.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera, missing disabled wireless
