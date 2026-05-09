@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "report_type": "display_smoke",
+  "date": "2026-05-09",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer review UX bring-up",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "navigation_buttons": "GPIO14 short press Next, GPIO0 short press Back",
+    "approval_buttons": "GPIO14 long press Approve, GPIO0 long press Reject",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "14883d7",
+  "procedure": [
+    "Built the T-Display S3 firmware with ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
+    "Flashed the attached board on /dev/cu.usbmodem1101.",
+    "Sent a valid serial sign_event request so the display entered a live trusted-review session.",
+    "Observed the first live request-derived review page on the display.",
+    "Pressed the vendor-documented KEY/GPIO14 button briefly to navigate forward.",
+    "Pressed the vendor-documented BOOT/GPIO0 button briefly to navigate backward.",
+    "Reworked the boot screen after the manual check so reboot shows Ready/No request instead of a fake event-review page, then rebuilt, reflashed, and reran protocol smoke."
+  ],
+  "expected_result": "A live sign_event request shows Event Page 1/4, short KEY/GPIO14 moves to Content Page 2/4, short BOOT/GPIO0 returns to Event Page 1/4, touch is not used for consent, and the protocol still returns signing_disabled.",
+  "observed_result": "Manual physical confirmation showed short KEY/GPIO14 advanced from Event Page 1/4 to Content Page 2/4 and short BOOT/GPIO0 returned to Event Page 1/4. After unplug/replug, the RAM-only active review session was lost as expected; firmware was then updated so reboot shows Ready/No request. The final flashed firmware passed 33 USB serial smoke exchanges and sign_event remained signing_disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This is display and physical navigation validation only; it is not a production signing acceptance test.",
+    "Long-press approve/reject mapping is compiled but has not yet been treated as authorization for signing because sign_event remains signing_disabled.",
+    "The device stores the active review session only in RAM; power cycling clears it and requires a new request.",
+    "No persistent key custody, secure boot, flash encryption, debug-lock, enclosure, or production approval policy was validated."
+  ]
+}
