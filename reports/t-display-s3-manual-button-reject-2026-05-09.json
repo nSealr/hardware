@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "report_type": "display_smoke",
+  "date": "2026-05-09",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer manual button-reject acceptance",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "reject_input": "GPIO0 long press Reject",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "f4f4fc0",
+  "tool_commit": "d455056",
+  "checklist_correction_commit": "19b8712",
+  "firmware_commit_on_device": "f4f4fc0",
+  "procedure": [
+    "Sourced ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh so pyserial was available.",
+    "Ran python3 scripts/manual_review_display.py button-reject --port /dev/cu.usbmodem1101 --request-id manual-button-reject-2026-05-09 from NostrSeal/esp32 revision d455056.",
+    "The script sent one valid disabled sign_event review request and verified the expected serial response.",
+    "The human operator confirmed the display started on Event / Page 1/4.",
+    "The human operator pressed long BOOT/GPIO0 to reject.",
+    "The human operator confirmed the final frame matched Rejected / Closed / Not signed / Signing disabled / Send new request.",
+    "The manual checklist was corrected in NostrSeal/esp32 revision 19b8712 so the terminal Send new request prompt is documented for future runs."
+  ],
+  "expected_result": "The manual button-reject scenario shows a valid review request, allows physical reject closure, shows the terminal Send new request prompt, and still keeps real signing disabled.",
+  "observed_result": "The script passed with 1 verified serial exchange and 1 response frame. Manual physical confirmation matched the firmware status frame: Event / Page 1/4 appeared first, long BOOT/GPIO0 closed the review as rejected, and the final display showed Rejected / Closed / Not signed / Signing disabled / Send new request. sign_event remained signing_disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This is manual display and physical-control acceptance evidence only; it is not production signing acceptance.",
+    "Reject closes the RAM-only review session but does not authorize or execute signing.",
+    "The protocol response for sign_event remains signing_disabled.",
+    "No persistent key custody, secure boot, flash encryption, debug-lock, enclosure, or production approval policy was validated."
+  ]
+}

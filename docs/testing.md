@@ -71,6 +71,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   short KEY/GPIO14 page traversal, long KEY/GPIO14 approve closure, final
   `Review OK` / `Closed` / `Not signed` / `Signing disabled`, and preserved
   `signing_disabled`.
+- LILYGO T-Display S3 manual button-reject display-smoke report validation,
+  tying the `button-reject` manual exerciser from ESP32 revision `d455056` to
+  firmware revision `f4f4fc0` on the attached board. The operator confirmed
+  long BOOT/GPIO0 reject closure, final `Rejected` / `Closed` / `Not signed` /
+  `Signing disabled` / `Send new request`, and preserved `signing_disabled`.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera, missing disabled wireless
