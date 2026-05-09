@@ -60,6 +60,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   revision `c5c59f2`, confirming the firmware still builds and flashes after
   moving debounce and short/long press classification into a host-buildable
   module, passes 35 USB serial exchanges, and preserves `signing_disabled`.
+- LILYGO T-Display S3 status-frame protocol-smoke report validation for
+  revision `f4f4fc0`, confirming the firmware still builds and flashes after
+  moving Ready, review-decision, timeout, and request-error display frames into
+  a host-buildable module, passes 35 USB serial exchanges, and preserves
+  `signing_disabled`.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera, missing disabled wireless
