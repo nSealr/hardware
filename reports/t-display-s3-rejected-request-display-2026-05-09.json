@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "report_type": "display_smoke",
+  "date": "2026-05-09",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer review UX hardening",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "active review followed by rejected serial request",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "ef272e5",
+  "procedure": [
+    "Built the T-Display S3 firmware with ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
+    "Flashed the attached board on /dev/cu.usbmodem1101.",
+    "Ran the default USB serial smoke suite with 33 verified exchanges.",
+    "Reset the board and sent a valid serial sign_event request so the display entered a live trusted-review session.",
+    "Sent an invalid serial request while the trusted-review session was active.",
+    "Observed the terminal request-error display state on the physical T-Display S3."
+  ],
+  "expected_result": "A rejected serial request during an active review clears the RAM-only review session, shows Request Error / Rejected / Not signed / Signing disabled / Send new request, and the protocol still returns a deterministic error frame.",
+  "observed_result": "Manual physical confirmation showed Request Error / Rejected / Not signed / Signing disabled / Send new request after an invalid serial request was sent during an active review. The clean ef272e5 firmware build passed 33 USB serial smoke exchanges, and sign_event remained signing_disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This validates display-state cleanup for rejected serial requests only; it is not production signing acceptance.",
+    "The request-error frame clears the RAM-only review session but does not authorize or execute signing.",
+    "The protocol response for sign_event remains signing_disabled.",
+    "No persistent key custody, secure boot, flash encryption, debug-lock, enclosure, or production approval policy was validated."
+  ]
+}
