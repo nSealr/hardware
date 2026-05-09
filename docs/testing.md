@@ -36,6 +36,10 @@ bytecode compilation, and validation of the reference requirements and BOM.
   for revision `dfdeec9`, confirming the firmware builds, flashes, preserves
   `signing_disabled`, and keeps deterministic invalid-request rejection after
   compiling the serial `sign_event` trusted-review boundary into host-core.
+- ESP32-S3 DevKitC-1 current-head protocol-smoke report validation for
+  revision `61b51df`, confirming the firmware still builds, flashes, verifies
+  image hashes, passes 33 USB serial exchanges, preserves `signing_disabled`,
+  and keeps deterministic invalid-request rejection.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera, missing disabled wireless

@@ -34,6 +34,13 @@ retain the shared `nseal1` envelope, trusted review, and physical approval
 terms before later devkit wiring, camera/display testing, or PCB work can claim
 QR signer coverage.
 
+Status note, 2026-05-09: ESP32-S3 DevKitC-1 firmware revision `61b51df` was
+built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested with 33 verified USB serial exchanges. The current scaffold still
+returns capability and development public-key responses, keeps `sign_event`
+disabled with `signing_disabled`, and rejects invalid metadata/signing-request
+frames deterministically.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
