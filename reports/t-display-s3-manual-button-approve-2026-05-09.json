@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "report_type": "display_smoke",
+  "date": "2026-05-09",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer manual button-approve acceptance",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "navigation_input": "GPIO14 short press Next",
+    "approve_input": "GPIO14 long press Approve",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "f4f4fc0",
+  "tool_commit": "d455056",
+  "firmware_commit_on_device": "f4f4fc0",
+  "procedure": [
+    "Sourced ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh so pyserial was available.",
+    "Ran python3 scripts/manual_review_display.py button-approve --port /dev/cu.usbmodem1101 --request-id manual-button-approve-2026-05-09 from NostrSeal/esp32 revision d455056.",
+    "The script sent one valid disabled sign_event review request and verified the expected serial response.",
+    "The human operator confirmed the display started on Event / Page 1/4.",
+    "The human operator pressed short KEY/GPIO14 three times to reach the final page, then long KEY/GPIO14 to approve.",
+    "The human operator confirmed the final frame matched Review OK / Closed / Not signed / Signing disabled."
+  ],
+  "expected_result": "The manual button-approve scenario shows a valid review request, allows physical page traversal and approve closure, and still keeps real signing disabled.",
+  "observed_result": "The script passed with 1 verified serial exchange and 1 response frame. Manual physical confirmation matched the printed checklist: Event / Page 1/4 appeared first, short KEY/GPIO14 page traversal reached the final page, long KEY/GPIO14 closed the review, and the final display showed Review OK / Closed / Not signed / Signing disabled. sign_event remained signing_disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This is manual display and physical-control acceptance evidence only; it is not production signing acceptance.",
+    "Approve closes the RAM-only review session but does not authorize or execute signing.",
+    "The protocol response for sign_event remains signing_disabled.",
+    "No persistent key custody, secure boot, flash encryption, debug-lock, enclosure, or production approval policy was validated."
+  ]
+}

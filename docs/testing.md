@@ -65,6 +65,12 @@ bytecode compilation, and validation of the reference requirements and BOM.
   moving Ready, review-decision, timeout, and request-error display frames into
   a host-buildable module, passes 35 USB serial exchanges, and preserves
   `signing_disabled`.
+- LILYGO T-Display S3 manual button-approve display-smoke report validation,
+  tying the `button-approve` manual exerciser from ESP32 revision `d455056` to
+  firmware revision `f4f4fc0` on the attached board. The operator confirmed
+  short KEY/GPIO14 page traversal, long KEY/GPIO14 approve closure, final
+  `Review OK` / `Closed` / `Not signed` / `Signing disabled`, and preserved
+  `signing_disabled`.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera, missing disabled wireless
