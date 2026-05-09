@@ -40,6 +40,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   revision `61b51df`, confirming the firmware still builds, flashes, verifies
   image hashes, passes 33 USB serial exchanges, preserves `signing_disabled`,
   and keeps deterministic invalid-request rejection.
+- LILYGO T-Display S3 signing-status protocol-smoke report validation for
+  revision `7ca2548`, confirming the firmware builds with ESP-IDF v5.5.4,
+  flashes over `/dev/cu.usbmodem1101`, verifies image hashes, passes 35 USB
+  serial exchanges, exposes `get_signing_status`, reports all missing signing
+  gates while `signing_enabled` is false, and preserves `signing_disabled`.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera, missing disabled wireless
