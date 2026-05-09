@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-09",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer physical-button logic regression guard",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_chip": "ESP32-S3 QFN56 revision v0.2",
+    "detected_transport": "native USB-Serial/JTAG",
+    "mac": "ec:da:3b:95:32:98",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "host-buildable debounce and short/long press state machine shared by ESP-IDF GPIO polling adapter",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "c5c59f2",
+  "procedure": [
+    "Factored the T-Display S3 button debounce and short/long press classification into a host-buildable module used by the ESP-IDF GPIO polling adapter.",
+    "Added host-core tests for ignored sub-debounce presses, short KEY/GPIO14 next events, and long BOOT/GPIO0 reject events.",
+    "Ran NostrSeal/esp32 make ci with 38 Python tests, host-core tests, compileall, and firmware validation.",
+    "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
+    "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
+    "Built clean app version c5c59f2 with make IDF_PORT=/dev/cu.usbmodem1101 idf-flash.",
+    "Flashed bootloader, app, and partition table to /dev/cu.usbmodem1101 and verified image hashes.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem1101 idf-smoke-capabilities."
+  ],
+  "expected_result": "The firmware still builds, flashes, and preserves the disabled signing protocol contract after the physical-button logic refactor.",
+  "observed_result": "ESP-IDF v5.5.4 built app version c5c59f2 with binary size 0x8a8c0 and 0x75740 bytes free in the app partition. esptool detected ESP32-S3 QFN56 revision v0.2 with native USB-Serial/JTAG and MAC ec:da:3b:95:32:98, wrote bootloader, app, and partition-table images, and verified hashes. The smoke passed with 35 verified exchanges: 8 valid response frames and 27 expected rejection frames. sign_event remained signing_disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This run verifies build, flash, and protocol behavior after a physical-button logic refactor; it is not a new manual button-press acceptance run.",
+    "The button tests exercise deterministic host-buildable debounce and short/long press classification, not production physical-control acceptance.",
+    "The protocol response for sign_event remains signing_disabled.",
+    "No persistent key custody, secure boot, flash encryption, debug-lock, enclosure, or production approval policy was validated."
+  ]
+}
