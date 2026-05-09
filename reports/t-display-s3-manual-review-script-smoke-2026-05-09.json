@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-09",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer manual review UX bring-up",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "manual review display exerciser show-request-error scenario",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "258dade",
+  "tool_commit": "208e99b",
+  "firmware_commit_on_device": "258dade",
+  "procedure": [
+    "Added scripts/manual_review_display.py for deterministic manual T-Display S3 display exercise.",
+    "Ran the script with ESP-IDF v5.5.4 environment sourced so pyserial was available.",
+    "Executed python3 scripts/manual_review_display.py show-request-error --port /dev/cu.usbmodem1101 --request-id manual-script-smoke.",
+    "The script sent a valid sign_event review request, then an invalid signing-request vector that should clear the active review into the request-error state."
+  ],
+  "expected_result": "The manual display exerciser verifies the expected serial response and rejection frames while leaving real signing disabled.",
+  "observed_result": "The show-request-error scenario passed with 2 verified exchanges: 1 response frame and 1 expected rejection frame. The script reported real signing expected: disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This report verifies the manual exerciser's serial exchange behavior; it is not a production signing acceptance test.",
+    "No manual visual confirmation was recorded for this script run.",
+    "The firmware on the board still returns signing_disabled for valid sign_event requests.",
+    "No persistent key custody, secure boot, flash encryption, debug-lock, enclosure, or production approval policy was validated."
+  ]
+}
