@@ -19,14 +19,16 @@ fixtures.
 
 - Machine-readable ESP32-S3 USB/NIP-46 signer reference requirements.
 - Machine-readable ESP32 stateless QR vault requirements for the T-Display S3
-  Pro OV5640 candidate line.
+  Pro OV5640 candidate line, including validated QR-contract requirements for
+  `nseal1`, trusted review, and physical approval.
 - First open BOM scaffold for a reference USB signer board.
 - Machine-readable manual hardware validation reports, starting with ESP32-S3
   board detection evidence.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, stateless QR vault exclusion of
-  TROPIC01 interfaces, BOM headers, BOM categories, duplicate designators, and
-  manual hardware report safety flags.
+  TROPIC01 interfaces, QR vault envelope/review/approval requirements, BOM
+  headers, BOM categories, duplicate designators, and manual hardware report
+  safety flags.
 
 The current files are requirements and BOM scaffolding, not routed PCB files.
 

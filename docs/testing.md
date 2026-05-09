@@ -38,8 +38,9 @@ bytecode compilation, and validation of the reference requirements and BOM.
   compiling the serial `sign_event` trusted-review boundary into host-core.
 - Negative requirements test for missing mandatory interfaces.
 - Negative requirements test for missing approval-digest review binding.
-- Negative QR requirements tests for missing camera and missing disabled
-  wireless policy.
+- Negative QR requirements tests for missing camera, missing disabled wireless
+  policy, missing `qr_requirements`, and missing core QR contract terms for the
+  shared `nseal1` envelope, trusted review, and physical approval.
 - Negative manual report tests for missing production-signing safety flags,
   persistent secrets on stateless targets, and TROPIC01 usage on stateless
   targets.

@@ -28,6 +28,12 @@ answers capability and development public-key requests, returns
 does not test real camera, display, GPIO, storage, secure boot, debug lock, or
 signing acceptance.
 
+Status note, 2026-05-09: ESP32 stateless QR vault hardware requirements now
+validate the `qr_requirements` contract explicitly. Requirements files must
+retain the shared `nseal1` envelope, trusted review, and physical approval
+terms before later devkit wiring, camera/display testing, or PCB work can claim
+QR signer coverage.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

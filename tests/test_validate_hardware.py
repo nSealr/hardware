@@ -101,6 +101,32 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "camera"):
                 validate_requirements(path)
 
+    def test_qr_requirements_reject_missing_qr_requirements(self) -> None:
+        original = json.loads(
+            (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")
+        )
+        del original["qr_requirements"]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "qr_requirements"):
+                validate_requirements(path)
+
+    def test_qr_requirements_reject_missing_core_qr_contract_terms(self) -> None:
+        original = json.loads(
+            (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")
+        )
+        original["qr_requirements"] = ["Decode QR input before request review."]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "nseal1"):
+                validate_requirements(path)
+
     def test_qr_requirements_reject_missing_wireless_disabled_policy(self) -> None:
         original = json.loads(
             (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")

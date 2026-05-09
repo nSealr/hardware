@@ -36,8 +36,10 @@ and displayed approval digest before firmware signing is enabled.
 
 The QR signer requirements add camera, battery, wireless-disable, physical
 approval, and touch-not-approval constraints for stateless devkit validation.
-They explicitly exclude persistent signing secrets and TROPIC01 interfaces.
-They are not a custom PCB, schematic, or manufacturing package.
+They also require explicit QR contract text for the shared `nseal1` envelope,
+trusted review, and physical approval. They explicitly exclude persistent
+signing secrets and TROPIC01 interfaces. They are not a custom PCB, schematic,
+or manufacturing package.
 
 Manual hardware reports are structured evidence for bring-up work. They must
 record hardware, source repo, firmware commit, exact procedure, expected and

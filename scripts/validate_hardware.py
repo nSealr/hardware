@@ -51,6 +51,12 @@ REQUIRED_REVIEW_KEYWORDS = {
     "approval_digest",
 }
 
+REQUIRED_QR_KEYWORDS = {
+    "nseal1",
+    "physical approval",
+    "trusted review",
+}
+
 VALID_MANUAL_REPORT_TYPES = {
     "board_detection",
     "firmware_build",
@@ -135,6 +141,15 @@ def validate_requirements(path: Path) -> None:
             raise ValueError(
                 f"{path}: review_requirements must mention Touch must not be accepted as approve/reject consent"
             )
+        qr_items = value.get("qr_requirements")
+        if not isinstance(qr_items, list) or not qr_items:
+            raise ValueError(f"{path}: qr_requirements must be a non-empty list")
+        if not all(isinstance(item, str) and item for item in qr_items):
+            raise ValueError(f"{path}: qr_requirements must contain non-empty strings")
+        qr_text = "\n".join(qr_items).lower()
+        missing_qr_keywords = sorted(keyword for keyword in REQUIRED_QR_KEYWORDS if keyword not in qr_text)
+        if missing_qr_keywords:
+            raise ValueError(f"{path}: qr_requirements must mention {', '.join(missing_qr_keywords)}")
 
 
 def validate_bom(path: Path) -> None:
