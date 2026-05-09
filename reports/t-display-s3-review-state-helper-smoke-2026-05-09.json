@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-09",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer review UX hardening",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "host-tested review activity helper linked into ESP-IDF runtime",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "258dade",
+  "procedure": [
+    "Added a host-buildable T-Display S3 review activity helper covering active state, timeout math, activity refresh, clear behavior, and unsigned tick wraparound.",
+    "Ran NostrSeal/esp32 make ci with 34 Python tests, host-core tests, and firmware validation.",
+    "Built the T-Display S3 firmware with ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
+    "Confirmed the ESP-IDF build reported app version 258dade.",
+    "Flashed the attached board on /dev/cu.usbmodem1101.",
+    "Ran the default USB serial smoke suite with 33 verified exchanges."
+  ],
+  "expected_result": "The timeout state helper remains host-testable, links into the ESP-IDF runtime, and preserves the disabled signing protocol contract.",
+  "observed_result": "The 258dade firmware built successfully, flashed on /dev/cu.usbmodem1101, and passed 33 USB serial smoke exchanges: 6 response frames and 27 expected rejection frames. sign_event remained signing_disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This is build/flash/protocol smoke evidence for the refactored timeout-state implementation, not a five-minute manual visual timeout observation.",
+    "The helper tracks review activity state only; it does not authorize or execute signing.",
+    "The protocol response for sign_event remains signing_disabled.",
+    "No persistent key custody, secure boot, flash encryption, debug-lock, enclosure, or production approval policy was validated."
+  ]
+}
