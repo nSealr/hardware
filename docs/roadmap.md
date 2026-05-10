@@ -48,6 +48,13 @@ returns capability and development public-key responses, keeps `sign_event`
 disabled with `signing_disabled`, and rejects invalid metadata/signing-request
 frames deterministically.
 
+Status note, 2026-05-10: LILYGO T-Display S3 firmware revision `c5f60b2` was
+built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested with 35 verified USB serial exchanges after the ESP32 host-core
+consumed shared review-detail-page vectors. The report is protocol smoke only:
+it preserves the `signing_disabled` USB contract and does not claim production
+trusted-display or real-signing acceptance.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

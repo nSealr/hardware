@@ -68,6 +68,10 @@ bytecode compilation, and validation of the reference requirements and BOM.
   flashes with ESP-IDF v5.5.4 after common printable ASCII punctuation glyphs
   were added to the host-buildable review display path, passes 35 USB serial
   exchanges, and preserves `signing_disabled`.
+- LILYGO T-Display S3 review-detail-page protocol-smoke report validation for
+  revision `c5f60b2`, confirming the firmware still builds and flashes after
+  the ESP32 host-core consumed shared review-detail-page vectors, passes 35 USB
+  serial exchanges, and preserves `signing_disabled`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes
