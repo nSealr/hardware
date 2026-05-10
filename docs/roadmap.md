@@ -124,13 +124,14 @@ capability request immediately after the overlong-frame rejection. The board
 accepted the fresh request, and real signing remains disabled.
 
 Status note, 2026-05-10: LILYGO T-Display S3 companion serial smoke used
-`NostrSeal/lab` smoke-tool revision `0f46bc1` and `NostrSeal/companion`
+`NostrSeal/lab` smoke-tool revision `60f4200` and `NostrSeal/companion`
 revision `40ab7bf` against the existing flashed firmware image `628bd7f` on
 `/dev/cu.usbmodem1101`. The companion CLI generated, wrapped, sent, and
 request-bound unwrapped `get_capabilities`, `get_signing_status`, and
-`get_public_key` responses successfully. This records companion/transport
-hardware evidence only; `sign_event` remains `signing_disabled` under the
-separate firmware smokes.
+`get_public_key` responses successfully. The same smoke generated a
+`sign_event` request from the shared basic kind `1` fixture and verified the
+request-matched `signing_disabled` response. This records companion/transport
+hardware evidence only; no real signing gate changed.
 
 ## M14: Reference Designs
 

@@ -107,11 +107,12 @@ bytecode compilation, and validation of the reference requirements and BOM.
   capability request immediately after the overlong-frame rejection and the
   attached board accepts it while preserving `signing_disabled`.
 - LILYGO T-Display S3 companion serial protocol-smoke report validation for
-  lab smoke-tool revision `0f46bc1` and companion revision `40ab7bf`,
+  lab smoke-tool revision `60f4200` and companion revision `40ab7bf`,
   confirming the real companion CLI can generate, wrap, exchange, and
   request-bound unwrap `get_capabilities`, `get_signing_status`, and
-  `get_public_key` responses against the attached board while preserving the
-  existing `signing_disabled` production boundary.
+  `get_public_key` responses against the attached board, then send a shared
+  basic `sign_event` request and verify the request-matched `signing_disabled`
+  refusal path.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes
