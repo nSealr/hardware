@@ -21,6 +21,10 @@ PCB work must follow proven firmware and UX requirements, not precede them.
 - `pcb/reference-esp32-s3-qr-signer/requirements.json`: checked requirements
   for the ESP32 stateless QR vault devkit validation path, currently centered
   on the T-Display S3 Pro OV5640 candidate.
+- `kits/reference-raspberry-qr-vault/requirements.json`: checked requirements
+  for the Raspberry/Pi stateless QR vault kit validation path, covering camera,
+  trusted display, physical buttons, response QR display, wireless disablement,
+  removable boot media, and RAM-only custody.
 - `bom/reference-esp32-s3-signer.csv`: first BOM scaffold with required and
   optional component categories.
 - `reports/esp32-s3-devkitc-1-detection-2026-05-08.json`: first manual
@@ -40,6 +44,12 @@ They also require explicit QR contract text for the shared `nseal1` envelope,
 trusted review, and physical approval. They explicitly exclude persistent
 signing secrets and TROPIC01 interfaces. They are not a custom PCB, schematic,
 or manufacturing package.
+
+The Raspberry QR vault kit requirements follow the same stateless QR contract
+without ESP32-specific secure boot or flash-encryption assumptions. They require
+camera input, a trusted local display, tactile physical approval/rejection,
+response QR output, disabled wireless, and removable boot-media discipline
+before any Pi build can be treated as more than a desktop harness.
 
 Manual hardware reports are structured evidence for bring-up work. They must
 record hardware, source repo, firmware commit, exact procedure, expected and

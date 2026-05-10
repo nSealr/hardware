@@ -21,6 +21,9 @@ class HardwareValidationTests(unittest.TestCase):
     def test_reference_qr_signer_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json")
 
+    def test_reference_raspberry_qr_vault_requirements_are_valid(self) -> None:
+        validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
+
     def test_reference_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
 
@@ -99,6 +102,21 @@ class HardwareValidationTests(unittest.TestCase):
             path.write_text(json.dumps(original), encoding="utf-8")
 
             with self.assertRaisesRegex(ValueError, "camera"):
+                validate_requirements(path)
+
+    def test_raspberry_qr_requirements_reject_missing_response_qr_display(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
+        )
+        original["mandatory_interfaces"] = [
+            item for item in original["mandatory_interfaces"] if item != "response_qr_display"
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "response_qr_display"):
                 validate_requirements(path)
 
     def test_qr_requirements_reject_missing_qr_requirements(self) -> None:

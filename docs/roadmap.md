@@ -5,6 +5,7 @@
 - ESP32-S3 USB signer requirements JSON.
 - ESP32-S3 QR signer requirements JSON for T-Display S3 Pro OV5640 devkit
   validation.
+- Raspberry/Pi stateless QR vault kit requirements JSON.
 - Reference BOM scaffold.
 - Manual hardware validation report schema.
 - Validator and tests, including review approval-digest binding.
@@ -33,6 +34,12 @@ validate the `qr_requirements` contract explicitly. Requirements files must
 retain the shared `nseal1` envelope, trusted review, and physical approval
 terms before later devkit wiring, camera/display testing, or PCB work can claim
 QR signer coverage.
+
+Status note, 2026-05-10: Raspberry/Pi stateless QR vault kit requirements are
+now validated separately from ESP32 requirements. They require camera, trusted
+display, physical controls, response QR display, disabled wireless, removable
+boot media, RAM-only session custody, and no TROPIC01 or persistent-secret
+dependency before Pi hardware acceptance work begins.
 
 Status note, 2026-05-09: ESP32-S3 DevKitC-1 firmware revision `61b51df` was
 built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and

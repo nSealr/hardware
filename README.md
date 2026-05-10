@@ -21,6 +21,9 @@ fixtures.
 - Machine-readable ESP32 stateless QR vault requirements for the T-Display S3
   Pro OV5640 candidate line, including validated QR-contract requirements for
   `nseal1`, trusted review, and physical approval.
+- Machine-readable Raspberry/Pi stateless QR vault kit requirements, including
+  camera, trusted display, physical controls, response QR display, disabled
+  wireless, RAM-only custody, and no TROPIC01 dependency.
 - First open BOM scaffold for a reference USB signer board.
 - Machine-readable manual hardware validation reports, starting with ESP32-S3
   board detection evidence.
@@ -35,6 +38,8 @@ The current files are requirements and BOM scaffolding, not routed PCB files.
 ## Initial Layout
 
 - `pcb/`: KiCad and board design files.
+- `kits/`: devkit and off-the-shelf hardware requirements before custom PCB
+  work.
 - `enclosures/`: 3D case designs and mechanical notes.
 - `bom/`: component lists and sourcing notes.
 - `reports/`: manual hardware validation reports.

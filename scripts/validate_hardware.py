@@ -24,9 +24,19 @@ REQUIRED_QR_INTERFACES = REQUIRED_INTERFACES | {
     "wireless_disable_capable",
 }
 
+REQUIRED_RASPBERRY_QR_INTERFACES = {
+    "camera",
+    "display",
+    "physical_buttons",
+    "response_qr_display",
+    "wireless_disable_capable",
+    "removable_boot_media",
+}
+
 VALID_DEVICE_CLASSES = {
     "esp32_s3_qr_signer",
     "esp32_s3_usb_signer",
+    "raspberry_qr_vault",
 }
 
 REQUIRED_BOM_HEADERS = {
@@ -55,6 +65,11 @@ REQUIRED_QR_KEYWORDS = {
     "nseal1",
     "physical approval",
     "trusted review",
+}
+
+STATELESS_QR_DEVICE_CLASSES = {
+    "esp32_s3_qr_signer",
+    "raspberry_qr_vault",
 }
 
 VALID_MANUAL_REPORT_TYPES = {
@@ -113,12 +128,17 @@ def validate_requirements(path: Path) -> None:
     if device_class not in VALID_DEVICE_CLASSES:
         raise ValueError(f"{path}: device_class must be one of {', '.join(sorted(VALID_DEVICE_CLASSES))}")
     mandatory = set(value.get("mandatory_interfaces", []))
-    required_interfaces = REQUIRED_QR_INTERFACES if device_class == "esp32_s3_qr_signer" else REQUIRED_INTERFACES
+    if device_class == "esp32_s3_qr_signer":
+        required_interfaces = REQUIRED_QR_INTERFACES
+    elif device_class == "raspberry_qr_vault":
+        required_interfaces = REQUIRED_RASPBERRY_QR_INTERFACES
+    else:
+        required_interfaces = REQUIRED_INTERFACES
     missing = sorted(required_interfaces - mandatory)
     if missing:
         raise ValueError(f"{path}: missing mandatory interfaces: {', '.join(missing)}")
     optional = set(value.get("optional_interfaces", []))
-    if device_class == "esp32_s3_qr_signer":
+    if device_class in STATELESS_QR_DEVICE_CLASSES:
         interface_text = " ".join(sorted(mandatory | optional)).lower()
         if "tropic01" in interface_text:
             raise ValueError(f"{path}: TROPIC01 interfaces are not allowed on stateless QR vault requirements")
@@ -132,7 +152,7 @@ def validate_requirements(path: Path) -> None:
     missing_review_keywords = sorted(keyword for keyword in REQUIRED_REVIEW_KEYWORDS if keyword not in review_text)
     if missing_review_keywords:
         raise ValueError(f"{path}: review_requirements must mention {', '.join(missing_review_keywords)}")
-    if device_class == "esp32_s3_qr_signer":
+    if device_class in STATELESS_QR_DEVICE_CLASSES:
         security_text = "\n".join(value["security_requirements"])
         if "Wireless must be disabled" not in security_text:
             raise ValueError(f"{path}: security_requirements must mention Wireless must be disabled")
@@ -252,6 +272,7 @@ def validate_manual_report(path: Path) -> None:
 def main() -> int:
     validate_requirements(ROOT / "pcb/reference-esp32-s3-signer/requirements.json")
     validate_requirements(ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json")
+    validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
     validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
     for report_path in sorted((ROOT / "reports").glob("*.json")):
         validate_manual_report(report_path)

@@ -13,6 +13,7 @@ bytecode compilation, and validation of the reference requirements and BOM.
 
 - Reference requirements validation.
 - ESP32-S3 QR signer requirements validation.
+- Raspberry/Pi stateless QR vault kit requirements validation.
 - Reference BOM validation.
 - Manual hardware report validation.
 - ESP32-S3 DevKitC-1 build/flash/protocol smoke report validation.
@@ -96,6 +97,8 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Negative QR requirements tests for missing camera, missing disabled wireless
   policy, missing `qr_requirements`, and missing core QR contract terms for the
   shared `nseal1` envelope, trusted review, and physical approval.
+- Negative Raspberry QR requirements test for missing response QR display
+  output.
 - Negative manual report tests for missing production-signing safety flags,
   persistent secrets on stateless targets, and TROPIC01 usage on stateless
   targets.
