@@ -27,7 +27,7 @@
     "Do not add secure-element or persistent-secret storage requirements to the stateless ESP32 QR vault."
   ],
   "review_requirements": [
-    "Provide a local display large enough to show event kind, content summary, tags, risk warnings, request id, and approval_digest.",
+    "Provide a local display large enough to show raw event kind, signer author, complete content, complete tags, request id, and approval_digest.",
     "Provide physical approve and reject controls with distinct tactile actions.",
     "Touch must not be accepted as approve/reject consent.",
     "Require explicit approval for each sign_event request.",

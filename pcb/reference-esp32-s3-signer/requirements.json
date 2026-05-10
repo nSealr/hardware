@@ -20,7 +20,7 @@
     "Keep private-key provisioning separate from normal USB signing transport."
   ],
   "review_requirements": [
-    "Provide a local display large enough to show event kind, content summary, tags, and risk warnings.",
+    "Provide a local display large enough to show raw event kind, signer author, complete content, complete tags, and approval status.",
     "Provide physical approve and reject controls with distinct tactile actions.",
     "Require explicit approval for each sign_event request.",
     "Reject signing when the displayed request id does not match the pending request.",
