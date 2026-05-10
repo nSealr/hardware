@@ -116,6 +116,13 @@ smoke-tested after adding a host-tested overlong serial input drain. The
 passed, confirming the overlong transport smoke leaves the serial reader ready
 for fresh review requests. Real signing remains disabled.
 
+Status note, 2026-05-10: LILYGO T-Display S3 overlong recovery smoke used
+`NostrSeal/esp32` smoke-tool revision `f13c591` against the existing flashed
+firmware image `628bd7f` on `/dev/cu.usbmodem1101`. It verified the expanded
+39-exchange capability smoke, including a valid `post-overlong-recovery`
+capability request immediately after the overlong-frame rejection. The board
+accepted the fresh request, and real signing remains disabled.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

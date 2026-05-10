@@ -101,6 +101,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   and flashes with ESP-IDF v5.5.4, passes the 38-exchange malformed transport
   smoke, then still accepts the 7-scenario review smoke after the overlong
   drain path.
+- LILYGO T-Display S3 overlong serial recovery protocol-smoke report
+  validation for smoke-tool revision `f13c591`, confirming the expanded
+  39-exchange capability smoke sends a valid `post-overlong-recovery`
+  capability request immediately after the overlong-frame rejection and the
+  attached board accepts it while preserving `signing_disabled`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes
