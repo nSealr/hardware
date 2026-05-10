@@ -25,6 +25,11 @@ PCB work must follow proven firmware and UX requirements, not precede them.
   for the Raspberry/Pi stateless QR vault kit validation path, covering camera,
   trusted display, physical buttons, response QR display, wireless disablement,
   removable boot media, and RAM-only custody.
+- `kits/reference-raspberry-qr-vault/os-profile.json`: checked operating
+  profile for future Raspberry/Pi stateless QR vault images, requiring
+  removable boot media, disabled or absent wireless, RAM-only session custody,
+  no swap, no remote access during signing, disabled setup services, and
+  acceptance evidence.
 - `bom/reference-esp32-s3-signer.csv`: first BOM scaffold with required and
   optional component categories.
 - `bom/reference-raspberry-qr-vault-kit.csv`: first kit BOM scaffold for the
@@ -57,6 +62,10 @@ before any Pi build can be treated as more than a desktop harness.
 The companion kit BOM is a validation scaffold, not a purchase order: it keeps
 wireless mitigation, removable boot media, temporary setup/debug removal, and
 RAM-only custody visible before Raspberry hardware acceptance starts.
+The OS profile adds the software-side acceptance boundary for that same kit:
+no swap-backed secret leakage, no remote login during signing, and explicit
+wireless/secret/session-loss evidence before a Raspberry image can be treated
+as a stateless QR vault image.
 
 Manual hardware reports are structured evidence for bring-up work. They must
 record hardware, source repo, firmware commit, exact procedure, expected and

@@ -6,6 +6,7 @@
 - ESP32-S3 QR signer requirements JSON for T-Display S3 Pro OV5640 devkit
   validation.
 - Raspberry/Pi stateless QR vault kit requirements JSON.
+- Raspberry/Pi stateless QR vault OS profile JSON.
 - ESP32-S3 USB signer reference BOM scaffold.
 - Raspberry/Pi stateless QR vault kit BOM scaffold.
 - Manual hardware validation report schema.
@@ -48,6 +49,13 @@ approve/reject/navigation controls, power, removable boot media, temporary
 setup path, mechanical mounting, and wireless-disable evidence needed before
 real Raspberry bring-up. It is not a purchase order, enclosure design, GPIO
 driver, or PCB.
+
+Status note, 2026-05-10: the Raspberry/Pi stateless QR vault kit now has a
+validated OS profile scaffold. It requires removable microSD boot media,
+disabled or absent wireless, RAM-only session custody, no swap during signing,
+no remote access during signing, disabled setup services, and acceptance
+evidence for wireless state, swap state, remote-login state, persistent-secret
+absence, and power-cycle session loss. It is not a downloadable OS image.
 
 Status note, 2026-05-09: ESP32-S3 DevKitC-1 firmware revision `61b51df` was
 built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and

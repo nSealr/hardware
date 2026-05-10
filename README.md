@@ -24,6 +24,10 @@ fixtures.
 - Machine-readable Raspberry/Pi stateless QR vault kit requirements, including
   camera, trusted display, physical controls, response QR display, disabled
   wireless, RAM-only custody, and no TROPIC01 dependency.
+- Machine-readable Raspberry/Pi stateless QR vault OS profile, requiring
+  removable boot media, disabled or absent wireless, RAM-only session custody,
+  no swap during signing, no remote access during signing, and no persistent
+  signing-secret storage.
 - First open BOM scaffolds for a reference USB signer board and a
   Raspberry/Pi stateless QR vault kit.
 - Machine-readable manual hardware validation reports, starting with ESP32-S3

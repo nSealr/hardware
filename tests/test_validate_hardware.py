@@ -2,8 +2,15 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
-from scripts.validate_hardware import validate_bom, validate_manual_report, validate_requirements
+from scripts import validate_hardware
+from scripts.validate_hardware import (
+    validate_bom,
+    validate_manual_report,
+    validate_raspberry_os_profile,
+    validate_requirements,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +36,23 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_reference_raspberry_qr_vault_kit_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/reference-raspberry-qr-vault-kit.csv")
+
+    def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
+        validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")
+
+    def test_main_validator_checks_reference_raspberry_qr_vault_kit_bom(self) -> None:
+        validated_boms: list[str] = []
+
+        with (
+            patch.object(validate_hardware, "validate_requirements", return_value=None),
+            patch.object(validate_hardware, "validate_raspberry_os_profile", return_value=None),
+            patch.object(validate_hardware, "validate_manual_report", return_value=None),
+            patch.object(validate_hardware, "validate_bom", side_effect=lambda path: validated_boms.append(Path(path).name)),
+        ):
+            validate_hardware.main()
+
+        self.assertIn("reference-esp32-s3-signer.csv", validated_boms)
+        self.assertIn("reference-raspberry-qr-vault-kit.csv", validated_boms)
 
     def test_reference_manual_hardware_report_is_valid(self) -> None:
         validate_manual_report(REFERENCE_REPORT)
@@ -175,6 +199,45 @@ class HardwareValidationTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "TROPIC01"):
                 validate_requirements(path)
+
+    def test_raspberry_os_profile_rejects_swap(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/os-profile.json").read_text(encoding="utf-8")
+        )
+        original["swap_enabled_during_signing"] = True
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "os-profile.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "swap"):
+                validate_raspberry_os_profile(path)
+
+    def test_raspberry_os_profile_rejects_remote_access_during_signing(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/os-profile.json").read_text(encoding="utf-8")
+        )
+        original["remote_access_enabled_during_signing"] = True
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "os-profile.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "remote_access"):
+                validate_raspberry_os_profile(path)
+
+    def test_raspberry_os_profile_rejects_persistent_secret_storage(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/os-profile.json").read_text(encoding="utf-8")
+        )
+        original["persistent_secret_storage_allowed"] = True
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "os-profile.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "persistent_secret_storage"):
+                validate_raspberry_os_profile(path)
 
     def test_manual_report_rejects_missing_production_signing_flag(self) -> None:
         original = load_reference_report()

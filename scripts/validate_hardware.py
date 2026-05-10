@@ -119,6 +119,21 @@ REQUIRED_MANUAL_REPORT_FIELDS = {
     "limitations",
 }
 
+REQUIRED_RASPBERRY_OS_DISABLED_SERVICES = {
+    "ssh",
+    "bluetooth",
+    "wifi_client",
+    "wifi_access_point",
+}
+
+REQUIRED_RASPBERRY_OS_EVIDENCE_KEYWORDS = {
+    "wireless": ("wi-fi", "wifi", "bluetooth", "wireless"),
+    "swap": ("swap",),
+    "remote_access": ("ssh", "remote"),
+    "persistent_secret_storage": ("persistent signing secret", "persistent secret"),
+    "power_cycle": ("power-cycle", "power cycle"),
+}
+
 
 def validate_requirements(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
@@ -202,6 +217,56 @@ def validate_bom(path: Path) -> None:
             raise ValueError(f"{path}: missing required BOM categories: {', '.join(missing_categories)}")
 
 
+def _list_text(value: object) -> str:
+    if not isinstance(value, list):
+        return ""
+    return " ".join(str(item).lower() for item in value)
+
+
+def validate_raspberry_os_profile(path: Path) -> None:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if value.get("schema_version") != 1:
+        raise ValueError(f"{path}: schema_version must be 1")
+    if value.get("profile_type") != "raspberry_qr_vault_os_profile":
+        raise ValueError(f"{path}: profile_type must be raspberry_qr_vault_os_profile")
+    if value.get("device_class") != "raspberry_qr_vault":
+        raise ValueError(f"{path}: device_class must be raspberry_qr_vault")
+    if value.get("boot_media") != "removable_microSD":
+        raise ValueError(f"{path}: boot_media must be removable_microSD")
+    if value.get("network_policy") != "wireless_disabled_or_absent":
+        raise ValueError(f"{path}: network_policy must be wireless_disabled_or_absent")
+    if value.get("session_secret_policy") != "ram_only":
+        raise ValueError(f"{path}: session_secret_policy must be ram_only")
+    if value.get("persistent_secret_storage_allowed") is not False:
+        raise ValueError(f"{path}: persistent_secret_storage_allowed must be false")
+    if value.get("swap_enabled_during_signing") is not False:
+        raise ValueError(f"{path}: swap_enabled_during_signing must be false")
+    if value.get("remote_access_enabled_during_signing") is not False:
+        raise ValueError(f"{path}: remote_access_enabled_during_signing must be false")
+    _require_non_empty_string_list(
+        value.get("setup_interfaces_removed_before_signing"),
+        path,
+        "setup_interfaces_removed_before_signing",
+    )
+    _require_non_empty_string_list(value.get("required_disabled_services"), path, "required_disabled_services")
+    disabled_services = set(value["required_disabled_services"])
+    missing_services = sorted(REQUIRED_RASPBERRY_OS_DISABLED_SERVICES - disabled_services)
+    if missing_services:
+        raise ValueError(f"{path}: required_disabled_services missing {', '.join(missing_services)}")
+    _require_non_empty_string_list(value.get("acceptance_evidence"), path, "acceptance_evidence")
+    evidence_text = _list_text(value["acceptance_evidence"])
+    for label, keywords in REQUIRED_RASPBERRY_OS_EVIDENCE_KEYWORDS.items():
+        if not any(keyword in evidence_text for keyword in keywords):
+            raise ValueError(f"{path}: acceptance_evidence must mention {label}")
+    _require_non_empty_string_list(value.get("notes"), path, "notes")
+    notes_text = _list_text(value["notes"])
+    if "tropic01" in notes_text:
+        if "not this stateless qr vault" not in notes_text:
+            raise ValueError(f"{path}: TROPIC01 mention must exclude the stateless QR vault")
+    if "persistent-secret" in notes_text and "custom persistent-secret hardware-wallet" not in notes_text:
+        raise ValueError(f"{path}: persistent-secret mention must stay under custom hardware-wallet framing")
+
+
 def _require_non_empty_string(value: object, path: Path, field: str) -> None:
     if not isinstance(value, str) or not value.strip():
         raise ValueError(f"{path}: {field} must be a non-empty string")
@@ -273,7 +338,9 @@ def main() -> int:
     validate_requirements(ROOT / "pcb/reference-esp32-s3-signer/requirements.json")
     validate_requirements(ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json")
     validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
+    validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")
     validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
+    validate_bom(ROOT / "bom/reference-raspberry-qr-vault-kit.csv")
     for report_path in sorted((ROOT / "reports").glob("*.json")):
         validate_manual_report(report_path)
     print("NostrSeal hardware validation passed")
