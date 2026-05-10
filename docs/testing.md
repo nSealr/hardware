@@ -91,6 +91,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   flashes after the obsolete `ReviewBodyLineStyle::Label` path was removed
   from active ESP32 review-detail code, passes 35 USB serial exchanges, and
   preserves `signing_disabled`.
+- LILYGO T-Display S3 malformed serial transport protocol-smoke report
+  validation for smoke-tool revision `f1d29d4`, confirming the expanded
+  38-exchange USB serial smoke rejects checksum-mismatch, malformed-base64url,
+  and overlong transport vectors with deterministic `malformed_frame` or
+  `overlong_frame` errors while preserving `signing_disabled`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes

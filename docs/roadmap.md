@@ -100,6 +100,15 @@ smoke-tested with 35 verified USB serial exchanges after the obsolete
 code. This preserved the `signing_disabled` USB contract and did not add a
 production trusted-display or real-signing claim.
 
+Status note, 2026-05-10: LILYGO T-Display S3 malformed serial transport smoke
+used `NostrSeal/esp32` smoke-tool revision `f1d29d4` against the existing
+flashed firmware image `5280fab` on `/dev/cu.usbmodem1101`. It verified the
+expanded 38-exchange USB serial smoke, including checksum-mismatch,
+malformed-base64url-payload, and overlong-frame transport vectors. Valid
+`sign_event` still returned `signing_disabled`; invalid signing requests
+returned `unsupported_request`; malformed transport returned `malformed_frame`
+or `overlong_frame`.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
