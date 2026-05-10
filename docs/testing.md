@@ -14,7 +14,8 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Reference requirements validation.
 - ESP32-S3 QR signer requirements validation.
 - Raspberry/Pi stateless QR vault kit requirements validation.
-- Reference BOM validation.
+- Reference USB signer BOM validation.
+- Raspberry/Pi stateless QR vault kit BOM validation.
 - Manual hardware report validation.
 - ESP32-S3 DevKitC-1 build/flash/protocol smoke report validation.
 - ESP32-S3 DevKitC-1 dynamic serial protocol-smoke report validation, including

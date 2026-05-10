@@ -27,6 +27,10 @@ PCB work must follow proven firmware and UX requirements, not precede them.
   removable boot media, and RAM-only custody.
 - `bom/reference-esp32-s3-signer.csv`: first BOM scaffold with required and
   optional component categories.
+- `bom/reference-raspberry-qr-vault-kit.csv`: first kit BOM scaffold for the
+  Raspberry/Pi stateless QR vault path, covering the single-board computer,
+  camera, trusted display, physical controls, power, boot media, temporary
+  setup path, and wireless-disable evidence.
 - `reports/esp32-s3-devkitc-1-detection-2026-05-08.json`: first manual
   hardware validation report, recording ESP32-S3 board detection only.
 - `scripts/validate_hardware.py`: validation for requirements and BOM quality.
@@ -50,6 +54,9 @@ without ESP32-specific secure boot or flash-encryption assumptions. They require
 camera input, a trusted local display, tactile physical approval/rejection,
 response QR output, disabled wireless, and removable boot-media discipline
 before any Pi build can be treated as more than a desktop harness.
+The companion kit BOM is a validation scaffold, not a purchase order: it keeps
+wireless mitigation, removable boot media, temporary setup/debug removal, and
+RAM-only custody visible before Raspberry hardware acceptance starts.
 
 Manual hardware reports are structured evidence for bring-up work. They must
 record hardware, source repo, firmware commit, exact procedure, expected and

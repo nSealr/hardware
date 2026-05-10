@@ -24,8 +24,11 @@ class HardwareValidationTests(unittest.TestCase):
     def test_reference_raspberry_qr_vault_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
 
-    def test_reference_bom_is_valid(self) -> None:
+    def test_reference_usb_signer_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
+
+    def test_reference_raspberry_qr_vault_kit_bom_is_valid(self) -> None:
+        validate_bom(ROOT / "bom/reference-raspberry-qr-vault-kit.csv")
 
     def test_reference_manual_hardware_report_is_valid(self) -> None:
         validate_manual_report(REFERENCE_REPORT)

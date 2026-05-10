@@ -1,0 +1,13 @@
+designator,category,description,required,notes
+SBC1,mcu,Raspberry Pi Zero 2 W or Raspberry Pi Zero,true,High-assurance builds must disable or physically omit wireless where applicable.
+SD1,storage,Removable microSD boot media,true,No persistent signing secret may be stored on boot media.
+CAM1,camera,Raspberry Pi camera module or compatible fixed-focus camera,true,Used only for offline NostrSeal request QR capture.
+DS1,display,Trusted local display sized for full event review and response QR output,true,Must show raw kind created_at author content tags request id and approval_digest.
+SW1,input,Physical approve control,true,Must be tactile and distinct from reject.
+SW2,input,Physical reject control,true,Must be tactile and distinct from approve.
+SW3,input,Physical navigation control set,true,Required for paging or scrolling complete content and tags before approval.
+PWR1,power,5 V power source or battery pack,true,Should support offline operation without network peripherals attached.
+USB1,usb,USB power cable or temporary maintenance cable,true,Not a signing transport in the stateless QR vault flow.
+PROG1,programming,Temporary setup keyboard serial console or debug adapter,true,Must be removed or disabled for high-assurance signing sessions.
+MECH1,mechanical,Case and mounting hardware,true,Must align camera display and physical controls for repeatable offline use.
+NET1,security,Wireless disable method,true,May be a wireless-free board variant physical disablement or documented OS-level disablement with acceptance evidence.
