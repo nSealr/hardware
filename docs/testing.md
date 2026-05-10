@@ -79,6 +79,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   request-error review scenarios over USB serial while preserving
   `signing_disabled` for valid `sign_event` review requests and deterministic
   `unsupported_request` for the invalid request.
+- LILYGO T-Display S3 review-detail style-cleanup protocol-smoke report
+  validation for revision `5280fab`, confirming the firmware still builds and
+  flashes after the obsolete `ReviewBodyLineStyle::Label` path was removed
+  from active ESP32 review-detail code, passes 35 USB serial exchanges, and
+  preserves `signing_disabled`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes

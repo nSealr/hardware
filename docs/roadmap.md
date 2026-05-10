@@ -71,6 +71,13 @@ scroll-window, Unicode fallback, and request-error inputs. Valid `sign_event`
 review requests still returned `signing_disabled`; the invalid request returned
 the expected `unsupported_request` frame.
 
+Status note, 2026-05-10: LILYGO T-Display S3 firmware revision `5280fab` was
+built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested with 35 verified USB serial exchanges after the obsolete
+`ReviewBodyLineStyle::Label` path was removed from active ESP32 review-detail
+code. This preserved the `signing_disabled` USB contract and did not add a
+production trusted-display or real-signing claim.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
