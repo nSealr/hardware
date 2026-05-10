@@ -57,6 +57,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   with ESP-IDF v5.5.4, passes 35 USB serial exchanges, reports
   `development_accepted_gates` separately from production `missing_gates`, and
   preserves `signing_disabled`.
+- LILYGO T-Display S3 UTF-8 review-renderer protocol-smoke report validation
+  for revision `719d680`, confirming the firmware builds and flashes with
+  ESP-IDF v5.5.4 after host-core review wrapping was hardened to preserve
+  UTF-8 codepoint boundaries, passes 35 USB serial exchanges, and preserves
+  `signing_disabled`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes
