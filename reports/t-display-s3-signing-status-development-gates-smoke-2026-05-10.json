@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-10",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer development-gate signing-status diagnostics",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_chip": "ESP32-S3 QFN56 revision v0.2",
+    "detected_transport": "native USB-Serial/JTAG",
+    "mac": "ec:da:3b:95:32:98",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "get_signing_status reports development_accepted_gates separately from production missing_gates",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "f5753e2",
+  "specs_commit": "4324165",
+  "smoke_tool_commit": "f5753e2",
+  "procedure": [
+    "Updated the shared get_signing_status contract to include development_accepted_gates alongside missing_gates.",
+    "Updated ESP32 host-core signing-status diagnostics to expose development evidence for parser limits, trusted-review display, physical approval controls, and approval-digest binding while preserving signing_disabled behavior.",
+    "Ran NostrSeal/specs make ci, NostrSeal/companion make ci, and NostrSeal/esp32 make ci before flashing.",
+    "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
+    "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
+    "Built app version f5753e2 with make idf-build.",
+    "Flashed bootloader, app, and partition table to /dev/cu.usbmodem1101 with make IDF_PORT=/dev/cu.usbmodem1101 idf-flash and verified image hashes.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem1101 idf-smoke-capabilities."
+  ],
+  "expected_result": "The firmware exposes development-accepted signing-readiness diagnostics separately from production blockers while preserving signing_disabled protocol behavior.",
+  "observed_result": "ESP-IDF v5.5.4 built app version f5753e2 with binary size 0x8e190 and 0x71e70 bytes free in the app partition. esptool detected ESP32-S3 QFN56 revision v0.2 with native USB-Serial/JTAG and MAC ec:da:3b:95:32:98, wrote bootloader, app, and partition-table images, and verified hashes. The smoke passed with 35 verified exchanges: 8 valid response frames and 27 expected rejection frames. get_signing_status returned signing_enabled false, missing_gates containing runtime_signing_feature, trusted_review_display, physical_approval_controls, key_provisioning, secure_boot, flash_encryption, debug_lock, and companion_signed_output_verification, and development_accepted_gates containing parser_limits, trusted_review_display, physical_approval_controls, and approval_digest_binding. sign_event remained signing_disabled.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "Protocol smoke only; no production key custody, secure boot, flash encryption, debug-lock, companion signed-output verification, or real signing acceptance was tested.",
+    "development_accepted_gates records manual/development evidence only and does not remove any production blocker from missing_gates.",
+    "get_signing_status is diagnostic only and does not authorize signing.",
+    "get_public_key still uses the deterministic development fixture key.",
+    "sign_event is expected to remain signing_disabled until trusted display review, physical approval, provisioning, storage, signed-output verification, and firmware hardening gates are complete."
+  ]
+}
