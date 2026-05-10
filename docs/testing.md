@@ -72,6 +72,12 @@ bytecode compilation, and validation of the reference requirements and BOM.
   revision `c5f60b2`, confirming the firmware still builds and flashes after
   the ESP32 host-core consumed shared review-detail-page vectors, passes 35 USB
   serial exchanges, and preserves `signing_disabled`.
+- LILYGO T-Display S3 review-scenario protocol-smoke report validation for
+  smoke-tool revision `af88ee5`, confirming the attached board accepted the
+  basic, tagged, long-content, scroll-window, Unicode fallback, and
+  request-error review scenarios over USB serial while preserving
+  `signing_disabled` for valid `sign_event` review requests and deterministic
+  `unsupported_request` for the invalid request.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes

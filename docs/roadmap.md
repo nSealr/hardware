@@ -55,6 +55,14 @@ consumed shared review-detail-page vectors. The report is protocol smoke only:
 it preserves the `signing_disabled` USB contract and does not claim production
 trusted-display or real-signing acceptance.
 
+Status note, 2026-05-10: LILYGO T-Display S3 review-scenario smoke used
+`NostrSeal/esp32` smoke-tool revision `af88ee5` against the existing flashed
+firmware image on `/dev/cu.usbmodem1101`. It verified 6 non-interactive review
+scenarios and 7 USB serial exchanges covering basic, tagged, long-content,
+scroll-window, Unicode fallback, and request-error inputs. Valid `sign_event`
+review requests still returned `signing_disabled`; the invalid request returned
+the expected `unsupported_request` frame.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
