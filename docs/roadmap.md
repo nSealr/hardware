@@ -86,6 +86,13 @@ scroll-window, Unicode fallback, and request-error inputs. Valid `sign_event`
 review requests still returned `signing_disabled`; the invalid request returned
 the expected `unsupported_request` frame.
 
+Status note, 2026-05-10: LILYGO T-Display S3 dense-tags review-scenario smoke
+used `NostrSeal/esp32` smoke-tool revision `daeea6d` against the existing
+flashed firmware image `5280fab` on `/dev/cu.usbmodem1101`. It verified the
+expanded 7-scenario review smoke with 8 USB serial exchanges, adding a
+dense-tags valid `sign_event` request while preserving `signing_disabled` for
+valid review requests and `unsupported_request` for the invalid request.
+
 Status note, 2026-05-10: LILYGO T-Display S3 firmware revision `5280fab` was
 built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
 smoke-tested with 35 verified USB serial exchanges after the obsolete

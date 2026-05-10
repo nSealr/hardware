@@ -81,6 +81,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   request-error review scenarios over USB serial while preserving
   `signing_disabled` for valid `sign_event` review requests and deterministic
   `unsupported_request` for the invalid request.
+- LILYGO T-Display S3 dense-tags review-scenario protocol-smoke report
+  validation for smoke-tool revision `daeea6d`, confirming the expanded
+  7-scenario smoke accepted the dense-tags valid `sign_event` request over USB
+  serial while preserving `signing_disabled` for valid review requests and
+  deterministic `unsupported_request` for the invalid request.
 - LILYGO T-Display S3 review-detail style-cleanup protocol-smoke report
   validation for revision `5280fab`, confirming the firmware still builds and
   flashes after the obsolete `ReviewBodyLineStyle::Label` path was removed
