@@ -96,6 +96,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   38-exchange USB serial smoke rejects checksum-mismatch, malformed-base64url,
   and overlong transport vectors with deterministic `malformed_frame` or
   `overlong_frame` errors while preserving `signing_disabled`.
+- LILYGO T-Display S3 overlong serial-input drain protocol-smoke report
+  validation for firmware revision `628bd7f`, confirming the firmware builds
+  and flashes with ESP-IDF v5.5.4, passes the 38-exchange malformed transport
+  smoke, then still accepts the 7-scenario review smoke after the overlong
+  drain path.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes

@@ -109,6 +109,13 @@ malformed-base64url-payload, and overlong-frame transport vectors. Valid
 returned `unsupported_request`; malformed transport returned `malformed_frame`
 or `overlong_frame`.
 
+Status note, 2026-05-10: LILYGO T-Display S3 firmware revision `628bd7f` was
+built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested after adding a host-tested overlong serial input drain. The
+38-exchange capability smoke passed, then the 7-scenario review smoke also
+passed, confirming the overlong transport smoke leaves the serial reader ready
+for fresh review requests. Real signing remains disabled.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
