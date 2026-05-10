@@ -75,6 +75,7 @@ STATELESS_QR_DEVICE_CLASSES = {
 VALID_MANUAL_REPORT_TYPES = {
     "board_detection",
     "firmware_build",
+    "os_profile_smoke",
     "protocol_smoke",
     "display_smoke",
     "camera_smoke",
@@ -130,6 +131,16 @@ REQUIRED_RASPBERRY_OS_EVIDENCE_KEYWORDS = {
     "wireless": ("wi-fi", "wifi", "bluetooth", "wireless"),
     "swap": ("swap",),
     "remote_access": ("ssh", "remote"),
+    "persistent_secret_storage": ("persistent signing secret", "persistent secret"),
+    "power_cycle": ("power-cycle", "power cycle"),
+}
+
+REQUIRED_RASPBERRY_OS_REPORT_KEYWORDS = {
+    "boot_media": ("microsd", "boot media", "removable"),
+    "wireless": ("wi-fi", "wifi", "bluetooth", "wireless"),
+    "swap": ("swap",),
+    "remote_access": ("ssh", "remote"),
+    "ram_only": ("ram-only", "ram only"),
     "persistent_secret_storage": ("persistent signing secret", "persistent secret"),
     "power_cycle": ("power-cycle", "power cycle"),
 }
@@ -288,6 +299,16 @@ def _report_text(value: dict) -> str:
     return " ".join(fields).lower()
 
 
+def _manual_report_search_text(value: dict) -> str:
+    fields = [
+        json.dumps(value.get("hardware", {}), sort_keys=True),
+        " ".join(str(item) for item in value.get("procedure", [])),
+        str(value.get("observed_result", "")),
+        " ".join(str(item) for item in value.get("limitations", [])),
+    ]
+    return " ".join(fields).lower()
+
+
 def _mentions_signing_disabled(value: dict) -> bool:
     text = _report_text(value)
     return "signing_disabled" in text or "signing disabled" in text
@@ -326,6 +347,11 @@ def validate_manual_report(path: Path) -> None:
         raise ValueError(f"{path}: stateless targets must not report persistent secrets")
     if value["target_family"] in STATELESS_TARGET_FAMILIES and value["tropic01_used"]:
         raise ValueError(f"{path}: stateless targets must not report TROPIC01 usage")
+    if value["target_family"] == "raspberry_stateless_qr_vault" and value["report_type"] == "os_profile_smoke":
+        report_text = _manual_report_search_text(value)
+        for label, keywords in REQUIRED_RASPBERRY_OS_REPORT_KEYWORDS.items():
+            if not any(keyword in report_text for keyword in keywords):
+                raise ValueError(f"{path}: Raspberry OS profile reports must mention {label}")
     if (
         value["report_type"] == "protocol_smoke"
         and value["target_family"] == "esp32_usb_nip46_signer"

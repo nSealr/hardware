@@ -36,6 +36,8 @@ PCB work must follow proven firmware and UX requirements, not precede them.
   Raspberry/Pi stateless QR vault path, covering the single-board computer,
   camera, trusted display, physical controls, power, boot media, temporary
   setup path, and wireless-disable evidence.
+- `templates/raspberry-qr-vault-os-profile-smoke.json`: validated manual
+  report template for future Raspberry OS profile acceptance evidence.
 - `reports/esp32-s3-devkitc-1-detection-2026-05-08.json`: first manual
   hardware validation report, recording ESP32-S3 board detection only.
 - `scripts/validate_hardware.py`: validation for requirements and BOM quality.
@@ -72,3 +74,6 @@ record hardware, source repo, firmware commit, exact procedure, expected and
 observed results, limitations, and safety flags. Validation rejects reports
 that enable production signing, and stateless target reports must not claim
 persistent secrets or TROPIC01 usage.
+Raspberry OS profile smoke reports additionally need explicit evidence terms
+for removable boot media, wireless state, swap state, remote access, RAM-only
+custody, persistent-secret absence, and power-cycle session loss.

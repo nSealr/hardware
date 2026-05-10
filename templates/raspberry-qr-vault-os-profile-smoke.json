@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "template": true,
+  "report_type": "os_profile_smoke",
+  "date": "2026-05-10",
+  "target_family": "raspberry_stateless_qr_vault",
+  "hardware": {
+    "board": "TBD exact Raspberry/Pi board before run",
+    "candidate_role": "Raspberry/Pi stateless QR vault OS profile acceptance",
+    "boot_media": "removable microSD",
+    "wireless_state": "TBD absent, physically disabled, or OS-disabled Wi-Fi/Bluetooth evidence",
+    "display": "TBD trusted local display",
+    "camera": "TBD QR request camera",
+    "physical_controls": "TBD tactile approve/reject/navigation controls"
+  },
+  "source_repo": "NostrSeal/raspberry",
+  "firmware_commit": "TBD-before-run",
+  "procedure": [
+    "Record exact Raspberry/Pi board, display, camera, physical controls, and removable microSD boot media.",
+    "Before signing, record wireless state with rfkill or equivalent evidence that Wi-Fi and Bluetooth are blocked or absent.",
+    "Before signing, record swap status evidence proving no swap is active.",
+    "Before signing, record that SSH and remote login are disabled so there is no remote access during signing.",
+    "Run a RAM-only signing session and record that no persistent signing secret exists on boot media or attached storage after shutdown.",
+    "Start a signing session, power-cycle before completion, and record that the unfinished signing session is lost."
+  ],
+  "expected_result": "The Raspberry/Pi OS profile evidence shows removable microSD boot media, disabled or absent Wi-Fi/Bluetooth wireless, no swap, no SSH or remote access during signing, RAM-only key custody, no persistent signing secret storage, and power-cycle loss of unfinished sessions.",
+  "observed_result": "Template: replace with command output, photos/log references, and notes showing removable microSD boot, wireless disabled or absent, no swap, no remote access, RAM-only custody, no persistent signing secret, and power-cycle session loss.",
+  "result": "blocked",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "Template only; this is not a completed Raspberry hardware report.",
+    "Do not move this template into reports/ until real hardware evidence replaces every TBD field.",
+    "This does not claim a downloadable OS image, production signing, persistent key storage, TROPIC01 use, secure boot, or production hardware security."
+  ]
+}

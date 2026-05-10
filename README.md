@@ -28,6 +28,8 @@ fixtures.
   removable boot media, disabled or absent wireless, RAM-only session custody,
   no swap during signing, no remote access during signing, and no persistent
   signing-secret storage.
+- Validated Raspberry/Pi OS profile smoke-report template for future hardware
+  acceptance evidence.
 - First open BOM scaffolds for a reference USB signer board and a
   Raspberry/Pi stateless QR vault kit.
 - Machine-readable manual hardware validation reports, starting with ESP32-S3
@@ -48,6 +50,7 @@ The current files are requirements and BOM scaffolding, not routed PCB files.
 - `enclosures/`: 3D case designs and mechanical notes.
 - `bom/`: component lists and sourcing notes.
 - `reports/`: manual hardware validation reports.
+- `templates/`: validated report templates for future manual acceptance runs.
 - `docs/`: assembly, test, and hardware security guides.
 
 ## Quality Baseline

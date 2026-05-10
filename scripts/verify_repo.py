@@ -28,7 +28,7 @@ REQUIRED_DIRS = {
     "raspberry": ["app", "os", "docs", "scripts"],
     "esp32": ["firmware", "boards", "docs", "scripts"],
     "smartcard": ["applet", "tools", "docs", "scripts"],
-    "hardware": ["pcb", "kits", "bom", "enclosures", "reports", "docs", "scripts"],
+    "hardware": ["pcb", "kits", "bom", "enclosures", "reports", "templates", "docs", "scripts"],
     "website": ["content", "public", "design", "docs", "scripts"],
     "lab": ["wiki", "sources", "scripts", "docs"],
 }

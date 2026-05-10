@@ -7,6 +7,9 @@ Before hardware work is complete:
       expected result, observed result, limitations, and safety flags.
 - [ ] Stateless QR vault reports do not claim persistent secrets or TROPIC01
       usage.
+- [ ] Raspberry OS profile reports record removable boot media, wireless,
+      swap, remote-access, RAM-only custody, persistent-secret absence, and
+      power-cycle evidence before image acceptance is claimed.
 - [ ] Wiring diagrams match tested hardware.
 - [ ] Assembly docs are reproducible by an external builder.
 - [ ] Security-sensitive debug/provisioning paths are documented.

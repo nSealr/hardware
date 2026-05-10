@@ -9,6 +9,7 @@
 - Raspberry/Pi stateless QR vault OS profile JSON.
 - ESP32-S3 USB signer reference BOM scaffold.
 - Raspberry/Pi stateless QR vault kit BOM scaffold.
+- Raspberry/Pi stateless QR vault OS profile report template.
 - Manual hardware validation report schema.
 - Validator and tests, including review approval-digest binding.
 
@@ -56,6 +57,12 @@ disabled or absent wireless, RAM-only session custody, no swap during signing,
 no remote access during signing, disabled setup services, and acceptance
 evidence for wireless state, swap state, remote-login state, persistent-secret
 absence, and power-cycle session loss. It is not a downloadable OS image.
+
+Status note, 2026-05-10: the Raspberry/Pi stateless QR vault now has a
+validated OS profile smoke-report template. Future completed reports must carry
+evidence terms for removable boot media, wireless state, swap state, remote
+access, RAM-only custody, persistent-secret absence, and power-cycle session
+loss before Raspberry image acceptance can be claimed.
 
 Status note, 2026-05-09: ESP32-S3 DevKitC-1 firmware revision `61b51df` was
 built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and

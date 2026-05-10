@@ -15,6 +15,7 @@ from scripts.validate_hardware import (
 
 ROOT = Path(__file__).resolve().parents[1]
 REFERENCE_REPORT = ROOT / "reports/esp32-s3-devkitc-1-detection-2026-05-08.json"
+RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-smoke.json"
 
 
 def load_reference_report() -> dict:
@@ -56,6 +57,9 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_reference_manual_hardware_report_is_valid(self) -> None:
         validate_manual_report(REFERENCE_REPORT)
+
+    def test_raspberry_os_profile_report_template_is_valid(self) -> None:
+        validate_manual_report(RASPBERRY_OS_REPORT_TEMPLATE)
 
     def test_manual_report_accepts_protocol_smoke_type(self) -> None:
         original = load_reference_report()
@@ -272,6 +276,23 @@ class HardwareValidationTests(unittest.TestCase):
             path.write_text(json.dumps(original), encoding="utf-8")
 
             with self.assertRaisesRegex(ValueError, "stateless targets must not report TROPIC01 usage"):
+                validate_manual_report(path)
+
+    def test_raspberry_os_profile_report_rejects_missing_power_cycle_evidence(self) -> None:
+        original = json.loads(RASPBERRY_OS_REPORT_TEMPLATE.read_text(encoding="utf-8"))
+        original["observed_result"] = "Wi-Fi, Bluetooth, swap, SSH, and persistent signing secret checks passed."
+        original["procedure"] = [
+            step for step in original["procedure"] if "power-cycle" not in step.lower() and "power cycle" not in step.lower()
+        ]
+        original["limitations"] = [
+            item for item in original["limitations"] if "power-cycle" not in item.lower() and "power cycle" not in item.lower()
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "raspberry-os-report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "power_cycle"):
                 validate_manual_report(path)
 
 

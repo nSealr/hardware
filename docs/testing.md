@@ -15,6 +15,7 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - ESP32-S3 QR signer requirements validation.
 - Raspberry/Pi stateless QR vault kit requirements validation.
 - Raspberry/Pi stateless QR vault OS profile validation.
+- Raspberry/Pi stateless QR vault OS profile smoke-report template validation.
 - Reference USB signer BOM validation.
 - Raspberry/Pi stateless QR vault kit BOM validation.
 - Manual hardware report validation.
@@ -118,6 +119,9 @@ bytecode compilation, and validation of the reference requirements and BOM.
   output.
 - Negative Raspberry QR OS profile tests for enabled swap, enabled remote
   access during signing, and persistent signing-secret storage.
+- Negative Raspberry OS profile smoke-report test requiring power-cycle
+  evidence to appear in report evidence fields rather than only in expected
+  text.
 - Negative manual report tests for missing production-signing safety flags,
   persistent secrets on stateless targets, and TROPIC01 usage on stateless
   targets.
