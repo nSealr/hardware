@@ -113,6 +113,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   `get_public_key` responses against the attached board, then send a shared
   basic `sign_event` request and verify the request-matched `signing_disabled`
   refusal path.
+- LILYGO T-Display S3 current-head firmware protocol-smoke report validation
+  for ESP32 revision `8307c4b`, confirming the attached board was rebuilt,
+  reflashed, passed the 39-exchange capability smoke, passed the 7-scenario
+  review smoke, and returned request-matched `signing_disabled` for a
+  companion-generated `sign_event`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes
