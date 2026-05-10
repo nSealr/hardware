@@ -123,6 +123,15 @@ firmware image `628bd7f` on `/dev/cu.usbmodem1101`. It verified the expanded
 capability request immediately after the overlong-frame rejection. The board
 accepted the fresh request, and real signing remains disabled.
 
+Status note, 2026-05-10: LILYGO T-Display S3 companion serial smoke used
+`NostrSeal/lab` smoke-tool revision `0f46bc1` and `NostrSeal/companion`
+revision `40ab7bf` against the existing flashed firmware image `628bd7f` on
+`/dev/cu.usbmodem1101`. The companion CLI generated, wrapped, sent, and
+request-bound unwrapped `get_capabilities`, `get_signing_status`, and
+`get_public_key` responses successfully. This records companion/transport
+hardware evidence only; `sign_event` remains `signing_disabled` under the
+separate firmware smokes.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-10",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer companion serial smoke",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_transport": "native USB-Serial/JTAG",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "existing flashed firmware with companion request-bound serial smoke",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/lab",
+  "firmware_commit": "628bd7f",
+  "specs_commit": "b11bc7b",
+  "companion_commit": "40ab7bf",
+  "lab_smoke_tool_commit": "0f46bc1",
+  "procedure": [
+    "Added the optional NostrSeal/lab hardware_companion_serial_smoke.py script for attached-board checks outside CI.",
+    "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for hardware smoke.",
+    "Verified idf.py, esptool.py, and /dev/cu.usbmodem1101 before opening the board port.",
+    "Used NostrSeal/companion nseal request to generate get_capabilities, get_signing_status, and get_public_key requests with explicit lab request ids.",
+    "Used NostrSeal/companion nseal serial-frame wrap-request to encode each request frame.",
+    "Sent each frame to the attached ESP32 over USB serial and captured the first nseal1f protocol response while ignoring device log lines.",
+    "Used NostrSeal/companion nseal serial-frame unwrap-response --request to validate each captured response against its original request before accepting output."
+  ],
+  "expected_result": "The attached board answers companion-generated get_capabilities, get_signing_status, and get_public_key serial requests with ok responses, while the broader firmware contract still keeps sign_event at signing_disabled until production gates pass.",
+  "observed_result": "The optional lab hardware companion serial smoke passed for get_capabilities with request_id lab-companion-hw-capabilities, get_signing_status with request_id lab-companion-hw-signing-status, and get_public_key with request_id lab-companion-hw-public-key. Each response unwrapped through the companion request-bound serial path with ok: true. This smoke did not send sign_event; existing firmware smokes continue to preserve signing_disabled for sign_event.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This is protocol smoke using the existing flashed firmware image; it is not a new build or flash report.",
+    "This is not a new manual visual display inspection.",
+    "This smoke covers companion-generated non-signing device requests only and does not exercise sign_event.",
+    "The run does not validate production trusted-display acceptance, production physical-control acceptance, key provisioning, storage, secure boot, flash encryption, debug lock, companion signed-output verification for real signatures, or real signing.",
+    "sign_event is expected to remain signing_disabled until every production signing gate is satisfied."
+  ]
+}
