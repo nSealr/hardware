@@ -67,6 +67,45 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "display_targets"):
                 validate_requirements(path)
 
+    def test_raspberry_qr_requirements_require_gpio_button_profile(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
+        )
+        original["seed_signer_compatibility"].pop("gpio_button_profile", None)
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "gpio_button_profile"):
+                validate_requirements(path)
+
+    def test_raspberry_qr_gpio_button_profile_requires_reject_mapping(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
+        )
+        del original["seed_signer_compatibility"]["gpio_button_profile"]["actions"]["reject"]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "gpio_button_profile.actions.reject"):
+                validate_requirements(path)
+
+    def test_raspberry_qr_gpio_button_profile_requires_distinct_approve_reject_pins(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
+        )
+        original["seed_signer_compatibility"]["gpio_button_profile"]["actions"]["reject"] = [33]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "approve and reject pins must be distinct"):
+                validate_requirements(path)
+
     def test_reference_usb_signer_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
 

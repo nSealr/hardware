@@ -68,6 +68,10 @@ The checked compatibility profile centers the kit on the SeedSigner-style
 Raspberry Pi Zero stack: Pi Zero-class board, Pi/ZeroCam OV5647 camera,
 Waveshare-compatible ST7789 240x240 SPI display HAT, GPIO joystick/buttons,
 removable microSD boot media, and SeedSigner-OS/Buildroot reference shape.
+The same requirements pin the first 40-pin GPIO review-button map shared with
+`NostrSeal/raspberry`: BOARD 37/right for `next`, BOARD 35/down for `scroll`,
+BOARD 33/center for `approve`, and BOARD 40/KEY1 for `reject`, with reject
+precedence documented before physical-control acceptance can be claimed.
 Pi 3/4/5 variants can be documented later only as development or accessibility
 variants that preserve the same offline QR and RAM-only custody boundary.
 The companion kit BOM is a validation scaffold, not a purchase order: it keeps

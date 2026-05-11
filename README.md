@@ -24,7 +24,8 @@ fixtures.
 - Machine-readable Raspberry/Pi stateless QR vault kit requirements, including
   camera, trusted display, physical controls, response QR display, disabled
   wireless, RAM-only custody, no TROPIC01 dependency, and an explicit
-  SeedSigner-compatible Pi Zero hardware profile.
+  SeedSigner-compatible Pi Zero hardware profile with a validated 40-pin GPIO
+  review-button map.
 - Machine-readable Raspberry/Pi stateless QR vault OS profile, requiring
   removable boot media, disabled or absent wireless, RAM-only session custody,
   no swap during signing, no remote access during signing, and no persistent

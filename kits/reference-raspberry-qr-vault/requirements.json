@@ -26,6 +26,27 @@
       "Waveshare HAT joystick and KEY1/KEY2/KEY3 GPIO button layout",
       "SeedSigner legacy 26-pin GPIO remap only when documented and tested"
     ],
+    "gpio_button_profile": {
+      "numbering": "BOARD",
+      "actions": {
+        "next": [
+          37
+        ],
+        "scroll": [
+          35
+        ],
+        "approve": [
+          33
+        ],
+        "reject": [
+          40
+        ]
+      },
+      "safety": [
+        "Reject must take precedence over approve when multiple buttons are pressed.",
+        "Touch must not be accepted as approve/reject consent."
+      ]
+    },
     "os_targets": [
       "SeedSigner OS pi0/pi02w Buildroot profile reference",
       "NostrSeal stateless QR vault OS profile with removable microSD boot media, no swap, no remote access, and wireless disabled or absent"

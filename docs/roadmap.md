@@ -53,6 +53,13 @@ SeedSigner-OS/Buildroot-inspired runtime. This is compatibility planning and
 validation scaffolding; full hardware acceptance still needs the camera,
 display, GPIO, and OS profile smoke evidence.
 
+Status note, 2026-05-11: the SeedSigner-compatible hardware profile now also
+validates a concrete 40-pin GPIO review-button map: right/BOARD 37 to `next`,
+down/BOARD 35 to `scroll`, center/BOARD 33 to `approve`, and KEY1/BOARD 40 to
+`reject`, with reject precedence documented. This mirrors the Raspberry package
+adapter boundary and remains pre-acceptance until exercised on the physical Pi
+HAT.
+
 Status note, 2026-05-10: the Raspberry/Pi stateless QR vault kit now has a
 validated BOM scaffold. It records the SBC, camera, trusted display, physical
 approve/reject/navigation controls, power, removable boot media, temporary

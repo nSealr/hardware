@@ -19,6 +19,10 @@ requirements, OS profiles, BOMs, reports, and report templates.
   validation, requiring a Pi Zero physical target, ST7789 240x240 display
   target, OV5647 camera target, GPIO button target, SeedSigner OS/Buildroot
   reference target, and Pi Zero QR/review acceptance target.
+- Raspberry/Pi stateless QR vault SeedSigner-compatible GPIO button profile
+  validation, requiring BOARD numbering, `next`/`scroll`/`approve`/`reject`
+  action pins, distinct approve/reject controls, and documented reject
+  precedence.
 - Raspberry/Pi stateless QR vault OS profile validation.
 - Raspberry/Pi stateless QR vault OS profile smoke-report template validation.
   The template now requires attaching the read-only `nseal-vault
@@ -198,7 +202,8 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Negative Raspberry QR requirements test for missing response QR display
   output.
 - Negative Raspberry QR requirements tests for a missing SeedSigner-compatible
-  profile and a missing SeedSigner-compatible display target.
+  profile, a missing SeedSigner-compatible display target, a missing GPIO
+  button profile, a missing reject mapping, and shared approve/reject pins.
 - Negative Raspberry QR OS profile tests for enabled swap, enabled remote
   access during signing, and persistent signing-secret storage.
 - Negative Raspberry OS profile smoke-report test requiring power-cycle

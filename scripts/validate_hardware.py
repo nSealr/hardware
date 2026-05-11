@@ -166,6 +166,13 @@ REQUIRED_RASPBERRY_SEEDSIGNER_PROFILE_KEYWORDS = {
     "acceptance_targets": ("pi zero", "qr", "review"),
 }
 
+REQUIRED_RASPBERRY_GPIO_ACTIONS = {
+    "next",
+    "scroll",
+    "approve",
+    "reject",
+}
+
 
 def validate_requirements(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
@@ -240,6 +247,34 @@ def validate_seed_signer_compatibility_profile(value: dict, path: Path) -> None:
             raise ValueError(
                 f"{path}: seed_signer_compatibility.{field} must mention {', '.join(missing_keywords)}"
             )
+    validate_seed_signer_gpio_button_profile(profile, path)
+
+
+def validate_seed_signer_gpio_button_profile(profile: dict, path: Path) -> None:
+    button_profile = profile.get("gpio_button_profile")
+    if not isinstance(button_profile, dict) or not button_profile:
+        raise ValueError(f"{path}: seed_signer_compatibility.gpio_button_profile must be a non-empty object")
+    if button_profile.get("numbering") != "BOARD":
+        raise ValueError(f"{path}: seed_signer_compatibility.gpio_button_profile.numbering must be BOARD")
+    actions = button_profile.get("actions")
+    if not isinstance(actions, dict):
+        raise ValueError(f"{path}: seed_signer_compatibility.gpio_button_profile.actions must be an object")
+    for action in sorted(REQUIRED_RASPBERRY_GPIO_ACTIONS):
+        pins = actions.get(action)
+        field = f"seed_signer_compatibility.gpio_button_profile.actions.{action}"
+        if not isinstance(pins, list) or not pins:
+            raise ValueError(f"{path}: {field} must be a non-empty list")
+        if not all(isinstance(pin, int) and pin > 0 for pin in pins):
+            raise ValueError(f"{path}: {field} must contain positive integer BOARD pins")
+    approve_pins = set(actions["approve"])
+    reject_pins = set(actions["reject"])
+    if approve_pins & reject_pins:
+        raise ValueError(f"{path}: approve and reject pins must be distinct")
+    safety_text = _list_text(button_profile.get("safety", []))
+    if "reject" not in safety_text or "precedence" not in safety_text:
+        raise ValueError(
+            f"{path}: seed_signer_compatibility.gpio_button_profile.safety must document reject precedence"
+        )
 
 
 def validate_bom(path: Path) -> None:
