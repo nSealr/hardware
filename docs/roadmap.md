@@ -200,6 +200,17 @@ frames. This is firmware protocol evidence for the duplicate-free
 signing-status diagnostic contract only; it does not claim key provisioning,
 secure boot, debug-lock, signed-output, or production signing acceptance.
 
+Status note, 2026-05-11: LILYGO T-Display S3 firmware revision `fedcb5f` was
+rebuilt with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested after caret and backtick were added to the host-tested review
+display glyph paths. ESP-IDF verified image hashes during flash, the
+post-flash capability smoke passed with 39 verified exchanges, and the
+review-scenario smoke passed with 7 scenarios and 8 verified exchanges. This
+records protocol evidence for the literal ASCII punctuation review path only;
+it does not claim full Unicode review acceptance, physical button acceptance,
+key provisioning, secure boot, debug-lock, signed-output, or production
+signing acceptance.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
