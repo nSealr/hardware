@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-11",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer direct companion serial-line exchange smoke",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_transport": "native USB-Serial/JTAG",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "firmware rebuilt and flashed after animated QR reconstruction, exercised through companion serial-line exchange",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/lab",
+  "firmware_commit": "0dda7d6",
+  "companion_commit": "b399ad0",
+  "lab_smoke_tool_commit": "a00af12",
+  "lab_evidence_commit": "9e6908a",
+  "procedure": [
+    "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and hardware smoke.",
+    "Built and flashed NostrSeal/esp32 firmware revision 0dda7d6 to the attached LILYGO T-Display S3 on /dev/cu.usbmodem1101.",
+    "Verified make IDF_PORT=/dev/cu.usbmodem1101 idf-smoke-capabilities passed with 39 verified exchanges before running companion-level serial smoke.",
+    "Used NostrSeal/companion revision b399ad0 nseal serial-line exchange to open the device port directly through Node serialport instead of the earlier pyserial capture path.",
+    "Ran NostrSeal/lab hardware_companion_serial_smoke.py in default companion-serial-line mode for get-capabilities with request_id lab-companion-serial-line-2026-05-11.",
+    "Ran the same lab smoke in default companion-serial-line mode for sign-event-disabled with request_id lab-companion-serial-line-sign-disabled-2026-05-11."
+  ],
+  "expected_result": "The attached board answers a direct companion serial-line get-capabilities request and rejects a companion-generated sign_event request with signing_disabled. The companion exchange must validate the response against the original request before writing output.",
+  "observed_result": "The companion serial-line get-capabilities smoke passed with response_ok true, method get_capabilities, signing_enabled false, and capabilities including sign_event. The companion serial-line sign-event-disabled smoke passed with response_ok false and response_error_code signing_disabled for request_id lab-companion-serial-line-sign-disabled-2026-05-11. Both runs used the direct companion serial-line exchange path rather than pyserial frame capture.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This is protocol smoke for the development USB/display signer path; it is not a production signing release.",
+    "This is not a new manual visual display inspection, physical button approval test, camera test, or QR flow test.",
+    "The run does not validate production trusted-display acceptance, production physical-control acceptance, key provisioning, storage, secure boot, flash encryption, debug lock, companion signed-output verification for real signatures, or real signing.",
+    "sign_event is expected to remain signing_disabled until every production signing gate is satisfied."
+  ]
+}

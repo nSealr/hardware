@@ -141,6 +141,15 @@ companion serial smoke verified a request-matched `signing_disabled` response
 for a companion-generated `sign_event`. This aligns the physical board with
 the current repository head while preserving every production signing blocker.
 
+Status note, 2026-05-11: LILYGO T-Display S3 direct companion serial-line
+smoke used `NostrSeal/esp32` revision `0dda7d6`, `NostrSeal/companion`
+revision `b399ad0`, and `NostrSeal/lab` smoke-tool revision `a00af12` on
+`/dev/cu.usbmodem1101`. The companion `nseal serial-line exchange` path opened
+the board directly through Node `serialport`, verified get-capabilities output,
+and verified the request-matched `signing_disabled` response for a
+companion-generated `sign_event`. This records real companion-to-device
+transport evidence only; it does not change any production signing gate.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
