@@ -133,6 +133,13 @@ scroll-window, Unicode fallback, and request-error inputs. Valid `sign_event`
 review requests still returned `signing_disabled`; the invalid request returned
 the expected `unsupported_request` frame.
 
+Status note, 2026-05-11: the same review-scenario smoke family now includes
+`show-control-escapes` in addition to basic, tagged, long-content,
+scroll-window, dense-tags, Unicode fallback, and request-error scenarios.
+Against the already flashed `294a77e` firmware image, the expanded smoke passed
+with 8 scenarios, 9 verified serial exchanges, 8 `signing_disabled` response
+frames, and 1 expected `unsupported_request` rejection frame.
+
 Status note, 2026-05-10: LILYGO T-Display S3 dense-tags review-scenario smoke
 used `NostrSeal/esp32` smoke-tool revision `daeea6d` against the existing
 flashed firmware image `5280fab` on `/dev/cu.usbmodem1101`. It verified the
