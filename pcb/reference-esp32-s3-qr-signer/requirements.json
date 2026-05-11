@@ -48,7 +48,7 @@
   ],
   "notes": [
     "This is a requirements scaffold for devkit-based validation, not a routed PCB.",
-    "Primary candidate is the T-Display S3 Pro OV5640 line; Waveshare ESP32-S3 Touch LCD 3.5 case-plus-OV5640 variants are the preferred secondary family after choosing 3.5-C versus 3.5B-C.",
+    "Primary candidate is the T-Display S3 Pro OV5640 line; Waveshare ESP32-S3-Touch-LCD-3.5B-C case-plus-OV5640 is the preferred secondary target.",
     "Blockstream Jade is an ESP-IDF architecture reference only; do not plan NostrSeal firmware flashing on production retail Jade hardware. Development devices or Jade-compatible DIY ESP32 profiles may be evaluated separately.",
     "The current hardware repo still contains requirements/BOM validation only; no custom PCB design exists yet."
   ]
