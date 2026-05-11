@@ -206,6 +206,13 @@ REQUIRED_RASPBERRY_GPIO_ACTIONS = {
     "reject",
 }
 
+REQUIRED_ESP32_QR_SECONDARY_TARGET = {
+    "sku": "ESP32-S3-Touch-LCD-3.5B-C",
+    "display_driver": "AXS15231B",
+    "display_bus": "QSPI",
+    "camera_module": "OV5640",
+}
+
 
 def validate_requirements(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
@@ -224,6 +231,8 @@ def validate_requirements(path: Path) -> None:
     missing = sorted(required_interfaces - mandatory)
     if missing:
         raise ValueError(f"{path}: missing mandatory interfaces: {', '.join(missing)}")
+    if device_class == "esp32_s3_qr_signer":
+        validate_esp32_qr_secondary_target(value, path)
     optional = set(value.get("optional_interfaces", []))
     if device_class in STATELESS_QR_DEVICE_CLASSES:
         interface_text = " ".join(sorted(mandatory | optional)).lower()
@@ -260,6 +269,15 @@ def validate_requirements(path: Path) -> None:
             raise ValueError(f"{path}: qr_requirements must mention {', '.join(missing_qr_keywords)}")
     if device_class == "raspberry_qr_vault":
         validate_seed_signer_compatibility_profile(value, path)
+
+
+def validate_esp32_qr_secondary_target(value: dict, path: Path) -> None:
+    target = value.get("secondary_devkit_candidate")
+    if not isinstance(target, dict):
+        raise ValueError(f"{path}: secondary_devkit_candidate must be an object")
+    for field, expected in REQUIRED_ESP32_QR_SECONDARY_TARGET.items():
+        if target.get(field) != expected:
+            raise ValueError(f"{path}: secondary_devkit_candidate.{field} must be {expected}")
 
 
 def validate_identity_policy_requirements(value: dict, path: Path, device_class: str) -> None:

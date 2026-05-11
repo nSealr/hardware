@@ -20,7 +20,8 @@ fixtures.
 - Machine-readable ESP32-S3 USB/NIP-46 signer reference requirements.
 - Machine-readable ESP32 stateless QR vault requirements for the T-Display S3
   Pro OV5640 candidate line, including validated QR-contract requirements for
-  `nseal1`, trusted review, and physical approval.
+  `nseal1`, trusted review, physical approval, and the confirmed Waveshare
+  `ESP32-S3-Touch-LCD-3.5B-C` secondary target.
 - Machine-readable Raspberry/Pi stateless QR vault kit requirements, including
   camera, trusted display, physical controls, response QR display, disabled
   wireless, RAM-only custody, no TROPIC01 dependency, and an explicit
@@ -47,7 +48,8 @@ fixtures.
   identity/policy route requirements, BOM headers, BOM categories, duplicate
   designators, manual hardware report safety flags, and directory-driven
   validation discovery for requirements, OS profiles, BOMs, reports, and
-  report templates.
+  report templates. ESP32 QR requirements validation now also rejects stale
+  Waveshare `3.5-C` secondary-target drift.
 
 The current files are requirements and BOM scaffolding, not routed PCB files.
 

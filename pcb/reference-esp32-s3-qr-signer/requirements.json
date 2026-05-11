@@ -2,6 +2,13 @@
   "schema_version": 1,
   "device_class": "esp32_s3_qr_signer",
   "primary_devkit_candidate": "LILYGO T-Display S3 Pro With OV5640 Camera",
+  "secondary_devkit_candidate": {
+    "sku": "ESP32-S3-Touch-LCD-3.5B-C",
+    "display_driver": "AXS15231B",
+    "display_bus": "QSPI",
+    "camera_module": "OV5640",
+    "role": "preferred secondary ESP32 stateless QR vault target after T-Display S3 Pro"
+  },
   "mandatory_interfaces": [
     "usb_c_native",
     "display",

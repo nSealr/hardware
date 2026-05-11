@@ -30,6 +30,47 @@ class HardwareValidationTests(unittest.TestCase):
     def test_reference_qr_signer_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json")
 
+    def test_esp32_qr_requirements_pin_waveshare_3_5b_c_secondary_target(self) -> None:
+        value = json.loads(
+            (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")
+        )
+
+        self.assertEqual(value["secondary_devkit_candidate"]["sku"], "ESP32-S3-Touch-LCD-3.5B-C")
+        self.assertEqual(value["secondary_devkit_candidate"]["display_driver"], "AXS15231B")
+        self.assertEqual(value["secondary_devkit_candidate"]["display_bus"], "QSPI")
+        self.assertEqual(value["secondary_devkit_candidate"]["camera_module"], "OV5640")
+
+    def test_esp32_qr_requirements_reject_missing_secondary_target(self) -> None:
+        original = json.loads(
+            (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")
+        )
+        original.pop("secondary_devkit_candidate", None)
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "secondary_devkit_candidate"):
+                validate_requirements(path)
+
+    def test_esp32_qr_requirements_reject_unselected_waveshare_sku(self) -> None:
+        original = json.loads(
+            (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")
+        )
+        original["secondary_devkit_candidate"] = {
+            "sku": "ESP32-S3-Touch-LCD-3.5-C",
+            "display_driver": "ST7796",
+            "display_bus": "SPI",
+            "camera_module": "OV5640",
+        }
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "ESP32-S3-Touch-LCD-3.5B-C"):
+                validate_requirements(path)
+
     def test_reference_raspberry_qr_vault_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
 

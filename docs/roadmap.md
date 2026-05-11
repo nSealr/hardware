@@ -4,8 +4,8 @@
 
 - ESP32-S3 USB signer requirements JSON.
 - ESP32-S3 QR signer requirements JSON for T-Display S3 Pro OV5640 devkit
-  validation, with Waveshare ESP32-S3 Touch LCD 3.5 tracked as the preferred
-  secondary case-plus-OV5640 target now fixed to 3.5B-C.
+  validation, with Waveshare `ESP32-S3-Touch-LCD-3.5B-C` validated as the
+  preferred secondary case-plus-OV5640 target.
 - Raspberry/Pi stateless QR vault kit requirements JSON.
 - Raspberry/Pi stateless QR vault OS profile JSON.
 - ESP32-S3 USB signer reference BOM scaffold.
@@ -41,6 +41,11 @@ validate the `qr_requirements` contract explicitly. Requirements files must
 retain the shared `nseal1` envelope, trusted review, and physical approval
 terms before later devkit wiring, camera/display testing, or PCB work can claim
 QR signer coverage.
+
+Status note, 2026-05-11: ESP32 stateless QR vault hardware requirements now
+validate the secondary Waveshare target as a structured field. The accepted
+secondary SKU is `ESP32-S3-Touch-LCD-3.5B-C` with AXS15231B/QSPI display path
+and OV5640 camera; stale `3.5-C` secondary-target drift is rejected.
 
 Status note, 2026-05-11: requirements validation now also checks
 `identity_policy_requirements`. ESP32 and Raspberry stateless QR requirements

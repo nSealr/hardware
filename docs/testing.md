@@ -208,6 +208,10 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Negative QR requirements tests for missing camera, missing disabled wireless
   policy, missing `qr_requirements`, and missing core QR contract terms for the
   shared `nseal1` envelope, trusted review, and physical approval.
+- Positive and negative ESP32 QR secondary-target tests requiring the
+  structured Waveshare `ESP32-S3-Touch-LCD-3.5B-C` candidate with
+  AXS15231B/QSPI display path and OV5640 camera, and rejecting stale `3.5-C`
+  target drift.
 - Negative Raspberry QR requirements test for missing response QR display
   output.
 - Negative Raspberry QR requirements tests for a missing SeedSigner-compatible
