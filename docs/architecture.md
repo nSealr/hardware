@@ -21,7 +21,7 @@ PCB work must follow proven firmware and UX requirements, not precede them.
 - `pcb/reference-esp32-s3-qr-signer/requirements.json`: checked requirements
   for the ESP32 stateless QR vault devkit validation path, currently centered
   on the T-Display S3 Pro OV5640 candidate and tracking Waveshare ESP32-S3
-  Touch LCD 3.5 as the preferred secondary family.
+  Touch LCD 3.5 case-plus-OV5640 variants as the preferred secondary family.
 - `kits/reference-raspberry-qr-vault/requirements.json`: checked requirements
   for the Raspberry/Pi stateless QR vault kit validation path, covering camera,
   trusted display, physical buttons, response QR display, wireless disablement,
