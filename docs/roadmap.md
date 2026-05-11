@@ -157,6 +157,15 @@ serial-line get-capabilities smoke and the shared `sign-event-disabled` smoke.
 The second run returned request-matched `signing_disabled`. No firmware was
 reflashed for this report, and no production signing gate changed.
 
+Status note, 2026-05-11: LILYGO T-Display S3 firmware revision `3845b05` was
+rebuilt with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested after disabled-signing firmware log/copy alignment. ESP-IDF
+verified image hashes during flash, and the post-flash capability smoke passed
+with 39 verified exchanges, 9 response frames, and 30 expected rejection
+frames. This keeps the physical board aligned with current disabled-signing
+safety copy only; it does not claim camera, QR, key provisioning, secure boot,
+debug-lock, signed-output, or production signing acceptance.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

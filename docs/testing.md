@@ -130,6 +130,11 @@ bytecode compilation, and validation of the reference requirements and BOM.
   `nseal serial-line exchange`, verifies get-capabilities output, and verifies
   the request-matched `signing_disabled` refusal for a companion-generated
   `sign_event`.
+- LILYGO T-Display S3 disabled-signing copy protocol-smoke report validation
+  for ESP32 revision `3845b05`, confirming the firmware rebuilt and reflashed
+  with ESP-IDF v5.5.4 after disabled-signing log/copy alignment, verified
+  image hashes, passed 39 USB serial exchanges, and preserved
+  `signing_disabled`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes
