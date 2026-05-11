@@ -21,6 +21,9 @@ requirements, OS profiles, BOMs, reports, and report templates.
   reference target, and Pi Zero QR/review acceptance target.
 - Raspberry/Pi stateless QR vault OS profile validation.
 - Raspberry/Pi stateless QR vault OS profile smoke-report template validation.
+  The template now requires attaching the read-only `nseal-vault
+  hardware-probe` output as setup evidence before a future completed report can
+  claim the Raspberry/Pi OS profile smoke.
 - Directory-driven discovery for committed requirements, Raspberry OS profiles,
   BOMs, reports, and report templates.
 - Raspberry/Pi stateless QR vault seed-entry policy validation, requiring

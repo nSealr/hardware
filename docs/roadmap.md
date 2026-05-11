@@ -73,6 +73,12 @@ evidence terms for removable boot media, wireless state, swap state, remote
 access, RAM-only custody, persistent-secret absence, and power-cycle session
 loss before Raspberry image acceptance can be claimed.
 
+Status note, 2026-05-11: the Raspberry/Pi OS profile smoke-report template now
+requires attaching the read-only `nseal-vault hardware-probe` output from
+`NostrSeal/raspberry`. The probe is setup evidence only; completed hardware
+reports must still separately prove QR scan/display/control behavior,
+OS-profile acceptance, and power-cycle session loss.
+
 Status note, 2026-05-11: the Raspberry/Pi stateless QR vault OS profile now
 requires a `session_secret_input_policy` of `no_seed_files_or_secret_cli_args`.
 Future acceptance evidence must show that seed entry or session-secret input
