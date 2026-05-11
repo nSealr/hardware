@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-11",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer signing-status gate normalization smoke",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_transport": "native USB-Serial/JTAG",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "rebuilt and reflashed after host-core signing-status gate de-duplication",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "311368a",
+  "esp_idf_version": "v5.5.4",
+  "procedure": [
+    "Ran NostrSeal/esp32 make ci, including the host-core signing-policy test that de-duplicates development_accepted_gates.",
+    "Sourced /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell used for build, flash, and smoke.",
+    "Verified idf.py resolved under /Users/vincenzo/esp/esp-idf-v5.5.4/tools and reported ESP-IDF v5.5.4.",
+    "Verified /dev/cu.usbmodem1101 was present before flashing.",
+    "Built firmware revision 311368a with ESP-IDF v5.5.4; the app binary size was 0x8e9e0 bytes with 0x71620 bytes free.",
+    "Flashed the firmware to /dev/cu.usbmodem1101 and verified bootloader, app, and partition-table hashes during the ESP-IDF flash operation.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem1101 idf-smoke-capabilities after the flash."
+  ],
+  "expected_result": "The firmware should build from a clean commit, keep signing-status gate lists compatible with the duplicate-free shared response contract, keep the serial protocol responsive, reject malformed or unsafe inputs deterministically, and preserve signing_disabled.",
+  "observed_result": "The clean 311368a firmware build completed with app version 311368a. The flash completed successfully with image hashes verified. The post-flash capability smoke passed with 39 verified exchanges, 9 response frames, and 30 expected rejection frames.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This report validates host-tested signing-status gate de-duplication and post-flash serial protocol behavior only.",
+    "It is not a manual visual display inspection, physical button approval test, camera test, QR flow test, key provisioning test, storage test, or real signing test.",
+    "The run does not validate production trusted-display acceptance, full Unicode review rendering acceptance, production physical-control acceptance, secure boot, flash encryption, debug lock, companion signed-output verification for real signatures, or production signing readiness.",
+    "sign_event remains signing_disabled until every production signing gate is satisfied."
+  ]
+}

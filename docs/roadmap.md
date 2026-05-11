@@ -184,6 +184,15 @@ board; it does not claim production Unicode review acceptance, key
 provisioning, secure boot, debug-lock, signed-output, or production signing
 acceptance.
 
+Status note, 2026-05-11: LILYGO T-Display S3 firmware revision `311368a` was
+rebuilt with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested after host-core signing-status gate de-duplication. ESP-IDF
+verified image hashes during flash, and the post-flash capability smoke passed
+with 39 verified exchanges, 9 response frames, and 30 expected rejection
+frames. This is firmware protocol evidence for the duplicate-free
+signing-status diagnostic contract only; it does not claim key provisioning,
+secure boot, debug-lock, signed-output, or production signing acceptance.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.
