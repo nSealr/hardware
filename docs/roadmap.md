@@ -150,6 +150,13 @@ and verified the request-matched `signing_disabled` response for a
 companion-generated `sign_event`. This records real companion-to-device
 transport evidence only; it does not change any production signing gate.
 
+Status note, 2026-05-11: after `NostrSeal/companion` revision `6bbf03a` moved
+one-shot serial-line exchange ownership into `packages/transport`, the attached
+LILYGO T-Display S3 on `/dev/cu.usbmodem1101` passed the lab companion
+serial-line get-capabilities smoke and the shared `sign-event-disabled` smoke.
+The second run returned request-matched `signing_disabled`. No firmware was
+reflashed for this report, and no production signing gate changed.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

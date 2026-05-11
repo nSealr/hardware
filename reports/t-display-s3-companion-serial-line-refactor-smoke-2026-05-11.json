@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-11",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer package-owned companion serial-line exchange smoke",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_transport": "native USB-Serial/JTAG",
+    "display": "ST7789 170x320 integrated 8-bit parallel TFT",
+    "tested_state": "existing flashed firmware exercised after companion serial-line exchange refactor",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/companion",
+  "firmware_commit": "0dda7d6",
+  "companion_commit": "6bbf03a",
+  "lab_smoke_tool_commit": "a00af12",
+  "lab_evidence_commit": "b530958",
+  "procedure": [
+    "Refactored NostrSeal/companion so exchangeSerialLineRequest in packages/transport owns one-shot serial-line validation, port opening, exchange, and close sequencing.",
+    "Kept nseal serial-line exchange as the CLI file/argument wrapper over that package-owned boundary.",
+    "Ran NostrSeal/lab hardware_companion_serial_smoke.py in default companion-serial-line mode against /dev/cu.usbmodem1101 for get-capabilities with request_id lab-companion-serial-line-refactor-2026-05-11.",
+    "Ran the same lab smoke in default companion-serial-line mode for sign-event-disabled with request_id lab-companion-serial-line-refactor-sign-disabled-2026-05-11.",
+    "No firmware reflash was performed for this report; the attached board was already running ESP32 firmware revision 0dda7d6 from the animated QR host-core smoke."
+  ],
+  "expected_result": "The package-owned companion serial-line exchange boundary still opens the attached board only after request validation, verifies the get-capabilities response, and verifies a companion-generated sign_event refusal with signing_disabled.",
+  "observed_result": "The get-capabilities smoke passed with response_ok true for request_id lab-companion-serial-line-refactor-2026-05-11. The sign-event-disabled smoke passed with response_ok false and response_error_code signing_disabled for request_id lab-companion-serial-line-refactor-sign-disabled-2026-05-11. Both runs used exchange_mode companion-serial-line after the companion refactor.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This is protocol smoke for a companion transport refactor against an existing flashed firmware image; it is not a new build or flash report.",
+    "This is not a new manual visual display inspection, physical button approval test, camera test, or QR flow test.",
+    "The run does not validate production trusted-display acceptance, production physical-control acceptance, key provisioning, storage, secure boot, flash encryption, debug lock, companion signed-output verification for real signatures, or real signing.",
+    "sign_event is expected to remain signing_disabled until every production signing gate is satisfied."
+  ]
+}

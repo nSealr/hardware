@@ -124,6 +124,12 @@ bytecode compilation, and validation of the reference requirements and BOM.
   exchange` path can request capabilities from the attached board and can verify
   the request-matched `signing_disabled` refusal for a companion-generated
   `sign_event`.
+- LILYGO T-Display S3 package-owned companion serial-line protocol-smoke report
+  validation for companion revision `6bbf03a`, confirming the refactored
+  `exchangeSerialLineRequest` boundary still drives the attached board through
+  `nseal serial-line exchange`, verifies get-capabilities output, and verifies
+  the request-matched `signing_disabled` refusal for a companion-generated
+  `sign_event`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes
