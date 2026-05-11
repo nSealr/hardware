@@ -7,6 +7,37 @@
     "Raspberry Pi Zero 2 W",
     "Raspberry Pi 3/4/5 for development and accessibility variants"
   ],
+  "seed_signer_compatibility": {
+    "primary_physical_target": "Raspberry Pi Zero",
+    "supported_board_targets": [
+      "Raspberry Pi Zero 1.3 preferred because wireless hardware is absent",
+      "Raspberry Pi Zero W only with wireless disabled or physically mitigated",
+      "Raspberry Pi Zero 2 W only with wireless disabled or physically mitigated",
+      "Raspberry Pi 3/4/5 development variants only if they preserve the same offline QR, display, GPIO button, and RAM-only custody boundary"
+    ],
+    "display_targets": [
+      "Waveshare 1.3 inch LCD HAT, ST7789, 240x240, SPI",
+      "SeedSigner-compatible 240x240 ST7789 display and controls with the same review readability target"
+    ],
+    "camera_targets": [
+      "Pi Zero-compatible OV5647 camera or ZeroCam-style CSI camera for request QR scanning"
+    ],
+    "control_targets": [
+      "Waveshare HAT joystick and KEY1/KEY2/KEY3 GPIO button layout",
+      "SeedSigner legacy 26-pin GPIO remap only when documented and tested"
+    ],
+    "os_targets": [
+      "SeedSigner OS pi0/pi02w Buildroot profile reference",
+      "NostrSeal stateless QR vault OS profile with removable microSD boot media, no swap, no remote access, and wireless disabled or absent"
+    ],
+    "acceptance_targets": [
+      "Boot and run the NostrSeal Raspberry QR vault on the user-provided Pi Zero hardware",
+      "Scan shared nseal1 static and animated QR requests through the Pi camera path",
+      "Render complete Nostr event review detail pages on the SeedSigner-compatible display before physical approval",
+      "Navigate Event, Content, Tags, and Decision pages with SeedSigner-compatible GPIO controls",
+      "Display signed-event QR output without using USB data transport for the stateless vault flow"
+    ]
+  },
   "mandatory_interfaces": [
     "camera",
     "display",

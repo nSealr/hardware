@@ -15,6 +15,10 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Reference requirements validation.
 - ESP32-S3 QR signer requirements validation.
 - Raspberry/Pi stateless QR vault kit requirements validation.
+- Raspberry/Pi stateless QR vault SeedSigner-compatible hardware profile
+  validation, requiring a Pi Zero physical target, ST7789 240x240 display
+  target, OV5647 camera target, GPIO button target, SeedSigner OS/Buildroot
+  reference target, and Pi Zero QR/review acceptance target.
 - Raspberry/Pi stateless QR vault OS profile validation.
 - Raspberry/Pi stateless QR vault OS profile smoke-report template validation.
 - Directory-driven discovery for committed requirements, Raspberry OS profiles,
@@ -190,6 +194,8 @@ requirements, OS profiles, BOMs, reports, and report templates.
   shared `nseal1` envelope, trusted review, and physical approval.
 - Negative Raspberry QR requirements test for missing response QR display
   output.
+- Negative Raspberry QR requirements tests for a missing SeedSigner-compatible
+  profile and a missing SeedSigner-compatible display target.
 - Negative Raspberry QR OS profile tests for enabled swap, enabled remote
   access during signing, and persistent signing-secret storage.
 - Negative Raspberry OS profile smoke-report test requiring power-cycle

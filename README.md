@@ -23,7 +23,8 @@ fixtures.
   `nseal1`, trusted review, and physical approval.
 - Machine-readable Raspberry/Pi stateless QR vault kit requirements, including
   camera, trusted display, physical controls, response QR display, disabled
-  wireless, RAM-only custody, and no TROPIC01 dependency.
+  wireless, RAM-only custody, no TROPIC01 dependency, and an explicit
+  SeedSigner-compatible Pi Zero hardware profile.
 - Machine-readable Raspberry/Pi stateless QR vault OS profile, requiring
   removable boot media, disabled or absent wireless, RAM-only session custody,
   no swap during signing, no remote access during signing, and no persistent
@@ -31,7 +32,10 @@ fixtures.
 - Validated Raspberry/Pi OS profile smoke-report template for future hardware
   acceptance evidence.
 - First open BOM scaffolds for a reference USB signer board and a
-  Raspberry/Pi stateless QR vault kit.
+  Raspberry/Pi stateless QR vault kit. The Raspberry kit BOM is centered on a
+  Pi Zero-class board, Pi/ZeroCam OV5647 camera, Waveshare-compatible ST7789
+  240x240 display HAT, GPIO controls, removable microSD boot media, and
+  SeedSigner-style enclosure assumptions.
 - Machine-readable manual hardware validation reports, starting with ESP32-S3
   board detection evidence and continuing through ESP32-S3 USB/display signer
   protocol smoke evidence for disabled signing, malformed transport, review,

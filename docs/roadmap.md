@@ -44,6 +44,15 @@ display, physical controls, response QR display, disabled wireless, removable
 boot media, RAM-only session custody, and no TROPIC01 or persistent-secret
 dependency before Pi hardware acceptance work begins.
 
+Status note, 2026-05-11: Raspberry/Pi stateless QR vault kit requirements now
+include a validated SeedSigner-compatible hardware profile. The first physical
+target is the available Raspberry Pi Zero, and the required kit shape is
+Pi/ZeroCam OV5647 camera input, Waveshare-compatible ST7789 240x240 display
+HAT, SeedSigner-style GPIO controls, removable microSD boot media, and a
+SeedSigner-OS/Buildroot-inspired runtime. This is compatibility planning and
+validation scaffolding; full hardware acceptance still needs the camera,
+display, GPIO, and OS profile smoke evidence.
+
 Status note, 2026-05-10: the Raspberry/Pi stateless QR vault kit now has a
 validated BOM scaffold. It records the SBC, camera, trusted display, physical
 approve/reject/navigation controls, power, removable boot media, temporary

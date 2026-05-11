@@ -147,6 +147,25 @@ REQUIRED_RASPBERRY_OS_REPORT_KEYWORDS = {
     "power_cycle": ("power-cycle", "power cycle"),
 }
 
+REQUIRED_RASPBERRY_SEEDSIGNER_PROFILE_FIELDS = {
+    "supported_board_targets",
+    "display_targets",
+    "camera_targets",
+    "control_targets",
+    "os_targets",
+    "acceptance_targets",
+}
+
+REQUIRED_RASPBERRY_SEEDSIGNER_PROFILE_KEYWORDS = {
+    "primary_physical_target": ("pi zero",),
+    "supported_board_targets": ("pi zero",),
+    "display_targets": ("waveshare", "st7789", "240x240"),
+    "camera_targets": ("ov5647", "camera"),
+    "control_targets": ("gpio", "button"),
+    "os_targets": ("seedsigner", "buildroot"),
+    "acceptance_targets": ("pi zero", "qr", "review"),
+}
+
 
 def validate_requirements(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
@@ -198,6 +217,29 @@ def validate_requirements(path: Path) -> None:
         missing_qr_keywords = sorted(keyword for keyword in REQUIRED_QR_KEYWORDS if keyword not in qr_text)
         if missing_qr_keywords:
             raise ValueError(f"{path}: qr_requirements must mention {', '.join(missing_qr_keywords)}")
+    if device_class == "raspberry_qr_vault":
+        validate_seed_signer_compatibility_profile(value, path)
+
+
+def validate_seed_signer_compatibility_profile(value: dict, path: Path) -> None:
+    profile = value.get("seed_signer_compatibility")
+    if not isinstance(profile, dict) or not profile:
+        raise ValueError(f"{path}: seed_signer_compatibility must be a non-empty object")
+    _require_non_empty_string(profile.get("primary_physical_target"), path, "seed_signer_compatibility.primary_physical_target")
+    for field in sorted(REQUIRED_RASPBERRY_SEEDSIGNER_PROFILE_FIELDS):
+        _require_non_empty_string_list(profile.get(field), path, f"seed_signer_compatibility.{field}")
+
+    profile_text_by_field = {
+        "primary_physical_target": str(profile.get("primary_physical_target", "")).lower(),
+        **{field: _list_text(profile.get(field)) for field in REQUIRED_RASPBERRY_SEEDSIGNER_PROFILE_FIELDS},
+    }
+    for field, keywords in REQUIRED_RASPBERRY_SEEDSIGNER_PROFILE_KEYWORDS.items():
+        field_text = profile_text_by_field[field]
+        missing_keywords = sorted(keyword for keyword in keywords if keyword not in field_text)
+        if missing_keywords:
+            raise ValueError(
+                f"{path}: seed_signer_compatibility.{field} must mention {', '.join(missing_keywords)}"
+            )
 
 
 def validate_bom(path: Path) -> None:

@@ -24,7 +24,8 @@ PCB work must follow proven firmware and UX requirements, not precede them.
 - `kits/reference-raspberry-qr-vault/requirements.json`: checked requirements
   for the Raspberry/Pi stateless QR vault kit validation path, covering camera,
   trusted display, physical buttons, response QR display, wireless disablement,
-  removable boot media, and RAM-only custody.
+  removable boot media, RAM-only custody, and explicit SeedSigner-compatible
+  Pi Zero hardware targets.
 - `kits/reference-raspberry-qr-vault/os-profile.json`: checked operating
   profile for future Raspberry/Pi stateless QR vault images, requiring
   removable boot media, disabled or absent wireless, RAM-only session custody,
@@ -63,6 +64,12 @@ without ESP32-specific secure boot or flash-encryption assumptions. They require
 camera input, a trusted local display, tactile physical approval/rejection,
 response QR output, disabled wireless, and removable boot-media discipline
 before any Pi build can be treated as more than a desktop harness.
+The checked compatibility profile centers the kit on the SeedSigner-style
+Raspberry Pi Zero stack: Pi Zero-class board, Pi/ZeroCam OV5647 camera,
+Waveshare-compatible ST7789 240x240 SPI display HAT, GPIO joystick/buttons,
+removable microSD boot media, and SeedSigner-OS/Buildroot reference shape.
+Pi 3/4/5 variants can be documented later only as development or accessibility
+variants that preserve the same offline QR and RAM-only custody boundary.
 The companion kit BOM is a validation scaffold, not a purchase order: it keeps
 wireless mitigation, removable boot media, temporary setup/debug removal, and
 RAM-only custody visible before Raspberry hardware acceptance starts.

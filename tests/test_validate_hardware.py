@@ -32,6 +32,41 @@ class HardwareValidationTests(unittest.TestCase):
     def test_reference_raspberry_qr_vault_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
 
+    def test_raspberry_qr_requirements_require_seedsigner_compatibility_profile(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
+        )
+        original.pop("seed_signer_compatibility", None)
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "seed_signer_compatibility"):
+                validate_requirements(path)
+
+    def test_raspberry_qr_requirements_reject_missing_seedsigner_display_target(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
+        )
+        original["seed_signer_compatibility"] = {
+            "primary_physical_target": "Raspberry Pi Zero",
+            "supported_board_targets": ["Raspberry Pi Zero"],
+            "display_targets": ["Waveshare 1.3 inch LCD HAT ST7789 240x240 SPI"],
+            "camera_targets": ["Pi Zero-compatible OV5647 camera"],
+            "control_targets": ["Waveshare HAT GPIO buttons"],
+            "os_targets": ["SeedSigner OS pi0 Buildroot profile"],
+            "acceptance_targets": ["Boot and review on Pi Zero hardware"],
+        }
+        original["seed_signer_compatibility"]["display_targets"] = []
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "display_targets"):
+                validate_requirements(path)
+
     def test_reference_usb_signer_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
 
