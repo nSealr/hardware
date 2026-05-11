@@ -40,6 +40,10 @@ PCB work must follow proven firmware and UX requirements, not precede them.
   setup path, and wireless-disable evidence.
 - `templates/raspberry-qr-vault-os-profile-smoke.json`: validated manual
   report template for future Raspberry OS profile acceptance evidence.
+- `templates/raspberry-qr-vault-full-flow-smoke.json`: validated manual
+  report template for future Raspberry QR-flow acceptance evidence across Pi
+  camera scan, trusted display review, GPIO controls, response QR output, and
+  companion verification.
 - `reports/esp32-s3-devkitc-1-detection-2026-05-08.json`: first manual
   hardware validation report, recording ESP32-S3 board detection only.
 - `scripts/validate_hardware.py`: directory-driven validation for
@@ -105,6 +109,12 @@ persistent secrets or TROPIC01 usage.
 Raspberry OS profile smoke reports additionally need explicit evidence terms
 for removable boot media, wireless state, swap state, remote access, RAM-only
 custody, persistent-secret absence, and power-cycle session loss.
+Raspberry QR-flow smoke reports additionally need explicit evidence for Pi
+Zero camera scanning of `nseal1` QR requests, trusted local display review,
+physical GPIO `next`/`scroll`/`approve`/`reject` controls, signed-event
+response QR output, companion `verify-response`, request id and
+`approval_digest` binding, no USB data transport, RAM-only custody, no
+persistent secret, and no TROPIC01.
 The top-level validator discovers committed validation inputs under `pcb/`,
 `kits/`, `bom/`, `reports/`, and `templates/` so future hardware artifacts do
 not need bespoke wiring before CI checks their schema and safety flags.

@@ -168,6 +168,18 @@ REQUIRED_RASPBERRY_OS_REPORT_KEYWORDS = {
     "power_cycle": ("power-cycle", "power cycle"),
 }
 
+REQUIRED_RASPBERRY_QR_FLOW_REPORT_KEYWORDS = {
+    "board": ("pi zero",),
+    "camera_scan": ("camera", "nseal1", "qr"),
+    "trusted_display_review": ("display", "review"),
+    "physical_controls": ("gpio", "button", "approve", "reject", "next", "scroll"),
+    "response_qr": ("response qr", "signed-event qr"),
+    "companion_verification": ("companion", "verify-response"),
+    "approval_binding": ("request id", "approval_digest"),
+    "ram_only": ("ram-only",),
+    "no_usb_data_transport": ("no usb data",),
+}
+
 REQUIRED_RASPBERRY_SEEDSIGNER_PROFILE_FIELDS = {
     "supported_board_targets",
     "display_targets",
@@ -489,6 +501,14 @@ def validate_manual_report(path: Path) -> None:
         for label, keywords in REQUIRED_RASPBERRY_OS_REPORT_KEYWORDS.items():
             if not any(keyword in report_text for keyword in keywords):
                 raise ValueError(f"{path}: Raspberry OS profile reports must mention {label}")
+    if value["target_family"] == "raspberry_stateless_qr_vault" and value["report_type"] == "qr_flow_smoke":
+        report_text = _manual_report_search_text(value)
+        for label, keywords in REQUIRED_RASPBERRY_QR_FLOW_REPORT_KEYWORDS.items():
+            missing_keywords = sorted(keyword for keyword in keywords if keyword not in report_text)
+            if missing_keywords:
+                raise ValueError(
+                    f"{path}: Raspberry QR flow reports must mention {label}: {', '.join(missing_keywords)}"
+                )
     if (
         value["report_type"] == "protocol_smoke"
         and value["target_family"] == "esp32_usb_nip46_signer"

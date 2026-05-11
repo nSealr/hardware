@@ -31,6 +31,12 @@ requirements, OS profiles, BOMs, reports, and report templates.
   The template now requires attaching the read-only `nseal-vault
   hardware-probe` output as setup evidence before a future completed report can
   claim the Raspberry/Pi OS profile smoke.
+- Raspberry/Pi stateless QR vault full QR-flow smoke-report template
+  validation. The template requires future physical evidence for Pi camera
+  `nseal1` QR scanning, trusted display review, GPIO
+  `next`/`scroll`/`approve`/`reject`, signed-event response QR output,
+  companion `verify-response`, request id and `approval_digest` binding, no USB
+  data transport, RAM-only custody, no persistent secret, and no TROPIC01.
 - Directory-driven discovery for committed requirements, Raspberry OS profiles,
   BOMs, reports, and report templates.
 - Raspberry/Pi stateless QR vault seed-entry policy validation, requiring
@@ -212,6 +218,9 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Negative Raspberry OS profile smoke-report test requiring power-cycle
   evidence to appear in report evidence fields rather than only in expected
   text.
+- Negative Raspberry full QR-flow smoke-report tests requiring camera scan
+  evidence and physical GPIO control evidence before future completed reports
+  can claim Raspberry hardware acceptance.
 - Negative manual report tests for missing production-signing safety flags,
   persistent secrets on stateless targets, and TROPIC01 usage on stateless
   targets.

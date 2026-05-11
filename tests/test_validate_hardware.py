@@ -16,6 +16,7 @@ from scripts.validate_hardware import (
 ROOT = Path(__file__).resolve().parents[1]
 REFERENCE_REPORT = ROOT / "reports/esp32-s3-devkitc-1-detection-2026-05-08.json"
 RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-smoke.json"
+RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-flow-smoke.json"
 
 
 def load_reference_report() -> dict:
@@ -213,6 +214,9 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_raspberry_os_profile_report_template_is_valid(self) -> None:
         validate_manual_report(RASPBERRY_OS_REPORT_TEMPLATE)
+
+    def test_raspberry_qr_flow_report_template_is_valid(self) -> None:
+        validate_manual_report(RASPBERRY_QR_FLOW_REPORT_TEMPLATE)
 
     def test_manual_report_accepts_protocol_smoke_type(self) -> None:
         original = load_reference_report()
@@ -474,6 +478,47 @@ class HardwareValidationTests(unittest.TestCase):
             path.write_text(json.dumps(original), encoding="utf-8")
 
             with self.assertRaisesRegex(ValueError, "power_cycle"):
+                validate_manual_report(path)
+
+    def test_raspberry_qr_flow_report_rejects_missing_camera_scan_evidence(self) -> None:
+        original = json.loads(RASPBERRY_QR_FLOW_REPORT_TEMPLATE.read_text(encoding="utf-8"))
+        original["hardware"]["camera"] = "TBD physical camera details"
+        original["procedure"] = [
+            step
+            for step in original["procedure"]
+            if "camera" not in step.lower() and "nseal1" not in step.lower()
+        ]
+        original["observed_result"] = (
+            "Display, GPIO buttons, response QR, companion verification, "
+            "RAM-only custody, and approval_digest checks remain documented."
+        )
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "raspberry-qr-flow-report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "camera_scan"):
+                validate_manual_report(path)
+
+    def test_raspberry_qr_flow_report_rejects_missing_gpio_evidence(self) -> None:
+        original = json.loads(RASPBERRY_QR_FLOW_REPORT_TEMPLATE.read_text(encoding="utf-8"))
+        original["hardware"]["physical_controls"] = "TBD controls"
+        original["procedure"] = [
+            step
+            for step in original["procedure"]
+            if all(term not in step.lower() for term in ("gpio", "button", "approve", "reject", "scroll"))
+        ]
+        original["observed_result"] = (
+            "Pi Zero camera nseal1 QR scan, trusted display review, response "
+            "QR, companion verify-response, RAM-only custody, request id, and "
+            "approval_digest checks remain documented."
+        )
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "raspberry-qr-flow-report.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "physical_controls"):
                 validate_manual_report(path)
 
 

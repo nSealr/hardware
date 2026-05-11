@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "template": true,
+  "report_type": "qr_flow_smoke",
+  "date": "2026-05-11",
+  "target_family": "raspberry_stateless_qr_vault",
+  "hardware": {
+    "board": "Raspberry Pi Zero target; record exact Pi Zero board revision before run",
+    "candidate_role": "SeedSigner-compatible Raspberry/Pi stateless QR vault full-flow acceptance",
+    "boot_media": "removable microSD",
+    "camera": "TBD Pi Zero-compatible camera that scans nseal1 static and animated QR request frames",
+    "display": "TBD SeedSigner-compatible Waveshare/ST7789 240x240 trusted local display for review",
+    "physical_controls": "TBD SeedSigner-compatible GPIO buttons for next, scroll, approve, and reject",
+    "response_qr_display": "TBD display path for signed-event QR response output",
+    "usb_data_transport": "No USB data transport during the stateless QR vault signing flow",
+    "session_secret_input": "TBD seed entry or session-secret input path with RAM-only custody"
+  },
+  "source_repo": "NostrSeal/raspberry",
+  "firmware_commit": "TBD-before-run",
+  "procedure": [
+    "Record exact Raspberry Pi Zero board revision, removable microSD image, camera module, ST7789 display HAT, and GPIO button wiring.",
+    "Run nseal-vault hardware-probe --out hardware-probe.json and attach the non-destructive setup report.",
+    "Prepare a companion-generated nseal1 signing request QR that includes request id and approval_digest review binding evidence.",
+    "Scan the nseal1 static request QR with the Pi camera and record scan distance, brightness, and angle notes.",
+    "Scan the nseal1 animated request QR with the Pi camera when the request exceeds the static QR limit.",
+    "Render Event, Content, Tags, and Decision trusted review pages on the local display before any approval.",
+    "Navigate the review with GPIO button actions: next, scroll, approve, and reject; record that reject is distinct from approve.",
+    "Approve only from the final Decision page after review traversal and emit the signed-event QR response on the device display.",
+    "Verify the signed-event QR response with companion verify-response against the original request id and event template.",
+    "Repeat one rejection path and confirm no signed-event QR response is emitted.",
+    "Confirm the flow uses no USB data transport, no persistent signing secret, no TROPIC01, and RAM-only session custody."
+  ],
+  "expected_result": "The Raspberry/Pi full QR flow scans nseal1 static and animated request QR frames with the Pi camera, renders complete trusted review on the SeedSigner-compatible display, navigates with physical GPIO next/scroll/approve/reject buttons, binds approval to request id and approval_digest, emits a signed-event QR response only after approval, verifies the response with companion verify-response, emits no response on reject, uses no USB data transport, and keeps RAM-only custody with no persistent secret and no TROPIC01.",
+  "observed_result": "Template: replace with command output, hardware-probe JSON, photos/log references, camera nseal1 QR scan evidence, display review evidence, GPIO next/scroll/approve/reject evidence, response QR evidence, companion verify-response output, rejection-path evidence, no USB data transport notes, and RAM-only custody notes.",
+  "result": "blocked",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "Template only; this is not a completed Raspberry QR flow hardware report.",
+    "Do not move this template into reports/ until real Pi Zero camera, display, GPIO, response QR, companion verification, and RAM-only custody evidence replaces every TBD field.",
+    "This does not claim production signing, persistent key storage, TROPIC01 use, secure boot, or production hardware security."
+  ]
+}

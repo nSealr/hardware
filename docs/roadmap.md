@@ -11,6 +11,7 @@
 - ESP32-S3 USB signer reference BOM scaffold.
 - Raspberry/Pi stateless QR vault kit BOM scaffold.
 - Raspberry/Pi stateless QR vault OS profile report template.
+- Raspberry/Pi stateless QR vault full QR-flow report template.
 - Manual hardware validation report schema.
 - Validator and tests, including review approval-digest binding.
 - Identity/policy route requirements for ESP32 USB/NIP-46, ESP32 stateless QR,
@@ -96,6 +97,15 @@ requires attaching the read-only `nseal-vault hardware-probe` output from
 `NostrSeal/raspberry`. The probe is setup evidence only; completed hardware
 reports must still separately prove QR scan/display/control behavior,
 OS-profile acceptance, and power-cycle session loss.
+
+Status note, 2026-05-11: the Raspberry/Pi stateless QR vault now also has a
+validated full QR-flow smoke-report template. Future completed reports must
+prove Pi Zero camera scanning of `nseal1` static and animated requests, local
+trusted display review, GPIO `next`/`scroll`/`approve`/`reject` behavior,
+response QR output, companion `verify-response`, request id and
+`approval_digest` binding, no USB data transport, RAM-only custody, no
+persistent secret, and no TROPIC01 before Raspberry hardware acceptance can be
+claimed.
 
 Status note, 2026-05-11: the Raspberry/Pi stateless QR vault OS profile now
 requires a `session_secret_input_policy` of `no_seed_files_or_secret_cli_args`.
