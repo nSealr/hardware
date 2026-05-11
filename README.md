@@ -37,6 +37,11 @@ outside the specs `contract_id` model.
   removable boot media, disabled or absent wireless, RAM-only session custody,
   no swap during signing, no remote access during signing, and no persistent
   signing-secret storage.
+- Account/custody target documentation for hardware acceptance: QR vault
+  hardware must not introduce persistent secret or policy storage, while
+  future ESP32 USB/custom persistent hardware must support an encrypted device
+  vault, one device-level v0 unlock ceremony, and device-reviewed
+  per-public-key policy before production signing claims.
 - Validated Raspberry/Pi OS profile smoke-report template for future hardware
   acceptance evidence.
 - First open BOM scaffolds for a reference USB signer board and a

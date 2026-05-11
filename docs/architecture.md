@@ -80,6 +80,12 @@ The USB/NIP-46 requirements pin the shared `esp32_usb_nip46` route,
 `grant-esp32-usb-kind-1-session` as future persistent-route contracts only.
 That does not clear firmware signing gates or create a PCB requirement for
 production grant storage before provisioning and security policy are accepted.
+The target persistent-device hardware model is an encrypted vault with seed
+profiles, BIP-39 passphrase namespaces, standalone key slots, per-public-key
+policy, one device-level v0 unlock ceremony, wipe/export policy, secure boot,
+flash encryption or equivalent persistent-secret protection, and debug lock.
+The current scoped-automation contract is a validator scaffold, not the final
+policy UI.
 
 The Raspberry QR vault kit requirements follow the same stateless QR contract
 without ESP32-specific secure boot or flash-encryption assumptions. They require
@@ -122,6 +128,10 @@ physical GPIO `next`/`scroll`/`approve`/`reject` controls, signed-event
 response QR output, companion `verify-response`, request id and
 `approval_digest` binding, no USB data transport, RAM-only custody, no
 persistent secret, and no TROPIC01.
+Future QR vault hardware acceptance should also prove that session key-source
+flows stay RAM-only and avoid microSD/file secret transfer. SeedSigner
+SeedQR/CompactSeedQR import is a BIP-39/NIP-06 compatibility goal, not Bitcoin
+wallet-state import.
 The top-level validator discovers committed validation inputs under `pcb/`,
 `kits/`, `bom/`, `reports/`, and `templates/` so future hardware artifacts do
 not need bespoke wiring before CI checks their schema and safety flags.
