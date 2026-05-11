@@ -4,7 +4,8 @@
 
 - ESP32-S3 USB signer requirements JSON.
 - ESP32-S3 QR signer requirements JSON for T-Display S3 Pro OV5640 devkit
-  validation.
+  validation, with Waveshare ESP32-S3 Touch LCD 3.5 tracked as the preferred
+  secondary family after exact SKU selection.
 - Raspberry/Pi stateless QR vault kit requirements JSON.
 - Raspberry/Pi stateless QR vault OS profile JSON.
 - ESP32-S3 USB signer reference BOM scaffold.

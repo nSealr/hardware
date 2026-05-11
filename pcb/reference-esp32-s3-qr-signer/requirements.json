@@ -43,7 +43,8 @@
   ],
   "notes": [
     "This is a requirements scaffold for devkit-based validation, not a routed PCB.",
-    "Primary candidate is the T-Display S3 Pro OV5640 line; T-Camera Plus S3 remains secondary evaluation hardware.",
+    "Primary candidate is the T-Display S3 Pro OV5640 line; Waveshare ESP32-S3 Touch LCD 3.5 is the preferred secondary family after exact SKU selection.",
+    "Blockstream Jade is a custom-firmware feasibility reference only; do not plan production Jade flashing until a safe development-device, DIY-compatible, or user-owned recovery path is proven.",
     "The current hardware repo still contains requirements/BOM validation only; no custom PCB design exists yet."
   ]
 }
