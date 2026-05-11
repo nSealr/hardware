@@ -211,6 +211,13 @@ it does not claim full Unicode review acceptance, physical button acceptance,
 key provisioning, secure boot, debug-lock, signed-output, or production
 signing acceptance.
 
+Status note, 2026-05-11: LILYGO T-Display S3 ESP32 revision `6886389` was
+audited with the read-only `idf-audit-security-fuses` target after sourcing
+ESP-IDF `v5.5.4`. The parsed eFuse summary reports secure boot disabled, flash
+encryption disabled, download mode enabled, manual flash-encryption download
+enabled, and JTAG/USB debug access unlocked. This records the M9 production
+hardening gap without burning eFuses or changing the board.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

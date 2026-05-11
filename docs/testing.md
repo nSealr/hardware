@@ -82,6 +82,10 @@ requirements, OS profiles, BOMs, reports, and report templates.
   ESP-IDF v5.5.4 after caret and backtick glyph coverage was added, verifies
   image hashes, passes 39 USB serial capability exchanges, passes the
   7-scenario review smoke, and preserves `signing_disabled`.
+- LILYGO T-Display S3 security eFuse audit report validation for revision
+  `6886389`, confirming the read-only ESP32-S3 eFuse summary parser reports
+  secure boot, flash encryption, download-mode, and debug-lock blockers without
+  burning or modifying eFuses.
 - LILYGO T-Display S3 review-detail-page protocol-smoke report validation for
   revision `c5f60b2`, confirming the firmware still builds and flashes after
   the ESP32 host-core consumed shared review-detail-page vectors, passes 35 USB

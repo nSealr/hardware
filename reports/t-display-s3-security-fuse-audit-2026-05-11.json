@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "report_type": "board_detection",
+  "date": "2026-05-11",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "USB/display signer security eFuse audit",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_transport": "native USB-Serial/JTAG",
+    "tested_state": "read-only ESP32-S3 eFuse summary parsed through NostrSeal/esp32 security audit script",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "NostrSeal/esp32",
+  "firmware_commit": "6886389",
+  "esp_idf_version": "v5.5.4",
+  "procedure": [
+    "Sourced /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell used for the audit.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem1101 idf-audit-security-fuses from NostrSeal/esp32 revision 6886389.",
+    "The audit target invoked only espefuse.py --chip esp32s3 --port /dev/cu.usbmodem1101 summary through scripts/audit_security_fuses.py.",
+    "Recorded the parsed JSON blockers from the read-only eFuse summary."
+  ],
+  "expected_result": "The development board should be auditable without burning eFuses, and the resulting JSON should keep irreversible production hardening gaps explicit before any signing claim.",
+  "observed_result": "The read-only audit passed. The parsed eFuse state reported secure_boot_enabled false, flash_encryption_enabled false, download_mode_disabled false, manual_flash_encryption_download_disabled false, debug_access_locked false, and development_usb_jtag_available true. The production blockers were secure_boot, flash_encryption, debug_lock, download_mode, and manual_flash_encryption_download. raw_summary_sha256 was a796f1f81a324c5af0a3905eaa8d878b81fe348a6cbe4621178afc035fee1394.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "limitations": [
+    "This report is read-only eFuse posture evidence, not a firmware protocol smoke, display test, GPIO test, camera test, QR flow test, provisioning test, or real signing test.",
+    "The audit did not enable secure boot, enable flash encryption, disable download mode, disable manual flash-encryption download, or lock JTAG/USB debug access.",
+    "The observed state is appropriate for development bring-up only and is not a production custody profile.",
+    "sign_event remains signing_disabled until every production signing gate is satisfied."
+  ]
+}
