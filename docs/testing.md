@@ -154,6 +154,11 @@ requirements, OS profiles, BOMs, reports, and report templates.
   with ESP-IDF v5.5.4 after disabled-signing log/copy alignment, verified
   image hashes, passed 39 USB serial exchanges, and preserved
   `signing_disabled`.
+- LILYGO T-Display S3 unsupported serial-frame type protocol-smoke report
+  validation for ESP32 revision `1a4b470`, confirming the firmware rebuilt and
+  reflashed with ESP-IDF v5.5.4 after consuming the shared
+  `serial-frame-unsupported-type` vector, verified image hashes, passed 40 USB
+  serial exchanges, and preserved `signing_disabled`.
 - LILYGO T-Display S3 raster-regression protocol-smoke report validation for
   revision `1dc19f5`, confirming the firmware still builds and flashes after
   moving boot/review-frame rasterization into a host-buildable module, passes

@@ -218,6 +218,15 @@ encryption disabled, download mode enabled, manual flash-encryption download
 enabled, and JTAG/USB debug access unlocked. This records the M9 production
 hardening gap without burning eFuses or changing the board.
 
+Status note, 2026-05-11: LILYGO T-Display S3 firmware revision `1a4b470` was
+rebuilt with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested after ESP32 host-core and smoke tooling consumed the shared
+`serial-frame-unsupported-type` vector. ESP-IDF verified image hashes during
+flash, and the post-flash capability smoke passed with 40 verified exchanges,
+9 response frames, and 31 expected rejection frames. This records malformed
+transport evidence for unsupported frame-type rejection only; real
+`sign_event` remains `signing_disabled`.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

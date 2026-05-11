@@ -33,7 +33,9 @@ fixtures.
 - First open BOM scaffolds for a reference USB signer board and a
   Raspberry/Pi stateless QR vault kit.
 - Machine-readable manual hardware validation reports, starting with ESP32-S3
-  board detection evidence.
+  board detection evidence and continuing through ESP32-S3 USB/display signer
+  protocol smoke evidence for disabled signing, malformed transport, review,
+  and security-fuse audit gates.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, stateless QR vault exclusion of
   TROPIC01 interfaces, QR vault envelope/review/approval requirements, BOM
