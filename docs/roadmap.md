@@ -173,6 +173,17 @@ frames. This keeps the physical board aligned with current disabled-signing
 safety copy only; it does not claim camera, QR, key provisioning, secure boot,
 debug-lock, signed-output, or production signing acceptance.
 
+Status note, 2026-05-11: LILYGO T-Display S3 firmware revision `d2387b1` was
+rebuilt with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
+smoke-tested after `unicode_review_rendering` was added to the runtime
+signing-readiness gate and shared `get_signing_status` contract. ESP-IDF
+verified image hashes during flash, and the post-flash capability smoke passed
+with 39 verified exchanges, 9 response frames, and 30 expected rejection
+frames. This proves the disabled-signing diagnostic still runs on the attached
+board; it does not claim production Unicode review acceptance, key
+provisioning, secure boot, debug-lock, signed-output, or production signing
+acceptance.
+
 ## M14: Reference Designs
 
 - Wiring diagrams.

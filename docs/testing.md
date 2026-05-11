@@ -121,6 +121,10 @@ bytecode compilation, and validation of the reference requirements and BOM.
   reflashed, passed the 39-exchange capability smoke, passed the 7-scenario
   review smoke, and returned request-matched `signing_disabled` for a
   companion-generated `sign_event`.
+- LILYGO T-Display S3 Unicode signing-gate protocol-smoke report validation
+  for ESP32 revision `d2387b1`, confirming the firmware rebuilds, flashes, and
+  exposes `unicode_review_rendering` as a missing signing-readiness gate while
+  preserving `signing_disabled`.
 - LILYGO T-Display S3 direct companion serial-line protocol-smoke report
   validation for ESP32 revision `0dda7d6`, companion revision `b399ad0`, and
   lab smoke-tool revision `a00af12`, confirming the direct `nseal serial-line
