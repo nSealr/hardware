@@ -6,6 +6,12 @@ This repository should contain buildable, inspectable, and modifiable hardware
 artifacts: devkit wiring, PCB design files, BOMs, enclosures, and provisioning
 fixtures.
 
+Feature targets and current status are defined in `NostrSeal/specs`
+`vectors/features/signer-feature-matrix-v0.json`. This repository provides the
+hardware artifacts needed by those families; it must not turn hardware
+requirements into separate signer families or change shared feature behavior
+outside the specs `contract_id` model.
+
 ## Planned Outputs
 
 - ESP32-S3 reference build wiring diagrams.

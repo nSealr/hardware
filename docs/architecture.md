@@ -14,6 +14,12 @@
 
 PCB work must follow proven firmware and UX requirements, not precede them.
 
+Per-family feature target and current status live in `NostrSeal/specs`
+`vectors/features/signer-feature-matrix-v0.json`. Hardware requirements can
+state which boards, displays, cameras, controls, and provisioning paths are
+needed to satisfy those targets, but they must not create new feature behavior
+or new signer-family taxonomy outside that shared contract.
+
 ## Implemented Foundation
 
 - `pcb/reference-esp32-s3-signer/requirements.json`: checked requirements for
