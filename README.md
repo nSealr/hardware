@@ -43,10 +43,11 @@ fixtures.
   and security-fuse audit gates.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, stateless QR vault exclusion of
-  TROPIC01 interfaces, QR vault envelope/review/approval requirements, BOM
-  headers, BOM categories, duplicate designators, manual hardware report safety
-  flags, and directory-driven validation discovery for requirements, OS
-  profiles, BOMs, reports, and report templates.
+  TROPIC01 interfaces, QR vault envelope/review/approval requirements,
+  identity/policy route requirements, BOM headers, BOM categories, duplicate
+  designators, manual hardware report safety flags, and directory-driven
+  validation discovery for requirements, OS profiles, BOMs, reports, and
+  report templates.
 
 The current files are requirements and BOM scaffolding, not routed PCB files.
 

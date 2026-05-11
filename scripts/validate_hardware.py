@@ -67,6 +67,27 @@ REQUIRED_QR_KEYWORDS = {
     "trusted review",
 }
 
+REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
+    "esp32_s3_usb_signer": (
+        "nseal-account-descriptor-v0",
+        "esp32_usb_nip46",
+        "policy-scoped-automation-daily-use",
+        "grant-esp32-usb-kind-1-session",
+    ),
+    "esp32_s3_qr_signer": (
+        "nseal-account-descriptor-v0",
+        "esp32_qr_vault",
+        "policy-manual-only-qr-vault",
+        "persistent_grants: false",
+    ),
+    "raspberry_qr_vault": (
+        "nseal-account-descriptor-v0",
+        "raspberry_qr_vault",
+        "policy-manual-only-qr-vault",
+        "persistent_grants: false",
+    ),
+}
+
 STATELESS_QR_DEVICE_CLASSES = {
     "esp32_s3_qr_signer",
     "raspberry_qr_vault",
@@ -206,6 +227,7 @@ def validate_requirements(path: Path) -> None:
     missing_review_keywords = sorted(keyword for keyword in REQUIRED_REVIEW_KEYWORDS if keyword not in review_text)
     if missing_review_keywords:
         raise ValueError(f"{path}: review_requirements must mention {', '.join(missing_review_keywords)}")
+    validate_identity_policy_requirements(value, path, device_class)
     if device_class in STATELESS_QR_DEVICE_CLASSES:
         security_text = "\n".join(value["security_requirements"])
         if "Wireless must be disabled" not in security_text:
@@ -226,6 +248,21 @@ def validate_requirements(path: Path) -> None:
             raise ValueError(f"{path}: qr_requirements must mention {', '.join(missing_qr_keywords)}")
     if device_class == "raspberry_qr_vault":
         validate_seed_signer_compatibility_profile(value, path)
+
+
+def validate_identity_policy_requirements(value: dict, path: Path, device_class: str) -> None:
+    items = value.get("identity_policy_requirements")
+    if not isinstance(items, list) or not items:
+        raise ValueError(f"{path}: identity_policy_requirements must be a non-empty list")
+    if not all(isinstance(item, str) and item for item in items):
+        raise ValueError(f"{path}: identity_policy_requirements must contain non-empty strings")
+
+    text = "\n".join(items).lower()
+    for keyword in REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS[device_class]:
+        if keyword not in text:
+            raise ValueError(f"{path}: identity_policy_requirements must mention {keyword}")
+    if device_class in STATELESS_QR_DEVICE_CLASSES and "persistent_grants: true" in text:
+        raise ValueError(f"{path}: stateless QR vault identity_policy_requirements must require persistent_grants: false")
 
 
 def validate_seed_signer_compatibility_profile(value: dict, path: Path) -> None:

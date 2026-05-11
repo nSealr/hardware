@@ -13,6 +13,9 @@ requirements, OS profiles, BOMs, reports, and report templates.
 ## Implemented Tests
 
 - Reference requirements validation.
+- Identity/policy requirement validation for ESP32 USB/NIP-46, ESP32 stateless
+  QR, and Raspberry/Pi stateless QR requirement sets, including rejection of
+  stateless QR `persistent_grants: true` claims.
 - ESP32-S3 QR signer requirements validation.
 - Raspberry/Pi stateless QR vault kit requirements validation.
 - Raspberry/Pi stateless QR vault SeedSigner-compatible hardware profile

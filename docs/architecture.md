@@ -59,12 +59,26 @@ They also require explicit QR contract text for the shared `nseal1` envelope,
 trusted review, and physical approval. They explicitly exclude persistent
 signing secrets and TROPIC01 interfaces. They are not a custom PCB, schematic,
 or manufacturing package.
+They also pin the shared `nseal-account-descriptor-v0` route
+`esp32_qr_vault`, `policy-manual-only-qr-vault`, and
+`persistent_grants: false` so QR hardware work cannot drift into grant storage
+or policy automation.
+
+The USB/NIP-46 requirements pin the shared `esp32_usb_nip46` route,
+`policy-scoped-automation-daily-use`, and
+`grant-esp32-usb-kind-1-session` as future persistent-route contracts only.
+That does not clear firmware signing gates or create a PCB requirement for
+production grant storage before provisioning and security policy are accepted.
 
 The Raspberry QR vault kit requirements follow the same stateless QR contract
 without ESP32-specific secure boot or flash-encryption assumptions. They require
 camera input, a trusted local display, tactile physical approval/rejection,
 response QR output, disabled wireless, and removable boot-media discipline
 before any Pi build can be treated as more than a desktop harness.
+They pin the shared `nseal-account-descriptor-v0` route
+`raspberry_qr_vault`, `policy-manual-only-qr-vault`, and
+`persistent_grants: false` so the Pi kit cannot grow persistent grants,
+TROPIC01, or policy automation by hardware drift.
 The checked compatibility profile centers the kit on the SeedSigner-style
 Raspberry Pi Zero stack: Pi Zero-class board, Pi/ZeroCam OV5647 camera,
 Waveshare-compatible ST7789 240x240 SPI display HAT, GPIO joystick/buttons,

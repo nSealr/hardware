@@ -13,6 +13,8 @@
 - Raspberry/Pi stateless QR vault OS profile report template.
 - Manual hardware validation report schema.
 - Validator and tests, including review approval-digest binding.
+- Identity/policy route requirements for ESP32 USB/NIP-46, ESP32 stateless QR,
+  and Raspberry/Pi stateless QR requirement sets.
 
 Status: implemented as the first open hardware foundation. This remains
 requirements/BOM/report validation only; no custom PCB, schematic, or
@@ -38,6 +40,14 @@ validate the `qr_requirements` contract explicitly. Requirements files must
 retain the shared `nseal1` envelope, trusted review, and physical approval
 terms before later devkit wiring, camera/display testing, or PCB work can claim
 QR signer coverage.
+
+Status note, 2026-05-11: requirements validation now also checks
+`identity_policy_requirements`. ESP32 and Raspberry stateless QR requirements
+must reference `nseal-account-descriptor-v0`, their route type, the manual-only
+QR policy, and `persistent_grants: false`; the ESP32 USB/NIP-46 requirement set
+must reference `esp32_usb_nip46`,
+`policy-scoped-automation-daily-use`, and
+`grant-esp32-usb-kind-1-session` as future contracts only.
 
 Status note, 2026-05-10: Raspberry/Pi stateless QR vault kit requirements are
 now validated separately from ESP32 requirements. They require camera, trusted

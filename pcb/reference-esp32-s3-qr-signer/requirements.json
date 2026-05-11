@@ -41,6 +41,11 @@
     "Render signed-event QR output only after trusted review and physical approval.",
     "Test scanning at multiple brightness, angle, and distance conditions."
   ],
+  "identity_policy_requirements": [
+    "Reference the shared nseal-account-descriptor-v0 route esp32_qr_vault.",
+    "Use policy-manual-only-qr-vault for every stateless QR signing session.",
+    "Require persistent_grants: false; no grant store or policy automation belongs to the stateless ESP32 QR vault."
+  ],
   "notes": [
     "This is a requirements scaffold for devkit-based validation, not a routed PCB.",
     "Primary candidate is the T-Display S3 Pro OV5640 line; Waveshare ESP32-S3 Touch LCD 3.5 case-plus-OV5640 variants are the preferred secondary family after choosing 3.5-C versus 3.5B-C.",

@@ -32,6 +32,45 @@ class HardwareValidationTests(unittest.TestCase):
     def test_reference_raspberry_qr_vault_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
 
+    def test_reference_usb_signer_requirements_reference_identity_policy_contracts(self) -> None:
+        value = json.loads((ROOT / "pcb/reference-esp32-s3-signer/requirements.json").read_text(encoding="utf-8"))
+        text = "\n".join(value["identity_policy_requirements"])
+
+        self.assertIn("nseal-account-descriptor-v0", text)
+        self.assertIn("esp32_usb_nip46", text)
+        self.assertIn("policy-scoped-automation-daily-use", text)
+        self.assertIn("grant-esp32-usb-kind-1-session", text)
+
+    def test_qr_requirements_reject_missing_identity_policy_contract_terms(self) -> None:
+        original = json.loads(
+            (ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json").read_text(encoding="utf-8")
+        )
+        original.pop("identity_policy_requirements", None)
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "identity_policy_requirements"):
+                validate_requirements(path)
+
+    def test_qr_requirements_reject_persistent_grant_claims(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
+        )
+        original["identity_policy_requirements"] = [
+            "Use nseal-account-descriptor-v0 route raspberry_qr_vault.",
+            "Use policy-manual-only-qr-vault.",
+            "Allow persistent_grants: true for convenience.",
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "persistent_grants: false"):
+                validate_requirements(path)
+
     def test_raspberry_qr_requirements_require_seedsigner_compatibility_profile(self) -> None:
         original = json.loads(
             (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
