@@ -55,6 +55,46 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn("reference-esp32-s3-signer.csv", validated_boms)
         self.assertIn("reference-raspberry-qr-vault-kit.csv", validated_boms)
 
+    def test_main_validator_discovers_repository_validation_files(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_root:
+            root = Path(temp_root)
+            paths = [
+                root / "pcb/custom-usb/requirements.json",
+                root / "kits/custom-raspberry/requirements.json",
+                root / "kits/custom-raspberry/os-profile.json",
+                root / "bom/custom.csv",
+                root / "reports/custom-report.json",
+                root / "templates/custom-template.json",
+            ]
+            for path in paths:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("{}", encoding="utf-8")
+
+            validated_requirements: list[Path] = []
+            validated_profiles: list[Path] = []
+            validated_boms: list[Path] = []
+            validated_reports: list[Path] = []
+
+            with (
+                patch.object(validate_hardware, "ROOT", root),
+                patch.object(validate_hardware, "validate_requirements", side_effect=validated_requirements.append),
+                patch.object(validate_hardware, "validate_raspberry_os_profile", side_effect=validated_profiles.append),
+                patch.object(validate_hardware, "validate_bom", side_effect=validated_boms.append),
+                patch.object(validate_hardware, "validate_manual_report", side_effect=validated_reports.append),
+            ):
+                validate_hardware.main()
+
+            self.assertEqual(
+                [root / "kits/custom-raspberry/requirements.json", root / "pcb/custom-usb/requirements.json"],
+                validated_requirements,
+            )
+            self.assertEqual([root / "kits/custom-raspberry/os-profile.json"], validated_profiles)
+            self.assertEqual([root / "bom/custom.csv"], validated_boms)
+            self.assertEqual(
+                [root / "reports/custom-report.json", root / "templates/custom-template.json"],
+                validated_reports,
+            )
+
     def test_reference_manual_hardware_report_is_valid(self) -> None:
         validate_manual_report(REFERENCE_REPORT)
 

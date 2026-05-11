@@ -7,7 +7,8 @@ make ci
 ```
 
 The baseline runs repository verification, unit tests for hardware validators,
-bytecode compilation, and validation of the reference requirements and BOM.
+bytecode compilation, and directory-driven validation of committed
+requirements, OS profiles, BOMs, reports, and report templates.
 
 ## Implemented Tests
 
@@ -16,6 +17,8 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Raspberry/Pi stateless QR vault kit requirements validation.
 - Raspberry/Pi stateless QR vault OS profile validation.
 - Raspberry/Pi stateless QR vault OS profile smoke-report template validation.
+- Directory-driven discovery for committed requirements, Raspberry OS profiles,
+  BOMs, reports, and report templates.
 - Raspberry/Pi stateless QR vault seed-entry policy validation, requiring
   acceptance evidence that session-secret input does not use seed files,
   command-line secret arguments, shell history, or persistent storage.

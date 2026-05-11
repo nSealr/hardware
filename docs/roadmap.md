@@ -71,6 +71,13 @@ does not depend on seed files, command-line secret arguments, shell history, or
 persistent storage. This aligns hardware acceptance with the stateless
 Raspberry CLI stdin harness while keeping real Pi seed-entry UX pending.
 
+Status note, 2026-05-11: the hardware validator now discovers committed
+requirements, Raspberry OS profiles, BOMs, manual reports, and report templates
+from repository directories instead of relying on a fixed list of reference
+paths. This keeps future hardware evidence under CI automatically while still
+leaving custom PCB design, manufacturing files, and production signing release
+gates out of scope.
+
 Status note, 2026-05-09: ESP32-S3 DevKitC-1 firmware revision `61b51df` was
 built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
 smoke-tested with 33 verified USB serial exchanges. The current scaffold still

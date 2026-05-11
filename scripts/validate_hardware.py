@@ -318,6 +318,25 @@ def _mentions_signing_disabled(value: dict) -> bool:
     return "signing_disabled" in text or "signing disabled" in text
 
 
+def _discover_validation_files() -> dict[str, list[Path]]:
+    return {
+        "requirements": sorted(
+            [
+                *ROOT.glob("kits/*/requirements.json"),
+                *ROOT.glob("pcb/*/requirements.json"),
+            ]
+        ),
+        "raspberry_os_profiles": sorted(ROOT.glob("kits/*/os-profile.json")),
+        "boms": sorted((ROOT / "bom").glob("*.csv")),
+        "manual_reports": sorted(
+            [
+                *(ROOT / "reports").glob("*.json"),
+                *(ROOT / "templates").glob("*.json"),
+            ]
+        ),
+    }
+
+
 def validate_manual_report(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
     missing = sorted(REQUIRED_MANUAL_REPORT_FIELDS - set(value))
@@ -365,13 +384,14 @@ def validate_manual_report(path: Path) -> None:
 
 
 def main() -> int:
-    validate_requirements(ROOT / "pcb/reference-esp32-s3-signer/requirements.json")
-    validate_requirements(ROOT / "pcb/reference-esp32-s3-qr-signer/requirements.json")
-    validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
-    validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")
-    validate_bom(ROOT / "bom/reference-esp32-s3-signer.csv")
-    validate_bom(ROOT / "bom/reference-raspberry-qr-vault-kit.csv")
-    for report_path in sorted((ROOT / "reports").glob("*.json")):
+    validation_files = _discover_validation_files()
+    for requirements_path in validation_files["requirements"]:
+        validate_requirements(requirements_path)
+    for profile_path in validation_files["raspberry_os_profiles"]:
+        validate_raspberry_os_profile(profile_path)
+    for bom_path in validation_files["boms"]:
+        validate_bom(bom_path)
+    for report_path in validation_files["manual_reports"]:
         validate_manual_report(report_path)
     print("NostrSeal hardware validation passed")
     return 0

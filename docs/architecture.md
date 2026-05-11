@@ -40,7 +40,9 @@ PCB work must follow proven firmware and UX requirements, not precede them.
   report template for future Raspberry OS profile acceptance evidence.
 - `reports/esp32-s3-devkitc-1-detection-2026-05-08.json`: first manual
   hardware validation report, recording ESP32-S3 board detection only.
-- `scripts/validate_hardware.py`: validation for requirements and BOM quality.
+- `scripts/validate_hardware.py`: directory-driven validation for
+  requirements, Raspberry OS profiles, BOM quality, manual reports, and report
+  templates.
 
 The USB/NIP-46 reference requirements keep TROPIC01 out of the MVP and leave
 persistent-secret secure-element research to the custom hardware-wallet family.
@@ -77,3 +79,6 @@ persistent secrets or TROPIC01 usage.
 Raspberry OS profile smoke reports additionally need explicit evidence terms
 for removable boot media, wireless state, swap state, remote access, RAM-only
 custody, persistent-secret absence, and power-cycle session loss.
+The top-level validator discovers committed validation inputs under `pcb/`,
+`kits/`, `bom/`, `reports/`, and `templates/` so future hardware artifacts do
+not need bespoke wiring before CI checks their schema and safety flags.
