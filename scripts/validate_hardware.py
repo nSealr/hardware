@@ -132,6 +132,7 @@ REQUIRED_RASPBERRY_OS_EVIDENCE_KEYWORDS = {
     "swap": ("swap",),
     "remote_access": ("ssh", "remote"),
     "persistent_secret_storage": ("persistent signing secret", "persistent secret"),
+    "seed_entry": ("seed entry", "session-secret input", "session secret input"),
     "power_cycle": ("power-cycle", "power cycle"),
 }
 
@@ -142,6 +143,7 @@ REQUIRED_RASPBERRY_OS_REPORT_KEYWORDS = {
     "remote_access": ("ssh", "remote"),
     "ram_only": ("ram-only", "ram only"),
     "persistent_secret_storage": ("persistent signing secret", "persistent secret"),
+    "seed_entry": ("seed entry", "session-secret input", "session secret input"),
     "power_cycle": ("power-cycle", "power cycle"),
 }
 
@@ -248,6 +250,8 @@ def validate_raspberry_os_profile(path: Path) -> None:
         raise ValueError(f"{path}: network_policy must be wireless_disabled_or_absent")
     if value.get("session_secret_policy") != "ram_only":
         raise ValueError(f"{path}: session_secret_policy must be ram_only")
+    if value.get("session_secret_input_policy") != "no_seed_files_or_secret_cli_args":
+        raise ValueError(f"{path}: session_secret_input_policy must be no_seed_files_or_secret_cli_args")
     if value.get("persistent_secret_storage_allowed") is not False:
         raise ValueError(f"{path}: persistent_secret_storage_allowed must be false")
     if value.get("swap_enabled_during_signing") is not False:

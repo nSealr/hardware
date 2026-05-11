@@ -243,6 +243,34 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "persistent_secret_storage"):
                 validate_raspberry_os_profile(path)
 
+    def test_raspberry_os_profile_requires_seed_entry_policy(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/os-profile.json").read_text(encoding="utf-8")
+        )
+        original.pop("session_secret_input_policy", None)
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "os-profile.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "session_secret_input_policy"):
+                validate_raspberry_os_profile(path)
+
+    def test_raspberry_os_profile_requires_seed_entry_evidence(self) -> None:
+        original = json.loads(
+            (ROOT / "kits/reference-raspberry-qr-vault/os-profile.json").read_text(encoding="utf-8")
+        )
+        original["acceptance_evidence"] = [
+            item for item in original["acceptance_evidence"] if "seed" not in item.lower()
+        ]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "os-profile.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "seed_entry"):
+                validate_raspberry_os_profile(path)
+
     def test_manual_report_rejects_missing_production_signing_flag(self) -> None:
         original = load_reference_report()
         del original["production_signing_enabled"]

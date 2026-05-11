@@ -5,6 +5,7 @@
   "boot_media": "removable_microSD",
   "network_policy": "wireless_disabled_or_absent",
   "session_secret_policy": "ram_only",
+  "session_secret_input_policy": "no_seed_files_or_secret_cli_args",
   "persistent_secret_storage_allowed": false,
   "swap_enabled_during_signing": false,
   "remote_access_enabled_during_signing": false,
@@ -25,6 +26,7 @@
     "Record rfkill or equivalent evidence that Wi-Fi and Bluetooth are blocked before signing.",
     "Record swap status proving no swap is active during signing sessions.",
     "Record that SSH and remote login are disabled before signing sessions.",
+    "Record seed entry or session-secret input evidence showing no seed file, command-line secret argument, shell history entry, or persistent secret remains after signing.",
     "Record that no persistent signing secret exists on boot media or attached storage after shutdown.",
     "Record a power-cycle test showing an unfinished signing session is lost."
   ],

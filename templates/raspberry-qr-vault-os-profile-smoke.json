@@ -9,6 +9,7 @@
     "candidate_role": "Raspberry/Pi stateless QR vault OS profile acceptance",
     "boot_media": "removable microSD",
     "wireless_state": "TBD absent, physically disabled, or OS-disabled Wi-Fi/Bluetooth evidence",
+    "session_secret_input": "TBD seed entry or session-secret input path with no seed file or command-line secret argument",
     "display": "TBD trusted local display",
     "camera": "TBD QR request camera",
     "physical_controls": "TBD tactile approve/reject/navigation controls"
@@ -20,11 +21,12 @@
     "Before signing, record wireless state with rfkill or equivalent evidence that Wi-Fi and Bluetooth are blocked or absent.",
     "Before signing, record swap status evidence proving no swap is active.",
     "Before signing, record that SSH and remote login are disabled so there is no remote access during signing.",
+    "Before signing, record seed entry or session-secret input evidence proving no seed file, command-line secret argument, shell history entry, or persistent secret is used for the acceptance flow.",
     "Run a RAM-only signing session and record that no persistent signing secret exists on boot media or attached storage after shutdown.",
     "Start a signing session, power-cycle before completion, and record that the unfinished signing session is lost."
   ],
-  "expected_result": "The Raspberry/Pi OS profile evidence shows removable microSD boot media, disabled or absent Wi-Fi/Bluetooth wireless, no swap, no SSH or remote access during signing, RAM-only key custody, no persistent signing secret storage, and power-cycle loss of unfinished sessions.",
-  "observed_result": "Template: replace with command output, photos/log references, and notes showing removable microSD boot, wireless disabled or absent, no swap, no remote access, RAM-only custody, no persistent signing secret, and power-cycle session loss.",
+  "expected_result": "The Raspberry/Pi OS profile evidence shows removable microSD boot media, disabled or absent Wi-Fi/Bluetooth wireless, no swap, no SSH or remote access during signing, RAM-only key custody, seed entry or session-secret input without seed files or command-line secret arguments, no persistent signing secret storage, and power-cycle loss of unfinished sessions.",
+  "observed_result": "Template: replace with command output, photos/log references, and notes showing removable microSD boot, wireless disabled or absent, no swap, no remote access, RAM-only custody, seed entry or session-secret input without seed files or command-line secret arguments, no persistent signing secret, and power-cycle session loss.",
   "result": "blocked",
   "production_signing_enabled": false,
   "persistent_secret_present": false,

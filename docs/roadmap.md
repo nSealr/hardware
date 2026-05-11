@@ -64,6 +64,13 @@ evidence terms for removable boot media, wireless state, swap state, remote
 access, RAM-only custody, persistent-secret absence, and power-cycle session
 loss before Raspberry image acceptance can be claimed.
 
+Status note, 2026-05-11: the Raspberry/Pi stateless QR vault OS profile now
+requires a `session_secret_input_policy` of `no_seed_files_or_secret_cli_args`.
+Future acceptance evidence must show that seed entry or session-secret input
+does not depend on seed files, command-line secret arguments, shell history, or
+persistent storage. This aligns hardware acceptance with the stateless
+Raspberry CLI stdin harness while keeping real Pi seed-entry UX pending.
+
 Status note, 2026-05-09: ESP32-S3 DevKitC-1 firmware revision `61b51df` was
 built with ESP-IDF `v5.5.4`, flashed on `/dev/cu.usbmodem1101`, and
 smoke-tested with 33 verified USB serial exchanges. The current scaffold still

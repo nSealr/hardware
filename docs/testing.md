@@ -16,6 +16,9 @@ bytecode compilation, and validation of the reference requirements and BOM.
 - Raspberry/Pi stateless QR vault kit requirements validation.
 - Raspberry/Pi stateless QR vault OS profile validation.
 - Raspberry/Pi stateless QR vault OS profile smoke-report template validation.
+- Raspberry/Pi stateless QR vault seed-entry policy validation, requiring
+  acceptance evidence that session-secret input does not use seed files,
+  command-line secret arguments, shell history, or persistent storage.
 - Reference USB signer BOM validation.
 - Raspberry/Pi stateless QR vault kit BOM validation.
 - Manual hardware report validation.
