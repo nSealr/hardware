@@ -62,26 +62,26 @@ REQUIRED_REVIEW_KEYWORDS = {
 }
 
 REQUIRED_QR_KEYWORDS = {
-    "nseal1",
+    "nsealr1",
     "physical approval",
     "trusted review",
 }
 
 REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
     "esp32_s3_usb_signer": (
-        "nseal-account-descriptor-v0",
+        "nsealr-account-descriptor-v0",
         "esp32_usb_nip46",
         "policy-scoped-automation-daily-use",
         "grant-esp32-usb-kind-1-session",
     ),
     "esp32_s3_qr_signer": (
-        "nseal-account-descriptor-v0",
+        "nsealr-account-descriptor-v0",
         "esp32_qr_vault",
         "policy-manual-only-qr-vault",
         "persistent_grants: false",
     ),
     "raspberry_qr_vault": (
-        "nseal-account-descriptor-v0",
+        "nsealr-account-descriptor-v0",
         "raspberry_qr_vault",
         "policy-manual-only-qr-vault",
         "persistent_grants: false",
@@ -170,7 +170,7 @@ REQUIRED_RASPBERRY_OS_REPORT_KEYWORDS = {
 
 REQUIRED_RASPBERRY_QR_FLOW_REPORT_KEYWORDS = {
     "board": ("pi zero",),
-    "camera_scan": ("camera", "nseal1", "qr"),
+    "camera_scan": ("camera", "nsealr1", "qr"),
     "trusted_display_review": ("display", "review"),
     "physical_controls": ("gpio", "button", "approve", "reject", "next", "scroll"),
     "response_qr": ("response qr", "signed-event qr"),
@@ -545,7 +545,7 @@ def main() -> int:
         validate_bom(bom_path)
     for report_path in validation_files["manual_reports"]:
         validate_manual_report(report_path)
-    print("NostrSeal hardware validation passed")
+    print("nSealr hardware validation passed")
     return 0
 
 

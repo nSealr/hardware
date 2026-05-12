@@ -49,11 +49,11 @@
     },
     "os_targets": [
       "SeedSigner OS pi0/pi02w Buildroot profile reference",
-      "NostrSeal stateless QR vault OS profile with removable microSD boot media, no swap, no remote access, and wireless disabled or absent"
+      "nSealr stateless QR vault OS profile with removable microSD boot media, no swap, no remote access, and wireless disabled or absent"
     ],
     "acceptance_targets": [
-      "Boot and run the NostrSeal Raspberry QR vault on the user-provided Pi Zero hardware",
-      "Scan shared nseal1 static and animated QR requests through the Pi camera path",
+      "Boot and run the nSealr Raspberry QR vault on the user-provided Pi Zero hardware",
+      "Scan shared nsealr1 static and animated QR requests through the Pi camera path",
       "Render complete Nostr event review detail pages on the SeedSigner-compatible display before physical approval",
       "Navigate Event, Content, Tags, and Decision pages with SeedSigner-compatible GPIO controls",
       "Display signed-event QR output without using USB data transport for the stateless vault flow"
@@ -89,13 +89,13 @@
     "Require camera/display/GPIO acceptance tests before a Raspberry hardware build is treated as more than a desktop harness."
   ],
   "qr_requirements": [
-    "Decode the shared nseal1 QR envelope from NostrSeal/specs.",
+    "Decode the shared nsealr1 QR envelope from nSealr/specs.",
     "Reject malformed static and animated QR input before trusted review.",
     "Render signed-event QR output only after trusted review and physical approval.",
     "Test scanning at multiple brightness, angle, distance, and display-size conditions."
   ],
   "identity_policy_requirements": [
-    "Reference the shared nseal-account-descriptor-v0 route raspberry_qr_vault.",
+    "Reference the shared nsealr-account-descriptor-v0 route raspberry_qr_vault.",
     "Use policy-manual-only-qr-vault for every stateless QR signing session.",
     "Require persistent_grants: false; no grant store or policy automation belongs to the stateless Raspberry QR vault."
   ],

@@ -27,7 +27,7 @@
     "Reject signing when the displayed approval_digest does not match the pending request review."
   ],
   "identity_policy_requirements": [
-    "Reference the shared nseal-account-descriptor-v0 route esp32_usb_nip46 for future persistent device-slot custody.",
+    "Reference the shared nsealr-account-descriptor-v0 route esp32_usb_nip46 for future persistent device-slot custody.",
     "Reference policy-scoped-automation-daily-use only after firmware, provisioning, storage, review, and signed-output gates are accepted.",
     "Treat grant-esp32-usb-kind-1-session as a test contract, not as enabled production persistent grants."
   ],

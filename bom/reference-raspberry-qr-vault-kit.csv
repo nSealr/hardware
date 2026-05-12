@@ -1,7 +1,7 @@
 designator,category,description,required,notes
 SBC1,mcu,Raspberry Pi Zero 1.3 preferred; Pi Zero W or Pi Zero 2 W development variants,true,High-assurance builds must use wireless-free hardware or disable/mitigate wireless before signing.
 SD1,storage,Removable microSD boot media,true,No persistent signing secret may be stored on boot media.
-CAM1,camera,Pi Zero-compatible OV5647/ZeroCam-style CSI camera,true,Used only for offline NostrSeal request QR capture.
+CAM1,camera,Pi Zero-compatible OV5647/ZeroCam-style CSI camera,true,Used only for offline nSealr request QR capture.
 DS1,display,Waveshare 1.3 inch LCD HAT or SeedSigner-compatible ST7789 240x240 SPI display,true,Must show raw kind created_at author content tags request id and approval_digest.
 SW1,input,SeedSigner-compatible physical approve control from HAT GPIO buttons,true,Must be tactile and distinct from reject.
 SW2,input,SeedSigner-compatible physical reject control from HAT GPIO buttons,true,Must be tactile and distinct from approve.

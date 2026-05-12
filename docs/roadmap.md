@@ -27,7 +27,7 @@ protocol-smoke report records dynamic serial request-id handling against the
 same flashed firmware and includes invalid metadata rejection evidence. Later
 ESP32-S3 DevKitC-1 protocol-smoke reports rebuild and reflash the firmware,
 then verify that serial-wrapped invalid signing-request vectors from
-`NostrSeal/specs` are rejected with deterministic `unsupported_request` frames
+`nSealr/specs` are rejected with deterministic `unsupported_request` frames
 while runtime signing remains disabled. The latest report covers revision
 `dfdeec9` after the serial `sign_event` trusted-review boundary was compiled
 into host-core. It confirms the USB serial scaffold still builds, flashes,
@@ -38,7 +38,7 @@ signing acceptance.
 
 Status note, 2026-05-09: ESP32 stateless QR vault hardware requirements now
 validate the `qr_requirements` contract explicitly. Requirements files must
-retain the shared `nseal1` envelope, trusted review, and physical approval
+retain the shared `nsealr1` envelope, trusted review, and physical approval
 terms before later devkit wiring, camera/display testing, or PCB work can claim
 QR signer coverage.
 
@@ -49,7 +49,7 @@ and OV5640 camera; stale `3.5-C` secondary-target drift is rejected.
 
 Status note, 2026-05-11: requirements validation now also checks
 `identity_policy_requirements`. ESP32 and Raspberry stateless QR requirements
-must reference `nseal-account-descriptor-v0`, their route type, the manual-only
+must reference `nsealr-account-descriptor-v0`, their route type, the manual-only
 QR policy, and `persistent_grants: false`; the ESP32 USB/NIP-46 requirement set
 must reference `esp32_usb_nip46`,
 `policy-scoped-automation-daily-use`, and
@@ -98,14 +98,14 @@ access, RAM-only custody, persistent-secret absence, and power-cycle session
 loss before Raspberry image acceptance can be claimed.
 
 Status note, 2026-05-11: the Raspberry/Pi OS profile smoke-report template now
-requires attaching the read-only `nseal-vault hardware-probe` output from
-`NostrSeal/raspberry`. The probe is setup evidence only; completed hardware
+requires attaching the read-only `nsealr-vault hardware-probe` output from
+`nSealr/raspberry`. The probe is setup evidence only; completed hardware
 reports must still separately prove QR scan/display/control behavior,
 OS-profile acceptance, and power-cycle session loss.
 
 Status note, 2026-05-11: the Raspberry/Pi stateless QR vault now also has a
 validated full QR-flow smoke-report template. Future completed reports must
-prove Pi Zero camera scanning of `nseal1` static and animated requests, local
+prove Pi Zero camera scanning of `nsealr1` static and animated requests, local
 trusted display review, GPIO `next`/`scroll`/`approve`/`reject` behavior,
 response QR output, companion `verify-response`, request id and
 `approval_digest` binding, no USB data transport, RAM-only custody, no
@@ -141,7 +141,7 @@ it preserves the `signing_disabled` USB contract and does not claim production
 trusted-display or real-signing acceptance.
 
 Status note, 2026-05-10: LILYGO T-Display S3 review-scenario smoke used
-`NostrSeal/esp32` smoke-tool revision `af88ee5` against the existing flashed
+`nSealr/esp32` smoke-tool revision `af88ee5` against the existing flashed
 firmware image on `/dev/cu.usbmodem1101`. It verified 6 non-interactive review
 scenarios and 7 USB serial exchanges covering basic, tagged, long-content,
 scroll-window, Unicode fallback, and request-error inputs. Valid `sign_event`
@@ -156,7 +156,7 @@ with 8 scenarios, 9 verified serial exchanges, 8 `signing_disabled` response
 frames, and 1 expected `unsupported_request` rejection frame.
 
 Status note, 2026-05-10: LILYGO T-Display S3 dense-tags review-scenario smoke
-used `NostrSeal/esp32` smoke-tool revision `daeea6d` against the existing
+used `nSealr/esp32` smoke-tool revision `daeea6d` against the existing
 flashed firmware image `5280fab` on `/dev/cu.usbmodem1101`. It verified the
 expanded 7-scenario review smoke with 8 USB serial exchanges, adding a
 dense-tags valid `sign_event` request while preserving `signing_disabled` for
@@ -170,7 +170,7 @@ code. This preserved the `signing_disabled` USB contract and did not add a
 production trusted-display or real-signing claim.
 
 Status note, 2026-05-10: LILYGO T-Display S3 malformed serial transport smoke
-used `NostrSeal/esp32` smoke-tool revision `f1d29d4` against the existing
+used `nSealr/esp32` smoke-tool revision `f1d29d4` against the existing
 flashed firmware image `5280fab` on `/dev/cu.usbmodem1101`. It verified the
 expanded 38-exchange USB serial smoke, including checksum-mismatch,
 malformed-base64url-payload, and overlong-frame transport vectors. Valid
@@ -186,14 +186,14 @@ passed, confirming the overlong transport smoke leaves the serial reader ready
 for fresh review requests. Real signing remains disabled.
 
 Status note, 2026-05-10: LILYGO T-Display S3 overlong recovery smoke used
-`NostrSeal/esp32` smoke-tool revision `f13c591` against the existing flashed
+`nSealr/esp32` smoke-tool revision `f13c591` against the existing flashed
 firmware image `628bd7f` on `/dev/cu.usbmodem1101`. It verified the expanded
 39-exchange capability smoke, including a valid `post-overlong-recovery`
 capability request immediately after the overlong-frame rejection. The board
 accepted the fresh request, and real signing remains disabled.
 
 Status note, 2026-05-10: LILYGO T-Display S3 companion serial smoke used
-`NostrSeal/lab` smoke-tool revision `60f4200` and `NostrSeal/companion`
+`nSealr/lab` smoke-tool revision `60f4200` and `nSealr/companion`
 revision `40ab7bf` against the existing flashed firmware image `628bd7f` on
 `/dev/cu.usbmodem1101`. The companion CLI generated, wrapped, sent, and
 request-bound unwrapped `get_capabilities`, `get_signing_status`, and
@@ -203,7 +203,7 @@ request-matched `signing_disabled` response. This records companion/transport
 hardware evidence only; no real signing gate changed.
 
 Status note, 2026-05-10: LILYGO T-Display S3 current-head firmware smoke
-rebuilt and flashed `NostrSeal/esp32` revision `8307c4b` on
+rebuilt and flashed `nSealr/esp32` revision `8307c4b` on
 `/dev/cu.usbmodem1101`. `idf-smoke-capabilities` passed with 39 verified
 exchanges, `idf-smoke-review-scenarios` passed with 7 scenarios, and the lab
 companion serial smoke verified a request-matched `signing_disabled` response
@@ -211,15 +211,15 @@ for a companion-generated `sign_event`. This aligns the physical board with
 the current repository head while preserving every production signing blocker.
 
 Status note, 2026-05-11: LILYGO T-Display S3 direct companion serial-line
-smoke used `NostrSeal/esp32` revision `0dda7d6`, `NostrSeal/companion`
-revision `b399ad0`, and `NostrSeal/lab` smoke-tool revision `a00af12` on
-`/dev/cu.usbmodem1101`. The companion `nseal serial-line exchange` path opened
+smoke used `nSealr/esp32` revision `0dda7d6`, `nSealr/companion`
+revision `b399ad0`, and `nSealr/lab` smoke-tool revision `a00af12` on
+`/dev/cu.usbmodem1101`. The companion `nsealr serial-line exchange` path opened
 the board directly through Node `serialport`, verified get-capabilities output,
 and verified the request-matched `signing_disabled` response for a
 companion-generated `sign_event`. This records real companion-to-device
 transport evidence only; it does not change any production signing gate.
 
-Status note, 2026-05-11: after `NostrSeal/companion` revision `6bbf03a` moved
+Status note, 2026-05-11: after `nSealr/companion` revision `6bbf03a` moved
 one-shot serial-line exchange ownership into `packages/transport`, the attached
 LILYGO T-Display S3 on `/dev/cu.usbmodem1101` passed the lab companion
 serial-line get-capabilities smoke and the shared `sign-event-disabled` smoke.

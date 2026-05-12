@@ -1,6 +1,6 @@
 # Architecture
 
-`NostrSeal/hardware` contains open hardware reference material.
+`nSealr/hardware` contains open hardware reference material.
 
 ## Responsibilities
 
@@ -14,7 +14,7 @@
 
 PCB work must follow proven firmware and UX requirements, not precede them.
 
-Per-family feature target and current status live in `NostrSeal/specs`
+Per-family feature target and current status live in `nSealr/specs`
 `vectors/features/signer-feature-matrix-v0.json`. Hardware requirements can
 state which boards, displays, cameras, controls, and provisioning paths are
 needed to satisfy those targets, but they must not create new feature behavior
@@ -66,11 +66,11 @@ and displayed approval digest before firmware signing is enabled.
 
 The QR signer requirements add camera, battery, wireless-disable, physical
 approval, and touch-not-approval constraints for stateless devkit validation.
-They also require explicit QR contract text for the shared `nseal1` envelope,
+They also require explicit QR contract text for the shared `nsealr1` envelope,
 trusted review, and physical approval. They explicitly exclude persistent
 signing secrets and TROPIC01 interfaces. They are not a custom PCB, schematic,
 or manufacturing package.
-They also pin the shared `nseal-account-descriptor-v0` route
+They also pin the shared `nsealr-account-descriptor-v0` route
 `esp32_qr_vault`, `policy-manual-only-qr-vault`, and
 `persistent_grants: false` so QR hardware work cannot drift into grant storage
 or policy automation.
@@ -92,7 +92,7 @@ without ESP32-specific secure boot or flash-encryption assumptions. They require
 camera input, a trusted local display, tactile physical approval/rejection,
 response QR output, disabled wireless, and removable boot-media discipline
 before any Pi build can be treated as more than a desktop harness.
-They pin the shared `nseal-account-descriptor-v0` route
+They pin the shared `nsealr-account-descriptor-v0` route
 `raspberry_qr_vault`, `policy-manual-only-qr-vault`, and
 `persistent_grants: false` so the Pi kit cannot grow persistent grants,
 TROPIC01, or policy automation by hardware drift.
@@ -101,7 +101,7 @@ Raspberry Pi Zero stack: Pi Zero-class board, Pi/ZeroCam OV5647 camera,
 Waveshare-compatible ST7789 240x240 SPI display HAT, GPIO joystick/buttons,
 removable microSD boot media, and SeedSigner-OS/Buildroot reference shape.
 The same requirements pin the first 40-pin GPIO review-button map shared with
-`NostrSeal/raspberry`: BOARD 37/right for `next`, BOARD 35/down for `scroll`,
+`nSealr/raspberry`: BOARD 37/right for `next`, BOARD 35/down for `scroll`,
 BOARD 33/center for `approve`, and BOARD 40/KEY1 for `reject`, with reject
 precedence documented before physical-control acceptance can be claimed.
 Pi 3/4/5 variants can be documented later only as development or accessibility
@@ -123,7 +123,7 @@ Raspberry OS profile smoke reports additionally need explicit evidence terms
 for removable boot media, wireless state, swap state, remote access, RAM-only
 custody, persistent-secret absence, and power-cycle session loss.
 Raspberry QR-flow smoke reports additionally need explicit evidence for Pi
-Zero camera scanning of `nseal1` QR requests, trusted local display review,
+Zero camera scanning of `nsealr1` QR requests, trusted local display review,
 physical GPIO `next`/`scroll`/`approve`/`reject` controls, signed-event
 response QR output, companion `verify-response`, request id and
 `approval_digest` binding, no USB data transport, RAM-only custody, no

@@ -14,11 +14,11 @@
     "camera": "TBD Pi Zero-compatible OV5647/ZeroCam QR request camera",
     "physical_controls": "TBD SeedSigner-compatible tactile GPIO approve/reject/navigation controls"
   },
-  "source_repo": "NostrSeal/raspberry",
+  "source_repo": "nSealr/raspberry",
   "firmware_commit": "TBD-before-run",
   "procedure": [
     "Record exact Raspberry/Pi board, SeedSigner-compatible display, camera, physical controls, and removable microSD boot media.",
-    "Run nseal-vault hardware-probe --out hardware-probe.json and attach the non-destructive SeedSigner-compatible setup report.",
+    "Run nsealr-vault hardware-probe --out hardware-probe.json and attach the non-destructive SeedSigner-compatible setup report.",
     "Before signing, record wireless state with rfkill or equivalent evidence that Wi-Fi and Bluetooth are blocked or absent.",
     "Before signing, record swap status evidence proving no swap is active.",
     "Before signing, record that SSH and remote login are disabled so there is no remote access during signing.",

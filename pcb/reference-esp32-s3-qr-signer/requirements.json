@@ -43,20 +43,20 @@
     "Require camera/display acceptance tests before any signing backend is enabled."
   ],
   "qr_requirements": [
-    "Decode the shared nseal1 QR envelope from NostrSeal/specs.",
+    "Decode the shared nsealr1 QR envelope from nSealr/specs.",
     "Reject malformed static and animated QR input before request review.",
     "Render signed-event QR output only after trusted review and physical approval.",
     "Test scanning at multiple brightness, angle, and distance conditions."
   ],
   "identity_policy_requirements": [
-    "Reference the shared nseal-account-descriptor-v0 route esp32_qr_vault.",
+    "Reference the shared nsealr-account-descriptor-v0 route esp32_qr_vault.",
     "Use policy-manual-only-qr-vault for every stateless QR signing session.",
     "Require persistent_grants: false; no grant store or policy automation belongs to the stateless ESP32 QR vault."
   ],
   "notes": [
     "This is a requirements scaffold for devkit-based validation, not a routed PCB.",
     "Primary candidate is the T-Display S3 Pro OV5640 line; Waveshare ESP32-S3-Touch-LCD-3.5B-C case-plus-OV5640 is the preferred secondary target.",
-    "Blockstream Jade is an ESP-IDF architecture reference only; do not plan NostrSeal firmware flashing on production retail Jade hardware. Development devices or Jade-compatible DIY ESP32 profiles may be evaluated separately.",
+    "Blockstream Jade is an ESP-IDF architecture reference only; do not plan nSealr firmware flashing on production retail Jade hardware. Development devices or Jade-compatible DIY ESP32 profiles may be evaluated separately.",
     "The current hardware repo still contains requirements/BOM validation only; no custom PCB design exists yet."
   ]
 }

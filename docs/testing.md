@@ -28,12 +28,12 @@ requirements, OS profiles, BOMs, reports, and report templates.
   precedence.
 - Raspberry/Pi stateless QR vault OS profile validation.
 - Raspberry/Pi stateless QR vault OS profile smoke-report template validation.
-  The template now requires attaching the read-only `nseal-vault
+  The template now requires attaching the read-only `nsealr-vault
   hardware-probe` output as setup evidence before a future completed report can
   claim the Raspberry/Pi OS profile smoke.
 - Raspberry/Pi stateless QR vault full QR-flow smoke-report template
   validation. The template requires future physical evidence for Pi camera
-  `nseal1` QR scanning, trusted display review, GPIO
+  `nsealr1` QR scanning, trusted display review, GPIO
   `next`/`scroll`/`approve`/`reject`, signed-event response QR output,
   companion `verify-response`, request id and `approval_digest` binding, no USB
   data transport, RAM-only custody, no persistent secret, and no TROPIC01.
@@ -49,7 +49,7 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - ESP32-S3 DevKitC-1 dynamic serial protocol-smoke report validation, including
   invalid metadata rejection.
 - ESP32-S3 DevKitC-1 invalid signing-request protocol-smoke report validation,
-  including 25 serial-wrapped invalid request vectors from `NostrSeal/specs`,
+  including 25 serial-wrapped invalid request vectors from `nSealr/specs`,
   unknown top-level field rejection, parameterless-method `params` rejection,
   structurally invalid `sign_event` `params`/`event_template` shapes, and
   deterministic `unsupported_request` responses.
@@ -159,14 +159,14 @@ requirements, OS profiles, BOMs, reports, and report templates.
   preserving `signing_disabled`.
 - LILYGO T-Display S3 direct companion serial-line protocol-smoke report
   validation for ESP32 revision `0dda7d6`, companion revision `b399ad0`, and
-  lab smoke-tool revision `a00af12`, confirming the direct `nseal serial-line
+  lab smoke-tool revision `a00af12`, confirming the direct `nsealr serial-line
   exchange` path can request capabilities from the attached board and can verify
   the request-matched `signing_disabled` refusal for a companion-generated
   `sign_event`.
 - LILYGO T-Display S3 package-owned companion serial-line protocol-smoke report
   validation for companion revision `6bbf03a`, confirming the refactored
   `exchangeSerialLineRequest` boundary still drives the attached board through
-  `nseal serial-line exchange`, verifies get-capabilities output, and verifies
+  `nsealr serial-line exchange`, verifies get-capabilities output, and verifies
   the request-matched `signing_disabled` refusal for a companion-generated
   `sign_event`.
 - LILYGO T-Display S3 disabled-signing copy protocol-smoke report validation
@@ -207,7 +207,7 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Negative requirements test for missing approval-digest review binding.
 - Negative QR requirements tests for missing camera, missing disabled wireless
   policy, missing `qr_requirements`, and missing core QR contract terms for the
-  shared `nseal1` envelope, trusted review, and physical approval.
+  shared `nsealr1` envelope, trusted review, and physical approval.
 - Positive and negative ESP32 QR secondary-target tests requiring the
   structured Waveshare `ESP32-S3-Touch-LCD-3.5B-C` candidate with
   AXS15231B/QSPI display path and OV5640 camera, and rejecting stale `3.5-C`

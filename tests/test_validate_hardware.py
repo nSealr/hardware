@@ -78,7 +78,7 @@ class HardwareValidationTests(unittest.TestCase):
         value = json.loads((ROOT / "pcb/reference-esp32-s3-signer/requirements.json").read_text(encoding="utf-8"))
         text = "\n".join(value["identity_policy_requirements"])
 
-        self.assertIn("nseal-account-descriptor-v0", text)
+        self.assertIn("nsealr-account-descriptor-v0", text)
         self.assertIn("esp32_usb_nip46", text)
         self.assertIn("policy-scoped-automation-daily-use", text)
         self.assertIn("grant-esp32-usb-kind-1-session", text)
@@ -101,7 +101,7 @@ class HardwareValidationTests(unittest.TestCase):
             (ROOT / "kits/reference-raspberry-qr-vault/requirements.json").read_text(encoding="utf-8")
         )
         original["identity_policy_requirements"] = [
-            "Use nseal-account-descriptor-v0 route raspberry_qr_vault.",
+            "Use nsealr-account-descriptor-v0 route raspberry_qr_vault.",
             "Use policy-manual-only-qr-vault.",
             "Allow persistent_grants: true for convenience.",
         ]
@@ -371,7 +371,7 @@ class HardwareValidationTests(unittest.TestCase):
             path = Path(temp_root) / "requirements.json"
             path.write_text(json.dumps(original), encoding="utf-8")
 
-            with self.assertRaisesRegex(ValueError, "nseal1"):
+            with self.assertRaisesRegex(ValueError, "nsealr1"):
                 validate_requirements(path)
 
     def test_qr_requirements_reject_missing_wireless_disabled_policy(self) -> None:
@@ -527,7 +527,7 @@ class HardwareValidationTests(unittest.TestCase):
         original["procedure"] = [
             step
             for step in original["procedure"]
-            if "camera" not in step.lower() and "nseal1" not in step.lower()
+            if "camera" not in step.lower() and "nsealr1" not in step.lower()
         ]
         original["observed_result"] = (
             "Display, GPIO buttons, response QR, companion verification, "
@@ -550,7 +550,7 @@ class HardwareValidationTests(unittest.TestCase):
             if all(term not in step.lower() for term in ("gpio", "button", "approve", "reject", "scroll"))
         ]
         original["observed_result"] = (
-            "Pi Zero camera nseal1 QR scan, trusted display review, response "
+            "Pi Zero camera nsealr1 QR scan, trusted display review, response "
             "QR, companion verify-response, RAM-only custody, request id, and "
             "approval_digest checks remain documented."
         )

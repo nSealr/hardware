@@ -1,12 +1,12 @@
-# NostrSeal Hardware
+# nSealr Hardware
 
-Open hardware reference designs for NostrSeal signer devices.
+Open hardware reference designs for nSealr signer devices.
 
 This repository should contain buildable, inspectable, and modifiable hardware
 artifacts: devkit wiring, PCB design files, BOMs, enclosures, and provisioning
 fixtures.
 
-Feature targets and current status are defined in `NostrSeal/specs`
+Feature targets and current status are defined in `nSealr/specs`
 `vectors/features/signer-feature-matrix-v0.json`. This repository provides the
 hardware artifacts needed by those families; it must not turn hardware
 requirements into separate signer families or change shared feature behavior
@@ -26,7 +26,7 @@ outside the specs `contract_id` model.
 - Machine-readable ESP32-S3 USB/NIP-46 signer reference requirements.
 - Machine-readable ESP32 stateless QR vault requirements for the T-Display S3
   Pro OV5640 candidate line, including validated QR-contract requirements for
-  `nseal1`, trusted review, physical approval, and the confirmed Waveshare
+  `nsealr1`, trusted review, physical approval, and the confirmed Waveshare
   `ESP32-S3-Touch-LCD-3.5B-C` secondary target.
 - Machine-readable Raspberry/Pi stateless QR vault kit requirements, including
   camera, trusted display, physical controls, response QR display, disabled
