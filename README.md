@@ -42,20 +42,26 @@ outside the specs `contract_id` model.
   future ESP32 USB/custom persistent hardware must support an encrypted device
   vault, one device-level v0 unlock ceremony, and device-reviewed
   per-public-key policy before production signing claims.
+- Machine-readable custom persistent-secret wallet Rev A requirements and BOM
+  scaffold. Rev A is USB-C bus-powered, connected/no-wireless, no-battery, and
+  TROPIC01-assisted. TROPIC01 direct Schnorr/BIP-340 is tracked as future
+  vendor-roadmap work, not as a current public API claim.
 - Validated Raspberry/Pi OS profile smoke-report template for future hardware
   acceptance evidence.
 - First open BOM scaffolds for a reference USB signer board and a
-  Raspberry/Pi stateless QR vault kit. The Raspberry kit BOM is centered on a
-  Pi Zero-class board, Pi/ZeroCam OV5647 camera, Waveshare-compatible ST7789
-  240x240 display HAT, GPIO controls, removable microSD boot media, and
-  SeedSigner-style enclosure assumptions.
+  Raspberry/Pi stateless QR vault kit plus the custom persistent-secret wallet
+  Rev A. The Raspberry kit BOM is centered on a Pi Zero-class board,
+  Pi/ZeroCam OV5647 camera, Waveshare-compatible ST7789 240x240 display HAT,
+  GPIO controls, removable microSD boot media, and SeedSigner-style enclosure
+  assumptions.
 - Machine-readable manual hardware validation reports, starting with ESP32-S3
   board detection evidence and continuing through ESP32-S3 USB/display signer
   protocol smoke evidence for disabled signing, malformed transport, review,
   and security-fuse audit gates.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, stateless QR vault exclusion of
-  TROPIC01 interfaces, QR vault envelope/review/approval requirements,
+  TROPIC01 interfaces, custom wallet TROPIC01/power-cycle/no-battery/no-air-gap
+  boundaries, QR vault envelope/review/approval requirements,
   identity/policy route requirements, BOM headers, BOM categories, duplicate
   designators, manual hardware report safety flags, and directory-driven
   validation discovery for requirements, OS profiles, BOMs, reports, and

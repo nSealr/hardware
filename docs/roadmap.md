@@ -10,6 +10,7 @@
 - Raspberry/Pi stateless QR vault OS profile JSON.
 - ESP32-S3 USB signer reference BOM scaffold.
 - Raspberry/Pi stateless QR vault kit BOM scaffold.
+- Custom persistent-secret wallet Rev A requirements JSON and BOM scaffold.
 - Raspberry/Pi stateless QR vault OS profile report template.
 - Raspberry/Pi stateless QR vault full QR-flow report template.
 - Manual hardware validation report schema.
@@ -54,6 +55,13 @@ QR policy, and `persistent_grants: false`; the ESP32 USB/NIP-46 requirement set
 must reference `esp32_usb_nip46`,
 `policy-scoped-automation-daily-use`, and
 `grant-esp32-usb-kind-1-session` as future contracts only.
+
+Status note, 2026-05-18: custom persistent-secret wallet Rev A requirements are
+now validated. Rev A is a USB-C bus-powered connected wallet with no battery,
+TROPIC01 SPI/GPO/power-cycle support, TROPIC01 pairing lifecycle, and explicit
+future-gated Schnorr/BIP-340 language. Validation rejects air-gapped claims for
+USB data wallets, current TROPIC01 BIP-340 signing claims, and Rev A
+`battery_power` interfaces.
 
 Status note, 2026-05-10: Raspberry/Pi stateless QR vault kit requirements are
 now validated separately from ESP32 requirements. They require camera, trusted

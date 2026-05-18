@@ -33,9 +33,19 @@ REQUIRED_RASPBERRY_QR_INTERFACES = {
     "removable_boot_media",
 }
 
+REQUIRED_CUSTOM_WALLET_INTERFACES = REQUIRED_INTERFACES | {
+    "usb_c_bus_powered",
+    "wireless_disable_capable",
+    "tropic01_spi",
+    "tropic01_gpo_irq",
+    "tropic01_power_cycle_control",
+    "tropic01_pairing_lifecycle",
+}
+
 VALID_DEVICE_CLASSES = {
     "esp32_s3_qr_signer",
     "esp32_s3_usb_signer",
+    "custom_persistent_secret_wallet",
     "raspberry_qr_vault",
 }
 
@@ -54,6 +64,11 @@ REQUIRED_BOM_CATEGORIES = {
     "display",
     "input",
     "programming",
+}
+
+REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
+    "protection",
+    "secure_element",
 }
 
 REQUIRED_REVIEW_KEYWORDS = {
@@ -85,6 +100,12 @@ REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
         "raspberry_qr_vault",
         "policy-manual-only-qr-vault",
         "persistent_grants: false",
+    ),
+    "custom_persistent_secret_wallet": (
+        "nsealr-account-descriptor-v0",
+        "custom_hardware_wallet",
+        "custom_hardware_persistent",
+        "policy-scoped-automation-daily-use",
     ),
 }
 
@@ -226,6 +247,8 @@ def validate_requirements(path: Path) -> None:
         required_interfaces = REQUIRED_QR_INTERFACES
     elif device_class == "raspberry_qr_vault":
         required_interfaces = REQUIRED_RASPBERRY_QR_INTERFACES
+    elif device_class == "custom_persistent_secret_wallet":
+        required_interfaces = REQUIRED_CUSTOM_WALLET_INTERFACES
     else:
         required_interfaces = REQUIRED_INTERFACES
     missing = sorted(required_interfaces - mandatory)
@@ -269,6 +292,8 @@ def validate_requirements(path: Path) -> None:
             raise ValueError(f"{path}: qr_requirements must mention {', '.join(missing_qr_keywords)}")
     if device_class == "raspberry_qr_vault":
         validate_seed_signer_compatibility_profile(value, path)
+    if device_class == "custom_persistent_secret_wallet":
+        validate_custom_persistent_secret_wallet(value, path, mandatory, optional)
 
 
 def validate_esp32_qr_secondary_target(value: dict, path: Path) -> None:
@@ -344,6 +369,69 @@ def validate_seed_signer_gpio_button_profile(profile: dict, path: Path) -> None:
         )
 
 
+def validate_custom_persistent_secret_wallet(
+    value: dict,
+    path: Path,
+    mandatory: set[str],
+    optional: set[str],
+) -> None:
+    if value.get("product_mode") != "usb_c_bus_powered_connected_wallet_rev_a":
+        raise ValueError(f"{path}: product_mode must be usb_c_bus_powered_connected_wallet_rev_a")
+
+    interface_text = " ".join(sorted(mandatory | optional)).lower()
+    if "battery_power" in interface_text:
+        raise ValueError(f"{path}: battery_power is not allowed in custom wallet Rev A interfaces")
+
+    text = "\n".join(
+        _flatten_text(value.get(field))
+        for field in (
+            "security_requirements",
+            "review_requirements",
+            "identity_policy_requirements",
+            "notes",
+        )
+    ).lower()
+    if "air-gapped" in text or "airgapped" in text:
+        raise ValueError(f"{path}: USB connected custom wallet Rev A must not claim air-gapped operation")
+
+    for phrase in (
+        "currently performs bip-340",
+        "currently supports bip-340",
+        "available bip-340",
+        "public api supports bip-340",
+        "tropic01 performs bip-340 signing",
+        "tropic01 signs bip-340",
+    ):
+        if phrase in text:
+            raise ValueError(f"{path}: BIP-340 signing inside TROPIC01 must remain a future-gated claim")
+
+    required_security_terms = {
+        "tropic01",
+        "pairing key",
+        "mac-and-destroy",
+        "key wrapping",
+        "bip-340",
+    }
+    missing_terms = sorted(term for term in required_security_terms if term not in text)
+    if missing_terms:
+        raise ValueError(f"{path}: custom wallet security_requirements must mention {', '.join(missing_terms)}")
+
+    roadmap = value.get("tropic01_schnorr_roadmap")
+    if not isinstance(roadmap, dict):
+        raise ValueError(f"{path}: tropic01_schnorr_roadmap must be an object")
+    expected = {
+        "current_public_api": "not_supported",
+        "future_vendor_roadmap": "planned",
+        "rev_a_signing_engine": "esp32_s3_host_mcu",
+    }
+    for field, expected_value in expected.items():
+        if roadmap.get(field) != expected_value:
+            raise ValueError(f"{path}: tropic01_schnorr_roadmap.{field} must be {expected_value}")
+    product_gate = str(roadmap.get("product_gate", "")).lower()
+    if "public api" not in product_gate or "vendor" not in product_gate:
+        raise ValueError(f"{path}: tropic01_schnorr_roadmap.product_gate must mention public API and vendor")
+
+
 def validate_bom(path: Path) -> None:
     with path.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
@@ -369,9 +457,20 @@ def validate_bom(path: Path) -> None:
             designators.add(designator)
             if required == "true":
                 categories.add(category)
-        missing_categories = sorted(REQUIRED_BOM_CATEGORIES - categories)
+        required_categories = REQUIRED_BOM_CATEGORIES
+        if path.name == "custom-persistent-secret-wallet.csv":
+            required_categories = REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES
+        missing_categories = sorted(required_categories - categories)
         if missing_categories:
             raise ValueError(f"{path}: missing required BOM categories: {', '.join(missing_categories)}")
+
+
+def _flatten_text(value: object) -> str:
+    if isinstance(value, list):
+        return " ".join(_flatten_text(item) for item in value)
+    if isinstance(value, dict):
+        return " ".join(_flatten_text(item) for item in value.values())
+    return str(value)
 
 
 def _list_text(value: object) -> str:

@@ -39,12 +39,19 @@ or new signer-family taxonomy outside that shared contract.
   removable boot media, disabled or absent wireless, RAM-only session custody,
   no swap, no remote access during signing, disabled setup services, and
   acceptance evidence.
+- `pcb/custom-persistent-secret-wallet/requirements.json`: checked
+  requirements for the first custom persistent-secret wallet Rev A. This is a
+  USB-C bus-powered connected/no-wireless, no-battery, TROPIC01-assisted
+  hardware-wallet scaffold, not an air-gapped QR vault.
 - `bom/reference-esp32-s3-signer.csv`: first BOM scaffold with required and
   optional component categories.
 - `bom/reference-raspberry-qr-vault-kit.csv`: first kit BOM scaffold for the
   Raspberry/Pi stateless QR vault path, covering the single-board computer,
   camera, trusted display, physical controls, power, boot media, temporary
   setup path, and wireless-disable evidence.
+- `bom/custom-persistent-secret-wallet.csv`: first component-class BOM scaffold
+  for the custom wallet Rev A, covering ESP32-S3, TROPIC01, USB-C, power,
+  protection, display, physical controls, and provisioning/test pads.
 - `templates/raspberry-qr-vault-os-profile-smoke.json`: validated manual
   report template for future Raspberry OS profile acceptance evidence.
 - `templates/raspberry-qr-vault-full-flow-smoke.json`: validated manual
@@ -86,6 +93,16 @@ policy, one device-level v0 unlock ceremony, wipe/export policy, secure boot,
 flash encryption or equivalent persistent-secret protection, and debug lock.
 The current scoped-automation contract is a validator scaffold, not the final
 policy UI.
+
+The custom persistent-secret wallet Rev A requirements bring TROPIC01 into the
+custom wallet family as a concrete secure-element dependency for secure channel,
+TRNG, device authenticity, pairing-key lifecycle, MAC-and-Destroy PIN attempt
+hardening, and key wrapping/unlock material. They intentionally keep current
+BIP-340 signing on the ESP32-S3 host MCU while preserving direct TROPIC01
+Schnorr/BIP-340 as future vendor-roadmap work. Because Rev A uses USB data
+transport, validation rejects air-gapped wording for that board. Battery
+interfaces are excluded from Rev A so power, recovery, and logistics stay simple
+until a separate portable branch is justified.
 
 The Raspberry QR vault kit requirements follow the same stateless QR contract
 without ESP32-specific secure boot or flash-encryption assumptions. They require

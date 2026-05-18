@@ -42,8 +42,14 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Raspberry/Pi stateless QR vault seed-entry policy validation, requiring
   acceptance evidence that session-secret input does not use seed files,
   command-line secret arguments, shell history, or persistent storage.
+- Custom persistent-secret wallet Rev A requirements validation, requiring
+  USB-C bus power, TROPIC01 SPI, GPO/IRQ, power-cycle control, pairing lifecycle,
+  no battery interface, no air-gapped claim on USB data transport, and
+  future-gated Schnorr/BIP-340 language.
 - Reference USB signer BOM validation.
 - Raspberry/Pi stateless QR vault kit BOM validation.
+- Custom persistent-secret wallet Rev A BOM validation, including secure-element
+  and protection categories.
 - Manual hardware report validation.
 - ESP32-S3 DevKitC-1 build/flash/protocol smoke report validation.
 - ESP32-S3 DevKitC-1 dynamic serial protocol-smoke report validation, including
