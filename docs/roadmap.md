@@ -210,13 +210,13 @@ request-bound unwrapped `get_capabilities`, `get_signing_status`, and
 request-matched `signing_disabled` response. This records companion/transport
 hardware evidence only; no real signing gate changed.
 
-Status note, 2026-05-10: LILYGO T-Display S3 current-head firmware smoke
+Status note, 2026-05-10: LILYGO T-Display S3 historical head firmware smoke
 rebuilt and flashed `nSealr/esp32` revision `8307c4b` on
 `/dev/cu.usbmodem1101`. `idf-smoke-capabilities` passed with 39 verified
 exchanges, `idf-smoke-review-scenarios` passed with 7 scenarios, and the lab
 companion serial smoke verified a request-matched `signing_disabled` response
-for a companion-generated `sign_event`. This aligns the physical board with
-the current repository head while preserving every production signing blocker.
+for a companion-generated `sign_event`. This aligned the physical board with
+that day's repository head while preserving every production signing blocker.
 
 Status note, 2026-05-11: LILYGO T-Display S3 direct companion serial-line
 smoke used `nSealr/esp32` revision `0dda7d6`, `nSealr/companion`

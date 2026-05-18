@@ -72,7 +72,7 @@ requirements, OS profiles, BOMs, reports, and report templates.
   for revision `dfdeec9`, confirming the firmware builds, flashes, preserves
   `signing_disabled`, and keeps deterministic invalid-request rejection after
   compiling the serial `sign_event` trusted-review boundary into host-core.
-- ESP32-S3 DevKitC-1 current-head protocol-smoke report validation for
+- ESP32-S3 DevKitC-1 historical head protocol-smoke report validation for
   revision `61b51df`, confirming the firmware still builds, flashes, verifies
   image hashes, passes 33 USB serial exchanges, preserves `signing_disabled`,
   and keeps deterministic invalid-request rejection.
@@ -154,7 +154,7 @@ requirements, OS profiles, BOMs, reports, and report templates.
   `get_public_key` responses against the attached board, then send a shared
   basic `sign_event` request and verify the request-matched `signing_disabled`
   refusal path.
-- LILYGO T-Display S3 current-head firmware protocol-smoke report validation
+- LILYGO T-Display S3 historical head firmware protocol-smoke report validation
   for ESP32 revision `8307c4b`, confirming the attached board was rebuilt,
   reflashed, passed the 39-exchange capability smoke, passed the 7-scenario
   review smoke, and returned request-matched `signing_disabled` for a
