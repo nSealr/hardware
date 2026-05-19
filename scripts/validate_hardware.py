@@ -107,7 +107,9 @@ REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
         "custom_hardware_wallet",
         "custom_hardware_persistent",
         "policy-manual-only-persistent-device",
+        "custom-hardware-wallet-enable-kind-1-automation",
         "policy-scoped-automation-daily-use",
+        "grant-custom-hardware-wallet-kind-1-session",
     ),
 }
 

@@ -28,6 +28,14 @@ CUSTOM_WALLET_POLICY = json.loads(
 CUSTOM_WALLET_SCOPED_POLICY = json.loads(
     (SPECS_SNAPSHOTS / "vectors/policies/scoped-automation-daily-use.json").read_text(encoding="utf-8")
 )
+CUSTOM_WALLET_GRANT = json.loads(
+    (SPECS_SNAPSHOTS / "vectors/grants/custom-hardware-wallet-kind-1-session.json").read_text(encoding="utf-8")
+)
+CUSTOM_WALLET_POLICY_CHANGE = json.loads(
+    (SPECS_SNAPSHOTS / "vectors/policy-changes/custom-hardware-wallet-enable-kind-1-automation.json").read_text(
+        encoding="utf-8"
+    )
+)
 CUSTOM_WALLET_ROUTE_SELECTION = json.loads(
     (SPECS_SNAPSHOTS / "vectors/route-selections/custom-hardware-wallet-sign-event-slot-0.json").read_text(
         encoding="utf-8"
@@ -119,6 +127,26 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertFalse(CUSTOM_WALLET_POLICY["grants_allowed"])
         self.assertIn(route["type"], CUSTOM_WALLET_SCOPED_POLICY["route_types"])
         self.assertTrue(CUSTOM_WALLET_SCOPED_POLICY["grant_constraints"]["device_confirmation_required"])
+        self.assertEqual(CUSTOM_WALLET_GRANT["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
+        self.assertEqual(CUSTOM_WALLET_GRANT["route_type"], route["type"])
+        self.assertEqual(
+            CUSTOM_WALLET_GRANT["permission"],
+            {"method": "sign_event", "parameter": "1", "event_kind": 1},
+        )
+        self.assertEqual(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
+        self.assertEqual(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["route_type"], route["type"])
+        self.assertEqual(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["current_policy_id"], CUSTOM_WALLET_POLICY["policy_id"])
+        self.assertEqual(
+            CUSTOM_WALLET_POLICY_CHANGE["proposal"]["proposed_policy_id"],
+            CUSTOM_WALLET_SCOPED_POLICY["policy_id"],
+        )
+        self.assertEqual(
+            CUSTOM_WALLET_POLICY_CHANGE["proposal"]["proposed_grant_ids"],
+            [CUSTOM_WALLET_GRANT["grant_id"]],
+        )
+        self.assertFalse(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["companion_authoritative"])
+        self.assertTrue(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["device_review_required"])
+        self.assertTrue(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["physical_approval_required"])
         self.assertEqual(selection["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
         self.assertEqual(selection["route_type"], route["type"])
         self.assertEqual(selection["repository"], route["repository"])

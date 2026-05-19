@@ -49,11 +49,13 @@ outside the specs `contract_id` model.
 - Shared specs snapshots for the custom persistent-secret wallet route:
   `custom-hardware-wallet-slot-0`,
   `policy-manual-only-persistent-device`,
+  `custom-hardware-wallet-enable-kind-1-automation`,
   `policy-scoped-automation-daily-use`, and
-  `custom-hardware-wallet-sign-event-slot-0`. Hardware tests use these to keep
-  Rev A requirements aligned with the canonical account, default manual policy,
-  future scoped policy, and route-selection contracts without storing secret
-  material.
+  `custom-hardware-wallet-sign-event-slot-0`, plus
+  `grant-custom-hardware-wallet-kind-1-session`. Hardware tests use these to
+  keep Rev A requirements aligned with the canonical account, default manual
+  policy, future scoped policy, policy-change review, grant, and
+  route-selection contracts without storing secret material.
 - Validated Raspberry/Pi OS profile smoke-report template for future hardware
   acceptance evidence.
 - First open BOM scaffolds for a reference USB signer board and a

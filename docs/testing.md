@@ -49,11 +49,13 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Custom persistent-secret wallet route-contract validation against shared
   specs snapshots for `custom-hardware-wallet-slot-0`,
   `policy-manual-only-persistent-device`,
+  `custom-hardware-wallet-enable-kind-1-automation`,
   `policy-scoped-automation-daily-use`, and
-  `custom-hardware-wallet-sign-event-slot-0`, including USB transport,
+  `custom-hardware-wallet-sign-event-slot-0`, plus
+  `grant-custom-hardware-wallet-kind-1-session`, including USB transport,
   device-display review, physical approval, persistent grants, hardware-wallet
-  slot recovery, manual-only default policy, scoped-automation capability,
-  device-confirmation constraints, and secretless route selection.
+  slot recovery, manual-only default policy, device-reviewed scoped-automation
+  activation, device-confirmation constraints, and secretless route selection.
 - Reference USB signer BOM validation.
 - Raspberry/Pi stateless QR vault kit BOM validation.
 - Custom persistent-secret wallet Rev A BOM validation, including secure-element

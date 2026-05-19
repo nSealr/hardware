@@ -53,6 +53,7 @@
     "Use custody custom_hardware_persistent for persistent-secret hardware-wallet descriptors.",
     "Use policy-manual-only-persistent-device as the default policy profile.",
     "Reference policy-scoped-automation-daily-use only after firmware, provisioning, storage, review, signed-output gates, and a device-approved policy-change proposal are accepted.",
+    "Treat custom-hardware-wallet-enable-kind-1-automation and grant-custom-hardware-wallet-kind-1-session as future conformance contracts, not as enabled production persistent grants.",
     "Manual-only mode must remain available even after scoped automation is later supported.",
     "Account descriptors and policy metadata must remain secretless; private keys, nsec values, seed words, and pairing secrets must not be stored by companion descriptors."
   ],
