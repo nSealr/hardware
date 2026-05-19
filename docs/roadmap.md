@@ -53,8 +53,10 @@ Status note, 2026-05-11: requirements validation now also checks
 must reference `nsealr-account-descriptor-v0`, their route type, the manual-only
 QR policy, and `persistent_grants: false`; the ESP32 USB/NIP-46 requirement set
 must reference `esp32_usb_nip46`,
+`policy-manual-only-persistent-device`,
 `policy-scoped-automation-daily-use`, and
-`grant-esp32-usb-kind-1-session` as future contracts only.
+`grant-esp32-usb-kind-1-session` as future contracts only. Manual-only remains
+the default policy until a device-reviewed policy change is accepted.
 
 Status note, 2026-05-18: custom persistent-secret wallet Rev A requirements are
 now validated. Rev A is a USB-C bus-powered connected wallet with no battery,
@@ -65,11 +67,13 @@ USB data wallets, current TROPIC01 BIP-340 signing claims, and Rev A
 
 Status note, 2026-05-19: custom persistent-secret wallet Rev A requirements now
 consume shared specs snapshots for `custom-hardware-wallet-slot-0`,
+`policy-manual-only-persistent-device`,
 `policy-scoped-automation-daily-use`, and
 `custom-hardware-wallet-sign-event-slot-0`. The checked route remains USB,
 device-display reviewed, physically approved, `custom_hardware_persistent`,
-scoped-automation capable, hardware-wallet-slot backed up, and secretless at
-the descriptor/route-selection layer. This does not clear provisioning,
+manual-only by default, scoped-automation capable, hardware-wallet-slot backed
+up, and secretless at the descriptor/route-selection layer. This does not clear
+provisioning,
 storage, TROPIC01, firmware, or production signing gates.
 
 Status note, 2026-05-10: Raspberry/Pi stateless QR vault kit requirements are

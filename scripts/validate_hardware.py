@@ -86,6 +86,7 @@ REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
     "esp32_s3_usb_signer": (
         "nsealr-account-descriptor-v0",
         "esp32_usb_nip46",
+        "policy-manual-only-persistent-device",
         "policy-scoped-automation-daily-use",
         "grant-esp32-usb-kind-1-session",
     ),
@@ -105,6 +106,7 @@ REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
         "nsealr-account-descriptor-v0",
         "custom_hardware_wallet",
         "custom_hardware_persistent",
+        "policy-manual-only-persistent-device",
         "policy-scoped-automation-daily-use",
     ),
 }

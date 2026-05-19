@@ -48,10 +48,12 @@ outside the specs `contract_id` model.
   vendor-roadmap work, not as a current public API claim.
 - Shared specs snapshots for the custom persistent-secret wallet route:
   `custom-hardware-wallet-slot-0`,
+  `policy-manual-only-persistent-device`,
   `policy-scoped-automation-daily-use`, and
   `custom-hardware-wallet-sign-event-slot-0`. Hardware tests use these to keep
-  Rev A requirements aligned with the canonical account, policy, and
-  route-selection contracts without storing secret material.
+  Rev A requirements aligned with the canonical account, default manual policy,
+  future scoped policy, and route-selection contracts without storing secret
+  material.
 - Validated Raspberry/Pi OS profile smoke-report template for future hardware
   acceptance evidence.
 - First open BOM scaffolds for a reference USB signer board and a

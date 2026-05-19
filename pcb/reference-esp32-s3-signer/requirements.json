@@ -28,7 +28,8 @@
   ],
   "identity_policy_requirements": [
     "Reference the shared nsealr-account-descriptor-v0 route esp32_usb_nip46 for future persistent device-slot custody.",
-    "Reference policy-scoped-automation-daily-use only after firmware, provisioning, storage, review, and signed-output gates are accepted.",
+    "Use policy-manual-only-persistent-device as the default policy profile until a device-reviewed policy change is accepted.",
+    "Reference policy-scoped-automation-daily-use only after firmware, provisioning, storage, review, signed-output gates, and a device-approved policy-change proposal are accepted.",
     "Treat grant-esp32-usb-kind-1-session as a test contract, not as enabled production persistent grants."
   ],
   "notes": [

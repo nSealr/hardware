@@ -23,6 +23,9 @@ CUSTOM_WALLET_ACCOUNT = json.loads(
     (SPECS_SNAPSHOTS / "vectors/accounts/custom-hardware-wallet-slot-0.json").read_text(encoding="utf-8")
 )
 CUSTOM_WALLET_POLICY = json.loads(
+    (SPECS_SNAPSHOTS / "vectors/policies/manual-only-persistent-device.json").read_text(encoding="utf-8")
+)
+CUSTOM_WALLET_SCOPED_POLICY = json.loads(
     (SPECS_SNAPSHOTS / "vectors/policies/scoped-automation-daily-use.json").read_text(encoding="utf-8")
 )
 CUSTOM_WALLET_ROUTE_SELECTION = json.loads(
@@ -110,11 +113,12 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertTrue(capabilities["persistent_grants"])
         self.assertEqual(recovery["type"], "hardware_wallet_slot")
         self.assertTrue(recovery["backup_required"])
-        self.assertEqual(CUSTOM_WALLET_POLICY["policy_id"], CUSTOM_WALLET_ACCOUNT["policy_profile_id"])
+        self.assertEqual(CUSTOM_WALLET_ACCOUNT["policy_profile_id"], "policy-manual-only-persistent-device")
         self.assertIn(route["type"], CUSTOM_WALLET_POLICY["route_types"])
-        self.assertEqual(CUSTOM_WALLET_POLICY["mode"], "scoped_automation")
-        self.assertTrue(CUSTOM_WALLET_POLICY["grants_allowed"])
-        self.assertTrue(CUSTOM_WALLET_POLICY["grant_constraints"]["device_confirmation_required"])
+        self.assertEqual(CUSTOM_WALLET_POLICY["mode"], "manual_only")
+        self.assertFalse(CUSTOM_WALLET_POLICY["grants_allowed"])
+        self.assertIn(route["type"], CUSTOM_WALLET_SCOPED_POLICY["route_types"])
+        self.assertTrue(CUSTOM_WALLET_SCOPED_POLICY["grant_constraints"]["device_confirmation_required"])
         self.assertEqual(selection["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
         self.assertEqual(selection["route_type"], route["type"])
         self.assertEqual(selection["repository"], route["repository"])
@@ -130,6 +134,7 @@ class HardwareValidationTests(unittest.TestCase):
 
         self.assertIn("nsealr-account-descriptor-v0", text)
         self.assertIn("esp32_usb_nip46", text)
+        self.assertIn("policy-manual-only-persistent-device", text)
         self.assertIn("policy-scoped-automation-daily-use", text)
         self.assertIn("grant-esp32-usb-kind-1-session", text)
 

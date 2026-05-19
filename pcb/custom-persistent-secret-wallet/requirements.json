@@ -51,8 +51,9 @@
   "identity_policy_requirements": [
     "Reference the shared nsealr-account-descriptor-v0 route custom_hardware_wallet.",
     "Use custody custom_hardware_persistent for persistent-secret hardware-wallet descriptors.",
-    "Reference policy-scoped-automation-daily-use only after firmware, provisioning, storage, review, and signed-output gates are accepted.",
-    "Manual-only mode must remain available even if scoped automation is later supported.",
+    "Use policy-manual-only-persistent-device as the default policy profile.",
+    "Reference policy-scoped-automation-daily-use only after firmware, provisioning, storage, review, signed-output gates, and a device-approved policy-change proposal are accepted.",
+    "Manual-only mode must remain available even after scoped automation is later supported.",
     "Account descriptors and policy metadata must remain secretless; private keys, nsec values, seed words, and pairing secrets must not be stored by companion descriptors."
   ],
   "notes": [
