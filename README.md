@@ -46,6 +46,12 @@ outside the specs `contract_id` model.
   scaffold. Rev A is USB-C bus-powered, connected/no-wireless, no-battery, and
   TROPIC01-assisted. TROPIC01 direct Schnorr/BIP-340 is tracked as future
   vendor-roadmap work, not as a current public API claim.
+- Shared specs snapshots for the custom persistent-secret wallet route:
+  `custom-hardware-wallet-slot-0`,
+  `policy-scoped-automation-daily-use`, and
+  `custom-hardware-wallet-sign-event-slot-0`. Hardware tests use these to keep
+  Rev A requirements aligned with the canonical account, policy, and
+  route-selection contracts without storing secret material.
 - Validated Raspberry/Pi OS profile smoke-report template for future hardware
   acceptance evidence.
 - First open BOM scaffolds for a reference USB signer board and a

@@ -18,6 +18,18 @@ REFERENCE_REPORT = ROOT / "reports/esp32-s3-devkitc-1-detection-2026-05-08.json"
 RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-smoke.json"
 RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-flow-smoke.json"
 CUSTOM_WALLET_REQUIREMENTS = ROOT / "pcb/custom-persistent-secret-wallet/requirements.json"
+SPECS_SNAPSHOTS = ROOT / "tests/fixtures/specs"
+CUSTOM_WALLET_ACCOUNT = json.loads(
+    (SPECS_SNAPSHOTS / "vectors/accounts/custom-hardware-wallet-slot-0.json").read_text(encoding="utf-8")
+)
+CUSTOM_WALLET_POLICY = json.loads(
+    (SPECS_SNAPSHOTS / "vectors/policies/scoped-automation-daily-use.json").read_text(encoding="utf-8")
+)
+CUSTOM_WALLET_ROUTE_SELECTION = json.loads(
+    (SPECS_SNAPSHOTS / "vectors/route-selections/custom-hardware-wallet-sign-event-slot-0.json").read_text(
+        encoding="utf-8"
+    )
+)
 
 
 def load_reference_report() -> dict:
@@ -77,6 +89,40 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_custom_persistent_secret_wallet_requirements_are_valid(self) -> None:
         validate_requirements(CUSTOM_WALLET_REQUIREMENTS)
+
+    def test_custom_wallet_requirements_match_shared_route_descriptor(self) -> None:
+        value = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        identity_text = "\n".join(value["identity_policy_requirements"])
+        route = CUSTOM_WALLET_ACCOUNT["signer_route"]
+        capabilities = CUSTOM_WALLET_ACCOUNT["capabilities"]
+        recovery = CUSTOM_WALLET_ACCOUNT["recovery"]
+        selection = CUSTOM_WALLET_ROUTE_SELECTION["selection"]
+
+        self.assertEqual(CUSTOM_WALLET_ACCOUNT["format"], "nsealr-account-descriptor-v0")
+        self.assertEqual(route["type"], "custom_hardware_wallet")
+        self.assertEqual(route["repository"], "hardware")
+        self.assertEqual(route["transport"], "usb")
+        self.assertEqual(route["custody"], "custom_hardware_persistent")
+        self.assertEqual(route["trusted_review"], "device_display")
+        self.assertEqual(route["policy_support"], "scoped_automation")
+        self.assertTrue(capabilities["physical_review"])
+        self.assertTrue(capabilities["physical_approval"])
+        self.assertTrue(capabilities["persistent_grants"])
+        self.assertEqual(recovery["type"], "hardware_wallet_slot")
+        self.assertTrue(recovery["backup_required"])
+        self.assertEqual(CUSTOM_WALLET_POLICY["policy_id"], CUSTOM_WALLET_ACCOUNT["policy_profile_id"])
+        self.assertIn(route["type"], CUSTOM_WALLET_POLICY["route_types"])
+        self.assertEqual(CUSTOM_WALLET_POLICY["mode"], "scoped_automation")
+        self.assertTrue(CUSTOM_WALLET_POLICY["grants_allowed"])
+        self.assertTrue(CUSTOM_WALLET_POLICY["grant_constraints"]["device_confirmation_required"])
+        self.assertEqual(selection["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
+        self.assertEqual(selection["route_type"], route["type"])
+        self.assertEqual(selection["repository"], route["repository"])
+        self.assertEqual(selection["custody"], route["custody"])
+        self.assertFalse(selection["contains_secret_material"])
+        self.assertIn(route["type"], identity_text)
+        self.assertIn(route["custody"], identity_text)
+        self.assertIn(CUSTOM_WALLET_ACCOUNT["policy_profile_id"], identity_text)
 
     def test_reference_usb_signer_requirements_reference_identity_policy_contracts(self) -> None:
         value = json.loads((ROOT / "pcb/reference-esp32-s3-signer/requirements.json").read_text(encoding="utf-8"))

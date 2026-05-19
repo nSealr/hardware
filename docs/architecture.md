@@ -103,6 +103,12 @@ Schnorr/BIP-340 as future vendor-roadmap work. Because Rev A uses USB data
 transport, validation rejects air-gapped wording for that board. Battery
 interfaces are excluded from Rev A so power, recovery, and logistics stay simple
 until a separate portable branch is justified.
+The hardware test suite also consumes shared specs snapshots for
+`custom-hardware-wallet-slot-0`, `policy-scoped-automation-daily-use`, and
+`custom-hardware-wallet-sign-event-slot-0`. That keeps Rev A's hardware
+requirements bound to the canonical route descriptor, scoped-automation policy
+profile, and route-selection contract while preserving the rule that account
+descriptors and hardware artifacts are secretless metadata.
 
 The Raspberry QR vault kit requirements follow the same stateless QR contract
 without ESP32-specific secure boot or flash-encryption assumptions. They require

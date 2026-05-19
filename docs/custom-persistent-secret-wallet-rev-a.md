@@ -59,5 +59,11 @@ provided Schnorr support once Tropic Square ships or documents it.
   Rev A hardware requirements.
 - `bom/custom-persistent-secret-wallet.csv` defines the first component-class
   BOM scaffold.
+- `tests/fixtures/specs/vectors/accounts/custom-hardware-wallet-slot-0.json`,
+  `tests/fixtures/specs/vectors/policies/scoped-automation-daily-use.json`,
+  and
+  `tests/fixtures/specs/vectors/route-selections/custom-hardware-wallet-sign-event-slot-0.json`
+  keep the Rev A hardware requirements aligned with the shared account,
+  policy, and route-selection contracts.
 - `scripts/validate_hardware.py` rejects unsafe claims such as air-gapped USB
   operation, current TROPIC01 BIP-340 signing, or Rev A battery interfaces.

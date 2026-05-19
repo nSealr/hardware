@@ -46,6 +46,13 @@ requirements, OS profiles, BOMs, reports, and report templates.
   USB-C bus power, TROPIC01 SPI, GPO/IRQ, power-cycle control, pairing lifecycle,
   no battery interface, no air-gapped claim on USB data transport, and
   future-gated Schnorr/BIP-340 language.
+- Custom persistent-secret wallet route-contract validation against shared
+  specs snapshots for `custom-hardware-wallet-slot-0`,
+  `policy-scoped-automation-daily-use`, and
+  `custom-hardware-wallet-sign-event-slot-0`, including USB transport,
+  device-display review, physical approval, persistent grants, hardware-wallet
+  slot recovery, scoped automation, device-confirmation constraints, and
+  secretless route selection.
 - Reference USB signer BOM validation.
 - Raspberry/Pi stateless QR vault kit BOM validation.
 - Custom persistent-secret wallet Rev A BOM validation, including secure-element

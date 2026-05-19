@@ -63,6 +63,15 @@ future-gated Schnorr/BIP-340 language. Validation rejects air-gapped claims for
 USB data wallets, current TROPIC01 BIP-340 signing claims, and Rev A
 `battery_power` interfaces.
 
+Status note, 2026-05-19: custom persistent-secret wallet Rev A requirements now
+consume shared specs snapshots for `custom-hardware-wallet-slot-0`,
+`policy-scoped-automation-daily-use`, and
+`custom-hardware-wallet-sign-event-slot-0`. The checked route remains USB,
+device-display reviewed, physically approved, `custom_hardware_persistent`,
+scoped-automation capable, hardware-wallet-slot backed up, and secretless at
+the descriptor/route-selection layer. This does not clear provisioning,
+storage, TROPIC01, firmware, or production signing gates.
+
 Status note, 2026-05-10: Raspberry/Pi stateless QR vault kit requirements are
 now validated separately from ESP32 requirements. They require camera, trusted
 display, physical controls, response QR display, disabled wireless, removable
