@@ -29,9 +29,10 @@ lines.
   a load switch, not as a dedicated reset pin. The requirements and BOM
   validators enforce this so early Rev A schematic work cannot silently switch
   to a reset-pin model.
-- Secret material has a checked lifecycle in the Rev A requirements. Plaintext
-  Nostr keys, `nsec` values, mnemonics, and passphrases are forbidden at rest;
-  the only acceptable at-rest shape before a later implementation design is a
+- Secret material has a checked lifecycle in the Rev A requirements, bound to
+  the shared specs `persistent-secret-custody-v0` contract. Plaintext Nostr
+  keys, `nsec` values, mnemonics, and passphrases are forbidden at rest; the
+  only acceptable at-rest shape before a later implementation design is a
   wrapped or encrypted blob. Plaintext may enter ESP32-S3 RAM only during an
   unlocked local session after TROPIC01-assisted unlock or unwrap, and it must
   be wiped on manual lock, power loss, PIN-attempt exhaustion, session timeout,

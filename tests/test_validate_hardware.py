@@ -105,6 +105,7 @@ class HardwareValidationTests(unittest.TestCase):
         value = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
         lifecycle = value["key_material_lifecycle"]
 
+        self.assertEqual(lifecycle["contract_id"], "persistent-secret-custody-v0")
         self.assertIn("No plaintext", lifecycle["secret_at_rest"])
         self.assertIn("TROPIC01-wrapped", lifecycle["secret_at_rest"])
         self.assertIn("ESP32-S3 RAM", lifecycle["unlock_location"])
@@ -130,6 +131,17 @@ class HardwareValidationTests(unittest.TestCase):
             path.write_text(json.dumps(original), encoding="utf-8")
 
             with self.assertRaisesRegex(ValueError, "key_material_lifecycle"):
+                validate_requirements(path)
+
+    def test_custom_wallet_requirements_reject_key_material_lifecycle_contract_mismatch(self) -> None:
+        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        original["key_material_lifecycle"]["contract_id"] = "legacy-local-custody-contract"
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "contract_id"):
                 validate_requirements(path)
 
     def test_custom_wallet_requirements_reject_plaintext_secret_at_rest(self) -> None:

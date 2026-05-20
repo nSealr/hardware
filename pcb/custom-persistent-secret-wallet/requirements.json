@@ -58,6 +58,7 @@
     "Account descriptors and policy metadata must remain secretless; private keys, nsec values, seed words, and pairing secrets must not be stored by companion descriptors."
   ],
   "key_material_lifecycle": {
+    "contract_id": "persistent-secret-custody-v0",
     "secret_at_rest": "No plaintext Nostr private key, nsec, mnemonic, or passphrase is allowed at rest; Rev A may store only a TROPIC01-wrapped secret blob or ESP32 flash-encrypted blob after provisioning is accepted.",
     "unlock_location": "Plaintext signing material may enter ESP32-S3 RAM only after local unlock, TROPIC01-assisted key unwrap or unlock material release, and successful device review state checks.",
     "plaintext_persistence": "Plaintext signing material is RAM-only during the unlocked session and must never be written to flash, logs, crash dumps, USB reports, companion descriptors, or debug output.",

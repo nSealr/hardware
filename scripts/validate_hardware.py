@@ -8,6 +8,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+CUSTOM_WALLET_CUSTODY_CONTRACT = (
+    ROOT / "tests" / "fixtures" / "specs" / "vectors" / "custody" / "persistent-secret-custody-v0.json"
+)
 
 REQUIRED_INTERFACES = {
     "usb_c_native",
@@ -72,21 +75,13 @@ REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
 }
 
 REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS = {
+    "contract_id",
     "secret_at_rest",
     "unlock_location",
     "plaintext_persistence",
     "wipe_events",
     "pin_attempt_policy",
     "backup_export_policy",
-}
-
-REQUIRED_CUSTOM_WALLET_WIPE_EVENTS = {
-    "manual_lock",
-    "power_loss",
-    "pin_attempt_exhausted",
-    "session_timeout",
-    "firmware_error",
-    "debug_policy_violation",
 }
 
 FORBIDDEN_TROPIC01_RESET_INTERFACE_TERMS = {
@@ -472,6 +467,8 @@ def validate_custom_persistent_secret_wallet(
 
 
 def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> None:
+    contract = load_custom_wallet_custody_contract(path)
+    contract_requirements = contract["requirements"]
     lifecycle = value.get("key_material_lifecycle")
     if not isinstance(lifecycle, dict):
         raise ValueError(f"{path}: key_material_lifecycle must be an object")
@@ -479,14 +476,18 @@ def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> No
     if missing_fields:
         raise ValueError(f"{path}: key_material_lifecycle missing {', '.join(missing_fields)}")
 
-    for field in sorted(REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS - {"wipe_events"}):
+    if lifecycle.get("contract_id") != contract.get("contract_id"):
+        raise ValueError(f"{path}: key_material_lifecycle.contract_id must match persistent-secret custody contract")
+
+    for field in sorted(REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS - {"contract_id", "wipe_events"}):
         _require_non_empty_string(lifecycle.get(field), path, f"key_material_lifecycle.{field}")
 
     secret_at_rest = str(lifecycle["secret_at_rest"]).lower()
     if "plaintext" not in secret_at_rest or "no plaintext" not in secret_at_rest:
         raise ValueError(f"{path}: key_material_lifecycle.secret_at_rest must forbid plaintext secrets at rest")
-    if "wrapped" not in secret_at_rest and "encrypted" not in secret_at_rest:
-        raise ValueError(f"{path}: key_material_lifecycle.secret_at_rest must require wrapped or encrypted storage")
+    for storage in contract_requirements["secret_at_rest"]["allowed_storage"]:
+        if not _storage_phrase_present(storage, secret_at_rest):
+            raise ValueError(f"{path}: key_material_lifecycle.secret_at_rest must mention {storage}")
 
     unlock_location = str(lifecycle["unlock_location"]).lower()
     if "esp32" not in unlock_location or "ram" not in unlock_location or "tropic01" not in unlock_location:
@@ -495,13 +496,8 @@ def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> No
     plaintext_persistence = str(lifecycle["plaintext_persistence"]).lower()
     if "ram-only" not in plaintext_persistence and "ram only" not in plaintext_persistence:
         raise ValueError(f"{path}: key_material_lifecycle.plaintext_persistence must require RAM-only plaintext")
-    forbidden_outputs = (
-        "flash",
-        "logs",
-        "crash dumps",
-        "usb reports",
-        "companion descriptors",
-        "debug output",
+    forbidden_outputs = tuple(
+        output.replace("_", " ") for output in contract_requirements["plaintext_persistence"]["forbidden_outputs"]
     )
     missing_outputs = sorted(output for output in forbidden_outputs if output not in plaintext_persistence)
     if missing_outputs:
@@ -514,7 +510,7 @@ def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> No
         raise ValueError(f"{path}: key_material_lifecycle.wipe_events must be a non-empty list")
     if not all(isinstance(event, str) and event.strip() for event in wipe_events):
         raise ValueError(f"{path}: key_material_lifecycle.wipe_events must contain non-empty strings")
-    missing_wipe_events = sorted(REQUIRED_CUSTOM_WALLET_WIPE_EVENTS - set(wipe_events))
+    missing_wipe_events = sorted(set(contract_requirements["wipe_events"]) - set(wipe_events))
     if missing_wipe_events:
         raise ValueError(f"{path}: key_material_lifecycle.wipe_events missing {', '.join(missing_wipe_events)}")
 
@@ -531,6 +527,24 @@ def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> No
         raise ValueError(f"{path}: key_material_lifecycle.backup_export_policy must be disabled by default")
     if "danger-zone" not in export_policy:
         raise ValueError(f"{path}: key_material_lifecycle.backup_export_policy must require danger-zone copy")
+
+
+def load_custom_wallet_custody_contract(path: Path) -> dict:
+    if not CUSTOM_WALLET_CUSTODY_CONTRACT.exists():
+        raise ValueError(f"{path}: missing custom wallet custody contract fixture")
+    contract = json.loads(CUSTOM_WALLET_CUSTODY_CONTRACT.read_text(encoding="utf-8"))
+    if contract.get("contract_id") != "persistent-secret-custody-v0":
+        raise ValueError(f"{path}: custom wallet custody contract fixture has unexpected contract_id")
+    requirements = contract.get("requirements")
+    if not isinstance(requirements, dict):
+        raise ValueError(f"{path}: custom wallet custody contract fixture has invalid requirements")
+    return contract
+
+
+def _storage_phrase_present(storage: str, text: str) -> bool:
+    phrase = storage.replace("_", " ")
+    hyphen_phrase = phrase.replace(" wrapped ", "-wrapped ").replace(" encrypted ", "-encrypted ")
+    return phrase in text or hyphen_phrase in text
 
 
 def validate_bom(path: Path) -> None:
