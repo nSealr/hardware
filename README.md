@@ -45,7 +45,11 @@ outside the specs `contract_id` model.
 - Machine-readable custom persistent-secret wallet Rev A requirements and BOM
   scaffold. Rev A is USB-C bus-powered, connected/no-wireless, no-battery, and
   TROPIC01-assisted. TROPIC01 direct Schnorr/BIP-340 is tracked as future
-  vendor-roadmap work, not as a current public API claim.
+  vendor-roadmap work, not as a current public API claim. The checked
+  key-material lifecycle forbids plaintext secrets at rest, requires wrapped or
+  encrypted storage before persistent custody is enabled, limits plaintext to
+  ESP32-S3 RAM after TROPIC01-assisted unlock, and requires wipe events plus
+  device-reviewed physical approval for backup/export paths.
 - Shared specs snapshots for the custom persistent-secret wallet route:
   `custom-hardware-wallet-slot-0`,
   `policy-manual-only-persistent-device`,
@@ -71,8 +75,8 @@ outside the specs `contract_id` model.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, stateless QR vault exclusion of
   TROPIC01 interfaces, custom wallet TROPIC01/power-cycle/no-battery/no-air-gap
-  boundaries, rejection of dedicated TROPIC01 reset-pin modeling, QR vault
-  envelope/review/approval requirements,
+  boundaries, key-material lifecycle gates, rejection of dedicated TROPIC01
+  reset-pin modeling, QR vault envelope/review/approval requirements,
   identity/policy route requirements, BOM headers, BOM categories, duplicate
   designators, manual hardware report safety flags, and directory-driven
   validation discovery for requirements, OS profiles, BOMs, reports, and

@@ -101,6 +101,86 @@ class HardwareValidationTests(unittest.TestCase):
     def test_custom_persistent_secret_wallet_requirements_are_valid(self) -> None:
         validate_requirements(CUSTOM_WALLET_REQUIREMENTS)
 
+    def test_custom_wallet_requirements_pin_key_material_lifecycle(self) -> None:
+        value = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        lifecycle = value["key_material_lifecycle"]
+
+        self.assertIn("No plaintext", lifecycle["secret_at_rest"])
+        self.assertIn("TROPIC01-wrapped", lifecycle["secret_at_rest"])
+        self.assertIn("ESP32-S3 RAM", lifecycle["unlock_location"])
+        self.assertIn("TROPIC01-assisted", lifecycle["unlock_location"])
+        self.assertIn("RAM-only", lifecycle["plaintext_persistence"])
+        self.assertIn("manual_lock", lifecycle["wipe_events"])
+        self.assertIn("power_loss", lifecycle["wipe_events"])
+        self.assertIn("pin_attempt_exhausted", lifecycle["wipe_events"])
+        self.assertIn("session_timeout", lifecycle["wipe_events"])
+        self.assertIn("firmware_error", lifecycle["wipe_events"])
+        self.assertIn("debug_policy_violation", lifecycle["wipe_events"])
+        self.assertIn("MAC-and-Destroy", lifecycle["pin_attempt_policy"])
+        self.assertIn("companion descriptors", lifecycle["plaintext_persistence"])
+        self.assertIn("physical approval", lifecycle["backup_export_policy"])
+        self.assertIn("danger-zone", lifecycle["backup_export_policy"])
+
+    def test_custom_wallet_requirements_reject_missing_key_material_lifecycle(self) -> None:
+        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        original.pop("key_material_lifecycle", None)
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "key_material_lifecycle"):
+                validate_requirements(path)
+
+    def test_custom_wallet_requirements_reject_plaintext_secret_at_rest(self) -> None:
+        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        original["key_material_lifecycle"]["secret_at_rest"] = "Plaintext nsec may be stored in flash for convenience."
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "forbid plaintext"):
+                validate_requirements(path)
+
+    def test_custom_wallet_requirements_reject_incomplete_wipe_events(self) -> None:
+        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        original["key_material_lifecycle"]["wipe_events"] = ["manual_lock", "power_loss"]
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "pin_attempt_exhausted"):
+                validate_requirements(path)
+
+    def test_custom_wallet_requirements_reject_export_without_physical_approval(self) -> None:
+        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        original["key_material_lifecycle"]["backup_export_policy"] = (
+            "Export can be enabled through companion UI after software review."
+        )
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "device review and physical approval"):
+                validate_requirements(path)
+
+    def test_custom_wallet_requirements_reject_export_without_danger_zone_copy(self) -> None:
+        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        original["key_material_lifecycle"]["backup_export_policy"] = (
+            "Any mnemonic, nsec, wrapped secret, or recovery export requires local device review and "
+            "physical approval and must be disabled by default."
+        )
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "danger-zone"):
+                validate_requirements(path)
+
     def test_custom_wallet_requirements_match_shared_route_descriptor(self) -> None:
         value = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
         identity_text = "\n".join(value["identity_policy_requirements"])

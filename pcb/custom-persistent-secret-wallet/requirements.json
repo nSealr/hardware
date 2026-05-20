@@ -57,6 +57,21 @@
     "Manual-only mode must remain available even after v0 sign_event kind 1 scoped automation is later supported.",
     "Account descriptors and policy metadata must remain secretless; private keys, nsec values, seed words, and pairing secrets must not be stored by companion descriptors."
   ],
+  "key_material_lifecycle": {
+    "secret_at_rest": "No plaintext Nostr private key, nsec, mnemonic, or passphrase is allowed at rest; Rev A may store only a TROPIC01-wrapped secret blob or ESP32 flash-encrypted blob after provisioning is accepted.",
+    "unlock_location": "Plaintext signing material may enter ESP32-S3 RAM only after local unlock, TROPIC01-assisted key unwrap or unlock material release, and successful device review state checks.",
+    "plaintext_persistence": "Plaintext signing material is RAM-only during the unlocked session and must never be written to flash, logs, crash dumps, USB reports, companion descriptors, or debug output.",
+    "wipe_events": [
+      "manual_lock",
+      "power_loss",
+      "pin_attempt_exhausted",
+      "session_timeout",
+      "firmware_error",
+      "debug_policy_violation"
+    ],
+    "pin_attempt_policy": "PIN attempt hardening must use TROPIC01 MAC-and-Destroy or a vendor-confirmed equivalent before production secret storage is enabled.",
+    "backup_export_policy": "Any mnemonic, nsec, wrapped secret, or recovery export requires local device review and physical approval, must be disabled by default, and must produce explicit user-facing danger-zone copy."
+  },
   "notes": [
     "This is a requirements scaffold for the first custom persistent-secret wallet Rev A, not a routed PCB.",
     "USB data transport means this board is connected/no-wireless; QR-only stateless vaults remain the offline transport line.",

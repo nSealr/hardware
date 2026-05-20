@@ -110,6 +110,12 @@ until a separate portable branch is justified. TROPIC01 recovery is modeled as
 controlled power cycling through a load-switch path; validation rejects
 dedicated reset-pin interfaces and BOM components so early schematic work does
 not drift from the public TROPIC01 reference-board boundary.
+Rev A also carries a checked key-material lifecycle. Hardware requirements must
+forbid plaintext Nostr secrets at rest, require wrapped or encrypted storage
+before persistent custody is enabled, limit plaintext material to ESP32-S3 RAM
+after TROPIC01-assisted unlock, list mandatory wipe events, require
+MAC-and-Destroy PIN-attempt hardening, and keep backup/export disabled by
+default behind local device review plus physical approval.
 The hardware test suite also consumes shared specs snapshots for
 `custom-hardware-wallet-slot-0`, `policy-manual-only-persistent-device`,
 `custom-hardware-wallet-enable-kind-1-automation`,

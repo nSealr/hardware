@@ -29,6 +29,13 @@ lines.
   a load switch, not as a dedicated reset pin. The requirements and BOM
   validators enforce this so early Rev A schematic work cannot silently switch
   to a reset-pin model.
+- Secret material has a checked lifecycle in the Rev A requirements. Plaintext
+  Nostr keys, `nsec` values, mnemonics, and passphrases are forbidden at rest;
+  the only acceptable at-rest shape before a later implementation design is a
+  wrapped or encrypted blob. Plaintext may enter ESP32-S3 RAM only during an
+  unlocked local session after TROPIC01-assisted unlock or unwrap, and it must
+  be wiped on manual lock, power loss, PIN-attempt exhaustion, session timeout,
+  firmware error, or debug-policy violation.
 
 ## TROPIC01 Integration Notes
 
@@ -51,6 +58,10 @@ provided Schnorr support once Tropic Square ships or documents it.
   flows run on a devkit or shield.
 - The key-wrap/unlock model documents exactly when Nostr private key material
   enters ESP32-S3 RAM.
+- The checked key-material lifecycle is accepted by firmware and security
+  review: no plaintext secret at rest, TROPIC01-assisted unlock, RAM-only
+  plaintext, required wipe events, MAC-and-Destroy PIN hardening, and
+  device-reviewed physical approval for any backup/export path.
 - Display size and navigation are accepted against complete event review pages.
 - USB power, regulator current, thermal margin, ESD, fuse, and debug/provisioning
   requirements are documented.

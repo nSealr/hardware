@@ -48,6 +48,11 @@ requirements, OS profiles, BOMs, reports, and report templates.
   future-gated Schnorr/BIP-340 language. Negative tests reject dedicated
   TROPIC01 reset-pin interfaces because Rev A recovery must use controlled
   power cycling.
+- Custom persistent-secret wallet key-material lifecycle validation, requiring
+  no plaintext secret at rest, wrapped or encrypted storage, TROPIC01-assisted
+  unlock into ESP32-S3 RAM, RAM-only plaintext, mandatory wipe events,
+  MAC-and-Destroy PIN-attempt hardening, and disabled-by-default backup/export
+  behind device review plus physical approval.
 - Custom persistent-secret wallet route-contract validation against shared
   specs snapshots for `custom-hardware-wallet-slot-0`,
   `policy-manual-only-persistent-device`,

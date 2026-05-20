@@ -72,6 +72,14 @@ through a controlled power-cycle/load-switch component, keeping the schematic
 direction aligned with public TROPIC01 open-hardware references before KiCad
 work starts.
 
+Status note, 2026-05-20: custom wallet validation now also requires a
+structured key-material lifecycle. Rev A must forbid plaintext Nostr secrets at
+rest, require wrapped or encrypted storage before persistent custody is enabled,
+limit plaintext to ESP32-S3 RAM after TROPIC01-assisted unlock, list mandatory
+wipe events, require MAC-and-Destroy PIN-attempt hardening, and keep any
+backup/export path disabled by default behind device review plus physical
+approval.
+
 Status note, 2026-05-19: custom persistent-secret wallet Rev A requirements now
 consume shared specs snapshots for `custom-hardware-wallet-slot-0`,
 `policy-manual-only-persistent-device`,

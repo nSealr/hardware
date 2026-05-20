@@ -71,6 +71,24 @@ REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
     "secure_element",
 }
 
+REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS = {
+    "secret_at_rest",
+    "unlock_location",
+    "plaintext_persistence",
+    "wipe_events",
+    "pin_attempt_policy",
+    "backup_export_policy",
+}
+
+REQUIRED_CUSTOM_WALLET_WIPE_EVENTS = {
+    "manual_lock",
+    "power_loss",
+    "pin_attempt_exhausted",
+    "session_timeout",
+    "firmware_error",
+    "debug_policy_violation",
+}
+
 FORBIDDEN_TROPIC01_RESET_INTERFACE_TERMS = {
     "reset",
 }
@@ -450,6 +468,69 @@ def validate_custom_persistent_secret_wallet(
     product_gate = str(roadmap.get("product_gate", "")).lower()
     if "public api" not in product_gate or "vendor" not in product_gate:
         raise ValueError(f"{path}: tropic01_schnorr_roadmap.product_gate must mention public API and vendor")
+    validate_custom_wallet_key_material_lifecycle(value, path)
+
+
+def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> None:
+    lifecycle = value.get("key_material_lifecycle")
+    if not isinstance(lifecycle, dict):
+        raise ValueError(f"{path}: key_material_lifecycle must be an object")
+    missing_fields = sorted(REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS - set(lifecycle))
+    if missing_fields:
+        raise ValueError(f"{path}: key_material_lifecycle missing {', '.join(missing_fields)}")
+
+    for field in sorted(REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS - {"wipe_events"}):
+        _require_non_empty_string(lifecycle.get(field), path, f"key_material_lifecycle.{field}")
+
+    secret_at_rest = str(lifecycle["secret_at_rest"]).lower()
+    if "plaintext" not in secret_at_rest or "no plaintext" not in secret_at_rest:
+        raise ValueError(f"{path}: key_material_lifecycle.secret_at_rest must forbid plaintext secrets at rest")
+    if "wrapped" not in secret_at_rest and "encrypted" not in secret_at_rest:
+        raise ValueError(f"{path}: key_material_lifecycle.secret_at_rest must require wrapped or encrypted storage")
+
+    unlock_location = str(lifecycle["unlock_location"]).lower()
+    if "esp32" not in unlock_location or "ram" not in unlock_location or "tropic01" not in unlock_location:
+        raise ValueError(f"{path}: key_material_lifecycle.unlock_location must mention ESP32 RAM and TROPIC01")
+
+    plaintext_persistence = str(lifecycle["plaintext_persistence"]).lower()
+    if "ram-only" not in plaintext_persistence and "ram only" not in plaintext_persistence:
+        raise ValueError(f"{path}: key_material_lifecycle.plaintext_persistence must require RAM-only plaintext")
+    forbidden_outputs = (
+        "flash",
+        "logs",
+        "crash dumps",
+        "usb reports",
+        "companion descriptors",
+        "debug output",
+    )
+    missing_outputs = sorted(output for output in forbidden_outputs if output not in plaintext_persistence)
+    if missing_outputs:
+        raise ValueError(
+            f"{path}: key_material_lifecycle.plaintext_persistence must forbid {', '.join(missing_outputs)}"
+        )
+
+    wipe_events = lifecycle.get("wipe_events")
+    if not isinstance(wipe_events, list) or not wipe_events:
+        raise ValueError(f"{path}: key_material_lifecycle.wipe_events must be a non-empty list")
+    if not all(isinstance(event, str) and event.strip() for event in wipe_events):
+        raise ValueError(f"{path}: key_material_lifecycle.wipe_events must contain non-empty strings")
+    missing_wipe_events = sorted(REQUIRED_CUSTOM_WALLET_WIPE_EVENTS - set(wipe_events))
+    if missing_wipe_events:
+        raise ValueError(f"{path}: key_material_lifecycle.wipe_events missing {', '.join(missing_wipe_events)}")
+
+    pin_policy = str(lifecycle["pin_attempt_policy"]).lower()
+    if "tropic01" not in pin_policy or "mac-and-destroy" not in pin_policy:
+        raise ValueError(f"{path}: key_material_lifecycle.pin_attempt_policy must require TROPIC01 MAC-and-Destroy")
+
+    export_policy = str(lifecycle["backup_export_policy"]).lower()
+    if "device review" not in export_policy or "physical approval" not in export_policy:
+        raise ValueError(
+            f"{path}: key_material_lifecycle.backup_export_policy must require device review and physical approval"
+        )
+    if "disabled by default" not in export_policy:
+        raise ValueError(f"{path}: key_material_lifecycle.backup_export_policy must be disabled by default")
+    if "danger-zone" not in export_policy:
+        raise ValueError(f"{path}: key_material_lifecycle.backup_export_policy must require danger-zone copy")
 
 
 def validate_bom(path: Path) -> None:
