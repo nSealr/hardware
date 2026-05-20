@@ -87,9 +87,10 @@ The USB/NIP-46 requirements pin the shared `esp32_usb_nip46` route,
 `policy-scoped-automation-daily-use`, and
 `grant-esp32-usb-kind-1-session` as future persistent-route contracts only.
 Manual-only is the default policy; scoped automation requires a separate
-device-reviewed policy change. That does not clear firmware signing gates or
-create a PCB requirement for production grant storage before provisioning and
-security policy are accepted.
+device-reviewed policy change and the v0 grant menu is limited to
+`sign_event` kind `1`. That does not clear firmware signing gates or create a
+PCB requirement for production grant storage before provisioning and security
+policy are accepted.
 The target persistent-device hardware model is an encrypted vault with seed
 profiles, BIP-39 passphrase namespaces, standalone key slots, per-public-key
 policy, one device-level v0 unlock ceremony, wipe/export policy, secure boot,
@@ -113,9 +114,9 @@ The hardware test suite also consumes shared specs snapshots for
 `grant-custom-hardware-wallet-kind-1-session`, and
 `custom-hardware-wallet-sign-event-slot-0`. That keeps Rev A's hardware
 requirements bound to the canonical route descriptor, default manual policy,
-future scoped policy, policy-change review, grant, and route-selection
-contract while preserving the rule that account descriptors and hardware
-artifacts are secretless metadata.
+future scoped policy, policy-change review, v0 `sign_event` kind `1` grant,
+and route-selection contract while preserving the rule that account descriptors
+and hardware artifacts are secretless metadata.
 
 The Raspberry QR vault kit requirements follow the same stateless QR contract
 without ESP32-specific secure boot or flash-encryption assumptions. They require

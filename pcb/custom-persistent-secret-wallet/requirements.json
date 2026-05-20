@@ -43,7 +43,7 @@
   "review_requirements": [
     "Provide a local display large enough to show raw event kind, signer author, complete content, complete tags, request id, approval_digest, and approval status.",
     "Provide physical approve, reject, and navigation controls with distinct tactile actions.",
-    "Require explicit approval for each sign_event request unless a later scoped automation policy has been separately accepted.",
+    "Require explicit approval for each sign_event request unless a later device-approved scoped automation policy has accepted the v0 sign_event kind 1 grant.",
     "Reject signing when the displayed request id does not match the pending request.",
     "Reject signing when the displayed approval_digest does not match the pending request review.",
     "Do not treat touch-only controls as final approve or reject consent for production hardware-wallet claims."
@@ -53,8 +53,8 @@
     "Use custody custom_hardware_persistent for persistent-secret hardware-wallet descriptors.",
     "Use policy-manual-only-persistent-device as the default policy profile.",
     "Reference policy-scoped-automation-daily-use only after firmware, provisioning, storage, review, signed-output gates, and a device-approved policy-change proposal are accepted.",
-    "Treat custom-hardware-wallet-enable-kind-1-automation and grant-custom-hardware-wallet-kind-1-session as future conformance contracts, not as enabled production persistent grants.",
-    "Manual-only mode must remain available even after scoped automation is later supported.",
+    "Treat custom-hardware-wallet-enable-kind-1-automation and grant-custom-hardware-wallet-kind-1-session as future sign_event kind 1 conformance contracts, not as enabled production persistent grants.",
+    "Manual-only mode must remain available even after v0 sign_event kind 1 scoped automation is later supported.",
     "Account descriptors and policy metadata must remain secretless; private keys, nsec values, seed words, and pairing secrets must not be stored by companion descriptors."
   ],
   "notes": [

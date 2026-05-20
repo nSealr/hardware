@@ -155,6 +155,7 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn(route["type"], identity_text)
         self.assertIn(route["custody"], identity_text)
         self.assertIn(CUSTOM_WALLET_ACCOUNT["policy_profile_id"], identity_text)
+        self.assertIn("sign_event kind 1", identity_text)
 
     def test_reference_usb_signer_requirements_reference_identity_policy_contracts(self) -> None:
         value = json.loads((ROOT / "pcb/reference-esp32-s3-signer/requirements.json").read_text(encoding="utf-8"))

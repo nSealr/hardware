@@ -67,6 +67,7 @@ provided Schnorr support once Tropic Square ships or documents it.
   and
   `tests/fixtures/specs/vectors/route-selections/custom-hardware-wallet-sign-event-slot-0.json`
   keep the Rev A hardware requirements aligned with the shared account,
-  default policy, policy-change, grant, and route-selection contracts.
+  default policy, policy-change, v0 `sign_event` kind `1` grant, and
+  route-selection contracts.
 - `scripts/validate_hardware.py` rejects unsafe claims such as air-gapped USB
   operation, current TROPIC01 BIP-340 signing, or Rev A battery interfaces.

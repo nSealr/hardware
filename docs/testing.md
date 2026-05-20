@@ -55,7 +55,8 @@ requirements, OS profiles, BOMs, reports, and report templates.
   `grant-custom-hardware-wallet-kind-1-session`, including USB transport,
   device-display review, physical approval, persistent grants, hardware-wallet
   slot recovery, manual-only default policy, device-reviewed scoped-automation
-  activation, device-confirmation constraints, and secretless route selection.
+  activation for the v0 `sign_event` kind `1` grant, device-confirmation
+  constraints, and secretless route selection.
 - Reference USB signer BOM validation.
 - Raspberry/Pi stateless QR vault kit BOM validation.
 - Custom persistent-secret wallet Rev A BOM validation, including secure-element

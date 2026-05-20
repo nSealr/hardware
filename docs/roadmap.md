@@ -56,7 +56,8 @@ must reference `esp32_usb_nip46`,
 `policy-manual-only-persistent-device`,
 `policy-scoped-automation-daily-use`, and
 `grant-esp32-usb-kind-1-session` as future contracts only. Manual-only remains
-the default policy until a device-reviewed policy change is accepted.
+the default policy until a device-reviewed policy change is accepted. The v0
+grant menu is limited to `sign_event` kind `1`.
 
 Status note, 2026-05-18: custom persistent-secret wallet Rev A requirements are
 now validated. Rev A is a USB-C bus-powered connected wallet with no battery,
@@ -74,7 +75,8 @@ consume shared specs snapshots for `custom-hardware-wallet-slot-0`,
 `grant-custom-hardware-wallet-kind-1-session`. The checked route remains USB,
 device-display reviewed, physically approved, `custom_hardware_persistent`,
 manual-only by default, scoped-automation capable only through device-reviewed
-policy change, hardware-wallet-slot backed up, and secretless at the
+policy change for the v0 `sign_event` kind `1` grant, hardware-wallet-slot
+backed up, and secretless at the
 descriptor/route-selection layer. This does not clear provisioning, storage,
 TROPIC01, firmware, or production signing gates.
 
