@@ -45,7 +45,9 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Custom persistent-secret wallet Rev A requirements validation, requiring
   USB-C bus power, TROPIC01 SPI, GPO/IRQ, power-cycle control, pairing lifecycle,
   no battery interface, no air-gapped claim on USB data transport, and
-  future-gated Schnorr/BIP-340 language.
+  future-gated Schnorr/BIP-340 language. Negative tests reject dedicated
+  TROPIC01 reset-pin interfaces because Rev A recovery must use controlled
+  power cycling.
 - Custom persistent-secret wallet route-contract validation against shared
   specs snapshots for `custom-hardware-wallet-slot-0`,
   `policy-manual-only-persistent-device`,
@@ -60,7 +62,8 @@ requirements, OS profiles, BOMs, reports, and report templates.
 - Reference USB signer BOM validation.
 - Raspberry/Pi stateless QR vault kit BOM validation.
 - Custom persistent-secret wallet Rev A BOM validation, including secure-element
-  and protection categories.
+  and protection categories, a TROPIC01 power-cycle/load-switch component, and
+  rejection of TROPIC01 reset-pin components.
 - Manual hardware report validation.
 - ESP32-S3 DevKitC-1 build/flash/protocol smoke report validation.
 - ESP32-S3 DevKitC-1 dynamic serial protocol-smoke report validation, including

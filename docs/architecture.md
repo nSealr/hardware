@@ -106,7 +106,10 @@ BIP-340 signing on the ESP32-S3 host MCU while preserving direct TROPIC01
 Schnorr/BIP-340 as future vendor-roadmap work. Because Rev A uses USB data
 transport, validation rejects air-gapped wording for that board. Battery
 interfaces are excluded from Rev A so power, recovery, and logistics stay simple
-until a separate portable branch is justified.
+until a separate portable branch is justified. TROPIC01 recovery is modeled as
+controlled power cycling through a load-switch path; validation rejects
+dedicated reset-pin interfaces and BOM components so early schematic work does
+not drift from the public TROPIC01 reference-board boundary.
 The hardware test suite also consumes shared specs snapshots for
 `custom-hardware-wallet-slot-0`, `policy-manual-only-persistent-device`,
 `custom-hardware-wallet-enable-kind-1-automation`,

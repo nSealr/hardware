@@ -66,6 +66,12 @@ future-gated Schnorr/BIP-340 language. Validation rejects air-gapped claims for
 USB data wallets, current TROPIC01 BIP-340 signing claims, and Rev A
 `battery_power` interfaces.
 
+Status note, 2026-05-20: custom wallet validation now rejects dedicated
+TROPIC01 reset-pin interfaces and BOM rows. Rev A must model TROPIC01 recovery
+through a controlled power-cycle/load-switch component, keeping the schematic
+direction aligned with public TROPIC01 open-hardware references before KiCad
+work starts.
+
 Status note, 2026-05-19: custom persistent-secret wallet Rev A requirements now
 consume shared specs snapshots for `custom-hardware-wallet-slot-0`,
 `policy-manual-only-persistent-device`,

@@ -71,7 +71,8 @@ outside the specs `contract_id` model.
 - Validation script and tests for required interfaces, security/review
   requirements, approval-digest review binding, stateless QR vault exclusion of
   TROPIC01 interfaces, custom wallet TROPIC01/power-cycle/no-battery/no-air-gap
-  boundaries, QR vault envelope/review/approval requirements,
+  boundaries, rejection of dedicated TROPIC01 reset-pin modeling, QR vault
+  envelope/review/approval requirements,
   identity/policy route requirements, BOM headers, BOM categories, duplicate
   designators, manual hardware report safety flags, and directory-driven
   validation discovery for requirements, OS profiles, BOMs, reports, and

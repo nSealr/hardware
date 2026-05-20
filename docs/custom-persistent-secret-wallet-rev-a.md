@@ -26,7 +26,9 @@ lines.
 - Direct TROPIC01 Schnorr/BIP-340 signing is tracked as a future vendor-roadmap
   path. It is not a current Rev A assumption.
 - TROPIC01 recovery/reset should be designed as controlled power cycling through
-  a load switch, not as a dedicated reset pin.
+  a load switch, not as a dedicated reset pin. The requirements and BOM
+  validators enforce this so early Rev A schematic work cannot silently switch
+  to a reset-pin model.
 
 ## TROPIC01 Integration Notes
 
@@ -70,4 +72,6 @@ provided Schnorr support once Tropic Square ships or documents it.
   default policy, policy-change, v0 `sign_event` kind `1` grant, and
   route-selection contracts.
 - `scripts/validate_hardware.py` rejects unsafe claims such as air-gapped USB
-  operation, current TROPIC01 BIP-340 signing, or Rev A battery interfaces.
+  operation, current TROPIC01 BIP-340 signing, Rev A battery interfaces,
+  missing TROPIC01 power-cycle/load-switch BOM coverage, or dedicated TROPIC01
+  reset-pin modeling.

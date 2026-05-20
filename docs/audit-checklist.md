@@ -12,6 +12,8 @@ Before hardware work is complete:
       public/vendor path is verified.
 - [ ] Custom wallet Rev A docs keep battery interfaces out of the checked
       requirement set unless a separate portable branch is created.
+- [ ] Custom wallet Rev A keeps TROPIC01 recovery modeled as controlled power
+      cycling or load switching, not as a dedicated reset pin.
 - [ ] Raspberry OS profile reports record removable boot media, wireless,
       swap, remote-access, RAM-only custody, persistent-secret absence, and
       power-cycle evidence before image acceptance is claimed.

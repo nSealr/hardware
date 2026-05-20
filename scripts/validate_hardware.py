@@ -71,6 +71,10 @@ REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
     "secure_element",
 }
 
+FORBIDDEN_TROPIC01_RESET_INTERFACE_TERMS = {
+    "reset",
+}
+
 REQUIRED_REVIEW_KEYWORDS = {
     "request id",
     "approval_digest",
@@ -385,6 +389,18 @@ def validate_custom_persistent_secret_wallet(
     interface_text = " ".join(sorted(mandatory | optional)).lower()
     if "battery_power" in interface_text:
         raise ValueError(f"{path}: battery_power is not allowed in custom wallet Rev A interfaces")
+    forbidden_reset_interfaces = sorted(
+        interface
+        for interface in mandatory | optional
+        if "tropic01" in interface.lower()
+        and any(term in interface.lower() for term in FORBIDDEN_TROPIC01_RESET_INTERFACE_TERMS)
+        and "power_cycle" not in interface.lower()
+    )
+    if forbidden_reset_interfaces:
+        raise ValueError(
+            f"{path}: TROPIC01 reset must be modeled as power-cycle control, not dedicated reset interfaces: "
+            + ", ".join(forbidden_reset_interfaces)
+        )
 
     text = "\n".join(
         _flatten_text(value.get(field))
@@ -445,7 +461,9 @@ def validate_bom(path: Path) -> None:
             raise ValueError(f"{path}: missing BOM headers: {', '.join(missing_headers)}")
         designators: set[str] = set()
         categories: set[str] = set()
+        rows: list[dict[str, str]] = []
         for row_number, row in enumerate(reader, start=2):
+            rows.append({key: value or "" for key, value in row.items()})
             designator = (row.get("designator") or "").strip()
             category = (row.get("category") or "").strip()
             required = (row.get("required") or "").strip().lower()
@@ -467,6 +485,35 @@ def validate_bom(path: Path) -> None:
         missing_categories = sorted(required_categories - categories)
         if missing_categories:
             raise ValueError(f"{path}: missing required BOM categories: {', '.join(missing_categories)}")
+        if path.name == "custom-persistent-secret-wallet.csv":
+            validate_custom_wallet_bom_rows(path, rows)
+
+
+def validate_custom_wallet_bom_rows(path: Path, rows: list[dict[str, str]]) -> None:
+    row_text = [
+        " ".join(
+            (
+                row.get("category", ""),
+                row.get("description", ""),
+                row.get("notes", ""),
+            )
+        ).lower()
+        for row in rows
+    ]
+    if any("tropic01" in text and "reset pin" in text for text in row_text):
+        raise ValueError(f"{path}: TROPIC01 reset must use controlled power cycling, not a reset pin component")
+    has_power_cycle_component = any(
+        "tropic01" in text
+        and (
+            "load switch" in text
+            or "power-gating" in text
+            or "power-cycle" in text
+            or "power cycle" in text
+        )
+        for text in row_text
+    )
+    if not has_power_cycle_component:
+        raise ValueError(f"{path}: custom wallet BOM must include a TROPIC01 power-cycle/load-switch component")
 
 
 def _flatten_text(value: object) -> str:

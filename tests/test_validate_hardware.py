@@ -535,6 +535,43 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "battery_power"):
                 validate_requirements(path)
 
+    def test_custom_wallet_rejects_dedicated_tropic01_reset_interface(self) -> None:
+        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
+        original["optional_interfaces"].append("tropic01_reset_pin")
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "requirements.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "power-cycle control"):
+                validate_requirements(path)
+
+    def test_custom_wallet_bom_requires_tropic01_power_cycle_component(self) -> None:
+        original = (ROOT / "bom/custom-persistent-secret-wallet.csv").read_text(encoding="utf-8")
+        original = original.replace(
+            "U4,power,TROPIC01 load switch or power-gating circuit,true,"
+            "Used for controlled TROPIC01 power-cycle reset and recovery.\n",
+            "U4,power,Auxiliary 3.3 V rail monitor,true,Used for generic power-good monitoring.\n",
+        )
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "custom-persistent-secret-wallet.csv"
+            path.write_text(original, encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "power-cycle/load-switch"):
+                validate_bom(path)
+
+    def test_custom_wallet_bom_rejects_tropic01_reset_pin_component(self) -> None:
+        original = (ROOT / "bom/custom-persistent-secret-wallet.csv").read_text(encoding="utf-8")
+        original += "TP9,secure_element,TROPIC01 reset pin test pad,false,Do not add this component.\\n"
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "custom-persistent-secret-wallet.csv"
+            path.write_text(original, encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "not a reset pin component"):
+                validate_bom(path)
+
     def test_raspberry_os_profile_rejects_swap(self) -> None:
         original = json.loads(
             (ROOT / "kits/reference-raspberry-qr-vault/os-profile.json").read_text(encoding="utf-8")
