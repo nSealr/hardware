@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "report_type": "protocol_smoke",
+  "date": "2026-05-21",
+  "target_family": "esp32_usb_nip46_signer",
+  "hardware": {
+    "board": "LILYGO T-Display S3",
+    "candidate_role": "ESP32-S3 USB/display signer development acceptance",
+    "connected_port": "/dev/cu.usbmodem1101",
+    "detected_transport": "native USB-Serial/JTAG",
+    "usb_vendor": "Espressif",
+    "usb_product": "USB JTAG_serial debug unit",
+    "usb_serial": "EC:DA:3B:95:32:98",
+    "touch_approval_allowed": false
+  },
+  "source_repo": "nSealr/esp32",
+  "firmware_commit": "3a67803",
+  "acceptance_tool_commit": "de58cb4",
+  "esp_idf_version": "v5.5.4",
+  "procedure": [
+    "Sourced /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell used for the acceptance run.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem1101 IDF_ACCEPTANCE_MANUAL=passed IDF_FIRMWARE_REVISION=3a67803 idf-acceptance-report from nSealr/esp32 revision de58cb4.",
+    "The acceptance target detected the attached board and ESP-IDF/esptool availability before protocol exchange.",
+    "The target ran capability smoke, review-scenario smoke, a read-only security-fuse audit, a non-destructive post-audit hard reset, and a post-reset protocol recovery smoke.",
+    "Manual display/button observation had already passed for show-review, show-tags, show-long-content, show-scroll-review, show-dense-tags, show-unicode-review, show-control-escapes, show-request-error, button-approve, and button-reject."
+  ],
+  "expected_result": "The flashed T-Display S3 firmware should remain a development-only USB/display signer scaffold: protocol smokes pass, trusted-review scenarios remain inspectable, post-fuse reset recovers the app protocol, and every real sign_event still returns signing_disabled.",
+  "observed_result": "The acceptance report passed. Board detection found /dev/cu.usbmodem1101, native USB/JTAG serial, idf.py at /Users/vincenzo/esp/esp-idf-v5.5.4/tools/idf.py, and esptool.py at /Users/vincenzo/.espressif/python_env/idf5.5_py3.9_env/bin/esptool.py. Capability smoke verified 40 exchanges with 9 response frames and 31 expected rejection frames. Review-scenario smoke verified 9 exchanges covering 8 review scenarios with signing_disabled responses or expected rejection. The read-only fuse audit kept secure_boot, flash_encryption, debug_lock, download_mode, and manual_flash_encryption_download as production blockers. The post-fuse-audit protocol recovery smoke verified another 40 exchanges after hard reset. production_signing_ready remained false and runtime_signing_disabled remained a blocker.",
+  "result": "pass",
+  "production_signing_enabled": false,
+  "persistent_secret_present": false,
+  "tropic01_used": false,
+  "acceptance_report_summary": {
+    "schema": "nsealr-esp32-t-display-s3-acceptance-report-v0",
+    "source_revision": "de58cb4",
+    "firmware_revision": "3a67803",
+    "development_acceptance_ready": true,
+    "capability_smoke": {
+      "status": "passed",
+      "verified_exchanges": 40,
+      "response_frames": 9,
+      "expected_rejection_frames": 31
+    },
+    "review_scenario_smoke": {
+      "status": "passed",
+      "verified_exchanges": 9,
+      "response_frames": 8,
+      "expected_rejection_frames": 1,
+      "scenarios": [
+        "show-review",
+        "show-tags",
+        "show-long-content",
+        "show-scroll-review",
+        "show-dense-tags",
+        "show-unicode-review",
+        "show-control-escapes",
+        "show-request-error"
+      ]
+    },
+    "post_fuse_audit_protocol_recovery": {
+      "status": "passed",
+      "verified_exchanges": 40,
+      "response_frames": 9,
+      "expected_rejection_frames": 31
+    },
+    "production_blockers": [
+      "secure_boot",
+      "flash_encryption",
+      "debug_lock",
+      "download_mode",
+      "manual_flash_encryption_download",
+      "runtime_signing_disabled"
+    ]
+  },
+  "limitations": [
+    "This is development acceptance evidence for the current T-Display S3 USB/display signer scaffold, not production hardware-wallet certification.",
+    "The run did not enable secure boot, flash encryption, debug locking, persistent-secret storage, key provisioning, source public-key proof, companion signed-output verification, or real signing.",
+    "The flashed firmware revision was 3a67803; acceptance-report tooling was run from nSealr/esp32 revision de58cb4.",
+    "Manual observation status depends on human inspection of the physical display and onboard buttons; the JSON report records that status but does not replace production trusted-display acceptance.",
+    "The board is a no-camera T-Display S3 USB/display target and does not validate ESP32 QR-vault camera hardware."
+  ]
+}
