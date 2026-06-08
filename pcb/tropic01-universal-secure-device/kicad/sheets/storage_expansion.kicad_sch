@@ -1,0 +1,44 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "99999999-9999-4999-8999-999999999005")
+	(paper "A4")
+	(lib_symbols)
+	(text "QSPI target: W25Q128JV-class 128 Mbit NOR. QSPI is not secure storage by itself."
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-005000000001")
+	)
+	(text "External-host TROPIC01 SPI is 3.3 V logic only and must be physically disconnectable in hardened builds."
+		(exclude_from_sim no)
+		(at 20 32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-005000000002")
+	)
+	(text "Expansion: Qwiic/STEMMA QT I2C, 3.3 V UART, compact SPI/I2C/UART/GPIO header."
+		(exclude_from_sim no)
+		(at 20 44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-005000000003")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

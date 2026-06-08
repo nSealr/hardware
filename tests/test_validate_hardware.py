@@ -19,6 +19,7 @@ REFERENCE_REPORT = ROOT / "reports/esp32-s3-devkitc-1-detection-2026-05-08.json"
 RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-smoke.json"
 RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-flow-smoke.json"
 TROPIC01_UNIVERSAL_REQUIREMENTS = ROOT / "pcb/tropic01-universal-secure-device/requirements.json"
+TROPIC01_UNIVERSAL_KICAD = ROOT / "pcb/tropic01-universal-secure-device/kicad"
 SPECS_SNAPSHOTS = ROOT / "tests/fixtures/specs"
 
 
@@ -341,6 +342,75 @@ class HardwareValidationTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "not routed"):
                 export_tropic01_universal_pcbway.validate_board_ready_for_export(board)
+
+    def test_tropic01_universal_secure_device_kicad_sources_exist(self) -> None:
+        expected = [
+            TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pro",
+            TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_sch",
+            TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb",
+            TROPIC01_UNIVERSAL_KICAD / "sheets" / "power_usb.kicad_sch",
+            TROPIC01_UNIVERSAL_KICAD / "sheets" / "stm32u5_host.kicad_sch",
+            TROPIC01_UNIVERSAL_KICAD / "sheets" / "tropic01.kicad_sch",
+            TROPIC01_UNIVERSAL_KICAD / "sheets" / "display_controls.kicad_sch",
+            TROPIC01_UNIVERSAL_KICAD / "sheets" / "storage_expansion.kicad_sch",
+            TROPIC01_UNIVERSAL_KICAD / "sheets" / "secure_element_2.kicad_sch",
+            TROPIC01_UNIVERSAL_KICAD / "sheets" / "optional_profiles.kicad_sch",
+        ]
+
+        for path in expected:
+            self.assertTrue(path.exists(), f"missing KiCad source {path}")
+
+    def test_tropic01_universal_secure_device_kicad_sources_include_second_secure_element_sheet(self) -> None:
+        sheet = (TROPIC01_UNIVERSAL_KICAD / "sheets" / "secure_element_2.kicad_sch").read_text(
+            encoding="utf-8"
+        ).lower()
+
+        self.assertIn("optiga", sheet)
+        self.assertIn("trust m", sheet)
+        self.assertIn("i2c", sheet)
+        self.assertIn("u11", sheet)
+        self.assertIn("second secure element", sheet)
+
+    def test_tropic01_universal_secure_device_kicad_sources_remove_stale_custom_hardware_choices(self) -> None:
+        kicad_text = "\n".join(
+            path.read_text(encoding="utf-8", errors="replace")
+            for path in TROPIC01_UNIVERSAL_KICAD.rglob("*.kicad_sch")
+        )
+        board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
+            encoding="utf-8",
+            errors="replace",
+        )
+        combined = f"{kicad_text}\n{board_text}"
+
+        self.assertNotIn("microSD", combined)
+        self.assertNotIn("Second SE profile: DNP", combined)
+        self.assertNotIn("PCB NFC LOOP", combined)
+        self.assertNotIn("USB-C plug", combined)
+
+    def test_tropic01_universal_secure_device_board_drawings_include_display_and_nfc_features(self) -> None:
+        board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
+            encoding="utf-8",
+            errors="replace",
+        )
+
+        self.assertIn("DISP1 PORTRAIT TOUCH DISPLAY ENVELOPE 42.8 x 59.91 mm", board_text)
+        self.assertIn("ANT1 TOP EDGE NFC ANTENNA FPC OR TUNED KEEP-OUT", board_text)
+        self.assertNotIn("PCB NFC LOOP", board_text)
+
+    def test_tropic01_universal_secure_device_kicad_board_contains_final_core_refs(self) -> None:
+        board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
+            encoding="utf-8",
+            errors="replace",
+        )
+
+        for ref in ("U1", "U2", "U9", "U10", "U11", "J1", "J2", "J2B", "SW1", "SW2"):
+            self.assertIn(f'"{ref}"', board_text)
+        self.assertIn("USB4105-GF-A", board_text)
+        self.assertIn("USB_C_Receptacle_GCT_USB4105", board_text)
+        self.assertIn("Molex_54132-4062", board_text)
+        self.assertIn("Molex_52271-0679", board_text)
+        self.assertIn("SW_SPST_EVQP7A", board_text)
+        self.assertIn("OPTIGA-TRUST-M-SLS32AIA", board_text)
 
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")

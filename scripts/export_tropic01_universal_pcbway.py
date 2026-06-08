@@ -93,7 +93,7 @@ def validate_board_ready_for_export(board_path: Path = KICAD_BOARD) -> None:
     routed_item_count = segment_count + via_count
 
     if routed_item_count == 0 or len(real_nets) <= 1:
-        raise ValueError("PCBWay export blocked: board is not routed")
+        raise ValueError("PCBWay export blocked: no routed KiCad PCB copper exists; board is not routed")
 
 
 def _mpn_by_designator(rows: list[dict[str, str]]) -> dict[str, str]:

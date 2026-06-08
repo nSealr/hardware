@@ -1,0 +1,10 @@
+(sym_lib_table
+	(version 7)
+	(lib
+		(name "TROPIC_SQUARE")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/lib/symbols/TROPIC01.kicad_sym")
+		(options "")
+		(descr "Project-local Tropic Square TROPIC01 symbol library copied from the official devboards KiCad-lib")
+	)
+)

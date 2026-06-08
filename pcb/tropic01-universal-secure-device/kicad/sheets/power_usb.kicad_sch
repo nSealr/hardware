@@ -1,0 +1,54 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "99999999-9999-4999-8999-999999999001")
+	(paper "A4")
+	(lib_symbols)
+	(text "USB-C Rev A0 is USB 2.0 device/sink only."
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-001000000001")
+	)
+	(text "Use two 5.1 kOhm Rd resistors: CC1 to GND and CC2 to GND."
+		(exclude_from_sim no)
+		(at 20 32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-001000000002")
+	)
+	(text "Place ESD and VBUS protection next to connector in PCB layout."
+		(exclude_from_sim no)
+		(at 20 44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-001000000003")
+	)
+	(text "Candidate blocks: TPD4E05U06, TPS2553-class input protection, TPS62840-class 3.3 V regulator, TPS22917-class TROPIC01 load switch."
+		(exclude_from_sim no)
+		(at 20 56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-001000000004")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

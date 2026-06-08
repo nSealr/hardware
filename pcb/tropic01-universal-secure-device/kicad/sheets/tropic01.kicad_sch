@@ -1,0 +1,234 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "99999999-9999-4999-8999-999999999003")
+	(paper "A4")
+	(lib_symbols)
+	(text "TROPIC01 QFN32 secure element. Default part TR01-C2P-T301; preferred part TR01-C2P-T310 when obtainable."
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000001")
+	)
+	(text "TROPIC01 is 3.0 V to 3.6 V only. External-host SPI is 3.3 V logic only."
+		(exclude_from_sim no)
+		(at 20 32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000002")
+	)
+	(text "GPO is routed, but firmware must support polling fallback."
+		(exclude_from_sim no)
+		(at 20 44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000003")
+	)
+	(text "Recovery is by load-switched VCC power-cycle, not a reset pin."
+		(exclude_from_sim no)
+		(at 20 56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000004")
+	)
+	(text "Dedicated nets: TROPIC_SPI_SCK, TROPIC_SPI_MOSI, TROPIC_SPI_MISO, TROPIC_SPI_CSN, TROPIC_GPO, TROPIC_PWR_EN."
+		(exclude_from_sim no)
+		(at 20 68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000005")
+	)
+	(symbol
+		(lib_id "TROPIC_SQUARE:TR01-P2")
+		(at 115 105 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000100")
+		(property "Reference" "U2"
+			(at 97.22 81.505 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TR01-C2P-T301"
+			(at 115 105 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_DFN_QFN:QFN-32-1EP_4x4mm_P0.4mm_EP2.65x2.65mm"
+			(at 115 77.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://github.com/tropicsquare/tropic01/blob/main/doc/TR01-C2P-T310/ODD_TR01_datasheet_vA_11.pdf"
+			(at 115 105 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "TROPIC01 cryptographic coprocessor; Rev A0 default TR01-C2P-T301, preferred TR01-C2P-T310 when available"
+			(at 92.14 78.838 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MountProfile" "Core"
+			(at 115 105 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000101")
+		)
+		(pin "2"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000102")
+		)
+		(pin "3"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000103")
+		)
+		(pin "4"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000104")
+		)
+		(pin "5"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000105")
+		)
+		(pin "6"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000106")
+		)
+		(pin "7"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000107")
+		)
+		(pin "8"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000108")
+		)
+		(pin "9"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000109")
+		)
+		(pin "10"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000110")
+		)
+		(pin "11"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000111")
+		)
+		(pin "12"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000112")
+		)
+		(pin "13"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000113")
+		)
+		(pin "14"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000114")
+		)
+		(pin "15"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000115")
+		)
+		(pin "16"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000116")
+		)
+		(pin "17"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000117")
+		)
+		(pin "18"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000118")
+		)
+		(pin "19"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000119")
+		)
+		(pin "20"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000120")
+		)
+		(pin "21"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000121")
+		)
+		(pin "22"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000122")
+		)
+		(pin "23"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000123")
+		)
+		(pin "24"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000124")
+		)
+		(pin "25"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000125")
+		)
+		(pin "26"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000126")
+		)
+		(pin "27"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000127")
+		)
+		(pin "28"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000128")
+		)
+		(pin "29"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000129")
+		)
+		(pin "30"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000130")
+		)
+		(pin "31"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000131")
+		)
+		(pin "32"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000132")
+		)
+		(pin "33"
+			(uuid "aaaaaaaa-aaaa-4aaa-8aaa-003000000133")
+		)
+		(instances
+			(project "tropic01-universal-secure-device"
+				(path "/99999999-9999-4999-8999-999999999003"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

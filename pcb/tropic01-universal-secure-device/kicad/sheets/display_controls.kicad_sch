@@ -1,0 +1,44 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "99999999-9999-4999-8999-999999999004")
+	(paper "A4")
+	(lib_symbols)
+	(text "Display target: portrait 2.4 inch class 240x320 ST7789-family SPI IPS touch panel."
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-004000000001")
+	)
+	(text "Touch is the default navigation surface. Two side buttons are the production approval boundary."
+		(exclude_from_sim no)
+		(at 20 32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-004000000002")
+	)
+	(text "Display SPI must remain separate from TROPIC01 SPI in Rev A0."
+		(exclude_from_sim no)
+		(at 20 44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-004000000003")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,127 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "99999999-9999-4999-8999-999999999002")
+	(paper "A4")
+	(lib_symbols)
+	(text "Primary host candidate: STM32U585VIT6 LQFP100. Fallback: STM32U575VIT6 LQFP100."
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-002000000001")
+	)
+	(text "Host owns USB, display, controls, policy, QSPI state, expansion policy, and TROPIC01 host-side key protection."
+		(exclude_from_sim no)
+		(at 20 32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-002000000002")
+	)
+	(text "Before production claims: TrustZone/RDP/debug lock/signed firmware and isolated host-key storage."
+		(exclude_from_sim no)
+		(at 20 44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-002000000003")
+	)
+	(text "KiCad 10 provides MCU_ST_STM32U5:STM32U585VITx with Package_QFP:LQFP-100_14x14mm_P0.5mm; final pin assignment remains gated by pinmux review."
+		(exclude_from_sim no)
+		(at 20 56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-002000000004")
+	)
+	(symbol
+		(lib_id "MCU_ST_STM32U5:STM32U585VITx")
+		(at 120 115 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-002000000100")
+		(property "Reference" "U1"
+			(at 102.22 47.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "STM32U585VIT6"
+			(at 132.7 47.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_QFP:LQFP-100_14x14mm_P0.5mm"
+			(at 102.22 181.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32u585vi.pdf"
+			(at 120 115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "STM32U585VIT6 Rev A0 host MCU candidate, LQFP100, 2 MB flash, 786 KB SRAM, TrustZone"
+			(at 120 115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MountProfile" "Core"
+			(at 120 115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "tropic01-universal-secure-device"
+				(path "/99999999-9999-4999-8999-999999999002"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

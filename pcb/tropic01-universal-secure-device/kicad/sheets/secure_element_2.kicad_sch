@@ -1,0 +1,54 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "99999999-9999-4999-8999-999999999008")
+	(paper "A4")
+	(lib_symbols)
+	(text "U11 OPTIGA Trust M class second secure element is mounted in the single product."
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-008000000001")
+	)
+	(text "U11 connects to STM32U5 over dedicated I2C_SEC_SCL and I2C_SEC_SDA nets with local pullups and decoupling."
+		(exclude_from_sim no)
+		(at 20 32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-008000000002")
+	)
+	(text "TROPIC01 remains the primary open secure element; OPTIGA provides independent defense-in-depth attestation and anti-clone policy."
+		(exclude_from_sim no)
+		(at 20 44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-008000000003")
+	)
+	(text "Footprint candidate: Package_SON:Microchip_USON-10-1EP_3x3mm_P0.5mm_EP1.8x2.5mm; verify against Infineon PG-USON-10 before layout freeze."
+		(exclude_from_sim no)
+		(at 20 56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-008000000004")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

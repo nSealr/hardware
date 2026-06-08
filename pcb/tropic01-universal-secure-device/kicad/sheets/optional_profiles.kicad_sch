@@ -1,0 +1,84 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "99999999-9999-4999-8999-999999999006")
+	(paper "A4")
+	(lib_symbols)
+	(text "NFC ST25R3916B-class core surface: power-gated and top-edge antenna keep-out."
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-006000000001")
+	)
+	(text "LiPo battery connector and charger with power-path are core surfaces."
+		(exclude_from_sim no)
+		(at 20 32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-006000000002")
+	)
+	(text "Second secure element is core: see U11 OPTIGA Trust M sheet."
+		(exclude_from_sim no)
+		(at 20 44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-006000000003")
+	)
+	(text "Haptic profile: DNP; non-authoritative feedback."
+		(exclude_from_sim no)
+		(at 20 56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-006000000004")
+	)
+	(text "Removable card slot omitted from this single product; use QSPI, USB, NFC, QR/display, or host workflows."
+		(exclude_from_sim no)
+		(at 20 68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-006000000005")
+	)
+	(text "Tamper/shield profile: DNP; enclosure research only."
+		(exclude_from_sim no)
+		(at 20 80 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-006000000006")
+	)
+	(text "Radio profile: expansion module only; not core board."
+		(exclude_from_sim no)
+		(at 20 92 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-006000000007")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

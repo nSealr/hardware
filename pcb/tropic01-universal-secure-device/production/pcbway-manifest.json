@@ -1,6 +1,6 @@
 {
   "blocked_reasons": [
-    "PCBWay export blocked: no routed KiCad PCB exists"
+    "PCBWay export blocked: no routed KiCad PCB copper exists; board is not routed"
   ],
   "board": "tropic01-universal-secure-device",
   "drc": "blocked",
