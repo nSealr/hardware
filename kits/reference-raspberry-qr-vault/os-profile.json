@@ -33,6 +33,6 @@
   "notes": [
     "This is an OS and operating-profile scaffold for future Raspberry/Pi stateless QR vault acceptance.",
     "It is not a downloadable OS image, not a purchase instruction, and not a claim that real camera/display/GPIO drivers have been accepted.",
-    "TROPIC01 and persistent-secret storage belong to the custom persistent-secret hardware-wallet family, not this stateless QR vault profile."
+    "TROPIC01 persistent-device work belongs to the TROPIC01 universal secure device, not this stateless QR vault profile."
   ]
 }

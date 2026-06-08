@@ -18,31 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REFERENCE_REPORT = ROOT / "reports/esp32-s3-devkitc-1-detection-2026-05-08.json"
 RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-smoke.json"
 RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-flow-smoke.json"
-CUSTOM_WALLET_REQUIREMENTS = ROOT / "pcb/custom-persistent-secret-wallet/requirements.json"
 TROPIC01_UNIVERSAL_REQUIREMENTS = ROOT / "pcb/tropic01-universal-secure-device/requirements.json"
 SPECS_SNAPSHOTS = ROOT / "tests/fixtures/specs"
-CUSTOM_WALLET_ACCOUNT = json.loads(
-    (SPECS_SNAPSHOTS / "vectors/accounts/custom-hardware-wallet-slot-0.json").read_text(encoding="utf-8")
-)
-CUSTOM_WALLET_POLICY = json.loads(
-    (SPECS_SNAPSHOTS / "vectors/policies/manual-only-persistent-device.json").read_text(encoding="utf-8")
-)
-CUSTOM_WALLET_SCOPED_POLICY = json.loads(
-    (SPECS_SNAPSHOTS / "vectors/policies/scoped-automation-daily-use.json").read_text(encoding="utf-8")
-)
-CUSTOM_WALLET_GRANT = json.loads(
-    (SPECS_SNAPSHOTS / "vectors/grants/custom-hardware-wallet-kind-1-session.json").read_text(encoding="utf-8")
-)
-CUSTOM_WALLET_POLICY_CHANGE = json.loads(
-    (SPECS_SNAPSHOTS / "vectors/policy-changes/custom-hardware-wallet-enable-kind-1-automation.json").read_text(
-        encoding="utf-8"
-    )
-)
-CUSTOM_WALLET_ROUTE_SELECTION = json.loads(
-    (SPECS_SNAPSHOTS / "vectors/route-selections/custom-hardware-wallet-sign-event-slot-0.json").read_text(
-        encoding="utf-8"
-    )
-)
 
 
 def load_reference_report() -> dict:
@@ -100,9 +77,6 @@ class HardwareValidationTests(unittest.TestCase):
     def test_reference_raspberry_qr_vault_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "kits/reference-raspberry-qr-vault/requirements.json")
 
-    def test_custom_persistent_secret_wallet_requirements_are_valid(self) -> None:
-        validate_requirements(CUSTOM_WALLET_REQUIREMENTS)
-
     def test_tropic01_universal_secure_device_requirements_are_valid(self) -> None:
         validate_requirements(TROPIC01_UNIVERSAL_REQUIREMENTS)
 
@@ -139,154 +113,6 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn("maintenance mode", security_text)
         self.assertIn("laser fault injection", security_text)
         self.assertIn("3.3 v spi", security_text)
-
-    def test_custom_wallet_requirements_pin_key_material_lifecycle(self) -> None:
-        value = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        lifecycle = value["key_material_lifecycle"]
-
-        self.assertEqual(lifecycle["contract_id"], "persistent-secret-custody-v0")
-        self.assertIn("No plaintext", lifecycle["secret_at_rest"])
-        self.assertIn("TROPIC01-wrapped", lifecycle["secret_at_rest"])
-        self.assertIn("ESP32-S3 RAM", lifecycle["unlock_location"])
-        self.assertIn("TROPIC01-assisted", lifecycle["unlock_location"])
-        self.assertIn("RAM-only", lifecycle["plaintext_persistence"])
-        self.assertIn("manual_lock", lifecycle["wipe_events"])
-        self.assertIn("power_loss", lifecycle["wipe_events"])
-        self.assertIn("pin_attempt_exhausted", lifecycle["wipe_events"])
-        self.assertIn("session_timeout", lifecycle["wipe_events"])
-        self.assertIn("firmware_error", lifecycle["wipe_events"])
-        self.assertIn("debug_policy_violation", lifecycle["wipe_events"])
-        self.assertIn("MAC-and-Destroy", lifecycle["pin_attempt_policy"])
-        self.assertIn("companion descriptors", lifecycle["plaintext_persistence"])
-        self.assertIn("physical approval", lifecycle["backup_export_policy"])
-        self.assertIn("danger-zone", lifecycle["backup_export_policy"])
-
-    def test_custom_wallet_requirements_reject_missing_key_material_lifecycle(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original.pop("key_material_lifecycle", None)
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "key_material_lifecycle"):
-                validate_requirements(path)
-
-    def test_custom_wallet_requirements_reject_key_material_lifecycle_contract_mismatch(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["key_material_lifecycle"]["contract_id"] = "legacy-local-custody-contract"
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "contract_id"):
-                validate_requirements(path)
-
-    def test_custom_wallet_requirements_reject_plaintext_secret_at_rest(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["key_material_lifecycle"]["secret_at_rest"] = "Plaintext nsec may be stored in flash for convenience."
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "forbid plaintext"):
-                validate_requirements(path)
-
-    def test_custom_wallet_requirements_reject_incomplete_wipe_events(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["key_material_lifecycle"]["wipe_events"] = ["manual_lock", "power_loss"]
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "pin_attempt_exhausted"):
-                validate_requirements(path)
-
-    def test_custom_wallet_requirements_reject_export_without_physical_approval(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["key_material_lifecycle"]["backup_export_policy"] = (
-            "Export can be enabled through companion UI after software review."
-        )
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "device review and physical approval"):
-                validate_requirements(path)
-
-    def test_custom_wallet_requirements_reject_export_without_danger_zone_copy(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["key_material_lifecycle"]["backup_export_policy"] = (
-            "Any mnemonic, nsec, wrapped secret, or recovery export requires local device review and "
-            "physical approval and must be disabled by default."
-        )
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "danger-zone"):
-                validate_requirements(path)
-
-    def test_custom_wallet_requirements_match_shared_route_descriptor(self) -> None:
-        value = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        identity_text = "\n".join(value["identity_policy_requirements"])
-        route = CUSTOM_WALLET_ACCOUNT["signer_route"]
-        capabilities = CUSTOM_WALLET_ACCOUNT["capabilities"]
-        recovery = CUSTOM_WALLET_ACCOUNT["recovery"]
-        selection = CUSTOM_WALLET_ROUTE_SELECTION["selection"]
-
-        self.assertEqual(CUSTOM_WALLET_ACCOUNT["format"], "nsealr-account-descriptor-v0")
-        self.assertEqual(route["type"], "custom_hardware_wallet")
-        self.assertEqual(route["repository"], "hardware")
-        self.assertEqual(route["transport"], "usb")
-        self.assertEqual(route["custody"], "custom_hardware_persistent")
-        self.assertEqual(route["trusted_review"], "device_display")
-        self.assertEqual(route["policy_support"], "scoped_automation")
-        self.assertTrue(capabilities["physical_review"])
-        self.assertTrue(capabilities["physical_approval"])
-        self.assertTrue(capabilities["persistent_grants"])
-        self.assertEqual(recovery["type"], "hardware_wallet_slot")
-        self.assertTrue(recovery["backup_required"])
-        self.assertEqual(CUSTOM_WALLET_ACCOUNT["policy_profile_id"], "policy-manual-only-persistent-device")
-        self.assertIn(route["type"], CUSTOM_WALLET_POLICY["route_types"])
-        self.assertEqual(CUSTOM_WALLET_POLICY["mode"], "manual_only")
-        self.assertFalse(CUSTOM_WALLET_POLICY["grants_allowed"])
-        self.assertIn(route["type"], CUSTOM_WALLET_SCOPED_POLICY["route_types"])
-        self.assertTrue(CUSTOM_WALLET_SCOPED_POLICY["grant_constraints"]["device_confirmation_required"])
-        self.assertEqual(CUSTOM_WALLET_GRANT["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
-        self.assertEqual(CUSTOM_WALLET_GRANT["route_type"], route["type"])
-        self.assertEqual(
-            CUSTOM_WALLET_GRANT["permission"],
-            {"method": "sign_event", "parameter": "1", "event_kind": 1},
-        )
-        self.assertEqual(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
-        self.assertEqual(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["route_type"], route["type"])
-        self.assertEqual(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["current_policy_id"], CUSTOM_WALLET_POLICY["policy_id"])
-        self.assertEqual(
-            CUSTOM_WALLET_POLICY_CHANGE["proposal"]["proposed_policy_id"],
-            CUSTOM_WALLET_SCOPED_POLICY["policy_id"],
-        )
-        self.assertEqual(
-            CUSTOM_WALLET_POLICY_CHANGE["proposal"]["proposed_grant_ids"],
-            [CUSTOM_WALLET_GRANT["grant_id"]],
-        )
-        self.assertFalse(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["companion_authoritative"])
-        self.assertTrue(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["device_review_required"])
-        self.assertTrue(CUSTOM_WALLET_POLICY_CHANGE["proposal"]["physical_approval_required"])
-        self.assertEqual(selection["account_id"], CUSTOM_WALLET_ACCOUNT["account_id"])
-        self.assertEqual(selection["route_type"], route["type"])
-        self.assertEqual(selection["repository"], route["repository"])
-        self.assertEqual(selection["custody"], route["custody"])
-        self.assertFalse(selection["contains_secret_material"])
-        self.assertIn(route["type"], identity_text)
-        self.assertIn(route["custody"], identity_text)
-        self.assertIn(CUSTOM_WALLET_ACCOUNT["policy_profile_id"], identity_text)
-        self.assertIn("sign_event kind 1", identity_text)
 
     def test_reference_usb_signer_requirements_reference_identity_policy_contracts(self) -> None:
         value = json.loads((ROOT / "pcb/reference-esp32-s3-signer/requirements.json").read_text(encoding="utf-8"))
@@ -407,9 +233,6 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_reference_raspberry_qr_vault_kit_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/reference-raspberry-qr-vault-kit.csv")
-
-    def test_custom_persistent_secret_wallet_bom_is_valid(self) -> None:
-        validate_bom(ROOT / "bom/custom-persistent-secret-wallet.csv")
 
     def test_tropic01_universal_secure_device_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/tropic01-universal-secure-device.csv")
@@ -674,89 +497,6 @@ class HardwareValidationTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "TROPIC01"):
                 validate_requirements(path)
-
-    def test_custom_wallet_rejects_missing_tropic01_power_cycle_control(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["mandatory_interfaces"] = [
-            item for item in original["mandatory_interfaces"] if item != "tropic01_power_cycle_control"
-        ]
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "tropic01_power_cycle_control"):
-                validate_requirements(path)
-
-    def test_custom_wallet_rejects_air_gapped_claim_on_usb_transport(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["notes"].append("This Rev A board is an air-gapped USB wallet.")
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "air-gapped"):
-                validate_requirements(path)
-
-    def test_custom_wallet_rejects_current_tropic01_bip340_signing_claim(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["security_requirements"].append("TROPIC01 currently performs BIP-340 signing for Nostr events.")
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "BIP-340"):
-                validate_requirements(path)
-
-    def test_custom_wallet_rejects_battery_power_in_rev_a_interfaces(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["optional_interfaces"].append("battery_power")
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "battery_power"):
-                validate_requirements(path)
-
-    def test_custom_wallet_rejects_dedicated_tropic01_reset_interface(self) -> None:
-        original = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
-        original["optional_interfaces"].append("tropic01_reset_pin")
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "requirements.json"
-            path.write_text(json.dumps(original), encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "power-cycle control"):
-                validate_requirements(path)
-
-    def test_custom_wallet_bom_requires_tropic01_power_cycle_component(self) -> None:
-        original = (ROOT / "bom/custom-persistent-secret-wallet.csv").read_text(encoding="utf-8")
-        original = original.replace(
-            "U4,power,TROPIC01 load switch or power-gating circuit,true,"
-            "Used for controlled TROPIC01 power-cycle reset and recovery.\n",
-            "U4,power,Auxiliary 3.3 V rail monitor,true,Used for generic power-good monitoring.\n",
-        )
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "custom-persistent-secret-wallet.csv"
-            path.write_text(original, encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "power-cycle/load-switch"):
-                validate_bom(path)
-
-    def test_custom_wallet_bom_rejects_tropic01_reset_pin_component(self) -> None:
-        original = (ROOT / "bom/custom-persistent-secret-wallet.csv").read_text(encoding="utf-8")
-        original += "TP9,secure_element,TROPIC01 reset pin test pad,false,Do not add this component.\\n"
-
-        with tempfile.TemporaryDirectory() as temp_root:
-            path = Path(temp_root) / "custom-persistent-secret-wallet.csv"
-            path.write_text(original, encoding="utf-8")
-
-            with self.assertRaisesRegex(ValueError, "not a reset pin component"):
-                validate_bom(path)
 
     def test_raspberry_os_profile_rejects_swap(self) -> None:
         original = json.loads(

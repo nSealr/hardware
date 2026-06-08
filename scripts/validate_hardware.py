@@ -8,9 +8,6 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CUSTOM_WALLET_CUSTODY_CONTRACT = (
-    ROOT / "tests" / "fixtures" / "specs" / "vectors" / "custody" / "persistent-secret-custody-v0.json"
-)
 
 REQUIRED_INTERFACES = {
     "usb_c_native",
@@ -34,15 +31,6 @@ REQUIRED_RASPBERRY_QR_INTERFACES = {
     "response_qr_display",
     "wireless_disable_capable",
     "removable_boot_media",
-}
-
-REQUIRED_CUSTOM_WALLET_INTERFACES = REQUIRED_INTERFACES | {
-    "usb_c_bus_powered",
-    "wireless_disable_capable",
-    "tropic01_spi",
-    "tropic01_gpo_irq",
-    "tropic01_power_cycle_control",
-    "tropic01_pairing_lifecycle",
 }
 
 REQUIRED_TROPIC01_UNIVERSAL_INTERFACES = {
@@ -76,7 +64,6 @@ REQUIRED_TROPIC01_UNIVERSAL_INTERFACES = {
 VALID_DEVICE_CLASSES = {
     "esp32_s3_qr_signer",
     "esp32_s3_usb_signer",
-    "custom_persistent_secret_wallet",
     "raspberry_qr_vault",
     "tropic01_universal_secure_device",
 }
@@ -96,11 +83,6 @@ REQUIRED_BOM_CATEGORIES = {
     "display",
     "input",
     "programming",
-}
-
-REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
-    "protection",
-    "secure_element",
 }
 
 REQUIRED_TROPIC01_UNIVERSAL_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
@@ -148,20 +130,6 @@ REQUIRED_TROPIC01_UNIVERSAL_CORE_MPNS = {
     "J9": "S2B-PH-SM4-TB(LF)(SN)",
 }
 
-REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS = {
-    "contract_id",
-    "secret_at_rest",
-    "unlock_location",
-    "plaintext_persistence",
-    "wipe_events",
-    "pin_attempt_policy",
-    "backup_export_policy",
-}
-
-FORBIDDEN_TROPIC01_RESET_INTERFACE_TERMS = {
-    "reset",
-}
-
 REQUIRED_REVIEW_KEYWORDS = {
     "request id",
     "approval_digest",
@@ -192,15 +160,6 @@ REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
         "raspberry_qr_vault",
         "policy-manual-only-qr-vault",
         "persistent_grants: false",
-    ),
-    "custom_persistent_secret_wallet": (
-        "nsealr-account-descriptor-v0",
-        "custom_hardware_wallet",
-        "custom_hardware_persistent",
-        "policy-manual-only-persistent-device",
-        "custom-hardware-wallet-enable-kind-1-automation",
-        "policy-scoped-automation-daily-use",
-        "grant-custom-hardware-wallet-kind-1-session",
     ),
     "tropic01_universal_secure_device": (
         "hardware reference platform",
@@ -234,7 +193,6 @@ VALID_TARGET_FAMILIES = {
     "esp32_stateless_qr_vault",
     "raspberry_stateless_qr_vault",
     "smartcard_signer",
-    "custom_persistent_secret_wallet",
 }
 
 STATELESS_TARGET_FAMILIES = {
@@ -351,8 +309,6 @@ def validate_requirements(path: Path) -> None:
         required_interfaces = REQUIRED_QR_INTERFACES
     elif device_class == "raspberry_qr_vault":
         required_interfaces = REQUIRED_RASPBERRY_QR_INTERFACES
-    elif device_class == "custom_persistent_secret_wallet":
-        required_interfaces = REQUIRED_CUSTOM_WALLET_INTERFACES
     elif device_class == "tropic01_universal_secure_device":
         required_interfaces = REQUIRED_TROPIC01_UNIVERSAL_INTERFACES
     else:
@@ -398,8 +354,6 @@ def validate_requirements(path: Path) -> None:
             raise ValueError(f"{path}: qr_requirements must mention {', '.join(missing_qr_keywords)}")
     if device_class == "raspberry_qr_vault":
         validate_seed_signer_compatibility_profile(value, path)
-    if device_class == "custom_persistent_secret_wallet":
-        validate_custom_persistent_secret_wallet(value, path, mandatory, optional)
     if device_class == "tropic01_universal_secure_device":
         validate_tropic01_universal_secure_device(value, path, mandatory, optional)
 
@@ -475,82 +429,6 @@ def validate_seed_signer_gpio_button_profile(profile: dict, path: Path) -> None:
         raise ValueError(
             f"{path}: seed_signer_compatibility.gpio_button_profile.safety must document reject precedence"
         )
-
-
-def validate_custom_persistent_secret_wallet(
-    value: dict,
-    path: Path,
-    mandatory: set[str],
-    optional: set[str],
-) -> None:
-    if value.get("product_mode") != "usb_c_bus_powered_connected_wallet_rev_a":
-        raise ValueError(f"{path}: product_mode must be usb_c_bus_powered_connected_wallet_rev_a")
-
-    interface_text = " ".join(sorted(mandatory | optional)).lower()
-    if "battery_power" in interface_text:
-        raise ValueError(f"{path}: battery_power is not allowed in custom wallet Rev A interfaces")
-    forbidden_reset_interfaces = sorted(
-        interface
-        for interface in mandatory | optional
-        if "tropic01" in interface.lower()
-        and any(term in interface.lower() for term in FORBIDDEN_TROPIC01_RESET_INTERFACE_TERMS)
-        and "power_cycle" not in interface.lower()
-    )
-    if forbidden_reset_interfaces:
-        raise ValueError(
-            f"{path}: TROPIC01 reset must be modeled as power-cycle control, not dedicated reset interfaces: "
-            + ", ".join(forbidden_reset_interfaces)
-        )
-
-    text = "\n".join(
-        _flatten_text(value.get(field))
-        for field in (
-            "security_requirements",
-            "review_requirements",
-            "identity_policy_requirements",
-            "notes",
-        )
-    ).lower()
-    if "air-gapped" in text or "airgapped" in text:
-        raise ValueError(f"{path}: USB connected custom wallet Rev A must not claim air-gapped operation")
-
-    for phrase in (
-        "currently performs bip-340",
-        "currently supports bip-340",
-        "available bip-340",
-        "public api supports bip-340",
-        "tropic01 performs bip-340 signing",
-        "tropic01 signs bip-340",
-    ):
-        if phrase in text:
-            raise ValueError(f"{path}: BIP-340 signing inside TROPIC01 must remain a future-gated claim")
-
-    required_security_terms = {
-        "tropic01",
-        "pairing key",
-        "mac-and-destroy",
-        "key wrapping",
-        "bip-340",
-    }
-    missing_terms = sorted(term for term in required_security_terms if term not in text)
-    if missing_terms:
-        raise ValueError(f"{path}: custom wallet security_requirements must mention {', '.join(missing_terms)}")
-
-    roadmap = value.get("tropic01_schnorr_roadmap")
-    if not isinstance(roadmap, dict):
-        raise ValueError(f"{path}: tropic01_schnorr_roadmap must be an object")
-    expected = {
-        "current_public_api": "not_supported",
-        "future_vendor_roadmap": "planned",
-        "rev_a_signing_engine": "esp32_s3_host_mcu",
-    }
-    for field, expected_value in expected.items():
-        if roadmap.get(field) != expected_value:
-            raise ValueError(f"{path}: tropic01_schnorr_roadmap.{field} must be {expected_value}")
-    product_gate = str(roadmap.get("product_gate", "")).lower()
-    if "public api" not in product_gate or "vendor" not in product_gate:
-        raise ValueError(f"{path}: tropic01_schnorr_roadmap.product_gate must mention public API and vendor")
-    validate_custom_wallet_key_material_lifecycle(value, path)
 
 
 def validate_tropic01_universal_secure_device(
@@ -666,87 +544,6 @@ def validate_tropic01_universal_secure_device(
         raise ValueError(f"{path}: board_profiles must not include microSD")
 
 
-def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> None:
-    contract = load_custom_wallet_custody_contract(path)
-    contract_requirements = contract["requirements"]
-    lifecycle = value.get("key_material_lifecycle")
-    if not isinstance(lifecycle, dict):
-        raise ValueError(f"{path}: key_material_lifecycle must be an object")
-    missing_fields = sorted(REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS - set(lifecycle))
-    if missing_fields:
-        raise ValueError(f"{path}: key_material_lifecycle missing {', '.join(missing_fields)}")
-
-    if lifecycle.get("contract_id") != contract.get("contract_id"):
-        raise ValueError(f"{path}: key_material_lifecycle.contract_id must match persistent-secret custody contract")
-
-    for field in sorted(REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS - {"contract_id", "wipe_events"}):
-        _require_non_empty_string(lifecycle.get(field), path, f"key_material_lifecycle.{field}")
-
-    secret_at_rest = str(lifecycle["secret_at_rest"]).lower()
-    if "plaintext" not in secret_at_rest or "no plaintext" not in secret_at_rest:
-        raise ValueError(f"{path}: key_material_lifecycle.secret_at_rest must forbid plaintext secrets at rest")
-    for storage in contract_requirements["secret_at_rest"]["allowed_storage"]:
-        if not _storage_phrase_present(storage, secret_at_rest):
-            raise ValueError(f"{path}: key_material_lifecycle.secret_at_rest must mention {storage}")
-
-    unlock_location = str(lifecycle["unlock_location"]).lower()
-    if "esp32" not in unlock_location or "ram" not in unlock_location or "tropic01" not in unlock_location:
-        raise ValueError(f"{path}: key_material_lifecycle.unlock_location must mention ESP32 RAM and TROPIC01")
-
-    plaintext_persistence = str(lifecycle["plaintext_persistence"]).lower()
-    if "ram-only" not in plaintext_persistence and "ram only" not in plaintext_persistence:
-        raise ValueError(f"{path}: key_material_lifecycle.plaintext_persistence must require RAM-only plaintext")
-    forbidden_outputs = tuple(
-        output.replace("_", " ") for output in contract_requirements["plaintext_persistence"]["forbidden_outputs"]
-    )
-    missing_outputs = sorted(output for output in forbidden_outputs if output not in plaintext_persistence)
-    if missing_outputs:
-        raise ValueError(
-            f"{path}: key_material_lifecycle.plaintext_persistence must forbid {', '.join(missing_outputs)}"
-        )
-
-    wipe_events = lifecycle.get("wipe_events")
-    if not isinstance(wipe_events, list) or not wipe_events:
-        raise ValueError(f"{path}: key_material_lifecycle.wipe_events must be a non-empty list")
-    if not all(isinstance(event, str) and event.strip() for event in wipe_events):
-        raise ValueError(f"{path}: key_material_lifecycle.wipe_events must contain non-empty strings")
-    missing_wipe_events = sorted(set(contract_requirements["wipe_events"]) - set(wipe_events))
-    if missing_wipe_events:
-        raise ValueError(f"{path}: key_material_lifecycle.wipe_events missing {', '.join(missing_wipe_events)}")
-
-    pin_policy = str(lifecycle["pin_attempt_policy"]).lower()
-    if "tropic01" not in pin_policy or "mac-and-destroy" not in pin_policy:
-        raise ValueError(f"{path}: key_material_lifecycle.pin_attempt_policy must require TROPIC01 MAC-and-Destroy")
-
-    export_policy = str(lifecycle["backup_export_policy"]).lower()
-    if "device review" not in export_policy or "physical approval" not in export_policy:
-        raise ValueError(
-            f"{path}: key_material_lifecycle.backup_export_policy must require device review and physical approval"
-        )
-    if "disabled by default" not in export_policy:
-        raise ValueError(f"{path}: key_material_lifecycle.backup_export_policy must be disabled by default")
-    if "danger-zone" not in export_policy:
-        raise ValueError(f"{path}: key_material_lifecycle.backup_export_policy must require danger-zone copy")
-
-
-def load_custom_wallet_custody_contract(path: Path) -> dict:
-    if not CUSTOM_WALLET_CUSTODY_CONTRACT.exists():
-        raise ValueError(f"{path}: missing custom wallet custody contract fixture")
-    contract = json.loads(CUSTOM_WALLET_CUSTODY_CONTRACT.read_text(encoding="utf-8"))
-    if contract.get("contract_id") != "persistent-secret-custody-v0":
-        raise ValueError(f"{path}: custom wallet custody contract fixture has unexpected contract_id")
-    requirements = contract.get("requirements")
-    if not isinstance(requirements, dict):
-        raise ValueError(f"{path}: custom wallet custody contract fixture has invalid requirements")
-    return contract
-
-
-def _storage_phrase_present(storage: str, text: str) -> bool:
-    phrase = storage.replace("_", " ")
-    hyphen_phrase = phrase.replace(" wrapped ", "-wrapped ").replace(" encrypted ", "-encrypted ")
-    return phrase in text or hyphen_phrase in text
-
-
 def validate_bom(path: Path) -> None:
     with path.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
@@ -781,44 +578,13 @@ def validate_bom(path: Path) -> None:
             if required == "true":
                 categories.add(category)
         required_categories = REQUIRED_BOM_CATEGORIES
-        if path.name == "custom-persistent-secret-wallet.csv":
-            required_categories = REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES
         if path.name == "tropic01-universal-secure-device.csv":
             required_categories = REQUIRED_TROPIC01_UNIVERSAL_BOM_CATEGORIES
         missing_categories = sorted(required_categories - categories)
         if missing_categories:
             raise ValueError(f"{path}: missing required BOM categories: {', '.join(missing_categories)}")
-        if path.name == "custom-persistent-secret-wallet.csv":
-            validate_custom_wallet_bom_rows(path, rows)
         if path.name == "tropic01-universal-secure-device.csv":
             validate_tropic01_universal_bom_rows(path, rows)
-
-
-def validate_custom_wallet_bom_rows(path: Path, rows: list[dict[str, str]]) -> None:
-    row_text = [
-        " ".join(
-            (
-                row.get("category", ""),
-                row.get("description", ""),
-                row.get("notes", ""),
-            )
-        ).lower()
-        for row in rows
-    ]
-    if any("tropic01" in text and "reset pin" in text for text in row_text):
-        raise ValueError(f"{path}: TROPIC01 reset must use controlled power cycling, not a reset pin component")
-    has_power_cycle_component = any(
-        "tropic01" in text
-        and (
-            "load switch" in text
-            or "power-gating" in text
-            or "power-cycle" in text
-            or "power cycle" in text
-        )
-        for text in row_text
-    )
-    if not has_power_cycle_component:
-        raise ValueError(f"{path}: custom wallet BOM must include a TROPIC01 power-cycle/load-switch component")
 
 
 def validate_tropic01_universal_bom_rows(path: Path, rows: list[dict[str, str]]) -> None:
@@ -952,8 +718,8 @@ def validate_raspberry_os_profile(path: Path) -> None:
     if "tropic01" in notes_text:
         if "not this stateless qr vault" not in notes_text:
             raise ValueError(f"{path}: TROPIC01 mention must exclude the stateless QR vault")
-    if "persistent-secret" in notes_text and "custom persistent-secret hardware-wallet" not in notes_text:
-        raise ValueError(f"{path}: persistent-secret mention must stay under custom hardware-wallet framing")
+    if "tropic01" in notes_text and "universal secure device" not in notes_text:
+        raise ValueError(f"{path}: TROPIC01 mention must stay under universal secure-device framing")
 
 
 def _require_non_empty_string(value: object, path: Path, field: str) -> None:

@@ -102,6 +102,6 @@
   "notes": [
     "This is a requirements scaffold for Raspberry/Pi kit validation, not a routed PCB or purchase order.",
     "The current implementation has a hardware-neutral adapter boundary; real camera, display, GPIO, OS image, and enclosure validation remain pending.",
-    "TROPIC01 belongs to the custom persistent-secret hardware-wallet family, not the stateless Raspberry QR vault."
+    "TROPIC01 belongs to the TROPIC01 universal secure device line, not the stateless Raspberry QR vault."
   ]
 }
