@@ -1,3 +1,4 @@
+import csv
 import json
 import tempfile
 import unittest
@@ -18,6 +19,7 @@ REFERENCE_REPORT = ROOT / "reports/esp32-s3-devkitc-1-detection-2026-05-08.json"
 RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-smoke.json"
 RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-flow-smoke.json"
 CUSTOM_WALLET_REQUIREMENTS = ROOT / "pcb/custom-persistent-secret-wallet/requirements.json"
+TROPIC01_UNIVERSAL_REQUIREMENTS = ROOT / "pcb/tropic01-universal-secure-device/requirements.json"
 SPECS_SNAPSHOTS = ROOT / "tests/fixtures/specs"
 CUSTOM_WALLET_ACCOUNT = json.loads(
     (SPECS_SNAPSHOTS / "vectors/accounts/custom-hardware-wallet-slot-0.json").read_text(encoding="utf-8")
@@ -100,6 +102,43 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_custom_persistent_secret_wallet_requirements_are_valid(self) -> None:
         validate_requirements(CUSTOM_WALLET_REQUIREMENTS)
+
+    def test_tropic01_universal_secure_device_requirements_are_valid(self) -> None:
+        validate_requirements(TROPIC01_UNIVERSAL_REQUIREMENTS)
+
+    def test_tropic01_universal_secure_device_is_single_product_with_second_se_and_no_microsd(self) -> None:
+        value = json.loads(TROPIC01_UNIVERSAL_REQUIREMENTS.read_text(encoding="utf-8"))
+        flattened = json.dumps(value, sort_keys=True).lower()
+
+        self.assertEqual(value["device_class"], "tropic01_universal_secure_device")
+        self.assertIn("second_secure_element_i2c", value["mandatory_interfaces"])
+        self.assertIn("hidden_pogo_test_pads", value["mandatory_interfaces"])
+        self.assertIn("no_microsd_slot", value["mandatory_interfaces"])
+        self.assertNotIn("second_secure_element_dnp", value["optional_interfaces"])
+        self.assertNotIn("microsd_dnp", [item.lower() for item in value["optional_interfaces"]])
+        self.assertIn("optiga", flattened)
+        self.assertIn("pogo", flattened)
+        self.assertIn("covered by the enclosure", flattened)
+        self.assertIn("do not include microsd", flattened)
+
+    def test_tropic01_universal_secure_device_pins_rev_a0_component_decisions(self) -> None:
+        value = json.loads(TROPIC01_UNIVERSAL_REQUIREMENTS.read_text(encoding="utf-8"))
+        decisions = value["rev_a0_component_decisions"]
+        security_text = "\n".join(value["security_requirements"]).lower()
+
+        self.assertEqual(decisions["tropic01_default_part"], "TR01-C2P-T301")
+        self.assertIn("TR01-C2P-T310", decisions["tropic01_preferred_part"])
+        self.assertIn("libtropic 4.0.0", decisions["tropic01_firmware_target"])
+        self.assertEqual(decisions["mcu_primary"], "STM32U585VIT6 LQFP100")
+        self.assertIn("STM32U575VIT6", decisions["mcu_fallback"])
+        self.assertIn("W25Q128JV", decisions["storage_primary"])
+        self.assertIn("OPTIGA", decisions["second_secure_element"])
+        self.assertIn("Trust M", decisions["second_secure_element"])
+        self.assertIn("no microSD", decisions["removable_storage_policy"])
+        self.assertIn("polling fallback", security_text)
+        self.assertIn("maintenance mode", security_text)
+        self.assertIn("laser fault injection", security_text)
+        self.assertIn("3.3 v spi", security_text)
 
     def test_custom_wallet_requirements_pin_key_material_lifecycle(self) -> None:
         value = json.loads(CUSTOM_WALLET_REQUIREMENTS.read_text(encoding="utf-8"))
@@ -371,6 +410,61 @@ class HardwareValidationTests(unittest.TestCase):
 
     def test_custom_persistent_secret_wallet_bom_is_valid(self) -> None:
         validate_bom(ROOT / "bom/custom-persistent-secret-wallet.csv")
+
+    def test_tropic01_universal_secure_device_bom_is_valid(self) -> None:
+        validate_bom(ROOT / "bom/tropic01-universal-secure-device.csv")
+
+    def test_tropic01_universal_secure_device_bom_freezes_core_mpns(self) -> None:
+        with (ROOT / "bom/tropic01-universal-secure-device.csv").open(encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        by_designator = {row["designator"]: row for row in rows}
+
+        expected_mpns = {
+            "U1": "STM32U585VIT6",
+            "U1_ALT": "STM32U575VIT6",
+            "U2": "TR01-C2P-T301",
+            "U2_ALT": "TR01-C2P-T310",
+            "U3": "TPS62840DLCR",
+            "U4": "TPS22917DBVR",
+            "U5": "W25Q128JVSIQ",
+            "J1": "USB4105-GF-A",
+            "DISP1": "NHD-2.4-240320AF-CSXP-CTP",
+            "J2": "54132-4062",
+            "J2B": "52271-0679",
+            "SW1 SW2": "EVQP7J01P",
+            "U9": "ST25R3916B-AQET",
+            "U10": "BQ24074RGTR",
+            "U11": "OPTIGA-TRUST-M-SLS32AIA",
+            "J6": "SM04B-SRSS-TB(LF)(SN)",
+            "J9": "S2B-PH-SM4-TB(LF)(SN)",
+        }
+        for designator, mpn in expected_mpns.items():
+            self.assertEqual(by_designator[designator]["mpn"], mpn)
+
+        self.assertEqual(by_designator["U2"]["freeze_status"], "frozen")
+        self.assertEqual(by_designator["DISP1"]["freeze_status"], "frozen")
+        self.assertEqual(by_designator["U11"]["required"], "true")
+        self.assertEqual(by_designator["U11"]["freeze_status"], "candidate")
+        self.assertEqual(by_designator["ANT1"]["freeze_status"], "tuning_required")
+
+    def test_tropic01_universal_secure_device_bom_mounts_receptacle_battery_nfc_second_se_and_no_microsd(self) -> None:
+        with (ROOT / "bom/tropic01-universal-secure-device.csv").open(encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        by_designator = {row["designator"]: row for row in rows}
+        bom_text = "\n".join(" ".join(row.values()).lower() for row in rows)
+
+        self.assertIn("USB-C receptacle", by_designator["J1"]["description"])
+        self.assertIn("female", by_designator["J1"]["notes"].lower())
+        self.assertNotIn("plug", by_designator["J1"]["description"].lower())
+        self.assertEqual(by_designator["U9"]["required"], "true")
+        self.assertEqual(by_designator["ANT1"]["required"], "true")
+        self.assertEqual(by_designator["U10"]["required"], "true")
+        self.assertEqual(by_designator["J9"]["required"], "true")
+        self.assertEqual(by_designator["U11"]["required"], "true")
+        self.assertIn("power-gated", by_designator["U9"]["notes"].lower())
+        self.assertIn("power-path", by_designator["U10"]["description"].lower())
+        self.assertIn("optiga", by_designator["U11"]["description"].lower())
+        self.assertNotIn("microsd", bom_text)
 
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")

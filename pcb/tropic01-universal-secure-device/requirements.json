@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "device_class": "tropic01_universal_secure_device",
+  "product_mode": "usb_c_connected_tropic01_universal_reference_rev_a",
+  "design_intent": "Open hardware portrait smartphone-like single board for projects that need an all-in-one touch-display USB-C receptacle device with TROPIC01 as the mandatory open secure element/root of trust.",
+  "mandatory_interfaces": [
+    "usb_c_native",
+    "usb_c_bus_powered",
+    "usb_c_receptacle_only",
+    "display",
+    "touch_display",
+    "physical_buttons",
+    "side_physical_buttons",
+    "secure_boot_capable",
+    "encrypted_storage_capable",
+    "debug_lock_capable",
+    "tropic01_spi",
+    "tropic01_gpo_irq",
+    "tropic01_power_cycle_control",
+    "tropic01_pairing_lifecycle",
+    "external_host_spi_selectable",
+    "second_secure_element_i2c",
+    "lipo_power_path",
+    "lipo_battery_connector",
+    "nfc_power_gated",
+    "qspi_flash",
+    "hidden_pogo_test_pads",
+    "no_microsd_slot",
+    "expansion_i2c",
+    "expansion_uart",
+    "expansion_spi"
+  ],
+  "optional_interfaces": [
+    "haptic_feedback_future",
+    "tamper_loop_future",
+    "native_usb_dfu_recovery",
+    "external_debug_fixture"
+  ],
+  "host_controller_decision": {
+    "recommended_host": "STM32U5 family, preferably STM32U585VIT6 in LQFP100 for Rev A0, with STM32U575VIT6 as fallback if sourcing or firmware constraints require it.",
+    "decision": "STM32U5 is the default host MCU for the universal reference board. ESP32-S3 and radio-capable MCUs are not part of the single product because radios add unnecessary default attack surface.",
+    "rationale": "The reference board should minimize default attack surface, keep always-on radios absent from the core assembly, provide TrustZone-class isolation, support secure boot and debug lock, expose USB and display workflows, and stay close to the architecture lessons from Trezor Safe 7 and the official Tropic USB DevKit host pattern.",
+    "package_policy": "Rev A0 should use LQFP100 unless pin-mux review proves it too tight. LQFP144 is the expansion fallback. BGA is deferred until after Rev A0 pinout, DFM, test jig, and assembly yield are proven."
+  },
+  "mechanical_decision": {
+    "shape": "Portrait smartphone-like rectangle. The board follows the selected touch-display module envelope instead of adding large unused wings.",
+    "usb": "USB-C receptacle only. A USB-C plug version is deferred because it creates mechanical stress, host-device ambiguity, enclosure constraints, and a worse reference-platform story.",
+    "placement": "USB-C receptacle on the bottom short edge, NFC antenna zone on the top short edge, and two side buttons high on the left and right long edges.",
+    "pogo": "Hidden back-side pogo/test pads are covered by the enclosure in the product and do not require user-accessible case openings.",
+    "single_board_policy": "The default hardware is one compact single board with display mounted above the PCB. Daughterboards are allowed only for future profile-specific accessories."
+  },
+  "display_decision": {
+    "primary_display": "Newhaven NHD-2.4-240320AF-CSXP-CTP portrait touch display, 2.4 inch, 240x320 IPS TFT, ST7789VI display controller, FT5426 capacitive touch controller.",
+    "minimum_display_requirement": "The integrated touch display must be large enough for transaction/event review, credential review, key identity display, device status, QR rendering, and developer diagnostics.",
+    "approval_policy": "Touch is the default navigation surface, but two high side physical buttons remain the production approval/reject boundary unless a later security review accepts touch-only confirmation.",
+    "bus_policy": "The display SPI bus must remain separate from the TROPIC01 SPI bus in Rev A0."
+  },
+  "rev_a0_component_decisions": {
+    "tropic01_default_part": "TR01-C2P-T301",
+    "tropic01_preferred_part": "TR01-C2P-T310 when obtainable",
+    "tropic01_firmware_target": "Application firmware compatibility managed through libtropic 4.0.0.",
+    "mcu_primary": "STM32U585VIT6 LQFP100",
+    "mcu_fallback": "STM32U575VIT6 LQFP100",
+    "display_primary": "Newhaven NHD-2.4-240320AF-CSXP-CTP 2.4 inch portrait 240x320 IPS TFT with ST7789VI display controller and FT5426 capacitive touch controller.",
+    "display_connectors": "Molex 54132-4062 for the 40-pin TFT FFC and Molex 52271-0679 for the 6-pin capacitive-touch FFC.",
+    "power_primary": "TPS62840DLCR 3.3 V system buck regulator, TPS22917DBVR TROPIC01 load switch, and BQ24074RGTR LiPo charger with real power-path/load-sharing for USB-or-battery operation.",
+    "storage_primary": "Winbond W25Q128JVSIQ 128 Mbit QSPI NOR in SOIC-8 for Rev A0 inspectability.",
+    "second_secure_element": "Infineon OPTIGA Trust M family, BOM MPN OPTIGA-TRUST-M-SLS32AIA, I2C secure element used as the independent defense-in-depth trust anchor.",
+    "removable_storage_policy": "no microSD slot; do not include microSD in the single product. Use soldered QSPI flash plus USB, NFC, QR/display, or host workflows for import/export.",
+    "nfc_primary": "ST25R3916B-AQET NFC controller with TPS22917DBVR power gate, 27.12 MHz crystal, top-short-edge antenna path, and disabled-by-default firmware policy.",
+    "usb_connector": "GCT USB4105-GF-A female USB-C receptacle only; no plug-style default board.",
+    "side_buttons": "Panasonic EVQP7J01P side-operation tactile switches for the high left/right physical approve/reject controls."
+  },
+  "board_profiles": [
+    {
+      "name": "single_product",
+      "mounted": [
+        "STM32U5 host MCU",
+        "TROPIC01 QFN32",
+        "OPTIGA Trust M class I2C second secure element",
+        "female USB-C receptacle on the bottom short edge",
+        "portrait touch display mounted over the board",
+        "left and right high side buttons for physical approve/reject",
+        "power-gated NFC controller and top short edge antenna path",
+        "LiPo battery connector plus LiPo charger/power-path",
+        "QSPI NOR flash",
+        "hidden back-side pogo/test pads covered by the enclosure",
+        "external-host TROPIC01 SPI selection",
+        "I2C/UART/SPI compact expansion pads"
+      ],
+      "not_mounted": [
+        "radio module",
+        "WiFi",
+        "BLE",
+        "do not include microSD"
+      ]
+    }
+  ],
+  "security_requirements": [
+    "TROPIC01 is mandatory and is the board root of trust for secure channel, TRNG, device authenticity evidence, pairing-key lifecycle, secure storage helpers, counters, MAC-and-Destroy, and key wrapping or unlock material.",
+    "TROPIC01 must use 3.3 V SPI with manual chip select, GPO/IRQ support where applicable, polling fallback, local decoupling, reference pull network, and test access suitable for bring-up but lockable in hardened use.",
+    "TROPIC01 reset/recovery must use a controlled power-cycle path through a load switch or equivalent power-gating circuit, not an assumed dedicated reset pin.",
+    "TR01-C2P-T301 is the default available TROPIC01 part for Rev A0, while TR01-C2P-T310 is preferred when obtainable.",
+    "Provisioning must treat the default/factory TROPIC01 pairing key as temporary and maintenance mode must be disabled after update or provisioning before hardened claims.",
+    "The 2026-06-03 TROPIC01 laser fault injection advisory must be documented for hardened profiles; board-level security must use defense in depth and maintenance-mode discipline rather than relying on a single chip.",
+    "The OPTIGA second secure element provides independent defense in depth for attestation and anti-clone policy while TROPIC01 remains the open primary secure element.",
+    "NFC is core hardware but must be power-gated and firmware-disabled by default in hardened builds.",
+    "The host MCU must support signed firmware, secure boot, debug lock, isolated secure code/data regions, and encrypted or integrity-protected persistent storage before production secret storage is enabled."
+  ],
+  "review_requirements": [
+    "Provide a local portrait touch display large enough to show raw event kind, signer author or credential identity, complete content or operation summary, complete tags or policy-relevant metadata, request id, approval_digest, and approval status when used as an nSealr signer.",
+    "Provide two high side physical buttons with distinct tactile actions for approve/reject or confirmation/cancel.",
+    "Require explicit physical approval for signing, credential registration, credential assertion, firmware trust changes, key export, pairing-key changes, secure-element lock changes, and policy changes unless a later device-approved scoped automation policy explicitly accepts the operation.",
+    "Reject signing or credential operations when the displayed request id does not match the pending request.",
+    "Reject signing or credential operations when the displayed approval_digest does not match the pending request review.",
+    "Do not treat touch-only controls, companion UI, NFC tap alone, or host software prompts as final approve or reject consent for production security-device claims."
+  ],
+  "identity_policy_requirements": [
+    "This board is the hardware reference platform for custom hardware development in the repo.",
+    "When used as an nSealr persistent signer, it must reference the shared nsealr-account-descriptor-v0 route custom_hardware_wallet and custody custom_hardware_persistent.",
+    "When used as a USB/NIP-46 class device, it must preserve the policy-manual-only-persistent-device default.",
+    "When used for FIDO2/passkey, PKCS#11, HSM, IoT identity, or research firmware, those applications must define their own operation review, key export, debug, and transport policies rather than inheriting nSealr signing assumptions.",
+    "Account descriptors, route metadata, FIDO metadata, and companion configuration must remain secretless."
+  ],
+  "layout_requirements": [
+    "Use at least a 4-layer PCB with a continuous ground reference under USB, TROPIC01, host MCU, display SPI, NFC controller, power-path, and secure-element SPI.",
+    "Use a portrait smartphone-like board outline matched to the touch display envelope, with USB-C receptacle on the bottom short edge and NFC antenna zone on the top short edge.",
+    "Place the two side buttons high on the left and right long edges so the device can be used vertically by default while firmware may still support horizontal UI modes.",
+    "Place STM32U5, TROPIC01, and OPTIGA as a compact secure island away from USB connector stress, NFC antenna, battery connector, and switching regulators.",
+    "Route TROPIC01 SPI short, referenced to uninterrupted ground, with no shared display traffic on the same physical bus.",
+    "Put SWD, BOOT, reset, UART, provisioning, power rail, USB, and TROPIC01 pogo test pads where a fixture can reach them without increasing end-user enclosure size."
+  ],
+  "component_selection_requirements": [
+    "Use current recommended or vendor-confirmed TROPIC01 parts, not deprecated T101/T103-era assumptions.",
+    "Use STM32U585VIT6 LQFP100 as the Rev A0 primary MCU candidate and STM32U575VIT6 LQFP100 as fallback.",
+    "Select the Newhaven 240x320 ST7789VI and FT5426 touch panel unless a better documented panel is selected before schematic freeze.",
+    "Use GCT USB4105-GF-A as the female USB-C receptacle.",
+    "Use an OPTIGA Trust M class second secure element over I2C.",
+    "Use ST25R3916B NFC controller with a real tuned antenna path, not decorative antenna graphics."
+  ],
+  "notes": [
+    "This is the single custom hardware product direction for TROPIC01 universal secure-device development.",
+    "The board is USB connected and battery-capable; it must not claim air gap.",
+    "BLE, WiFi, and radio modules are excluded from Rev A0.",
+    "microSD is excluded from the single product."
+  ]
+}

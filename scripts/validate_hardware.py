@@ -45,11 +45,40 @@ REQUIRED_CUSTOM_WALLET_INTERFACES = REQUIRED_INTERFACES | {
     "tropic01_pairing_lifecycle",
 }
 
+REQUIRED_TROPIC01_UNIVERSAL_INTERFACES = {
+    "usb_c_native",
+    "usb_c_bus_powered",
+    "usb_c_receptacle_only",
+    "display",
+    "touch_display",
+    "physical_buttons",
+    "side_physical_buttons",
+    "secure_boot_capable",
+    "encrypted_storage_capable",
+    "debug_lock_capable",
+    "tropic01_spi",
+    "tropic01_gpo_irq",
+    "tropic01_power_cycle_control",
+    "tropic01_pairing_lifecycle",
+    "external_host_spi_selectable",
+    "second_secure_element_i2c",
+    "lipo_power_path",
+    "lipo_battery_connector",
+    "nfc_power_gated",
+    "qspi_flash",
+    "hidden_pogo_test_pads",
+    "no_microsd_slot",
+    "expansion_i2c",
+    "expansion_uart",
+    "expansion_spi",
+}
+
 VALID_DEVICE_CLASSES = {
     "esp32_s3_qr_signer",
     "esp32_s3_usb_signer",
     "custom_persistent_secret_wallet",
     "raspberry_qr_vault",
+    "tropic01_universal_secure_device",
 }
 
 REQUIRED_BOM_HEADERS = {
@@ -72,6 +101,51 @@ REQUIRED_BOM_CATEGORIES = {
 REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
     "protection",
     "secure_element",
+}
+
+REQUIRED_TROPIC01_UNIVERSAL_BOM_CATEGORIES = REQUIRED_BOM_CATEGORIES | {
+    "expansion",
+    "protection",
+    "secure_element",
+    "storage",
+}
+
+REQUIRED_TROPIC01_UNIVERSAL_BOM_FREEZE_HEADERS = {
+    "manufacturer",
+    "mpn",
+    "package",
+    "footprint",
+    "datasheet",
+    "alternate_mpn",
+    "freeze_status",
+}
+
+VALID_TROPIC01_UNIVERSAL_BOM_FREEZE_STATUSES = {
+    "frozen",
+    "candidate",
+    "proxy_footprint",
+    "tuning_required",
+    "footprint_only",
+}
+
+REQUIRED_TROPIC01_UNIVERSAL_CORE_MPNS = {
+    "U1": "STM32U585VIT6",
+    "U1_ALT": "STM32U575VIT6",
+    "U2": "TR01-C2P-T301",
+    "U2_ALT": "TR01-C2P-T310",
+    "U3": "TPS62840DLCR",
+    "U4": "TPS22917DBVR",
+    "U5": "W25Q128JVSIQ",
+    "J1": "USB4105-GF-A",
+    "DISP1": "NHD-2.4-240320AF-CSXP-CTP",
+    "J2": "54132-4062",
+    "J2B": "52271-0679",
+    "SW1 SW2": "EVQP7J01P",
+    "U9": "ST25R3916B-AQET",
+    "U10": "BQ24074RGTR",
+    "U11": "OPTIGA-TRUST-M-SLS32AIA",
+    "J6": "SM04B-SRSS-TB(LF)(SN)",
+    "J9": "S2B-PH-SM4-TB(LF)(SN)",
 }
 
 REQUIRED_CUSTOM_WALLET_LIFECYCLE_FIELDS = {
@@ -127,6 +201,15 @@ REQUIRED_IDENTITY_POLICY_KEYWORDS_BY_CLASS = {
         "custom-hardware-wallet-enable-kind-1-automation",
         "policy-scoped-automation-daily-use",
         "grant-custom-hardware-wallet-kind-1-session",
+    ),
+    "tropic01_universal_secure_device": (
+        "hardware reference platform",
+        "nsealr-account-descriptor-v0",
+        "custom_hardware_wallet",
+        "custom_hardware_persistent",
+        "policy-manual-only-persistent-device",
+        "fido2",
+        "pkcs#11",
     ),
 }
 
@@ -270,6 +353,8 @@ def validate_requirements(path: Path) -> None:
         required_interfaces = REQUIRED_RASPBERRY_QR_INTERFACES
     elif device_class == "custom_persistent_secret_wallet":
         required_interfaces = REQUIRED_CUSTOM_WALLET_INTERFACES
+    elif device_class == "tropic01_universal_secure_device":
+        required_interfaces = REQUIRED_TROPIC01_UNIVERSAL_INTERFACES
     else:
         required_interfaces = REQUIRED_INTERFACES
     missing = sorted(required_interfaces - mandatory)
@@ -315,6 +400,8 @@ def validate_requirements(path: Path) -> None:
         validate_seed_signer_compatibility_profile(value, path)
     if device_class == "custom_persistent_secret_wallet":
         validate_custom_persistent_secret_wallet(value, path, mandatory, optional)
+    if device_class == "tropic01_universal_secure_device":
+        validate_tropic01_universal_secure_device(value, path, mandatory, optional)
 
 
 def validate_esp32_qr_secondary_target(value: dict, path: Path) -> None:
@@ -466,6 +553,119 @@ def validate_custom_persistent_secret_wallet(
     validate_custom_wallet_key_material_lifecycle(value, path)
 
 
+def validate_tropic01_universal_secure_device(
+    value: dict,
+    path: Path,
+    mandatory: set[str],
+    optional: set[str],
+) -> None:
+    if value.get("product_mode") != "usb_c_connected_tropic01_universal_reference_rev_a":
+        raise ValueError(f"{path}: product_mode must be usb_c_connected_tropic01_universal_reference_rev_a")
+
+    interface_text = " ".join(sorted(mandatory | optional)).lower()
+    if "tropic01_reset" in interface_text or "tropic01_reset_pin" in interface_text:
+        raise ValueError(f"{path}: TROPIC01 reset must be modeled as power-cycle control, not a reset pin")
+    for forbidden in ("radio", "wifi", "ble"):
+        if any(forbidden in interface.lower().replace("-", "_").split("_") for interface in mandatory):
+            raise ValueError(f"{path}: {forbidden} must not be mandatory on the universal product")
+    if any("microsd" in interface.lower() and interface != "no_microsd_slot" for interface in mandatory | optional):
+        raise ValueError(f"{path}: microSD is excluded from the single universal product")
+
+    flattened = "\n".join(
+        _flatten_text(value.get(field))
+        for field in (
+            "design_intent",
+            "host_controller_decision",
+            "mechanical_decision",
+            "display_decision",
+            "rev_a0_component_decisions",
+            "board_profiles",
+            "security_requirements",
+            "review_requirements",
+            "identity_policy_requirements",
+            "layout_requirements",
+            "component_selection_requirements",
+            "notes",
+        )
+    ).lower()
+    if "air-gapped" in flattened or "airgapped" in flattened:
+        raise ValueError(f"{path}: USB connected universal Rev A must not claim air-gapped operation")
+
+    required_terms = {
+        "stm32u5",
+        "stm32u585vit6",
+        "stm32u575vit6",
+        "lqfp100",
+        "tropic01",
+        "tr01-c2p-t301",
+        "tr01-c2p-t310",
+        "portrait",
+        "smartphone-like",
+        "touch",
+        "side buttons",
+        "usb-c receptacle",
+        "usb-c plug",
+        "deferred",
+        "display",
+        "physical",
+        "power-cycle",
+        "external-host",
+        "nfc",
+        "battery",
+        "lipo",
+        "power-path",
+        "second secure element",
+        "optiga",
+        "pogo",
+        "no microsd",
+        "do not include microsd",
+        "secure boot",
+        "debug lock",
+        "pairing",
+        "maintenance mode",
+        "laser fault injection",
+        "3.3 v",
+        "polling",
+        "mac-and-destroy",
+    }
+    missing_terms = sorted(term for term in required_terms if term not in flattened)
+    if missing_terms:
+        raise ValueError(f"{path}: universal TROPIC01 requirements must mention {', '.join(missing_terms)}")
+
+    host_decision = value.get("host_controller_decision")
+    if not isinstance(host_decision, dict):
+        raise ValueError(f"{path}: host_controller_decision must be an object")
+    if "stm32u5" not in _flatten_text(host_decision).lower():
+        raise ValueError(f"{path}: host_controller_decision must select STM32U5")
+
+    component_decisions = value.get("rev_a0_component_decisions")
+    if not isinstance(component_decisions, dict) or not component_decisions:
+        raise ValueError(f"{path}: rev_a0_component_decisions must be a non-empty object")
+    component_text = _flatten_text(component_decisions).lower()
+    for term in (
+        "tr01-c2p-t301",
+        "tr01-c2p-t310",
+        "libtropic 4.0.0",
+        "stm32u585vit6",
+        "stm32u575vit6",
+        "w25q128jv",
+        "optiga",
+        "no microsd",
+    ):
+        if term not in component_text:
+            raise ValueError(f"{path}: rev_a0_component_decisions must mention {term}")
+
+    profiles = value.get("board_profiles")
+    if not isinstance(profiles, list) or not profiles:
+        raise ValueError(f"{path}: board_profiles must be a non-empty list")
+    profile_text = _flatten_text(profiles).lower()
+    for required in ("nfc", "lipo", "battery", "touch", "side buttons", "usb-c receptacle", "optiga", "pogo"):
+        if required not in profile_text:
+            raise ValueError(f"{path}: board_profiles must mention {required}")
+    if "microsd" in profile_text and "do not include microsd" not in flattened:
+        raise ValueError(f"{path}: board_profiles must not include microSD")
+
+
 def validate_custom_wallet_key_material_lifecycle(value: dict, path: Path) -> None:
     contract = load_custom_wallet_custody_contract(path)
     contract_requirements = contract["requirements"]
@@ -554,6 +754,10 @@ def validate_bom(path: Path) -> None:
         missing_headers = sorted(REQUIRED_BOM_HEADERS - headers)
         if missing_headers:
             raise ValueError(f"{path}: missing BOM headers: {', '.join(missing_headers)}")
+        if path.name == "tropic01-universal-secure-device.csv":
+            missing_freeze_headers = sorted(REQUIRED_TROPIC01_UNIVERSAL_BOM_FREEZE_HEADERS - headers)
+            if missing_freeze_headers:
+                raise ValueError(f"{path}: missing BOM freeze headers: {', '.join(missing_freeze_headers)}")
         designators: set[str] = set()
         categories: set[str] = set()
         rows: list[dict[str, str]] = []
@@ -571,17 +775,23 @@ def validate_bom(path: Path) -> None:
                 raise ValueError(f"{path}:{row_number}: required must be true or false")
             if not category or not description:
                 raise ValueError(f"{path}:{row_number}: category and description are required")
+            if path.name == "tropic01-universal-secure-device.csv":
+                _validate_tropic01_universal_bom_freeze_fields(path, row, row_number)
             designators.add(designator)
             if required == "true":
                 categories.add(category)
         required_categories = REQUIRED_BOM_CATEGORIES
         if path.name == "custom-persistent-secret-wallet.csv":
             required_categories = REQUIRED_CUSTOM_WALLET_BOM_CATEGORIES
+        if path.name == "tropic01-universal-secure-device.csv":
+            required_categories = REQUIRED_TROPIC01_UNIVERSAL_BOM_CATEGORIES
         missing_categories = sorted(required_categories - categories)
         if missing_categories:
             raise ValueError(f"{path}: missing required BOM categories: {', '.join(missing_categories)}")
         if path.name == "custom-persistent-secret-wallet.csv":
             validate_custom_wallet_bom_rows(path, rows)
+        if path.name == "tropic01-universal-secure-device.csv":
+            validate_tropic01_universal_bom_rows(path, rows)
 
 
 def validate_custom_wallet_bom_rows(path: Path, rows: list[dict[str, str]]) -> None:
@@ -609,6 +819,81 @@ def validate_custom_wallet_bom_rows(path: Path, rows: list[dict[str, str]]) -> N
     )
     if not has_power_cycle_component:
         raise ValueError(f"{path}: custom wallet BOM must include a TROPIC01 power-cycle/load-switch component")
+
+
+def validate_tropic01_universal_bom_rows(path: Path, rows: list[dict[str, str]]) -> None:
+    by_designator = {row.get("designator", ""): row for row in rows}
+    for designator, expected_mpn in REQUIRED_TROPIC01_UNIVERSAL_CORE_MPNS.items():
+        row = by_designator.get(designator)
+        if row is None:
+            raise ValueError(f"{path}: universal BOM must include {designator} {expected_mpn}")
+        if row.get("mpn", "").strip() != expected_mpn:
+            raise ValueError(f"{path}: {designator} must use MPN {expected_mpn}")
+
+    combined_text = "\n".join(" ".join(row.values()).lower() for row in rows)
+    for required_text in (
+        "stm32u5",
+        "tropic01",
+        "qspi",
+        "display",
+        "physical",
+        "usb-c",
+        "female",
+        "receptacle",
+        "nfc",
+        "lipo",
+        "battery",
+        "power-path",
+        "optiga",
+        "second secure element",
+        "pogo",
+        "side",
+    ):
+        if required_text not in combined_text:
+            raise ValueError(f"{path}: universal BOM must mention {required_text}")
+    if "microsd" in combined_text:
+        raise ValueError(f"{path}: universal BOM must not include microSD rows")
+    if "reset pin" in combined_text and "tropic01" in combined_text:
+        raise ValueError(f"{path}: TROPIC01 reset must use controlled power cycling, not a reset pin component")
+
+    has_usb_c_receptacle = any(
+        row.get("required", "").strip().lower() == "true"
+        and "usb-c" in " ".join(row.values()).lower()
+        and "receptacle" in " ".join(row.values()).lower()
+        and "female" in " ".join(row.values()).lower()
+        and "plug" not in row.get("description", "").lower()
+        for row in rows
+    )
+    if not has_usb_c_receptacle:
+        raise ValueError(f"{path}: universal BOM must use a required female USB-C receptacle")
+
+    for required_surface in ("nfc", "lipo", "battery", "optiga"):
+        if not any(
+            required_surface in " ".join(row.values()).lower()
+            and row.get("required", "").strip().lower() == "true"
+            for row in rows
+        ):
+            raise ValueError(f"{path}: {required_surface} must be required in the universal BOM")
+
+
+def _validate_tropic01_universal_bom_freeze_fields(path: Path, row: dict[str, str], row_number: int) -> None:
+    required = row.get("required", "").strip().lower()
+    designator = row.get("designator", "").strip()
+    freeze_status = row.get("freeze_status", "").strip()
+    if freeze_status not in VALID_TROPIC01_UNIVERSAL_BOM_FREEZE_STATUSES:
+        raise ValueError(
+            f"{path}:{row_number}: freeze_status must be one of "
+            + ", ".join(sorted(VALID_TROPIC01_UNIVERSAL_BOM_FREEZE_STATUSES))
+        )
+    if required != "true":
+        return
+    missing_fields = [
+        field
+        for field in ("manufacturer", "mpn", "package", "footprint", "datasheet", "freeze_status")
+        if not row.get(field, "").strip()
+    ]
+    if missing_fields:
+        raise ValueError(f"{path}:{row_number}: {designator} missing required BOM freeze fields: {', '.join(missing_fields)}")
 
 
 def _flatten_text(value: object) -> str:
