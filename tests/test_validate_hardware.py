@@ -20,6 +20,7 @@ RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-s
 RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-flow-smoke.json"
 TROPIC01_UNIVERSAL_REQUIREMENTS = ROOT / "pcb/tropic01-universal-secure-device/requirements.json"
 TROPIC01_UNIVERSAL_KICAD = ROOT / "pcb/tropic01-universal-secure-device/kicad"
+TROPIC01_UNIVERSAL_NETLIST_CONTRACT = ROOT / "pcb/tropic01-universal-secure-device/production/netlist-contract.json"
 SPECS_SNAPSHOTS = ROOT / "tests/fixtures/specs"
 
 
@@ -528,6 +529,51 @@ class HardwareValidationTests(unittest.TestCase):
             {ref: layer_by_ref.get(ref) for ref in sorted(bottom_refs)},
             {ref: "B.Cu" for ref in sorted(bottom_refs)},
         )
+
+    def test_tropic01_universal_secure_device_netlist_contract_pins_required_buses_and_release_gates(self) -> None:
+        self.assertTrue(TROPIC01_UNIVERSAL_NETLIST_CONTRACT.exists(), "missing TROPIC01 netlist contract")
+        value = json.loads(TROPIC01_UNIVERSAL_NETLIST_CONTRACT.read_text(encoding="utf-8"))
+
+        self.assertEqual(value["board"], "tropic01-universal-secure-device")
+        self.assertEqual(value["schema_version"], 1)
+        self.assertEqual(value["status"], "pinmux_review_required")
+        required_bus_names = {
+            "power",
+            "usb2_device",
+            "tropic01_spi",
+            "display_tft_spi",
+            "display_touch_i2c",
+            "qspi_nor",
+            "nfc_spi",
+            "second_secure_element_i2c",
+            "side_buttons",
+            "expansion",
+            "manufacturing_test",
+        }
+        self.assertEqual(set(value["required_buses"]), required_bus_names)
+        self.assertIn("TROPIC_SPI_SCK", value["required_buses"]["tropic01_spi"])
+        self.assertIn("TROPIC_PWR_EN", value["required_buses"]["tropic01_spi"])
+        self.assertIn("USB_CC1_RD", value["required_buses"]["usb2_device"])
+        self.assertIn("TOUCH_I2C_SDA", value["required_buses"]["display_touch_i2c"])
+        self.assertIn("SE2_I2C_SDA", value["required_buses"]["second_secure_element_i2c"])
+        self.assertIn("NFC_ANT1", value["required_buses"]["nfc_spi"])
+        self.assertIn("manual_datasheet_pinmux_review", value["release_gates"])
+        self.assertIn("no_llm_invented_pin_numbers", value["release_gates"])
+        self.assertIn("kicad_erc_pass", value["release_gates"])
+        self.assertIn("kicad_drc_pass", value["release_gates"])
+        self.assertIn("pcbway_export_unblocked_only_after_routing", value["release_gates"])
+
+    def test_tropic01_universal_secure_device_netlist_contract_rejects_missing_no_llm_gate(self) -> None:
+        self.assertTrue(hasattr(validate_hardware, "validate_netlist_contract"))
+        original = json.loads(TROPIC01_UNIVERSAL_NETLIST_CONTRACT.read_text(encoding="utf-8"))
+        original["release_gates"].remove("no_llm_invented_pin_numbers")
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "netlist-contract.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "no_llm_invented_pin_numbers"):
+                validate_hardware.validate_netlist_contract(path)
 
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")

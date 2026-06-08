@@ -130,6 +130,31 @@ REQUIRED_TROPIC01_UNIVERSAL_CORE_MPNS = {
     "J9": "S2B-PH-SM4-TB(LF)(SN)",
 }
 
+REQUIRED_TROPIC01_UNIVERSAL_NETLIST_BUSES = {
+    "power",
+    "usb2_device",
+    "tropic01_spi",
+    "display_tft_spi",
+    "display_touch_i2c",
+    "qspi_nor",
+    "nfc_spi",
+    "second_secure_element_i2c",
+    "side_buttons",
+    "expansion",
+    "manufacturing_test",
+}
+
+REQUIRED_TROPIC01_UNIVERSAL_NETLIST_RELEASE_GATES = {
+    "manual_datasheet_pinmux_review",
+    "no_llm_invented_pin_numbers",
+    "schematic_symbols_have_verified_pin_numbers",
+    "kicad_erc_pass",
+    "kicad_drc_pass",
+    "usb_differential_pair_length_and_impedance_review",
+    "nfc_matching_network_measured_with_final_antenna",
+    "pcbway_export_unblocked_only_after_routing",
+}
+
 REQUIRED_REVIEW_KEYWORDS = {
     "request id",
     "approval_digest",
@@ -768,6 +793,7 @@ def _discover_validation_files() -> dict[str, list[Path]]:
         ),
         "raspberry_os_profiles": sorted(ROOT.glob("kits/*/os-profile.json")),
         "boms": sorted((ROOT / "bom").glob("*.csv")),
+        "netlist_contracts": sorted(ROOT.glob("pcb/*/production/netlist-contract.json")),
         "manual_reports": sorted(
             [
                 *(ROOT / "reports").glob("*.json"),
@@ -775,6 +801,35 @@ def _discover_validation_files() -> dict[str, list[Path]]:
             ]
         ),
     }
+
+
+def validate_netlist_contract(path: Path) -> None:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if value.get("schema_version") != 1:
+        raise ValueError(f"{path}: schema_version must be 1")
+    if value.get("board") != "tropic01-universal-secure-device":
+        raise ValueError(f"{path}: board must be tropic01-universal-secure-device")
+    if value.get("status") != "pinmux_review_required":
+        raise ValueError(f"{path}: status must be pinmux_review_required")
+
+    required_buses = value.get("required_buses")
+    if not isinstance(required_buses, dict):
+        raise ValueError(f"{path}: required_buses must be an object")
+    missing_buses = sorted(REQUIRED_TROPIC01_UNIVERSAL_NETLIST_BUSES - set(required_buses))
+    if missing_buses:
+        raise ValueError(f"{path}: required_buses missing {', '.join(missing_buses)}")
+    for bus_name, nets in required_buses.items():
+        if not isinstance(nets, list) or not nets:
+            raise ValueError(f"{path}: required_buses.{bus_name} must be a non-empty list")
+        if not all(isinstance(net, str) and net.strip() for net in nets):
+            raise ValueError(f"{path}: required_buses.{bus_name} must contain non-empty strings")
+
+    release_gates = value.get("release_gates")
+    if not isinstance(release_gates, list) or not release_gates:
+        raise ValueError(f"{path}: release_gates must be a non-empty list")
+    missing_gates = sorted(REQUIRED_TROPIC01_UNIVERSAL_NETLIST_RELEASE_GATES - set(release_gates))
+    if missing_gates:
+        raise ValueError(f"{path}: release_gates missing {', '.join(missing_gates)}")
 
 
 def validate_manual_report(path: Path) -> None:
@@ -839,6 +894,8 @@ def main() -> int:
         validate_raspberry_os_profile(profile_path)
     for bom_path in validation_files["boms"]:
         validate_bom(bom_path)
+    for contract_path in validation_files["netlist_contracts"]:
+        validate_netlist_contract(contract_path)
     for report_path in validation_files["manual_reports"]:
         validate_manual_report(report_path)
     print("nSealr hardware validation passed")
