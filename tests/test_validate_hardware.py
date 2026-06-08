@@ -289,6 +289,59 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn("optiga", by_designator["U11"]["description"].lower())
         self.assertNotIn("microsd", bom_text)
 
+    def test_tropic01_universal_secure_device_pcbway_bom_export_excludes_dnp_rows(self) -> None:
+        from scripts import export_tropic01_universal_pcbway
+
+        rows = export_tropic01_universal_pcbway.pcbway_bom_rows(
+            export_tropic01_universal_pcbway.load_bom(ROOT / "bom/tropic01-universal-secure-device.csv")
+        )
+        by_designator = {row["Designator"]: row for row in rows}
+
+        self.assertEqual(by_designator["J1"]["Manufacturer Part Number"], "USB4105-GF-A")
+        self.assertEqual(by_designator["U11"]["Manufacturer Part Number"], "OPTIGA-TRUST-M-SLS32AIA")
+        self.assertNotIn("U1_ALT", by_designator)
+        self.assertNotIn("U2_ALT", by_designator)
+
+    def test_tropic01_universal_secure_device_pcbway_bom_export_excludes_non_pcba_rows(self) -> None:
+        from scripts import export_tropic01_universal_pcbway
+
+        rows = export_tropic01_universal_pcbway.pcbway_bom_rows(
+            export_tropic01_universal_pcbway.load_bom(ROOT / "bom/tropic01-universal-secure-device.csv")
+        )
+        designators = {row["Designator"] for row in rows}
+
+        self.assertIn("SW1,SW2", designators)
+        self.assertNotIn("DISP1", designators)
+        self.assertNotIn("ANT1", designators)
+        self.assertFalse(any(designator.startswith("TP_") for designator in designators))
+
+    def test_tropic01_universal_secure_device_pcbway_manifest_is_blocked_until_kicad_release_checks_pass(self) -> None:
+        manifest = json.loads(
+            (ROOT / "pcb/tropic01-universal-secure-device/production/pcbway-manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+
+        self.assertEqual(manifest["board"], "tropic01-universal-secure-device")
+        self.assertEqual(manifest["usb_connector"], "USB4105-GF-A")
+        self.assertEqual(manifest["second_secure_element"], "OPTIGA-TRUST-M-SLS32AIA")
+        self.assertEqual(manifest["microsd"], "excluded")
+        self.assertFalse(manifest["release_outputs_valid"])
+        self.assertEqual(manifest["erc"], "blocked")
+        self.assertEqual(manifest["drc"], "blocked")
+        self.assertIn("no routed KiCad PCB", " ".join(manifest["blocked_reasons"]))
+
+    def test_tropic01_universal_secure_device_pcbway_export_rejects_unrouted_board(self) -> None:
+        from scripts import export_tropic01_universal_pcbway
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            root = Path(temp_root)
+            board = root / "board.kicad_pcb"
+            board.write_text('(kicad_pcb (version 20240108) (net 0 ""))', encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "not routed"):
+                export_tropic01_universal_pcbway.validate_board_ready_for_export(board)
+
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")
 

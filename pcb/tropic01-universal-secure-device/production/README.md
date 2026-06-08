@@ -1,6 +1,8 @@
 # Production Output Status
 
-This directory does not contain release manufacturing outputs yet.
+This directory does not contain release manufacturing outputs yet. Any generated
+PCBWay BOM or manifest in this directory is a blocked preflight artifact, not a
+fabrication package.
 
 The TROPIC01 Universal Secure Device currently has requirements, BOM, and design
 notes only. Files for PCBWay must not be generated or uploaded until:
