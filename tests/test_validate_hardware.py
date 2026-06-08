@@ -21,6 +21,7 @@ RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-fl
 TROPIC01_UNIVERSAL_REQUIREMENTS = ROOT / "pcb/tropic01-universal-secure-device/requirements.json"
 TROPIC01_UNIVERSAL_KICAD = ROOT / "pcb/tropic01-universal-secure-device/kicad"
 TROPIC01_UNIVERSAL_NETLIST_CONTRACT = ROOT / "pcb/tropic01-universal-secure-device/production/netlist-contract.json"
+TROPIC01_UNIVERSAL_PINMUX_LEDGER = ROOT / "pcb/tropic01-universal-secure-device/production/pinmux-ledger.json"
 SPECS_SNAPSHOTS = ROOT / "tests/fixtures/specs"
 
 
@@ -574,6 +575,37 @@ class HardwareValidationTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "no_llm_invented_pin_numbers"):
                 validate_hardware.validate_netlist_contract(path)
+
+    def test_tropic01_universal_secure_device_pinmux_ledger_records_only_evidence_backed_pinouts(self) -> None:
+        self.assertTrue(TROPIC01_UNIVERSAL_PINMUX_LEDGER.exists(), "missing TROPIC01 pinmux ledger")
+        value = json.loads(TROPIC01_UNIVERSAL_PINMUX_LEDGER.read_text(encoding="utf-8"))
+
+        self.assertEqual(value["board"], "tropic01-universal-secure-device")
+        self.assertEqual(value["status"], "partial_evidence_no_mcu_pinmux")
+        self.assertEqual(value["tropic01"]["pins"]["5"], "SPI_SDI")
+        self.assertEqual(value["tropic01"]["pins"]["6"], "SPI_SDO")
+        self.assertEqual(value["tropic01"]["pins"]["7"], "SPI_SCK")
+        self.assertEqual(value["tropic01"]["pins"]["8"], "SPI_CSN")
+        self.assertEqual(value["tropic01"]["spi_mode"], "CPOL=0 CPHA=0 MSB-first")
+        self.assertEqual(value["display"]["tft_connector"], "Molex 54132-4062")
+        self.assertEqual(value["display"]["touch_connector"], "Molex 52271-0679")
+        self.assertEqual(value["display"]["tft_4wire_spi_mode_select"], {"IM0": "0", "IM1": "1", "IM2": "1"})
+        self.assertEqual(value["display"]["touch_i2c_pullups"], "4.7k")
+        self.assertEqual(value["stm32u5"]["status"], "datasheet_pinmux_review_required")
+        self.assertNotIn("PA5", json.dumps(value["stm32u5"].get("assignments", {})))
+        self.assertIn("no_llm_invented_pin_numbers", value["release_gates"])
+
+    def test_tropic01_universal_secure_device_pinmux_ledger_rejects_mcu_assignments_before_review(self) -> None:
+        self.assertTrue(hasattr(validate_hardware, "validate_pinmux_ledger"))
+        original = json.loads(TROPIC01_UNIVERSAL_PINMUX_LEDGER.read_text(encoding="utf-8"))
+        original["stm32u5"]["assignments"] = {"TROPIC_SPI_SCK": "PA5"}
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            path = Path(temp_root) / "pinmux-ledger.json"
+            path.write_text(json.dumps(original), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "STM32 assignments"):
+                validate_hardware.validate_pinmux_ledger(path)
 
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")

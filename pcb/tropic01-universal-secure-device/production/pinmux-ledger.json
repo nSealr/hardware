@@ -1,0 +1,96 @@
+{
+  "board": "tropic01-universal-secure-device",
+  "display": {
+    "backlight": "LED-A anode 3.0 V / 160 mA max class; LED-K1..K4 cathodes to current driver return",
+    "driver_ics": [
+      "ST7789VI",
+      "FT5426-003"
+    ],
+    "module": "NHD-2.4-240320AF-CSXP-CTP",
+    "status": "connector_pinout_confirmed_mcu_pinmux_pending",
+    "tft_4wire_spi_mode_select": {
+      "IM0": "0",
+      "IM1": "1",
+      "IM2": "1"
+    },
+    "tft_connector": "Molex 54132-4062",
+    "tft_spi_signals": {
+      "CSX": "active-low chip select",
+      "DCX": "data/command in 4-wire SPI",
+      "RESX": "active-low reset",
+      "SCL_WRX": "serial clock in 3/4-wire SPI",
+      "SDA": "serial data input",
+      "SDO": "serial data output"
+    },
+    "touch_connector": "Molex 52271-0679",
+    "touch_i2c_pullups": "4.7k",
+    "touch_i2c_signals": [
+      "SCL",
+      "SDA",
+      "/INT",
+      "/RESET"
+    ]
+  },
+  "release_gates": [
+    "no_llm_invented_pin_numbers",
+    "stm32_cube_or_datasheet_pinmux_review",
+    "st25r3916b_pin_and_matching_review",
+    "kicad_schematic_nets_match_this_ledger",
+    "erc_clean_before_pcb_update"
+  ],
+  "schema_version": 1,
+  "sources": {
+    "display": {
+      "evidence": "Pin Description and Interface Selection sections",
+      "title": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet",
+      "url": "https://newhavendisplay.com/content/specs/NHD-2.4-240320AF-CSXP-CTP.pdf"
+    },
+    "st25r3916b": {
+      "evidence": "pending NFC controller pin and antenna matching review",
+      "title": "ST25R3916B official ST datasheet",
+      "url": "https://www.st.com/resource/en/datasheet/st25r3916b.pdf"
+    },
+    "stm32u5": {
+      "evidence": "pending manual alternate-function and package pin review",
+      "title": "STM32U585VI official ST datasheet",
+      "url": "https://www.st.com/resource/en/datasheet/stm32u585vi.pdf"
+    },
+    "tropic01": {
+      "evidence": "Table 1 TROPIC01 pinout and L1 Layer SPI description",
+      "title": "TROPIC01 datasheet ODD_TR01_datasheet_vA_11",
+      "url": "https://github.com/tropicsquare/tropic01/blob/main/doc/datasheet/ODD_TR01_datasheet_vA_11.pdf"
+    }
+  },
+  "st25r3916b": {
+    "constraint": "No antenna matching component value or MCU pin assignment is accepted until checked against official ST datasheet and final antenna measurement.",
+    "part": "ST25R3916B-AQET",
+    "status": "datasheet_rf_review_required"
+  },
+  "status": "partial_evidence_no_mcu_pinmux",
+  "stm32u5": {
+    "assignments": {},
+    "constraint": "No STM32 GPIO or alternate-function assignment is accepted until checked against official ST documentation/CubeMX.",
+    "package": "LQFP100",
+    "part": "STM32U585VIT6",
+    "status": "datasheet_pinmux_review_required"
+  },
+  "tropic01": {
+    "host_policy": "TROPIC01 does not initiate communication; host MCU must wait for readiness or use GPO when configured.",
+    "nu_policy": "NU pins must follow the datasheet section 11 connection guidance before routing.",
+    "pins": {
+      "1": "VCC",
+      "11": "VCC",
+      "12": "GND",
+      "2": "GND",
+      "23": "GND",
+      "24": "VCC",
+      "4": "GPO",
+      "5": "SPI_SDI",
+      "6": "SPI_SDO",
+      "7": "SPI_SCK",
+      "8": "SPI_CSN"
+    },
+    "spi_mode": "CPOL=0 CPHA=0 MSB-first",
+    "status": "datasheet_pinout_confirmed"
+  }
+}

@@ -155,6 +155,14 @@ REQUIRED_TROPIC01_UNIVERSAL_NETLIST_RELEASE_GATES = {
     "pcbway_export_unblocked_only_after_routing",
 }
 
+REQUIRED_TROPIC01_UNIVERSAL_PINMUX_RELEASE_GATES = {
+    "no_llm_invented_pin_numbers",
+    "stm32_cube_or_datasheet_pinmux_review",
+    "st25r3916b_pin_and_matching_review",
+    "kicad_schematic_nets_match_this_ledger",
+    "erc_clean_before_pcb_update",
+}
+
 REQUIRED_REVIEW_KEYWORDS = {
     "request id",
     "approval_digest",
@@ -794,6 +802,7 @@ def _discover_validation_files() -> dict[str, list[Path]]:
         "raspberry_os_profiles": sorted(ROOT.glob("kits/*/os-profile.json")),
         "boms": sorted((ROOT / "bom").glob("*.csv")),
         "netlist_contracts": sorted(ROOT.glob("pcb/*/production/netlist-contract.json")),
+        "pinmux_ledgers": sorted(ROOT.glob("pcb/*/production/pinmux-ledger.json")),
         "manual_reports": sorted(
             [
                 *(ROOT / "reports").glob("*.json"),
@@ -828,6 +837,45 @@ def validate_netlist_contract(path: Path) -> None:
     if not isinstance(release_gates, list) or not release_gates:
         raise ValueError(f"{path}: release_gates must be a non-empty list")
     missing_gates = sorted(REQUIRED_TROPIC01_UNIVERSAL_NETLIST_RELEASE_GATES - set(release_gates))
+    if missing_gates:
+        raise ValueError(f"{path}: release_gates missing {', '.join(missing_gates)}")
+
+
+def validate_pinmux_ledger(path: Path) -> None:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if value.get("schema_version") != 1:
+        raise ValueError(f"{path}: schema_version must be 1")
+    if value.get("board") != "tropic01-universal-secure-device":
+        raise ValueError(f"{path}: board must be tropic01-universal-secure-device")
+    if value.get("status") != "partial_evidence_no_mcu_pinmux":
+        raise ValueError(f"{path}: status must be partial_evidence_no_mcu_pinmux")
+
+    stm32u5 = value.get("stm32u5")
+    if not isinstance(stm32u5, dict):
+        raise ValueError(f"{path}: stm32u5 must be an object")
+    if stm32u5.get("status") != "datasheet_pinmux_review_required":
+        raise ValueError(f"{path}: stm32u5.status must be datasheet_pinmux_review_required")
+    if stm32u5.get("assignments") not in ({}, None):
+        raise ValueError(f"{path}: STM32 assignments must stay empty until official pinmux review")
+
+    tropic01 = value.get("tropic01")
+    if not isinstance(tropic01, dict) or tropic01.get("status") != "datasheet_pinout_confirmed":
+        raise ValueError(f"{path}: tropic01.status must be datasheet_pinout_confirmed")
+    tropic01_pins = tropic01.get("pins", {})
+    for pin_number, expected_name in {"5": "SPI_SDI", "6": "SPI_SDO", "7": "SPI_SCK", "8": "SPI_CSN"}.items():
+        if tropic01_pins.get(pin_number) != expected_name:
+            raise ValueError(f"{path}: TROPIC01 pin {pin_number} must be {expected_name}")
+
+    display = value.get("display")
+    if not isinstance(display, dict):
+        raise ValueError(f"{path}: display must be an object")
+    if display.get("tft_4wire_spi_mode_select") != {"IM0": "0", "IM1": "1", "IM2": "1"}:
+        raise ValueError(f"{path}: display 4-wire SPI mode select must be IM0=0 IM1=1 IM2=1")
+
+    release_gates = value.get("release_gates")
+    if not isinstance(release_gates, list) or not release_gates:
+        raise ValueError(f"{path}: release_gates must be a non-empty list")
+    missing_gates = sorted(REQUIRED_TROPIC01_UNIVERSAL_PINMUX_RELEASE_GATES - set(release_gates))
     if missing_gates:
         raise ValueError(f"{path}: release_gates missing {', '.join(missing_gates)}")
 
@@ -896,6 +944,8 @@ def main() -> int:
         validate_bom(bom_path)
     for contract_path in validation_files["netlist_contracts"]:
         validate_netlist_contract(contract_path)
+    for ledger_path in validation_files["pinmux_ledgers"]:
+        validate_pinmux_ledger(ledger_path)
     for report_path in validation_files["manual_reports"]:
         validate_manual_report(report_path)
     print("nSealr hardware validation passed")
