@@ -412,6 +412,37 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn("SW_SPST_EVQP7A", board_text)
         self.assertIn("OPTIGA-TRUST-M-SLS32AIA", board_text)
 
+    def test_tropic01_universal_secure_device_placement_plan_is_compact_portrait(self) -> None:
+        from scripts import materialize_tropic01_universal_placement
+
+        self.assertEqual(materialize_tropic01_universal_placement.BOARD_WIDTH_MM, 48.0)
+        self.assertEqual(materialize_tropic01_universal_placement.BOARD_HEIGHT_MM, 68.0)
+        self.assertEqual(materialize_tropic01_universal_placement.DISPLAY_WIDTH_MM, 42.8)
+        self.assertEqual(materialize_tropic01_universal_placement.DISPLAY_HEIGHT_MM, 59.91)
+
+        placements = materialize_tropic01_universal_placement.placement_by_ref()
+        self.assertAlmostEqual(placements["J1"].x_mm, 34.0)
+        self.assertGreater(placements["J1"].y_mm, 75.0)
+        self.assertLess(placements["SW1"].x_mm, 12.0)
+        self.assertGreater(placements["SW2"].x_mm, 56.0)
+        self.assertEqual(placements["SW1"].rotation_deg, 90.0)
+        self.assertEqual(placements["SW2"].rotation_deg, 270.0)
+        self.assertIn("U11", placements)
+        self.assertLess(abs(placements["U11"].x_mm - placements["U1"].x_mm), 16.0)
+        self.assertLess(abs(placements["U11"].y_mm - placements["U1"].y_mm), 16.0)
+
+    def test_tropic01_universal_secure_device_placement_drawings_include_final_surfaces(self) -> None:
+        from scripts import materialize_tropic01_universal_placement
+
+        drawings = "\n".join(materialize_tropic01_universal_placement.render_portrait_drawings())
+
+        self.assertIn("BOARD OUTLINE 48.0 x 68.0 mm", drawings)
+        self.assertIn("DISP1 PORTRAIT TOUCH DISPLAY ENVELOPE 42.8 x 59.91 mm", drawings)
+        self.assertIn("ANT1 TOP EDGE NFC ANTENNA FPC OR TUNED KEEP-OUT", drawings)
+        self.assertIn("J1 USB-C FEMALE RECEPTACLE CENTERED ON BOTTOM EDGE", drawings)
+        self.assertNotIn("PCB NFC LOOP", drawings)
+        self.assertNotIn("USB-C PLUG", drawings)
+
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")
 
