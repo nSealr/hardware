@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import json
+import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -9,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BOARD_NAME = "tropic01-universal-secure-device"
 PLACEMENT_JSON = ROOT / "pcb" / BOARD_NAME / "production" / "placement-plan.json"
+KICAD_BOARD = ROOT / "pcb" / BOARD_NAME / "kicad" / f"{BOARD_NAME}.kicad_pcb"
 
 BOARD_ORIGIN_X_MM = 10.0
 BOARD_ORIGIN_Y_MM = 10.0
@@ -168,6 +171,117 @@ def build_placement_plan() -> list[Placement]:
             role="LiPo connector on back lower edge",
         ),
         Placement(
+            "U8",
+            "TPS2553DBVR",
+            "Package_TO_SOT_SMD:SOT-23-6",
+            BOARD_ORIGIN_X_MM + 13.0,
+            BOARD_END_Y_MM - 4.5,
+            side="bottom",
+            role="USB VBUS current-limit switch close to bottom USB-C input",
+        ),
+        Placement(
+            "J6",
+            "SM04B-SRSS-TB",
+            "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+            BOARD_ORIGIN_X_MM + 4.0,
+            BOARD_END_Y_MM - 11.0,
+            side="bottom",
+            role="compact Qwiic/STEMMA QT I2C expansion on lower left edge",
+        ),
+        Placement(
+            "LED1",
+            "APFA3010LSEEZGKQBKC",
+            "LED_SMD:LED_RGB_5050-6",
+            BOARD_ORIGIN_X_MM + 8.0,
+            BOARD_END_Y_MM - 4.5,
+            role="front visible RGB status LED above bottom edge",
+        ),
+        Placement(
+            "R1",
+            "5.1k",
+            "Resistor_SMD:R_0402_1005Metric",
+            BOARD_ORIGIN_X_MM + 19.0,
+            BOARD_END_Y_MM - 4.0,
+            role="USB-C CC1 Rd resistor near connector",
+        ),
+        Placement(
+            "R2",
+            "5.1k",
+            "Resistor_SMD:R_0402_1005Metric",
+            BOARD_ORIGIN_X_MM + 22.0,
+            BOARD_END_Y_MM - 4.0,
+            role="USB-C CC2 Rd resistor near connector",
+        ),
+        Placement(
+            "R3",
+            "22R",
+            "Resistor_SMD:R_0402_1005Metric",
+            BOARD_ORIGIN_X_MM + 28.0,
+            BOARD_END_Y_MM - 4.0,
+            role="USB D+ series resistor near connector",
+        ),
+        Placement(
+            "R4",
+            "22R",
+            "Resistor_SMD:R_0402_1005Metric",
+            BOARD_ORIGIN_X_MM + 30.0,
+            BOARD_END_Y_MM - 4.0,
+            role="USB D- series resistor near connector",
+        ),
+        Placement(
+            "C1",
+            "10uF",
+            "Capacitor_SMD:C_0603_1608Metric",
+            BOARD_ORIGIN_X_MM + 17.0,
+            BOARD_END_Y_MM - 3.0,
+            role="USB VBUS local bulk capacitor inside bottom edge",
+        ),
+        Placement(
+            "TP1",
+            "VBUS",
+            "TestPoint:TestPoint_Pad_D1.0mm",
+            BOARD_ORIGIN_X_MM + 3.0,
+            BOARD_END_Y_MM - 4.0,
+            side="bottom",
+            role="hidden back-side VBUS test pad",
+        ),
+        Placement(
+            "TP2",
+            "3V3",
+            "TestPoint:TestPoint_Pad_D1.0mm",
+            BOARD_ORIGIN_X_MM + 6.0,
+            BOARD_END_Y_MM - 4.0,
+            side="bottom",
+            role="hidden back-side 3V3 test pad",
+        ),
+        Placement(
+            "TP3",
+            "GND",
+            "TestPoint:TestPoint_Pad_D1.0mm",
+            BOARD_ORIGIN_X_MM + 9.0,
+            BOARD_END_Y_MM - 4.0,
+            side="bottom",
+            role="hidden back-side GND test pad",
+        ),
+        Placement(
+            "TP4",
+            "USB_DP",
+            "TestPoint:TestPoint_Pad_D1.0mm",
+            BOARD_ORIGIN_X_MM + 12.0,
+            BOARD_END_Y_MM - 4.0,
+            side="bottom",
+            role="hidden back-side USB D+ test pad",
+        ),
+        Placement(
+            "TP9",
+            "USB_DM",
+            "TestPoint:TestPoint_Pad_D1.0mm",
+            BOARD_ORIGIN_X_MM + 15.0,
+            BOARD_END_Y_MM - 4.0,
+            side="bottom",
+            role="hidden back-side USB D- test pad",
+        ),
+        Placement(
             "TP_SWDIO",
             "SWDIO",
             "TestPoint:TestPoint_Pad_D1.0mm",
@@ -238,8 +352,81 @@ def write_placement_json(path: Path = PLACEMENT_JSON) -> None:
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
+def apply_placement_to_board_text(text: str) -> str:
+    text = re.sub(
+        r'\(gr_rect\s+\(start 10\.000 10\.000\)\s+\(end [0-9.]+ [0-9.]+\)',
+        '(gr_rect\n\t\t(start 10.000 10.000)\n\t\t(end 58.000 78.000)',
+        text,
+        count=1,
+    )
+    text = text.replace('(end 57.400 81.910)', '(end 55.400 71.955)')
+    text = text.replace('(start 14.600 22.000)', '(start 12.600 12.045)')
+    text = text.replace('(at 27.000 90.000 0)', '(at 20.000 76.500 0)')
+    for placement in build_placement_plan():
+        text = _apply_single_footprint_placement(text, placement)
+    return text
+
+
+def apply_placement_to_board(path: Path = KICAD_BOARD) -> None:
+    path.write_text(apply_placement_to_board_text(path.read_text(encoding="utf-8")), encoding="utf-8")
+
+
+def _apply_single_footprint_placement(text: str, placement: Placement) -> str:
+    footprint_re = re.compile(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))')
+
+    def patch(match: re.Match[str]) -> str:
+        block = match.group(0)
+        if f'(property "Reference" "{placement.ref}"' not in block:
+            return block
+        block = re.sub(
+            r'^\n\t\(footprint "[^"]+"',
+            f'\n\t(footprint "{placement.footprint}"',
+            block,
+            count=1,
+        )
+        block = re.sub(
+            r'\n\t\t\(at [-0-9.]+ [-0-9.]+ [-0-9.]+\)',
+            f'\n\t\t(at {placement.x_mm:.3f} {placement.y_mm:.3f} {placement.rotation_deg:.3f})',
+            block,
+            count=1,
+        )
+        block = re.sub(
+            r'\(property "Value" "[^"]+"',
+            f'(property "Value" "{placement.value}"',
+            block,
+            count=1,
+        )
+        block = _set_footprint_side(block, placement.side)
+        return block
+
+    return footprint_re.sub(patch, text)
+
+
+def _set_footprint_side(block: str, side: str) -> str:
+    layer_prefixes = ("Cu", "Paste", "Mask", "SilkS", "Fab", "CrtYd")
+    if side == "bottom":
+        for suffix in layer_prefixes:
+            block = block.replace(f'"F.{suffix}"', f'"B.{suffix}"')
+    elif side == "top":
+        for suffix in layer_prefixes:
+            block = block.replace(f'"B.{suffix}"', f'"F.{suffix}"')
+    else:
+        raise ValueError(f"unsupported footprint side: {side}")
+    return block
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Materialize TROPIC01 universal placement preflight files.")
+    parser.add_argument(
+        "--apply-board",
+        action="store_true",
+        help="Update the KiCad PCB scaffold outline and key footprint coordinates from the placement contract.",
+    )
+    args = parser.parse_args()
+
     write_placement_json()
+    if args.apply_board:
+        apply_placement_to_board()
     return 0
 
 

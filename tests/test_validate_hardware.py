@@ -443,6 +443,92 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertNotIn("PCB NFC LOOP", drawings)
         self.assertNotIn("USB-C PLUG", drawings)
 
+    def test_tropic01_universal_secure_device_kicad_board_matches_compact_placement_contract(self) -> None:
+        import re
+
+        board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
+            encoding="utf-8",
+            errors="replace",
+        )
+
+        self.assertRegex(board_text, r'\(gr_rect\s+\(start 10\.000 10\.000\)\s+\(end 58\.000 78\.000\)')
+
+        def footprint_position(ref: str) -> tuple[float, float, float]:
+            block = next(
+                (
+                    candidate
+                    for candidate in re.findall(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))', board_text)
+                    if f'(property "Reference" "{ref}"' in candidate
+                ),
+                None,
+            )
+            self.assertIsNotNone(block, f"missing footprint {ref}")
+            at_match = re.search(r'\n\t\t\(at ([-0-9.]+) ([-0-9.]+) ([-0-9.]+)\)', block)
+            self.assertIsNotNone(at_match, f"missing at for footprint {ref}")
+            return tuple(float(value) for value in at_match.groups())
+
+        self.assertEqual(footprint_position("J1"), (34.0, 75.6, 0.0))
+        self.assertEqual(footprint_position("SW1"), (10.9, 30.0, 90.0))
+        self.assertEqual(footprint_position("SW2"), (57.1, 30.0, 270.0))
+        self.assertEqual(footprint_position("U11"), (43.0, 38.0, 0.0))
+
+    def test_tropic01_universal_secure_device_kicad_footprint_centers_stay_inside_compact_outline(self) -> None:
+        import re
+
+        board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
+            encoding="utf-8",
+            errors="replace",
+        )
+        outside = []
+        for block in re.findall(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))', board_text):
+            reference_match = re.search(r'\(property "Reference" "([^"]+)"', block)
+            at_match = re.search(r'\n\t\t\(at ([-0-9.]+) ([-0-9.]+) ([-0-9.]+)\)', block)
+            if not reference_match or not at_match:
+                continue
+            x_mm = float(at_match.group(1))
+            y_mm = float(at_match.group(2))
+            if not (10.0 <= x_mm <= 58.0 and 10.0 <= y_mm <= 78.0):
+                outside.append(f"{reference_match.group(1)}@{x_mm:.1f},{y_mm:.1f}")
+
+        self.assertEqual(outside, [])
+
+    def test_tropic01_universal_secure_device_kicad_back_side_components_follow_placement_contract(self) -> None:
+        import re
+
+        board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
+            encoding="utf-8",
+            errors="replace",
+        )
+        bottom_refs = {
+            "U1",
+            "U2",
+            "U5",
+            "U8",
+            "U9",
+            "U10",
+            "U11",
+            "J2",
+            "J2B",
+            "J6",
+            "J9",
+            "TP1",
+            "TP2",
+            "TP3",
+            "TP4",
+            "TP9",
+        }
+        layer_by_ref = {}
+        for block in re.findall(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))', board_text):
+            reference_match = re.search(r'\(property "Reference" "([^"]+)"', block)
+            layer_match = re.search(r'\n\t\t\(layer "([^"]+)"\)', block)
+            if reference_match and layer_match:
+                layer_by_ref[reference_match.group(1)] = layer_match.group(1)
+
+        self.assertEqual(
+            {ref: layer_by_ref.get(ref) for ref in sorted(bottom_refs)},
+            {ref: "B.Cu" for ref in sorted(bottom_refs)},
+        )
+
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")
 

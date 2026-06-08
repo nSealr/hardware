@@ -155,6 +155,136 @@
       "y_mm": 69.0
     },
     {
+      "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+      "ref": "U8",
+      "role": "USB VBUS current-limit switch close to bottom USB-C input",
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "value": "TPS2553DBVR",
+      "x_mm": 23.0,
+      "y_mm": 73.5
+    },
+    {
+      "footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+      "ref": "J6",
+      "role": "compact Qwiic/STEMMA QT I2C expansion on lower left edge",
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "value": "SM04B-SRSS-TB",
+      "x_mm": 14.0,
+      "y_mm": 67.0
+    },
+    {
+      "footprint": "LED_SMD:LED_RGB_5050-6",
+      "ref": "LED1",
+      "role": "front visible RGB status LED above bottom edge",
+      "rotation_deg": 0.0,
+      "side": "top",
+      "value": "APFA3010LSEEZGKQBKC",
+      "x_mm": 18.0,
+      "y_mm": 73.5
+    },
+    {
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "ref": "R1",
+      "role": "USB-C CC1 Rd resistor near connector",
+      "rotation_deg": 0.0,
+      "side": "top",
+      "value": "5.1k",
+      "x_mm": 29.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "ref": "R2",
+      "role": "USB-C CC2 Rd resistor near connector",
+      "rotation_deg": 0.0,
+      "side": "top",
+      "value": "5.1k",
+      "x_mm": 32.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "ref": "R3",
+      "role": "USB D+ series resistor near connector",
+      "rotation_deg": 0.0,
+      "side": "top",
+      "value": "22R",
+      "x_mm": 38.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "ref": "R4",
+      "role": "USB D- series resistor near connector",
+      "rotation_deg": 0.0,
+      "side": "top",
+      "value": "22R",
+      "x_mm": 40.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "ref": "C1",
+      "role": "USB VBUS local bulk capacitor inside bottom edge",
+      "rotation_deg": 0.0,
+      "side": "top",
+      "value": "10uF",
+      "x_mm": 27.0,
+      "y_mm": 75.0
+    },
+    {
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "ref": "TP1",
+      "role": "hidden back-side VBUS test pad",
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "value": "VBUS",
+      "x_mm": 13.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "ref": "TP2",
+      "role": "hidden back-side 3V3 test pad",
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "value": "3V3",
+      "x_mm": 16.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "ref": "TP3",
+      "role": "hidden back-side GND test pad",
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "value": "GND",
+      "x_mm": 19.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "ref": "TP4",
+      "role": "hidden back-side USB D+ test pad",
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "value": "USB_DP",
+      "x_mm": 22.0,
+      "y_mm": 74.0
+    },
+    {
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "ref": "TP9",
+      "role": "hidden back-side USB D- test pad",
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "value": "USB_DM",
+      "x_mm": 25.0,
+      "y_mm": 74.0
+    },
+    {
       "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
       "ref": "TP_SWDIO",
       "role": "hidden back-side pogo test pad",
