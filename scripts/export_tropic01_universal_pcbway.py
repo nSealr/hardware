@@ -13,6 +13,8 @@ BOARD_NAME = "tropic01-universal-secure-device"
 SOURCE_BOM = ROOT / "bom" / f"{BOARD_NAME}.csv"
 PRODUCTION_ROOT = ROOT / "pcb" / BOARD_NAME / "production"
 KICAD_BOARD = ROOT / "pcb" / BOARD_NAME / "kicad" / f"{BOARD_NAME}.kicad_pcb"
+ERC_REPORT = PRODUCTION_ROOT / "erc" / "erc.json"
+DRC_REPORT = PRODUCTION_ROOT / "drc" / "drc.json"
 
 PCBWAY_BOM_HEADERS = (
     "Designator",
@@ -82,7 +84,39 @@ def write_pcbway_bom(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writerows(rows)
 
 
-def validate_board_ready_for_export(board_path: Path = KICAD_BOARD) -> None:
+def count_kicad_report_violations(report: object) -> int:
+    if not isinstance(report, dict):
+        return 1
+
+    count = 0
+    violations = report.get("violations", [])
+    if isinstance(violations, list):
+        count += len(violations)
+
+    sheets = report.get("sheets", [])
+    if isinstance(sheets, list):
+        for sheet in sheets:
+            if isinstance(sheet, dict) and isinstance(sheet.get("violations", []), list):
+                count += len(sheet["violations"])
+
+    return count
+
+
+def require_clean_kicad_report(path: Path, label: str) -> None:
+    if not path.exists():
+        raise ValueError(f"PCBWay export blocked: {label} report missing")
+
+    try:
+        report = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"PCBWay export blocked: {label} report is not valid JSON") from exc
+
+    violation_count = count_kicad_report_violations(report)
+    if violation_count:
+        raise ValueError(f"PCBWay export blocked: {label} violations present ({violation_count})")
+
+
+def validate_board_ready_for_export(board_path: Path = KICAD_BOARD, production_root: Path = PRODUCTION_ROOT) -> None:
     if not board_path.exists():
         raise ValueError("PCBWay export blocked: no routed KiCad PCB exists")
 
@@ -94,6 +128,9 @@ def validate_board_ready_for_export(board_path: Path = KICAD_BOARD) -> None:
 
     if routed_item_count == 0 or len(real_nets) <= 1:
         raise ValueError("PCBWay export blocked: no routed KiCad PCB copper exists; board is not routed")
+
+    require_clean_kicad_report(production_root / "erc" / "erc.json", "ERC")
+    require_clean_kicad_report(production_root / "drc" / "drc.json", "DRC")
 
 
 def _mpn_by_designator(rows: list[dict[str, str]]) -> dict[str, str]:

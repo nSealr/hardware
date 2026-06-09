@@ -20,6 +20,7 @@ RASPBERRY_OS_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-os-profile-s
 RASPBERRY_QR_FLOW_REPORT_TEMPLATE = ROOT / "templates/raspberry-qr-vault-full-flow-smoke.json"
 TROPIC01_UNIVERSAL_REQUIREMENTS = ROOT / "pcb/tropic01-universal-secure-device/requirements.json"
 TROPIC01_UNIVERSAL_KICAD = ROOT / "pcb/tropic01-universal-secure-device/kicad"
+TROPIC01_UNIVERSAL_PCB = TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb"
 TROPIC01_UNIVERSAL_NETLIST_CONTRACT = ROOT / "pcb/tropic01-universal-secure-device/production/netlist-contract.json"
 TROPIC01_UNIVERSAL_PINMUX_LEDGER = ROOT / "pcb/tropic01-universal-secure-device/production/pinmux-ledger.json"
 TROPIC01_UNIVERSAL_SCHEMATIC_BINDING = (
@@ -348,6 +349,52 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "not routed"):
                 export_tropic01_universal_pcbway.validate_board_ready_for_export(board)
 
+    def test_tropic01_universal_secure_device_pcbway_export_requires_clean_erc_and_drc_reports(self) -> None:
+        from scripts import export_tropic01_universal_pcbway
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            root = Path(temp_root)
+            board = root / "board.kicad_pcb"
+            board.write_text(
+                '(kicad_pcb (version 20260206) (net 0 "") (net 1 "A") (net 2 "B") '
+                '(segment (start 0 0) (end 1 1) (width 0.1) (layer "F.Cu") (net 1)))',
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "ERC report"):
+                export_tropic01_universal_pcbway.validate_board_ready_for_export(board, root)
+
+    def test_tropic01_universal_secure_device_pcbway_export_rejects_erc_or_drc_violations(self) -> None:
+        from scripts import export_tropic01_universal_pcbway
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            root = Path(temp_root)
+            board = root / "board.kicad_pcb"
+            board.write_text(
+                '(kicad_pcb (version 20260206) (net 0 "") (net 1 "A") (net 2 "B") '
+                '(segment (start 0 0) (end 1 1) (width 0.1) (layer "F.Cu") (net 1)))',
+                encoding="utf-8",
+            )
+            (root / "erc").mkdir()
+            (root / "drc").mkdir()
+            (root / "erc" / "erc.json").write_text(
+                json.dumps({"sheets": [{"violations": [{"severity": "error"}]}]}),
+                encoding="utf-8",
+            )
+            (root / "drc" / "drc.json").write_text(json.dumps({"violations": []}), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "ERC violations"):
+                export_tropic01_universal_pcbway.validate_board_ready_for_export(board, root)
+
+            (root / "erc" / "erc.json").write_text(json.dumps({"sheets": [{"violations": []}]}), encoding="utf-8")
+            (root / "drc" / "drc.json").write_text(
+                json.dumps({"violations": [{"severity": "warning"}]}),
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "DRC violations"):
+                export_tropic01_universal_pcbway.validate_board_ready_for_export(board, root)
+
     def test_tropic01_universal_secure_device_kicad_sources_exist(self) -> None:
         expected = [
             TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pro",
@@ -419,6 +466,14 @@ class HardwareValidationTests(unittest.TestCase):
         ):
             self.assertIn(label, kicad_text)
 
+    def test_tropic01_universal_secure_device_schematic_symbol_anchors_are_on_kicad_grid(self) -> None:
+        from scripts import materialize_tropic01_universal_kicad_schematics
+
+        grid_mm = 1.27
+        for spec in materialize_tropic01_universal_kicad_schematics.SYMBOLS.values():
+            self.assertAlmostEqual(round(spec.x / grid_mm) * grid_mm, spec.x, places=6, msg=f"{spec.ref} x")
+            self.assertAlmostEqual(round(spec.y / grid_mm) * grid_mm, spec.y, places=6, msg=f"{spec.ref} y")
+
     def test_tropic01_universal_secure_device_board_drawings_include_display_and_nfc_features(self) -> None:
         board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
             encoding="utf-8",
@@ -430,10 +485,7 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertNotIn("PCB NFC LOOP", board_text)
 
     def test_tropic01_universal_secure_device_kicad_board_contains_final_core_refs(self) -> None:
-        board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
-            encoding="utf-8",
-            errors="replace",
-        )
+        board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
 
         for ref in ("U1", "U2", "U9", "U10", "U11", "J1", "J2", "J2B", "SW1", "SW2"):
             self.assertIn(f'"{ref}"', board_text)
@@ -443,6 +495,63 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn("Molex_52271-0679", board_text)
         self.assertIn("SW_SPST_EVQP7A", board_text)
         self.assertIn("OPTIGA-TRUST-M-SLS32AIA", board_text)
+
+    def test_tropic01_universal_secure_device_kicad_pcb_assigns_bound_core_nets_to_pads(self) -> None:
+        import re
+
+        board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
+        binding = json.loads(TROPIC01_UNIVERSAL_SCHEMATIC_BINDING.read_text(encoding="utf-8"))
+
+        for net_name in (
+            "USB_DM",
+            "USB_DP",
+            "TROPIC_SPI_MOSI",
+            "TROPIC_SPI_MISO",
+            "TROPIC_SPI_SCK",
+            "TROPIC_SPI_CSN",
+            "TOUCH_I2C_SCL",
+            "NFC_SPI_SCK",
+            "SE2_I2C_SDA",
+            "QSPI_CLK",
+        ):
+            self.assertRegex(board_text, rf'\(net\s+\d+\s+"{re.escape(net_name)}"\)')
+
+        def footprint_block(ref: str) -> str:
+            block = next(
+                (
+                    candidate
+                    for candidate in re.findall(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))', board_text)
+                    if f'(property "Reference" "{ref}"' in candidate
+                ),
+                None,
+            )
+            self.assertIsNotNone(block, f"missing footprint {ref}")
+            return block or ""
+
+        def assert_pad_net(ref: str, pad: str, net_name: str) -> None:
+            block = footprint_block(ref)
+            pad_block = next(
+                (
+                    candidate
+                    for candidate in re.findall(r'\n\t\t\(pad "[^"]*"[\s\S]*?(?=\n\t\t\(pad |\n\t\))', block)
+                    if f'(pad "{pad}"' in candidate
+                ),
+                None,
+            )
+            self.assertIsNotNone(pad_block, f"missing pad {ref}.{pad}")
+            self.assertIn(f'"{net_name}"', pad_block)
+
+        self.assertEqual(binding["components"]["U2"]["pins"]["5"]["net"], "TROPIC_SPI_MOSI")
+        assert_pad_net("U1", "70", "USB_DM")
+        assert_pad_net("U1", "71", "USB_DP")
+        assert_pad_net("U2", "5", "TROPIC_SPI_MOSI")
+        assert_pad_net("U2", "6", "TROPIC_SPI_MISO")
+        assert_pad_net("J1", "A6", "USB_DP")
+        assert_pad_net("J1", "A7", "USB_DM")
+        assert_pad_net("J2B", "3", "TOUCH_I2C_SCL")
+        assert_pad_net("U5", "6", "QSPI_CLK")
+        assert_pad_net("U9", "30", "NFC_SPI_SCK")
+        assert_pad_net("U11", "3", "SE2_I2C_SDA")
 
     def test_tropic01_universal_secure_device_placement_plan_is_compact_portrait(self) -> None:
         from scripts import materialize_tropic01_universal_placement

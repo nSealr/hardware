@@ -52,7 +52,7 @@
 	)
 	(symbol
 		(lib_id "TROPIC_SQUARE:OPTIGA_TRUST_M_USON10")
-		(at 110.00 90.00 0)
+		(at 110.49 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -60,23 +60,23 @@
 		(dnp no)
 		(uuid "68e46b6a-6e3a-5cf1-99e4-8dbdb2462327")
 		(property "Reference" "U11"
-			(at 100.00 102.00 0)
+			(at 100.49 102.17 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Value" "OPTIGA-TRUST-M-SLS32AIA"
-			(at 100.00 104.50 0)
+			(at 100.49 104.67 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Footprint" "Package_SON:Microchip_USON-10-1EP_3x3mm_P0.5mm_EP1.8x2.5mm"
-			(at 110.00 90.00 0)
+			(at 110.49 90.17 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Datasheet" "https://www.infineon.com/assets/row/public/documents/30/49/infineon-optiga-trust-m-sls32aia-datasheet-en.pdf"
-			(at 110.00 90.00 0)
+			(at 110.49 90.17 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Description" "OPTIGA Trust M class second secure element, PG-USON-10 candidate footprint"
-			(at 110.00 90.00 0)
+			(at 110.49 90.17 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
@@ -90,70 +90,70 @@
 	)
 	(wire
 		(pts
-			(xy 92.22 97.62) (xy 84.60 97.62)
+			(xy 92.71 97.79) (xy 85.09 97.79)
 		)
 		(stroke (width 0) (type default))
 		(uuid "e22a92d5-f57e-5167-a1e2-694e07e9f99a")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 84.60 97.62 0)
+		(at 85.09 97.79 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "10400987-60ae-5cd0-bda0-0e5e9ce6dedb")
 	)
 	(wire
 		(pts
-			(xy 127.78 97.62) (xy 135.40 97.62)
+			(xy 128.27 97.79) (xy 135.89 97.79)
 		)
 		(stroke (width 0) (type default))
 		(uuid "cf263e95-b182-50c5-8a6d-5d72e05cd46c")
 	)
 	(global_label "SYS_3V3"
 		(shape input)
-		(at 135.40 97.62 180)
+		(at 135.89 97.79 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "c8e7bfea-8b4a-5576-9d2d-89a05340bc31")
 	)
 	(wire
 		(pts
-			(xy 92.22 92.54) (xy 84.60 92.54)
+			(xy 92.71 92.71) (xy 85.09 92.71)
 		)
 		(stroke (width 0) (type default))
 		(uuid "e48574fa-4351-5630-863d-77a5a74ba9bd")
 	)
 	(global_label "SE2_I2C_SDA"
 		(shape input)
-		(at 84.60 92.54 0)
+		(at 85.09 92.71 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "d3715b57-5a59-532f-abbf-389a6dd1d9a7")
 	)
 	(wire
 		(pts
-			(xy 92.22 90.00) (xy 84.60 90.00)
+			(xy 92.71 90.17) (xy 85.09 90.17)
 		)
 		(stroke (width 0) (type default))
 		(uuid "d6b42aec-153e-564f-a7e6-7185a2a660f2")
 	)
 	(global_label "SE2_I2C_SCL"
 		(shape input)
-		(at 84.60 90.00 0)
+		(at 85.09 90.17 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "15f5f1d1-a68b-5226-914f-f7abe62697e6")
 	)
 	(wire
 		(pts
-			(xy 92.22 87.46) (xy 84.60 87.46)
+			(xy 92.71 87.63) (xy 85.09 87.63)
 		)
 		(stroke (width 0) (type default))
 		(uuid "2c55d851-f322-5e72-b8ab-f85b0def3c0c")
 	)
 	(global_label "SE2_RST"
 		(shape input)
-		(at 84.60 87.46 0)
+		(at 85.09 87.63 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "7ce87d3d-2763-5e68-a94f-8408cc437554")

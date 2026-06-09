@@ -56,7 +56,7 @@
 	)
 	(symbol
 		(lib_id "TROPIC_SQUARE:ST25R3916B_QFN32")
-		(at 115.00 100.00 0)
+		(at 114.30 100.33 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -64,23 +64,23 @@
 		(dnp no)
 		(uuid "cfd12c7b-cca1-55f2-9f63-110f3b55c9b3")
 		(property "Reference" "U9"
-			(at 105.00 112.00 0)
+			(at 104.30 112.33 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Value" "ST25R3916B-AQET"
-			(at 105.00 114.50 0)
+			(at 104.30 114.83 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Footprint" "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.7x3.7mm"
-			(at 115.00 100.00 0)
+			(at 114.30 100.33 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Datasheet" "https://www.st.com/resource/en/datasheet/st25r3916b.pdf"
-			(at 115.00 100.00 0)
+			(at 114.30 100.33 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Description" "ST25R3916B NFC/RFID front-end, QFN32"
-			(at 115.00 100.00 0)
+			(at 114.30 100.33 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
@@ -94,210 +94,210 @@
 	)
 	(wire
 		(pts
-			(xy 97.22 115.24) (xy 89.60 115.24)
+			(xy 96.52 115.57) (xy 88.90 115.57)
 		)
 		(stroke (width 0) (type default))
 		(uuid "46d104b8-41e2-55ae-b81f-91bfc3d78f2c")
 	)
 	(global_label "NFC_VCC_SW"
 		(shape input)
-		(at 89.60 115.24 0)
+		(at 88.90 115.57 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "fb13efca-9e52-5b1b-b34a-61877f6209e3")
 	)
 	(wire
 		(pts
-			(xy 97.22 107.62) (xy 89.60 107.62)
+			(xy 96.52 107.95) (xy 88.90 107.95)
 		)
 		(stroke (width 0) (type default))
 		(uuid "7ef6ff20-eca9-5d65-909c-2edaa028bc48")
 	)
 	(global_label "NFC_VCC_SW"
 		(shape input)
-		(at 89.60 107.62 0)
+		(at 88.90 107.95 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "43d0ffed-7a28-5d74-8554-a393eae52a8d")
 	)
 	(wire
 		(pts
-			(xy 97.22 105.08) (xy 89.60 105.08)
+			(xy 96.52 105.41) (xy 88.90 105.41)
 		)
 		(stroke (width 0) (type default))
 		(uuid "72a1533f-1875-5360-8e27-56f7c8b6db45")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 89.60 105.08 0)
+		(at 88.90 105.41 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "3cebcb84-db6c-503b-ab5c-0fd14516e8ef")
 	)
 	(wire
 		(pts
-			(xy 97.22 102.54) (xy 89.60 102.54)
+			(xy 96.52 102.87) (xy 88.90 102.87)
 		)
 		(stroke (width 0) (type default))
 		(uuid "ec9c94df-7b4e-5d20-8244-bfb7048e339d")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 89.60 102.54 0)
+		(at 88.90 102.87 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "60b00c9b-179a-524c-a2ce-d54287a7c906")
 	)
 	(wire
 		(pts
-			(xy 97.22 100.00) (xy 89.60 100.00)
+			(xy 96.52 100.33) (xy 88.90 100.33)
 		)
 		(stroke (width 0) (type default))
 		(uuid "2f04ce68-c705-5c62-8b0e-30ebda0f6f46")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 89.60 100.00 0)
+		(at 88.90 100.33 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "8843e380-4d10-556d-9e11-a540b3c41172")
 	)
 	(wire
 		(pts
-			(xy 97.22 97.46) (xy 89.60 97.46)
+			(xy 96.52 97.79) (xy 88.90 97.79)
 		)
 		(stroke (width 0) (type default))
 		(uuid "fb1abdef-b235-533e-ae95-e64be7c5f32b")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 89.60 97.46 0)
+		(at 88.90 97.79 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "7e0d0364-b2a4-5dda-be40-a9dfed82b1c2")
 	)
 	(wire
 		(pts
-			(xy 97.22 94.92) (xy 89.60 94.92)
+			(xy 96.52 95.25) (xy 88.90 95.25)
 		)
 		(stroke (width 0) (type default))
 		(uuid "e01f4fb1-78fb-5f0d-bf94-b0221c02b531")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 89.60 94.92 0)
+		(at 88.90 95.25 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "ff96b8c3-d630-58dd-b681-c5721bdb4e83")
 	)
 	(wire
 		(pts
-			(xy 132.78 112.70) (xy 140.40 112.70)
+			(xy 132.08 113.03) (xy 139.70 113.03)
 		)
 		(stroke (width 0) (type default))
 		(uuid "4c2e121d-8639-5516-818e-b20d7c1023ce")
 	)
 	(global_label "NFC_IRQ"
 		(shape input)
-		(at 140.40 112.70 180)
+		(at 139.70 113.03 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "e0a4555f-4a8d-5d17-870f-802ec1da7111")
 	)
 	(wire
 		(pts
-			(xy 132.78 110.16) (xy 140.40 110.16)
+			(xy 132.08 110.49) (xy 139.70 110.49)
 		)
 		(stroke (width 0) (type default))
 		(uuid "4f21915f-dc8f-5509-b24e-611d055bc6ec")
 	)
 	(global_label "NFC_SPI_CSN"
 		(shape input)
-		(at 140.40 110.16 180)
+		(at 139.70 110.49 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "2c4e5890-eeb1-577b-b42a-98b8641245ac")
 	)
 	(wire
 		(pts
-			(xy 132.78 107.62) (xy 140.40 107.62)
+			(xy 132.08 107.95) (xy 139.70 107.95)
 		)
 		(stroke (width 0) (type default))
 		(uuid "5dc62341-2dcb-5ccd-b33d-ca4f63d23adc")
 	)
 	(global_label "NFC_SPI_SCK"
 		(shape input)
-		(at 140.40 107.62 180)
+		(at 139.70 107.95 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "9f375ddf-374e-55bb-aed2-2aae736e6836")
 	)
 	(wire
 		(pts
-			(xy 132.78 105.08) (xy 140.40 105.08)
+			(xy 132.08 105.41) (xy 139.70 105.41)
 		)
 		(stroke (width 0) (type default))
 		(uuid "f32b4ad2-06d2-5d1d-b937-00d736ea5208")
 	)
 	(global_label "NFC_SPI_MOSI"
 		(shape input)
-		(at 140.40 105.08 180)
+		(at 139.70 105.41 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "b28c7f9d-1924-5b50-b32c-9d2f5caec8cd")
 	)
 	(wire
 		(pts
-			(xy 132.78 102.54) (xy 140.40 102.54)
+			(xy 132.08 102.87) (xy 139.70 102.87)
 		)
 		(stroke (width 0) (type default))
 		(uuid "35dfd4e0-eff3-5b4f-ac32-f778383acabd")
 	)
 	(global_label "NFC_SPI_MISO"
 		(shape input)
-		(at 140.40 102.54 180)
+		(at 139.70 102.87 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "2fb63faa-e877-5f05-a724-5725d4ea8afe")
 	)
 	(wire
 		(pts
-			(xy 132.78 100.00) (xy 140.40 100.00)
+			(xy 132.08 100.33) (xy 139.70 100.33)
 		)
 		(stroke (width 0) (type default))
 		(uuid "e52f49c1-cd72-5753-9be9-2c00fa062e98")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 140.40 100.00 180)
+		(at 139.70 100.33 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "2e5e9a88-b47f-53d4-83e6-3e9169386ba2")
 	)
 	(wire
 		(pts
-			(xy 97.22 112.70) (xy 89.60 112.70)
+			(xy 96.52 113.03) (xy 88.90 113.03)
 		)
 		(stroke (width 0) (type default))
 		(uuid "8a314519-7b22-52a4-b4ca-31cca90191f1")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 89.60 112.70 0)
+		(at 88.90 113.03 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "0e30ba34-ce4d-5577-93e8-cf46411a72d7")
 	)
 	(wire
 		(pts
-			(xy 97.22 110.16) (xy 89.60 110.16)
+			(xy 96.52 110.49) (xy 88.90 110.49)
 		)
 		(stroke (width 0) (type default))
 		(uuid "8567ab14-7cf6-53bc-9728-bd0e1321a57e")
 	)
 	(global_label "NFC_VCC_SW"
 		(shape input)
-		(at 89.60 110.16 0)
+		(at 88.90 110.49 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "0b0ddc31-330b-5c83-a2a3-e0836de82ade")

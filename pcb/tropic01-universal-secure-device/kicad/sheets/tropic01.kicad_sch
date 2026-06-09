@@ -700,7 +700,7 @@
 	)
 	(symbol
 		(lib_id "TROPIC_SQUARE:TR01-P2")
-		(at 115.00 105.00 0)
+		(at 114.30 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -708,23 +708,23 @@
 		(dnp no)
 		(uuid "14a08b12-b568-5185-a696-5d9727eedd09")
 		(property "Reference" "U2"
-			(at 105.00 117.00 0)
+			(at 104.30 117.41 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Value" "TR01-C2P-T301"
-			(at 105.00 119.50 0)
+			(at 104.30 119.91 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Footprint" "Package_DFN_QFN:QFN-32-1EP_4x4mm_P0.4mm_EP2.65x2.65mm"
-			(at 115.00 105.00 0)
+			(at 114.30 105.41 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Datasheet" "https://github.com/tropicsquare/tropic01/blob/main/doc/TR01-C2P-T310/ODD_TR01_datasheet_vA_11.pdf"
-			(at 115.00 105.00 0)
+			(at 114.30 105.41 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Description" "TROPIC01 cryptographic coprocessor; Rev A0 default TR01-C2P-T301, preferred TR01-C2P-T310 when available"
-			(at 115.00 105.00 0)
+			(at 114.30 105.41 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
@@ -738,154 +738,154 @@
 	)
 	(wire
 		(pts
-			(xy 112.46 129.13) (xy 112.46 136.75)
+			(xy 111.76 129.54) (xy 111.76 137.16)
 		)
 		(stroke (width 0) (type default))
 		(uuid "4b46dfc5-81b6-5e02-b01f-ef3e1b57feba")
 	)
 	(global_label "TROPIC_VCC_SW"
 		(shape input)
-		(at 112.46 136.75 270)
+		(at 111.76 137.16 270)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "45c43628-1671-5951-8b92-c8ef09ba17aa")
 	)
 	(wire
 		(pts
-			(xy 115.00 129.13) (xy 115.00 136.75)
+			(xy 114.30 129.54) (xy 114.30 137.16)
 		)
 		(stroke (width 0) (type default))
 		(uuid "4ef57deb-f5a0-591c-93bf-9bbf31d913c5")
 	)
 	(global_label "TROPIC_VCC_SW"
 		(shape input)
-		(at 115.00 136.75 270)
+		(at 114.30 137.16 270)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "c5a78841-cec1-5e66-a251-fa029577bd55")
 	)
 	(wire
 		(pts
-			(xy 109.92 80.87) (xy 109.92 73.25)
+			(xy 109.22 81.28) (xy 109.22 73.66)
 		)
 		(stroke (width 0) (type default))
 		(uuid "baaeaabf-b994-5724-9922-7a666ac42455")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 109.92 73.25 90)
+		(at 109.22 73.66 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "1787797e-6ae3-5c4d-b781-2f4ffb992e57")
 	)
 	(wire
 		(pts
-			(xy 107.38 80.87) (xy 107.38 73.25)
+			(xy 106.68 81.28) (xy 106.68 73.66)
 		)
 		(stroke (width 0) (type default))
 		(uuid "c8073a2e-f033-5d2a-999b-96b4641f7d51")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 107.38 73.25 90)
+		(at 106.68 73.66 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "20eda76f-fc5e-50cb-abab-9645ba2a6398")
 	)
 	(wire
 		(pts
-			(xy 112.46 80.87) (xy 112.46 73.25)
+			(xy 111.76 81.28) (xy 111.76 73.66)
 		)
 		(stroke (width 0) (type default))
 		(uuid "ddb7b70d-a117-5329-b58b-7b8dd3a17a87")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 112.46 73.25 90)
+		(at 111.76 73.66 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "5d6071ff-c76e-52c9-b1d4-3f8148d877c9")
 	)
 	(wire
 		(pts
-			(xy 117.54 129.13) (xy 117.54 136.75)
+			(xy 116.84 129.54) (xy 116.84 137.16)
 		)
 		(stroke (width 0) (type default))
 		(uuid "8692d216-a1fb-5a71-a213-d5907548221e")
 	)
 	(global_label "TROPIC_VCC_SW"
 		(shape input)
-		(at 117.54 136.75 270)
+		(at 116.84 137.16 270)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "6c5b5bce-b65e-5287-886e-c4b8338102bd")
 	)
 	(wire
 		(pts
-			(xy 94.68 121.51) (xy 87.06 121.51)
+			(xy 93.98 121.92) (xy 86.36 121.92)
 		)
 		(stroke (width 0) (type default))
 		(uuid "7354b42c-278d-54ed-bfc2-4447628db55b")
 	)
 	(global_label "TROPIC_GPO"
 		(shape input)
-		(at 87.06 121.51 0)
+		(at 86.36 121.92 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "19aefc03-7b34-561f-9dec-bcdd24a57ef0")
 	)
 	(wire
 		(pts
-			(xy 94.68 112.62) (xy 87.06 112.62)
+			(xy 93.98 113.03) (xy 86.36 113.03)
 		)
 		(stroke (width 0) (type default))
 		(uuid "52478400-e3b0-51ce-8070-8ea32a405cf7")
 	)
 	(global_label "TROPIC_SPI_MOSI"
 		(shape input)
-		(at 87.06 112.62 0)
+		(at 86.36 113.03 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "b2063c76-94f9-570f-b1c7-cab78801bafa")
 	)
 	(wire
 		(pts
-			(xy 94.68 110.08) (xy 87.06 110.08)
+			(xy 93.98 110.49) (xy 86.36 110.49)
 		)
 		(stroke (width 0) (type default))
 		(uuid "9ab38c7d-f873-50c9-8e74-7b09cb62d4ed")
 	)
 	(global_label "TROPIC_SPI_MISO"
 		(shape input)
-		(at 87.06 110.08 0)
+		(at 86.36 110.49 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "c8714087-509f-513c-b97f-b25d7e6f47ff")
 	)
 	(wire
 		(pts
-			(xy 94.68 107.54) (xy 87.06 107.54)
+			(xy 93.98 107.95) (xy 86.36 107.95)
 		)
 		(stroke (width 0) (type default))
 		(uuid "e78f0db1-0d8e-5f06-8c2c-7f14a2891936")
 	)
 	(global_label "TROPIC_SPI_SCK"
 		(shape input)
-		(at 87.06 107.54 0)
+		(at 86.36 107.95 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "fb89180f-ee8a-5c83-8a6f-f918511afad4")
 	)
 	(wire
 		(pts
-			(xy 94.68 105.00) (xy 87.06 105.00)
+			(xy 93.98 105.41) (xy 86.36 105.41)
 		)
 		(stroke (width 0) (type default))
 		(uuid "149a0189-6f01-52e2-b507-de75364114c3")
 	)
 	(global_label "TROPIC_SPI_CSN"
 		(shape input)
-		(at 87.06 105.00 0)
+		(at 86.36 105.41 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "ce6c4ef4-94b6-5e32-8ddf-75553237df52")

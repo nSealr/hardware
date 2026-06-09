@@ -897,7 +897,7 @@
 	)
 	(symbol
 		(lib_id "Connector:USB_C_Receptacle_USB2.0_16P")
-		(at 105.00 95.00 0)
+		(at 105.41 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -905,23 +905,23 @@
 		(dnp no)
 		(uuid "cf975478-7a07-57e9-b72f-19ec68f71355")
 		(property "Reference" "J1"
-			(at 95.00 107.00 0)
+			(at 95.41 107.25 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Value" "USB4105-GF-A"
-			(at 95.00 109.50 0)
+			(at 95.41 109.75 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal"
-			(at 105.00 95.00 0)
+			(at 105.41 95.25 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Datasheet" "https://gct.co/connector/usb4105"
-			(at 105.00 95.00 0)
+			(at 105.41 95.25 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Description" "GCT USB4105 USB 2.0 Type-C receptacle, female USB-C only"
-			(at 105.00 95.00 0)
+			(at 105.41 95.25 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
@@ -935,7 +935,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 105.00 135.00 0)
+		(at 105.41 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -943,23 +943,23 @@
 		(dnp no)
 		(uuid "6c9f4507-c1d8-5d60-82e7-b53a714bc123")
 		(property "Reference" "J9"
-			(at 95.00 147.00 0)
+			(at 95.41 146.62 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Value" "LiPo 2-pin JST PH"
-			(at 95.00 149.50 0)
+			(at 95.41 149.12 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Footprint" "Connector_JST:JST_PH_S2B-PH-SM4-TB_1x02-1MP_P2.00mm_Horizontal"
-			(at 105.00 135.00 0)
+			(at 105.41 134.62 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Datasheet" "https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/ph-connector/"
-			(at 105.00 135.00 0)
+			(at 105.41 134.62 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Description" "2-pin LiPo battery connector into charger/power path"
-			(at 105.00 135.00 0)
+			(at 105.41 134.62 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
@@ -973,224 +973,224 @@
 	)
 	(wire
 		(pts
-			(xy 105.00 72.14) (xy 105.00 64.52)
+			(xy 105.41 72.39) (xy 105.41 64.77)
 		)
 		(stroke (width 0) (type default))
 		(uuid "a3c1549b-fb00-53ce-8a9c-402022195193")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 105.00 64.52 90)
+		(at 105.41 64.77 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "ae55f8e2-f769-52e0-a3cc-1a3f0eb57465")
 	)
 	(wire
 		(pts
-			(xy 105.00 72.14) (xy 105.00 64.52)
+			(xy 105.41 72.39) (xy 105.41 64.77)
 		)
 		(stroke (width 0) (type default))
 		(uuid "823d106e-b311-5afb-8916-4a6e23c1bf8a")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 105.00 64.52 90)
+		(at 105.41 64.77 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "ca173a1c-19ad-5f99-ae31-09a70f61ed41")
 	)
 	(wire
 		(pts
-			(xy 120.24 110.24) (xy 127.86 110.24)
+			(xy 120.65 110.49) (xy 128.27 110.49)
 		)
 		(stroke (width 0) (type default))
 		(uuid "30994ea2-0f73-5e90-9fa9-3e46e6644a53")
 	)
 	(global_label "VBUS"
 		(shape input)
-		(at 127.86 110.24 180)
+		(at 128.27 110.49 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "00c97560-023c-5729-9e25-9fb9b2600403")
 	)
 	(wire
 		(pts
-			(xy 120.24 105.16) (xy 127.86 105.16)
+			(xy 120.65 105.41) (xy 128.27 105.41)
 		)
 		(stroke (width 0) (type default))
 		(uuid "f2ca6450-31ff-52e4-8ab1-176eaccb68b0")
 	)
 	(global_label "USB_CC1_RD"
 		(shape input)
-		(at 127.86 105.16 180)
+		(at 128.27 105.41 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "fc6c7988-1ab7-566b-9098-ab1353020e19")
 	)
 	(wire
 		(pts
-			(xy 120.24 92.46) (xy 127.86 92.46)
+			(xy 120.65 92.71) (xy 128.27 92.71)
 		)
 		(stroke (width 0) (type default))
 		(uuid "512c94da-33db-5465-b7d7-81b97254d463")
 	)
 	(global_label "USB_DP"
 		(shape input)
-		(at 127.86 92.46 180)
+		(at 128.27 92.71 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "8e9ac2e5-f0de-5715-86e4-4904f3022bb2")
 	)
 	(wire
 		(pts
-			(xy 120.24 97.54) (xy 127.86 97.54)
+			(xy 120.65 97.79) (xy 128.27 97.79)
 		)
 		(stroke (width 0) (type default))
 		(uuid "555a2782-b548-5afc-ba77-a38fb48af54f")
 	)
 	(global_label "USB_DM"
 		(shape input)
-		(at 127.86 97.54 180)
+		(at 128.27 97.79 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "e5737e37-d19d-5ad6-b563-0f4cdb595d5b")
 	)
 	(wire
 		(pts
-			(xy 120.24 110.24) (xy 127.86 110.24)
+			(xy 120.65 110.49) (xy 128.27 110.49)
 		)
 		(stroke (width 0) (type default))
 		(uuid "05783c11-9bf6-5ec9-a961-b51d4c954b60")
 	)
 	(global_label "VBUS"
 		(shape input)
-		(at 127.86 110.24 180)
+		(at 128.27 110.49 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "330b47cd-97b8-5f49-9a9a-70f1c7a2b4a5")
 	)
 	(wire
 		(pts
-			(xy 105.00 72.14) (xy 105.00 64.52)
+			(xy 105.41 72.39) (xy 105.41 64.77)
 		)
 		(stroke (width 0) (type default))
 		(uuid "8dae80bc-6aa5-5cd2-8b83-d84ba4703093")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 105.00 64.52 90)
+		(at 105.41 64.77 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "4f0c7aec-7506-5965-87a5-f07574b4762c")
 	)
 	(wire
 		(pts
-			(xy 105.00 72.14) (xy 105.00 64.52)
+			(xy 105.41 72.39) (xy 105.41 64.77)
 		)
 		(stroke (width 0) (type default))
 		(uuid "eba1f618-e01a-5a62-8526-bf86c3640ba7")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 105.00 64.52 90)
+		(at 105.41 64.77 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "38241f05-2d5a-5ba3-940c-4811d46e1acf")
 	)
 	(wire
 		(pts
-			(xy 120.24 110.24) (xy 127.86 110.24)
+			(xy 120.65 110.49) (xy 128.27 110.49)
 		)
 		(stroke (width 0) (type default))
 		(uuid "ee11dc71-c83c-51fb-b00d-194a84ff7d97")
 	)
 	(global_label "VBUS"
 		(shape input)
-		(at 127.86 110.24 180)
+		(at 128.27 110.49 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "0d385846-8b53-50fb-b37e-c9cdd972b320")
 	)
 	(wire
 		(pts
-			(xy 120.24 102.62) (xy 127.86 102.62)
+			(xy 120.65 102.87) (xy 128.27 102.87)
 		)
 		(stroke (width 0) (type default))
 		(uuid "690df196-6421-5725-9681-56244bed6ed3")
 	)
 	(global_label "USB_CC2_RD"
 		(shape input)
-		(at 127.86 102.62 180)
+		(at 128.27 102.87 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "a4d7d665-23cb-5f84-a912-b4191ce222ea")
 	)
 	(wire
 		(pts
-			(xy 120.24 89.92) (xy 127.86 89.92)
+			(xy 120.65 90.17) (xy 128.27 90.17)
 		)
 		(stroke (width 0) (type default))
 		(uuid "947e14eb-97ab-5d6f-b631-ab874aed83a9")
 	)
 	(global_label "USB_DP"
 		(shape input)
-		(at 127.86 89.92 180)
+		(at 128.27 90.17 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "5dd8729e-cb8e-54f4-8045-4693575501b3")
 	)
 	(wire
 		(pts
-			(xy 120.24 95.00) (xy 127.86 95.00)
+			(xy 120.65 95.25) (xy 128.27 95.25)
 		)
 		(stroke (width 0) (type default))
 		(uuid "7a3dab8a-d8d1-5172-9fb2-6148a3d92bdd")
 	)
 	(global_label "USB_DM"
 		(shape input)
-		(at 127.86 95.00 180)
+		(at 128.27 95.25 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "2f9654aa-0ef6-5562-8b5a-256328ef6c08")
 	)
 	(wire
 		(pts
-			(xy 120.24 110.24) (xy 127.86 110.24)
+			(xy 120.65 110.49) (xy 128.27 110.49)
 		)
 		(stroke (width 0) (type default))
 		(uuid "bb1173f1-5772-5e0a-ab7f-8414a159d7e4")
 	)
 	(global_label "VBUS"
 		(shape input)
-		(at 127.86 110.24 180)
+		(at 128.27 110.49 180)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "4a8ff9b0-7334-59ec-998a-c8b8506d23d7")
 	)
 	(wire
 		(pts
-			(xy 99.92 135.00) (xy 92.30 135.00)
+			(xy 100.33 134.62) (xy 92.71 134.62)
 		)
 		(stroke (width 0) (type default))
 		(uuid "b3fda1f2-2231-570e-b669-e623f99ded72")
 	)
 	(global_label "VBAT"
 		(shape input)
-		(at 92.30 135.00 0)
+		(at 92.71 134.62 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "5f9c073c-2447-51e4-a308-7578827674d3")
 	)
 	(wire
 		(pts
-			(xy 99.92 132.46) (xy 92.30 132.46)
+			(xy 100.33 132.08) (xy 92.71 132.08)
 		)
 		(stroke (width 0) (type default))
 		(uuid "7c1d7f9d-1163-5c52-921a-64ab891c1722")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 92.30 132.46 0)
+		(at 92.71 132.08 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "44875e34-1ebb-53cb-80e5-c2b35cc54e71")

@@ -262,7 +262,7 @@
 	)
 	(symbol
 		(lib_id "Memory_Flash:W25Q32JVSS")
-		(at 110.00 95.00 0)
+		(at 110.49 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -270,23 +270,23 @@
 		(dnp no)
 		(uuid "dca30554-ca4b-5469-8677-692174b67b52")
 		(property "Reference" "U5"
-			(at 100.00 107.00 0)
+			(at 100.49 107.25 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Value" "W25Q128JVSIQ"
-			(at 100.00 109.50 0)
+			(at 100.49 109.75 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
 		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
-			(at 110.00 95.00 0)
+			(at 110.49 95.25 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Datasheet" "https://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf"
-			(at 110.00 95.00 0)
+			(at 110.49 95.25 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property "Description" "128 Mbit SPI/QSPI NOR flash using the KiCad W25Q32JVSS pin-compatible symbol"
-			(at 110.00 95.00 0)
+			(at 110.49 95.25 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
@@ -300,112 +300,112 @@
 	)
 	(wire
 		(pts
-			(xy 99.84 102.62) (xy 92.22 102.62)
+			(xy 100.33 102.87) (xy 92.71 102.87)
 		)
 		(stroke (width 0) (type default))
 		(uuid "6a87a052-5fbf-5514-98c2-ff7163ef2424")
 	)
 	(global_label "QSPI_NCS"
 		(shape input)
-		(at 92.22 102.62 0)
+		(at 92.71 102.87 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "1f410033-19e0-51af-9b29-b7fb0ac8f873")
 	)
 	(wire
 		(pts
-			(xy 99.84 95.00) (xy 92.22 95.00)
+			(xy 100.33 95.25) (xy 92.71 95.25)
 		)
 		(stroke (width 0) (type default))
 		(uuid "4dcec4f2-a8eb-598c-a12a-da85a22098d4")
 	)
 	(global_label "QSPI_IO1"
 		(shape input)
-		(at 92.22 95.00 0)
+		(at 92.71 95.25 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "37548211-2c81-54fb-9c6c-6387f103ac95")
 	)
 	(wire
 		(pts
-			(xy 99.84 92.46) (xy 92.22 92.46)
+			(xy 100.33 92.71) (xy 92.71 92.71)
 		)
 		(stroke (width 0) (type default))
 		(uuid "6b84a71e-ccec-517b-8c7b-fab84e89bec9")
 	)
 	(global_label "QSPI_IO2"
 		(shape input)
-		(at 92.22 92.46 0)
+		(at 92.71 92.71 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "1d6f67af-c3c6-51f9-b96b-ac8b9c12b919")
 	)
 	(wire
 		(pts
-			(xy 110.00 82.30) (xy 110.00 74.68)
+			(xy 110.49 82.55) (xy 110.49 74.93)
 		)
 		(stroke (width 0) (type default))
 		(uuid "1b119f64-e2be-5f43-a4bf-ae30614d51a4")
 	)
 	(global_label "GND"
 		(shape input)
-		(at 110.00 74.68 90)
+		(at 110.49 74.93 90)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "82234bbd-fa2c-5290-bf1d-365409cb966e")
 	)
 	(wire
 		(pts
-			(xy 99.84 97.54) (xy 92.22 97.54)
+			(xy 100.33 97.79) (xy 92.71 97.79)
 		)
 		(stroke (width 0) (type default))
 		(uuid "829141e8-fee6-52b7-8c76-cd93e9303803")
 	)
 	(global_label "QSPI_IO0"
 		(shape input)
-		(at 92.22 97.54 0)
+		(at 92.71 97.79 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "a585ddaf-393d-566a-84b0-6b340a5007da")
 	)
 	(wire
 		(pts
-			(xy 99.84 100.08) (xy 92.22 100.08)
+			(xy 100.33 100.33) (xy 92.71 100.33)
 		)
 		(stroke (width 0) (type default))
 		(uuid "18a81b0b-97cc-5355-99b7-883e6ad32d43")
 	)
 	(global_label "QSPI_CLK"
 		(shape input)
-		(at 92.22 100.08 0)
+		(at 92.71 100.33 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "ae15864e-eea0-5a1d-8ecb-85caf4a29922")
 	)
 	(wire
 		(pts
-			(xy 99.84 89.92) (xy 92.22 89.92)
+			(xy 100.33 90.17) (xy 92.71 90.17)
 		)
 		(stroke (width 0) (type default))
 		(uuid "e2ce32da-c7e2-59c0-8d5d-a876d9e2f440")
 	)
 	(global_label "QSPI_IO3"
 		(shape input)
-		(at 92.22 89.92 0)
+		(at 92.71 90.17 0)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "1c9bb6f9-4c6d-5739-8ca6-2c696ffe24f9")
 	)
 	(wire
 		(pts
-			(xy 110.00 107.70) (xy 110.00 115.32)
+			(xy 110.49 107.95) (xy 110.49 115.57)
 		)
 		(stroke (width 0) (type default))
 		(uuid "6debd227-609a-5d5b-9142-92e475d3c606")
 	)
 	(global_label "SYS_3V3"
 		(shape input)
-		(at 110.00 115.32 270)
+		(at 110.49 115.57 270)
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "11df91f2-863e-5fce-a899-34e10d6bf7b5")
