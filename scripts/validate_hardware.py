@@ -163,6 +163,63 @@ REQUIRED_TROPIC01_UNIVERSAL_PINMUX_RELEASE_GATES = {
     "erc_clean_before_pcb_update",
 }
 
+REQUIRED_TROPIC01_UNIVERSAL_STM32_ASSIGNMENTS = {
+    "USB_DM",
+    "USB_DP",
+    "USB_VBUS_SENSE",
+    "TROPIC_SPI_CSN",
+    "TROPIC_SPI_SCK",
+    "TROPIC_SPI_MISO",
+    "TROPIC_SPI_MOSI",
+    "TROPIC_GPO",
+    "TROPIC_PWR_EN",
+    "TFT_SPI_SCK",
+    "TFT_SPI_MOSI",
+    "TFT_CS",
+    "TFT_DC",
+    "TFT_RST",
+    "TFT_BACKLIGHT_PWM",
+    "TFT_PWR_EN",
+    "TOUCH_I2C_SCL",
+    "TOUCH_I2C_SDA",
+    "TOUCH_INT",
+    "TOUCH_RST",
+    "SE2_I2C_SCL",
+    "SE2_I2C_SDA",
+    "SE2_RST",
+    "NFC_SPI_CSN",
+    "NFC_SPI_SCK",
+    "NFC_SPI_MISO",
+    "NFC_SPI_MOSI",
+    "NFC_IRQ",
+    "NFC_PWR_EN",
+    "QSPI_CLK",
+    "QSPI_NCS",
+    "QSPI_IO0",
+    "QSPI_IO1",
+    "QSPI_IO2",
+    "QSPI_IO3",
+    "BTN_LEFT",
+    "BTN_RIGHT",
+    "EXP_UART_TX",
+    "EXP_UART_RX",
+    "SWDIO",
+    "SWCLK",
+    "BOOT0",
+    "NRST",
+}
+
+REQUIRED_TROPIC01_UNIVERSAL_PINMUX_ASSIGNMENT_FIELDS = {
+    "pin_name",
+    "physical_pin",
+    "function",
+    "bus",
+    "source",
+    "source_table",
+    "evidence",
+    "review_status",
+}
+
 REQUIRED_REVIEW_KEYWORDS = {
     "request id",
     "approval_digest",
@@ -847,16 +904,42 @@ def validate_pinmux_ledger(path: Path) -> None:
         raise ValueError(f"{path}: schema_version must be 1")
     if value.get("board") != "tropic01-universal-secure-device":
         raise ValueError(f"{path}: board must be tropic01-universal-secure-device")
-    if value.get("status") != "partial_evidence_no_mcu_pinmux":
-        raise ValueError(f"{path}: status must be partial_evidence_no_mcu_pinmux")
+    if value.get("status") != "partial_datasheet_pinmux_confirmed":
+        raise ValueError(f"{path}: status must be partial_datasheet_pinmux_confirmed")
 
     stm32u5 = value.get("stm32u5")
     if not isinstance(stm32u5, dict):
         raise ValueError(f"{path}: stm32u5 must be an object")
-    if stm32u5.get("status") != "datasheet_pinmux_review_required":
-        raise ValueError(f"{path}: stm32u5.status must be datasheet_pinmux_review_required")
-    if stm32u5.get("assignments") not in ({}, None):
-        raise ValueError(f"{path}: STM32 assignments must stay empty until official pinmux review")
+    if stm32u5.get("status") != "partial_lqfp100_pinmux_confirmed":
+        raise ValueError(f"{path}: stm32u5.status must be partial_lqfp100_pinmux_confirmed")
+    assignments = stm32u5.get("assignments")
+    if not isinstance(assignments, dict) or not assignments:
+        raise ValueError(f"{path}: stm32u5.assignments must contain source-backed assignments")
+    missing_assignments = sorted(REQUIRED_TROPIC01_UNIVERSAL_STM32_ASSIGNMENTS - set(assignments))
+    if missing_assignments:
+        raise ValueError(f"{path}: stm32u5.assignments missing {', '.join(missing_assignments)}")
+    pin_owners: dict[str, str] = {}
+    for net_name, assignment in assignments.items():
+        if not isinstance(assignment, dict):
+            raise ValueError(f"{path}: {net_name} must be a source-backed evidence object")
+        missing_fields = sorted(REQUIRED_TROPIC01_UNIVERSAL_PINMUX_ASSIGNMENT_FIELDS - set(assignment))
+        if missing_fields:
+            raise ValueError(
+                f"{path}: {net_name} missing source-backed evidence fields: {', '.join(missing_fields)}"
+            )
+        if assignment.get("review_status") != "source_backed":
+            raise ValueError(f"{path}: {net_name} must have source-backed evidence")
+        if not isinstance(assignment.get("pin_name"), str) or not assignment["pin_name"].strip():
+            raise ValueError(f"{path}: {net_name}.pin_name must be a non-empty string")
+        if not isinstance(assignment.get("physical_pin"), int) or assignment["physical_pin"] <= 0:
+            raise ValueError(f"{path}: {net_name}.physical_pin must be a positive integer")
+        for field in ("function", "bus", "source", "source_table", "evidence"):
+            if not isinstance(assignment.get(field), str) or not assignment[field].strip():
+                raise ValueError(f"{path}: {net_name}.{field} must be a non-empty string")
+        pin_key = f"{assignment['pin_name']}:{assignment['physical_pin']}"
+        previous_owner = pin_owners.setdefault(pin_key, net_name)
+        if previous_owner != net_name:
+            raise ValueError(f"{path}: {net_name} reuses STM32 pin already assigned to {previous_owner}")
 
     tropic01 = value.get("tropic01")
     if not isinstance(tropic01, dict) or tropic01.get("status") != "datasheet_pinout_confirmed":
@@ -871,6 +954,28 @@ def validate_pinmux_ledger(path: Path) -> None:
         raise ValueError(f"{path}: display must be an object")
     if display.get("tft_4wire_spi_mode_select") != {"IM0": "0", "IM1": "1", "IM2": "1"}:
         raise ValueError(f"{path}: display 4-wire SPI mode select must be IM0=0 IM1=1 IM2=1")
+
+    st25r3916b = value.get("st25r3916b")
+    if not isinstance(st25r3916b, dict):
+        raise ValueError(f"{path}: st25r3916b must be an object")
+    if st25r3916b.get("status") != "controller_pinout_confirmed_antenna_matching_required":
+        raise ValueError(f"{path}: st25r3916b.status must keep antenna matching required")
+    st25_pins = st25r3916b.get("qfn32_pins", {})
+    for pin_number, expected_name in {"20": "I2C_EN", "27": "IRQ", "29": "BSS", "30": "SCLK", "31": "MOSI", "32": "MISO"}.items():
+        if st25_pins.get(pin_number) != expected_name:
+            raise ValueError(f"{path}: ST25R3916B pin {pin_number} must be {expected_name}")
+    if "matching_required" not in _flatten_text(st25r3916b).lower():
+        raise ValueError(f"{path}: ST25R3916B antenna matching must stay measurement-gated")
+
+    optiga = value.get("optiga")
+    if not isinstance(optiga, dict) or optiga.get("status") != "datasheet_pinout_confirmed":
+        raise ValueError(f"{path}: optiga.status must be datasheet_pinout_confirmed")
+    optiga_pins = optiga.get("pins", {})
+    for pin_number, expected_name in {"1": "GND", "3": "SDA", "8": "SCL", "9": "RST", "10": "VCC"}.items():
+        if optiga_pins.get(pin_number) != expected_name:
+            raise ValueError(f"{path}: OPTIGA pin {pin_number} must be {expected_name}")
+    if "dedicated" not in _flatten_text(optiga).lower():
+        raise ValueError(f"{path}: OPTIGA I2C policy must require a dedicated bus")
 
     release_gates = value.get("release_gates")
     if not isinstance(release_gates, list) or not release_gates:

@@ -576,12 +576,12 @@ class HardwareValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "no_llm_invented_pin_numbers"):
                 validate_hardware.validate_netlist_contract(path)
 
-    def test_tropic01_universal_secure_device_pinmux_ledger_records_only_evidence_backed_pinouts(self) -> None:
+    def test_tropic01_universal_secure_device_pinmux_ledger_records_evidence_backed_pinouts(self) -> None:
         self.assertTrue(TROPIC01_UNIVERSAL_PINMUX_LEDGER.exists(), "missing TROPIC01 pinmux ledger")
         value = json.loads(TROPIC01_UNIVERSAL_PINMUX_LEDGER.read_text(encoding="utf-8"))
 
         self.assertEqual(value["board"], "tropic01-universal-secure-device")
-        self.assertEqual(value["status"], "partial_evidence_no_mcu_pinmux")
+        self.assertEqual(value["status"], "partial_datasheet_pinmux_confirmed")
         self.assertEqual(value["tropic01"]["pins"]["5"], "SPI_SDI")
         self.assertEqual(value["tropic01"]["pins"]["6"], "SPI_SDO")
         self.assertEqual(value["tropic01"]["pins"]["7"], "SPI_SCK")
@@ -591,20 +591,55 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertEqual(value["display"]["touch_connector"], "Molex 52271-0679")
         self.assertEqual(value["display"]["tft_4wire_spi_mode_select"], {"IM0": "0", "IM1": "1", "IM2": "1"})
         self.assertEqual(value["display"]["touch_i2c_pullups"], "4.7k")
-        self.assertEqual(value["stm32u5"]["status"], "datasheet_pinmux_review_required")
-        self.assertNotIn("PA5", json.dumps(value["stm32u5"].get("assignments", {})))
+        self.assertEqual(value["stm32u5"]["status"], "partial_lqfp100_pinmux_confirmed")
+        assignments = value["stm32u5"]["assignments"]
+        self.assertEqual(assignments["USB_DM"]["pin_name"], "PA11")
+        self.assertEqual(assignments["USB_DM"]["physical_pin"], 70)
+        self.assertEqual(assignments["USB_DM"]["function"], "OTG_FS_DM")
+        self.assertEqual(assignments["USB_DP"]["pin_name"], "PA12")
+        self.assertEqual(assignments["USB_DP"]["physical_pin"], 71)
+        self.assertEqual(assignments["TROPIC_SPI_SCK"]["pin_name"], "PA5")
+        self.assertEqual(assignments["TROPIC_SPI_SCK"]["function"], "SPI1_SCK")
+        self.assertEqual(assignments["TROPIC_SPI_MISO"]["pin_name"], "PA6")
+        self.assertEqual(assignments["TROPIC_SPI_MOSI"]["pin_name"], "PA7")
+        self.assertEqual(assignments["TOUCH_I2C_SCL"]["pin_name"], "PB8")
+        self.assertEqual(assignments["TOUCH_I2C_SDA"]["pin_name"], "PB9")
+        self.assertEqual(assignments["SE2_I2C_SCL"]["pin_name"], "PB6")
+        self.assertEqual(assignments["SE2_I2C_SDA"]["pin_name"], "PB7")
+        self.assertEqual(assignments["QSPI_CLK"]["pin_name"], "PE10")
+        self.assertEqual(assignments["QSPI_NCS"]["pin_name"], "PE11")
+        self.assertEqual(assignments["QSPI_IO0"]["pin_name"], "PE12")
+        self.assertEqual(assignments["QSPI_IO1"]["pin_name"], "PE13")
+        self.assertEqual(assignments["QSPI_IO2"]["pin_name"], "PE14")
+        self.assertEqual(assignments["QSPI_IO3"]["pin_name"], "PE15")
+        self.assertEqual(assignments["NFC_SPI_SCK"]["pin_name"], "PB13")
+        self.assertEqual(assignments["NFC_SPI_MISO"]["pin_name"], "PB14")
+        self.assertEqual(assignments["NFC_SPI_MOSI"]["pin_name"], "PB15")
+        self.assertEqual(assignments["TFT_SPI_SCK"]["pin_name"], "PC10")
+        self.assertEqual(assignments["TFT_SPI_MOSI"]["pin_name"], "PC12")
+        self.assertEqual(assignments["SWDIO"]["pin_name"], "PA13")
+        self.assertEqual(assignments["SWCLK"]["pin_name"], "PA14")
+        for net_name, assignment in assignments.items():
+            self.assertEqual(assignment["review_status"], "source_backed")
+            self.assertIn("source", assignment, net_name)
+            self.assertIn("source_table", assignment, net_name)
+            self.assertIn("pin_name", assignment, net_name)
+            self.assertIn("physical_pin", assignment, net_name)
+            self.assertIn("function", assignment, net_name)
         self.assertIn("no_llm_invented_pin_numbers", value["release_gates"])
 
-    def test_tropic01_universal_secure_device_pinmux_ledger_rejects_mcu_assignments_before_review(self) -> None:
+    def test_tropic01_universal_secure_device_pinmux_ledger_rejects_mcu_assignments_without_evidence(self) -> None:
         self.assertTrue(hasattr(validate_hardware, "validate_pinmux_ledger"))
         original = json.loads(TROPIC01_UNIVERSAL_PINMUX_LEDGER.read_text(encoding="utf-8"))
-        original["stm32u5"]["assignments"] = {"TROPIC_SPI_SCK": "PA5"}
+        original["status"] = "partial_datasheet_pinmux_confirmed"
+        original["stm32u5"]["status"] = "partial_lqfp100_pinmux_confirmed"
+        original["stm32u5"]["assignments"]["TROPIC_SPI_SCK"] = {"pin_name": "PA5"}
 
         with tempfile.TemporaryDirectory() as temp_root:
             path = Path(temp_root) / "pinmux-ledger.json"
             path.write_text(json.dumps(original), encoding="utf-8")
 
-            with self.assertRaisesRegex(ValueError, "STM32 assignments"):
+            with self.assertRaisesRegex(ValueError, "source-backed evidence"):
                 validate_hardware.validate_pinmux_ledger(path)
 
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:

@@ -2,8 +2,8 @@
   "board": "tropic01-universal-secure-device",
   "notes": [
     "This file is an electrical-intent contract, not a routed netlist.",
-    "MCU alternate-function pin numbers must be selected from official STM32U585VIT6 documentation before routing.",
-    "TROPIC01 SPI pin names are fixed at the TROPIC01 symbol boundary; host MCU pins remain gated by pinmux review.",
+    "MCU alternate-function pin numbers are recorded in production/pinmux-ledger.json; schematic labels and wires must still be bound to that ledger before routing.",
+    "TROPIC01 SPI pin names are fixed at the TROPIC01 symbol boundary; host MCU pins must match the source-backed pinmux ledger.",
     "The production exporter must stay blocked while the KiCad board has only net 0 or zero routed copper."
   ],
   "release_gates": [

@@ -14,6 +14,24 @@ Primary references for Rev A0 component selection:
 - TPS62840: https://www.ti.com/product/TPS62840
 - TPS22917: https://www.ti.com/product/TPS22917
 
+## Local Review Set
+
+The following PDFs were collected into
+`/Users/vincenzo/Downloads/nsealr-datasheets/` during Rev A0 review. They are
+not committed to the repository, but their canonical filenames are used by the
+pinmux/evidence notes:
+
+- `tropic01-datasheet.pdf`
+- `newhaven-nhd-2.4-240320af-csxp-ctp.pdf`
+- `stm32u575-u585-datasheet.pdf`
+- `stm32u5-reference-manual.pdf`
+- `st25r3916b-datasheet.pdf`
+- `st25r3916b-antenna-design.pdf`
+- `optiga-trust-m-datasheet.pdf`
+- `bq24074-datasheet.pdf`
+- `usb4105-gf-a-datasheet.pdf`
+- `usb4105-gf-a-drawing.pdf`
+
 ## Confirmed Design Constraints
 
 - TROPIC01 is a QFN32 secure element controlled by the host over SPI. It is not
@@ -24,6 +42,13 @@ Primary references for Rev A0 component selection:
   connected.
 - The Newhaven display uses ST7789VI for display and FT5426 for capacitive touch.
 - USB-C is a female receptacle only, configured as USB 2.0 device/sink.
+- STM32U585VIT6 LQFP100 Rev A0 pinmux now has a source-backed ledger in
+  `production/pinmux-ledger.json`; routing remains blocked until schematic nets
+  and KiCad ERC/DRC agree with that ledger.
+- ST25R3916B controller SPI pins are confirmed, but the antenna and matching
+  network values remain measurement-gated with the final antenna and enclosure.
+- OPTIGA Trust M USON-10 pins are confirmed, and the board should keep OPTIGA
+  on a dedicated STM32 I2C bus rather than sharing with the touch controller.
 - NFC requires a real antenna/matching strategy and first-article tuning.
 - The June 3, 2026 TROPIC01 laser fault injection advisory must remain visible
   in the threat model and firmware update policy.
