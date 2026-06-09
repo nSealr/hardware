@@ -4,36 +4,411 @@
 	(generator_version "10.0")
 	(uuid "99999999-9999-4999-8999-999999999005")
 	(paper "A4")
-	(lib_symbols)
+	(lib_symbols
+(symbol "Memory_Flash:W25Q32JVSS"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "U"
+			(at -6.35 11.43 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "W25Q32JVSS"
+			(at 7.62 11.43 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "32Mbit / 4MiB Serial Flash Memory, Standard/Dual/Quad SPI, 2.7-3.6V, SOIC-8 (208 mil)"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "flash memory SPI"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "*SOIC*5.3x5.3mm*P1.27mm*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "W25Q32JVSS_0_1"
+			(rectangle
+				(start -7.62 10.16)
+				(end 10.16 -10.16)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "W25Q32JVSS_1_1"
+			(pin input line
+				(at -10.16 7.62 0)
+				(length 2.54)
+				(name "~{CS}"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at -10.16 0 0)
+				(length 2.54)
+				(name "DO/IO_{1}"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at -10.16 -2.54 0)
+				(length 2.54)
+				(name "~{WP}/IO_{2}"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 -12.7 90)
+				(length 2.54)
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at -10.16 2.54 0)
+				(length 2.54)
+				(name "DI/IO_{0}"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -10.16 5.08 0)
+				(length 2.54)
+				(name "CLK"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at -10.16 -5.08 0)
+				(length 2.54)
+				(name "~{HOLD}/~{RESET}/IO_{3}"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "7"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 12.7 270)
+				(length 2.54)
+				(name "VCC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "8"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	)
 	(text "QSPI target: W25Q128JV-class 128 Mbit NOR. QSPI is not secure storage by itself."
 		(exclude_from_sim no)
-		(at 20 20 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-005000000001")
+		(at 20.00 20.00 0)
+		(effects (font (size 1.27 1.27)))
+		(uuid "2958c3ba-7c83-5c54-8a1b-bb97966908ef")
 	)
-	(text "External-host TROPIC01 SPI is 3.3 V logic only and must be physically disconnectable in hardened builds."
+	(text "Expansion I2C/SPI connector assignment remains review-gated; UART pins are source-backed."
 		(exclude_from_sim no)
-		(at 20 32 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-005000000002")
+		(at 20.00 28.00 0)
+		(effects (font (size 1.27 1.27)))
+		(uuid "c01b2a52-129a-562b-a6ca-fce0d162e970")
 	)
-	(text "Expansion: Qwiic/STEMMA QT I2C, 3.3 V UART, compact SPI/I2C/UART/GPIO header."
+	(symbol
+		(lib_id "Memory_Flash:W25Q32JVSS")
+		(at 110.00 95.00 0)
+		(unit 1)
 		(exclude_from_sim no)
-		(at 20 44 0)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dca30554-ca4b-5469-8677-692174b67b52")
+		(property "Reference" "U5"
+			(at 100.00 107.00 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "W25Q128JVSIQ"
+			(at 100.00 109.50 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 110.00 95.00 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "https://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf"
+			(at 110.00 95.00 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Description" "128 Mbit SPI/QSPI NOR flash using the KiCad W25Q32JVSS pin-compatible symbol"
+			(at 110.00 95.00 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "tropic01-universal-secure-device"
+				(path "/11111111-1111-4111-8111-111111111111/66666666-6666-4666-8666-666666666666"
+					(reference "U5")
+					(unit 1)
+				)
 			)
 		)
-		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-005000000003")
+	)
+	(wire
+		(pts
+			(xy 99.84 102.62) (xy 92.22 102.62)
+		)
+		(stroke (width 0) (type default))
+		(uuid "6a87a052-5fbf-5514-98c2-ff7163ef2424")
+	)
+	(global_label "QSPI_NCS"
+		(shape input)
+		(at 92.22 102.62 0)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "1f410033-19e0-51af-9b29-b7fb0ac8f873")
+	)
+	(wire
+		(pts
+			(xy 99.84 95.00) (xy 92.22 95.00)
+		)
+		(stroke (width 0) (type default))
+		(uuid "4dcec4f2-a8eb-598c-a12a-da85a22098d4")
+	)
+	(global_label "QSPI_IO1"
+		(shape input)
+		(at 92.22 95.00 0)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "37548211-2c81-54fb-9c6c-6387f103ac95")
+	)
+	(wire
+		(pts
+			(xy 99.84 92.46) (xy 92.22 92.46)
+		)
+		(stroke (width 0) (type default))
+		(uuid "6b84a71e-ccec-517b-8c7b-fab84e89bec9")
+	)
+	(global_label "QSPI_IO2"
+		(shape input)
+		(at 92.22 92.46 0)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "1d6f67af-c3c6-51f9-b96b-ac8b9c12b919")
+	)
+	(wire
+		(pts
+			(xy 110.00 82.30) (xy 110.00 74.68)
+		)
+		(stroke (width 0) (type default))
+		(uuid "1b119f64-e2be-5f43-a4bf-ae30614d51a4")
+	)
+	(global_label "GND"
+		(shape input)
+		(at 110.00 74.68 90)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "82234bbd-fa2c-5290-bf1d-365409cb966e")
+	)
+	(wire
+		(pts
+			(xy 99.84 97.54) (xy 92.22 97.54)
+		)
+		(stroke (width 0) (type default))
+		(uuid "829141e8-fee6-52b7-8c76-cd93e9303803")
+	)
+	(global_label "QSPI_IO0"
+		(shape input)
+		(at 92.22 97.54 0)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "a585ddaf-393d-566a-84b0-6b340a5007da")
+	)
+	(wire
+		(pts
+			(xy 99.84 100.08) (xy 92.22 100.08)
+		)
+		(stroke (width 0) (type default))
+		(uuid "18a81b0b-97cc-5355-99b7-883e6ad32d43")
+	)
+	(global_label "QSPI_CLK"
+		(shape input)
+		(at 92.22 100.08 0)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "ae15864e-eea0-5a1d-8ecb-85caf4a29922")
+	)
+	(wire
+		(pts
+			(xy 99.84 89.92) (xy 92.22 89.92)
+		)
+		(stroke (width 0) (type default))
+		(uuid "e2ce32da-c7e2-59c0-8d5d-a876d9e2f440")
+	)
+	(global_label "QSPI_IO3"
+		(shape input)
+		(at 92.22 89.92 0)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "1c9bb6f9-4c6d-5739-8ca6-2c696ffe24f9")
+	)
+	(wire
+		(pts
+			(xy 110.00 107.70) (xy 110.00 115.32)
+		)
+		(stroke (width 0) (type default))
+		(uuid "6debd227-609a-5d5b-9142-92e475d3c606")
+	)
+	(global_label "SYS_3V3"
+		(shape input)
+		(at 110.00 115.32 270)
+		(fields_autoplaced)
+		(effects (font (size 1.27 1.27)))
+		(uuid "11df91f2-863e-5fce-a899-34e10d6bf7b5")
 	)
 	(sheet_instances
 		(path "/"

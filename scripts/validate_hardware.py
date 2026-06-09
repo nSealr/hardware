@@ -163,6 +163,28 @@ REQUIRED_TROPIC01_UNIVERSAL_PINMUX_RELEASE_GATES = {
     "erc_clean_before_pcb_update",
 }
 
+REQUIRED_TROPIC01_UNIVERSAL_SCHEMATIC_BINDING_RELEASE_GATES = {
+    "no_llm_invented_pin_numbers",
+    "all_bound_nets_match_pinmux_ledger",
+    "schematic_symbols_have_verified_pin_numbers",
+    "layout_review_required_for_rf_usb_display_power",
+    "erc_clean_before_pcb_update",
+    "pcbway_export_unblocked_only_after_routing",
+}
+
+REQUIRED_TROPIC01_UNIVERSAL_SCHEMATIC_COMPONENT_REFS = {
+    "U1",
+    "U2",
+    "J1",
+    "J2",
+    "J2B",
+    "U5",
+    "U9",
+    "U11",
+    "SW1",
+    "SW2",
+}
+
 REQUIRED_TROPIC01_UNIVERSAL_STM32_ASSIGNMENTS = {
     "USB_DM",
     "USB_DP",
@@ -860,6 +882,7 @@ def _discover_validation_files() -> dict[str, list[Path]]:
         "boms": sorted((ROOT / "bom").glob("*.csv")),
         "netlist_contracts": sorted(ROOT.glob("pcb/*/production/netlist-contract.json")),
         "pinmux_ledgers": sorted(ROOT.glob("pcb/*/production/pinmux-ledger.json")),
+        "schematic_bindings": sorted(ROOT.glob("pcb/*/production/schematic-binding.json")),
         "manual_reports": sorted(
             [
                 *(ROOT / "reports").glob("*.json"),
@@ -985,6 +1008,101 @@ def validate_pinmux_ledger(path: Path) -> None:
         raise ValueError(f"{path}: release_gates missing {', '.join(missing_gates)}")
 
 
+def validate_schematic_binding(
+    path: Path,
+    pinmux_path: Path | None = None,
+    netlist_contract_path: Path | None = None,
+) -> None:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if value.get("schema_version") != 1:
+        raise ValueError(f"{path}: schema_version must be 1")
+    if value.get("board") != "tropic01-universal-secure-device":
+        raise ValueError(f"{path}: board must be tropic01-universal-secure-device")
+    if value.get("status") != "schematic_binding_pre_routing":
+        raise ValueError(f"{path}: status must be schematic_binding_pre_routing")
+
+    release_gates = value.get("release_gates")
+    if not isinstance(release_gates, list) or not release_gates:
+        raise ValueError(f"{path}: release_gates must be a non-empty list")
+    missing_gates = sorted(REQUIRED_TROPIC01_UNIVERSAL_SCHEMATIC_BINDING_RELEASE_GATES - set(release_gates))
+    if missing_gates:
+        raise ValueError(f"{path}: release_gates missing {', '.join(missing_gates)}")
+
+    components = value.get("components")
+    if not isinstance(components, dict) or not components:
+        raise ValueError(f"{path}: components must be a non-empty object")
+    missing_components = sorted(REQUIRED_TROPIC01_UNIVERSAL_SCHEMATIC_COMPONENT_REFS - set(components))
+    if missing_components:
+        raise ValueError(f"{path}: components missing {', '.join(missing_components)}")
+    for ref, component in components.items():
+        if not isinstance(component, dict):
+            raise ValueError(f"{path}: components.{ref} must be an object")
+        for field in ("role", "sheet", "pins"):
+            if field not in component:
+                raise ValueError(f"{path}: components.{ref}.{field} is required")
+        if not isinstance(component["sheet"], str) or not component["sheet"].strip():
+            raise ValueError(f"{path}: components.{ref}.sheet must be a non-empty string")
+        board_dir = path.parents[1]
+        if (board_dir / "kicad").exists() and not (board_dir / component["sheet"]).exists():
+            raise ValueError(f"{path}: components.{ref}.sheet does not exist: {component['sheet']}")
+        if not isinstance(component["pins"], dict) or not component["pins"]:
+            raise ValueError(f"{path}: components.{ref}.pins must be a non-empty object")
+
+    pinmux_path = pinmux_path or path.with_name("pinmux-ledger.json")
+    netlist_contract_path = netlist_contract_path or path.with_name("netlist-contract.json")
+    pinmux = json.loads(pinmux_path.read_text(encoding="utf-8"))
+    netlist_contract = json.loads(netlist_contract_path.read_text(encoding="utf-8"))
+    stm32_assignments = pinmux.get("stm32u5", {}).get("assignments", {})
+    if not isinstance(stm32_assignments, dict) or not stm32_assignments:
+        raise ValueError(f"{pinmux_path}: stm32u5.assignments must be available for schematic binding")
+
+    u1_pins = components["U1"]["pins"]
+    for net_name, assignment in stm32_assignments.items():
+        pin_binding = u1_pins.get(net_name)
+        if not isinstance(pin_binding, dict):
+            raise ValueError(f"{path}: U1 missing schematic binding for {net_name}")
+        if pin_binding.get("net") != net_name:
+            raise ValueError(f"{path}: U1 {net_name} binding must use net {net_name}")
+        for field in ("pin_name", "physical_pin"):
+            if pin_binding.get(field) != assignment.get(field):
+                raise ValueError(
+                    f"{path}: U1 {net_name} {field} mismatch: "
+                    f"{pin_binding.get(field)!r} != {assignment.get(field)!r}"
+                )
+        if pin_binding.get("review_status") != "source_backed":
+            raise ValueError(f"{path}: U1 {net_name} binding must be source_backed")
+
+    bound_nets: set[str] = set()
+    for component in components.values():
+        for pin in component["pins"].values():
+            if isinstance(pin, dict) and isinstance(pin.get("net"), str) and pin["net"].strip():
+                bound_nets.add(pin["net"])
+
+    review_required = value.get("review_required_nets")
+    if not isinstance(review_required, dict):
+        raise ValueError(f"{path}: review_required_nets must be an object")
+    contract_nets = {
+        net
+        for nets in netlist_contract.get("required_buses", {}).values()
+        if isinstance(nets, list)
+        for net in nets
+        if isinstance(net, str)
+    }
+    missing_contract_nets = sorted(contract_nets - bound_nets - set(review_required))
+    if missing_contract_nets:
+        raise ValueError(
+            f"{path}: contract nets must be bound or explicitly review-required: "
+            f"{', '.join(missing_contract_nets)}"
+        )
+    for net_name, review in review_required.items():
+        if not isinstance(review, dict) or review.get("review_status") != "explicitly_unbound":
+            raise ValueError(f"{path}: review_required_nets.{net_name} must be explicitly_unbound")
+        if net_name in bound_nets:
+            raise ValueError(f"{path}: {net_name} cannot be both bound and explicitly_unbound")
+        if not isinstance(review.get("reason"), str) or not review["reason"].strip():
+            raise ValueError(f"{path}: review_required_nets.{net_name}.reason must be a non-empty string")
+
+
 def validate_manual_report(path: Path) -> None:
     value = json.loads(path.read_text(encoding="utf-8"))
     missing = sorted(REQUIRED_MANUAL_REPORT_FIELDS - set(value))
@@ -1051,6 +1169,8 @@ def main() -> int:
         validate_netlist_contract(contract_path)
     for ledger_path in validation_files["pinmux_ledgers"]:
         validate_pinmux_ledger(ledger_path)
+    for binding_path in validation_files["schematic_bindings"]:
+        validate_schematic_binding(binding_path)
     for report_path in validation_files["manual_reports"]:
         validate_manual_report(report_path)
     print("nSealr hardware validation passed")

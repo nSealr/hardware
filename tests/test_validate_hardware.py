@@ -22,6 +22,9 @@ TROPIC01_UNIVERSAL_REQUIREMENTS = ROOT / "pcb/tropic01-universal-secure-device/r
 TROPIC01_UNIVERSAL_KICAD = ROOT / "pcb/tropic01-universal-secure-device/kicad"
 TROPIC01_UNIVERSAL_NETLIST_CONTRACT = ROOT / "pcb/tropic01-universal-secure-device/production/netlist-contract.json"
 TROPIC01_UNIVERSAL_PINMUX_LEDGER = ROOT / "pcb/tropic01-universal-secure-device/production/pinmux-ledger.json"
+TROPIC01_UNIVERSAL_SCHEMATIC_BINDING = (
+    ROOT / "pcb/tropic01-universal-secure-device/production/schematic-binding.json"
+)
 SPECS_SNAPSHOTS = ROOT / "tests/fixtures/specs"
 
 
@@ -389,6 +392,33 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertNotIn("PCB NFC LOOP", combined)
         self.assertNotIn("USB-C plug", combined)
 
+    def test_tropic01_universal_secure_device_kicad_schematics_materialize_core_binding_labels(self) -> None:
+        kicad_text = "\n".join(
+            path.read_text(encoding="utf-8", errors="replace")
+            for path in TROPIC01_UNIVERSAL_KICAD.rglob("*.kicad_sch")
+        )
+
+        for lib_symbol in (
+            'symbol "MCU_ST_STM32U5:STM32U585VITx"',
+            'symbol "TROPIC_SQUARE:TR01-P2"',
+            'symbol "Connector:USB_C_Receptacle_USB2.0_16P"',
+            'symbol "Connector_Generic:Conn_01x40"',
+            'symbol "TROPIC_SQUARE:ST25R3916B_QFN32"',
+            'symbol "TROPIC_SQUARE:OPTIGA_TRUST_M_USON10"',
+        ):
+            self.assertIn(lib_symbol, kicad_text)
+
+        for label in (
+            'global_label "USB_DM"',
+            'global_label "USB_DP"',
+            'global_label "TROPIC_SPI_MOSI"',
+            'global_label "TROPIC_SPI_MISO"',
+            'global_label "TOUCH_I2C_SCL"',
+            'global_label "NFC_SPI_SCK"',
+            'global_label "SE2_I2C_SDA"',
+        ):
+            self.assertIn(label, kicad_text)
+
     def test_tropic01_universal_secure_device_board_drawings_include_display_and_nfc_features(self) -> None:
         board_text = (TROPIC01_UNIVERSAL_KICAD / "tropic01-universal-secure-device.kicad_pcb").read_text(
             encoding="utf-8",
@@ -641,6 +671,75 @@ class HardwareValidationTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "source-backed evidence"):
                 validate_hardware.validate_pinmux_ledger(path)
+
+    def test_tropic01_universal_secure_device_schematic_binding_maps_confirmed_pins_to_kicad_refs(self) -> None:
+        self.assertTrue(TROPIC01_UNIVERSAL_SCHEMATIC_BINDING.exists(), "missing schematic binding contract")
+        value = json.loads(TROPIC01_UNIVERSAL_SCHEMATIC_BINDING.read_text(encoding="utf-8"))
+        pinmux = json.loads(TROPIC01_UNIVERSAL_PINMUX_LEDGER.read_text(encoding="utf-8"))
+
+        self.assertEqual(value["board"], "tropic01-universal-secure-device")
+        self.assertEqual(value["schema_version"], 1)
+        self.assertEqual(value["status"], "schematic_binding_pre_routing")
+        self.assertIn("all_bound_nets_match_pinmux_ledger", value["release_gates"])
+        self.assertIn("layout_review_required_for_rf_usb_display_power", value["release_gates"])
+
+        components = value["components"]
+        for ref in ("U1", "U2", "J1", "J2", "J2B", "U9", "U11", "SW1", "SW2"):
+            self.assertIn(ref, components)
+            self.assertIn("sheet", components[ref])
+            self.assertIn("pins", components[ref])
+            self.assertTrue((ROOT / "pcb/tropic01-universal-secure-device" / components[ref]["sheet"]).exists())
+
+        u1_pins = components["U1"]["pins"]
+        for net_name, assignment in pinmux["stm32u5"]["assignments"].items():
+            self.assertIn(net_name, u1_pins)
+            self.assertEqual(u1_pins[net_name]["net"], net_name)
+            self.assertEqual(u1_pins[net_name]["pin_name"], assignment["pin_name"])
+            self.assertEqual(u1_pins[net_name]["physical_pin"], assignment["physical_pin"])
+            self.assertEqual(u1_pins[net_name]["review_status"], "source_backed")
+
+        self.assertEqual(components["U2"]["pins"]["5"]["net"], "TROPIC_SPI_MOSI")
+        self.assertEqual(components["U2"]["pins"]["6"]["net"], "TROPIC_SPI_MISO")
+        self.assertEqual(components["U2"]["pins"]["7"]["net"], "TROPIC_SPI_SCK")
+        self.assertEqual(components["U2"]["pins"]["8"]["net"], "TROPIC_SPI_CSN")
+        self.assertEqual(components["U9"]["pins"]["29"]["net"], "NFC_SPI_CSN")
+        self.assertEqual(components["U9"]["pins"]["30"]["net"], "NFC_SPI_SCK")
+        self.assertEqual(components["U9"]["pins"]["31"]["net"], "NFC_SPI_MOSI")
+        self.assertEqual(components["U9"]["pins"]["32"]["net"], "NFC_SPI_MISO")
+        self.assertEqual(components["U11"]["pins"]["3"]["net"], "SE2_I2C_SDA")
+        self.assertEqual(components["U11"]["pins"]["8"]["net"], "SE2_I2C_SCL")
+        self.assertEqual(components["J2B"]["pins"]["3"]["net"], "TOUCH_I2C_SCL")
+        self.assertEqual(components["J2B"]["pins"]["4"]["net"], "TOUCH_I2C_SDA")
+
+        review_required = value["review_required_nets"]
+        for net_name in (
+            "EXP_I2C_SCL",
+            "EXP_I2C_SDA",
+            "EXP_SPI_SCK",
+            "EXP_SPI_MOSI",
+            "EXP_SPI_MISO",
+            "EXP_SPI_CSN",
+            "NFC_ANT1",
+            "NFC_ANT2",
+        ):
+            self.assertIn(net_name, review_required)
+            self.assertEqual(review_required[net_name]["review_status"], "explicitly_unbound")
+
+    def test_tropic01_universal_secure_device_schematic_binding_rejects_mcu_pinmux_mismatch(self) -> None:
+        self.assertTrue(hasattr(validate_hardware, "validate_schematic_binding"))
+        original = json.loads(TROPIC01_UNIVERSAL_SCHEMATIC_BINDING.read_text(encoding="utf-8"))
+        original["components"]["U1"]["pins"]["USB_DM"]["physical_pin"] = 999
+
+        with tempfile.TemporaryDirectory() as temp_root:
+            binding_path = Path(temp_root) / "schematic-binding.json"
+            pinmux_path = Path(temp_root) / "pinmux-ledger.json"
+            netlist_path = Path(temp_root) / "netlist-contract.json"
+            binding_path.write_text(json.dumps(original), encoding="utf-8")
+            pinmux_path.write_text(TROPIC01_UNIVERSAL_PINMUX_LEDGER.read_text(encoding="utf-8"), encoding="utf-8")
+            netlist_path.write_text(TROPIC01_UNIVERSAL_NETLIST_CONTRACT.read_text(encoding="utf-8"), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "USB_DM"):
+                validate_hardware.validate_schematic_binding(binding_path, pinmux_path, netlist_path)
 
     def test_reference_raspberry_qr_vault_os_profile_is_valid(self) -> None:
         validate_raspberry_os_profile(ROOT / "kits/reference-raspberry-qr-vault/os-profile.json")
