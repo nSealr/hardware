@@ -70,41 +70,47 @@ Cards/tags are tapped on the **back** of the device (opposite the display).
   I2C; the separate touch connector `J2B` is removed. (Schematic intent already
   reflects this; the PCB footprint swap is pending.)
 
-## Sizing reality / open tension (must resolve before layout)
+## Sizing result (measured from the adopted board B)
 
-A first-order check at width ≈ `42.7 mm`, components on the back side only:
+The adopted board B already realises the compact concept. Measured PCB outline:
 
-- The dominant blocks are the STM32U585 **LQFP100** (~`16 × 16 mm` courtyard) and
-  the **50-pin display FFC** connector (~`28 mm` wide), plus USB-C, the two
-  secure elements, the NFC controller, the QSPI flash, the BQ24074 charger, the
-  regulators, the matching/charger inductors, two JST connectors, the button,
-  and ~40-50 passives.
-- Rough packed area for that set is on the order of `1800-2200 mm²` including
-  courtyards, routing channels, and the NFC keep-out.
-- At ~`39-40 mm` usable width that implies a board **height around `45-55 mm`**.
+- **`44.1 mm` wide × `36.1 mm` tall** (the existing component placement fits this
+  on one main side), vs the display outline `42.72 × 59.46 mm`.
+- **Board height ≈ `36 mm`** answers "how tall must the board be": it fits the
+  full component set (STM32U585 LQFP100, both secure elements, NFC controller,
+  QSPI flash, BQ24074 charger, regulators, 50-pin display FFC, USB-C, JST
+  connectors, single button, mounting holes, ~40 passives).
+- That leaves **≈ `23 mm`** of the `59.46 mm` display height **above the board for
+  the battery** — enough for a small LiPo beside the PCB. The side-by-side
+  arrangement therefore works without stacking the battery behind the PCB.
 
-The display is only `59.46 mm` tall, so a `~50 mm` PCB would leave only
-`~5-15 mm` above it — **not enough for a meaningful LiPo beside the board**.
+Minor follow-up: the width can be trimmed from `44.1 mm` to ≈ the display width
+`42.72 mm` (move `SW1` slightly inward first, since it sits near the right edge).
 
-So the "PCB in the lower portion, battery in the upper portion, both inside the
-display footprint" arrangement does **not** comfortably fit this component set.
-Ways to resolve, to decide before layout:
+## Status (2026-06-10)
 
-1. **Battery behind the PCB** (stacked in Z), PCB display-sized: simplest area
-   fit, slightly thicker device. This is the most realistic default.
-2. **Shrink the MCU** to a smaller STM32U5 package (LQFP64 or BGA) and pick
-   denser parts to cut board area so a short PCB + side battery fits.
-3. **Let the device be a bit taller than the display** (PCB extends past the
-   display chin) to keep the side-by-side battery.
-4. Some mix (e.g., smaller MCU + battery partly behind).
+Done automatically via the KiCad `pcbnew` Python module on the adopted board B:
 
-## Open layout work (gates)
+- ✅ Display `J2` swapped to the single 50-pin FFC; `J2B` removed; display SPI +
+  touch I2C nets assigned to the new `J2`.
+- ✅ Battery off-board: `BAT1` removed, only `J9` kept.
+- ✅ Single button: `SW2` dropped across board, BOM, validator, schematic, and
+  placement.
+- ✅ Compact size confirmed: `44.1 × 36.1 mm`, ~23 mm left for the battery.
 
-1. **Compact placement pass**: place all back-side components at width ≈
-   `42.7 mm` to find the minimum board height, then set the Edge.Cuts to that
-   height and record how much vertical space remains for the battery.
-2. Swap the `J2` PCB footprint to the 50-pin FFC and remove `J2B`.
-3. Remove the `BAT1` on-board envelope; keep `J9`.
-4. Draw the back-side NFC loop + ground keep-out + ferrite zone; place the
-   matching network at `U9`.
-5. Route, DRC, and first-article NFC tuning.
+## Remaining work (engineering / measurement gates)
+
+1. **NFC/RFID RF front-end — not yet designed.** Today `U9` (ST25R3916B)
+   antenna/RF pins, the matching network (`L30`, `L31`, `C30`–`C33`), and the
+   `ANT1` keep-out are **all unconnected**. This requires a real RF front-end per
+   ST AN5276: `U9` RFO1/RFO2 → EMC filter (L0/C0) → matching (series Cs +
+   parallel Cp) → the back-side loop → RFI1/RFI2, with the loop placed top-center
+   on the back and a ferrite over the battery region. The **topology** is
+   deterministic; the **component values and final loop geometry are tuning-gated
+   on the first article** (cannot be finalised without measurement).
+2. **Routing** — no copper tracks/zones yet; needs routing (manual or an external
+   autorouter such as Freerouting; KiCad 10 has no built-in autorouter).
+3. **ERC/DRC** clean, then the PCBWay release gate.
+4. Minor: trim board width to `42.72 mm`; reposition `ANT1` keep-out onto the
+   board top-center (back side); swap the `DISP1` envelope to the ER-TFT024IPS-3
+   outline (cosmetic).
