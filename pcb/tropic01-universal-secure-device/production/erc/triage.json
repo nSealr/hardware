@@ -1,0 +1,12 @@
+{
+  "board": "tropic01-universal-secure-device",
+  "by_sheet": {},
+  "by_type": {},
+  "release_policy": [
+    "Do not upload the PCBWay package while ERC triage total_violations is non-zero.",
+    "Do not add ERC waivers to make the report green unless the waiver is tied to a reviewed datasheet decision.",
+    "Prefer improving the schematic generator and source-backed bindings over editing generated sheets by hand."
+  ],
+  "source_report": "erc/erc.json",
+  "total_violations": 0
+}

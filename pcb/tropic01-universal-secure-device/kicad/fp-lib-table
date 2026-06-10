@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "nSealr_Display")(type "KiCad")(uri "${KIPRJMOD}/lib/footprints/nSealr_Display.pretty")(options "")(descr "nSealr local display FFC footprints pending Molex drawing lock"))
+)
