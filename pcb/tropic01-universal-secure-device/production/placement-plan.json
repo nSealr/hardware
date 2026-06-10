@@ -8,9 +8,9 @@
     "DISPLAY START 12.64,12.27 mm",
     "DISP1 PORTRAIT TOUCH DISPLAY ENVELOPE 42.72 x 59.46 mm",
     "ANT1 TOP EDGE NFC ANTENNA FPC OR TUNED KEEP-OUT",
-    "BAT1 REAR LIPO ENVELOPE 30.0 x 20.0 mm WITH RIGHT-SIDE CABLE EXIT TO J9",
+    "BATTERY OFF-BOARD IN ENCLOSURE; ONLY J9 LIPO CONNECTOR ON PCB",
     "J1 USB-C FEMALE RECEPTACLE CENTERED ON BOTTOM EDGE",
-    "SW1/SW2 HIGH SIDE-ACTUATED BUTTONS ON LONG EDGES",
+    "SW1 SINGLE SIDE-ACTUATED BUTTON ON LONG EDGE",
     "U1/U2/U11 BACK-SIDE SECURE ISLAND",
     "HIDDEN BACK-SIDE POGO TEST PADS COVERED BY ENCLOSURE"
   ],
@@ -58,17 +58,7 @@
     {
       "footprint": "Button_Switch_SMD:SW_SPST_EVQP7C",
       "ref": "SW1",
-      "role": "upper left side-actuated physical button",
-      "rotation_deg": 90.0,
-      "side": "top",
-      "value": "EVQP7J01P",
-      "x_mm": 10.9,
-      "y_mm": 30.0
-    },
-    {
-      "footprint": "Button_Switch_SMD:SW_SPST_EVQP7C",
-      "ref": "SW2",
-      "role": "upper right side-actuated physical button",
+      "role": "single side-actuated physical button",
       "rotation_deg": 270.0,
       "side": "top",
       "value": "EVQP7J01P",

@@ -367,29 +367,6 @@
       "sheet": "kicad/sheets/display_controls.kicad_sch",
       "symbol": "Switch:SW_Push"
     },
-    "SW2": {
-      "pins": {
-        "1": {
-          "evidence": "One side of right side-actuated button goes to BTN_RIGHT.",
-          "net": "BTN_RIGHT",
-          "physical_pin": 1,
-          "pin_name": "1",
-          "review_status": "footprint_review_required",
-          "source": "Panasonic EVQP7J01P package drawing review"
-        },
-        "2": {
-          "evidence": "Other side of right button returns to GND.",
-          "net": "GND",
-          "physical_pin": 2,
-          "pin_name": "2",
-          "review_status": "footprint_review_required",
-          "source": "Panasonic EVQP7J01P package drawing review"
-        }
-      },
-      "role": "right_side_button",
-      "sheet": "kicad/sheets/display_controls.kicad_sch",
-      "symbol": "Switch:SW_Push"
-    },
     "TP_3V3": {
       "pins": {
         "1": {

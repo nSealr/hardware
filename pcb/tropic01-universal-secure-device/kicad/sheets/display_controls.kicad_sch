@@ -1799,11 +1799,11 @@
 			(at 129.70 117.41 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
-		(property "Value" "LEFT_SIDE_APPROVE"
+		(property "Value" "SIDE_APPROVE"
 			(at 129.70 119.91 0)
 			(effects (font (size 1.27 1.27)) (justify left))
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_EVQP7A"
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_EVQP7C"
 			(at 139.70 105.41 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
@@ -1811,7 +1811,7 @@
 			(at 139.70 105.41 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "Description" "Left side-actuated production approval button"
+		(property "Description" "Single side-actuated approve/reject button (touch panel handles the rest)"
 			(at 139.70 105.41 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
@@ -1819,44 +1819,6 @@
 			(project "tropic01-universal-secure-device"
 				(path "/11111111-1111-4111-8111-111111111111/55555555-5555-4555-8555-555555555555"
 					(reference "SW1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 139.70 119.38 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a618cf76-f2bb-5701-ba00-dd57fa22b727")
-		(property "Reference" "SW2"
-			(at 129.70 131.38 0)
-			(effects (font (size 1.27 1.27)) (justify left))
-		)
-		(property "Value" "RIGHT_SIDE_CANCEL"
-			(at 129.70 133.88 0)
-			(effects (font (size 1.27 1.27)) (justify left))
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_EVQP7A"
-			(at 139.70 119.38 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Datasheet" "https://industrial.panasonic.com/ac/e/search_num/index.jsp?c=detail&part_no=EVQP7J01P"
-			(at 139.70 119.38 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Description" "Right side-actuated production cancel button"
-			(at 139.70 119.38 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(instances
-			(project "tropic01-universal-secure-device"
-				(path "/11111111-1111-4111-8111-111111111111/55555555-5555-4555-8555-555555555555"
-					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -2253,34 +2215,6 @@
 		(fields_autoplaced)
 		(effects (font (size 1.27 1.27)))
 		(uuid "fa802d76-3561-5b45-8790-944d3d8b08e4")
-	)
-	(wire
-		(pts
-			(xy 134.62 119.38) (xy 127.00 119.38)
-		)
-		(stroke (width 0) (type default))
-		(uuid "1285b189-4b0a-56d5-a0cb-9092cf725507")
-	)
-	(global_label "BTN_RIGHT"
-		(shape input)
-		(at 127.00 119.38 0)
-		(fields_autoplaced)
-		(effects (font (size 1.27 1.27)))
-		(uuid "e7f6aea7-ccd8-55d2-803c-b1685f94cac7")
-	)
-	(wire
-		(pts
-			(xy 144.78 119.38) (xy 152.40 119.38)
-		)
-		(stroke (width 0) (type default))
-		(uuid "a46125b5-cad4-5bab-a330-cef975304c28")
-	)
-	(global_label "GND"
-		(shape input)
-		(at 152.40 119.38 180)
-		(fields_autoplaced)
-		(effects (font (size 1.27 1.27)))
-		(uuid "f8ac33a7-0841-527b-b99a-3c10f5abff84")
 	)
 	(sheet_instances
 		(path "/"

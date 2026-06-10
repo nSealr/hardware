@@ -8,7 +8,7 @@ J1,1,GCT,USB4105-GF-A,USB-C receptacle female centered on bottom short edge,USB-
 U7,1,Texas Instruments,TPD4E05U06DQAR,USB ESD protection,USON-10,Package_SON:USON-10_2.5x1.0mm_P0.5mm,Low-capacitance ESD protection close to USB-C connector
 U8,1,Texas Instruments,TPS2553DBVR,USB VBUS current-limit switch,SOT-23-6,Package_TO_SOT_SMD:SOT-23-6,Input current limiting for USB VBUS before board power path
 J2,1,Hirose,FH12-50S-0.5SH(55),50-pin 0.5mm FFC connector for display SPI and capacitive touch I2C,FFC 50P 0.5mm,Connector_FFC-FPC:Hirose_FH12-50S-0.5SH_1x50-1MP_P0.50mm_Horizontal,Single FFC carries display and capacitive touch; top-contact 0.5mm; footprint must be checked against the panel FFC drawing
-"SW1,SW2",2,Panasonic,EVQP7J01P,High left and right side-operation physical buttons,Side tactile switch,Button_Switch_SMD:SW_SPST_EVQP7A,Side-actuated approve and reject buttons; not front-facing tact switches
+SW1,1,Panasonic,EVQP7J01P,Side-operation physical button,Side tactile switch,Button_Switch_SMD:SW_SPST_EVQP7C,Single side-actuated approve/reject button; the touch panel handles the rest; not a front-facing tact switch
 U9,1,STMicroelectronics,ST25R3916B-AQET,NFC/RFID controller,VFQFPN32,Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm,Power-gated ST25R3916B for NFC and RFID workflows; disabled by default in hardened firmware
 U10,1,Texas Instruments,BQ24074RGTR,LiPo charger with power-path,VQFN-16,Package_DFN_QFN:VQFN-16-1EP_3.5x3.5mm_P0.5mm_EP2.1x2.1mm,Battery charger and power-path load sharing for USB or battery operation
 J9,1,JST,S2B-PH-SM4-TB(LF)(SN),LiPo battery connector,JST PH 2P SMD,Connector_JST:JST_PH_S2B-PH-SM4-TB_1x02-1MP_P2.00mm_Horizontal,JST PH connector for single-cell LiPo battery

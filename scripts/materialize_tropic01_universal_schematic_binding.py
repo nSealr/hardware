@@ -295,15 +295,6 @@ def build_components(pinmux: dict[str, object]) -> dict[str, object]:
             },
             symbol="Switch:SW_Push",
         ),
-        "SW2": component(
-            "right_side_button",
-            "kicad/sheets/display_controls.kicad_sch",
-            {
-                "1": binding(net="BTN_RIGHT", pin_name="1", physical_pin=1, source="Panasonic EVQP7J01P package drawing review", review_status="footprint_review_required", evidence="One side of right side-actuated button goes to BTN_RIGHT."),
-                "2": binding(net="GND", pin_name="2", physical_pin=2, source="Panasonic EVQP7J01P package drawing review", review_status="footprint_review_required", evidence="Other side of right button returns to GND."),
-            },
-            symbol="Switch:SW_Push",
-        ),
         "J9": component(
             "lipo_battery_connector",
             "kicad/sheets/power_usb.kicad_sch",
