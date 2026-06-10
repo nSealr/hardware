@@ -8,8 +8,8 @@ Status: Rev A0 contract freeze, schematic not yet generated.
 - `U2_ALT` TROPIC01 `TR01-C2P-T310`: preferred alternate when obtainable.
 - `U1` STM32U5 `STM32U585VIT6`: primary host MCU.
 - `U1_ALT` STM32U5 `STM32U575VIT6`: fallback host MCU.
-- `DISP1` Newhaven `NHD-2.4-240320AF-CSXP-CTP`: 2.4 inch portrait touch
-  display.
+- `DISP1` EastRising `ER-TFT024IPS-3`: 2.4 inch portrait IPS touch display,
+  ST7789V + FT6336 capacitive touch on one 50-pin FFC.
 - `J1` GCT `USB4105-GF-A`: female USB-C receptacle only.
 - `U9` ST `ST25R3916B-AQET`: NFC/RFID controller.
 - `U10` TI `BQ24074RGTR`: LiPo charger with real power path.
@@ -19,8 +19,10 @@ Status: Rev A0 contract freeze, schematic not yet generated.
 
 ## Footprint Risks
 
-- `J2` Molex `54132-4062` and `J2B` Molex `52271-0679` require exact footprint
-  verification against the Newhaven display drawing before PCBWay output.
+- `J2` is now a single 50-pin 0.5mm top-contact FFC (Hirose `FH12-50S-0.5SH`
+  class) carrying both display SPI and capacitive-touch I2C. The separate touch
+  connector `J2B` is removed. Verify the FFC footprint, contact side (top), and
+  pin-1 orientation against the ER-TFT024IPS-3 FFC drawing before PCBWay output.
 - `U11` OPTIGA footprint is currently a USON-10 candidate. The exact Infineon
   package drawing must be checked before layout freeze.
 - `SW1/SW2` must be side-actuated switch footprints. Front tact-switch

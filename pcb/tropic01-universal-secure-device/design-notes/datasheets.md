@@ -7,7 +7,7 @@ Primary references for Rev A0 component selection:
 - libtropic SDK: https://github.com/tropicsquare/libtropic
 - Trezor Safe 7 hardware reference: https://github.com/trezor/trezor-hardware/tree/master/electronics/trezor_safe_7
 - STM32U585VI: https://www.st.com/en/microcontrollers-microprocessors/stm32u585vi.html
-- Newhaven display: https://newhavendisplay.com/content/specs/NHD-2.4-240320AF-CSXP-CTP.pdf
+- EastRising ER-TFT024IPS-3 display: https://www.buydisplay.com/download/manual/ER-TFT024IPS-3_Datasheet.pdf
 - GCT USB4105: https://gct.co/files/specs/usb4105-spec.pdf
 - ST25R3916B: https://www.st.com/en/nfc/st25r3916b.html
 - BQ24074: https://www.ti.com/product/BQ24074
@@ -40,7 +40,9 @@ pinmux/evidence notes:
   reset pin.
 - TROPIC01 SPI must use 3.3 V logic and polling fallback even when GPO/IRQ is
   connected.
-- The Newhaven display uses ST7789VI for display and FT5426 for capacitive touch.
+- The EastRising ER-TFT024IPS-3 uses ST7789V for display and FT6336 for
+  capacitive touch, with display SPI and touch I2C carried on one 50-pin FFC
+  (touch I2C on FFC pins 44-47).
 - USB-C is a female receptacle only, configured as USB 2.0 device/sink.
 - STM32U585VIT6 LQFP100 Rev A0 pinmux now has a source-backed ledger in
   `production/pinmux-ledger.json`; routing remains blocked until schematic nets

@@ -50,7 +50,7 @@
     "single_board_policy": "The default hardware is one compact single board with display mounted above the PCB. Daughterboards are allowed only for future profile-specific accessories."
   },
   "display_decision": {
-    "primary_display": "Newhaven NHD-2.4-240320AF-CSXP-CTP portrait touch display, 2.4 inch, 240x320 IPS TFT, ST7789VI display controller, FT5426 capacitive touch controller.",
+    "primary_display": "EastRising ER-TFT024IPS-3 portrait touch display, 2.4 inch, 240x320 IPS TFT, ST7789V display controller, FT6336 capacitive touch controller, display and touch on a single 50-pin FFC.",
     "minimum_display_requirement": "The integrated touch display must be large enough for transaction/event review, credential review, key identity display, device status, QR rendering, and developer diagnostics.",
     "approval_policy": "Touch is the default navigation surface, but two high side physical buttons remain the production approval/reject boundary unless a later security review accepts touch-only confirmation.",
     "bus_policy": "The display SPI bus must remain separate from the TROPIC01 SPI bus in Rev A0."
@@ -61,8 +61,8 @@
     "tropic01_firmware_target": "Application firmware compatibility managed through libtropic 4.0.0.",
     "mcu_primary": "STM32U585VIT6 LQFP100",
     "mcu_fallback": "STM32U575VIT6 LQFP100",
-    "display_primary": "Newhaven NHD-2.4-240320AF-CSXP-CTP 2.4 inch portrait 240x320 IPS TFT with ST7789VI display controller and FT5426 capacitive touch controller.",
-    "display_connectors": "Molex 54132-4062 for the 40-pin TFT FFC and Molex 52271-0679 for the 6-pin capacitive-touch FFC.",
+    "display_primary": "EastRising ER-TFT024IPS-3 2.4 inch portrait 240x320 IPS TFT with ST7789V display controller and FT6336 capacitive touch controller.",
+    "display_connectors": "Single 50-pin 0.5mm FFC (Hirose FH12-50S-0.5SH class) carrying both display SPI and capacitive-touch I2C; no separate touch connector.",
     "power_primary": "TPS62840DLCR 3.3 V system buck regulator, TPS22917DBVR TROPIC01 load switch, and BQ24074RGTR LiPo charger with real power-path/load-sharing for USB-or-battery operation.",
     "storage_primary": "Winbond W25Q128JVSIQ 128 Mbit QSPI NOR in SOIC-8 for Rev A0 inspectability.",
     "second_secure_element": "Infineon OPTIGA Trust M family, BOM MPN OPTIGA-TRUST-M-SLS32AIA, I2C secure element used as the independent defense-in-depth trust anchor.",
@@ -133,7 +133,7 @@
   "component_selection_requirements": [
     "Use current recommended or vendor-confirmed TROPIC01 parts, not deprecated T101/T103-era assumptions.",
     "Use STM32U585VIT6 LQFP100 as the Rev A0 primary MCU candidate and STM32U575VIT6 LQFP100 as fallback.",
-    "Select the Newhaven 240x320 ST7789VI and FT5426 touch panel unless a better documented panel is selected before schematic freeze.",
+    "Select the EastRising ER-TFT024IPS-3 240x320 ST7789V and FT6336 single-FFC touch panel unless a better documented panel is selected before schematic freeze.",
     "Use GCT USB4105-GF-A as the female USB-C receptacle.",
     "Use an OPTIGA Trust M class second secure element over I2C.",
     "Use ST25R3916B NFC controller with a real tuned antenna path, not decorative antenna graphics."

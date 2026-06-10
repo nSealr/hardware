@@ -1,34 +1,40 @@
 {
   "board": "tropic01-universal-secure-device",
   "display": {
-    "backlight": "LED-A anode 3.0 V / 160 mA max class; LED-K1..K4 cathodes to current driver return",
+    "backlight": "LEDA anode (FFC pin 1) / LEDK1..LEDK4 cathodes (FFC pins 2-5), 4 parallel strings, Vf 3.2 V, 80 mA total, to current driver with PWM dimming",
     "driver_ics": [
-      "ST7789VI",
-      "FT5426-003"
+      "ST7789V",
+      "FT6336"
     ],
-    "module": "NHD-2.4-240320AF-CSXP-CTP",
+    "ffc_connector": "50-pin 0.5mm top-contact FFC (display SPI + capacitive touch I2C on one cable)",
+    "module": "ER-TFT024IPS-3",
     "status": "connector_pinout_confirmed_mcu_pinmux_pending",
     "tft_4wire_spi_mode_select": {
       "IM0": "0",
       "IM1": "1",
-      "IM2": "1"
+      "IM2": "1",
+      "IM3": "1"
     },
-    "tft_connector": "Molex 54132-4062",
     "tft_spi_signals": {
-      "CSX": "active-low chip select",
-      "DCX": "data/command in 4-wire SPI",
-      "RESX": "active-low reset",
-      "SCL_WRX": "serial clock in 3/4-wire SPI",
-      "SDA": "serial data input",
-      "SDO": "serial data output"
+      "CSX": "active-low chip select on FFC pin 38",
+      "DCX": "data/command on FFC pin 36",
+      "RESET": "active-low reset on FFC pin 10",
+      "SCL": "serial clock on FFC pin 37",
+      "SDI": "serial data input (MOSI) on FFC pin 34",
+      "SDO": "serial data output (MISO) on FFC pin 33"
     },
-    "touch_connector": "Molex 52271-0679",
+    "touch_i2c_pins": {
+      "INT": 46,
+      "RESET": 47,
+      "SCL": 44,
+      "SDA": 45
+    },
     "touch_i2c_pullups": "4.7k",
     "touch_i2c_signals": [
       "SCL",
       "SDA",
-      "/INT",
-      "/RESET"
+      "INT",
+      "RESET"
     ]
   },
   "optiga": {
@@ -54,9 +60,9 @@
   "schema_version": 1,
   "sources": {
     "display": {
-      "evidence": "Pin Description and Interface Selection sections",
-      "title": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet",
-      "url": "https://newhavendisplay.com/content/specs/NHD-2.4-240320AF-CSXP-CTP.pdf"
+      "evidence": "Section 4.1 Pin Configuration for LCD (50-pin FFC, capacitive touch I2C on pins 44-47) and Note 1 MCU interface mode select",
+      "title": "EastRising ER-TFT024IPS-3 datasheet Rev 1.0",
+      "url": "https://www.buydisplay.com/download/manual/ER-TFT024IPS-3_Datasheet.pdf"
     },
     "optiga": {
       "evidence": "Table 6 contact definitions for PG-USON-10 packages",

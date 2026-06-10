@@ -119,9 +119,8 @@ REQUIRED_TROPIC01_UNIVERSAL_CORE_MPNS = {
     "U4": "TPS22917DBVR",
     "U5": "W25Q128JVSIQ",
     "J1": "USB4105-GF-A",
-    "DISP1": "NHD-2.4-240320AF-CSXP-CTP",
-    "J2": "54132-4062",
-    "J2B": "52271-0679",
+    "DISP1": "ER-TFT024IPS-3",
+    "J2": "FH12-50S-0.5SH(55)",
     "SW1 SW2": "EVQP7J01P",
     "U9": "ST25R3916B-AQET",
     "U10": "BQ24074RGTR",
@@ -177,7 +176,6 @@ REQUIRED_TROPIC01_UNIVERSAL_SCHEMATIC_COMPONENT_REFS = {
     "U2",
     "J1",
     "J2",
-    "J2B",
     "U5",
     "U9",
     "U11",
@@ -975,8 +973,8 @@ def validate_pinmux_ledger(path: Path) -> None:
     display = value.get("display")
     if not isinstance(display, dict):
         raise ValueError(f"{path}: display must be an object")
-    if display.get("tft_4wire_spi_mode_select") != {"IM0": "0", "IM1": "1", "IM2": "1"}:
-        raise ValueError(f"{path}: display 4-wire SPI mode select must be IM0=0 IM1=1 IM2=1")
+    if display.get("tft_4wire_spi_mode_select") != {"IM0": "0", "IM1": "1", "IM2": "1", "IM3": "1"}:
+        raise ValueError(f"{path}: display 4-wire SPI mode select must be IM0=0 IM1=1 IM2=1 IM3=1")
 
     st25r3916b = value.get("st25r3916b")
     if not isinstance(st25r3916b, dict):

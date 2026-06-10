@@ -10,7 +10,7 @@ PCBWay position file.
 ## Board Shape
 
 - Portrait smartphone-like rectangle.
-- Target compact envelope follows the `42.8 mm x 59.91 mm` Newhaven display
+- Target compact envelope follows the `42.72 mm x 59.46 mm` ER-TFT024IPS-3 display
   module as closely as electrical, NFC, USB, and battery constraints allow.
 - Initial PCB target envelope: approximately `48 mm x 68 mm`.
 

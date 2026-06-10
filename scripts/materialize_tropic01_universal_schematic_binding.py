@@ -62,6 +62,24 @@ def component(role: str, sheet: str, pins: dict[str, dict[str, object]], *, symb
     return value
 
 
+def test_point(ref: str, net: str, role: str) -> dict[str, object]:
+    return component(
+        role,
+        "kicad/sheets/optional_profiles.kicad_sch",
+        {
+            "1": binding(
+                net=net,
+                pin_name="1",
+                physical_pin=1,
+                source="Hidden pogo/test pad placement review",
+                review_status="source_backed",
+                evidence=f"{ref} exposes the {net} net only on the covered back-side pogo fixture area.",
+            )
+        },
+        symbol="Connector:TestPoint",
+    )
+
+
 def build_components(pinmux: dict[str, object]) -> dict[str, object]:
     return {
         "U1": component(
@@ -187,41 +205,37 @@ def build_components(pinmux: dict[str, object]) -> dict[str, object]:
             symbol="Connector:USB_C_Receptacle_USB2.0",
         ),
         "J2": component(
-            "display_tft_ffc",
+            "display_ffc",
             "kicad/sheets/display_controls.kicad_sch",
             {
-                "1": binding(net="GND", pin_name="GND", physical_pin=1, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 1 is GND."),
-                "7": binding(net="DISPLAY_VCC_SW", pin_name="VDD", physical_pin=7, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 7 is VDD."),
-                "8": binding(net="DISPLAY_VCC_SW", pin_name="VDDI", physical_pin=8, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 8 is VDDI."),
-                "9": binding(net="TFT_SPI_MOSI", pin_name="SDA", physical_pin=9, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 9 is SDA."),
-                "10": binding(net="TFT_CS", pin_name="CSX", physical_pin=10, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 10 is CSX."),
-                "11": binding(net="TFT_DC", pin_name="DCX", physical_pin=11, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 11 is DCX."),
-                "12": binding(net="TFT_SPI_SCK", pin_name="SCL/WRX", physical_pin=12, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 12 is SCL/WRX in serial mode."),
-                "30": binding(net="TFT_RST", pin_name="RESX", physical_pin=30, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 30 is RESX."),
-                "31": binding(net="GND", pin_name="IM0", physical_pin=31, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="4-wire SPI requires IM0=0."),
-                "32": binding(net="DISPLAY_VCC_SW", pin_name="IM1", physical_pin=32, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="4-wire SPI requires IM1=1."),
-                "33": binding(net="DISPLAY_VCC_SW", pin_name="IM2", physical_pin=33, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="4-wire SPI requires IM2=1."),
-                "34": binding(net="TFT_BACKLIGHT_K", pin_name="LED-K1", physical_pin=34, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="backlight_driver_review_required", evidence="LED cathode return must go to the final current driver."),
-                "35": binding(net="TFT_BACKLIGHT_K", pin_name="LED-K2", physical_pin=35, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="backlight_driver_review_required", evidence="LED cathode return must go to the final current driver."),
-                "36": binding(net="TFT_BACKLIGHT_K", pin_name="LED-K3", physical_pin=36, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="backlight_driver_review_required", evidence="LED cathode return must go to the final current driver."),
-                "37": binding(net="TFT_BACKLIGHT_K", pin_name="LED-K4", physical_pin=37, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="backlight_driver_review_required", evidence="LED cathode return must go to the final current driver."),
-                "38": binding(net="TFT_BACKLIGHT_A", pin_name="LED-A", physical_pin=38, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="backlight_driver_review_required", evidence="LED anode must go to the final backlight supply/current path."),
-                "39": binding(net="GND", pin_name="GND", physical_pin=39, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="TFT pin 39 is GND."),
+                "1": binding(net="TFT_BACKLIGHT_A", pin_name="LEDA", physical_pin=1, source="EastRising ER-TFT024IPS-3 datasheet", review_status="backlight_driver_review_required", evidence="FFC pin 1 LEDA backlight anode to the final backlight supply/current path."),
+                "2": binding(net="TFT_BACKLIGHT_K", pin_name="LEDK1", physical_pin=2, source="EastRising ER-TFT024IPS-3 datasheet", review_status="backlight_driver_review_required", evidence="FFC pin 2 LEDK1 cathode return to the final current driver."),
+                "3": binding(net="TFT_BACKLIGHT_K", pin_name="LEDK2", physical_pin=3, source="EastRising ER-TFT024IPS-3 datasheet", review_status="backlight_driver_review_required", evidence="FFC pin 3 LEDK2 cathode return to the final current driver."),
+                "4": binding(net="TFT_BACKLIGHT_K", pin_name="LEDK3", physical_pin=4, source="EastRising ER-TFT024IPS-3 datasheet", review_status="backlight_driver_review_required", evidence="FFC pin 4 LEDK3 cathode return to the final current driver."),
+                "5": binding(net="TFT_BACKLIGHT_K", pin_name="LEDK4", physical_pin=5, source="EastRising ER-TFT024IPS-3 datasheet", review_status="backlight_driver_review_required", evidence="FFC pin 5 LEDK4 cathode return to the final current driver."),
+                "6": binding(net="GND", pin_name="IM0", physical_pin=6, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="4-wire 8-bit Serial Interface II requires IM0=0."),
+                "7": binding(net="DISPLAY_VCC_SW", pin_name="IM1", physical_pin=7, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="4-wire 8-bit Serial Interface II requires IM1=1."),
+                "8": binding(net="DISPLAY_VCC_SW", pin_name="IM2", physical_pin=8, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="4-wire 8-bit Serial Interface II requires IM2=1."),
+                "9": binding(net="DISPLAY_VCC_SW", pin_name="IM3", physical_pin=9, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="4-wire 8-bit Serial Interface II requires IM3=1."),
+                "10": binding(net="TFT_RST", pin_name="RESET", physical_pin=10, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 10 is RESET."),
+                "33": binding(net="TFT_SPI_MISO", pin_name="SDO", physical_pin=33, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 33 SDO is serial output (MISO) in Serial Interface II."),
+                "34": binding(net="TFT_SPI_MOSI", pin_name="SDI", physical_pin=34, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 34 SDI is serial input (MOSI) in Serial Interface II."),
+                "36": binding(net="TFT_DC", pin_name="WRX(D/CX)", physical_pin=36, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 36 is D/CX (data/command) in serial mode."),
+                "37": binding(net="TFT_SPI_SCK", pin_name="D/CX(SCL)", physical_pin=37, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 37 is SCL serial clock."),
+                "38": binding(net="TFT_CS", pin_name="CSX", physical_pin=38, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 38 is CSX chip-select."),
+                "40": binding(net="DISPLAY_VCC_SW", pin_name="VDDI", physical_pin=40, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 40 VDDI interface rail."),
+                "41": binding(net="DISPLAY_VCC_SW", pin_name="VDDI", physical_pin=41, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 41 VDDI interface rail."),
+                "42": binding(net="DISPLAY_VCC_SW", pin_name="VCI", physical_pin=42, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 42 VCI logic rail."),
+                "43": binding(net="GND", pin_name="GND", physical_pin=43, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 43 is GND."),
+                "44": binding(net="TOUCH_I2C_SCL", pin_name="SCL", physical_pin=44, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 44 is capacitive touch I2C SCL."),
+                "45": binding(net="TOUCH_I2C_SDA", pin_name="SDA", physical_pin=45, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 45 is capacitive touch I2C SDA."),
+                "46": binding(net="TOUCH_INT", pin_name="INT", physical_pin=46, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 46 is capacitive touch interrupt, active low."),
+                "47": binding(net="TOUCH_RST", pin_name="RESET", physical_pin=47, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 47 is capacitive touch reset, active low."),
+                "48": binding(net="GND", pin_name="GND", physical_pin=48, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 48 is GND."),
+                "49": binding(net="GND", pin_name="GND", physical_pin=49, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 49 is GND."),
+                "50": binding(net="GND", pin_name="GND", physical_pin=50, source="EastRising ER-TFT024IPS-3 datasheet", review_status="source_backed", evidence="FFC pin 50 is GND."),
             },
-            symbol="Connector_Generic:Conn_01x40",
-        ),
-        "J2B": component(
-            "display_touch_ffc",
-            "kicad/sheets/display_controls.kicad_sch",
-            {
-                "1": binding(net="DISPLAY_VCC_SW", pin_name="VDD", physical_pin=1, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="CTP pin 1 is VDD."),
-                "2": binding(net="GND", pin_name="VSS", physical_pin=2, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="CTP pin 2 is VSS."),
-                "3": binding(net="TOUCH_I2C_SCL", pin_name="SCL", physical_pin=3, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="CTP pin 3 is SCL."),
-                "4": binding(net="TOUCH_I2C_SDA", pin_name="SDA", physical_pin=4, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="CTP pin 4 is SDA."),
-                "5": binding(net="TOUCH_INT", pin_name="/INT", physical_pin=5, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="CTP pin 5 is interrupt."),
-                "6": binding(net="TOUCH_RST", pin_name="/RESET", physical_pin=6, source="Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet", review_status="source_backed", evidence="CTP pin 6 is reset."),
-            },
-            symbol="Connector_Generic:Conn_01x06",
+            symbol="Connector_Generic:Conn_01x50",
         ),
         "U5": component(
             "qspi_nor_flash",
@@ -299,6 +313,14 @@ def build_components(pinmux: dict[str, object]) -> dict[str, object]:
             },
             symbol="Connector_Generic:Conn_01x02",
         ),
+        "TP_SWDIO": test_point("TP_SWDIO", "SWDIO", "hidden_swdio_pogo_test_pad"),
+        "TP_SWCLK": test_point("TP_SWCLK", "SWCLK", "hidden_swclk_pogo_test_pad"),
+        "TP_NRST": test_point("TP_NRST", "NRST", "hidden_nrst_pogo_test_pad"),
+        "TP_BOOT0": test_point("TP_BOOT0", "BOOT0", "hidden_boot0_pogo_test_pad"),
+        "TP_UART_TX": test_point("TP_UART_TX", "EXP_UART_TX", "hidden_uart_tx_pogo_test_pad"),
+        "TP_UART_RX": test_point("TP_UART_RX", "EXP_UART_RX", "hidden_uart_rx_pogo_test_pad"),
+        "TP_3V3": test_point("TP_3V3", "SYS_3V3", "hidden_3v3_pogo_test_pad"),
+        "TP_GND": test_point("TP_GND", "GND", "hidden_gnd_pogo_test_pad"),
     }
 
 

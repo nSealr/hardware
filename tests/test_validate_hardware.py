@@ -1,5 +1,7 @@
 import csv
 import json
+import math
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -34,6 +36,27 @@ def load_reference_report() -> dict:
 
 
 class HardwareValidationTests(unittest.TestCase):
+    def _footprint_block(self, board_text: str, ref: str) -> str:
+        block = next(
+            (
+                candidate
+                for candidate in re.findall(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))', board_text)
+                if f'(property "Reference" "{ref}"' in candidate
+            ),
+            None,
+        )
+        self.assertIsNotNone(block, f"missing footprint {ref}")
+        return block or ""
+
+    def _footprint_positions_by_ref(self, board_text: str) -> dict[str, tuple[float, float, float]]:
+        positions: dict[str, tuple[float, float, float]] = {}
+        for block in re.findall(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))', board_text):
+            reference_match = re.search(r'\(property "Reference" "([^"]+)"', block)
+            at_match = re.search(r'\n\t\t\(at ([-0-9.]+) ([-0-9.]+) ([-0-9.]+)\)', block)
+            if reference_match and at_match:
+                positions[reference_match.group(1)] = tuple(float(value) for value in at_match.groups())
+        return positions
+
     def test_reference_requirements_are_valid(self) -> None:
         validate_requirements(ROOT / "pcb/reference-esp32-s3-signer/requirements.json")
 
@@ -258,9 +281,8 @@ class HardwareValidationTests(unittest.TestCase):
             "U4": "TPS22917DBVR",
             "U5": "W25Q128JVSIQ",
             "J1": "USB4105-GF-A",
-            "DISP1": "NHD-2.4-240320AF-CSXP-CTP",
-            "J2": "54132-4062",
-            "J2B": "52271-0679",
+            "DISP1": "ER-TFT024IPS-3",
+            "J2": "FH12-50S-0.5SH(55)",
             "SW1 SW2": "EVQP7J01P",
             "U9": "ST25R3916B-AQET",
             "U10": "BQ24074RGTR",
@@ -449,7 +471,7 @@ class HardwareValidationTests(unittest.TestCase):
             'symbol "MCU_ST_STM32U5:STM32U585VITx"',
             'symbol "TROPIC_SQUARE:TR01-P2"',
             'symbol "Connector:USB_C_Receptacle_USB2.0_16P"',
-            'symbol "Connector_Generic:Conn_01x40"',
+            'symbol "Connector_Generic:Conn_01x50"',
             'symbol "TROPIC_SQUARE:ST25R3916B_QFN32"',
             'symbol "TROPIC_SQUARE:OPTIGA_TRUST_M_USON10"',
         ):
@@ -493,8 +515,77 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn("USB_C_Receptacle_GCT_USB4105", board_text)
         self.assertIn("Molex_54132-4062", board_text)
         self.assertIn("Molex_52271-0679", board_text)
-        self.assertIn("SW_SPST_EVQP7A", board_text)
+        self.assertIn("SW_SPST_EVQP7C", board_text)
         self.assertIn("OPTIGA-TRUST-M-SLS32AIA", board_text)
+
+    def test_tropic01_universal_secure_device_removes_stale_visible_expansion_headers(self) -> None:
+        board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
+
+        for stale_ref in ("J3", "J5", "J7", "J8"):
+            self.assertNotIn(f'(property "Reference" "{stale_ref}"', board_text)
+
+    def test_tropic01_universal_secure_device_required_bom_designators_are_physical(self) -> None:
+        board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
+        board_refs = set(re.findall(r'\(property "Reference" "([^"]+)"', board_text))
+
+        required_refs = set()
+        with (ROOT / "bom/tropic01-universal-secure-device.csv").open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                if row["required"].strip().lower() != "true":
+                    continue
+                for ref in row["designator"].split():
+                    if not ref.endswith("_ALT"):
+                        required_refs.add(ref)
+
+        self.assertEqual(sorted(required_refs - board_refs), [])
+
+    def test_tropic01_universal_secure_device_display_nfc_and_battery_are_renderable_footprints(self) -> None:
+        board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
+
+        for ref, expected_value in {
+            "DISP1": "NHD-2.4-240320AF-CSXP-CTP",
+            "ANT1": "13.56MHz_NFC_ANTENNA_ENVELOPE",
+            "BAT1": "LiPo_301020_REAR_ENVELOPE",
+        }.items():
+            block = self._footprint_block(board_text, ref)
+            self.assertIn(expected_value, block)
+            self.assertIn("exclude_from_bom", block)
+            self.assertIn("exclude_from_pos_files", block)
+
+    def test_tropic01_universal_secure_device_side_buttons_actuate_outward(self) -> None:
+        board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
+
+        left_button = self._footprint_block(board_text, "SW1")
+        right_button = self._footprint_block(board_text, "SW2")
+
+        self.assertIn('"Button_Switch_SMD:SW_SPST_EVQP7C"', left_button)
+        self.assertIn('"Button_Switch_SMD:SW_SPST_EVQP7C"', right_button)
+        self.assertRegex(left_button, r'\(at 10\.900 30\.000 90\.000\)')
+        self.assertRegex(right_button, r'\(at 57\.100 30\.000 270\.000\)')
+        self.assertNotIn("SW_SPST_EVQP7A.step", left_button)
+        self.assertNotIn("SW_SPST_EVQP7A.step", right_button)
+
+    def test_tropic01_universal_secure_device_pogo_pads_are_named_and_clear_of_battery_connector(self) -> None:
+        board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
+        positions = self._footprint_positions_by_ref(board_text)
+        pogo_refs = {
+            "TP_SWDIO",
+            "TP_SWCLK",
+            "TP_NRST",
+            "TP_BOOT0",
+            "TP_UART_TX",
+            "TP_UART_RX",
+            "TP_3V3",
+            "TP_GND",
+        }
+
+        self.assertEqual(sorted(pogo_refs - positions.keys()), [])
+        battery_connector = positions["J9"]
+        for ref in pogo_refs:
+            x_mm, y_mm, _rotation = positions[ref]
+            self.assertLess(y_mm, 24.0, f"{ref} should stay in the upper factory-pad strip")
+            distance = math.hypot(x_mm - battery_connector[0], y_mm - battery_connector[1])
+            self.assertGreaterEqual(distance, 30.0, f"{ref} is too close to the LiPo connector")
 
     def test_tropic01_universal_secure_device_kicad_pcb_assigns_bound_core_nets_to_pads(self) -> None:
         import re
@@ -558,8 +649,8 @@ class HardwareValidationTests(unittest.TestCase):
 
         self.assertEqual(materialize_tropic01_universal_placement.BOARD_WIDTH_MM, 48.0)
         self.assertEqual(materialize_tropic01_universal_placement.BOARD_HEIGHT_MM, 68.0)
-        self.assertEqual(materialize_tropic01_universal_placement.DISPLAY_WIDTH_MM, 42.8)
-        self.assertEqual(materialize_tropic01_universal_placement.DISPLAY_HEIGHT_MM, 59.91)
+        self.assertEqual(materialize_tropic01_universal_placement.DISPLAY_WIDTH_MM, 42.72)
+        self.assertEqual(materialize_tropic01_universal_placement.DISPLAY_HEIGHT_MM, 59.46)
 
         placements = materialize_tropic01_universal_placement.placement_by_ref()
         self.assertAlmostEqual(placements["J1"].x_mm, 34.0)
@@ -578,7 +669,7 @@ class HardwareValidationTests(unittest.TestCase):
         drawings = "\n".join(materialize_tropic01_universal_placement.render_portrait_drawings())
 
         self.assertIn("BOARD OUTLINE 48.0 x 68.0 mm", drawings)
-        self.assertIn("DISP1 PORTRAIT TOUCH DISPLAY ENVELOPE 42.8 x 59.91 mm", drawings)
+        self.assertIn("DISP1 PORTRAIT TOUCH DISPLAY ENVELOPE 42.72 x 59.46 mm", drawings)
         self.assertIn("ANT1 TOP EDGE NFC ANTENNA FPC OR TUNED KEEP-OUT", drawings)
         self.assertIn("J1 USB-C FEMALE RECEPTACLE CENTERED ON BOTTOM EDGE", drawings)
         self.assertNotIn("PCB NFC LOOP", drawings)
@@ -611,7 +702,9 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertEqual(footprint_position("J1"), (34.0, 75.6, 0.0))
         self.assertEqual(footprint_position("SW1"), (10.9, 30.0, 90.0))
         self.assertEqual(footprint_position("SW2"), (57.1, 30.0, 270.0))
-        self.assertEqual(footprint_position("U11"), (43.0, 38.0, 0.0))
+        self.assertEqual(footprint_position("U11"), (43.0, 32.0, 0.0))
+        self.assertEqual(footprint_position("BAT1"), (33.0, 63.0, 0.0))
+        self.assertEqual(footprint_position("J9"), (55.0, 63.0, 270.0))
 
     def test_tropic01_universal_secure_device_kicad_footprint_centers_stay_inside_compact_outline(self) -> None:
         import re
@@ -652,11 +745,14 @@ class HardwareValidationTests(unittest.TestCase):
             "J2B",
             "J6",
             "J9",
-            "TP1",
-            "TP2",
-            "TP3",
-            "TP4",
-            "TP9",
+            "TP_SWDIO",
+            "TP_SWCLK",
+            "TP_NRST",
+            "TP_BOOT0",
+            "TP_UART_TX",
+            "TP_UART_RX",
+            "TP_3V3",
+            "TP_GND",
         }
         layer_by_ref = {}
         for block in re.findall(r'\n\t\(footprint "[^"]+"[\s\S]*?(?=\n\t\(footprint |\n\))', board_text):
@@ -726,9 +822,9 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertEqual(value["tropic01"]["pins"]["7"], "SPI_SCK")
         self.assertEqual(value["tropic01"]["pins"]["8"], "SPI_CSN")
         self.assertEqual(value["tropic01"]["spi_mode"], "CPOL=0 CPHA=0 MSB-first")
-        self.assertEqual(value["display"]["tft_connector"], "Molex 54132-4062")
-        self.assertEqual(value["display"]["touch_connector"], "Molex 52271-0679")
-        self.assertEqual(value["display"]["tft_4wire_spi_mode_select"], {"IM0": "0", "IM1": "1", "IM2": "1"})
+        self.assertEqual(value["display"]["module"], "ER-TFT024IPS-3")
+        self.assertIn("50-pin", value["display"]["ffc_connector"])
+        self.assertEqual(value["display"]["tft_4wire_spi_mode_select"], {"IM0": "0", "IM1": "1", "IM2": "1", "IM3": "1"})
         self.assertEqual(value["display"]["touch_i2c_pullups"], "4.7k")
         self.assertEqual(value["stm32u5"]["status"], "partial_lqfp100_pinmux_confirmed")
         assignments = value["stm32u5"]["assignments"]
@@ -793,7 +889,7 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertIn("layout_review_required_for_rf_usb_display_power", value["release_gates"])
 
         components = value["components"]
-        for ref in ("U1", "U2", "J1", "J2", "J2B", "U9", "U11", "SW1", "SW2"):
+        for ref in ("U1", "U2", "J1", "J2", "U9", "U11", "SW1", "SW2"):
             self.assertIn(ref, components)
             self.assertIn("sheet", components[ref])
             self.assertIn("pins", components[ref])
@@ -817,8 +913,10 @@ class HardwareValidationTests(unittest.TestCase):
         self.assertEqual(components["U9"]["pins"]["32"]["net"], "NFC_SPI_MISO")
         self.assertEqual(components["U11"]["pins"]["3"]["net"], "SE2_I2C_SDA")
         self.assertEqual(components["U11"]["pins"]["8"]["net"], "SE2_I2C_SCL")
-        self.assertEqual(components["J2B"]["pins"]["3"]["net"], "TOUCH_I2C_SCL")
-        self.assertEqual(components["J2B"]["pins"]["4"]["net"], "TOUCH_I2C_SDA")
+        self.assertEqual(components["J2"]["pins"]["44"]["net"], "TOUCH_I2C_SCL")
+        self.assertEqual(components["J2"]["pins"]["45"]["net"], "TOUCH_I2C_SDA")
+        self.assertEqual(components["J2"]["pins"]["34"]["net"], "TFT_SPI_MOSI")
+        self.assertEqual(components["J2"]["pins"]["33"]["net"], "TFT_SPI_MISO")
 
         review_required = value["review_required_nets"]
         for net_name in (

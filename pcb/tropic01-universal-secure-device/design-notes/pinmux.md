@@ -12,7 +12,7 @@ Evidence used:
 - ST25R3916B/ST25R3917B/ST25R3919B datasheet DS13541 Rev 11: QFN32 pinout and
   SPI interface selection.
 - OPTIGA Trust M datasheet Rev 3.70: PG-USON-10 contact definitions.
-- Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet: display, touch, connector, and
+- EastRising ER-TFT024IPS-3 datasheet: display, touch, 50-pin FFC connector, and
   mode-select requirements.
 
 ## STM32U585VIT6 LQFP100 Assignments
@@ -57,8 +57,11 @@ TROPIC01 remains power-cycle controlled; do not add a TROPIC reset pin.
 | `TOUCH_INT` | `PE1` | 98 | GPIO input / EXTI |
 | `TOUCH_RST` | `PE0` | 97 | GPIO output |
 
-The Newhaven panel is used in 4-wire SPI mode with `IM0=0`, `IM1=1`,
-`IM2=1`. Touch I2C pull-ups are 4.7 kOhm per the display datasheet.
+The ER-TFT024IPS-3 panel is used in 4-wire 8-bit Serial Interface II mode with
+`IM0=0`, `IM1=1`, `IM2=1`, `IM3=1` (SCL on FFC pin 37, SDI/MOSI on pin 34,
+SDO/MISO on pin 33, D/CX on pin 36, CSX on pin 38). Capacitive touch I2C is on
+the same FFC (SCL pin 44, SDA pin 45, INT pin 46, RESET pin 47); touch I2C
+pull-ups are 4.7 kOhm per the display datasheet.
 
 ### OPTIGA Trust M I2C
 

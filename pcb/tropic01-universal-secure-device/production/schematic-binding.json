@@ -109,200 +109,217 @@
     "J2": {
       "pins": {
         "1": {
-          "evidence": "TFT pin 1 is GND.",
-          "net": "GND",
+          "evidence": "FFC pin 1 LEDA backlight anode to the final backlight supply/current path.",
+          "net": "TFT_BACKLIGHT_A",
           "physical_pin": 1,
-          "pin_name": "GND",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
+          "pin_name": "LEDA",
+          "review_status": "backlight_driver_review_required",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
         },
         "10": {
-          "evidence": "TFT pin 10 is CSX.",
-          "net": "TFT_CS",
-          "physical_pin": 10,
-          "pin_name": "CSX",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "11": {
-          "evidence": "TFT pin 11 is DCX.",
-          "net": "TFT_DC",
-          "physical_pin": 11,
-          "pin_name": "DCX",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "12": {
-          "evidence": "TFT pin 12 is SCL/WRX in serial mode.",
-          "net": "TFT_SPI_SCK",
-          "physical_pin": 12,
-          "pin_name": "SCL/WRX",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "30": {
-          "evidence": "TFT pin 30 is RESX.",
+          "evidence": "FFC pin 10 is RESET.",
           "net": "TFT_RST",
-          "physical_pin": 30,
-          "pin_name": "RESX",
+          "physical_pin": 10,
+          "pin_name": "RESET",
           "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "31": {
-          "evidence": "4-wire SPI requires IM0=0.",
-          "net": "GND",
-          "physical_pin": 31,
-          "pin_name": "IM0",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "32": {
-          "evidence": "4-wire SPI requires IM1=1.",
-          "net": "DISPLAY_VCC_SW",
-          "physical_pin": 32,
-          "pin_name": "IM1",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "33": {
-          "evidence": "4-wire SPI requires IM2=1.",
-          "net": "DISPLAY_VCC_SW",
-          "physical_pin": 33,
-          "pin_name": "IM2",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "34": {
-          "evidence": "LED cathode return must go to the final current driver.",
-          "net": "TFT_BACKLIGHT_K",
-          "physical_pin": 34,
-          "pin_name": "LED-K1",
-          "review_status": "backlight_driver_review_required",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "35": {
-          "evidence": "LED cathode return must go to the final current driver.",
-          "net": "TFT_BACKLIGHT_K",
-          "physical_pin": 35,
-          "pin_name": "LED-K2",
-          "review_status": "backlight_driver_review_required",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "36": {
-          "evidence": "LED cathode return must go to the final current driver.",
-          "net": "TFT_BACKLIGHT_K",
-          "physical_pin": 36,
-          "pin_name": "LED-K3",
-          "review_status": "backlight_driver_review_required",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "37": {
-          "evidence": "LED cathode return must go to the final current driver.",
-          "net": "TFT_BACKLIGHT_K",
-          "physical_pin": 37,
-          "pin_name": "LED-K4",
-          "review_status": "backlight_driver_review_required",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "38": {
-          "evidence": "LED anode must go to the final backlight supply/current path.",
-          "net": "TFT_BACKLIGHT_A",
-          "physical_pin": 38,
-          "pin_name": "LED-A",
-          "review_status": "backlight_driver_review_required",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "39": {
-          "evidence": "TFT pin 39 is GND.",
-          "net": "GND",
-          "physical_pin": 39,
-          "pin_name": "GND",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "7": {
-          "evidence": "TFT pin 7 is VDD.",
-          "net": "DISPLAY_VCC_SW",
-          "physical_pin": 7,
-          "pin_name": "VDD",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "8": {
-          "evidence": "TFT pin 8 is VDDI.",
-          "net": "DISPLAY_VCC_SW",
-          "physical_pin": 8,
-          "pin_name": "VDDI",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        },
-        "9": {
-          "evidence": "TFT pin 9 is SDA.",
-          "net": "TFT_SPI_MOSI",
-          "physical_pin": 9,
-          "pin_name": "SDA",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
-        }
-      },
-      "role": "display_tft_ffc",
-      "sheet": "kicad/sheets/display_controls.kicad_sch",
-      "symbol": "Connector_Generic:Conn_01x40"
-    },
-    "J2B": {
-      "pins": {
-        "1": {
-          "evidence": "CTP pin 1 is VDD.",
-          "net": "DISPLAY_VCC_SW",
-          "physical_pin": 1,
-          "pin_name": "VDD",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
         },
         "2": {
-          "evidence": "CTP pin 2 is VSS.",
-          "net": "GND",
+          "evidence": "FFC pin 2 LEDK1 cathode return to the final current driver.",
+          "net": "TFT_BACKLIGHT_K",
           "physical_pin": 2,
-          "pin_name": "VSS",
-          "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
+          "pin_name": "LEDK1",
+          "review_status": "backlight_driver_review_required",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
         },
         "3": {
-          "evidence": "CTP pin 3 is SCL.",
-          "net": "TOUCH_I2C_SCL",
+          "evidence": "FFC pin 3 LEDK2 cathode return to the final current driver.",
+          "net": "TFT_BACKLIGHT_K",
           "physical_pin": 3,
-          "pin_name": "SCL",
+          "pin_name": "LEDK2",
+          "review_status": "backlight_driver_review_required",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "33": {
+          "evidence": "FFC pin 33 SDO is serial output (MISO) in Serial Interface II.",
+          "net": "TFT_SPI_MISO",
+          "physical_pin": 33,
+          "pin_name": "SDO",
           "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "34": {
+          "evidence": "FFC pin 34 SDI is serial input (MOSI) in Serial Interface II.",
+          "net": "TFT_SPI_MOSI",
+          "physical_pin": 34,
+          "pin_name": "SDI",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "36": {
+          "evidence": "FFC pin 36 is D/CX (data/command) in serial mode.",
+          "net": "TFT_DC",
+          "physical_pin": 36,
+          "pin_name": "WRX(D/CX)",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "37": {
+          "evidence": "FFC pin 37 is SCL serial clock.",
+          "net": "TFT_SPI_SCK",
+          "physical_pin": 37,
+          "pin_name": "D/CX(SCL)",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "38": {
+          "evidence": "FFC pin 38 is CSX chip-select.",
+          "net": "TFT_CS",
+          "physical_pin": 38,
+          "pin_name": "CSX",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
         },
         "4": {
-          "evidence": "CTP pin 4 is SDA.",
-          "net": "TOUCH_I2C_SDA",
+          "evidence": "FFC pin 4 LEDK3 cathode return to the final current driver.",
+          "net": "TFT_BACKLIGHT_K",
           "physical_pin": 4,
+          "pin_name": "LEDK3",
+          "review_status": "backlight_driver_review_required",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "40": {
+          "evidence": "FFC pin 40 VDDI interface rail.",
+          "net": "DISPLAY_VCC_SW",
+          "physical_pin": 40,
+          "pin_name": "VDDI",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "41": {
+          "evidence": "FFC pin 41 VDDI interface rail.",
+          "net": "DISPLAY_VCC_SW",
+          "physical_pin": 41,
+          "pin_name": "VDDI",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "42": {
+          "evidence": "FFC pin 42 VCI logic rail.",
+          "net": "DISPLAY_VCC_SW",
+          "physical_pin": 42,
+          "pin_name": "VCI",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "43": {
+          "evidence": "FFC pin 43 is GND.",
+          "net": "GND",
+          "physical_pin": 43,
+          "pin_name": "GND",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "44": {
+          "evidence": "FFC pin 44 is capacitive touch I2C SCL.",
+          "net": "TOUCH_I2C_SCL",
+          "physical_pin": 44,
+          "pin_name": "SCL",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "45": {
+          "evidence": "FFC pin 45 is capacitive touch I2C SDA.",
+          "net": "TOUCH_I2C_SDA",
+          "physical_pin": 45,
           "pin_name": "SDA",
           "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "46": {
+          "evidence": "FFC pin 46 is capacitive touch interrupt, active low.",
+          "net": "TOUCH_INT",
+          "physical_pin": 46,
+          "pin_name": "INT",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "47": {
+          "evidence": "FFC pin 47 is capacitive touch reset, active low.",
+          "net": "TOUCH_RST",
+          "physical_pin": 47,
+          "pin_name": "RESET",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "48": {
+          "evidence": "FFC pin 48 is GND.",
+          "net": "GND",
+          "physical_pin": 48,
+          "pin_name": "GND",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "49": {
+          "evidence": "FFC pin 49 is GND.",
+          "net": "GND",
+          "physical_pin": 49,
+          "pin_name": "GND",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
         },
         "5": {
-          "evidence": "CTP pin 5 is interrupt.",
-          "net": "TOUCH_INT",
+          "evidence": "FFC pin 5 LEDK4 cathode return to the final current driver.",
+          "net": "TFT_BACKLIGHT_K",
           "physical_pin": 5,
-          "pin_name": "/INT",
+          "pin_name": "LEDK4",
+          "review_status": "backlight_driver_review_required",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "50": {
+          "evidence": "FFC pin 50 is GND.",
+          "net": "GND",
+          "physical_pin": 50,
+          "pin_name": "GND",
           "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
         },
         "6": {
-          "evidence": "CTP pin 6 is reset.",
-          "net": "TOUCH_RST",
+          "evidence": "4-wire 8-bit Serial Interface II requires IM0=0.",
+          "net": "GND",
           "physical_pin": 6,
-          "pin_name": "/RESET",
+          "pin_name": "IM0",
           "review_status": "source_backed",
-          "source": "Newhaven NHD-2.4-240320AF-CSXP-CTP datasheet"
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "7": {
+          "evidence": "4-wire 8-bit Serial Interface II requires IM1=1.",
+          "net": "DISPLAY_VCC_SW",
+          "physical_pin": 7,
+          "pin_name": "IM1",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "8": {
+          "evidence": "4-wire 8-bit Serial Interface II requires IM2=1.",
+          "net": "DISPLAY_VCC_SW",
+          "physical_pin": 8,
+          "pin_name": "IM2",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
+        },
+        "9": {
+          "evidence": "4-wire 8-bit Serial Interface II requires IM3=1.",
+          "net": "DISPLAY_VCC_SW",
+          "physical_pin": 9,
+          "pin_name": "IM3",
+          "review_status": "source_backed",
+          "source": "EastRising ER-TFT024IPS-3 datasheet"
         }
       },
-      "role": "display_touch_ffc",
+      "role": "display_ffc",
       "sheet": "kicad/sheets/display_controls.kicad_sch",
-      "symbol": "Connector_Generic:Conn_01x06"
+      "symbol": "Connector_Generic:Conn_01x50"
     },
     "J9": {
       "pins": {
@@ -372,6 +389,126 @@
       "role": "right_side_button",
       "sheet": "kicad/sheets/display_controls.kicad_sch",
       "symbol": "Switch:SW_Push"
+    },
+    "TP_3V3": {
+      "pins": {
+        "1": {
+          "evidence": "TP_3V3 exposes the SYS_3V3 net only on the covered back-side pogo fixture area.",
+          "net": "SYS_3V3",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_3v3_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
+    },
+    "TP_BOOT0": {
+      "pins": {
+        "1": {
+          "evidence": "TP_BOOT0 exposes the BOOT0 net only on the covered back-side pogo fixture area.",
+          "net": "BOOT0",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_boot0_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
+    },
+    "TP_GND": {
+      "pins": {
+        "1": {
+          "evidence": "TP_GND exposes the GND net only on the covered back-side pogo fixture area.",
+          "net": "GND",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_gnd_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
+    },
+    "TP_NRST": {
+      "pins": {
+        "1": {
+          "evidence": "TP_NRST exposes the NRST net only on the covered back-side pogo fixture area.",
+          "net": "NRST",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_nrst_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
+    },
+    "TP_SWCLK": {
+      "pins": {
+        "1": {
+          "evidence": "TP_SWCLK exposes the SWCLK net only on the covered back-side pogo fixture area.",
+          "net": "SWCLK",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_swclk_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
+    },
+    "TP_SWDIO": {
+      "pins": {
+        "1": {
+          "evidence": "TP_SWDIO exposes the SWDIO net only on the covered back-side pogo fixture area.",
+          "net": "SWDIO",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_swdio_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
+    },
+    "TP_UART_RX": {
+      "pins": {
+        "1": {
+          "evidence": "TP_UART_RX exposes the EXP_UART_RX net only on the covered back-side pogo fixture area.",
+          "net": "EXP_UART_RX",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_uart_rx_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
+    },
+    "TP_UART_TX": {
+      "pins": {
+        "1": {
+          "evidence": "TP_UART_TX exposes the EXP_UART_TX net only on the covered back-side pogo fixture area.",
+          "net": "EXP_UART_TX",
+          "physical_pin": 1,
+          "pin_name": "1",
+          "review_status": "source_backed",
+          "source": "Hidden pogo/test pad placement review"
+        }
+      },
+      "role": "hidden_uart_tx_pogo_test_pad",
+      "sheet": "kicad/sheets/optional_profiles.kicad_sch",
+      "symbol": "Connector:TestPoint"
     },
     "U1": {
       "pins": {
