@@ -665,6 +665,7 @@
 		(property "Reference" "LED1"
 			(at 0 -1.9 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "31ace97f-9e1e-43ee-bd60-ee0cec407510")
 			(effects
 				(font
@@ -5516,6 +5517,7 @@
 		(property "Reference" "MH1"
 			(at 0 -2.25 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "5e46e1c0-131c-57ce-9b79-7d0f994f83ab")
 			(effects
 				(font
@@ -7278,6 +7280,7 @@
 		(property "Reference" "MH2"
 			(at 0 -2.25 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "7e6520fe-80c6-5afd-bf93-c6c01dc7160e")
 			(effects
 				(font
@@ -11344,7 +11347,7 @@
 	(footprint "Diode_SMD:D_SOD-123"
 		(layer "F.Cu")
 		(uuid "b91a2623-a127-4505-b650-e0b29d414271")
-		(at 13 53.5)
+		(at 13.62 63.419999)
 		(descr "SOD-123")
 		(tags "SOD-123")
 		(property "Reference" "D15"
@@ -11627,6 +11630,7 @@
 		(property "Reference" "RLED1"
 			(at 0 -1.17 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "3b2194df-694e-4dc4-b2ab-12c364506f81")
 			(effects
 				(font
@@ -12356,7 +12360,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "c6a3a02b-ece5-4438-8c3a-d7f8d05e886d")
-		(at 20.4 40.7)
+		(at 19.68 41.229999)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C18"
@@ -16074,7 +16078,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "e8f6f228-dc39-4d54-8d07-2b07cfd99800")
-		(at 23 40.7)
+		(at 30.68 38.729999)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C19"
