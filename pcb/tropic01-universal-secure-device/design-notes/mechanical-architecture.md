@@ -1,116 +1,96 @@
-# Mechanical Architecture — Display-Sized Compact Device
+# Mechanical Architecture — AUTHORITATIVE SPEC (hard constraints)
 
-Date: 2026-06-10
-Status: design direction agreed; layout work pending.
+Date: 2026-06-11 (re-confirmed with the user; supersedes the 2026-06-10
+"44.1 × 36" measured-board notes and the earlier enlargement to 44 × 42).
+**These constraints are fixed — every placement/floorplan must respect them.**
 
-This note records the product mechanical concept that drives PCB size, battery
-placement, and the NFC/RFID antenna strategy. It supersedes the earlier
-"full-size board with battery behind the whole PCB" assumption.
+## Display (chosen + confirmed from datasheet)
 
-## Device concept
+- **ER-TFT024IPS-3** (EastRising / BuyDisplay): 2.4" **IPS** TFT-LCD, 240×320,
+  ST7789V controller, **FT6336 capacitive touch**.
+- Single **50-pin 0.5 mm FPC**, SMD horizontal, **top-contact** (our connector
+  `J2`, ER-CON50HT-1 / Hirose FH12-50S-0.5SH class).
+- **Outline with FPC folded: 42.72 × 59.26 mm.** Active area 36.72 × 48.96 mm.
+- **The FPC tail exits the BOTTOM edge of the display** and folds 180° behind to
+  plug into `J2` (verified from the datasheet outline drawing, page 6).
+- User criteria: 2.4", single connector, capacitive touch, LCD, good quality —
+  this part satisfies all of them.
 
-- The whole device is **as large as the 2.4" display** (EastRising
-  ER-TFT024IPS-3, outline ~`42.72 mm` W × `59.46 mm` H, active `36.72 × 48.96`).
-- Front face = the display.
-- Behind the display, stacked side-by-side vertically:
-  - **lower portion = the PCB** (electronics),
-  - **upper portion = the LiPo battery**.
-- The device outline is therefore the display outline; nothing sticks out beyond
-  the display footprint.
+## Board size (HARD)
 
-## PCB sizing rule
+- **Width = display width = 42.72 mm.** The board must NOT exceed the display width.
+- **Board height ≈ 36 mm** (the LOWER portion behind the display).
+- **Board + battery ≤ display height (59.26 mm)** → ~**23 mm** above the board (same
+  display outline) is the battery space.
+- Same rectangular shape as the display; nothing sticks out beyond the display.
 
-- **Width = display width** (~`42.7 mm`, fit inside the display outline with
-  case clearance).
-- **Height = the minimum that still fits all components**, found by the compact
-  placement pass — not a fixed number. The shorter the PCB, the more vertical
-  room is left for the battery in the upper portion.
-- The PCB occupies the **lower portion** of the display footprint.
+## Two-sided stack (HARD)
 
-### Component-side rule (important)
+The display lays FLAT against one PCB face:
 
-The PCB front faces the display, so tall components cannot sit on the front
-without colliding with the panel. Electronics are placed on the **back side**
-of the PCB (facing the case back), which also hosts the NFC antenna. Expect a
-predominantly single-sided (back) population, which is what sets the minimum
-height.
+- **Component side = F.Cu**: ALL ICs, passives, connectors (USB-C, button,
+  J6/J9) and the NFC antenna go here. This is the case-back / inside of the device.
+- **Display side = B.Cu**: the display rests flat here — it must be CLEAR of
+  components, carrying **only `J2`** (the display FFC connector) + the display
+  outline. No other parts on this face.
 
-## Battery
+## Perimeter placement (HARD)
 
-- Single-cell LiPo, located in the **upper portion** behind the display, beside
-  (above) the PCB — **not stacked on the PCB**.
-- Electrically off-board: the PCB exposes **only the `J9` JST PH LiPo
-  connector**; there is **no `BAT1` footprint/envelope on the PCB**.
-- The BQ24074 power-path charger (`U10`) and `J9` live on the PCB; the cell
-  lives in the enclosure.
+```
+              ▲ TOP (battery space + NFC tap on the back)
+   ┌─[J6]────────[ ANT1 NFC ]────────[J9]─┐   J6/J9 = 2 connectors at the TOP
+   │ corner        center-top      corner  │   CORNERS, mouths facing OUT (up).
+   │                                        │   J6=expansion, J9=battery
+   │        ICs / passives          [SW1]   │   (interchangeable). ANT1 = NFC
+   │      (component side, F.Cu)            │   antenna CENTER-TOP. SW1 = button
+   │   ·MH·         [ USB-C J1 ]      ·MH·  │   CENTER-RIGHT. J1 = USB-C
+   └────────────────────────────────────────┘   CENTER-BOTTOM. ·MH· = M2 holes.
+   │←────────── 42.72 mm (= display) ───────→│
+   - J2 (display FFC) on B.Cu, BOTTOM-CENTER, mouth toward the bottom edge
+     (the display cable folds up from the bottom edge into it). The USB-C does
+     NOT obstruct the cable (display lays over the components; cable passes by).
+```
+
+STM32 at the center is convenient but NOT a hard constraint — internal placement
+is free as long as the perimeter constraints above hold.
 
 ## NFC / RFID antenna
 
-Cards/tags are tapped on the **back** of the device (opposite the display).
+Cards/tags are tapped on the **back** of the device (component side, F.Cu).
 
-- **Back-side loop antenna** (copper loop on the bottom layer), sized around the
-  device perimeter so the tap zone covers most of the back.
-- **Ground keep-out** under the loop over the PCB region (no copper pour that
-  would short/detune the loop); the loop avoids dense component areas.
-- **Ferrite sheet** between the loop and the battery in the upper portion: a bare
-  LiPo would shield/detune the 13.56 MHz field; the ferrite isolates it and
-  redirects the field outward. Adds one ferrite item to the BOM.
-- **Matching network near `U9`** (ST25R3916B), per ST AN5276.
-- **First-article RF tuning is a hard gate** — antenna and matching values are
-  not final until measured with the real loop, battery, and enclosure.
+- **Loop antenna** (copper loop) at the **top-center** of the component side,
+  with a ground keep-out under the loop (no pour that would detune it).
+- **Ferrite sheet** between the loop and the battery (a bare LiPo shields/detunes
+  the 13.56 MHz field). Adds one ferrite item to the BOM.
+- **Matching network near `U9`** (ST25R3916B) per ST AN5276: RFO1/RFO2 → EMC
+  filter → matching → loop → RFI1/RFI2.
+- `L30/L31/C30–C33` (`NFC_TUNE`) + `ANT1` are placeholders kept clustered near `U9`.
+- **First-article RF tuning is a HARD gate** — antenna + matching values are not
+  final until measured with the real loop, battery, and enclosure.
+
+## Battery
+
+- Single-cell LiPo, **off-board**: the PCB exposes only the `J9` JST connector
+  (no `BAT1` footprint). Sits in the ~23 mm upper space behind the display, within
+  the display outline; no thicker than the board+component stack. Pick the largest
+  cell that fits that space.
 
 ## Controls
 
-- **One physical button** (`SW1`, side-actuated) plus the capacitive touch panel
-  is sufficient for approve/reject; the second button `SW2` is dropped.
+- **One physical button** (`SW1`, side-actuated, center-right) + the capacitive
+  touch panel = approve/reject. No second button.
 
-## Display
+## Layers
 
-- Single **50-pin 0.5 mm FFC** (`J2`) carrying display SPI + capacitive touch
-  I2C; the separate touch connector `J2B` is removed. (Schematic intent already
-  reflects this; the PCB footprint swap is pending.)
+- **Layer count is NOT a priority.** Use whatever routes well (6-layer baseline,
+  more if needed). Priority order: (1) respect all the constraints above,
+  (2) smallest size, (3) tidiest layout. Do NOT trade size for routability.
 
-## Sizing result (measured from the adopted board B)
+## Status (2026-06-11)
 
-The adopted board B already realises the compact concept. Measured PCB outline:
-
-- **`44.1 mm` wide × `36.1 mm` tall** (the existing component placement fits this
-  on one main side), vs the display outline `42.72 × 59.46 mm`.
-- **Board height ≈ `36 mm`** answers "how tall must the board be": it fits the
-  full component set (STM32U585 LQFP100, both secure elements, NFC controller,
-  QSPI flash, BQ24074 charger, regulators, 50-pin display FFC, USB-C, JST
-  connectors, single button, mounting holes, ~40 passives).
-- That leaves **≈ `23 mm`** of the `59.46 mm` display height **above the board for
-  the battery** — enough for a small LiPo beside the PCB. The side-by-side
-  arrangement therefore works without stacking the battery behind the PCB.
-
-Minor follow-up: the width can be trimmed from `44.1 mm` to ≈ the display width
-`42.72 mm` (move `SW1` slightly inward first, since it sits near the right edge).
-
-## Status (2026-06-10)
-
-Done automatically via the KiCad `pcbnew` Python module on the adopted board B:
-
-- ✅ Display `J2` swapped to the single 50-pin FFC; `J2B` removed; display SPI +
-  touch I2C nets assigned to the new `J2`.
-- ✅ Battery off-board: `BAT1` removed, only `J9` kept.
-- ✅ Single button: `SW2` dropped across board, BOM, validator, schematic, and
-  placement.
-- ✅ Compact size confirmed: `44.1 × 36.1 mm`, ~23 mm left for the battery.
-
-## Remaining work (engineering / measurement gates)
-
-1. **NFC/RFID RF front-end — not yet designed.** Today `U9` (ST25R3916B)
-   antenna/RF pins, the matching network (`L30`, `L31`, `C30`–`C33`), and the
-   `ANT1` keep-out are **all unconnected**. This requires a real RF front-end per
-   ST AN5276: `U9` RFO1/RFO2 → EMC filter (L0/C0) → matching (series Cs +
-   parallel Cp) → the back-side loop → RFI1/RFI2, with the loop placed top-center
-   on the back and a ferrite over the battery region. The **topology** is
-   deterministic; the **component values and final loop geometry are tuning-gated
-   on the first article** (cannot be finalised without measurement).
-2. **Routing** — no copper tracks/zones yet; needs routing (manual or an external
-   autorouter such as Freerouting; KiCad 10 has no built-in autorouter).
-3. **ERC/DRC** clean, then the PCBWay release gate.
-4. Minor: trim board width to `42.72 mm`; reposition `ANT1` keep-out onto the
-   board top-center (back side); swap the `DISP1` envelope to the ER-TFT024IPS-3
-   outline (cosmetic).
+- ✅ New floorplan built to this spec: **42.87 × 36.15 mm**, ~23 mm battery space,
+  all perimeter constraints met, components on F.Cu, only `J2` on B.Cu (display
+  side), 0 courtyard/clearance overlaps. (In `/tmp` pending final review + commit.)
+- ⏳ Pending: connector-orientation visual check, silkscreen cleanup, commit, then
+  re-route on this clean compact base.
+- ⏳ NFC RF front-end + routing: tuning-gated / interactive-finish (unchanged).
