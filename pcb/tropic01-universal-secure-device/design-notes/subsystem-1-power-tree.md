@@ -34,14 +34,20 @@ Topology: `USB-C VBUS → BQ24074 (charger + power path) → SYS → TPS62840 bu
 | 8 | VSS | `GND` |
 | 9 | CHG | open-drain charge status; 100 kΩ pull-up to +3V3 (optional → MCU/LED) |
 | 10,11 | OUT | `VSYS` + 4.7 µF to GND |
-| 12 | ILIM | `R_ILIM` to GND — input current limit (KILIM≈1600; ~3.3 kΩ ≈ 500 mA) |
+| 12 | ILIM | `R_ILIM` = **3.3 kΩ** to GND → ~485 mA input limit (KILIM≈1600) |
 | 13 | IN | `VBUS` + 1 µF to GND |
 | 14 | TMR | safety-timer cap to GND (or GND to disable) |
-| 15 | ITERM | `R_ITERM` to GND — termination current |
-| 16 | ISET | `R_ISET` to GND — fast-charge current (KSET≈890; e.g. 2.2 kΩ ≈ 400 mA) `tuning: per battery` |
+| 15 | ITERM | `R_ITERM` to GND — termination ~C/10 (~40 mA) per datasheet |
+| 16 | ISET | `R_ISET` = **4.42 kΩ** to GND → ~200 mA charge (0.5C of 400 mAh; KSET≈890) |
 | EP | thermal | `GND` |
 
-`R_ISET`, `R_ILIM`, `R_ITERM` final values depend on the chosen LiPo capacity.
+## Battery (chosen)
+
+**LiPo 402040** (4.0 × 20 × 40 mm, 3.7 V, ~400 mAh, JST PH 2.0 mm 2-pin → J9).
+Fits the ~42.7 × 23.5 mm space above the PCB, inside the display footprint; 4 mm
+thickness matches the board+component stack so it does not thicken the device.
+Off-board in the enclosure; only J9 on the PCB. Charger values above are sized
+for this cell (0.5C charge, USB-500 mA input limit).
 
 ## U3 — TPS62840 (DLC, SON-8) — 3.3 V buck — verified pinout
 
