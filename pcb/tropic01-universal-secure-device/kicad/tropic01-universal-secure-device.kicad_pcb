@@ -5203,6 +5203,7 @@
 			(size 0.25 0.875)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
+			(net "NFC_VCC_SW")
 			(uuid "eb0b0a41-c951-403e-95f2-12b7e730d0e7")
 		)
 		(pad "15" smd roundrect
@@ -5763,6 +5764,7 @@
 			(size 1.8 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.08)
+			(net "GND")
 			(uuid "bc25837d-a547-5050-83c1-f1ef765ff129")
 		)
 		(embedded_fonts no)
@@ -16497,6 +16499,7 @@
 			(at 0 0)
 			(size 0.9 1.6)
 			(layers "F.Cu" "F.Mask")
+			(net "GND")
 			(uuid "075d7f15-a347-572e-95ce-3b6379f5a81e")
 		)
 		(embedded_fonts no)
