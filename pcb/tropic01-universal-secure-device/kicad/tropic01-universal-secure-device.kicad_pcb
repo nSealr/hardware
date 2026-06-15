@@ -808,7 +808,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "0b19151e-bd55-4d86-9eb0-d7f5d0b6ecdc")
-		(at 17.25 65.175)
+		(at 17 65.175)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C17"
@@ -3534,7 +3534,7 @@
 	(footprint "SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm"
 		(layer "F.Cu")
 		(uuid "2f29cb03-12a6-4121-a380-45c2fd73f65a")
-		(at 15.5 43.825)
+		(at 15.5 42.825)
 		(descr "SMD Solder Jumper, 1x1.5mm Pads, 0.3mm gap, open")
 		(tags "solder jumper open")
 		(property "Reference" "JP1"
@@ -4142,7 +4142,7 @@
 	(footprint "Inductor_SMD:L_Wuerth_PMFI-201610_PMCI-compatible"
 		(layer "F.Cu")
 		(uuid "39bf2a86-c885-43aa-9bfe-13a52943b237")
-		(at 41.1125 49.45)
+		(at 50.25 63.5)
 		(descr "Inductor, Wuerth, PMFI-201610_PMCI-compatible, 2.0x1.6x1.0mm, (https://www.we-online.com/components/products/datasheet/74479320165110.pdf)")
 		(tags "Würth SMT")
 		(property "Reference" "L15"
@@ -8672,7 +8672,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "7bd8ac42-86fe-4733-950f-d583070aa376")
-		(at 38 59.675)
+		(at 15.6375 44.7)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C7"
@@ -9043,7 +9043,7 @@
 	(footprint "Package_TO_SOT_SMD:SOT-23-6"
 		(layer "F.Cu")
 		(uuid "80f78701-d834-481a-a49e-4a6af98acd56")
-		(at 37.5 49)
+		(at 46.5 64)
 		(descr "SOT, 6 Pin (JEDEC MO-178 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=MO-178)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "U15"
@@ -12960,7 +12960,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "b7a594ba-143b-4b6a-b28f-b647fd797464")
-		(at 17 41.825)
+		(at 19.1375 65.125)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C6"
@@ -13830,7 +13830,7 @@
 	(footprint "Resistor_SMD:R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "c29c3d65-5032-47a8-ae48-b3476d8a8327")
-		(at 19.25 65.175)
+		(at 19.25 66.175)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R5"
@@ -14475,7 +14475,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "d37613d2-4def-426d-942b-c9adadcdfa60")
-		(at 31.674999 42.5)
+		(at 46.1375 60.95)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C8"
@@ -17926,7 +17926,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "e8f6f228-dc39-4d54-8d07-2b07cfd99800")
-		(at 15.075 42)
+		(at 12.825 42)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C19"
@@ -18655,7 +18655,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "fe26d7cb-9a0c-4847-8033-b3a0de91b316")
-		(at 18.3 66.3)
+		(at 17.3 66.3)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C4"
