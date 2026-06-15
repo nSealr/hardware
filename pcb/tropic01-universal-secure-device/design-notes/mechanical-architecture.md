@@ -34,18 +34,27 @@ The display lays FLAT against one PCB face:
   components, carrying **only `J2`** (the display FFC connector) + the display
   outline. No other parts on this face.
 
+## Corners + mounting holes (HARD)
+
+- **All 4 corners are rounded, R = 2.5 mm** (fillet, not a straight chamfer — the
+  fillet keeps the corner screw clear of the edge).
+- **One M2 (Ø2.2) mounting hole at each corner** (`MH1`–`MH4`, 4 total), each
+  seated at the centre of its corner fillet (~1.3 mm edge clearance).
+- **Consequence (HARD):** the two top connectors `J6`/`J9` must sit **INBOARD**,
+  off the edge/corner — never on a corner — so the fillet doesn't cut them and the
+  corner holes fit.
+
 ## Perimeter placement (HARD)
 
 ```
               ▲ TOP (battery space + NFC tap on the back)
-   ┌─[J6]────────[ ANT1 NFC ]────────[J9]─┐   J6/J9 = 2 connectors at the TOP
-   │ corner        center-top      corner  │   CORNERS, mouths facing OUT (up).
-   │                                        │   J6=expansion, J9=battery
-   │        ICs / passives          [SW1]   │   (interchangeable). ANT1 = NFC
-   │      (component side, F.Cu)            │   antenna CENTER-TOP. SW1 = button
-   │   ·MH·         [ USB-C J1 ]      ·MH·  │   CENTER-RIGHT. J1 = USB-C
-   └────────────────────────────────────────┘   CENTER-BOTTOM. ·MH· = M2 holes.
-   │←────────── 42.72 mm (= display) ───────→│
+   ╭··MH··───────[ ANT1 NFC ]──────────MH··╮   J6/J9 = 2 connectors near the TOP,
+   │   [J6]                          [J9]   │   pulled INBOARD (NOT on the corners),
+   │        ICs / passives          [SW1]   │   mouths facing OUT/up. J6=expansion,
+   │      (component side, F.Cu)            │   J9=battery. ANT1 = NFC antenna
+   │                                        │   CENTER-TOP. SW1 = button CENTER-RIGHT.
+   ╰··MH··───────[ USB-C J1 ]──────────MH··╯   J1 = USB-C CENTER-BOTTOM. ·MH· = the 4
+   │←────────── 42.72 mm (= display) ───────→│  corner M2 holes; corners rounded R2.5.
    - J2 (display FFC) on B.Cu, BOTTOM-CENTER, mouth toward the bottom edge
      (the display cable folds up from the bottom edge into it). The USB-C does
      NOT obstruct the cable (display lays over the components; cable passes by).
@@ -82,15 +91,22 @@ Cards/tags are tapped on the **back** of the device (component side, F.Cu).
 
 ## Layers
 
-- **Layer count is NOT a priority.** Use whatever routes well (6-layer baseline,
-  more if needed). Priority order: (1) respect all the constraints above,
-  (2) smallest size, (3) tidiest layout. Do NOT trade size for routability.
+- **4-layer stackup** (chosen for cost; 4 routes as well as 6 here — the
+  bottleneck is fine-pitch IC pin-escape congestion, not layer count):
+  **F.Cu (signal) / In1 = GND plane / In2 (signal) / B.Cu (signal)**.
+- Via 0.4 mm / drill 0.2 mm (min relaxed in the project `.kicad_pro`).
+- Priority order: (1) respect all the constraints above, (2) smallest size,
+  (3) tidiest layout. Do NOT trade size for routability.
 
-## Status (2026-06-11)
+## Status (2026-06-15)
 
-- ✅ New floorplan built to this spec: **42.87 × 36.15 mm**, ~23 mm battery space,
-  all perimeter constraints met, components on F.Cu, only `J2` on B.Cu (display
-  side), 0 courtyard/clearance overlaps. (In `/tmp` pending final review + commit.)
-- ⏳ Pending: connector-orientation visual check, silkscreen cleanup, commit, then
-  re-route on this clean compact base.
-- ⏳ NFC RF front-end + routing: tuning-gated / interactive-finish (unchanged).
+- ✅ Board is **42.72 × 36 mm**, all perimeter constraints met, components on
+  F.Cu, only `J2` on B.Cu (display side), **0 courtyard/clearance overlaps**.
+- ✅ **Corners rounded R=2.5 mm + 4 M2 corner holes (`MH1`–`MH4`)** seated in the
+  fillets; top connectors `J6`/`J9` inboard so nothing is clipped.
+- ✅ Secure SPI short (TROPIC adjacent to STM32, ~2.4 mm); decoupling/CT caps
+  adjacent to their ICs; RGB status LED (top-emitting); dev-access features
+  (SWD TC2030, BOOT0 jumper, UART group, current-sense 0R jumpers).
+- ⏳ Routing: GND poured as a plane; auto-router plateaus at ~17 signal nets →
+  needs the interactive push-and-shove router for the final connections.
+- ⏳ NFC RF front-end: tuning-gated (values not final until measured).
