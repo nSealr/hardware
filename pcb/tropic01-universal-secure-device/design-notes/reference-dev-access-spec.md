@@ -5,6 +5,32 @@ Status: brainstorm approved; pending implementation
 Approach: **A — "reference handheld"** (keep the display-sized form, add
 space-efficient developer access).
 
+## Revision 2026-06-15a — controls & power (supersedes "B" below)
+
+After review, the buttons/power were simplified and made more correct:
+
+- **One button only: `SW1`** = user input **and** power. **No RESET button, no
+  BOOT0 button.**
+- **Power = soft-latch on `SW1`, giving a true OFF (zero draw).** `SW1` starts the
+  rail by gating the buck `U3` (TPS62840) `EN` (today tied always-on); the MCU then
+  holds it via a **`PWR_HOLD`** GPIO; long-press → MCU releases → real off. **USB
+  insertion auto-starts** the rail. With the battery this is the on/off; `J9` is
+  removable for zero-draw storage.
+  - **REVIEW-REQUIRED (critical power path):** exact topology (discrete soft-latch
+    vs dedicated pushbutton-controller IC), values, and 3.3 V/4.2 V level handling
+    must be datasheet-designed and **bench-validated** before fab — gated like the
+    NFC matching network, not "done".
+- **BOOT0 = a small jumper (`BOOT0`↔`SYS_3V3`)**, not a button. DFU stays possible
+  without a debugger (set jumper + power-cycle); SWD via `J7` already flashes
+  everything; `R22` 100 k keeps BOOT0 low normally.
+- **Reset needs no button:** power-cycle, or the debugger via `J7` (NRST is on it).
+- **Why:** for a battery secure device one multi-purpose button (power+user) is the
+  clean norm; RESET/BOOT0 buttons were redundant and ate scarce edge space.
+
+Because the board is **at capacity**, the remaining additions (BOOT0 jumper, UART
+group, current-sense jumpers, power-latch parts, breakout) are placed in **one
+holistic pass** that reserves room for all of them — not dropped into gaps.
+
 ## Goal
 
 Turn the board into the **definitive, self-contained secure-element reference
@@ -99,3 +125,33 @@ priority; the result will report exactly what fit and what did not.
 - Breakout pin count is limited by free edge length.
 - All new MCU pin assignments require datasheet-backed pinmux review (existing
   project gate `pinmux_review_required`).
+
+## Power-latch reference design (implement in the SCHEMATIC, then validate)
+
+Not auto-wired into the PCB: it's the critical power path, the TPS62840 `EN`/`MODE`
+pins are not identifiable from the board, and it can't be bench-validated headless.
+Implement it in the schematic where the pinout is certain, then validate on a
+prototype. **Gate the buck VIN, not EN** (VIN = `U3` pins 2,4, which IS
+identifiable) — then `EN` can stay as-is.
+
+Topology (single-button soft-latch, `SW1` = power + user):
+- **Rail split:** today `SYS_PWR_IN` feeds charger `U10`, backlight boost
+  `U15`+`L15`, RGB anode `LED1`, `C14`, and the buck `U3` (2,4). Keep
+  charger/boost/LED/`C14` on `SYS_PWR_IN`; create **`BUCK_VIN`** for `U3` 2,4 and
+  put the buck **input cap on `BUCK_VIN`**.
+- **Q1 P-FET:** source=`SYS_PWR_IN`, drain=`BUCK_VIN`, gate=`PWR_G`. `R_g`
+  `PWR_G`→`SYS_PWR_IN` (Q1 off by default → buck off).
+- **Start:** `SW1` = (`PWR_BTN_N`, `GND`); `R_pu` `PWR_BTN_N`→`SYS_PWR_IN`. `D_start`
+  anode=`PWR_G`, cathode=`PWR_BTN_N` → a press pulls `PWR_G` low → Q1 on → boots.
+- **Hold/off:** `Q2` NPN collector=`PWR_G`, emitter=`GND`, base=`PWR_HOLD_B`;
+  `R_hold` `PWR_HOLD`(MCU GPIO)→base, `R_bpd` base→`GND`. MCU asserts `PWR_HOLD`
+  after boot to hold on; long-press → MCU releases → Q1 off → **true off**.
+- **USB auto-on:** `R_usb` `VBUS`→`PWR_HOLD_B` (plugging USB powers up).
+- **MCU button read:** divider `PWR_BTN_N`→`R_a`→`BTN_USER`→`R_b`→`GND` so the MCU
+  reads the button at a safe level (SYS can be 4.2 V; size for `BTN_USER` ≤ 3.0 V).
+- **Safety bypass:** `JP_EN` solder-jumper `SYS_PWR_IN`↔`BUCK_VIN` — populate to
+  force always-on if the latch needs rework (board never bricks).
+- **Off-state draw:** charger Iq + boost shutdown + leakage (µA); the whole 3V3
+  domain is off. `PWR_HOLD` is a new MCU GPIO → datasheet-pending.
+- **REVIEW/VALIDATE before fab:** FET thresholds, divider ratio, `D_start`
+  orientation, USB auto-on edge cases, buck input-cap on `BUCK_VIN`, inrush.

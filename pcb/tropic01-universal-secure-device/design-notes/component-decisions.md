@@ -62,5 +62,25 @@ ST25R3916B-AQET · W25Q128JV · USB4105-GF-A · ER-TFT024IPS-3 (50-pin FFC).
 
 - 4-layer: F.Cu signal / In1 GND plane / In2 signal / B.Cu signal.
 
-The only remaining gate is **first-article NFC antenna tuning** (matching values
-+ loop geometry, measured on the prototype).
+## Developer access & reference features (2026-06-15)
+
+To make this the definitive secure-element reference board (see
+`reference-dev-access-spec.md`):
+
+- **SWD programming:** one **Tag-Connect TC2030** footprint `J7`
+  (SWDIO/SWCLK/NRST/SYS_3V3/GND) replacing the scattered SWD test pads.
+- **BOOT0 / USB-DFU:** normally-open solder jumper `JP1` (BOOT0↔SYS_3V3); set it +
+  power-cycle to enter the STM32U5 USB-DFU bootloader (flash with no debugger).
+  `R22` 100 k holds BOOT0 low. **No RESET button** (power-cycle / SWD covers it).
+- **UART console:** `TP_UART_TX/RX/GND` grouped for bring-up logs.
+- **Per-rail current sense:** series 0 Ω jumpers `RJ1` (TROPIC01) and `RJ2` (NFC)
+  so each secure element's supply draw is measurable.
+- **One button only (`SW1`)** = user input + (firmware) power/wake.
+- **Power-latch (true-off on `SW1`):** designed but **not wired** — it's the
+  critical power path needing schematic-level design + bench validation; full
+  reference design in `reference-dev-access-spec.md`. Board ships always-on for now.
+- **Not fitted (board at capacity, display-sized):** GPIO/SPI edge breakout and a
+  3rd/4th mounting hole — no contiguous space; documented as deferred.
+
+Remaining gates: **first-article NFC antenna tuning** (matching values + loop
+geometry, measured on the prototype) and the **power-latch validation** above.
