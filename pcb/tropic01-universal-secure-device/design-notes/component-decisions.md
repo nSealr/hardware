@@ -50,7 +50,13 @@ ST25R3916B-AQET · W25Q128JV · USB4105-GF-A · ER-TFT024IPS-3 (50-pin FFC).
 
 ## Controls
 
-- SW1 EVQP7C side button → BTN_USER; status LED + series resistor (~1 kΩ).
+- SW1 EVQP7C side button → BTN_USER.
+- **Status LED = RGB** (Broadcom **ASMB-MTB0-0A3A2**, common-anode PLCC-4, top-view).
+  Common anode → **SYS_PWR_IN** (~3.5–4.4 V, so green/blue Vf ~3.0–3.2 V have headroom
+  that 3V3 lacks); each colour cathode via a resistor (**RLED1 470 Ω** red, **RLED2/3
+  220 Ω** green/blue) to **LED_R/LED_G/LED_B**, MCU drives active-low (sink) with PWM.
+  Placed center-left (opposite SW1), top-emitting. MCU pins for LED_R/G/B are
+  datasheet-pending (see `production/pinmux-ledger.json` → `rgb_status_led`).
 
 ## Stackup
 

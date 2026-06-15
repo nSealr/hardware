@@ -1,5 +1,16 @@
 {
   "board": "tropic01-universal-secure-device",
+  "rgb_status_led": {
+    "part": "Broadcom ASMB-MTB0-0A3A2 (PLCC-4 common-anode RGB)",
+    "topology": "common anode (pin 1) -> SYS_PWR_IN; R/G/B cathodes -> RLED1(470)/RLED2(220)/RLED3(220) -> LED_R/LED_G/LED_B; MCU active-low sink, PWM colour mixing",
+    "board_physical_pins": {"LED_R": 2, "LED_G": 9, "LED_B": 16},
+    "status": "mcu_pinmux_pending_datasheet",
+    "review_required": [
+      "Confirm PE/PB port names + PWM timer/AF for physical pins 2, 9, 16 against STM32U585xx DS13086 (respects the no_llm_invented_pin_numbers gate; physical pins are read from the board, not invented).",
+      "Resolve overlap: physical pin 2 is also listed as BTN_RIGHT (PE3) in stm32u5.assignments - pick the final owner.",
+      "Anode on SYS_PWR_IN (~3.5-4.4 V) chosen over SYS_3V3 so green/blue (Vf ~3.0-3.2 V) have drive headroom."
+    ]
+  },
   "display": {
     "backlight": "LEDA anode (FFC pin 1) / LEDK1..LEDK4 cathodes (FFC pins 2-5), 4 parallel strings, Vf 3.2 V, 80 mA total, to current driver with PWM dimming",
     "driver_ics": [

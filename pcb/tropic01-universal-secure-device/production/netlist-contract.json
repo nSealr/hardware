@@ -4,7 +4,9 @@
     "This file is an electrical-intent contract, not a routed netlist.",
     "MCU alternate-function pin numbers are recorded in production/pinmux-ledger.json; schematic labels and wires must still be bound to that ledger before routing.",
     "TROPIC01 SPI pin names are fixed at the TROPIC01 symbol boundary; host MCU pins must match the source-backed pinmux ledger.",
-    "The production exporter must stay blocked while the KiCad board has only net 0 or zero routed copper."
+    "The production exporter must stay blocked while the KiCad board has only net 0 or zero routed copper.",
+    "Status LED is a discrete common-anode RGB (Broadcom ASMB-MTB0-0A3A2, PLCC-4): common anode (pin 1) on SYS_PWR_IN for green/blue Vf headroom, each colour cathode via a resistor (R=470, G/B=220) to LED_R/LED_G/LED_B; the MCU drives them active-low (sink). MCU pin assignment for LED_R/G/B is datasheet-pending (see pinmux-ledger rgb_status_led note); LED_R reuses the former single status-LED pin.",
+    "TFT_SPI_MISO (display SDO, J2 pin 33) is intentionally a 1-pad net: the ST7789V is write-only in this design. Connect it to an MCU SPI MISO pin only if panel read-back is required."
   ],
   "release_gates": [
     "manual_datasheet_pinmux_review",
@@ -88,6 +90,12 @@
     "side_buttons": [
       "BTN_LEFT",
       "BTN_RIGHT"
+    ],
+    "status_led_rgb": [
+      "LED_R",
+      "LED_G",
+      "LED_B",
+      "SYS_PWR_IN"
     ],
     "tropic01_spi": [
       "TROPIC_SPI_SCK",
