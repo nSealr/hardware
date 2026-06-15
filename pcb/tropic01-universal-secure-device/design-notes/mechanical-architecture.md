@@ -18,10 +18,16 @@ Date: 2026-06-11 (re-confirmed with the user; supersedes the 2026-06-10
 
 ## Board size (HARD)
 
-- **Width = display width = 42.72 mm.** The board must NOT exceed the display width.
-- **Board height ≈ 36 mm** (the LOWER portion behind the display).
-- **Board + battery ≤ display height (59.26 mm)** → ~**23 mm** above the board (same
-  display outline) is the battery space.
+- **Width = display width = 42.72 mm.** The board must NOT exceed the display width
+  (HARD). 
+- **Board height = 36.8 mm** (the LOWER portion behind the display). Was ≈36; the
+  bottom edge was extended +0.8 mm so the USB-C front through-hole shield posts sit
+  fully on-board (a USB-C is 11.7 mm deep and must overhang the edge, but its front
+  mounting-post holes must not break the edge). Height is "≈36" / soft; width is the
+  hard dimension.
+- **Board + battery ≤ display height (59.26 mm)** → ~**22.5 mm** above the board (same
+  display outline) is the battery space (0.5 mm less than before, still ample for the
+  off-board LiPo).
 - Same rectangular shape as the display; nothing sticks out beyond the display.
 
 ## Two-sided stack (HARD)

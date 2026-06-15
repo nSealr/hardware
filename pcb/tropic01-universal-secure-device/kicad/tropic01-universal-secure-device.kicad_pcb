@@ -2153,66 +2153,6 @@
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start 1.65 -1.4)
-			(end 1.65 -1.1)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "ac4e5ac6-7469-5895-8eed-5857001e0152")
-		)
-		(fp_line
-			(start -1.65 -1.4)
-			(end 1.65 -1.4)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "00ca282d-2bd9-5e48-a0d1-3b0fe331ca6a")
-		)
-		(fp_line
-			(start -1.65 -1.1)
-			(end -1.65 -1.4)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "583afae1-939a-514b-9bb9-2a2ba5bf80fa")
-		)
-		(fp_line
-			(start -1.65 1.1)
-			(end -1.65 1.4)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "7f67bb7c-9392-57c0-a64f-0957185447f8")
-		)
-		(fp_line
-			(start 1.65 1.4)
-			(end 1.65 1.1)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "b02b9c67-1cf4-5a37-a15d-6c4174ab4355")
-		)
-		(fp_line
-			(start -1.65 1.4)
-			(end 1.65 1.4)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "5df7f319-42d0-5ae9-827f-f19b7a7f0681")
-		)
-		(fp_line
 			(start 2.4 -1.65)
 			(end -2.4 -1.65)
 			(stroke
@@ -2253,6 +2193,26 @@
 			(uuid "2d0c5cd0-4665-565f-af53-a26d51cbec0a")
 		)
 		(fp_line
+			(start 1.65 -1.4)
+			(end 1.65 -1.1)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "ac4e5ac6-7469-5895-8eed-5857001e0152")
+		)
+		(fp_line
+			(start -1.65 -1.4)
+			(end 1.65 -1.4)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "00ca282d-2bd9-5e48-a0d1-3b0fe331ca6a")
+		)
+		(fp_line
 			(start 1.5 -1.25)
 			(end 1.5 1.25)
 			(stroke
@@ -2273,6 +2233,26 @@
 			(uuid "8264ff06-f16c-5085-9dea-85843d0f6c3f")
 		)
 		(fp_line
+			(start -1.65 -1.1)
+			(end -1.65 -1.4)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "583afae1-939a-514b-9bb9-2a2ba5bf80fa")
+		)
+		(fp_line
+			(start -1.65 1.1)
+			(end -1.65 1.4)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "7f67bb7c-9392-57c0-a64f-0957185447f8")
+		)
+		(fp_line
 			(start 1.5 1.25)
 			(end -1.5 1.25)
 			(stroke
@@ -2291,6 +2271,26 @@
 			)
 			(layer "F.Fab")
 			(uuid "804c5174-5acb-57f9-8f6c-91781ca337df")
+		)
+		(fp_line
+			(start 1.65 1.4)
+			(end 1.65 1.1)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "b02b9c67-1cf4-5a37-a15d-6c4174ab4355")
+		)
+		(fp_line
+			(start -1.65 1.4)
+			(end 1.65 1.4)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "5df7f319-42d0-5ae9-827f-f19b7a7f0681")
 		)
 		(fp_circle
 			(center 0 0)
@@ -5862,7 +5862,7 @@
 	(footprint "nSealr_Mechanical:MountingHole_M2_Clearance_NPTH"
 		(layer "F.Cu")
 		(uuid "47ed0864-d8d9-47cf-b87d-1b811821aca9")
-		(at 13.1 67.6)
+		(at 13.1 68.4)
 		(descr "Compact M2 clearance NPTH case screw/standoff hole; can also receive a locating pin")
 		(property "Reference" "MH1"
 			(at 0 -2.25 0)
@@ -7739,7 +7739,7 @@
 	(footprint "nSealr_Mechanical:MountingHole_M2_Clearance_NPTH"
 		(layer "F.Cu")
 		(uuid "60d6dc66-b6a4-4490-9cf7-4c51ec4dfbf2")
-		(at 50.9 67.6)
+		(at 50.9 68.4)
 		(descr "Compact M2 clearance NPTH case screw/standoff hole; can also receive a locating pin")
 		(property "Reference" "MH2"
 			(at 0 -2.25 0)
@@ -19717,17 +19717,17 @@
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "9bf6cd5a-f6a2-416f-9c9c-d1b42e6466de")
+		(uuid "114abb27-26f5-4b34-829a-7a678523e563")
 	)
 	(gr_line
-		(start 10.64 67.5)
+		(start 10.64 68.3)
 		(end 10.64 36.5)
 		(stroke
 			(width 0.15)
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "f27257c8-fce7-4106-9c1f-a27ed4f7eac7")
+		(uuid "5da0ffc8-29fc-4568-80fb-6bbd6e3967ec")
 	)
 	(gr_line
 		(start 13.14 34)
@@ -19737,18 +19737,18 @@
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "df47bfa5-23f0-4c19-9b48-78c45fa58e01")
+		(uuid "296c4961-a8cc-4d9e-acf4-25f2da268743")
 	)
 	(gr_arc
-		(start 13.14 70)
-		(mid 11.372233 69.267766)
-		(end 10.64 67.5)
+		(start 13.14 70.8)
+		(mid 11.372233 70.067766)
+		(end 10.64 68.3)
 		(stroke
 			(width 0.15)
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "ec8db24e-234d-49bd-9c2a-cef28822b3c8")
+		(uuid "65761ed0-4abf-4f08-b4b2-fc728eaa7239")
 	)
 	(gr_arc
 		(start 50.86 34)
@@ -19759,38 +19759,38 @@
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "9c675cde-222d-41e5-882b-09eec0940717")
+		(uuid "5f899605-9dee-42d3-9bba-699a46c72f9d")
 	)
 	(gr_line
-		(start 50.86 70)
-		(end 13.14 70)
+		(start 50.86 70.8)
+		(end 13.14 70.8)
 		(stroke
 			(width 0.15)
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "f00ae49a-1c4b-4f3c-ac93-0e89c9eb7942")
+		(uuid "b5adca45-a191-4c8e-a2ab-389a0b0f4617")
 	)
 	(gr_line
 		(start 53.36 36.5)
-		(end 53.36 67.5)
+		(end 53.36 68.3)
 		(stroke
 			(width 0.15)
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "137a11e3-3810-4a07-8cf1-8ed22d8b65d8")
+		(uuid "93b9b0fd-b899-49fb-a333-5b7c36d91411")
 	)
 	(gr_arc
-		(start 53.36 67.5)
-		(mid 52.627766 69.267766)
-		(end 50.86 70)
+		(start 53.36 68.3)
+		(mid 52.627766 70.067766)
+		(end 50.86 70.8)
 		(stroke
 			(width 0.15)
 			(type default)
 		)
 		(layer "Edge.Cuts")
-		(uuid "5113a7e7-81d4-4696-80ae-c44152bbb5f4")
+		(uuid "ca84a40f-c2fc-4972-ac71-3fb7c0231097")
 	)
 	(embedded_fonts no)
 )
