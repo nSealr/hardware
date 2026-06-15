@@ -5,6 +5,32 @@ Status: brainstorm approved; pending implementation
 Approach: **A — "reference handheld"** (keep the display-sized form, add
 space-efficient developer access).
 
+## Revision 2026-06-15a — controls & power (supersedes "B" below)
+
+After review, the buttons/power were simplified and made more correct:
+
+- **One button only: `SW1`** = user input **and** power. **No RESET button, no
+  BOOT0 button.**
+- **Power = soft-latch on `SW1`, giving a true OFF (zero draw).** `SW1` starts the
+  rail by gating the buck `U3` (TPS62840) `EN` (today tied always-on); the MCU then
+  holds it via a **`PWR_HOLD`** GPIO; long-press → MCU releases → real off. **USB
+  insertion auto-starts** the rail. With the battery this is the on/off; `J9` is
+  removable for zero-draw storage.
+  - **REVIEW-REQUIRED (critical power path):** exact topology (discrete soft-latch
+    vs dedicated pushbutton-controller IC), values, and 3.3 V/4.2 V level handling
+    must be datasheet-designed and **bench-validated** before fab — gated like the
+    NFC matching network, not "done".
+- **BOOT0 = a small jumper (`BOOT0`↔`SYS_3V3`)**, not a button. DFU stays possible
+  without a debugger (set jumper + power-cycle); SWD via `J7` already flashes
+  everything; `R22` 100 k keeps BOOT0 low normally.
+- **Reset needs no button:** power-cycle, or the debugger via `J7` (NRST is on it).
+- **Why:** for a battery secure device one multi-purpose button (power+user) is the
+  clean norm; RESET/BOOT0 buttons were redundant and ate scarce edge space.
+
+Because the board is **at capacity**, the remaining additions (BOOT0 jumper, UART
+group, current-sense jumpers, power-latch parts, breakout) are placed in **one
+holistic pass** that reserves room for all of them — not dropped into gaps.
+
 ## Goal
 
 Turn the board into the **definitive, self-contained secure-element reference
