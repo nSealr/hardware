@@ -6,7 +6,9 @@
     "TROPIC01 SPI pin names are fixed at the TROPIC01 symbol boundary; host MCU pins must match the source-backed pinmux ledger.",
     "The production exporter must stay blocked while the KiCad board has only net 0 or zero routed copper.",
     "Status LED is a discrete common-anode RGB (Broadcom ASMB-MTB0-0A3A2, PLCC-4): common anode (pin 1) on SYS_PWR_IN for green/blue Vf headroom, each colour cathode via a resistor (R=470, G/B=220) to LED_R/LED_G/LED_B; the MCU drives them active-low (sink). MCU pin assignment for LED_R/G/B is datasheet-pending (see pinmux-ledger rgb_status_led note); LED_R reuses the former single status-LED pin.",
-    "TFT_SPI_MISO (display SDO, J2 pin 33) is intentionally a 1-pad net: the ST7789V is write-only in this design. Connect it to an MCU SPI MISO pin only if panel read-back is required."
+    "TFT_SPI_MISO (display SDO, J2 pin 33) is intentionally a 1-pad net: the ST7789V is write-only in this design. Connect it to an MCU SPI MISO pin only if panel read-back is required.",
+    "Developer access: SWD is consolidated on one Tag-Connect TC2030 footprint (J7: SWDIO/SWCLK/NRST/SYS_3V3/GND). BOOT0 is a normally-open solder jumper JP1 (BOOT0<->SYS_3V3) for USB-DFU; R22 100k holds BOOT0 low. UART console TX/RX/GND are grouped (TP_UART_*). RJ1/RJ2 are series 0R current-sense jumpers (current_sense bus). No RESET/BOOT0 buttons.",
+    "Power on/off: board is currently always-on when powered (USB plug = on; battery = SW1 firmware sleep/wake or unplug J9). A true-OFF soft-latch on SW1 (gating the buck VIN) is a designed-but-not-yet-wired addition - see design-notes/reference-dev-access-spec.md 'Power-latch reference design'; implement in schematic + bench-validate before fab."
   ],
   "release_gates": [
     "manual_datasheet_pinmux_review",
@@ -96,6 +98,12 @@
       "LED_G",
       "LED_B",
       "SYS_PWR_IN"
+    ],
+    "current_sense": [
+      "TROPIC_VCC_SW",
+      "TROPIC_VCC",
+      "NFC_VCC_SW",
+      "NFC_VCC"
     ],
     "tropic01_spi": [
       "TROPIC_SPI_SCK",

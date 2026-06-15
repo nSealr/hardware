@@ -125,3 +125,33 @@ priority; the result will report exactly what fit and what did not.
 - Breakout pin count is limited by free edge length.
 - All new MCU pin assignments require datasheet-backed pinmux review (existing
   project gate `pinmux_review_required`).
+
+## Power-latch reference design (implement in the SCHEMATIC, then validate)
+
+Not auto-wired into the PCB: it's the critical power path, the TPS62840 `EN`/`MODE`
+pins are not identifiable from the board, and it can't be bench-validated headless.
+Implement it in the schematic where the pinout is certain, then validate on a
+prototype. **Gate the buck VIN, not EN** (VIN = `U3` pins 2,4, which IS
+identifiable) — then `EN` can stay as-is.
+
+Topology (single-button soft-latch, `SW1` = power + user):
+- **Rail split:** today `SYS_PWR_IN` feeds charger `U10`, backlight boost
+  `U15`+`L15`, RGB anode `LED1`, `C14`, and the buck `U3` (2,4). Keep
+  charger/boost/LED/`C14` on `SYS_PWR_IN`; create **`BUCK_VIN`** for `U3` 2,4 and
+  put the buck **input cap on `BUCK_VIN`**.
+- **Q1 P-FET:** source=`SYS_PWR_IN`, drain=`BUCK_VIN`, gate=`PWR_G`. `R_g`
+  `PWR_G`→`SYS_PWR_IN` (Q1 off by default → buck off).
+- **Start:** `SW1` = (`PWR_BTN_N`, `GND`); `R_pu` `PWR_BTN_N`→`SYS_PWR_IN`. `D_start`
+  anode=`PWR_G`, cathode=`PWR_BTN_N` → a press pulls `PWR_G` low → Q1 on → boots.
+- **Hold/off:** `Q2` NPN collector=`PWR_G`, emitter=`GND`, base=`PWR_HOLD_B`;
+  `R_hold` `PWR_HOLD`(MCU GPIO)→base, `R_bpd` base→`GND`. MCU asserts `PWR_HOLD`
+  after boot to hold on; long-press → MCU releases → Q1 off → **true off**.
+- **USB auto-on:** `R_usb` `VBUS`→`PWR_HOLD_B` (plugging USB powers up).
+- **MCU button read:** divider `PWR_BTN_N`→`R_a`→`BTN_USER`→`R_b`→`GND` so the MCU
+  reads the button at a safe level (SYS can be 4.2 V; size for `BTN_USER` ≤ 3.0 V).
+- **Safety bypass:** `JP_EN` solder-jumper `SYS_PWR_IN`↔`BUCK_VIN` — populate to
+  force always-on if the latch needs rework (board never bricks).
+- **Off-state draw:** charger Iq + boost shutdown + leakage (µA); the whole 3V3
+  domain is off. `PWR_HOLD` is a new MCU GPIO → datasheet-pending.
+- **REVIEW/VALIDATE before fab:** FET thresholds, divider ratio, `D_start`
+  orientation, USB auto-on edge cases, buck input-cap on `BUCK_VIN`, inrush.
