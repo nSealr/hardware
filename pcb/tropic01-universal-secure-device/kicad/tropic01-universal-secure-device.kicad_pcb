@@ -4547,7 +4547,7 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "F.Cu")
 		(uuid "3c7b8f69-e6a0-4f1c-b3d6-24c70ca933fc")
-		(at 35 40)
+		(at 16 67.8)
 		(descr "Hidden back-side pogo/test pad")
 		(property "Reference" "TP_UART_TX"
 			(at 0 -1.35 0)
@@ -6030,7 +6030,7 @@
 	(footprint "TestPoint_Pad_D1.0mm"
 		(layer "F.Cu")
 		(uuid "4e9fccc9-1346-4db4-a0bd-d21523039577")
-		(at 51.5 56)
+		(at 16 69.399999)
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP_UART_GND"
@@ -7823,7 +7823,7 @@
 	(footprint "LED_Avago_PLCC4_3.2x2.8mm_CW"
 		(layer "F.Cu")
 		(uuid "62ea25a0-3b29-4155-8cd1-b28e84295ae3")
-		(at 13.3 48)
+		(at 13.8 48)
 		(descr "3.2mm x 2.8mm PLCC4 RGB LED, https://docs.broadcom.com/docs/AV02-4186EN")
 		(tags "LED Avago PLCC-4 3528 ASMB-MTB0-0A3A2")
 		(property "Reference" "LED1"
@@ -8988,7 +8988,7 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "F.Cu")
 		(uuid "7dfcdc7a-670d-437a-89e0-0d5d41ffe476")
-		(at 32.5 37)
+		(at 17.6 67.8)
 		(descr "Hidden back-side pogo/test pad")
 		(property "Reference" "TP_UART_RX"
 			(at 0 -1.35 0)
