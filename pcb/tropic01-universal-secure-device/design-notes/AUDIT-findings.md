@@ -6,23 +6,19 @@ anchors (pin1=PE2, pin2=PE3, pin86=PD5, pin87=PD6, pin81=PD0, pin94=PH3) — all
 The datasheets ARE all cited in the contracts (STM32U585 DS13086 r10, ST25R3916B
 DS13541 r11, TROPIC01, OPTIGA Trust M, ER-TFT024IPS-3, GCT USB4105, AN5276).
 
-## CRITICAL — real netlist bugs (from the contract, not layout)
-1. **VCAP shorted to a signal.** STM32 pin 48 = **VCAP** (internal LDO core
+## CRITICAL — real netlist bugs (from the contract) — NOW FIXED
+1. **VCAP shorted to a signal — FIXED.** STM32 pin 48 = **VCAP** (internal LDO core
    regulator output — must connect ONLY to a dedicated ~4.7 µF cap to GND) was
-   wired to **EXP_I2C_SDA**. This corrupts the MCU core supply AND the I2C bus →
-   MCU will not run. **Net un-shorted** (pin48→new VCAP net; EXP_I2C_SDA moved to
-   pin60=PD13, a valid I2C4_SDA pin). **BUT the 4.7 µF VCAP cap could not be placed**
-   — the board is saturated (no footprint-free spot within 13 mm of pin 48). VCAP
-   therefore still has no decoupling → still non-functional until re-laid-out.
+   wired to **EXP_I2C_SDA**. **Fix applied:** pin48 → dedicated VCAP net; added
+   **C59 = 4.7 µF VCAP→GND, placed 1.9 mm from pin 48** (after a full re-place that
+   reserves the room). EXP_I2C_SDA removed from pin48.
 
-2. **I2C peripheral over-subscription (pinmux conflict).** Three I2C buses, but the
-   chosen pins collectively support only two usable instances:
-   - TOUCH (PB8/PB9) = **I2C1 only**.
-   - OPTIGA/SE2 (PB6/PB7) = I2C1 or **I2C4**.
-   - EXP/Qwiic (PB10 + SDA) = I2C2 (no free I2C2_SDA pin) or **I2C4**.
-   With TOUCH locked to I2C1, both SE2 and EXP need I2C4 → impossible. One bus must
-   move to pins on a free instance (I2C2/I2C3) — a **CubeMX pinmux re-solve**, which
-   relocates pins and thus the layout.
+2. **I2C peripheral over-subscription — FIXED.** Three I2C buses vs two usable
+   instances (TOUCH=I2C1-only; SE2 & EXP both needed I2C4; no free I2C2/I2C3 pair).
+   **Fix applied:** **EXP/Qwiic (J6) merged onto the TOUCH I2C1 bus** (multi-drop —
+   Qwiic IS a shared I2C bus by design): J6 SCL/SDA → TOUCH_I2C_SCL/SDA; PB10/PD13
+   freed. Result: **I2C1 = STM32 + touch + Qwiic; I2C4 = OPTIGA secure element,
+   ISOLATED** (security preserved). No instance conflict.
 
 ## STM32 power architecture — mostly OK
 - VDD(11,28,50,75,100)→SYS_3V3 ✓, VSS(10,27,49,74,99)→GND ✓, VBAT(6)→3V3 ✓,
