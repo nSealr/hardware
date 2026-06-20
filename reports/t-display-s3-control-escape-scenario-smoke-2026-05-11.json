@@ -14,7 +14,7 @@
     "tested_state": "non-interactive review-scenario smoke after adding show-control-escapes to the default scenario set",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "294a77e",
   "smoke_script_commit": "e1943c4",
   "esp_idf_version": "v5.5.4",

@@ -14,11 +14,11 @@
     "tested_state": "rebuilt and reflashed after adding caret and backtick review-display glyph coverage",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "fedcb5f",
   "esp_idf_version": "v5.5.4",
   "procedure": [
-    "Ran NostrSeal/esp32 make ci, including host-core review-page and raster regression tests for literal caret and backtick rendering.",
+    "Ran nSealr/esp32 make ci, including host-core review-page and raster regression tests for literal caret and backtick rendering.",
     "Sourced /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell used for build, flash, and smoke.",
     "Built firmware revision fedcb5f with ESP-IDF v5.5.4; the app binary size was 0x8ea30 bytes with 0x715d0 bytes free.",
     "Flashed the firmware to /dev/cu.usbmodem1101 and verified bootloader, app, and partition-table hashes during the ESP-IDF flash operation.",

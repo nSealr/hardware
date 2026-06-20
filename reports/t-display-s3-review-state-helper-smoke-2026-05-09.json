@@ -11,11 +11,11 @@
     "tested_state": "host-tested review activity helper linked into ESP-IDF runtime",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "258dade",
   "procedure": [
     "Added a host-buildable T-Display S3 review activity helper covering active state, timeout math, activity refresh, clear behavior, and unsigned tick wraparound.",
-    "Ran NostrSeal/esp32 make ci with 34 Python tests, host-core tests, and firmware validation.",
+    "Ran nSealr/esp32 make ci with 34 Python tests, host-core tests, and firmware validation.",
     "Built the T-Display S3 firmware with ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
     "Confirmed the ESP-IDF build reported app version 258dade.",
     "Flashed the attached board on /dev/cu.usbmodem1101.",

@@ -14,14 +14,14 @@
     "flash_size": "16MB",
     "psram": "8MB"
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "1cfb514",
   "specs_commit": "c09474e",
   "smoke_tool_commit": "8518f98",
   "procedure": [
     "Used the already-flashed firmware revision 1cfb514 on the attached ESP32-S3 DevKitC-1.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
-    "Ran the expanded NostrSeal/esp32 smoke command make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities after adding dynamic request-id exchanges in revision 2f1ca8c.",
+    "Ran the expanded nSealr/esp32 smoke command make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities after adding dynamic request-id exchanges in revision 2f1ca8c.",
     "Reran the expanded smoke after revision 0d9fb0b added invalid dynamic metadata exchanges.",
     "Reran the expanded smoke after revision 8518f98 moved invalid dynamic metadata inputs to shared specs vectors from revision c09474e.",
     "Verified static fixture requests, dynamic request-id variants, and invalid metadata requests for get_capabilities, get_public_key, and sign_event."

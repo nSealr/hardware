@@ -11,7 +11,7 @@
     "tested_state": "firmware with active review inactivity timeout compiled, flashed, and protocol-smoked",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "3df0d69",
   "procedure": [
     "Built the T-Display S3 firmware with ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",

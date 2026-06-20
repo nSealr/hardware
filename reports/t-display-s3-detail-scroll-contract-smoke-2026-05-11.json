@@ -14,7 +14,7 @@
     "tested_state": "rebuilt and reflashed after ESP32 host-core consumed the shared long-event detail review scroll transcript and fallback fixture snapshots",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "dce9736",
   "esp_idf_version": "v5.5.4",
   "procedure": [

@@ -12,7 +12,7 @@
     "reject_input": "GPIO0 long press from any active review page",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "dc26555",
   "procedure": [
     "Built the T-Display S3 firmware with ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",

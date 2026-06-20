@@ -12,13 +12,13 @@
     "tested_state": "manual and non-interactive review scenario set includes dense structured tags",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "5280fab",
   "specs_commit": "0ab6ab2",
   "smoke_tool_commit": "daeea6d",
   "procedure": [
     "Added the show-dense-tags manual review scenario and included it in the non-interactive review-scenario smoke set.",
-    "Ran NostrSeal/esp32 make ci with 49 Python tests, host-core tests, compileall, and firmware validation.",
+    "Ran nSealr/esp32 make ci with 49 Python tests, host-core tests, compileall, and firmware validation.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for hardware smoke.",
     "Verified idf.py resolved under /Users/vincenzo/esp/esp-idf-v5.5.4/tools/idf.py, esptool.py resolved under /Users/vincenzo/.espressif/python_env/idf5.5_py3.9_env/bin/esptool.py, and idf.py --version reported ESP-IDF v5.5.4.",
     "Confirmed /dev/cu.usbmodem1101 was present.",

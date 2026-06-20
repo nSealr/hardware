@@ -14,7 +14,7 @@
     "tested_state": "rebuilt and reflashed after mapping decoded JSON control characters to visible review escapes",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "294a77e",
   "esp_idf_version": "v5.5.4",
   "procedure": [

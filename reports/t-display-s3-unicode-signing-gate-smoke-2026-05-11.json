@@ -12,7 +12,7 @@
     "tested_state": "rebuilt and reflashed after adding unicode_review_rendering to the runtime signing-readiness gate",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "d2387b1",
   "esp_idf_version": "v5.5.4",
   "procedure": [

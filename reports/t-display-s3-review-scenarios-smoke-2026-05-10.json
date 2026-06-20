@@ -14,12 +14,12 @@
     "tested_state": "existing flashed firmware image exercised by the review-scenario smoke tool",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "c5f60b2",
   "specs_commit": "0e37791",
   "smoke_tool_commit": "af88ee5",
   "procedure": [
-    "Ran NostrSeal/esp32 make ci after adding scripts/smoke_review_scenarios.py and the idf-smoke-review-scenarios target.",
+    "Ran nSealr/esp32 make ci after adding scripts/smoke_review_scenarios.py and the idf-smoke-review-scenarios target.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for the smoke.",
     "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
     "Confirmed /dev/cu.usbmodem1101 was present.",

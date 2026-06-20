@@ -11,12 +11,12 @@
     "tested_state": "flash-encryption blocker added to runtime signing-readiness policy",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "46eb8dd",
   "procedure": [
     "Added flash_encryption_enabled to the host-core SigningReadiness gate.",
     "Updated the host-core signing-policy test so signing remains blocked unless flash_encryption is present with the other M8 gates.",
-    "Ran NostrSeal/esp32 make ci with 37 Python tests, host-core tests, and firmware validation.",
+    "Ran nSealr/esp32 make ci with 37 Python tests, host-core tests, and firmware validation.",
     "Built the T-Display S3 firmware with ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
     "Confirmed the ESP-IDF build reported app version 46eb8dd.",
     "Flashed the attached board on /dev/cu.usbmodem1101.",

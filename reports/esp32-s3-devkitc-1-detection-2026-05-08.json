@@ -11,7 +11,7 @@
     "detected_transport": "native USB/JTAG serial",
     "detected_serial": "EC:DA:3B:95:32:98"
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "7c4338d",
   "procedure": [
     "Run board-detection tooling against the attached ESP32-S3 device.",

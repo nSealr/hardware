@@ -14,15 +14,15 @@
     "flash_size": "16MB",
     "psram": "8MB"
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "9ae6e7a",
   "specs_commit": "854a1a3",
   "smoke_tool_commit": "9ae6e7a",
   "procedure": [
     "Built firmware revision 9ae6e7a with local ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
     "Flashed the firmware to the attached ESP32-S3 DevKitC-1 on /dev/cu.usbmodem101.",
-    "Ran make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities from NostrSeal/esp32.",
-    "Verified static fixture requests, dynamic request-id variants, invalid metadata requests, and 25 serial-wrapped invalid signing-request vectors loaded from NostrSeal/specs revision 854a1a3.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities from nSealr/esp32.",
+    "Verified static fixture requests, dynamic request-id variants, invalid metadata requests, and 25 serial-wrapped invalid signing-request vectors loaded from nSealr/specs revision 854a1a3.",
     "Verified structurally invalid sign_event shapes: missing params, non-object params, unknown params fields, missing event_template, and non-object event_template all returned unsupported_request."
   ],
   "expected_result": "The device returns valid responses for capability and development public-key requests without params, refuses sign_event with signing_disabled, and rejects invalid metadata plus every shared invalid signing-request vector with deterministic unsupported_request error frames.",

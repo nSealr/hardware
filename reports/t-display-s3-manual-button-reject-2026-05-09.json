@@ -11,19 +11,19 @@
     "reject_input": "GPIO0 long press Reject",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "f4f4fc0",
   "tool_commit": "d455056",
   "checklist_correction_commit": "19b8712",
   "firmware_commit_on_device": "f4f4fc0",
   "procedure": [
     "Sourced ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh so pyserial was available.",
-    "Ran python3 scripts/manual_review_display.py button-reject --port /dev/cu.usbmodem1101 --request-id manual-button-reject-2026-05-09 from NostrSeal/esp32 revision d455056.",
+    "Ran python3 scripts/manual_review_display.py button-reject --port /dev/cu.usbmodem1101 --request-id manual-button-reject-2026-05-09 from nSealr/esp32 revision d455056.",
     "The script sent one valid disabled sign_event review request and verified the expected serial response.",
     "The human operator confirmed the display started on Event / Page 1/4.",
     "The human operator pressed long BOOT/GPIO0 to reject.",
     "The human operator confirmed the final frame matched Rejected / Closed / Not signed / Signing disabled / Send new request.",
-    "The manual checklist was corrected in NostrSeal/esp32 revision 19b8712 so the terminal Send new request prompt is documented for future runs."
+    "The manual checklist was corrected in nSealr/esp32 revision 19b8712 so the terminal Send new request prompt is documented for future runs."
   ],
   "expected_result": "The manual button-reject scenario shows a valid review request, allows physical reject closure, shows the terminal Send new request prompt, and still keeps real signing disabled.",
   "observed_result": "The script passed with 1 verified serial exchange and 1 response frame. Manual physical confirmation matched the firmware status frame: Event / Page 1/4 appeared first, long BOOT/GPIO0 closed the review as rejected, and the final display showed Rejected / Closed / Not signed / Signing disabled / Send new request. sign_event remained signing_disabled.",

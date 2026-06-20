@@ -14,14 +14,14 @@
     "tested_state": "get_signing_status omits implemented parser_limits and approval_digest_binding gates",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "d67f587",
   "specs_commit": "c6ceadf",
   "smoke_tool_commit": "d67f587",
   "procedure": [
     "Updated the shared ESP32-S3 signing-status vector so parser_limits and approval_digest_binding are no longer reported as missing for the scaffold profile.",
     "Updated ESP32 host-core signing-status diagnostics to mark parser limits and approval-digest binding as implemented while keeping signing disabled.",
-    "Ran NostrSeal/specs make ci, NostrSeal/companion make ci, and NostrSeal/esp32 make ci before flashing.",
+    "Ran nSealr/specs make ci, nSealr/companion make ci, and nSealr/esp32 make ci before flashing.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
     "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
     "Built clean app version d67f587 with make IDF_PORT=/dev/cu.usbmodem1101 idf-flash.",

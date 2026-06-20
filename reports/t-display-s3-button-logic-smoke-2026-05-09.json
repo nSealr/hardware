@@ -14,12 +14,12 @@
     "tested_state": "host-buildable debounce and short/long press state machine shared by ESP-IDF GPIO polling adapter",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "c5c59f2",
   "procedure": [
     "Factored the T-Display S3 button debounce and short/long press classification into a host-buildable module used by the ESP-IDF GPIO polling adapter.",
     "Added host-core tests for ignored sub-debounce presses, short KEY/GPIO14 next events, and long BOOT/GPIO0 reject events.",
-    "Ran NostrSeal/esp32 make ci with 38 Python tests, host-core tests, compileall, and firmware validation.",
+    "Ran nSealr/esp32 make ci with 38 Python tests, host-core tests, compileall, and firmware validation.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
     "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
     "Built clean app version c5c59f2 with make IDF_PORT=/dev/cu.usbmodem1101 idf-flash.",

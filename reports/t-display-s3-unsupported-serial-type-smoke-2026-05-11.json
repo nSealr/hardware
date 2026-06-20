@@ -14,11 +14,11 @@
     "tested_state": "rebuilt and reflashed after adding the shared unsupported serial-frame type vector to ESP32 host-core and hardware smoke coverage",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "1a4b470",
   "esp_idf_version": "v5.5.4",
   "procedure": [
-    "Ran NostrSeal/esp32 make ci, including Python smoke-script tests and host-core tests consuming the shared serial-frame-unsupported-type vector.",
+    "Ran nSealr/esp32 make ci, including Python smoke-script tests and host-core tests consuming the shared serial-frame-unsupported-type vector.",
     "Sourced /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell used for build, flash, and smoke.",
     "Verified idf.py from /Users/vincenzo/esp/esp-idf-v5.5.4/tools/idf.py, esptool.py from /Users/vincenzo/.espressif/python_env/idf5.5_py3.9_env/bin/esptool.py, and ESP-IDF v5.5.4.",
     "Built firmware revision 1a4b470 with ESP-IDF v5.5.4; the app binary size was 0x8ea30 bytes with 0x715d0 bytes free.",

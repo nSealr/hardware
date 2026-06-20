@@ -14,15 +14,15 @@
     "flash_size": "16MB",
     "psram": "8MB"
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "c47b655",
   "specs_commit": "95c84dc",
   "smoke_tool_commit": "c47b655",
   "procedure": [
     "Built firmware revision c47b655 with local ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
     "Flashed the firmware to the attached ESP32-S3 DevKitC-1 on /dev/cu.usbmodem101.",
-    "Ran make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities from NostrSeal/esp32.",
-    "Verified static fixture requests, dynamic request-id variants, invalid metadata requests, and 20 serial-wrapped invalid signing-request vectors loaded from NostrSeal/specs revision 95c84dc.",
+    "Ran make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities from nSealr/esp32.",
+    "Verified static fixture requests, dynamic request-id variants, invalid metadata requests, and 20 serial-wrapped invalid signing-request vectors loaded from nSealr/specs revision 95c84dc.",
     "Verified that parameterless methods reject params: request-get-capabilities-params and request-get-public-key-params returned unsupported_request instead of capability or public-key responses."
   ],
   "expected_result": "The device returns valid responses for capability and development public-key requests without params, refuses sign_event with signing_disabled, and rejects invalid metadata plus every shared invalid signing-request vector with deterministic unsupported_request error frames.",

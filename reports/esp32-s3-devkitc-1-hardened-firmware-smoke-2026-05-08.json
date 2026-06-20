@@ -14,7 +14,7 @@
     "flash_size": "16MB",
     "psram": "8MB"
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "dd2d5d1",
   "procedure": [
     "Detected the attached board with make detect-board.",

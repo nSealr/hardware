@@ -12,15 +12,15 @@
     "tested_state": "existing flashed firmware exercised after companion serial-line exchange refactor",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/companion",
+  "source_repo": "nSealr/companion",
   "firmware_commit": "0dda7d6",
   "companion_commit": "6bbf03a",
   "lab_smoke_tool_commit": "a00af12",
   "lab_evidence_commit": "b530958",
   "procedure": [
-    "Refactored NostrSeal/companion so exchangeSerialLineRequest in packages/transport owns one-shot serial-line validation, port opening, exchange, and close sequencing.",
+    "Refactored nSealr/companion so exchangeSerialLineRequest in packages/transport owns one-shot serial-line validation, port opening, exchange, and close sequencing.",
     "Kept nseal serial-line exchange as the CLI file/argument wrapper over that package-owned boundary.",
-    "Ran NostrSeal/lab hardware_companion_serial_smoke.py in default companion-serial-line mode against /dev/cu.usbmodem1101 for get-capabilities with request_id lab-companion-serial-line-refactor-2026-05-11.",
+    "Ran nSealr/lab hardware_companion_serial_smoke.py in default companion-serial-line mode against /dev/cu.usbmodem1101 for get-capabilities with request_id lab-companion-serial-line-refactor-2026-05-11.",
     "Ran the same lab smoke in default companion-serial-line mode for sign-event-disabled with request_id lab-companion-serial-line-refactor-sign-disabled-2026-05-11.",
     "No firmware reflash was performed for this report; the attached board was already running ESP32 firmware revision 0dda7d6 from the animated QR host-core smoke."
   ],

@@ -14,7 +14,7 @@
     "tested_state": "rebuilt and reflashed after mapping trusted-review Value body-line styles to a dedicated yellow raster color",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "2f21b3b",
   "esp_idf_version": "v5.5.4",
   "procedure": [

@@ -11,7 +11,7 @@
     "tested_state": "manual review display exerciser show-request-error scenario",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "258dade",
   "tool_commit": "208e99b",
   "firmware_commit_on_device": "258dade",

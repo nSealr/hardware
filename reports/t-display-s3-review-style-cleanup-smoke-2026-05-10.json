@@ -14,12 +14,12 @@
     "tested_state": "firmware rebuilt and flashed after removing the obsolete review detail label style from host-core, vector generation, and raster color mapping",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "5280fab",
   "procedure": [
     "Removed the obsolete ReviewBodyLineStyle::Label path from the ESP32 host-core review display enum, compact-style handling, T-Display S3 raster color mapping, and transport-vector generator.",
     "Added a firmware-project regression test requiring the obsolete label style to stay out of active ESP32 review-detail code paths.",
-    "Ran NostrSeal/esp32 make ci with 48 Python tests, host-core tests, compileall, and firmware validation.",
+    "Ran nSealr/esp32 make ci with 48 Python tests, host-core tests, compileall, and firmware validation.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
     "Verified idf.py resolved under /Users/vincenzo/esp/esp-idf-v5.5.4/tools/idf.py, esptool.py resolved under /Users/vincenzo/.espressif/python_env/idf5.5_py3.9_env/bin/esptool.py, and idf.py --version reported ESP-IDF v5.5.4.",
     "Confirmed /dev/cu.usbmodem1101 was present.",

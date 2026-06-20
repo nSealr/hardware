@@ -12,19 +12,19 @@
     "tested_state": "existing flashed firmware with companion request-bound serial smoke",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/lab",
+  "source_repo": "nSealr/lab",
   "firmware_commit": "628bd7f",
   "specs_commit": "b11bc7b",
   "companion_commit": "40ab7bf",
   "lab_smoke_tool_commit": "60f4200",
   "procedure": [
-    "Added the optional NostrSeal/lab hardware_companion_serial_smoke.py script for attached-board checks outside CI.",
+    "Added the optional nSealr/lab hardware_companion_serial_smoke.py script for attached-board checks outside CI.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for hardware smoke.",
     "Verified idf.py, esptool.py, and /dev/cu.usbmodem1101 before opening the board port.",
-    "Used NostrSeal/companion nseal request to generate get_capabilities, get_signing_status, get_public_key, and sign_event requests with explicit lab request ids.",
-    "Used NostrSeal/companion nseal serial-frame wrap-request to encode each request frame.",
+    "Used nSealr/companion nseal request to generate get_capabilities, get_signing_status, get_public_key, and sign_event requests with explicit lab request ids.",
+    "Used nSealr/companion nseal serial-frame wrap-request to encode each request frame.",
     "Sent each frame to the attached ESP32 over USB serial and captured the first nseal1f protocol response while ignoring device log lines.",
-    "Used NostrSeal/companion nseal serial-frame unwrap-response --request to validate each captured response against its original request before accepting output."
+    "Used nSealr/companion nseal serial-frame unwrap-response --request to validate each captured response against its original request before accepting output."
   ],
   "expected_result": "The attached board answers companion-generated get_capabilities, get_signing_status, and get_public_key serial requests with ok responses, and rejects a companion-generated sign_event request with signing_disabled until production gates pass.",
   "observed_result": "The optional lab hardware companion serial smoke passed for get_capabilities with request_id lab-companion-hw-capabilities, get_signing_status with request_id lab-companion-hw-signing-status, and get_public_key with request_id lab-companion-hw-public-key. Each response unwrapped through the companion request-bound serial path with ok: true. The sign-event-disabled mode generated a sign_event request from the shared basic kind 1 fixture with request_id lab-companion-hw-sign-event-disabled; the attached board returned error.code signing_disabled, and companion request-bound unwrap accepted only that matched disabled response.",

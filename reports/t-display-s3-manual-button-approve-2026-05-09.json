@@ -12,13 +12,13 @@
     "approve_input": "GPIO14 long press Approve",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "f4f4fc0",
   "tool_commit": "d455056",
   "firmware_commit_on_device": "f4f4fc0",
   "procedure": [
     "Sourced ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh so pyserial was available.",
-    "Ran python3 scripts/manual_review_display.py button-approve --port /dev/cu.usbmodem1101 --request-id manual-button-approve-2026-05-09 from NostrSeal/esp32 revision d455056.",
+    "Ran python3 scripts/manual_review_display.py button-approve --port /dev/cu.usbmodem1101 --request-id manual-button-approve-2026-05-09 from nSealr/esp32 revision d455056.",
     "The script sent one valid disabled sign_event review request and verified the expected serial response.",
     "The human operator confirmed the display started on Event / Page 1/4.",
     "The human operator pressed short KEY/GPIO14 three times to reach the final page, then long KEY/GPIO14 to approve.",

@@ -14,14 +14,14 @@
     "tested_state": "get_signing_status diagnostics added to scaffold protocol",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "7ca2548",
   "specs_commit": "f6a4e9a",
   "smoke_tool_commit": "7ca2548",
   "procedure": [
-    "Added the shared get_signing_status request/response contract in NostrSeal/specs.",
+    "Added the shared get_signing_status request/response contract in nSealr/specs.",
     "Updated ESP32 host-core and smoke tooling to answer get_signing_status and include it in get_capabilities.",
-    "Ran NostrSeal/esp32 make ci with 38 Python tests, host-core tests, and firmware validation.",
+    "Ran nSealr/esp32 make ci with 38 Python tests, host-core tests, and firmware validation.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
     "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
     "Built clean app version 7ca2548 with make IDF_PORT=/dev/cu.usbmodem1101 idf-flash.",

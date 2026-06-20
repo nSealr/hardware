@@ -14,15 +14,15 @@
     "flash_size": "16MB",
     "psram": "8MB"
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "2597403",
   "specs_commit": "c09474e",
   "smoke_tool_commit": "2597403",
   "procedure": [
     "Built firmware revision 2597403 with local ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh.",
     "Flashed the firmware to the attached ESP32-S3 DevKitC-1 on /dev/cu.usbmodem101.",
-    "Ran make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities from NostrSeal/esp32.",
-    "Verified static fixture requests, dynamic request-id variants, invalid metadata requests, and 17 serial-wrapped invalid sign_event request vectors loaded from NostrSeal/specs revision c09474e."
+    "Ran make IDF_PORT=/dev/cu.usbmodem101 idf-smoke-capabilities from nSealr/esp32.",
+    "Verified static fixture requests, dynamic request-id variants, invalid metadata requests, and 17 serial-wrapped invalid sign_event request vectors loaded from nSealr/specs revision c09474e."
   ],
   "expected_result": "The device returns valid responses for capability and development public-key requests, refuses sign_event with signing_disabled, and rejects invalid metadata plus invalid sign_event request vectors with deterministic unsupported_request error frames.",
   "observed_result": "The device returned 25 protocol frames: six valid static/dynamic response frames and 19 unsupported_request error frames. The error frames covered two invalid metadata vectors and 17 serial-wrapped invalid sign_event request vectors. No parser exception, malformed_frame response, or real signing output was observed.",

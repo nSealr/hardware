@@ -14,14 +14,14 @@
     "tested_state": "get_signing_status reports development_accepted_gates separately from production missing_gates",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "f5753e2",
   "specs_commit": "4324165",
   "smoke_tool_commit": "f5753e2",
   "procedure": [
     "Updated the shared get_signing_status contract to include development_accepted_gates alongside missing_gates.",
     "Updated ESP32 host-core signing-status diagnostics to expose development evidence for parser limits, trusted-review display, physical approval controls, and approval-digest binding while preserving signing_disabled behavior.",
-    "Ran NostrSeal/specs make ci, NostrSeal/companion make ci, and NostrSeal/esp32 make ci before flashing.",
+    "Ran nSealr/specs make ci, nSealr/companion make ci, and nSealr/esp32 make ci before flashing.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
     "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
     "Built app version f5753e2 with make idf-build.",

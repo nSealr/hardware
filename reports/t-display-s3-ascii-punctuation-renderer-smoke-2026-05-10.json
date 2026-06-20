@@ -14,14 +14,14 @@
     "tested_state": "host-core review renderer keeps supported printable ASCII punctuation readable while firmware keeps signing disabled",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "571cc48",
   "specs_commit": "c608150",
   "smoke_tool_commit": "571cc48",
   "procedure": [
     "Added host-core regression coverage proving supported printable ASCII punctuation is not expanded into U+XXXX fallback text.",
     "Added host-buildable raster coverage for a concrete punctuation glyph used by the ESP-IDF display path.",
-    "Ran NostrSeal/esp32 make ci before flashing.",
+    "Ran nSealr/esp32 make ci before flashing.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
     "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
     "Built clean app version 571cc48 with make idf-build.",

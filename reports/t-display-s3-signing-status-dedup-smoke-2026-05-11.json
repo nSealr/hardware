@@ -12,11 +12,11 @@
     "tested_state": "rebuilt and reflashed after host-core signing-status gate de-duplication",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "311368a",
   "esp_idf_version": "v5.5.4",
   "procedure": [
-    "Ran NostrSeal/esp32 make ci, including the host-core signing-policy test that de-duplicates development_accepted_gates.",
+    "Ran nSealr/esp32 make ci, including the host-core signing-policy test that de-duplicates development_accepted_gates.",
     "Sourced /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell used for build, flash, and smoke.",
     "Verified idf.py resolved under /Users/vincenzo/esp/esp-idf-v5.5.4/tools and reported ESP-IDF v5.5.4.",
     "Verified /dev/cu.usbmodem1101 was present before flashing.",

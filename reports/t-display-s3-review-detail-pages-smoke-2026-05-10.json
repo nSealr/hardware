@@ -14,12 +14,12 @@
     "tested_state": "firmware image includes shared review-detail-page consumption and keeps signing disabled",
     "touch_approval_allowed": false
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "c5f60b2",
   "specs_commit": "61d5e0b",
   "smoke_tool_commit": "c5f60b2",
   "procedure": [
-    "Ran NostrSeal/esp32 make ci after the review-detail-page vector consumption work and display-status documentation cleanup.",
+    "Ran nSealr/esp32 make ci after the review-detail-page vector consumption work and display-status documentation cleanup.",
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for build, flash, and smoke.",
     "Verified idf.py and esptool.py paths and confirmed idf.py --version reported ESP-IDF v5.5.4.",
     "Built app version c5f60b2 with make idf-build.",

@@ -14,7 +14,7 @@
     "flash_size": "16MB",
     "psram": "8MB"
   },
-  "source_repo": "NostrSeal/esp32",
+  "source_repo": "nSealr/esp32",
   "firmware_commit": "f307b41",
   "specs_commit": "e60d36f",
   "smoke_tool_commit": "f307b41",
@@ -22,11 +22,11 @@
     "Exported ESP-IDF v5.5.4 from /Users/vincenzo/esp/esp-idf-v5.5.4/export.sh in the same shell invocation used for each ESP-IDF command.",
     "Verified idf.py resolved to /Users/vincenzo/esp/esp-idf-v5.5.4/tools/idf.py and esptool.py resolved to /Users/vincenzo/.espressif/python_env/idf5.5_py3.9_env/bin/esptool.py.",
     "Verified the attached ESP32-S3 serial device was /dev/cu.usbmodem1101.",
-    "Ran make idf-build from NostrSeal/esp32.",
+    "Ran make idf-build from nSealr/esp32.",
     "Observed the first protocol smoke timeout, then captured boot logs showing Checksum failed and Factory app partition is not bootable.",
-    "Ran idf.py -p /dev/cu.usbmodem1101 flash from NostrSeal/esp32/firmware/esp32_s3_usb_signer.",
+    "Ran idf.py -p /dev/cu.usbmodem1101 flash from nSealr/esp32/firmware/esp32_s3_usb_signer.",
     "Verified esptool wrote bootloader, app, and partition-table images and reported Hash of data verified for each image.",
-    "Ran make IDF_PORT=/dev/cu.usbmodem1101 idf-smoke-capabilities from NostrSeal/esp32 after the reflash."
+    "Ran make IDF_PORT=/dev/cu.usbmodem1101 idf-smoke-capabilities from nSealr/esp32 after the reflash."
   ],
   "expected_result": "The firmware builds, reflashes cleanly after a non-bootable app partition, answers capability and development public-key requests, refuses sign_event with signing_disabled, and rejects invalid metadata plus shared invalid signing-request vectors with deterministic unsupported_request error frames.",
   "observed_result": "ESP-IDF v5.5.4 built app version f307b41 with binary size 0x7ab70 and 0x85490 bytes free in the app partition. Before reflash, the board emitted repeated bootloader logs with Checksum failed and Factory app partition is not bootable. Reflashing with esptool detected ESP32-S3 QFN56 revision v0.2 with native USB-Serial/JTAG and MAC ec:da:3b:95:32:98, wrote bootloader, app, and partition table images, and verified hashes. The post-reflash smoke returned valid static and dynamic capability/public-key frames, static and dynamic signing_disabled sign_event responses, and deterministic unsupported_request error frames for invalid dynamic metadata and serial-wrapped invalid signing-request vectors.",
