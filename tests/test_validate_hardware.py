@@ -791,6 +791,8 @@ class HardwareValidationTests(unittest.TestCase):
             "side_buttons",
             "expansion",
             "manufacturing_test",
+            "status_led_rgb",
+            "current_sense",
         }
         self.assertEqual(set(value["required_buses"]), required_bus_names)
         self.assertIn("TROPIC_SPI_SCK", value["required_buses"]["tropic01_spi"])

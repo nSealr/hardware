@@ -1304,12 +1304,32 @@
       "reason": "Expansion SPI pins are intentionally not assigned until conflict analysis with NFC/display/TROPIC buses is complete.",
       "review_status": "explicitly_unbound"
     },
+    "LED_B": {
+      "reason": "RGB status LED cathode (status_led_rgb bus, added 2026-06-15); MCU GPIO assignment is datasheet-pending per netlist-contract notes (no LLM-invented pins) and must be bound after manual STM32U5 pinmux review.",
+      "review_status": "explicitly_unbound"
+    },
+    "LED_G": {
+      "reason": "RGB status LED cathode (status_led_rgb bus, added 2026-06-15); MCU GPIO assignment is datasheet-pending per netlist-contract notes (no LLM-invented pins) and must be bound after manual STM32U5 pinmux review.",
+      "review_status": "explicitly_unbound"
+    },
+    "LED_R": {
+      "reason": "RGB status LED cathode (status_led_rgb bus, added 2026-06-15); MCU GPIO assignment is datasheet-pending per netlist-contract notes (no LLM-invented pins) and must be bound after manual STM32U5 pinmux review. LED_R reuses the former single status-LED pin.",
+      "review_status": "explicitly_unbound"
+    },
     "NFC_ANT1": {
       "reason": "Antenna FPC and matching network must be tuned with final mechanics and enclosure.",
       "review_status": "explicitly_unbound"
     },
     "NFC_ANT2": {
       "reason": "Antenna FPC and matching network must be tuned with final mechanics and enclosure.",
+      "review_status": "explicitly_unbound"
+    },
+    "NFC_VCC": {
+      "reason": "Pre-jumper rail of the RJ2 0R current-sense jumper (current_sense bus, added 2026-06-15); pending schematic wiring to RJ2 and the NFC load-switch input before routing.",
+      "review_status": "explicitly_unbound"
+    },
+    "SYS_PWR_IN": {
+      "reason": "RGB status LED common-anode rail (status_led_rgb bus, added 2026-06-15); pending schematic wiring of the LED anode to the power path before routing.",
       "review_status": "explicitly_unbound"
     },
     "TP_3V3": {
@@ -1346,6 +1366,10 @@
     },
     "TP_VBUS": {
       "reason": "Requires final schematic symbol, footprint, or production test binding before routing.",
+      "review_status": "explicitly_unbound"
+    },
+    "TROPIC_VCC": {
+      "reason": "Pre-jumper rail of the RJ1 0R current-sense jumper (current_sense bus, added 2026-06-15); pending schematic wiring to RJ1 and the TROPIC01 load-switch input before routing.",
       "review_status": "explicitly_unbound"
     }
   },
