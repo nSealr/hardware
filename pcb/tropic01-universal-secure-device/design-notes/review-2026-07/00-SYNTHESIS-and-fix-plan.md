@@ -54,6 +54,30 @@ is really made" and what turns this draft into a buildable design.
 
 ## 2. Two gating product decisions (user's call — everything downstream depends on them)
 
+> **DECIDED 2026-07-03:**
+> - **D1 = Option B** — shrink to **H = 36.8 mm**, 250 mAh EEMB LP502030, shift J9 right to ≈x46.5.
+> - **D2 = FPC antenna** (revised from on-board after a verified density check). The
+>   NFC **loop moves to a back-cover FPC** (Trezor-style, Ø≈30 mm, L≥1 µH); the
+>   **matching/EMC/RX network stays on the main board** at U9; `NFC_ANT1/2` go to a
+>   board-to-board connector / solder-pad pair. Rationale: on-board loop + 36.8 mm +
+>   the ~40 added parts hits **~98 % F.Cu courtyard utilization (not routable)** —
+>   independently confirmed (bbox proxy: 83 %→90 % @39.8, 90 %→98 % @36.8; and U1 alone
+>   is 17.5 mm of an 18.8 mm vertical window). FPC drops this to ~79 % AND gives the more
+>   reliable antenna (decoupled from planes/battery/display). This frees the top strip and
+>   lets J9 return toward the top edge.
+
+### Trezor Safe 7 cross-check deltas (SHOULD-ADOPT, from the reference report)
+- Backlight: Trezor uses a boost on a **series** LED string (correct); ours drives 4
+  **parallel** cathodes (wrong) → confirms C3. Use a 4-sink/charge-pump driver.
+- 47 kΩ pull-up on the TROPIC SPI (Trezor on MISO/SDO; DS/devboard on CSN) → clean idle
+  0xFF for libtropic. Add per the datasheet.
+- Antenna on FPC Ø≈30 mm, L≥1 µH, 2 Ω damping, EMC 270 nH/680 pF, 27.12 MHz CL=8 pF +
+  2×10 pF — matches the NFC report values.
+- VBUS TVS (Trezor 2×TPD1E10B06); battery **NTC/JEITA** (we lack a thermistor); optional
+  **TAMP** to the STM32 tamper pin + **LSE 32.768 kHz** for secure timestamping.
+- Where we are cleaner: STM32 per-pin decoupling; single TPS22917 load-switch islands vs
+  Trezor's P-FET+NMOS+supervisor; simpler USB-only power tree (no PMIC/Qi).
+
 ### D1 — Battery capacity vs board height
 | Option | Board H | Battery zone | Real cell | Capacity | Cost |
 |---|---|---|---|---|---|
