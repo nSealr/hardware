@@ -3,6 +3,8 @@
 Board: `/Users/vincenzo/Documents/GitHub/nSealr/hardware/pcb/tropic01-universal-secure-device/kicad/tropic01-universal-secure-device.kicad_pcb` (measured 2026-07-03).
 Evidence sources: STM32U575/585 DS13086 Rev 10 (local PDF), TROPIC01 datasheet ODD_TR01 rev A.11 (tropicsquare__tropic01 repo), TROPIC01 Mini Board TS1702 KiCad reference (tropicsquare__devboards), OPTIGA Trust M DS Rev 3.70 (local PDF), W25Q128JV DS (local PDF), TPS22917 DS (local text), Trezor Safe 7 rev D schematics (scratchpad clone).
 
+Re-verification pass 2026-07-03 (second reviewer): every net-membership, placement and datasheet claim below was independently re-derived from `padnets.json`/`pads.json`, the extracted DS texts, the TROPIC01 Fig 24 page image, the TS1702 netlist XML and OPTIGA DS pp.15-17. Distances quoted as "pad-to-pad" were recomputed; all reproduce within 0.5 mm. **Two findings from the first pass were corrected:** the TROPIC01 47k pull-up is on **SDO/MISO, not CSN** (Section 3), and the OPTIGA PG-USON-10-2 package **does have an exposed pad** (Section 4).
+
 ---
 
 ## 0. Cross-cutting process finding (affects everything below)
@@ -46,8 +48,8 @@ Measured per-pin nearest decoupler (pad-center to cap-center, from pads.json):
 - BOM must eventually capture the VCAP ESR/voltage spec (blocked by finding 0).
 
 ### 1.3 HSE 16MHz (X1 @ (14,54)) — BROKEN as placed
-- PH0/PH1 = pins 12/13, pads at (20.325, 49.5/50.0). X1 pad-to-pin distance ≈ **7.5-7.8mm** — tolerable per AN2867 but not good.
-- Load caps: C18 @ (14,47.5) is **6.5mm** from X1; C19 @ (26.5,59.5) is **13.7mm** from X1 (it sits in the U1 bottom decoupling row between C54 and R3 — clearly a stray placement). Load caps must sit immediately at the crystal pads with a tight ground loop (AN2867 §layout guidelines; DS §5.3.9 HSE requires CL per crystal spec).
+- PH0/PH1 = pins 12/13, pads at (20.325, 49.5/50.0). X1 HSE pads (HSE_IN at (12.9,54.85), HSE_OUT at (15.1,53.15)) are **6.1-9.2mm** pad-to-pad from pins 12/13 — tolerable per AN2867 but not good.
+- Load caps: C18 @ (14,47.5) is **5.9mm** from the X1 HSE_IN pad; C19 @ (26.5,59.5) is **12.6mm** from X1 (it sits in the U1 bottom decoupling row between C54 and R3 — clearly a stray placement). Load caps must sit immediately at the crystal pads with a tight ground loop (AN2867 §layout guidelines; DS §5.3.9 HSE requires CL per crystal spec).
 - Values are the literal placeholder string **"HSE_LOAD"** and X1 has no MPN (value "16MHz", Crystal_SMD_3225). CL cannot be computed; the part cannot be bought.
 - **Action:** pick the crystal MPN (3225, 16MHz, CL typically 8-12pF, ESR ≤ 80Ω per AN2867 gm margin calc for STM32U5 HSE), compute C18/C19 = 2(CL − Cstray) ≈ 2×(CL−~3pF), move C18/C19 adjacent to X1, and ideally shift X1 ~2mm right toward pins 12/13. Keep GND guard and no signals under the crystal.
 
@@ -85,8 +87,9 @@ Two pinmux issues:
 Reference: TROPIC01 DS rev A.11 §3 (pinout), §11 Figure 24 "Typical application schematic" (p.63); TS1702 Mini Board KiCad; Trezor Safe 7 rev D sheet 11 (TS7_SE_Tropic).
 
 - **Pinout/tie-off audit vs DS Table 1 + Fig 24: PERFECT match.** VCC = 1/11/22*/24 (*22 is NU-PULLUP tied to VCC exactly as Fig 24 draws), GND = 2/12/23/EP33 + NU-PULLDN pins 3/9/10/30/31 tied to GND as in Fig 24, 13-21/25-29/32 left NC as DNC/NC. SDI/SDO/SCK/CSN = 5/6/7/8 to SPI1 ✓, GPO pin 4 → PB2 (pin 37) — Fig 24 marks this optional "MCU_IRQ" wiring ✓ (useful: TROPIC01 GPO-polling fallback is in the BOM notes).
-- **MISSING: the 47k CSN pull-up.** Fig 24 explicitly includes R1 47k from CSN (pin 8) to VCC; the TS1702 devboard carries the same R1 47k 0402; Trezor Safe 7 uses 47k (R35/R36) in its TROPIC block. Net `TROPIC_SPI_CSN` on this board connects only U2.8 ↔ U1.29. During MCU reset/boot/低-power (PA4 Hi-Z) with TROPIC_VCC gated ON, CSN floats over a 41k internal pull-up-less input (TROPIC01 IO leakage ±10µA, DS §9.5) → spurious SPI selects possible on a *secure element*. **Action: add 47k from TROPIC_SPI_CSN to TROPIC_VCC (the switched rail, NOT SYS_3V3, to avoid back-powering the IO while the rail is gated off — TROPIC01 abs max on IO = 3.6V and unpowered-IO bias is not specified).**
-- **Decoupling count OK (3×100nF = DS Fig 24 C1/C2/C3), distribution not.** Measured: C3 → pin24 1.57mm ✓, C5 → pin22 2.12mm ✓, but **pin 1 (pad 24.744,62.05) nearest cap is 5.46mm and pin 11 (21.394,63.4) is 4.25mm** — all three caps are clustered on the south side while the rot -90 QFN has VCC pins on three sides. Redistribute: keep C3 at pin 24, move C5 to the west side for pin 11, move C4 to the north-east for pin 1.
+- **MISSING: the 47k SDO/MISO pull-up (CORRECTED — first pass wrongly said CSN).** DS Fig 24 (p.63) draws R1 47k from the **SDO line (pin 6, MCU_SPI_MISO)** to VCC — the junction dot is on the SDO row, verified on the page image. The TS1702 Mini Board netlist confirms it: R1 47k nodes are `IC1.6 (SDO)` ↔ net `/SPI_MISO` and `IC1.24 (VCC)` (ts1702.xml, nets 3 and 7). Functional reason: TROPIC01 tristates SDO when it has nothing to send, and the host L1 protocol interprets **0xFF as "chip has no response / busy"** (`libtropic/src/lt_l1.c:102` — "0xFF received in second byte means that chip has no response to send"); without the pull-up the MCU reads noise instead of a clean 0xFF and L1 polling misbehaves. Net `TROPIC_SPI_MISO` on this board connects only U2.6 ↔ U1.31 — no pull resistor anywhere on the TROPIC SPI. **Action: add 47k from TROPIC_SPI_MISO to TROPIC_VCC (the switched rail, NOT SYS_3V3, so the IO is not back-biased while U4 gates the rail off — TROPIC01 abs max on IO = 3.6V and unpowered-IO bias is not specified).** The STM32 SPI1 MISO input can also enable an internal weak pull-up, but the reference design treats the discrete 47k as required; follow it.
+- *Optional hardening (not in the official reference):* a CSN pull-up to TROPIC_VCC would additionally keep the SE deselected while PA4 is Hi-Z during MCU reset/boot. `TROPIC_SPI_CSN` today connects only U2.8 ↔ U1.29. Cheap insurance on a secure element; mark DNP if the FW team objects.
+- **Decoupling count OK (3×100nF = DS Fig 24 C1/C2/C3), distribution not.** Re-measured pad-to-pad: C3 → pin 24 1.57mm ✓, C3 → pin 22 1.65mm ✓, but **pin 1 (pad 24.744,62.05) nearest TROPIC_VCC cap is 5.45mm and pin 11 (21.394,63.4) is 4.15mm (C5)** — all three caps are clustered on the south side while the rot -90 QFN has VCC pins on three sides. Redistribute: keep C3 at pin 24, move C5 to the west side for pin 11, move C4 to the north-east for pin 1.
 - **Bulk:** DS Fig 24 shows none, but Trezor Safe 7 adds 4.7µF (C104) beside its 3×100nF, and this design power-cycles U2 through U4. Recommend 2.2-4.7µF on TROPIC_VCC near U2 (inrush is managed by the TPS22917 slew).
 - **Power-gate chain verified correct:** U4 TPS22917 VIN=SYS_3V3, ON=TROPIC_PWR_EN(PB0) with R5 47k pulldown (default-off ✓), CT: C6 1nF **CT→VIN** — this is the correct topology per TPS22917 DS §9.3.2 ("A capacitor to VIN on the CT pin sets the slew rate"), not CT→GND. RJ1 0Ω current-measurement jumper TROPIC_VCC_SW→TROPIC_VCC ✓. Trezor uses the same concept (P-FET high-side + 47k).
 - Placement: CSN pad-to-pad U2↔U1 = **4.64mm** — excellent, no SI concern. 0.4mm-pitch QFN fanout needs 0.20mm pads / ~0.15mm traces / 0.1mm clearance — confirm against the PCBWay class chosen in the manifest (DFM reviewer's domain, flagging only).
@@ -100,9 +103,9 @@ Reference: OPTIGA Trust M DS Rev 3.70, Table 6 (p.17), §5, Figure 6 (p.15).
 - **Pinout matches Table 6 exactly:** 1=GND, 3=SDA, 8=SCL, 9=RST, 10=VCC, 2/4/5/6/7 NC left floating ("shall be left floating" ✓ board has them NC).
 - **RST (pin 9): "This pin has a weak internal pull-up resistor" (Table 6)** → direct drive from PB5 (pin 91) with no external pull-up is acceptable. Warm-reset timing t1 ≥ 10µs / reset-low ≤ 2500µs (Table 14) is firmware's job.
 - **Hibernate is a software feature** (CloseApplication / hibernate current <2.5µA table entry describes VCC=0 state; Appendix A covers an *optional* MOSFET VCC-cut circuit). Always-on SYS_3V3 supply is fine; no hardware change needed.
-- **MISSING local decoupling: no capacitor within 5.7mm of VCC pin 10 (pad 16.0,42.0).** Nearest SYS_3V3 caps: C58 (U1 pin-100's cap) 5.70mm, C50 6.04mm, C2 4.7µF 6.26mm. **Action: add 100nF at ~(16.5,40.8)** (free area between U11 and R6/R7).
+- **MISSING local decoupling: no capacitor within 5.2mm of VCC pin 10 (pad 16.0,42.0).** Nearest SYS_3V3 cap pads: C58 (U1 pin-100's cap) 5.24mm, C50 6.48mm, C2 4.7µF 6.67mm. **Action: add 100nF at ~(16.5,40.8)** (free area between U11 and R6/R7).
 - I2C pull-ups R6/R7 4.7k → SYS_3V3 ✓ good for 400kHz on this short bus (drop to ~2.2k only if 1MHz FM+ is wanted). Bus instance must be **I2C4** (see §1.7).
-- **Footprint proxy risk:** board uses `Microchip_USON-10-1EP_3x3mm_P0.5mm_EP1.6x1.6mm` with the EP netted to GND (U11 pad 11), but the Infineon **PG-USON-10-2 outline (DS Figure 6) shows no exposed pad** — 10 leads only, 2.5mm row span, 0.4mm lead length. An EP paste aperture under a part with no EP metal can float/skew the package at reflow. **Action:** replace with a true PG-USON-10-2 footprint or at least delete the EP pad/paste.
+- **Footprint EP (CORRECTED — first pass wrongly claimed the package has no exposed pad):** OPTIGA DS **Figure 7 (p.16) shows a central pad marked "n.c.\*" with footnote "\*Connect the exposed pad with the copper area in the PCB to improve thermal dissipation"**, and the Figure 8 backside view shows the pad metal. So the board's choice — `Microchip_USON-10-1EP_3x3mm_P0.5mm` proxy with the EP netted to GND (U11 pad 11) — is electrically safe (EP is internally n.c.) and thermally per DS advice. Remaining minor check: DS Figure 6 dimensions the pad ≈1.7±0.1mm tall; verify the proxy's EP/paste (1.8mm class) does not exceed the actual pad metal enough to cause paste squeeze-out, and match the 2.5mm lead row span before fab.
 
 ---
 
@@ -127,7 +130,7 @@ Reference: OPTIGA Trust M DS Rev 3.70, Table 6 (p.17), §5, Figure 6 (p.15).
 
 ## 7. Trezor Safe 7 cross-check (scratchpad/pcb-review/trezor-hardware, rev D, sheet TS7_SE_Tropic)
 
-Trezor wires a (newer-variant) TROPIC01 with: 3×100nF + 1×4.7µF on VCC; high-side P-FET power gating (Q4 CSD25501F3 + R36 47k) driven by PWR_EN; 47k resistor network on the SPI/GPO block; INT/GPO wired to the host; a dedicated 3V3 testpoint (TP9) at the SE. This independently corroborates: (a) power-cycling the SE is the intended integration pattern (our U4 TPS22917 ✓), (b) a bulk cap on the SE rail is good practice (we lack it), (c) 47k is the house value for the SE SPI pull network (we lack the CSN pull-up).
+Trezor wires a (newer-variant, 33-pin TPDI-capable) TROPIC01 with: 3×100nF (C101-C103) + 1×4.7µF (C104) on VCC; high-side P-FET power gating (Q4 CSD25501F3 + R36 47k on the gate) driven by PWR_EN; R35 47k in the SPI/GPO region (exact net not recoverable from the text-extracted sheet; the silicon variant differs from ODD_TR01 A.11); INT/GPO wired to the host; a dedicated 3V3 testpoint (TP9) at the SE. This independently corroborates: (a) power-cycling the SE is the intended integration pattern (our U4 TPS22917 ✓), (b) a bulk cap on the SE rail is good practice (we lack it), (c) 47k is the house value for SE pull resistors (we lack the reference-design MISO pull-up).
 
 ---
 
@@ -135,9 +138,9 @@ Trezor wires a (newer-variant) TROPIC01 with: 3×100nF + 1×4.7µF on VCC; high-
 
 1. Resolve HSE: crystal MPN + real C18/C19 values; move both caps to X1; nudge X1 toward pins 12/13. (CRITICAL — MCU won't run USB/accurate clocks reliably otherwise; value is literally a placeholder.)
 2. Add 100nF on NRST at pin 14 (DS Fig 38). (CRITICAL for robustness on a secure device.)
-3. Add 47k CSN→TROPIC_VCC pull-up (TROPIC01 DS Fig 24 / devboard / Trezor). (CRITICAL for SE integrity.)
+3. Add 47k MISO(SDO)→TROPIC_VCC pull-up (TROPIC01 DS Fig 24 R1 + TS1702 netlist; libtropic relies on 0xFF idle). Optionally also 47k on CSN as hardening. (CRITICAL for SE protocol reliability.)
 4. Back-annotate all passives into schematic sheets + full BOM; kill all placeholder values. (Blocks fab.)
-5. Add 100nF at OPTIGA VCC pin 10; fix USON-10 footprint EP.
+5. Add 100nF at OPTIGA VCC pin 10 (EP-to-GND is fine per DS Fig 7 note; only verify EP paste size).
 6. Add 100nF at W25Q128 VCC pin 8; pin the JVSIQ suffix in the BOM.
 7. Add VBAT_SENSE 100nF reservoir (ADC RAIN 248k ≫ 470Ω limit, Table 106).
 8. Add 2×1µF (VDDA, VREF+) + 1×10µF VDD bulk near U1 (DS Fig 24).
@@ -146,4 +149,4 @@ Trezor wires a (newer-variant) TROPIC01 with: 3×100nF + 1×4.7µF on VCC; high-
 11. Move U7 ESD inline between J1 and R3/R4 (~(33.5,63)); consider 0Ω for R3/R4 per AN4879.
 12. Redistribute TROPIC01 100nF caps one-per-VCC-pin; add 2.2-4.7µF bulk on TROPIC_VCC; wire PB3→J7.6 (SWO).
 
-Verified-good (no action): U1 per-pin 100nF plan and VCAP 4.7µF@1.9mm; BOOT0 strap; all peripheral pinmux assignments; TROPIC01 pin tie-offs and TPS22917 gate topology (CT cap to VIN is correct per TI DS §9.3.2); OPTIGA pinout/RST/hibernate handling; W25Q...JVSIQ QE=1 quad wiring; TC2030 pinout; SPI1↔TROPIC 4.6mm; OCTOSPI 12mm.
+Verified-good (no action): U1 per-pin 100nF plan (all ≤2.1mm pad-to-pad) and VCAP 4.7µF@1.8mm; BOOT0 strap; all peripheral pinmux assignments; TROPIC01 pin tie-offs incl. pins 30/31→GND and 22→VCC (Fig 24 match) and TPS22917 gate topology (C6 1nF CT→SYS_3V3=VIN, correct per TI DS pin table "Connect capacitor from this pin to VIN"); OPTIGA pinout/RST (internal weak pull-up, Table 6)/hibernate handling and EP-to-GND; W25Q128JVSIQ QE=1 quad wiring (DS §7.1.4: QE factory-fixed 1 for IQ/JQ); TC2030 pinout; SPI1↔TROPIC 4.64mm; OCTOSPI CLK 12.1mm.
