@@ -11,6 +11,28 @@ a 2.4" IPS touch display, USB-C, a single LiPo, one side button. It is the lower
 half of a device that sits behind the display; the battery fills the upper half;
 the NFC antenna is a back-cover flex.
 
+> **Design principle — standalone board, standard add-ons (governs every external
+> interface).** The board is a **standalone product, sellable bare** (no display, no
+> battery, no NFC antenna). The buyer composes the device with **standard, easy-to-source,
+> non-exotic off-the-shelf parts**: an ordinary SPI/FFC display, a common single-cell
+> LiPo with a **standard pluggable connector** (NOT solder tabs — the battery must be a
+> swappable standard part), a standard NFC antenna via a standard feed connector. The
+> enclosure is 3D-printable (or PCBWay). **Consequence:** every external connector
+> (display FFC, **battery**, NFC feed, USB-C) must be a canonical, distributor-stocked
+> part — this is why the battery connector choice (§1) matters and why solder tabs are
+> rejected despite being thinner.
+>
+> **Verified — the goal is achievable with 3 connector swaps to standard parts:**
+> (a) battery **J9 JST-PH → JST-SH `SM02B-SRSS-TB`** (2.0 mm PH is intrinsically ~6 mm
+> tall; SH is ~2.9 mm → device ~11 mm, clears the MH4 collision, 1 A, same family as J6);
+> (b) NFC feed **BM28 0.35 mm → a standard 1.0 mm 4-pin FFC** (the BM28 is fine-pitch /
+> N2-reflow / not hand-assemblable = borderline-exotic); (c) display **FH12-50S →
+> FH12A-50S-0.5SH(55)** (already fix C1/C2 — a commodity Hirose part). Everything else is
+> standard/buyable (USB-C, Qwiic J6, TC2030, button, ST25R3916B). **Two things are
+> intrinsically product-supplied, not buyer-sourced:** the **VNA-tuned NFC antenna flex**
+> (custom, must ship with the product) and the **exact display model** (ordinary ST7789
+> class, but the 50-pin FFC module is single-vendor BuyDisplay — document the model+pinout).
+
 > **Status (honest):** the board is **fully designed and specified** but **not yet
 > fab-ready**. Three steps remain, all needing tools/hardware this record cannot
 > substitute: (1) **place + route** in the KiCad GUI (push-and-shove — headless
@@ -56,12 +78,17 @@ behind the display), NOT the battery column (cell 5.3 + ferrite 0.5 + FPC 0.2 =
 6.0 mm) — the two sides are independent in-plane columns and **need not be equal
 thickness** (the flat case-back tracks the taller, J9).
 
-⚠️ **J9 (the tall JST-PH) is the single limiting part** and it drives a HIGH-LEVERAGE
-decision: it inflates the device ~2.5–3.5 mm, **collides with MH4** when shifted right
-for the 32 mm cell (body reaches x50.5; MH4 clearance starts x49.3), **and** caps the
-cell length. **Strongly recommended: replace J9 with battery solder tabs / a
-low-profile pad pair** → device **~11 mm**, a **~340 mAh** cell fits, and the J9↔MH4
-collision clears — one change fixes thickness + capacity + the top-edge collision.
+⚠️ **J9 (the vertical JST-PH) is the single limiting part** and it drives a
+HIGH-LEVERAGE decision: it is ~6 mm tall (→ the tallest part → device ~13.5 mm), it
+**collides with MH4** when shifted right for the 32 mm cell (body reaches x50.5; MH4
+clearance starts x49.3), **and** caps the cell length. Per the standalone-board principle the fix must keep a **standard pluggable
+connector** (NOT solder tabs). *(The current S2B-PH-SM4-TB is already side-entry — the 2.0 mm
+PH family is just intrinsically ~6 mm tall.)* **→ Swap J9 to JST-SH `SM02B-SRSS-TB`**
+(1.0 mm, 2-pin, side-entry SMT, **~2.9 mm tall, 1 A**, same family as J6): device drops to
+**~11 mm** (SH is no longer the tallest part — USB-C/button ~3.5 mm dominate), the J9↔MH4
+collision clears (~0.6 mm gap with the 32 mm cell), still a standard pluggable connector.
+**Caveat:** most cells ship a JST-PH 2.0 pigtail; SH is the wearable/FPV standard → order
+the LP502030 with an SH pigtail (a standard crimp option) or supply a PH→SH adapter.
 
 **Top edge — three connectors across 42.72 mm:** J6 expansion (x≈19) · **J-ANT**
 NFC-FPC feed (BM28 BTB, top-center x≈32, see §3) · J9 battery (right). ⚠️ With a
@@ -106,11 +133,14 @@ NFC over its battery this way). Three concrete requirements from verification:
    loop. Würth **WE-FSFS** 364-material, ≥0.1–0.3 mm, sized > loop +1 mm. Expect La
    +10–30 % and some Q loss; **a first-article read-range test (not just VNA) is
    required** — this is the one antenna risk (over-cell vs Trezor's over-cover).
-3. **Feed connector:** Hirose **BM28** 0.35 mm-pitch mezzanine BTB (Trezor's part:
-   FPC `BM28B0.6-6DP/2-0.35V`, board `…-6DS…`). NOT a JST/wire (adds series L,
-   asymmetry). Keep the post-match differential feed **< 8 mm** → **move U9 + the
-   matching network up toward top-center** (as drawn U9 is ~14 mm below J-ANT — the
-   feed is too long). Void all 4 copper layers under the feed and loop.
+3. **Feed connector J-ANT:** use a **standard 1.0 mm 4-pin FFC** (differential feed on
+   the middle 2 pins, GND on the outer 2 — the scheme off-the-shelf NFC flexes use).
+   *(NOT the Hirose BM28 0.35 mm mezzanine that Trezor uses — verified borderline-exotic:
+   fine-pitch, nitrogen-reflow, needs an FPC stiffener, not hand-assemblable. A standard
+   1.0 mm FFC keeps the standalone-board principle. A 2-pin BTB is the alternative.)* Keep
+   the post-match differential feed **< 8 mm** → **move U9 + the matching network up toward
+   top-center** (as drawn U9 is ~14 mm below J-ANT — the feed is too long). Void all 4
+   copper layers under the feed and loop.
 4. **Matching for a 1 µH FPC loop (NOT the on-board-strip numbers):** use Trezor's
    published values — **Lemc 270 nH, Cemc 680 pF, Cs ≈ 150 pF/leg, Cp ≈ 70 pF diff,
    Rdamp ≈ 2 Ω, Cr ≈ 180 pF, Cd ≈ 680 pF**. (The 370 nH strip's Cs 180/Cp 240 pF do
