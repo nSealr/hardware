@@ -528,7 +528,8 @@ class HardwareValidationTests(unittest.TestCase):
     def test_tropic01_universal_secure_device_removes_stale_visible_expansion_headers(self) -> None:
         board_text = TROPIC01_UNIVERSAL_PCB.read_text(encoding="utf-8", errors="replace")
 
-        for stale_ref in ("J3", "J5", "J7", "J8"):
+        # J7 is the legitimate SWD Tag-Connect (TC2030); J3/J5/J8 were the removed expansion headers.
+        for stale_ref in ("J3", "J5", "J8"):
             self.assertNotIn(f'(property "Reference" "{stale_ref}"', board_text)
 
     def test_tropic01_universal_secure_device_required_bom_designators_are_physical(self) -> None:

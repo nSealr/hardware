@@ -34,7 +34,7 @@ Place at the pin (coordinates in `placement-refloorplan.md §3e`).
 ## 2. Pull-ups / pull-downs / straps (report: mcu §3, power §P10/P11, nfc §5)
 | R | Connection |
 |---|---|
-| R_CSN 47 k | TROPIC_SPI_CSN → **TROPIC_VCC** (switched rail, not SYS_3V3) |
+| R_MISO 47 k | **TROPIC_SPI_MISO (SDO)** → TROPIC_VCC (switched rail) — verified vs devboard/Trezor: SDO is High-Z at idle, needs the pull-up for libtropic's 0xFF idle. **NOT on CSN** (earlier note was wrong). |
 | R_NFCen 100 k | NFC_PWR_EN → GND (TPS22917 U13 ON default-off) |
 | R_TFTen 100 k | TFT_PWR_EN → GND (TPS22917 U14 ON default-off) |
 | R_I2C 4.7 k ×2 | TOUCH_I2C_SCL → SYS_3V3, TOUCH_I2C_SDA → SYS_3V3 |
