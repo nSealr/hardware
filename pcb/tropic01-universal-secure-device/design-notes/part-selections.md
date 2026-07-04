@@ -44,15 +44,15 @@ The panel is 4 **parallel** LEDs (common anode LEDA, cathodes LEDK1–4, Vf≈3.
 | U15 (repl.) | **TI LP5024 / LM36011** class — *use* **Kinetic KTD2026** or **TI LM3697** ... | 4-sink WLED driver, I2C or PWM, from SYS_PWR_IN |
 | — chosen: | **TI LM3697** (dual-string) or **ON NCP5623** | recommend a simple **4×parallel sink**: tie the 4 cathodes, sink to one channel of a **TI TLC5947/LM36011** |
 
-> **Decision needed at R1:** simplest correct option = a single **constant-current
-> sink** (e.g. **TI LM36011** 1-ch, up to 28 mA — too low) is insufficient for 80 mA.
-> Use **AL8860** (buck LED driver, 1 A, PWM) from SYS_PWR_IN into the paralleled
-> cathodes with one sense resistor for 80 mA, OR a **RT9293/CAT4004** 4-ch sink.
-> **Selected: Diodes Inc AL8860** (buck, 4.5–40 V in, 1 A, PWM dim, SOT26) — from
-> SYS_PWR_IN, sets 80 mA via Rsense; simple, cheap, correct topology. Needs 1×
-> inductor (10 µH) + 1× diode + Rsense — but as a **buck** it regulates below Vin
-> (unlike the boost), so it works from 4.4 V down to ~3.4 V. Below 3.4 V (deep
-> battery) backlight dims gracefully. `TFT_BACKLIGHT_PWM` → CTRL/PWM pin.
+> ⚠️ **CORRECTION (verified 2026-07-04): AL8860 is WRONG — do not use.** Diodes AL8860
+> min VIN = **4.5 V** > SYS_PWR_IN's 4.4 V max (USB) and far above battery 2.9–4.2 V → it
+> would **never turn on**. (A buck also can't regulate a 3.2 V load once Vin < ~3.7 V.)
+> **Requirement:** drive 4 parallel Vf-3.2 V/80 mA strings from SYS_PWR_IN **2.9–4.4 V**,
+> PWM-dimmed. **Correct class = a low-Vin WLED driver with current sinks:** a
+> **charge-pump / buck-boost** WLED driver (constant brightness across the whole Li range),
+> or a **linear 4-channel current sink** accepting graceful dim below ~3.5 V. The exact
+> MPN needs its own selection + check (this is the one review fix that was mis-specified).
+> `TFT_BACKLIGHT_PWM` → the driver's PWM/CTRL pin.
 
 ## C. Added decoupling / support parts (from the H-series findings)
 
@@ -81,7 +81,7 @@ All 0402 unless noted; C0G for <10 nF, X5R/X7R for ≥100 nF; place at the pin.
 | 1 | 10 µF 0805 | VDD bulk @ U1 | mcu |
 | 1 | TVS 5 V | VBUS @ J1 (e.g. TPD1E10B06 / SMF5.0A) | H20/trezor |
 | 1 | 100–200 mA polyfuse | J6 Qwiic | H22 |
-| C6 | 6.8 µF | C6 1nF→**470 pF** (TROPIC ramp) | H15 (value change) |
+| C6 | **470 pF** | C6 1nF→470 pF (TROPIC VCC ramp ≤1 ms) | H15 (value change) |
 | R9 | ISET/ILIM | R9→**3.24 kΩ**, R10→per battery (**3.57 kΩ** for 250 mAh@1C), R12→**2.94 kΩ** | H4/H5 |
 
 ## D. NFC RF front-end parts to ADD (matching/RX network, from nfc §3)
@@ -115,5 +115,8 @@ turns/inductance set by first-article VNA tuning.
 
 ## Open sourcing note
 All selections are widely stocked and swappable for JLCPCB/PCBWay basic-parts
-equivalents at assembly time; the WLED driver (AL8860) and the FH12A connector are
-the two to confirm against the assembler's stock before ordering.
+equivalents at assembly time. **Two items still need a concrete pick + check before
+ordering: the WLED backlight driver (AL8860 was rejected — see the correction above;
+a low-Vin charge-pump/buck-boost or linear 4-sink is needed) and the low-profile
+battery connector (JST-SH SM02B-SRSS-TB per `standard-parts.md`).** The FH12A display
+connector and everything else are settled.
