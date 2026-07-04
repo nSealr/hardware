@@ -251,12 +251,16 @@ VIT6 is LDO-only → no SMPS inductor.)*
 - **`production/`** — machine contracts consumed by the repo validators
   (`netlist-contract.json`, `pinmux-ledger.json`, `schematic-binding.json`,
   `pcbway-manifest.json`) + **`bom/pcbway-bom-complete.csv`** (the real BOM).
-- **`design-notes/`** — the detailed 2026-07 review evidence (datasheet-cited backing
-  for every claim above). This README is the authority; those are the depth.
+- **`docs/`** — the **project design documents**, one per subsystem (`mechanical.md`,
+  `power.md`, `mcu-and-secure-elements.md`, `nfc.md`, `placement.md`, `connectivity.md`,
+  `parts-and-bom.md`, `fabrication-dfm.md`, `open-decisions.md`, `verification.md`,
+  `reference-trezor-safe7.md`, `board-measurements.json`). This README is the overview;
+  these are the per-subsystem detail. **This is the project record, not a dated review.**
 
 ## 7. The finish (the three gates)
-1. **Schematic + placement + route** in KiCad GUI, from §2–4 + the connectivity in
-   `design-notes/` — density ~79 % is routable; final routing is push-and-shove.
+1. **Schematic + placement + route** in KiCad GUI, from §2–4 + `docs/placement.md`
+   (per-component position/rotation) + `docs/connectivity.md` — density ~79 % is
+   routable; final routing is push-and-shove.
 2. **Draw the antenna FPC** (§3, G1) as its own flex.
 3. **Build a first article → tune the antenna on a VNA + read-range test** (§3, G2),
    then freeze the `tuning_required` values. Order params: 4-layer / 1.6 mm / ENIG /
