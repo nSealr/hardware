@@ -1,0 +1,25 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "956caf14-ebbf-4436-9d91-bc6474fcdb3e")
+	(paper "A4")
+	(lib_symbols)
+	(text "HOST subsystem  --  structure only (symbols with verified pin numbers land in Tasks 03/04)\n\n- U1: ESP32-S3-WROOM-1-N16R8 host MCU (16 MB flash / 8 MB PSRAM)\n- Strapping pins pinned to a defined boot state (GPIO0 / GPIO3 / GPIO45 / GPIO46)\n- SW1: on-board physical CONFIRM button (physical approve/reject consent)\n- eFuse config note (NOT a placed part): Secure Boot v2 + Flash Encryption enabled at\n  provisioning; JTAG / debug interface locked\n- Rust firmware signs secp256k1 ECDSA + BIP-340 Schnorr (the SE is an encrypted vault, NOT the signer)\n- BLE silicon present in the WROOM module but DISABLED by default (never in a high-assurance\n  profile); WiFi is never used; there is no wireless update path"
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "fd94a6c7-3740-4328-8ea7-5e024fe69e26")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

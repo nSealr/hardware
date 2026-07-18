@@ -1,0 +1,25 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "6040e1f7-db83-489e-a74c-cb1d13736584")
+	(paper "A4")
+	(lib_symbols)
+	(text "EXPANSION subsystem  --  structure only (symbols with verified pin numbers land in Tasks 03/04)\n\n- J-EXP: gated SPI / I2C / GPIO 0.1in header  --  DEFAULT-OFF (isolation / enable gate)\n- J6: Qwiic / STEMMA-QT JST-SH 4-pin I2C port (SM04B-SRSS-TB)  --  also gated DEFAULT-OFF\n- Keeps the board a general open SE maker platform (Bitcoin / Nostr / SSH / PGP / FIDO / generic)\n- Both ports are off by default; enabling either is an explicit opt-in"
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "0d10b33e-b512-4820-8a3e-8d8fdd932d5d")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

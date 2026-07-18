@@ -1,0 +1,25 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "a6327c00-7103-44e3-a1aa-207b4421be69")
+	(paper "A4")
+	(lib_symbols)
+	(text "POWER / USB subsystem  --  structure only (symbols with verified pin numbers land in Tasks 03/04)\n\n- J-USB: USB-C receptacle GCT USB4105-GF-A  --  primary power AND the only signing transport in v1\n- ESD protection array on the USB data pair + VBUS\n- U4: 3.3 V LDO (system rail)\n- J5: MX1.25 2-pin LiPo connector (Waveshare convention; battery user-supplied / optional)\n- U5: BQ24074 power-path charger (seamless USB / battery hand-off)\n- U6: MAX17048 fuel gauge on I2C, downstream of the LDO\n- Satisfies the battery_option_power_path release gate"
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "aafa0fba-40dd-488e-bbf6-32e4c1b75b29")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,25 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "3b41c781-9e60-4e39-a00a-e6196f544288")
+	(paper "A4")
+	(lib_symbols)
+	(text "DISPLAY subsystem  --  structure only (symbols with verified pin numbers land in Tasks 03/04)\n\n- Display-agnostic: the MCU renders to an external 'dumb' SPI panel over an FPC connector (J-DISP)\n- Curated driver family: ST7789 / ST7789V2 / ST7796\n- Reference panel: Waveshare 1.69in ST7789V2, 240x280 (EXTERNAL, consigned  --  not a placed panel on this board)\n- Touch: CST816 capacitive touch on I2C (INT / RST); touch is NOT accepted as approve/reject consent\n- Two layout variants share this one schematic: A = core-behind-display + FPC, B = core-with-display"
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "ca21b763-07a3-4c6b-b89c-ded64616548f")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

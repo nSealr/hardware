@@ -1,0 +1,215 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "db11bd46-e693-401f-8d63-4e80b44c36b6")
+	(paper "A4")
+	(lib_symbols)
+	(text "custom-wallet-min  --  ROOT sheet (Phase 02: design-complete only; NO fabrication before Phase 10)\n\nHierarchical schematic, five subsystem sheets: host / secure_elements / display / power_usb / expansion.\nESP32-S3-WROOM-1-N16R8 host + TROPIC01 (mandatory open vault) + OPTIGA Trust M 2nd-vendor key-split SE;\ndisplay-agnostic external SPI panel over FPC; USB-C (only signing transport in v1); battery-operable\n(BQ24074 + MAX17048 + MX1.25); gated expansion header + gated Qwiic port. ALL-SMD; no JavaCard/socket,\nno ISO 7816, no NFC, no camera. The Rust firmware signs (SE-as-safe, no in-SE signing on this board)."
+		(exclude_from_sim no)
+		(at 15 12 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "f7674df9-b856-408f-81b9-f58435321920")
+	)
+	(sheet
+		(at 20 45)
+		(size 55 22)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "93365f6e-3f65-4ef9-8e86-0329316c5bf6")
+		(property "Sheetname" "host"
+			(at 20 44.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sheets/host.kicad_sch"
+			(at 20 67.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "custom-wallet-min"
+				(path "/db11bd46-e693-401f-8d63-4e80b44c36b6"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 90 45)
+		(size 55 22)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "eb22b440-f249-479c-b39f-3cdb704aafb4")
+		(property "Sheetname" "secure_elements"
+			(at 90 44.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sheets/secure_elements.kicad_sch"
+			(at 90 67.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "custom-wallet-min"
+				(path "/db11bd46-e693-401f-8d63-4e80b44c36b6"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 160 45)
+		(size 55 22)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ba9e200c-e6da-434f-9c0d-5800872f7ec6")
+		(property "Sheetname" "display"
+			(at 160 44.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sheets/display.kicad_sch"
+			(at 160 67.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "custom-wallet-min"
+				(path "/db11bd46-e693-401f-8d63-4e80b44c36b6"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20 90)
+		(size 55 22)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "9055580e-7b57-4c2d-b155-c1b543689d76")
+		(property "Sheetname" "power_usb"
+			(at 20 89.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sheets/power_usb.kicad_sch"
+			(at 20 112.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "custom-wallet-min"
+				(path "/db11bd46-e693-401f-8d63-4e80b44c36b6"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 90 90)
+		(size 55 22)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ae4918b5-3707-41da-b7fb-201c4b2f70ba")
+		(property "Sheetname" "expansion"
+			(at 90 89.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sheets/expansion.kicad_sch"
+			(at 90 112.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "custom-wallet-min"
+				(path "/db11bd46-e693-401f-8d63-4e80b44c36b6"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

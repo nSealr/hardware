@@ -1,0 +1,57 @@
+{
+  "board": {
+    "design_settings": {
+      "defaults": {},
+      "diff_pair_dimensions": [],
+      "drc_exclusions": [],
+      "rules": {},
+      "track_widths": [],
+      "via_dimensions": []
+    }
+  },
+  "boards": [],
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": []
+  },
+  "meta": {
+    "filename": "custom-wallet-min.kicad_pro",
+    "version": 1
+  },
+  "net_settings": {
+    "classes": [],
+    "meta": {
+      "version": 0
+    }
+  },
+  "pcbnew": {
+    "page_layout_descr_file": ""
+  },
+  "sheets": [
+    [
+      "db11bd46-e693-401f-8d63-4e80b44c36b6",
+      "1"
+    ],
+    [
+      "93365f6e-3f65-4ef9-8e86-0329316c5bf6",
+      "2"
+    ],
+    [
+      "eb22b440-f249-479c-b39f-3cdb704aafb4",
+      "3"
+    ],
+    [
+      "ba9e200c-e6da-434f-9c0d-5800872f7ec6",
+      "4"
+    ],
+    [
+      "9055580e-7b57-4c2d-b155-c1b543689d76",
+      "5"
+    ],
+    [
+      "ae4918b5-3707-41da-b7fb-201c4b2f70ba",
+      "6"
+    ]
+  ],
+  "text_variables": {}
+}

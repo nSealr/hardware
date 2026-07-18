@@ -1,0 +1,25 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "2eb40b52-bc6f-4581-ab15-939e08eb95dc")
+	(paper "A4")
+	(lib_symbols)
+	(text "SECURE ELEMENTS subsystem  --  structure only (symbols with verified pin numbers land in Tasks 03/04)\n\n- U2: TROPIC01 (TR01-C2P-T310)  --  MANDATORY open vault; SPI + host-controlled power-cycle (PWR_EN);\n  hardware PIN anti-bruteforce, TRNG/PUF, attestation, Ed25519 / P-256\n- U3: OPTIGA Trust M (I2C)  --  2nd-vendor SE POPULATED BY DEFAULT (Coldcard-style key-split); real BOM line\n- U3 alternate: ATECC608B (I2C) alternate footprint  --  DNP applies ONLY to this alternate, never to U3\n- Decryption key split MCU (XOR) SE(s); seed unwrapped into RAM only at sign time and wiped after\n- NO JavaCard socket, NO ISO 7816, NO SE051"
+		(exclude_from_sim no)
+		(at 20 20 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "e8b1b577-8903-4cb2-82e9-6849d9960b59")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
