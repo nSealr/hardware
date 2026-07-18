@@ -3,8 +3,16 @@
 Minimal custom hardware-wallet board (`custom_hardware_wallet`, decision spec §2 #5 + §3).
 This directory currently holds the **KiCad project skeleton only** — a hierarchical schematic split into
 five subsystem sheets, an empty-but-valid board file, and the project lib-tables. Component symbols with
-verified pin numbers and full wiring land in later Phase 02 tasks; the BOM, design notes, and
+verified pin numbers and full wiring land in later Phase 02 tasks; the design notes and
 `netlist-contract.json` follow after that.
+
+The two **layout-variant BOMs** are authored and validated:
+[`custom-wallet-min-core-behind-display.csv`](../../bom/custom-wallet-min-core-behind-display.csv)
+(variant **A** — core behind display + **FPC** connector `J3`, Hirose `FH12-18S-0.5SH(55)`) and
+[`custom-wallet-min-core-with-display.csv`](../../bom/custom-wallet-min-core-with-display.csv)
+(variant **B** — panel mounted directly, `J3` is a **board-to-board panel-tail** connector, Hirose
+`DF40C-18DP-0.4V(51)`). Both BOMs share **one electrical core** (one schematic + one firmware) and differ
+**only in the `J3` display-mount row**.
 
 ## Scope
 
