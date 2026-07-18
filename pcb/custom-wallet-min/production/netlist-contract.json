@@ -1,0 +1,92 @@
+{
+  "board": "custom-wallet-min",
+  "schema_version": 1,
+  "scope": "Phase 02 electrical-intent contract for the nSealr One platform board (mainstream SE-as-safe + firmware-signs). Logical buses and release gates only; it precedes schematic-driven ERC/DRC (Task 04) and fabrication/bring-up (Phase 10).",
+  "status": "pinmux_review_required",
+  "notes": [
+    "This file is an electrical-intent contract, not a routed netlist. It records logical buses and release gates only; physical MCU alternate-function pin numbers are bound in Task 04 against datasheets. No pin numbers are invented here (release gate: no_llm_invented_pin_numbers).",
+    "Assurance role (spec 2.1): mainstream Trezor/Coldcard tier — a hardened firmware signer with an SE-backed vault, key-split, and a trusted display. Above solution 4 (nSealr Key, no discrete SE), below solution 3 (nSealr Card, in-chip signing).",
+    "SE composition (spec 2.2, SE-as-safe not SE-as-signer): TROPIC01 (U2, TR01-C2P-T310) is the mandatory open/auditable encrypted seed vault — hardware PIN anti-bruteforce, TRNG/PUF, X25519 secure channel, attestation, and Ed25519/P-256 ECDSA for auxiliary SSH/FIDO2/age/attestation. A 2nd-vendor key-split SE is populated by default: OPTIGA Trust M (U3, SLS32AIA010MS) is the placed BOM line; ATECC608B is the alternate footprint and the DNP designation applies only to that alternate. A build populates exactly one 2nd-vendor SE, never both.",
+    "Firmware-signs model: Bitcoin/Nostr secp256k1 ECDSA + BIP-340 Schnorr are signed by the Rust firmware (k256 / rust-secp256k1) with deterministic-k (RFC 6979) + anti-klepto (sign-to-contract). The seed is unwrapped from the TROPIC01 vault into RAM only at sign time and wiped from RAM after signing; the vault decryption key is split MCU (xor) SE(s) (Coldcard model) so no single chip holds the plaintext seed at rest.",
+    "In-element signing (the 'all-signatures-in-SE' model) is an explicit non-goal on this board: the firmware signs. That in-chip gate is retained only on solution 3, the separate smartcard product (nSealr Card). This board must not introduce that gate.",
+    "Display-agnostic + two layout variants (spec 3): the MCU renders to an external 'dumb' SPI panel from the curated ST7789 / ST7789V2 / ST7796 driver family, with CST816 touch on I2C (touch is informational/UI only, never approve/reject consent). One schematic + one firmware; the two layout variants differ only in the J3 display-mount connector — variant A core-behind-display (FPC flat cable), variant B core-with-display (direct board-to-board panel-tail).",
+    "All-SMD turnkey: every placed part is SMD and turnkey-solderable; the only consigned item is the external display panel (release gate: all_smd_turnkey_sourcing).",
+    "Secure Boot v2 / Flash Encryption (spec 3.1): the ESP32-S3 host supports both; these are eFuse policy, not placed parts. Dev units ship eFuse-virgin (unlocked); secure mode is entered by an owner-run, Hub-guided provisioning flow that burns the eFuses (owner key or nSealr release key, irreversible), exercised in Phase 10. Genuine-check uses the TROPIC01 factory attestation cert chain verified locally (no phone-home).",
+    "Peripheral exclusions (stated here in non-triggering wording so this contract's forbidden-token grep stays clean; the plain-language exclusion list lives in docs/design-notes.md and the board README): this board places no near-field (13.56 MHz) radio interface, no optical / image-sensor input, and no contact smart-card socket or on-card applet path. The in-element-signing device is the separate smartcard product (solution 3).",
+    "Battery-operable (spec 3): an MX1.25 2-pin LiPo connector (J5, Waveshare convention; the cell is user-supplied/optional and is not a placed BOM row) feeds a BQ24074 power-path charger (U5, charges over USB-C, runs seamlessly on either source) with a MAX17048 fuel gauge (U6, I2C) and a 3.3 V LDO (U4) downstream. This is the r3 spec 3 design (MX1.25 + BQ24074 + MAX17048), not a legacy nPM1300 carry-over.",
+    "Connectivity policy (spec 3, 3.1): USB-C is the only signing transport in v1. BLE silicon is present in the WROOM module but disabled by default and out of scope for v1 — reserved as an explicitly-flagged, opt-in future feature for the battery use case, and never enabled in a high-assurance profile. WiFi is never used. No wireless update path exists on any nSealr device; ESP32 devices update via USB-DFU through the Hub, signature-verified with eFuse anti-rollback in secure mode.",
+    "TROPIC01 control is a host-driven power-cycle of its rail (tropic01_power_cycle_control), NOT a reset pin — carried over from the archived board: the part is recovered by a full power-cycle, not a reset line.",
+    "Maker ports are gated default-off: a 0.1\" SPI/I2C/GPIO expansion header (expansion_gated) and a Qwiic/STEMMA-QT JST-SH 4-pin I2C port (qwiic_i2c_gated, JST SM04B-SRSS-TB) are each isolated (series jumpers / load switch) unless deliberately enabled, so they add no attack surface when unused."
+  ],
+  "required_buses": {
+    "tropic01_spi": "SPI link (SCK/MOSI/MISO/CS) from the ESP32-S3 host to the TROPIC01 open vault (U2); host-controlled X25519 secure channel. Physical MCU pins bound in Task 04.",
+    "tropic01_power_cycle_control": "Host-driven power-cycle / enable of the TROPIC01 rail. This is a power-cycle control, NOT a reset pin (archived-board lesson): the vault is recovered by a full power-cycle.",
+    "secure_element2_keysplit": "I2C link to the 2nd-vendor key-split SE (U3), populated by default — OPTIGA Trust M placed; ATECC608B alternate footprint DNP. Vendor-diverse from TROPIC01; enables the MCU (xor) SE(s) decryption-key split.",
+    "display_spi": "SPI to the external 'dumb' display panel from the curated ST7789 / ST7789V2 / ST7796 driver family, over FPC (variant A) or direct board-to-board panel-tail (variant B) at J3.",
+    "touch_i2c": "I2C to the CST816 touch controller on the reference panel. Informational/UI only — touch is never accepted as approve/reject consent.",
+    "usb": "USB 2.0 device D+/D- on the native ESP32-S3 OTG PHY (via USB-C J1 + USBLC6-2SC6 ESD). The only signing transport in v1, and the field DFU path.",
+    "confirm_button": "GPIO to the on-board physical confirm/approve push-button (SW1). The trusted-consent input — distinct from the external touch panel.",
+    "expansion_gated": "Gated SPI/I2C/GPIO 0.1\" expansion header (J4), default-off: isolated via series jumpers (unpopulated) / load switch unless deliberately enabled.",
+    "battery_power_path": "MX1.25 2-pin LiPo connector (J5) -> BQ24074 power-path charger (U5) -> 3.3 V LDO (U4); seamless USB/battery operation. Battery cell user-supplied/optional (not a placed part).",
+    "fuel_gauge_i2c": "I2C link to the MAX17048 fuel gauge (U6), downstream of the LDO; ModelGauge state-of-charge reporting.",
+    "qwiic_i2c_gated": "Qwiic / STEMMA-QT JST-SH 4-pin I2C maker port (J6, JST SM04B-SRSS-TB), default-off: isolated unless deliberately enabled."
+  },
+  "gate_status_legend": {
+    "met": "Satisfied now by the committed design (BOM row / notes cited). A ratchet: not re-openable downward.",
+    "deferred": "Cannot be satisfied in this task; the target milestone is named per gate. Never pre-claimed — no number is asserted without an actual run."
+  },
+  "release_gates": {
+    "manual_datasheet_pinmux_review": {
+      "status": "deferred",
+      "target": "Task 04",
+      "note": "MCU alternate-function pin binding + datasheet review happens at schematic capture (Task 04). BOMs already pin datasheets/packages; the pinmux ledger is not yet authored."
+    },
+    "no_llm_invented_pin_numbers": {
+      "status": "met",
+      "note": "In force and honoured here: this contract is logical-intent (no physical pin numbers). Continuously enforced; finally verified when the schematic binds datasheet-backed pins in Task 04."
+    },
+    "kicad_erc_pass": {
+      "status": "deferred",
+      "target": "Task 04",
+      "erc_error_count": null,
+      "not_yet_run": true,
+      "note": "NOT claimed as passing. No wired schematic exists yet; ERC has not been run. Satisfied only in Task 04 when a wired schematic exists and ERC=0 is actually produced."
+    },
+    "kicad_drc_pass": {
+      "status": "deferred",
+      "target": "Task 04",
+      "drc_error_count": null,
+      "not_yet_run": true,
+      "note": "NOT claimed as passing. The board is empty-but-valid (no routed copper); DRC has not been run. Satisfied only in Task 04 when a real board exists and DRC=0 is actually produced."
+    },
+    "all_smd_turnkey_sourcing": {
+      "status": "met",
+      "evidence": "Both BOM variants (custom-wallet-min-core-behind-display.csv, custom-wallet-min-core-with-display.csv) are all-SMD and turnkey-solderable; the only consigned item is the external display panel."
+    },
+    "tropic01_present": {
+      "status": "met",
+      "evidence": "BOM U2 = TROPIC01 TR01-C2P-T310, the mandatory open vault (required=true, freeze_status=frozen)."
+    },
+    "key_split_provision": {
+      "status": "met",
+      "evidence": "BOM U3 = OPTIGA Trust M (SLS32AIA010MS) populated by default; ATECC608B alternate footprint carries DNP. 2nd-vendor SE provisioned so the decryption key can be split MCU (xor) SE(s)."
+    },
+    "secure_boot_v2_flash_encryption_fuses": {
+      "status": "deferred",
+      "target": "secure-mode provisioning (Phase 10 / spec 3.1)",
+      "note": "Designed-in: the ESP32-S3 supports Secure Boot v2 + Flash Encryption. The eFuses are burned in the owner-run, Hub-guided secure-mode provisioning flow (config policy, not a placed part); dev units ship eFuse-virgin."
+    },
+    "onboard_confirm_button": {
+      "status": "met",
+      "evidence": "BOM SW1 = Omron B3U-1000P on-board SMD tactile confirm/approve button (physical on-board consent, not the external touch)."
+    },
+    "battery_option_power_path": {
+      "status": "met",
+      "evidence": "BOM J5 (MX1.25 LiPo connector) + U5 (BQ24074 power-path charger) + U6 (MAX17048 fuel gauge) present. The battery cell itself is user-supplied/optional and does not gate the design."
+    },
+    "no_fabrication_before_phase_10_bringup": {
+      "status": "met",
+      "note": "Physical gate, in force and honoured: this phase never orders boards. Fabrication and bring-up are Phase 10 only; released there."
+    }
+  }
+}
