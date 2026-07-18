@@ -20,43 +20,18 @@ behavior or signer taxonomy outside the shared specs contract model.
   QR vault kit requirements.
 - `kits/reference-raspberry-qr-vault/os-profile.json`: Raspberry/Pi stateless
   QR vault operating profile.
-- `pcb/tropic01-universal-secure-device/requirements.json`: the active custom
-  hardware product direction.
 
 ## Custom Hardware Direction
 
-The only active custom hardware product in this repository is the TROPIC01
-Universal Secure Device.
+This repository currently has no active custom PCB. The legacy TROPIC01
+Universal Secure Device board was archived, with full git history, to the
+private read-only repository `nSealr/hardware-legacy-tropic01-universal`.
 
-The board is a compact portrait device with:
-
-- TROPIC01 primary open secure element.
-- STM32U5 application MCU.
-- OPTIGA Trust M class I2C second secure element.
-- 2.4 inch portrait capacitive touch display.
-- USB-C female receptacle only.
-- ST25R3916B NFC/RFID controller.
-- LiPo battery connector and power-path charger.
-- QSPI NOR flash.
-- Two side-actuated physical buttons.
-- Hidden pogo/test pads.
-- No microSD, BLE, WiFi, or radio in Rev A0.
-
-The current custom hardware files are requirements and BOM contracts. KiCad
-schematic, routing, and PCBWay outputs must not be treated as production-ready
-until ERC, DRC, routing, antenna validation notes, BOM, position, Gerbers, drill,
-and manifest checks are complete.
-
-## Security Model
-
-TROPIC01 is the open primary trust anchor. The OPTIGA-class second secure
-element provides independent defense in depth. STM32U5 owns USB, UI, NFC policy,
-display/touch, physical button handling, firmware update, and debug lock.
-
-Default Rev A0 excludes BLE/WiFi/radio and microSD because those surfaces add
-attack paths and mechanical complexity. NFC is included because mobile/passkey
-and contactless workflows are core use cases, but it must be power-gated and
-disabled by default in hardened firmware.
+The next custom hardware direction — a minimal custom hardware wallet — is
+defined by the `nSealr/specs` five-solution device-matrix decision and will be
+introduced in a later program phase. Until that board lands, the reference
+requirements, kits, BOMs, reports, and templates above are the maintained
+contracts here.
 
 ## Validation
 

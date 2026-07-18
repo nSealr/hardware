@@ -10,39 +10,27 @@ Implemented:
 - Raspberry/Pi stateless QR vault OS profile JSON.
 - ESP32-S3 USB signer reference BOM scaffold.
 - Raspberry/Pi stateless QR vault kit BOM scaffold.
-- TROPIC01 Universal Secure Device requirements JSON.
-- TROPIC01 Universal Secure Device BOM.
 - Raspberry/Pi stateless QR vault OS profile report template.
 - Raspberry/Pi stateless QR vault full QR-flow report template.
 - Manual hardware validation report schema.
 - Validator and tests, including review approval-digest binding.
 
-## Active Custom Hardware: TROPIC01 Universal Secure Device
+## Custom Hardware Direction
 
-The active custom hardware direction is a single compact portrait board with
-TROPIC01, STM32U5, OPTIGA-class second secure element, touch display, USB-C
-female receptacle, NFC/RFID, LiPo power path, QSPI flash, side buttons, hidden
-pogo pads, and no microSD/BLE/WiFi/radio in Rev A0.
+The legacy TROPIC01 Universal Secure Device board has been archived, with full
+git history, to the private read-only repository
+`nSealr/hardware-legacy-tropic01-universal`.
 
-Next milestones:
-
-1. Build real KiCad schematic sheets from the approved product contract.
-2. Verify exact footprints for display FFC connectors, USB-C, side buttons,
-   OPTIGA package, NFC controller, battery connector, and TROPIC01 QFN.
-3. Generate a compact portrait placement around the display envelope.
-4. Route the board with controlled USB, clean power domains, short TROPIC01 SPI,
-   NFC antenna strategy, and hidden pogo/debug access.
-5. Run ERC and DRC.
-6. Generate PCBWay BOM, position, Gerbers, drill, STEP, and manifest only after
-   the design is connected and routed.
-7. Bring up Rev A0 on bench: power, USB, display/touch, buttons, TROPIC01,
-   OPTIGA, QSPI, NFC, battery path, and debug lock.
+The next custom hardware direction is a minimal custom hardware wallet defined by
+the `nSealr/specs` five-solution device-matrix decision. Its board tree, BOM, and
+production contracts will be added in a later program phase, at which point the
+milestones and production gate below apply to that board.
 
 ## Reference Hardware Lines
 
 ESP32 and Raspberry/Pi work remains useful for validating transport, QR,
 display, camera, and operating-profile assumptions. These are supported hardware
-lines, but they are not the custom TROPIC01 PCB product.
+lines, distinct from any future custom PCB product.
 
 ## Production Readiness Gate
 

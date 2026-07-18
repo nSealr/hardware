@@ -15,35 +15,16 @@ behavior outside the shared specs contract model.
   targets.
 - Raspberry/Pi stateless QR vault kit requirements, OS profile, BOM, and smoke
   report templates.
-- TROPIC01 Universal Secure Device: the only active custom hardware product
-  direction in this repository.
 
-## TROPIC01 Universal Secure Device
+## Archived Hardware
 
-The custom hardware target is a single compact portrait board for open-source
-projects that need a TROPIC01-based secure element device.
-
-Core product decisions:
-
-- TROPIC01 primary open secure element.
-- STM32U5 host MCU.
-- OPTIGA Trust M class I2C second secure element.
-- 2.4 inch portrait capacitive touch display.
-- USB-C female receptacle only, centered on the bottom short edge.
-- ST25R3916B NFC/RFID controller with a real tuned antenna path.
-- LiPo connector and BQ24074-class power path.
-- QSPI NOR flash.
-- Two high side-actuated physical buttons.
-- Hidden back-side pogo/test pads.
-- No microSD slot.
-- No BLE/WiFi/radio module in Rev A0.
-
-Authoritative files:
-
-- `docs/superpowers/specs/2026-06-08-tropic01-universal-secure-device-design.md`
-- `docs/superpowers/plans/2026-06-08-tropic01-universal-secure-device-implementation.md`
-- `pcb/tropic01-universal-secure-device/requirements.json`
-- `bom/tropic01-universal-secure-device.csv`
+The legacy TROPIC01 Universal Secure Device board has been retired from this
+repository. Its complete design — KiCad project, BOM, production contracts,
+docs, and board-specific scripts — was archived with full git history to the
+private, read-only repository `nSealr/hardware-legacy-tropic01-universal`. It is
+superseded by the minimal custom hardware wallet direction recorded in the
+`nSealr/specs` five-solution device-matrix decision; the replacement board will
+be introduced in a later program phase.
 
 ## Quality Baseline
 

@@ -19,11 +19,6 @@ OS profiles, BOMs, reports, and report templates.
 - Raspberry/Pi stateless QR vault report-template validation.
 - Identity/policy requirement validation for ESP32 and Raspberry requirement
   sets.
-- TROPIC01 Universal Secure Device requirements validation.
-- TROPIC01 Universal Secure Device BOM validation, including frozen MPN checks
-  for TROPIC01, STM32U5, OPTIGA-class second secure element, display, USB-C
-  receptacle, NFC controller, LiPo power path, QSPI flash, side buttons, and
-  hidden pogo/test pads.
 - Rejection of stateless QR vault TROPIC01 usage.
 - Manual hardware report validation.
 - Directory-driven discovery for requirements, OS profiles, BOMs, reports, and
@@ -31,24 +26,14 @@ OS profiles, BOMs, reports, and report templates.
 
 ## Custom Hardware Expectations
 
-The custom hardware test target is `tropic01_universal_secure_device`.
+There is currently no active custom hardware board in this repository. The legacy
+TROPIC01 Universal Secure Device board and its board-specific validators were
+archived, with full git history, to the private read-only repository
+`nSealr/hardware-legacy-tropic01-universal`.
 
-Tests currently assert:
-
-- one single custom product direction;
-- TROPIC01 as primary open secure element;
-- STM32U5 host MCU;
-- OPTIGA Trust M class second secure element included;
-- USB-C female receptacle only;
-- portrait touch display;
-- two side physical buttons;
-- NFC/RFID included and power-gated;
-- LiPo connector and real power path;
-- QSPI flash;
-- hidden pogo/test pads;
-- no microSD;
-- no default BLE/WiFi/radio.
-
-KiCad routing and PCBWay export tests must be added only after the schematic and
-board source are generated from real nets. Until then, generated manufacturing
-outputs must be treated as invalid.
+When the next custom hardware board — the minimal custom hardware wallet from the
+`nSealr/specs` five-solution device-matrix decision — lands, its requirements,
+BOM, and production contracts get their own validation coverage here. KiCad
+routing and PCBWay export tests must be added only after the schematic and board
+source are generated from real nets; until then, generated manufacturing outputs
+must be treated as invalid.
