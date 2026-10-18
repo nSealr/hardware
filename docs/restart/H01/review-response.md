@@ -34,3 +34,14 @@ bearing on whether these manual statements are correct. A reviewer should
 check the errata correction first, then selected original/manual text and the
 new contradiction dispositions, USB public-access boundary, U5 revision scope,
 and whether the remaining work is stated without a hidden admission.
+
+## Limited follow-up review received
+
+Original review `2f9ea3a18d8fb18e3fbaa8f58b6272102f83b9c2` was imported
+byte-exact as `88a8c09` before new source changes. Its limited PASS closes
+R1/R2/R3 wording and checked bounded claims at6f95; H01 remains incomplete.
+The next candidate maps its additional findings to current-manual-notes.md:
+fixed-pattern RNG build exclusion, actual TinyUSB device waits, U585
+revision-specific reset/low-power restrictions, and newly retrieved current RM.
+This new substance requires a distinct affected review; neither prior report
+has been rewritten.

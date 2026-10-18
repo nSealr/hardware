@@ -3,7 +3,9 @@
 Author: `/root/h01_author`, 2026-10-18. These are documentary findings after
 the distinct review of `19362fc9a12bed43070c56642b4a932f1bc6a545` and its
 `d5d7530` handoff. The material errata correction is separate at `16a7d4b`.
-No host, wiring, component selection, target implementation or measurement is
+The newer [current-manual notes](current-manual-notes.md) supersede the old
+retrieval gaps and explicitly extend the reading below. No host, wiring,
+component selection, target implementation or measurement is
 approved here. Exact reading and original hashes are in
 [manual-register.json](manual-register.json); proposed configurations still need
 the sign-off in [review-coverage.md](review-coverage.md).
@@ -70,7 +72,9 @@ behavior, not proof of qualified entropy. The boot entropy path configures both
 SAR units and internal channels; its use must exclude conflicting ADC ownership
 and meet the versioned RNG documentation. A source comment about the secondary
 clock is not a substitute for that documented entropy contract. H02 needs an
-explicit source-state/failure adapter and the actual linked call path.
+explicit source-state/failure adapter and the actual linked call path. Effective
+configuration must exclude CONFIG_ESP_BRINGUP_BYPASS_RANDOM_SETTING, whose
+reviewed source branch returns a fixed pattern.
 
 Chapter23's XTS text and register descriptions are now read. Key-purpose
 configuration can select missing/all-zero key material; an encryption-enabled
@@ -137,7 +141,8 @@ The power-sequence constraints and package-specific USB/DSI/core rails must
 enter a future exact allocation. Rev5 repairs package information introduced
 in Rev4. Exact AF/pad matching, current RM ownership and graphics-driver/license
 closure remain open. The attempted web screenshots yielded no usable image:
-no package drawing visual review is claimed.
+that earlier visual gap is now closed for the two native outline figures listed
+in current-manual-notes.md; no footprint or complete pad review is claimed.
 
 [ES0595 Rev4](https://www.st.com/resource/en/errata_sheet/es0595-stm32u5fxxx-and-stm32u5gxxx-device-errata-stmicroelectronics.pdf)
 §§2.9–2.10 pp.19–20 now have body-level reading: DSI automatic clock-lane
@@ -146,11 +151,11 @@ SAES's specified backup-key transfers require ascending reads. These are
 specific configuration constraints, not a general failure of graphics or SAES.
 
 [UM3223 Rev2](https://www.st.com/resource/en/user_manual/um3223-discovery-kit-with-stm32u5g9zj-mcu-stmicroelectronics.pdf)
-§§1–2 pp.2–3 remains explicitly inherited from the distinct review. Fresh
+§§1–2 pp.2–3 were initially inherited from the distinct review. Fresh
 author reading of the [manufacturer DK2 feature page](https://estore.st.com/en/stm32u5g9j-dk2-cpn.html)
-corroborates ZJT6Q/LQFP144, 3.3 V and 800×480 RGB. Only a primary indexed
-excerpt of UM3223 §7.5 p.14 was available to the author; the complete power
-selection procedure, schematic and connector are unread. DK2 is a closer
+corroborates ZJT6Q/LQFP144, 3.3 V and 800×480 RGB. That earlier pass had only an indexed §7.5 excerpt. The new native author
+reading covers §§7.5–8.6, including power selection and display connector.
+The complete schematic/BOM and exact board revision remain unreviewed. DK2 is a closer
 package reference than DK1; it is neither a third bench port nor an inherited
 custom Board design. An 800×480 RGB565 buffer is **750 KiB**, or **1500 KiB**
 for two, calculated before any other allocation.
@@ -161,9 +166,9 @@ current selected U585 bodies are now read: §§2.2.20–2.2.26,
 sequencing require exact driver checks; SPI completion must preserve the last
 clock/data interval. ECC reporting, flash error recovery and watchdog/backup
 reset interaction remain implementation requirements. RevX UCPD Rd limits
-matter for a sink proposal; they are not inherited by W/U. The remaining
-core/system/clock/retention and selected I2C bodies still need complete coverage.
-This progress does not close **RM0456 Rev7** or qualify any U585 revision.
+matter for a sink proposal; they are not inherited by W/U. The new pass has read all current core/system bodies pp.7–16 and selected
+RM reset/clock/RNG/USB text. Remaining used bodies and exact driver/configuration
+correspondence still prevent qualification of any U585 revision.
 
 [TPS63802 SLVSEU9D](https://www.ti.com/lit/ds/symlink/tps63802.pdf)
 §§9.3.3–9.3.10 pp.11–12 now explicitly support the startup/reverse-current

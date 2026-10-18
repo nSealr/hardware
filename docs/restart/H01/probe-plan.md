@@ -28,7 +28,15 @@ security provisioning. S02's accepted maintained crypto is reused within its
 contract; no duplicate portable benchmark campaign is needed. Identify each
 actual target call, fallible entropy source and adapter ABI before benchmarking.
 
-The [follow-up notes](host-subset-notes.md) supply concrete prerequisites: the
+The [current manual/driver notes](current-manual-notes.md) add explicit
+configuration gates: exclude the S3 fixed-pattern RNG bring-up build option;
+bind the product-specific U5 entropy policy across initialization/reset/recovery;
+use real deadlines for blocking RNG waits and USB ISR/reset/flush paths.
+Partial entropy output must be invalidated on error. A task timeout cannot alone
+bound a blocking recovery or an ISR-held spin lock. U585 X/W/U reset/low-power
+restrictions and DK2 PC13/LSE constraints must enter the proposed tuple.
+
+The earlier [follow-up notes](host-subset-notes.md) supply other prerequisites: the
 S3 device stack needs its underlying TinyUSB lock and actual CPU-FIFO/DMA
 configuration; current U585 USB/SPI errata need chosen-driver correspondence.
 S3 sleep callers must prevent ANALOG-160's damaging condition. That condition
