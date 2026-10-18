@@ -1,0 +1,5 @@
+ERROR: missing required file: docs/architecture.md
+ERROR: missing required file: docs/testing.md
+ERROR: missing required file: docs/roadmap.md
+ERROR: missing required file: docs/audit-checklist.md
+ERROR: missing required directory: docs

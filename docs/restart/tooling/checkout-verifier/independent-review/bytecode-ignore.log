@@ -1,0 +1,2 @@
+.gitignore:10:__pycache__/	scripts/__pycache__/verify_repo.cpython-312.pyc
+.gitignore:10:__pycache__/	tests/__pycache__/test_validate_hardware.cpython-312.pyc
