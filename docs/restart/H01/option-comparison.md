@@ -98,7 +98,7 @@ argument; merely adding both does not yield independent protection (H01-C16–C1
 
 These SE gates do not block independent MCU/USB/UI research. They also cannot be
 silently converted into accepted compromises while the associated guarantee is
-advertised. The present U5 host gate is an independent missing-manual problem.
+advertised. The present U5 host gate is an remaining current-manual content and configuration review.
 
 ## Power, USB, UI and expansion
 
