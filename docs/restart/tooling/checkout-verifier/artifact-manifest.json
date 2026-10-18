@@ -1,0 +1,55 @@
+{
+  "kind": "Hardware verifier regression evidence, not H01/PCB acceptance",
+  "source_commit": "d91be514ace9c13fdc75cadeb20e8aba152be1a5",
+  "source_file_sha256": "aad93e5aa6c92fd4cfb231e04f36522f3222be73f6865a4cf38be6fd76958d64",
+  "artifacts": [
+    {
+      "path": "docs/restart/tooling/checkout-verifier/after-document-is-directory.log",
+      "sha256": "35d9107f178da11ea84999b97d40159dc8a35ca3ef731654355643c23fe82402"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/after-license-is-directory.log",
+      "sha256": "cc0d8b09ccd10e8cc68f8d4bfda707dec15a13432bb93fa0684adf6ef2f6f4e2"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/after-make-ci.log",
+      "sha256": "b4254acb2a1bd1b195d65934405716f99dedbf9f9b60c368f891996fe18c2d8a"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/after-missing-hardware-dir.log",
+      "sha256": "384b0c79ce3ca818624a9a791325fb99b478a7f468526a033cbddcec54556b25"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/after-renamed.log",
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/after-restored-positive.log",
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/after-wrong-license.log",
+      "sha256": "59f0091740050219e24aef9b6659b0704fb8d5574473242379e688df04902dd5"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/before-renamed.log",
+      "sha256": "f0c401cc67580b4a83cef41d320c9364d06e04d70898ec541c7989abd2655ca9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/before-wrong-license-missing-hardware-dir-accepted.log",
+      "sha256": "bb3d9909b6a569ff386a94d5e1adefe805e65e34f8f612c22934f33b454ae420"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/check.py",
+      "sha256": "0de238d2db802411fcbf9188559ed32bf4e69af6e9f5b7e74bfa2acbbca525ee"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/result.json",
+      "sha256": "cba3f7fcc54cb10ee1498cfe219b94cba3428dd1ffb517c46e1419b3adf934d7"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/README.md",
+      "sha256": "b5663d4666746d633b6eba691693eef7c4206b8c65557ec1543888fc0a457ddd"
+    }
+  ]
+}
