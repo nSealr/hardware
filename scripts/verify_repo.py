@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify baseline repository structure for nSealr repos."""
+"""Verify nSealr hardware structure independently of the checkout folder name."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO = ROOT.name
+REPO = "hardware"
 
 COMMON_FILES = [
     "README.md",
@@ -22,26 +22,8 @@ COMMON_FILES = [
     ".github/workflows/ci.yml",
 ]
 
-REQUIRED_DIRS = {
-    "specs": ["protocols", "schemas", "vectors", "examples", "docs", "scripts"],
-    "companion": ["apps", "packages", "docs", "scripts"],
-    "raspberry": ["app", "os", "docs", "scripts"],
-    "firmware": ["crates", "apps", "ci", "boards", "docs", "scripts"],
-    "smartcard": ["applet", "tools", "docs", "scripts"],
-    "hardware": ["pcb", "kits", "bom", "enclosures", "reports", "templates", "docs", "scripts"],
-    "website": ["content", "public", "design", "docs", "scripts"],
-    "lab": ["wiki", "sources", "scripts", "docs"],
-}
-
-LICENSE_MARKERS = {
-    "specs": "Creative Commons CC0",
-    "lab": "Creative Commons CC0",
-    "hardware": "CERN Open Hardware Licence",
-}
-
-
-def expected_license_marker() -> str:
-    return LICENSE_MARKERS.get(REPO, "MIT License")
+REQUIRED_DIRS = ["pcb", "kits", "bom", "enclosures", "reports", "templates", "docs", "scripts"]
+LICENSE_MARKER = "CERN Open Hardware Licence"
 
 
 def main() -> int:
@@ -49,24 +31,24 @@ def main() -> int:
 
     for rel in COMMON_FILES:
         path = ROOT / rel
-        if not path.exists():
+        if not path.is_file():
             errors.append(f"missing required file: {rel}")
         elif path.is_file() and not path.read_text(encoding="utf-8").strip():
             errors.append(f"empty required file: {rel}")
 
-    for rel in REQUIRED_DIRS.get(REPO, []):
+    for rel in REQUIRED_DIRS:
         if not (ROOT / rel).is_dir():
             errors.append(f"missing required directory: {rel}")
 
     license_path = ROOT / "LICENSE"
-    if license_path.exists():
+    if license_path.is_file():
         license_text = license_path.read_text(encoding="utf-8", errors="replace")
-        marker = expected_license_marker()
+        marker = LICENSE_MARKER
         if marker not in license_text:
             errors.append(f"LICENSE does not contain expected marker: {marker}")
 
     readme = ROOT / "README.md"
-    if readme.exists():
+    if readme.is_file():
         readme_text = readme.read_text(encoding="utf-8")
         if "## License" not in readme_text:
             errors.append("README.md must include a License section")
