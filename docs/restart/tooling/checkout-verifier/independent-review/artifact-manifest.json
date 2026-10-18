@@ -1,0 +1,221 @@
+{
+  "candidate_commit": "0f83844a4da43dc79c2befba82e40934858250c5",
+  "scope": "All independent review files except this self-referential manifest; ephemeral snapshots removed.",
+  "files": [
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/.gitignore",
+      "bytes": 14,
+      "sha256": "cb605c14fd8e70648b69c78bebcae79c59fc0a9fbe7346e39f3282d70be3537d"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/baseline-false-pass-reproduced.log",
+      "bytes": 54,
+      "sha256": "696260df10646bd19f877b3b509c278966a5dee6bf14eb873a1553ab9fa84ef4"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/baseline-valid-hardware-renamed.log",
+      "bytes": 61,
+      "sha256": "f0c401cc67580b4a83cef41d320c9364d06e04d70898ec541c7989abd2655ca9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/bytecode-ignore.log",
+      "bytes": 159,
+      "sha256": "70e6ba3d6eeff9a45381a98f461c2d0569107feeada6d4e21ffccd995746bfb9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-0.log",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-1.log",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-2.log",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-3.log",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-wrong-license-and-missing-kit.log",
+      "bytes": 116,
+      "sha256": "9b8bf293e5a5604dd9c3904db884eb91da14ecdd40b95bfdb0bfcfa47c220b6d"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-wrong-license.log",
+      "bytes": 76,
+      "sha256": "59f0091740050219e24aef9b6659b0704fb8d5574473242379e688df04902dd5"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/commands.json",
+      "bytes": 24808,
+      "sha256": "75a807ac1a01d89061352a2f29ce80e0145fd0b86c85440d10e15280cdc48483"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-0.log",
+      "bytes": 39,
+      "sha256": "dbbcca380ac045cd1a9510d22d6d47243f947686fc1aa4d41810d06a8c83c337"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-1.log",
+      "bytes": 40,
+      "sha256": "384b0c79ce3ca818624a9a791325fb99b478a7f468526a033cbddcec54556b25"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-2.log",
+      "bytes": 39,
+      "sha256": "3cc4587d2d40febc5c3e8cf319c7f9312ebd0aa70a2de45e597ba585c6db3535"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-3.log",
+      "bytes": 46,
+      "sha256": "9a0308186a27fb3c8cf32f85447e423ab4c722f854bda9828a0ac9c5c2c33feb"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-4.log",
+      "bytes": 43,
+      "sha256": "d93a2a7233356ee771b50d402ea7f42b7988b0978c89be47db70571aafcfcc47"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-5.log",
+      "bytes": 45,
+      "sha256": "ed211c1cba20fe0322b91b5408c58f281d7898ec6cbb48bba6ca415709156a9d"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-6.log",
+      "bytes": 237,
+      "sha256": "275e770b55d2c5e9ca4759d0f674f98a357e1d272e056a13c1847043b55332a9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-7.log",
+      "bytes": 43,
+      "sha256": "48c3d740485d4d74dadfbcb850a3f28c81809abd127358917da58d85fbcd7ce9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/existing-ci-exact-candidate.log",
+      "bytes": 788,
+      "sha256": "7abc5518e82633806d9a40cd989375cbc323dc73cada5cb27b292c0f219dd6e0"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-0.log",
+      "bytes": 40,
+      "sha256": "4f3eca978c27d6c69f4092dd73155b857af0a7e03b5e82c6f8bc01319ac28420"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-1.log",
+      "bytes": 38,
+      "sha256": "cc0d8b09ccd10e8cc68f8d4bfda707dec15a13432bb93fa0684adf6ef2f6f4e2"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-2.log",
+      "bytes": 39,
+      "sha256": "329697a2038729c00c6cce7134fccc77c2b1f6ac87ad0eb86908b3a05b6ba774"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-3.log",
+      "bytes": 54,
+      "sha256": "a306d001bcff1629083dfe01f25e857ed269beebc4fcfe36dc233432f75bc8a2"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-4.log",
+      "bytes": 51,
+      "sha256": "35d9107f178da11ea84999b97d40159dc8a35ca3ef731654355643c23fe82402"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-5.log",
+      "bytes": 46,
+      "sha256": "2674a7abf1e565ef1f285bfad7ca55c439da62dd350f1ac7a738d0a8f6a58613"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-6.log",
+      "bytes": 46,
+      "sha256": "d078e7d3ffe88de80f273bc9939f502bab471f1d1f3e8a12dbf1bccc22547fe8"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-7.log",
+      "bytes": 54,
+      "sha256": "025b603c7962fa67fa546a688711c7acea7db8bb458560d679278093328554b0"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-8.log",
+      "bytes": 55,
+      "sha256": "24483f32c0286097a3134912d3120c01bb2fe8a050f79aeb492084db4790259c"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-0.log",
+      "bytes": 86,
+      "sha256": "89110ada83803461317421a0ee6f5991a3b39e582a6996182a44e56f752284a6"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-1.log",
+      "bytes": 112,
+      "sha256": "50485164c85c7f237ba67e0b18a962f40f5ebef929b604f297d56ac81fecb94b"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-2.log",
+      "bytes": 37,
+      "sha256": "64bdfae5c8b41664ed052d9a2b70a908da5f593fd5dcef0f30f2e0ed6ee8c996"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-3.log",
+      "bytes": 52,
+      "sha256": "ed7423fe9b7c1fba45477172757aa50b85b0cb4f9693bb927e0e4f2ff9126869"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-4.log",
+      "bytes": 49,
+      "sha256": "8db1114e4abccb923eb8ba3e4b180805d14871a907897712082fd2b543249411"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-5.log",
+      "bytes": 44,
+      "sha256": "fe8392dd6f2c84c43193e9316b423e1b19a3334a5b2bc71493767a9b58cee79c"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-6.log",
+      "bytes": 44,
+      "sha256": "b8e670b086f66598a1f7152491c749c4ad5d18d1dd9b0ed5e996f84c6513a539"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-7.log",
+      "bytes": 52,
+      "sha256": "b7d725553345ff49b71c3fa5be358e032647fe79e6b66e64a6ac7011d2ba1e0f"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-8.log",
+      "bytes": 53,
+      "sha256": "f7b8dcf97437adc3f5058c9f111211c2af886971f4a4f476a5b528fb10bf2aa0"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/probe.py",
+      "bytes": 6233,
+      "sha256": "9416983d6ad26bed7bd871fe0bc35aed9c876489dbdeb35d27831d22fd409055"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/readme-no-license-heading.log",
+      "bytes": 48,
+      "sha256": "70059f2778862ab336e86077da4d0ea8b2d9da7da5b92df77848eb7136775dcb"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/report.json",
+      "bytes": 5848,
+      "sha256": "3d40f245b8716392c8363f3c579337cc57a2826d07bd32210339cf767b860dd5"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/restored-positive.log",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/result.json",
+      "bytes": 725,
+      "sha256": "68c072f069d5221d711e31d3b0f8329fb4729ccf6f13fb7071c2ea885a06dfeb"
+    }
+  ]
+}
