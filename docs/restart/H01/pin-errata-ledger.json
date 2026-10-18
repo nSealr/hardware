@@ -671,13 +671,13 @@
       "id": "E-S3-ANALOG160",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 ANALOG-160"
+        "locator": "§3.3 ANALOG-160, printed p.7 (PDF page9)"
       },
       "affected_revision": "all listed S3 revisions",
-      "configuration": "incorrect RTC bias/current sleep configuration",
-      "documented_mitigation": "BIAS_SLEEP=0 and PD_CUR=1; versioned vendor workaround",
-      "driver_or_probe_implication": "Inspect sleep path before actual power test",
-      "residual_limit": "Incorrect configuration may permanently damage analog circuitry",
+      "configuration": "Damaging condition: BIAS_SLEEP=0 AND PD_CUR=1; may be triggered with ULP and/or touch during Light-sleep or Deep-sleep",
+      "documented_mitigation": "Avoid/disable that conjunction in sleep software. Espressif reports this configuration disabled in ESP-IDF v4.4.2+ and v5.0+; verify the selected implementation.",
+      "driver_or_probe_implication": "Review the chosen sleep implementation against the forbidden configuration before any physical use; this is a documentation constraint, not a register-write recipe.",
+      "residual_limit": "Affected v0.0/v0.1/v0.2; permanent chip damage possible under the forbidden condition; no silicon fix scheduled.",
       "reviewer": "/root/h01_author",
       "physical_validation": false
     },
@@ -741,13 +741,13 @@
       "id": "E-S3-TOUCH100",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 TOUCH-100"
+        "locator": "§3.7 TOUCH-100, printed p.10 (PDF page12)"
       },
       "affected_revision": "all listed S3 revisions",
-      "configuration": "touch first scans",
-      "documented_mitigation": "Discard first two scans",
-      "driver_or_probe_implication": "Physical buttons avoid a touch-only approval dependence",
-      "residual_limit": "Any later touch wake/approval design needs complete qualification",
+      "configuration": "First two TOUCH_SCAN_DONE_INT interrupts have undefined raw data",
+      "documented_mitigation": "Skip the first two TOUCH_SCAN_DONE_INT interrupts, then disable and stop using those interrupts, as specified by the erratum.",
+      "driver_or_probe_implication": "Do not reduce the workaround to discarding two samples. A later touch path must choose and qualify an appropriate alternative; physical-button input does not require this interrupt path.",
+      "residual_limit": "Affected v0.0/v0.1/v0.2; no fix scheduled; no touch implementation admitted.",
       "reviewer": "/root/h01_author",
       "physical_validation": false
     },

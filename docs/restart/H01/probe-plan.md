@@ -8,6 +8,11 @@ production secrets or fabrication actions occurred in H01.
 
 ## Admission packet
 
+First complete H01's documentary proposal: exact OPN/package, allowed revision
+and configuration, current manuals/errata and bounded wiring requirements. This
+work does not depend on owning a kit. The received-unit identification below is
+an H02 check before execution, distinct from that documentary sign-off.
+
 For each later U5/S3 setup record one exact board and revision, MCU/module OPN and
 marking/DBG/eFuse-derived silicon revision, schematic and jumper state, panel
 module/controller/FPC, input devices, source/sink supplies and all connected debug

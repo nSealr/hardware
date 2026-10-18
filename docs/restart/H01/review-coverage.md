@@ -10,6 +10,14 @@ publication is useful progress, not a substitute for its completion criterion.
 “Selected reviewed” below signs only the stated reading, not a complete probe or
 measured result. Locators resolve through [manual-register.json](manual-register.json).
 
+H01 documentary sign-off binds an exact **proposed** OPN/package, allowed
+silicon revision and configuration requirements to reviewed manuals and errata.
+It does not require an already-owned kit. H02 separately identifies the actual
+received unit and confirms it meets that proposal before any physical probe.
+Unknown received identity is therefore an H02 resource/execution gate, not a
+reason to defer otherwise available H01 reading. The mandatory U5/S3 comparison
+and current RM0456 Rev7 gate remain; admitting zero hosts cannot pass H01.
+
 | Required row | U585 main investigation | S3 comparator | Review outcome / closure |
 | --- | --- | --- | --- |
 | Package/supplies/clock/reset/straps/electrical | DS13086 Rev10 selected features/SRAM/supply/reset excerpts; exact VI/VIQ XML pad witness. Current package/AF/electrical tables and RM0456 Rev7 incomplete. | Module1.8 pp.2–4,9–18,27–30; TRM1.8 chapters7–8 pp.526–538; exact N8R8 lead. Actual kit schematic/header/marking and remaining electrical wiring checks open. | Selected reading signed by author; **admission open**, H01/H02. A 144-pin kit does not certify a 100-pin custom allocation. |
