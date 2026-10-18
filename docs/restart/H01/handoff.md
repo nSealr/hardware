@@ -1,74 +1,78 @@
-# H01 source candidate handoff
+# H01 corrected source candidate handoff
 
 Substantive source commit:
-**19362fc9a12bed43070c56642b4a932f1bc6a545**, branch
+**6b45f6f79e1888bdf2ec6680d14dd951b7019327**, branch
 [`restart/h01-manuals`](https://github.com/nSealr/hardware/tree/restart/h01-manuals).
-The companion [result record](result.json) binds the exact artifact hashes.
-The approved brief remains the unchanged `e10dd24` candidate, with coordinator
-approval cherry-picked as `837fa28`.
+[result.json](result.json) binds 21 exact source artifacts and the separate
+verification records. The approved brief/input remain unchanged.
 
-**H01 remains running/incomplete; no host or part is admitted.** In particular,
-acceptances 1 and 5 cannot be passed by admitting zero hosts. Publication and 43
-existing repository tests do not establish current-manual completeness,
-electrical correctness or measurement. The coordinator owns task-state changes.
+**H01 is running/incomplete. No host or component is admitted.** Acceptances
+1 and 5 cannot pass from zero admissions, repository tests or the volume of
+research. The current RM0456 Rev7 and concrete host-subset gates remain. The
+coordinator owns task-state decisions.
 
-The candidate contributes 70 source records, 24 claims, 25 pin witness rows and
-20 errata rows, plus eight explicit source contradictions. These counts describe
-the record, not a quality score. The meaningful changes are selected current S3
-TRM/SDK/errata and TI reading; current ST security bulletin applicability; U5G9
-DS14102 Rev5/package/toolchain triage; P4 revision/algorithm-specific boot gates;
-verified bounded reuse of SE documents/reference drawings; and practical probe
-coverage that keeps physical and selected-SE gates separate.
+The old source `19362fc9a12bed43070c56642b4a932f1bc6a545` and handoff
+`d5d75306a082215453d329e31ca9c11d6effa80d` are immutable review inputs.
+Their distinct review, original `5186b7207fa397ceb4cd237d710d8adc163c6eb0`,
+is preserved unchanged by cherry-pick `f713951208a4df3632f470c664358f275ab6e256`.
+It requested changes. Separate commit
+`16a7d4bfaa9b144581ae06fb67424718ffb10482` corrects ANALOG-160 and TOUCH-100
+and distinguishes proposed from received hardware identity.
+[review-response.md](review-response.md) maps R1/R2/R3; affected independent
+review of this fresh candidate is pending.
 
-## Next actionable reading
+The follow-up adds actual reading: S3 GPIO/interrupt/reset, watchdog and XTS
+text; SPI state/timing; pinned vendor entropy/sleep functions and USB wrapper
+configuration; U5G9 selected power/graphics/package/ordering and DSI/SAES errata;
+current U585 USB/SPI/memory/watchdog/UCPD errata bodies; DK2 reference triage;
+and TPS63802 startup/reverse-current details. New contradictions are retained.
+S3 TRM **§32.5 p.1242** places comprehensive USB register specifications behind
+an IP-provider NDA; **§32.4 is OTG/HNP/SRP**, correcting the old handoff locator.
+Public headers are supporting software evidence, not normative IP semantics or
+DMA-isolation proof.
 
-The ST retrieval gap is specific: current **RM0456 Rev7 March2026** could not be
-obtained through the bounded routes recorded in the register. Rev6's preserved
-original is not the current delta. Root independently found no usable current
-original; the Arm Keil pack index now points to ST manuals instead of embedding
-them. Repeat an old route only when there is new evidence it can succeed. Do not
-use this access failure to choose S3 for the custom Board or stop unrelated work.
+There are now 81 source records, 27 claims, 25 pin witness rows, 25 errata rows
+and 11 source contradictions. These describe coverage, not a quality score or
+an exhaustive errata set. See [host-subset-notes.md](host-subset-notes.md) for
+exact reading and interpretation limits.
 
-Available-source work remains and can continue after distinct review:
+## Remaining actionable work
 
-| Work | Exact starting locators and deliverable |
+| Work | Precise next evidence |
 | --- | --- |
-| S3 concrete pin/input configuration | Module1.8 p.31 PSRAM limits, remaining application/dimension diagrams; exact DevKitC-1 board schematic/header/RGB conflicts. TRM1.8 §§6.10–6.13 pp.481–496, GPIO_PINn details around pp.507–520. Complete pad/function-number/reset/pull/input-interrupt map for the modest chosen panel/physical controls. A chosen candidate is not a frozen part. |
-| S3 SPI configuration | CPU/DMA master setup pp.1115–1117,1128–1130 and clock/interrupt pp.1142–1150 have been read. Still reconcile the chosen mode with §30.5.8.2 state table, §30.6 CS timing p.1141, selected timing-compensation and actual register definitions/driver. Panel clock and electrical limits remain separate. |
-| S3 USB and master bounds | §32.3 selected device paths read; finish the selected §32.4 register/FIFO configuration and pin exact TinyUSB/esp-usb implementation. Resolve direction-specific DMA register-name contradictions and explicitly select CPU FIFO or bounded DMA. Verify every enabled master; GDMA permissions do not automatically prove USB AHB-master bounds. |
-| S3 watchdog/reset/flash lifecycle | Read chapter13 pp.672–679 and its referenced MWDT/RWDT register definitions for the chosen watchdog. Complete selected boot/eFuse/XTS chapter23 pp.908–918 correspondence, ROM download allowlist and SDK bootloader-update discrepancy. Use the actual selected provision/update path, not a raw fuse procedure. |
-| S3 entropy/crypto integration | TRM25 and RNG SDK source preconditions are reviewed. Inspect the pinned actual startup/source-selection/health-failure adapter and target backend invocation/ABI. Determine whether any hardware AES/RSA/HMAC service is actually used before adding its full chapter; portable software crypto does not imply those peripherals are needed. |
-| U585 available datasheet/errata work | DS13086 Rev10 exact VI/VIQ pad/AF/electrical and ES0499 Rev12 selected bodies remain actionable through lawful current extraction/original access. Current RM remains a distinct gate. Retain exact received silicon as unknown. |
-| U5G9 document triage | Complete DS14102 Rev5 §3.5 memory banks, power/supply, graphics/DSI, exact ZJT6Q/ZJJ6Q pin/package tables and ES0595 Rev4 DSI/SAES/selected interfaces. Current Embassy declarations prevent unsupported “no driver” claims; exact configuration, dependency/license and ownership still need checking. No full new port required. |
-| SE and power | Complete accessible selected OPTIGA object/channel/reset/counter/update and TROPIC transport/PIN-state reading where useful. Keep SE051 restricted API/errata and TROPIC remediation gates. TI exact pin/supply/application/thermal/reset-current details, exact cell/protection and USB normative clauses remain open; two retained chains only. |
+| **S3 proposal, pins and input** | Specify proposed exact kit/module/package, documented board revision, allowed silicon/ROM/configuration and complete panel/controller/rail/control requirements. Module1.8 p.31/application diagrams, proposed kit schematic/header/RGB conflicts and used GPIO routing/filter portions beyond the reviewed selections remain. GPIO10–13 function4 and reset/interrupt text are now read; they do not allocate panel control pins. H02 later identifies the received unit. |
+| **S3 SPI** | Selected transaction/error/DMA registers and exact maintained driver still need correspondence. The state/CS timing and register30.6 text have been read. Reconcile the new table-footnote bit-order contradiction without adopting a guessed recipe. Panel/FPC timing and loading remain separate. |
+| **S3 USB** | Lock the underlying TinyUSB dependency rather than relying on esp-usb's lower bound; bind the actual preprocessed device/CPU-FIFO-or-DMA configuration and endpoint/FIFO/reset/interrupt/timeout path. Close only required §32.5 IP-semantic questions, using lawful documentation. Unused host/DMA modes need not expand the probe. No external manufacturer inquiry has been sent. |
+| **S3 lifecycle, reset and entropy** | Watchdog/XTS chapter text is now read. Still bind chosen stages/clocks/reset domains, all sleep callers, plaintext-buffer cleanup, ROM download allowlist, eFuse/bootloader-update contradictions and actual fallible entropy/crypto adapter. Reviewed IDF assertions/defaults do not qualify a different Rust path or assertions-disabled custom caller. Never physically exercise ANALOG-160's forbidden condition. |
+| **U585 available documentation** | Current ES0499 selected bodies are accessible and recorded; finish applicable core/system/clock/retention/I2C bodies and exact allowed X/W/U/RSS/bootloader configuration. Read current DS13086 VI/VIQ AF/pad/electrical tables. Correspond selected USB/SPI mitigations to actual driver, resolving the documented wording issues. Current RM0456 remains a distinct gate. |
+| **U5G9 bounded triage** | SRAM bank text, selected power/graphics and DSI/SAES errata are read. Exact ZJT6Q/ZJJ6Q pad/AF/rail mapping, package drawing correspondence, graphics-master/current-RM ownership, driver/license and workload budget remain. DK2 has a closer LQFP144/3.3V/RGB reference; UM3223 full relevant power/connector/schematic and original hash remain open. No new bench port. |
+| **Current ST manual access** | RM0456 **Rev7 March2026** original/current relevant delta remains unavailable through recorded bounded routes. Rev6 is not a substitute. Seek a genuinely new lawful route; do not repeat failed routes without new evidence. Other ST web excerpts being accessible does not close the missing reference manual, and this gap does not choose S3. |
+| **SE, USB power and expansion** | Continue useful accessible standard Trust M/TROPIC command/object/channel/reset/counter work while keeping selected SE051 API/errata access and TROPIC remediation hard gates. Read current USB normative clauses and exact power-chain/cell/panel/expansion requirements. Retain two power investigations. No owned kit, measured rail, SE fix or manufacturing choice is inferred. |
 
-No S3-only clearance is claimed from these partial readings. Each admitted later
-probe needs a concrete selected subset; conditional camera/NFC/large graphics or
-hostile-app isolation must not expand that subset silently.
+H01 documentary admission binds exact **proposed** parts, allowed revisions,
+configuration and reviewed source conditions. It requires no already-owned kit.
+H02 independently checks actual received hardware/binary before execution.
+Neither distinction permits vacuous completion or waives the U5/S3 comparison.
 
 ## Verification and review request
 
-JSON parsing, unique source IDs and claim/pin/errata source references passed.
-Original source hashes were checked when downloaded or reused; this is separate
-from the source reading. `git diff --check` passed before the source commit.
+JSON/unique-ID/reference checks pass; the nine new source-byte hashes and sizes
+match their private originals. Existing 70 source identities were compared
+with the old source record without changing their original hashes. The approved
+brief/input hashes remain unchanged. These are integrity checks, not manual
+correctness checks.
 
-`make ci` in the author worktree failed because the legacy verifier derives the
-repository type from its directory basename `h01` and therefore expects MIT.
-The exact source commit was checked out without edits at
-`/home/tux/nsealr/.restart-tools/goal/h01-ci/hardware`; unchanged `make ci` then
-passed baseline verification, all **43** existing tests, compile checks and
-hardware validation. This verifies the existing repository tooling only. No new
-prose-matching tests, target builds or measurements were added.
+The fresh exact source `6b45f6f` passed unchanged `make ci` in the separately
+owned, correctly named `/goal/h01-ci/hardware` checkout: repository verification,
+all **43** existing tests, compilation checks and hardware-document validation.
+[The actual log](checks/ci-6b45f6f.log) is preserved. The old author-worktree
+basename failure remains recorded rather than changing the verifier. No target
+port/build, new prose-matching test, physical measurement or provisioning ran.
 
-The canonical plan validator ran read-only against main
-`f2ef70f522af4977e15f81554a8c6eadcdbe8097`, graph revision13, and passed its
-47-task structural check. It is reconciliation evidence, not a replacement for
-the pinned H01 requirements input `7b5553685dac56029a4379be12054154b6b5e0b5`.
-
-Requested distinct review: verify actual selected manual sections, sample source
-identity/hash correspondence, inspect **every blocking claim**, assess exact
-part/revision and adverse evidence, and identify unsupported conclusions or
-missing useful coverage. Review the known incomplete status rather than issuing
-an H01 PASS from schema/test counts. Further available-source review should
-follow the findings. No PCB/layout, part freeze, fabrication, purchase, physical
-measurement, permanent provisioning or production-secret use is included.
+Requested affected independent review: check R1/R2 against the original errata
+and pinned sleep correspondence; check R3 documentary/received boundaries;
+sample new manual locators and source hashes; assess new SPI/XTS/U585 USB
+contradictions and §32.5 access limits; verify current U5 errata applicability
+and U5G9/DK2 limits; confirm every blocking claim remains an actual gate.
+Review source substance before counts or schema checks. The old request-changes
+review is evidence, not approval of these changed files.

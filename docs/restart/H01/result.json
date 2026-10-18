@@ -2,16 +2,16 @@
   "schema_version": 1,
   "task": "H01",
   "record_kind": "incomplete research candidate handoff; not acceptance",
-  "recorded_utc": "2026-10-18T18:08:16.311437+00:00",
+  "recorded_utc": "2026-10-18T18:49:34.100969+00:00",
   "author": "/root/h01_author",
   "source_repository": "nSealr/hardware",
-  "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+  "source_commit": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
   "branch": "restart/h01-manuals",
   "input_main_commit": "7b5553685dac56029a4379be12054154b6b5e0b5",
   "input_hardware_commit": "340697d6713a671e9e01b0dc874ec999ab071601",
   "approved_brief_commit": "e10dd2426146e0aa3bbcf04af6a9b1bb59f7e868",
   "approval_original_commit": "8041bac701f32aa289f6cfba019a7baaac04403e",
-  "status": "incomplete; distinct review requested; H01 closure not claimed",
+  "status": "incomplete; R1/R2/R3 author-addressed; fresh affected review requested; H01 closure not claimed",
   "host_admissions": [],
   "selected_components": [],
   "artifacts": [
@@ -27,8 +27,53 @@
     },
     {
       "path": "docs/restart/H01/claims.json",
-      "sha256": "085392d51fe5471bf201c2613d24f30f042334bb0ed638d223fdbed351fb33b4",
-      "bytes": 24592
+      "sha256": "1e0459588b7cb40e27163598c69bf14b5920881207ddcf62587e9c344dc65858",
+      "bytes": 29605
+    },
+    {
+      "path": "docs/restart/H01/errata-correction.md",
+      "sha256": "e9b32c00ebe125fcf12aab95224fb361ca66f6c2dbcf3a092aefc8d4a1e76004",
+      "bytes": 1955
+    },
+    {
+      "path": "docs/restart/H01/host-subset-notes.md",
+      "sha256": "35ef14b30c6057ddf382a1515e0f98a11f4526884a4d25504c12d2f5806495cd",
+      "bytes": 11095
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/dk2-retrieval.json",
+      "sha256": "6af7075283b32f618ac1b426ab7db995227f98d24869a5879fb8ce6223e0bc14",
+      "bytes": 773
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/drawing-correspondence.json",
+      "sha256": "a7ff23a3ce2e44358669915f3a240963b9558e624faeb89fdcd5b38b37569598",
+      "bytes": 1182
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/evidence-correspondence.json",
+      "sha256": "30ecdf2eb6bdc1e13d5fd071c54cf46c7f88db075e78e7a0a396fcf62483ed54",
+      "bytes": 31499
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/html-source-check.json",
+      "sha256": "6e719521230d764cb40d03d82dcc0b1b3d3ee00b49a98b2b64939aa6c142aec7",
+      "bytes": 845
+    },
+    {
+      "path": "docs/restart/H01/independent-review/probes/check_evidence.py",
+      "sha256": "7d12f4d0f7614ae7814f2a04e37dcaad59e60906da7725e04e5e298a9877c20f",
+      "bytes": 6470
+    },
+    {
+      "path": "docs/restart/H01/independent-review/report.md",
+      "sha256": "aff49a9b71244a4b7f459ad983055d7b12428438c65f65f17c7bbb033e9877e3",
+      "bytes": 19082
+    },
+    {
+      "path": "docs/restart/H01/independent-review/review.json",
+      "sha256": "dae32ac9c27ad348a3ff3e07fea54a4cca50ae67881eabc34803ff60b86fd49b",
+      "bytes": 19069
     },
     {
       "path": "docs/restart/H01/input-notes.json",
@@ -37,33 +82,38 @@
     },
     {
       "path": "docs/restart/H01/manual-register.json",
-      "sha256": "733b051efa0167b9034a10eb24f459e81aefdb87806c877cab2ccebaee84e58a",
-      "bytes": 103583
+      "sha256": "607f4a16d2c6e59c329fcb8fb2cd9f81c3884aa87d1a5729397456f1423bbdeb",
+      "bytes": 120775
     },
     {
       "path": "docs/restart/H01/manual-register.md",
-      "sha256": "7c30a2314f0d8cb699f5e0982cbd95c400606254e4a5a04d6446f7dab763ccc2",
-      "bytes": 6966
+      "sha256": "978ad01e723f612feb9bdacd7d5dc908fc286f64a385c5749a98aa6235093dfc",
+      "bytes": 8183
     },
     {
       "path": "docs/restart/H01/option-comparison.md",
-      "sha256": "11e54b36947b98196ecf5fb1b71856d80c6c48ac1b55a6cb6bf1bce8914c61d8",
-      "bytes": 14945
+      "sha256": "d04c20cdef516539f5d05d2bb8f5f2b14a7ba71854af921e8cd7d5c6c5a9a3f7",
+      "bytes": 15758
     },
     {
       "path": "docs/restart/H01/pin-errata-ledger.json",
-      "sha256": "f0a072cdff3a58a1b46abe60f5860f99f89de5096747f99220d0a38f6c8f814d",
-      "bytes": 44335
+      "sha256": "71c88aaa0f3b1c1939024e48908150a0cadcb37dc332228a7c2387b4cd7b18e4",
+      "bytes": 52743
     },
     {
       "path": "docs/restart/H01/probe-plan.md",
-      "sha256": "c471e380cc0db7f786736c4af910cb1f209067a57afe03f323c92234d014d69f",
-      "bytes": 8631
+      "sha256": "b9c977f546ea37c1aa881551bac4ab76d3699e7f5a34a6b1434f53aa121d3570",
+      "bytes": 9489
     },
     {
       "path": "docs/restart/H01/review-coverage.md",
-      "sha256": "3e6779b2d0b1041760112ae1266dc66ac464dcff843ce9f6cca1bf15f6915a54",
-      "bytes": 8178
+      "sha256": "6896259a0ac51bc10462a39d38a5f778e3ba03845ae765663a5ba212aa05078f",
+      "bytes": 9767
+    },
+    {
+      "path": "docs/restart/H01/review-response.md",
+      "sha256": "a0f64bcec3370961cb058c345842e1b1eb27f236be56cae1aab5ec783a8f1baa",
+      "bytes": 3168
     },
     {
       "path": "docs/restart/H01/spec-review.json",
@@ -126,16 +176,34 @@
       "graph_revision": 13,
       "result": "pass, 47 tasks",
       "scope": "read-only structural reconciliation; not canonical input replacement"
+    },
+    {
+      "command": "Author inline JSON/ID/reference/hash/commit correspondence checks",
+      "source_commit": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+      "result": "pass",
+      "scope": "21 exact source artifacts; 70 old source identities unchanged; 9 new original byte hashes; approved brief/input unchanged; no substantive or hardware inference",
+      "record": "docs/restart/H01/checks/followup-integrity.json"
+    },
+    {
+      "command": "make ci in exact detached /goal/h01-ci/hardware",
+      "source_commit": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+      "result": "pass",
+      "exit_code": 0,
+      "tests": 43,
+      "scope": "Existing repo verification/test/compile/validation only; no manual/electrical/target proof",
+      "log": "docs/restart/H01/checks/ci-6b45f6f.log"
     }
   ],
   "remaining_gates": [
-    "current RM0456 Rev7 and relevant delta",
-    "concrete S3 and U585 selected host subset/register/driver correspondence",
-    "remaining U5G9 document-level memory/power/graphics/package triage",
+    "current RM0456 Rev7 original and relevant delta; mandatory U5/S3 comparison retained",
+    "exact proposed host/package/allowed-revision/configuration sign-off and selected SPI/USB/lifecycle/driver correspondence",
+    "S3 USB \u00a732.5 comprehensive IP register access boundary; exact device dependency and required semantics",
+    "U585 current AF/electrical and remaining applicable core/system/clock/retention/I2C bodies",
+    "U5G9 exact pad/AF/rail/current-RM/master/driver/license/workload triage and full relevant DK2 power/connector/schematic",
     "selected SE exact API/errata/update/access/advisory qualification",
-    "current USB normative clauses and exact power/panel/expansion implementation",
-    "all physical resource identities and measurements",
-    "distinct source/manual-substance review"
+    "current USB normative clauses and exact power/panel/expansion requirements",
+    "H02 actual received identities and physical resources/measurements; not an H01 ownership prerequisite",
+    "distinct affected source/manual-substance review of corrected and expanded candidate"
   ],
   "physical_work_performed": false,
   "target_build_performed": false,
@@ -143,8 +211,33 @@
   "production_secret_used": false,
   "canonical_graph_modified": false,
   "independent_review": {
-    "status": "requested from coordinator",
-    "candidate": "19362fc9a12bed43070c56642b4a932f1bc6a545",
-    "required_focus": "actual manual substance/source applicability and all blocking claims; not schema counts"
-  }
+    "status": "fresh affected review requested from coordinator",
+    "candidate_source": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+    "prior_request_changes_preserved": true,
+    "required_focus": "R1/R2/R3 responses; actual new manual/source substance and applicability; SPI/XTS/U585 USB contradictions and \u00a732.5 NDA boundary; all blocking claims; not schema counts"
+  },
+  "prior_review": {
+    "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+    "handoff_commit": "d5d75306a082215453d329e31ca9c11d6effa80d",
+    "review_original_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+    "review_cherry_pick": "f713951208a4df3632f470c664358f275ab6e256",
+    "verdict": "request_changes",
+    "correction_commit": "16a7d4bfaa9b144581ae06fb67424718ffb10482",
+    "response_path": "docs/restart/H01/review-response.md",
+    "affected_recheck": "pending; author response is not reviewer approval"
+  },
+  "verification_artifacts": [
+    {
+      "path": "docs/restart/H01/checks/ci-6b45f6f.log",
+      "sha256": "3f7ae2db7a4116851dbdee90055c4cef2596ab01372132089465dab82f34f45f",
+      "bytes": 788,
+      "scope": "Generated after source commit; included with result metadata, not claimed to exist in source commit."
+    },
+    {
+      "path": "docs/restart/H01/checks/followup-integrity.json",
+      "sha256": "929176475d926c9692338c613519c8a6302addca1c83264b9fca7f93033f6c65",
+      "bytes": 12771,
+      "scope": "Generated after source commit; included with result metadata, not claimed to exist in source commit."
+    }
+  ]
 }
