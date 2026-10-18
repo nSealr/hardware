@@ -1,0 +1,556 @@
+[
+  {
+    "label": "baseline-valid-hardware-renamed",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/baseline-misnamed",
+    "started_utc": "2026-10-18T18:52:10.593039+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "MIT License",
+    "log": "baseline-valid-hardware-renamed.log",
+    "log_sha256": "f0c401cc67580b4a83cef41d320c9364d06e04d70898ec541c7989abd2655ca9"
+  },
+  {
+    "label": "baseline-false-pass-reproduced",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/baseline-misnamed",
+    "started_utc": "2026-10-18T18:52:10.606292+00:00",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "required_marker": "baseline verification passed",
+    "log": "baseline-false-pass-reproduced.log",
+    "log_sha256": "696260df10646bd19f877b3b509c278966a5dee6bf14eb873a1553ab9fa84ef4"
+  },
+  {
+    "label": "candidate-name-0",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/hardware",
+    "started_utc": "2026-10-18T18:52:10.634998+00:00",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "required_marker": "nSealr hardware baseline verification passed",
+    "log": "candidate-name-0.log",
+    "log_sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+  },
+  {
+    "label": "candidate-name-1",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/specs",
+    "started_utc": "2026-10-18T18:52:10.663985+00:00",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "required_marker": "nSealr hardware baseline verification passed",
+    "log": "candidate-name-1.log",
+    "log_sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+  },
+  {
+    "label": "candidate-name-2",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/firmware",
+    "started_utc": "2026-10-18T18:52:10.693458+00:00",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "required_marker": "nSealr hardware baseline verification passed",
+    "log": "candidate-name-2.log",
+    "log_sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+  },
+  {
+    "label": "candidate-name-3",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.722532+00:00",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "required_marker": "nSealr hardware baseline verification passed",
+    "log": "candidate-name-3.log",
+    "log_sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+  },
+  {
+    "label": "file-directory-0",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.736938+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: README.md",
+    "log": "file-directory-0.log",
+    "log_sha256": "4f3eca978c27d6c69f4092dd73155b857af0a7e03b5e82c6f8bc01319ac28420"
+  },
+  {
+    "label": "file-empty-0",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.749623+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: README.md",
+    "log": "file-empty-0.log",
+    "log_sha256": "89110ada83803461317421a0ee6f5991a3b39e582a6996182a44e56f752284a6"
+  },
+  {
+    "label": "file-directory-1",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.762471+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: LICENSE",
+    "log": "file-directory-1.log",
+    "log_sha256": "cc0d8b09ccd10e8cc68f8d4bfda707dec15a13432bb93fa0684adf6ef2f6f4e2"
+  },
+  {
+    "label": "file-empty-1",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.775291+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: LICENSE",
+    "log": "file-empty-1.log",
+    "log_sha256": "50485164c85c7f237ba67e0b18a962f40f5ebef929b604f297d56ac81fecb94b"
+  },
+  {
+    "label": "file-directory-2",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.788478+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: Makefile",
+    "log": "file-directory-2.log",
+    "log_sha256": "329697a2038729c00c6cce7134fccc77c2b1f6ac87ad0eb86908b3a05b6ba774"
+  },
+  {
+    "label": "file-empty-2",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.801883+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: Makefile",
+    "log": "file-empty-2.log",
+    "log_sha256": "64bdfae5c8b41664ed052d9a2b70a908da5f593fd5dcef0f30f2e0ed6ee8c996"
+  },
+  {
+    "label": "file-directory-3",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.814631+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: .pre-commit-config.yaml",
+    "log": "file-directory-3.log",
+    "log_sha256": "a306d001bcff1629083dfe01f25e857ed269beebc4fcfe36dc233432f75bc8a2"
+  },
+  {
+    "label": "file-empty-3",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.827248+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: .pre-commit-config.yaml",
+    "log": "file-empty-3.log",
+    "log_sha256": "ed7423fe9b7c1fba45477172757aa50b85b0cb4f9693bb927e0e4f2ff9126869"
+  },
+  {
+    "label": "file-directory-4",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.839821+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: docs/architecture.md",
+    "log": "file-directory-4.log",
+    "log_sha256": "35d9107f178da11ea84999b97d40159dc8a35ca3ef731654355643c23fe82402"
+  },
+  {
+    "label": "file-empty-4",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.852858+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: docs/architecture.md",
+    "log": "file-empty-4.log",
+    "log_sha256": "8db1114e4abccb923eb8ba3e4b180805d14871a907897712082fd2b543249411"
+  },
+  {
+    "label": "file-directory-5",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.866160+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: docs/testing.md",
+    "log": "file-directory-5.log",
+    "log_sha256": "2674a7abf1e565ef1f285bfad7ca55c439da62dd350f1ac7a738d0a8f6a58613"
+  },
+  {
+    "label": "file-empty-5",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.879788+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: docs/testing.md",
+    "log": "file-empty-5.log",
+    "log_sha256": "fe8392dd6f2c84c43193e9316b423e1b19a3334a5b2bc71493767a9b58cee79c"
+  },
+  {
+    "label": "file-directory-6",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.893144+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: docs/roadmap.md",
+    "log": "file-directory-6.log",
+    "log_sha256": "d078e7d3ffe88de80f273bc9939f502bab471f1d1f3e8a12dbf1bccc22547fe8"
+  },
+  {
+    "label": "file-empty-6",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.906754+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: docs/roadmap.md",
+    "log": "file-empty-6.log",
+    "log_sha256": "b8e670b086f66598a1f7152491c749c4ad5d18d1dd9b0ed5e996f84c6513a539"
+  },
+  {
+    "label": "file-directory-7",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.919331+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: docs/audit-checklist.md",
+    "log": "file-directory-7.log",
+    "log_sha256": "025b603c7962fa67fa546a688711c7acea7db8bb458560d679278093328554b0"
+  },
+  {
+    "label": "file-empty-7",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.933260+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: docs/audit-checklist.md",
+    "log": "file-empty-7.log",
+    "log_sha256": "b7d725553345ff49b71c3fa5be358e032647fe79e6b66e64a6ac7011d2ba1e0f"
+  },
+  {
+    "label": "file-directory-8",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.947155+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required file: .github/workflows/ci.yml",
+    "log": "file-directory-8.log",
+    "log_sha256": "24483f32c0286097a3134912d3120c01bb2fe8a050f79aeb492084db4790259c"
+  },
+  {
+    "label": "file-empty-8",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.959420+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "empty required file: .github/workflows/ci.yml",
+    "log": "file-empty-8.log",
+    "log_sha256": "f7b8dcf97437adc3f5058c9f111211c2af886971f4a4f476a5b528fb10bf2aa0"
+  },
+  {
+    "label": "directory-missing-0",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.972275+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: pcb",
+    "log": "directory-missing-0.log",
+    "log_sha256": "dbbcca380ac045cd1a9510d22d6d47243f947686fc1aa4d41810d06a8c83c337"
+  },
+  {
+    "label": "directory-missing-1",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.985139+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: kits",
+    "log": "directory-missing-1.log",
+    "log_sha256": "384b0c79ce3ca818624a9a791325fb99b478a7f468526a033cbddcec54556b25"
+  },
+  {
+    "label": "directory-missing-2",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:10.998650+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: bom",
+    "log": "directory-missing-2.log",
+    "log_sha256": "3cc4587d2d40febc5c3e8cf319c7f9312ebd0aa70a2de45e597ba585c6db3535"
+  },
+  {
+    "label": "directory-missing-3",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.011859+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: enclosures",
+    "log": "directory-missing-3.log",
+    "log_sha256": "9a0308186a27fb3c8cf32f85447e423ab4c722f854bda9828a0ac9c5c2c33feb"
+  },
+  {
+    "label": "directory-missing-4",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.025603+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: reports",
+    "log": "directory-missing-4.log",
+    "log_sha256": "d93a2a7233356ee771b50d402ea7f42b7988b0978c89be47db70571aafcfcc47"
+  },
+  {
+    "label": "directory-missing-5",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.038490+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: templates",
+    "log": "directory-missing-5.log",
+    "log_sha256": "ed211c1cba20fe0322b91b5408c58f281d7898ec6cbb48bba6ca415709156a9d"
+  },
+  {
+    "label": "directory-missing-6",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.052390+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: docs",
+    "log": "directory-missing-6.log",
+    "log_sha256": "275e770b55d2c5e9ca4759d0f674f98a357e1d272e056a13c1847043b55332a9"
+  },
+  {
+    "label": "directory-missing-7",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      ".held-scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.066311+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: scripts",
+    "log": "directory-missing-7.log",
+    "log_sha256": "48c3d740485d4d74dadfbcb850a3f28c81809abd127358917da58d85fbcd7ce9"
+  },
+  {
+    "label": "candidate-wrong-license",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.079886+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "LICENSE does not contain expected marker: CERN Open Hardware Licence",
+    "log": "candidate-wrong-license.log",
+    "log_sha256": "59f0091740050219e24aef9b6659b0704fb8d5574473242379e688df04902dd5"
+  },
+  {
+    "label": "candidate-wrong-license-and-missing-kit",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.094208+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "missing required directory: kits",
+    "log": "candidate-wrong-license-and-missing-kit.log",
+    "log_sha256": "9b8bf293e5a5604dd9c3904db884eb91da14ecdd40b95bfdb0bfcfa47c220b6d"
+  },
+  {
+    "label": "readme-no-license-heading",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.106798+00:00",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "required_marker": "README.md must include a License section",
+    "log": "readme-no-license-heading.log",
+    "log_sha256": "70059f2778862ab336e86077da4d0ea8b2d9da7da5b92df77848eb7136775dcb"
+  },
+  {
+    "label": "restored-positive",
+    "argv": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.120957+00:00",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "required_marker": "hardware baseline verification passed",
+    "log": "restored-positive.log",
+    "log_sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+  },
+  {
+    "label": "existing-ci-exact-candidate",
+    "argv": [
+      "make",
+      "ci"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-review/docs/restart/tooling/checkout-verifier/independent-review/.snapshots-09k3kcl6/arbitrary checkout \u03a9",
+    "started_utc": "2026-10-18T18:52:11.133624+00:00",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "required_marker": "Ran 43 tests",
+    "log": "existing-ci-exact-candidate.log",
+    "log_sha256": "7abc5518e82633806d9a40cd989375cbc323dc73cada5cb27b292c0f219dd6e0"
+  }
+]
