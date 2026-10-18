@@ -17,6 +17,10 @@ The limited follow-up review is preserved in
 [independent-review-followup/report.md](independent-review-followup/report.md).
 [current-manual-notes.md](current-manual-notes.md) records the new actual reading;
 none of it silently promotes a source inventory into complete host admission.
+[configuration-review.md](configuration-review.md) adds current U585
+security/flash/power body findings, proposed kit/header identities and real panel
+contradictions. [usb-configuration.md](usb-configuration.md) records actual
+current normative clauses and remaining controller/power requirements.
 
 | Register IDs | Version and actual reading | Consequence |
 | --- | --- | --- |
@@ -34,7 +38,7 @@ none of it silently promotes a source inventory into complete host admission.
 | `optiga-m-*` | Preserved DS3.70, reference manual3.70, releases3.02, I2C2.03 rehashed; only recorded algorithm/pin/HMAC/authorization/derivation/release excerpts inherited. | Complete object/channel/counter/reset/update state machine and exact standard purchasable configuration remain open. |
 | `tropic-*` | Preserved DS A.11/API1.4/PIN1.2/pairing1.3/catalogue2/advisory1.0 matched; selected original review retained. Fresh preparation advisory bytes agree. | T310 is explicitly within advisory scope; no qualified fix or native Nostr signing/ECDH inferred. |
 | `ti-bq24074`, `ti-bq25628`, `ti-tps63802`, `ti-tusb320lai`, `diodes-ap2112` | Fresh TI originals match archived hashes; selected functional/startup/current-limit/watchdog/regulation/CC sections read. AP2112 selected historical dropout evidence rehashed. | No chosen chemistry/OPN, thermal/current qualification or complete implementation circuit. |
-| `usb-c-normative`, `nxp-i2c-spec` | USB release index only, normative review open. UM10204 Rev7 original and narrow recorded I2C evidence retained. | Component/application notes cannot close USB normative clauses or actual bus loading/timing. |
+| `usb-c-normative`, `usb-typec-r2p5`, `usb2-*`, `nxp-i2c-spec` | Current Type-C2.5 and USB2/ECN bundle originals retrieved and selected sink/power clauses read in usb-configuration.md. Remaining applicable clauses open. UM10204 Rev7 original and narrow recorded I2C evidence retained. | Component/application notes cannot close USB normative clauses or actual bus loading/timing. |
 | `embassy-stm32-*`, `esp-hal-cargo`, `esp-rust-book` | Exact source commits and original hashes; declared feature/module/toolchain screen only. | Neither a feature declaration nor source readability is a verified driver, target build, license audit or maintained release choice. |
 | `st-pins-*`, `ref-safe7-main`, `ref-ts1303/1401/1501/1702` | Exact ST XML signal/pad correspondence and same-hash selected visual drawings retained. | No approved netlist/footprint. XML lacks the electrical/AF/master proof; reference exports lack native assembly/layout qualification. |
 

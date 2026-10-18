@@ -1204,6 +1204,29 @@
       ],
       "issue": "Both public-use texts say bit5 is set to detect slow RNG clock; current RM makes CED active-low, and AN4230 configuration leaves it cleared.",
       "disposition": "Host requirement uses active-low detector enable from current RM; never silently invert it. Reconcile public-use wording before a certificate-reuse claim; no external inquiry sent. Raw-noise and RNG_VERR statements do not expand the public RM register map."
+    },
+    {
+      "id": "D-DISPLAY-MODULE",
+      "source": "lcd-2inch-product/lcd-2inch-module/lcd-2inch-schematic/adafruit-4311-module",
+      "locators": [
+        "Waveshare product identity/supply",
+        "linked module pp1–9",
+        "native board schematic p1",
+        "Adafruit panel pp1–13 and native revC schematic"
+      ],
+      "issue": "Waveshare controller names VW/V/V2-G4 disagree; direct VCC-to-panel net conflicts with generic5V claim and panel2.6–3.3V limit. One buffered Adafruit alternative still links V/V2-G4 and3.3Vmaximum panel; VIN-side pullups also need host compatibility.",
+      "disposition": "No display admission. Resolve exact module/controller and worst-case rail/logic margins; one additional manufacturer lead authorized for bounded triage, not a market sweep."
+    },
+    {
+      "id": "D-U585-KIT-CN",
+      "source": "u585-um2839/u585-mb1551-d01",
+      "locators": [
+        "UM2839§7.2 p16",
+        "§7.5 pp20–21",
+        "schematicD01"
+      ],
+      "issue": "Power section calls Type-C connectorCN14; USB section/schematic identifyCN1 whileCN14is Arduino header.",
+      "disposition": "Proposed transport connector isCN1; retain discrepancy, confirm received silkscreen/continuity H02."
     }
   ]
 }

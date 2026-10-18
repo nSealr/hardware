@@ -663,6 +663,91 @@
       "required_negative_case": "No software deadline may be inferred from a finite packet budget or a task timeout around an ISR-held wait.",
       "closure_owner": "H01/H02",
       "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C31",
+      "claim": "U585 reset defaults do not establish the proposed security ownership or complete erasure.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§3.5–3.8,5.3–5.6,6.3/6.6,7.9.13; pp150–212,276–286,342–344"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Set explicit secure/master/alternate-function ownership and erase/retention manifest before input; startup validates it.",
+      "open_assumption": "Exact manifest/locked bits and later reset observations; no already-running isolation claim.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C32",
+      "claim": "The proposed U585 immutable owner root needs BOOT_LOCK, protected-region and recovery-lifecycle policy, not an RDP label.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§3.3,3.10,7.4–7.6 pp150–194,307–328"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind verifier/version journal and signed update; distinguish full regression from partial or non-erasing transitions; no secret OTP.",
+      "open_assumption": "Final layout/policy and implementation/physical lifecycle qualification.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C33",
+      "claim": "Two modest SPI module leads contain unresolved controller/rail correspondence, and the buffered alternative has VIN-side control pullups.",
+      "evidence": [
+        {
+          "document": "lcd-2inch-module",
+          "locator": "pp1–9; lcd-2inch-schematic p1; adafruit-4311-module pp1–13 and schematic revC"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not assume5V wiring or a universally compatible ST7789 command/flex; resolve exact panel identity and worst-case rails.",
+      "open_assumption": "Exact module/controller applicability and compatible supply/control interface.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C34",
+      "claim": "S3 DevKitC-1 v1.1 diode-ORs both USB supplies and does not route its native-USB VBUS to an MCU session-valid input.",
+      "evidence": [
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "sheet2 native visual; D1/D7/J2/J4/U3/U4/J1/J3"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "A two-port or externally powered fixture needs actual VBUS sensing; bounded J4-only operation must exclude any other power/injection path and treat disconnect as power loss.",
+      "open_assumption": "Suspend and startup current, received topology and physical reset/erasure evidence.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C35",
+      "claim": "USB sink mode does not waive enumeration, suspend, inrush, backfeed or5.50V component limits.",
+      "evidence": [
+        {
+          "document": "usb2-base",
+          "locator": "§§7.2.1–7.2.4 plus USB-IF VBUS Max Limit, Suspend Current, Device Capacitance and Connect Timing ECNs; Type-C2.5 selected clauses in usb-configuration.md"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind power/current descriptors and safe connection state to kit circuitry and proposed firmware before H02.",
+      "open_assumption": "Remaining selected electrical/control clauses, ECNs and physical USB measurements.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
     }
   ]
 }
