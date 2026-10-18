@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "record_kind": "distinct affected current-manual research review; not task acceptance",
+  "reviewer": "/root/h01_substance_review",
+  "recorded_utc": "2026-10-18T19:29:24.885878+00:00",
+  "branch": "review/h01-current-manual",
+  "candidate": "e39015ae20efd37d509054f4b98ddd68ee7e98c9",
+  "substantive_source": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+  "author_result_sha256": "5c10be2874d6eb6eb194f1c71259a95f3197fb7aef79b085064ee8a601b7836e",
+  "author_handoff_sha256": "2f8d26bdedd671e1d91e47639192bf049c3cfdac5293a4e3c177dc8ac76a5240",
+  "verdict": "pass_limited",
+  "meaning": "Affected current-manual and candidate-source statements are supported; full host-relevant review remains incomplete.",
+  "h01_status": "incomplete",
+  "full_acceptance": false,
+  "host_admissions": [],
+  "selected_components": [],
+  "allowed_probe_configurations": [],
+  "nonvacuous_acceptance_required": true,
+  "findings": [
+    {
+      "id": "CM-1",
+      "severity": "low",
+      "blocking_this_limited_verdict": false,
+      "path": "docs/restart/H01/option-comparison.md",
+      "line": 101,
+      "finding": "Present U5 gate still called missing-manual problem after successful current-original retrieval.",
+      "requested_action": "Replace with remaining current-manual content and configuration review; retain immutable historical brief and reviews."
+    }
+  ],
+  "retained_prior_findings": {
+    "R1_ANALOG160": "fixed; original erratum reread",
+    "R2_TOUCH100": "fixed; original erratum reread",
+    "R3_documentary_vs_received_identity": "fixed; still no actual probe admission"
+  },
+  "source_review": {
+    "fresh_scope": "Exact sections and code ranges in report.md; complete current RNG functional/register text and complete pinned Embassy RNG; selected USB/reset/clock/DK2/errata/package material.",
+    "inherited_scope": "Historical reviews preserved byte-exact; unchanged blocking evidence not globally re-retrieved or re-reviewed.",
+    "unread_scope": "Remaining full host-relevant current security/lifecycle/peripheral/driver/pin/electrical coverage; unused source algorithms and all-manual/all-drawing coverage not claimed.",
+    "physical_claims": false,
+    "target_build_performed": false,
+    "copyrighted_originals_redistributed": false
+  },
+  "checks": [
+    {
+      "name": "independent byte/extraction/native-render correspondence",
+      "result": "pass",
+      "record": "docs/restart/H01/independent-review-current-manual/logs/bindings.json",
+      "limit": "Does not establish substantive completeness or qualification."
+    },
+    {
+      "name": "reviewer initial filename-selector failure and correction",
+      "record": "docs/restart/H01/independent-review-current-manual/logs/probe-execution.json",
+      "result": "corrected; rerun passed"
+    },
+    {
+      "name": "author existing CI",
+      "result": "inherited log reports43 tests pass; not rerun",
+      "source": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+      "limit": "No target/hardware/manual acceptance."
+    }
+  ],
+  "next_work": "Complete two proposed U585/S3 configuration records across all six accepted host review rows, plus mandatory G9 document comparison. Concrete conditional paper proposals and current chapter locators in report; no third port or empty-set completion.",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/independent-review-current-manual/report.md",
+      "sha256": "24fa08a104dc9f705026b387d131a16423c14eb2088697ac17aa33a22adf2275",
+      "bytes": 24416
+    },
+    {
+      "path": "docs/restart/H01/independent-review-current-manual/probes/check_bindings.py",
+      "sha256": "f371e2044a3100d72239829bfd8cf27fd4afcd62e9199954fc0bb92e09d4d041",
+      "bytes": 8543
+    },
+    {
+      "path": "docs/restart/H01/independent-review-current-manual/logs/bindings.json",
+      "sha256": "ba686b98c7466bf3b75034023ec207fade3b18a68dadd9b6bf2a1a7eece6f608",
+      "bytes": 27154
+    },
+    {
+      "path": "docs/restart/H01/independent-review-current-manual/logs/probe-execution.json",
+      "sha256": "c052439101329af20d43b0f3f1a355327e45f9b18d038c1b5c01855138635d00",
+      "bytes": 676
+    }
+  ]
+}

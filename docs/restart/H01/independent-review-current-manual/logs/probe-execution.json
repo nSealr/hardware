@@ -1,0 +1,15 @@
+{
+  "initial_probe_exit_code": 1,
+  "initial_log_sha256": "73d61ce379d5318e7b6aaa99f026c9de584dc4d408c669aa82be014bb2d65329",
+  "failed_checks": [
+    "s3-tinyusb-dcd_dwc2.c",
+    "s3-tinyusb-dwc2_common.c",
+    "s3-tinyusb-dwc2_common.h",
+    "s3-tinyusb-dwc2_esp32.h"
+  ],
+  "diagnosis": "Reviewer filename glob appended a second extension to IDs already ending in .c/.h. Retained native files exist. Corrected selector to include exact filename; no candidate change or hash expectation relaxation.",
+  "rerun": "Required after correcting reviewer probe.",
+  "rerun_exit_code": 0,
+  "rerun_result": "pass",
+  "scope": "Reviewer probe correction only; no candidate edits."
+}
