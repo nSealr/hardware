@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "reviewer": "/root/h01_substance_review",
+  "recorded_utc": "2026-10-18T18:25:00.960396+00:00",
+  "repository": "nSealr/hardware",
+  "candidate_commit": "d5d75306a082215453d329e31ca9c11d6effa80d",
+  "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+  "approved_brief_commit": "e10dd2426146e0aa3bbcf04af6a9b1bb59f7e868",
+  "distinct_brief_approval": "8041bac701f32aa289f6cfba019a7baaac04403e",
+  "verdict": "request_changes",
+  "verdict_scope": "Accuracy of frozen incomplete research progress; never whole H01 acceptance. Candidate ledger must not be used for probes.",
+  "whole_H01_acceptance": false,
+  "acceptance_status": {
+    "0": "partial",
+    "1": "incomplete",
+    "2": "gaps recorded; no freeze",
+    "3": "limited review scopes retained; no full-manual claim",
+    "4": "developer-access gates retained",
+    "5": "not met"
+  },
+  "blocking_claims_checked": [
+    "H01-C01",
+    "H01-C16",
+    "H01-C19"
+  ],
+  "adverse_claims_checked": [
+    "H01-C12",
+    "H01-C13",
+    "H01-C14",
+    "H01-C15",
+    "H01-C17"
+  ],
+  "findings": [
+    {
+      "id": "H01-IR-R1",
+      "severity": "high",
+      "required": true,
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "line": 678,
+      "row": "E-S3-ANALOG160",
+      "problem": "Damaging BIAS_SLEEP=0 AND PD_CUR=1 conjunction is written as mitigation.",
+      "required_change": "Put conjunction in affected configuration and explicitly avoid/disable it; enumerate v0.0/v0.1/v0.2 and IDF v4.4.2+, v5.0+ documented software workaround. Inspect actual selected implementation; do not intentionally exercise damaging condition.",
+      "source": "s3-es",
+      "source_sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500",
+      "locator": "\u00a73.3, printed p.7, physical PDF page9"
+    },
+    {
+      "id": "H01-IR-R2",
+      "severity": "medium",
+      "required": true,
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "line": 748,
+      "row": "E-S3-TOUCH100",
+      "problem": "Discard first two scans drops named interrupt and subsequent disable/stop-use step.",
+      "required_change": "Record full TOUCH_SCAN_DONE_INT workaround and exact v0.0/v0.1/v0.2 scope; do not approve continuing raw interrupt use after discarding two samples.",
+      "source": "s3-es",
+      "source_sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500",
+      "locator": "\u00a73.7, printed p.10, physical PDF page12"
+    },
+    {
+      "id": "H01-IR-R3",
+      "severity": "clarification",
+      "required": true,
+      "path": "docs/restart/H01/review-coverage.md",
+      "line": 34,
+      "row": "G02",
+      "problem": "H01 documentary identity preconditions and H02 received identity checks are grouped ambiguously.",
+      "required_change": "H01 records proposed OPN/package/kit configuration and allowed silicon/ROM set; H02 verifies actual received unit before probe. Keep substantive current-manual subset gates and no zero-host acceptance."
+    }
+  ],
+  "source_readings": [
+    {
+      "document": "s3-es",
+      "document_revision": "1.3",
+      "url": "https://documentation.espressif.com/esp-chip-errata/en/latest/esp32s3/esp-chip-errata-en-master-esp32s3.pdf",
+      "original_sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500",
+      "independent_reading": "Original PDF: applicability summary and all eight erratum bodies, printed pp.5\u201311; focus \u00a7\u00a73.3 and3.7. Independent reading exposed R1/R2."
+    },
+    {
+      "document": "p4-es",
+      "document_revision": "1.4",
+      "url": "https://documentation.espressif.com/esp-chip-errata/en/latest/esp32p4/esp-chip-errata-en-master-esp32p4.pdf",
+      "original_sha256": "76c8e48cfc7248fc85b449da3bdce5ff402d19a3d763c36751ca1f09a1dff049",
+      "independent_reading": "Original PDF/text: revision-identification tables, summary, all thirteen erratum bodies, selected revision history; \u00a7\u00a71\u20134 printed pp.1\u201315."
+    },
+    {
+      "document": "s3-ar2026-005",
+      "document_revision": "V1.0",
+      "url": "https://documentation.espressif.com/AR2026-005_Security_Advisory_Concerning_AES_Key_Recovery_Using_Voltage_Fault_Injection_on%20ESP32-S3_EN.html",
+      "original_sha256": "bb478a50d17fa6e0d6309b7b8d7a43776b415bc08e988a08fa96c4513ac28e36",
+      "independent_reading": "Complete four-page technical HTML body; surrounding text independently parsed from hashed original with stdlib HTMLParser."
+    },
+    {
+      "document": "s3-rng-sdk",
+      "document_revision": "ESP-IDF v6.1 documentation",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/v6.1/esp32s3/api-reference/system/random.html",
+      "original_sha256": "9c3964b751cbcd9d8e79544c310a9ea88bab4f09b66fc24caa4084d59e7331da",
+      "independent_reading": "Complete technical body and API preconditions; original HTML/parser correspondence sampled; no target implementation audit."
+    },
+    {
+      "document": "s3-trm",
+      "document_revision": "1.8",
+      "url": "https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf",
+      "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
+      "independent_reading": "Original PDF chapters24\u201325 printed pp.919\u2013921 only in this independent review. Other author-reviewed host chapters not independently cleared."
+    },
+    {
+      "document": "s3-module",
+      "document_revision": "1.8",
+      "url": "https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf",
+      "original_sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435",
+      "independent_reading": "Original PDF Tables3-1 pp.11\u201312 and electrical/current pp.27\u201328; pad witness and octal memory reservations."
+    },
+    {
+      "document": "st-u5-rm6-jp",
+      "document_revision": "RM0456 Rev 6, January 2025; historical, 3653 pages",
+      "url": "https://www.stmcu.jp/wp/wp-content/uploads/2021/07/RM0456_Rev6.pdf",
+      "original_sha256": "52152e414e2ac329cfd9038481b97e8ff70592f9892d171dcb63b7d283722616",
+      "independent_reading": "Rehashed original cover only; RM0456 Rev6 January2025, not current Rev7. No register-delta sign-off."
+    },
+    {
+      "document": "u5-rm7",
+      "document_revision": "Rev 7",
+      "url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "independent_reading": "Author retrieval records and additional coordinator retrieval-result inspected; no usable current original reviewed, no route repeated."
+    },
+    {
+      "document": "st-tn1474",
+      "document_revision": "1",
+      "url": "https://www.st.com/resource/en/technical_note/tn1474-security-bulletin-tn1474stpsirt-information-on-softwarebased--microarchitectural-timing-sidechannel-attacks-on-mcus-with-trustzone-for--armv8m-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "independent_reading": "Entire three-page official web PDF extraction; Rev1 June2023. Original-byte hash remains null."
+    },
+    {
+      "document": "st-tn1489",
+      "document_revision": "1",
+      "url": "https://www.st.com/resource/en/technical_note/tn1489-security-bulletin-tn1489stpsirt-physical-attacks-on-stm32-and-stm32cube-firmware-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "independent_reading": "Entire three-page official web PDF extraction; Rev1 October2023. Original-byte hash remains null."
+    },
+    {
+      "document": "st-sa0055",
+      "document_revision": "2",
+      "url": "https://www.st.com/resource/en/security_advisory/sa0055-sfi-security-enhancement-for-stm32h523533-microcontrollers-stm32u5-series-and-stm32l5-series-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "independent_reading": "Entire five-page official web PDF extraction; Rev2 March2026, substantive pp.1\u20133. Original-byte hash remains null."
+    },
+    {
+      "document": "u5g9-ds",
+      "document_revision": "DS14102 Rev 5",
+      "url": "https://www.st.com/resource/en/datasheet/stm32u5g9nj.pdf",
+      "original_sha256": null,
+      "independent_reading": "Official web PDF extraction: Rev5 cover/revision history; \u00a73.5 pp.27\u201328, Table2 pp.17\u201319, \u00a76.3/6.4 package text and \u00a77 ordering p.344. No successful visual screenshot or native-original acquisition; no full tables/pin clearance."
+    },
+    {
+      "document": "u5g9-es",
+      "document_revision": "ES0595 Rev 4",
+      "url": "https://www.st.com/resource/en/errata_sheet/es0595-stm32u5fxxx-and-stm32u5gxxx-device-errata-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "independent_reading": "Official web PDF extraction: summary, \u00a7\u00a72.2.9\u20132.2.11, \u00a7\u00a72.9\u20132.10 pp.19\u201320. Current Rev4; no native original."
+    },
+    {
+      "document": "u585-es",
+      "document_revision": "Rev 12",
+      "url": "https://www.st.com/resource/en/errata_sheet/es0499-stm32u575xx-and-stm32u585xx-device-errata-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "independent_reading": "Official web PDF extraction cover and summary pp.1\u20136 only; Rev12 June2026, X/W/U identities. Remaining bodies not signed off."
+    },
+    {
+      "document": "nxp-se051-current-index",
+      "document_revision": "AN12543 Rev4.5; errata1.1; AN13030 Rev2.7; AN13015 Rev1.4",
+      "url": "https://www.nxp.com/products/SE051",
+      "original_sha256": null,
+      "independent_reading": "Official current catalogue: API4.5/errata1.1/account requirement, middleware2.7 and personalization1.4 inventory. No restricted bodies read."
+    },
+    {
+      "document": "nxp-se051-config",
+      "document_revision": "AN12973 Rev 2.0, 8 July 2024; 27 pages",
+      "url": "https://www.nxp.com/docs/en/application-note/AN12973.pdf",
+      "original_sha256": "69a3999ad5af9bc2108bdc6c042271456fe0158816a46559f51a947c2657f30a",
+      "independent_reading": "Original PDF AN12973 Rev2.0 pp.2\u20135, variants/algorithms/OEF and default/recovery ownership."
+    },
+    {
+      "document": "nxp-sems-update",
+      "document_revision": "AN12907 Rev 1.2, 23 November 2023; 43 pages",
+      "url": "https://www.nxp.com/docs/en/application-note/AN12907.pdf",
+      "original_sha256": "d582655f13ecdd83cc51744c5d7aae427c26ee2650b625e3d83d9936495f0381",
+      "independent_reading": "Original PDF AN12907 Rev1.2 \u00a7\u00a71\u20133 pp.2\u20136, including update preservation and script key rotation."
+    },
+    {
+      "document": "optiga-m-ds",
+      "document_revision": "Rev 3.70, 9 October 2024; 45 pages",
+      "url": "https://www.infineon.com/assets/row/public/documents/30/49/infineon-optiga-trust-m-sls32aia-datasheet-en.pdf",
+      "original_sha256": "f9495234e67a7626dc64e1c19fbc9d1b72681f66ad6d9d17bec4b43c16c242b2",
+      "independent_reading": "Original PDF Rev3.70 pp.8\u20139 Tables1\u20134: standard variants and algorithms; not a wallet customization manual."
+    },
+    {
+      "document": "optiga-m-manual",
+      "document_revision": "Rev 3.70, 9 October 2024; 127 pages",
+      "url": "https://raw.githubusercontent.com/Infineon/optiga-trust-m-overview/a45b86bda014efeebfb85f084f779cedb07b32dc/docs/pdf/OPTIGA_Trust_M_Solution_Reference_Manual_v3.70.pdf",
+      "original_sha256": "41315a418c287f9cfff54b51a3538eec8026de2a601d83a6196b69aeee9adc4d",
+      "independent_reading": "Original PDF Rev3.70 pp.23\u201324 HMAC/authorization use cases only; other candidate inherited sections not newly read."
+    },
+    {
+      "document": "ti-bq24074",
+      "document_revision": "SLUS810N",
+      "url": "https://www.ti.com/lit/ds/symlink/bq24074.pdf",
+      "original_sha256": "4fe4e4f9855501f83b400c6932e3098439e51c50539e40dc45b44a8d509e8db1",
+      "independent_reading": "Original PDF SLUS810N cover and pp.19\u201322 input detection, startup, limits and power path."
+    },
+    {
+      "document": "ti-bq25628",
+      "document_revision": "SLUSEG4C",
+      "url": "https://www.ti.com/lit/ds/symlink/bq25628.pdf",
+      "original_sha256": "9a3c78c4480317de72e33bd962cc2d33f147ecf430759710a9e40103b39b0c26",
+      "independent_reading": "Original PDF SLUSEG4C p.6 pin-function distinctions, pp.37\u201338 watchdog/reset and pp.45\u201346 IINDPM."
+    },
+    {
+      "document": "ti-tps63802",
+      "document_revision": "SLVSEU9D",
+      "url": "https://www.ti.com/lit/ds/symlink/tps63802.pdf",
+      "original_sha256": "be07deca1231c5493957bc64c2dc1cad5543bff330e49ae41caf3286fd80dca6",
+      "independent_reading": "Original PDF SLVSEU9D pp.12,14\u201317 startup figure, reverse protection, modes/current limits and application effective-component requirements; cover/text startup constraint sampled."
+    },
+    {
+      "document": "ti-tusb320lai",
+      "document_revision": "SLLSEQ8D",
+      "url": "https://www.ti.com/lit/ds/symlink/tusb320lai.pdf",
+      "original_sha256": "62f7b3f65338e25ebd6fd46ef04474ba806b06b1cc04bc0b3d7b8191b01ca87d",
+      "independent_reading": "Original PDF SLLSEQ8D pp.11\u201314 Type-C current/status, backpower, dead-battery and shutdown modes."
+    },
+    {
+      "document": "st-pins-STM32U585VITx",
+      "document_revision": "STMicroelectronics/STM32_open_pin_data commit 7d1f1514ed5583ec5007ad91236b4e1d377295b1",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32_open_pin_data/7d1f1514ed5583ec5007ad91236b4e1d377295b1/mcu/STM32U585VITx.xml",
+      "original_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "independent_reading": "Pinned original XML parsed: all 24 recorded package-pad/signal pairs compared; signal presence only."
+    },
+    {
+      "document": "st-pins-STM32U585VITxQ",
+      "document_revision": "STMicroelectronics/STM32_open_pin_data commit 7d1f1514ed5583ec5007ad91236b4e1d377295b1",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32_open_pin_data/7d1f1514ed5583ec5007ad91236b4e1d377295b1/mcu/STM32U585VITxQ.xml",
+      "original_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "independent_reading": "Pinned original XML parsed: all 24 recorded package-pad/signal pairs compared; signal presence only."
+    },
+    {
+      "document": "embassy-stm32-cargo",
+      "document_revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/Cargo.toml",
+      "original_sha256": "55631e05bcf036ce3bf657912353900489e2376f3121e7858d0e00bdced5e775",
+      "independent_reading": "Pinned original manifest feature declarations for U585VI/U5A5VJ/U5G9ZJ/H573."
+    },
+    {
+      "document": "embassy-stm32-lib",
+      "document_revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/src/lib.rs",
+      "original_sha256": "6f8843e578a23d0d8f6fdd6be31b0e3ad846c17e3ab93fb9ec438611e59301be",
+      "independent_reading": "Pinned original gated DSI, DMA2D, GPU2D, GFXMMU and LTDC module declarations; no build."
+    },
+    {
+      "document": "ref-ts1501",
+      "document_revision": "Pinned repository revision in URL; drawing revision identified in option comparison",
+      "url": "https://raw.githubusercontent.com/tropicsquare/devboards/5457ca1e0534df59e5587dba332f30014d7874dc/TROPIC01_Raspberry_Pi_Shield/TS1501/ts1501_schematics.pdf",
+      "original_sha256": "76095194b2a4ac7034fe79f46b761145792b75d983d4f2b5bab5a37b18199437",
+      "independent_reading": "Fresh pdftoppm rendering of hashed original physical page1 independently inspected; GPO GPIO5/physical29 and GPIO25 CS-option distinction."
+    },
+    {
+      "document": "ref-safe7-main",
+      "document_revision": "Pinned repository revision in URL; drawing revision identified in option comparison",
+      "url": "https://raw.githubusercontent.com/trezor/trezor-hardware/f469f4ca0bed731f505f270636a3a459d2f3b931/electronics/trezor_safe_7/ts7_main_rev_d_sch.pdf",
+      "original_sha256": "f772fe1f33a294683abfd9a8f64dc728598a6d12d9f02b043afe2a0b7e8bda61",
+      "independent_reading": "Fresh pdftoppm rendering of hashed original physical page13 independently inspected; custom display interface and sheet revision C in RevD-named file. Other sheets not independently reviewed."
+    },
+    {
+      "document": "usb-c-normative",
+      "document_revision": "Release2.5 index lead; applicable complete normative set unreviewed",
+      "url": "https://www.usb.org/document-library/usb-type-cr-cable-and-connector-specification-release-25",
+      "original_sha256": null,
+      "independent_reading": "Official USB-IF Release2.5 index only; complete normative clauses not read."
+    }
+  ],
+  "gates": {
+    "G01": "Open; current RM0456 Rev7 unavailable from attempted routes. Retrieval failure is not access-policy evidence.",
+    "G02": "Open; R1/R2/R3 and concrete subset reading/driver correspondence remain.",
+    "G03": "Open; exact SE documents, commands and TROPIC qualification remain. Does not block independent host research.",
+    "G04": "Open; USB normative/electrical obligations remain.",
+    "G05": "Open; exact panel/power/expansion identities and calculations remain.",
+    "G06": "Physical resource inventory belongs to later received-hardware checks, not a requirement to own hardware for H01 documentary review.",
+    "G07": "Distinct review performed and request_changes issued; no pass."
+  },
+  "integrity_checks": {
+    "command": "python3 docs/restart/H01/independent-review/probes/check_evidence.py",
+    "exit_code": 0,
+    "result_artifacts_match": 11,
+    "non_null_original_hashes_and_sizes_match": 50,
+    "no_validated_original_claimed": 20,
+    "fresh_pdf_extractions_byte_match": 7,
+    "meaning": "Correspondence only; R1/R2 required actual source reading.",
+    "manufacturer_xml_pad_signal_pairs_checked": 48
+  },
+  "existing_ci": {
+    "author_wrong_basename_setup_failure_preserved": true,
+    "author_exact_source_correct_basename_reported_tests": 43,
+    "independently_rerun": false,
+    "scope": "Existing repository tooling only, no manual/electrical/target clearance."
+  },
+  "report": {
+    "path": "docs/restart/H01/independent-review/report.md",
+    "sha256": "aff49a9b71244a4b7f459ad983055d7b12428438c65f65f17c7bbb033e9877e3"
+  },
+  "remaining_review_limits": [
+    "No full manual review of all70 sources.",
+    "No blanket independent re-signoff of all nonblocking claims or all author-noted source contradictions.",
+    "No successful retained originals for web-only ST reads; hashes remain null.",
+    "No global part/kit availability or commercial OPN guarantee from syntax.",
+    "No physical or security qualification."
+  ],
+  "actions_performed": {
+    "candidate_source_modified": false,
+    "canonical_graph_modified": false,
+    "CAD_modified": false,
+    "target_built": false,
+    "physical_test": false,
+    "production_secret_used": false,
+    "irreversible_provisioning": false
+  }
+}

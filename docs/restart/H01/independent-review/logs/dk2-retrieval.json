@@ -1,0 +1,15 @@
+{
+  "url": "https://www.st.com/resource/en/user_manual/um3223-discovery-kit-with-stm32u5g9zj-mcu-stmicroelectronics.pdf",
+  "retrieved_utc": "2026-10-18T18:18:54.860106+00:00",
+  "scope": "new document-only DK2 comparator lead; no port or part admission",
+  "error": "The read operation timed out",
+  "document_id": "UM3223",
+  "revision": "Rev2",
+  "document_date": "2025-11",
+  "original_sha256": null,
+  "original_bytes": null,
+  "web_extraction": "Official PDF web extraction succeeds; cover and \u00a7\u00a71\u20132 pp.2\u20133 read. Native timeout did not yield original bytes.",
+  "part": "STM32U5G9ZJT6Q",
+  "board": "STM32U5G9J-DK2; MB1918 main + MB1860 LCD",
+  "remaining": "Detailed power/display/pin/native schematic review; not a new port or selected part."
+}
