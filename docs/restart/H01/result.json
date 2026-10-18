@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "record_kind": "incomplete research candidate handoff; not acceptance",
+  "recorded_utc": "2026-10-18T18:08:16.311437+00:00",
+  "author": "/root/h01_author",
+  "source_repository": "nSealr/hardware",
+  "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+  "branch": "restart/h01-manuals",
+  "input_main_commit": "7b5553685dac56029a4379be12054154b6b5e0b5",
+  "input_hardware_commit": "340697d6713a671e9e01b0dc874ec999ab071601",
+  "approved_brief_commit": "e10dd2426146e0aa3bbcf04af6a9b1bb59f7e868",
+  "approval_original_commit": "8041bac701f32aa289f6cfba019a7baaac04403e",
+  "status": "incomplete; distinct review requested; H01 closure not claimed",
+  "host_admissions": [],
+  "selected_components": [],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "44e65289753dd800c66c6db7d967ae3f8000d12bd2a082ffecaa2d857720b650",
+      "bytes": 2710
+    },
+    {
+      "path": "docs/restart/H01/brief.md",
+      "sha256": "89f5e3487d669e1555bf07f8207ddc8cf783f554b72a7f02785fffd5deccf5e8",
+      "bytes": 18448
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "sha256": "085392d51fe5471bf201c2613d24f30f042334bb0ed638d223fdbed351fb33b4",
+      "bytes": 24592
+    },
+    {
+      "path": "docs/restart/H01/input-notes.json",
+      "sha256": "75b54942af4cace291f3f60f234ccb35b02a45b831a6961d2b26b8a8ad39a7b0",
+      "bytes": 27778
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "sha256": "733b051efa0167b9034a10eb24f459e81aefdb87806c877cab2ccebaee84e58a",
+      "bytes": 103583
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "sha256": "7c30a2314f0d8cb699f5e0982cbd95c400606254e4a5a04d6446f7dab763ccc2",
+      "bytes": 6966
+    },
+    {
+      "path": "docs/restart/H01/option-comparison.md",
+      "sha256": "11e54b36947b98196ecf5fb1b71856d80c6c48ac1b55a6cb6bf1bce8914c61d8",
+      "bytes": 14945
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "sha256": "f0a072cdff3a58a1b46abe60f5860f99f89de5096747f99220d0a38f6c8f814d",
+      "bytes": 44335
+    },
+    {
+      "path": "docs/restart/H01/probe-plan.md",
+      "sha256": "c471e380cc0db7f786736c4af910cb1f209067a57afe03f323c92234d014d69f",
+      "bytes": 8631
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "sha256": "3e6779b2d0b1041760112ae1266dc66ac464dcff843ce9f6cca1bf15f6915a54",
+      "bytes": 8178
+    },
+    {
+      "path": "docs/restart/H01/spec-review.json",
+      "sha256": "9700d170688af1fcb1096c18d173164feb0751ccce0156b1bb369b3524eeb93d",
+      "bytes": 3194
+    }
+  ],
+  "acceptance_status": [
+    {
+      "index": 0,
+      "status": "partial exact identity/source record; unknown OPN/revision/access explicitly recorded"
+    },
+    {
+      "index": 1,
+      "status": "incomplete; no vacuous pass from zero admissions"
+    },
+    {
+      "index": 2,
+      "status": "gaps recorded; no freeze"
+    },
+    {
+      "index": 3,
+      "status": "selected/index/inherited/unread distinctions recorded"
+    },
+    {
+      "index": 4,
+      "status": "developer-access criterion and independent research maintained"
+    },
+    {
+      "index": 5,
+      "status": "not met; complete host-relevant review remains open"
+    }
+  ],
+  "checks": [
+    {
+      "command": "JSON parse, unique IDs and claim/pin/errata source references",
+      "result": "pass",
+      "scope": "record integrity only"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass",
+      "scope": "source commit whitespace"
+    },
+    {
+      "command": "make ci in /goal/h01",
+      "result": "failed",
+      "reason": "existing basename-derived verifier expects MIT for directory h01"
+    },
+    {
+      "command": "make ci in exact detached /goal/h01-ci/hardware",
+      "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+      "result": "pass",
+      "tests": 43,
+      "scope": "unchanged existing repo verification/test/compile/validation; no manual/electrical proof"
+    },
+    {
+      "command": "python3 /home/tux/nsealr/firmware/scripts/validate_restart_plan.py",
+      "main_commit": "f2ef70f522af4977e15f81554a8c6eadcdbe8097",
+      "graph_revision": 13,
+      "result": "pass, 47 tasks",
+      "scope": "read-only structural reconciliation; not canonical input replacement"
+    }
+  ],
+  "remaining_gates": [
+    "current RM0456 Rev7 and relevant delta",
+    "concrete S3 and U585 selected host subset/register/driver correspondence",
+    "remaining U5G9 document-level memory/power/graphics/package triage",
+    "selected SE exact API/errata/update/access/advisory qualification",
+    "current USB normative clauses and exact power/panel/expansion implementation",
+    "all physical resource identities and measurements",
+    "distinct source/manual-substance review"
+  ],
+  "physical_work_performed": false,
+  "target_build_performed": false,
+  "irreversible_operation_performed": false,
+  "production_secret_used": false,
+  "canonical_graph_modified": false,
+  "independent_review": {
+    "status": "requested from coordinator",
+    "candidate": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+    "required_focus": "actual manual substance/source applicability and all blocking claims; not schema counts"
+  }
+}
