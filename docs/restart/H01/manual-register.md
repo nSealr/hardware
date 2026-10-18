@@ -1,5 +1,10 @@
 # H01 manual register — selected review, incomplete host gate
 
+**Explicitly paused by the user.** [Pause reading notes](pause-reading-notes.md)
+preserve already completed reading and the corrected VIQ package allocation;
+[PAUSE-HANDOFF.md](PAUSE-HANDOFF.md) records the resumable checkpoint. No new
+host sign-off or independent acceptance is implied.
+
 The auditable record is [manual-register.json](manual-register.json). It records
 original-byte hashes where an original was obtained, exact URLs, revisions,
 reviewed sections, inherited correspondence and remaining work. No manufacturer

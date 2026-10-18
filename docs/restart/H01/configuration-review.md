@@ -52,8 +52,16 @@ connector orientation must be checked in H02 before energizing a fixture.
 | Display data/command | PC1, CN13.1 / D8 | GPIO13, J1.19 |
 | Display reset | PA8, CN13.2 / D9 | GPIO14, J1.20 |
 | Backlight control | PB6, CN14.7 / D6 | GPIO9, J1.15 |
-| Up / down / left / right | PC0/PC2/PC4/PC5, CN16.1–4 | GPIO4/5/6/7, J1.4–7 |
+| Up / down / left / right | PC0/PC2/PA7/PB0, CN16.1/.2/.5/.6 | GPIO4/5/6/7, J1.4–7 |
 | Local selection / separate consent | PE7 / PD15, CN14.5 / CN14.3 | GPIO17 / GPIO18, J1.10 / J1.11 |
+
+The common U585 proposal corrects the earlier PC4/PC5 allocation: DS13086
+Rev10 native Figure14 p99 shows that the proposed LQFP100 SMPS package does
+**not** expose PC4/PC5. The p100 diagram is the non-SMPS package. PA7/PB0 on
+CN16.5/.6 use the kit's documented default SB10/SB13 paths (SB11/SB12 absent),
+subject to the still-incomplete branch/reset/electrical checks. This is a
+paper-proposal correction, not wiring authorization or a continuity result.
+See [pause-reading-notes.md](pause-reading-notes.md) for the preserved correction.
 
 The S3 header mapping is directly read from the manufacturer's v1.1 guide;
 both native schematic pages now visually agree. Module pads, reset states
