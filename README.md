@@ -3,18 +3,29 @@
 Open hardware reference designs, BOMs, validation contracts, and production
 notes for nSealr signer and secure-device hardware.
 
-Feature targets and current status are defined in `nSealr/specs`
-`vectors/features/signer-feature-matrix-v0.json`. This repository provides
-hardware artifacts for those families; it must not create separate signer-family
-behavior outside the shared specs contract model.
+Current requirements and task state live in the canonical
+[nSealr restart plan](https://github.com/nSealr/nsealr/tree/main/docs/restart).
+The accepted direction separates a general-purpose Board/SDK from the Nostr
+Signer. The SDK has no Nostr dependency; its initial model is one trusted
+firmware image.
 
-## Current Hardware Lines
+## Current investigation
 
-- ESP32-S3 USB/NIP-46 signer reference requirements.
-- ESP32-S3 stateless QR vault requirements and accepted display/camera devkit
-  targets.
-- Raspberry/Pi stateless QR vault kit requirements, OS profile, BOM, and smoke
-  report templates.
+The four Signer profiles are connected commercial ESP32 without an SE, offline
+Pi, offline ESP32-P4, and an initially connected custom Board. They have separate
+threat and validation boundaries; these names do not establish a security rank.
+
+The [H01 manual register](docs/restart/H01/manual-register.md),
+[bounded comparison](docs/restart/H01/option-comparison.md) and
+[review gates](docs/restart/H01/review-coverage.md) record current hardware
+research. H01 remains incomplete: no host probe or component selection is
+approved by this record, and the current U5 reference-manual gap is explicit.
+The [probe plan](docs/restart/H01/probe-plan.md) separates documentation from
+future measurements and selected-SE gates.
+
+Existing kit requirements, reports and BOMs remain historical investigation
+inputs. Their older five-family or ESP32-S3 QR terminology does not define the
+accepted portfolio or select the replacement Board's components.
 
 ## Archived Hardware
 
@@ -22,9 +33,8 @@ The legacy TROPIC01 Universal Secure Device board has been retired from this
 repository. Its complete design — KiCad project, BOM, production contracts,
 docs, and board-specific scripts — was archived with full git history to the
 private, read-only repository `nSealr/hardware-legacy-tropic01-universal`. It is
-superseded by the minimal custom hardware wallet direction recorded in the
-`nSealr/specs` five-solution device-matrix decision; the replacement board will
-be introduced in a later program phase.
+historical evidence. The replacement Board follows the canonical restart
+requirements and future hardware gates; the archived design is not its BOM.
 
 ## Quality Baseline
 

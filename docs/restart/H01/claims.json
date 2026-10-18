@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "status": "Selected evidence; no measurements or host admission",
+  "claims": [
+    {
+      "id": "H01-C01",
+      "claim": "Current RM0456 Rev7 review is unavailable.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "cover/index and recorded failed retrievals"
+        },
+        {
+          "document": "st-u5-rm6-jp",
+          "locator": "cover, historical selected §§3.3/3.5 and OEM/RDP"
+        }
+      ],
+      "applicability": "U585, U5A5 and U5G9",
+      "status": "blocking-document-gap",
+      "engineering_consequence": "Do not admit a U5 host probe whose behavior depends on unread current register descriptions; H01 cannot claim complete host review.",
+      "open_assumption": "Rev6-to-Rev7 relevant delta and current selected chapters.",
+      "required_negative_case": "A stale cover or HTML error body must not be accepted as the current PDF.",
+      "closure_owner": "H01",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C02",
+      "claim": "The U5G9 package table must use DS14102 Rev5, not stale Rev4 snippets.",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "cover/features and manufacturer OPN table"
+        }
+      ],
+      "applicability": "STM32U5G9ZJT6Q LQFP144 and STM32U5G9ZJJ6Q UFBGA144",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep both exact package leads visible; Safe7 generic U5G9ZJ and DK1 U5G9NJH6Q are not package substitutions.",
+      "open_assumption": "Exact ZJ pad/AF and supply-domain review; received marking.",
+      "required_negative_case": "Reject pin assignments copied from NJ/TFBGA216 or older package tables.",
+      "closure_owner": "H01/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C03",
+      "claim": "U5G9 offers materially more internal UI working memory, subject to ECC and ownership.",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "pp.1–2, §§3.6–3.7"
+        }
+      ],
+      "applicability": "U5G9ZJ; not every U5 family member",
+      "status": "documented-selected",
+      "engineering_consequence": "Assess 480×480 review/recovery UI without assuming external PSRAM stores secrets. Larger RAM is not proof of trusted display ownership.",
+      "open_assumption": "Full SRAM banks/graphics master attribution/current RM and peak workload budget.",
+      "required_negative_case": "Stress UI+USB+crypto while checking that non-secret frame buffers cannot disclose or overwrite secret arenas.",
+      "closure_owner": "H01/H02/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C04",
+      "claim": "A framebuffer budget alone can reject an unsuitable UI configuration.",
+      "evidence": [],
+      "applicability": "RGB565 buffers, no compression",
+      "status": "calculated",
+      "engineering_consequence": "240×320×2=153600 bytes (150 KiB); 480×480×2×2=921600 bytes (900 KiB). The latter exceeds U585 main SRAM before stacks/USB/crypto. Strip rendering remains a possible alternative.",
+      "open_assumption": "Actual stack, allocator, retained buffers, ECC, application concurrency and rendering rate.",
+      "required_negative_case": "Largest allowed review text/recovery input plus host flooding must remain bounded without hidden truncation.",
+      "closure_owner": "H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C05",
+      "claim": "S3 module variant controls available pins, rail voltage and external memory.",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "pp.2–4,10–18,27–30"
+        }
+      ],
+      "applicability": "ESP32-S3-WROOM-1-N8R8 lead only",
+      "status": "documented-selected",
+      "engineering_consequence": "8MB flash+8MB PSRAM; GPIO35–37 reserved by octal PSRAM. Use 3.0–3.6V module supply and preserve EN/strap requirements; exposed external RAM is not default secret storage.",
+      "open_assumption": "Exact memory die, received silicon, kit revision and regulator margins.",
+      "required_negative_case": "Wrong module variant, boot strap held by accessory, or battery below module operating minimum must fail safely.",
+      "closure_owner": "H02/H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C06",
+      "claim": "S3 DMA descriptors and memory placement are explicit ownership work.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§§3.1–3.6 pp.357–368; §§4.1–4.3.4 pp.400–407; §§15.1–15.4.1 pp.683–694"
+        }
+      ],
+      "applicability": "S3 internal RAM, GDMA and selected USB controller",
+      "status": "documented-selected",
+      "engineering_consequence": "Internal descriptor storage, transfer bounds/alignment, core/cache coherence and descriptor lifetime need static ownership. Descriptor owner bit is not a security authorization. USB OTG has its own AHB master.",
+      "open_assumption": "Exact USB slave/DMA path and all enabled masters; remaining permission-register subset if protection used.",
+      "required_negative_case": "Malformed length/stale descriptor, simultaneous core writes and peripheral reset during transfer must not reach secret memory.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C07",
+      "claim": "S3 RNG strength depends on a live qualified entropy source.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§25 pp.920–921"
+        },
+        {
+          "document": "s3-rng-sdk",
+          "locator": "entire technical body/API"
+        }
+      ],
+      "applicability": "ESP-IDF v6.1 S3 RNG path",
+      "status": "documented-selected",
+      "engineering_consequence": "After boot, RF or SAR entropy conditions must be maintained. esp_random returning a u32 cannot signal source loss; the Board entropy adapter must enforce S02 fallibility and prohibit silent pseudo-random fallback.",
+      "open_assumption": "Pinned implementation/health policy and hardware fault observability; ADC/RF ownership conflicts.",
+      "required_negative_case": "Disable/lose the qualified source, request during startup/sleep transition, or contend for SAR; secret operations must fail.",
+      "closure_owner": "H02/S02-contract integration",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C08",
+      "claim": "S3 boot and update authorities are finite lifecycle choices.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§§5.1–5.3.3 pp.410–421; chapter8 pp.532–538"
+        },
+        {
+          "document": "s3-boot-sdk",
+          "locator": "Key Management/Key Revocation/eFuse Usage"
+        },
+        {
+          "document": "s3-ota-sdk",
+          "locator": "Rollback/Anti-rollback/unsafe update"
+        }
+      ],
+      "applicability": "S3 Secure Boot v2 and selected OTA configuration",
+      "status": "documented-selected",
+      "engineering_consequence": "Separate owner firmware signing roots from Nostr identity and Bridge transport keys. Three digest slots and 16 secure-version fuse bits require an explicit owner rotation/recovery policy; ordinary app A/B safety does not cover all bootloader/data updates.",
+      "open_assumption": "Exact SDK build, fuse map, surviving state and bootloader-update contradiction.",
+      "required_negative_case": "Unsigned/old firmware, power loss during update, revocation of last usable root and rollback to incompatible state require distinct expected outcomes.",
+      "closure_owner": "H02; irreversible actions require concrete authorization",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C09",
+      "claim": "Enabling S3 release security can irreversibly alter the device.",
+      "evidence": [
+        {
+          "document": "s3-flash-sdk",
+          "locator": "Development/Release/transition and Relevant eFuses"
+        },
+        {
+          "document": "s3-boot-sdk",
+          "locator": "How To Enable"
+        }
+      ],
+      "applicability": "S3 owner-secured lifecycle, not development probe",
+      "status": "documented-selected",
+      "engineering_consequence": "Start H02 with public fixtures and a non-provisioning build. A config toggle is not an authorized fuse operation. Flash encryption protects storage paths, not a compromised running privileged CPU.",
+      "open_assumption": "Exact key custody, flash/NVS regions, debug/download policy and recovery transition.",
+      "required_negative_case": "Rebuild/config mistake must not auto-provision development hardware; loss of update authority must not silently destroy recoverability.",
+      "closure_owner": "H02/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C10",
+      "claim": "S3 resets do not uniformly erase internal state.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "chapter7 pp.526–531; §§10.3–10.4 pp.574–580"
+        }
+      ],
+      "applicability": "S3 reset/power states",
+      "status": "documented-selected",
+      "engineering_consequence": "Reset type and RTC retention must be included in secret zeroization and consent invalidation. Default 2.7V brownout setting is below the module 3.0V operating minimum.",
+      "open_assumption": "NV-write voltage margin and complete reset/sleep driver sequence.",
+      "required_negative_case": "CPU reset, watchdog reset, brownout and retained sleep must invalidate pending approval and clear designated secret buffers.",
+      "closure_owner": "H02/H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C11",
+      "claim": "S3 USB-OTG and USB-Serial/JTAG share the internal PHY.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§32 pp.1227–1237; §33 pp.1243–1247"
+        },
+        {
+          "document": "s3-usb-sdk-current",
+          "locator": "Hardware/External PHY/Power Management"
+        }
+      ],
+      "applicability": "S3 internal PHY USB device probe",
+      "status": "documented-selected",
+      "engineering_consequence": "Use the actual USB device path and separate debugging arrangement. USB Serial/JTAG is a debug/download surface. FS USB wake from light sleep is not supported by the reviewed stack page.",
+      "open_assumption": "Exact TinyUSB component commit, endpoint/FIFO/DMA and suspend policy.",
+      "required_negative_case": "Host reset/flood/unplug during consent and suspend/resume must neither approve nor deadlock UI; debug commands must not enter custody protocol.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C12",
+      "claim": "S3 physical AES advisory is relevant to long-lived wrapping designs.",
+      "evidence": [
+        {
+          "document": "s3-ar2026-005",
+          "locator": "entire four-page technical body"
+        }
+      ],
+      "applicability": "AR2026-005, general-purpose AES-128 under voltage fault injection",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not transfer the vendor ephemeral/per-device-key assumption to a long-lived SE wrapping key. No complete fix is established here; XTS scope is distinct.",
+      "open_assumption": "Concrete threat, key usage and proposed mitigation qualification.",
+      "required_negative_case": "If physical fault resistance is advertised, test the exact relevant service under an appropriate independently defined campaign.",
+      "closure_owner": "H04/security qualification",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C13",
+      "claim": "TrustZone does not alone establish application or physical isolation.",
+      "evidence": [
+        {
+          "document": "st-tn1474",
+          "locator": "entire bulletin"
+        },
+        {
+          "document": "st-tn1489",
+          "locator": "entire bulletin"
+        }
+      ],
+      "applicability": "ST M33 secure/nonsecure shared resources and exact certified services",
+      "status": "documented-selected",
+      "engineering_consequence": "Initial SDK is one trusted image. Constant-time secret code and exact service assurance scope remain necessary; neither a TrustZone feature label nor certification of a different service closes the Board threat model.",
+      "open_assumption": "Any future hostile-app model needs a separate complete ownership/side-channel design.",
+      "required_negative_case": "A future adversarial nonsecure workload must not infer secrets through shared-resource timing.",
+      "closure_owner": "Architecture/H04 before expanded isolation claim",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C14",
+      "claim": "SA0055 concerns a manufacturing SFI configuration, not every runtime use.",
+      "evidence": [
+        {
+          "document": "st-sa0055",
+          "locator": "affected products/versions/remedy"
+        }
+      ],
+      "applicability": "U5 external-flash SFI using affected RSSe/personalization tuple",
+      "status": "documented-selected",
+      "engineering_consequence": "Use the qualified replacement RSSe and matched personalization if this production flow is selected; do not label unrelated H573 runtime behavior affected.",
+      "open_assumption": "Exact factory tuple and current terms; SFI not selected in H01.",
+      "required_negative_case": "Wrong/old RSSe or mismatched personalization must be rejected before production secrets are introduced.",
+      "closure_owner": "H04/manufacturing",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C15",
+      "claim": "P4 secure boot must be bound to silicon revision and algorithm.",
+      "evidence": [
+        {
+          "document": "p4-es",
+          "locator": "ROM-764/770/816 and ECDSA_DS-836/837, §§3–4"
+        }
+      ],
+      "applicability": "P4 v0.x/1.x/3.0/3.1/3.2 as listed by each erratum",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not admit v3.0 ROM-764 by disabling a required secure-boot property. ECDSA_DS-836 affects v3.0–3.2 and 837 earlier revisions; vendor workaround uses RSA_DS secure boot. ROM maintenance/power errata also differ by revision.",
+      "open_assumption": "Actual silicon/ROM, chosen boot algorithm, SDK/esptool and maintenance procedure.",
+      "required_negative_case": "Invalid r/s secure-boot signature, secure-download flash access and programming/power sequence require revision-specific tests.",
+      "closure_owner": "P4 profile owner before admission",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C16",
+      "claim": "SE051 mandatory command/errata access remains unresolved.",
+      "evidence": [
+        {
+          "document": "nxp-se05x-api",
+          "locator": "AN12543 catalogue Rev4.5"
+        },
+        {
+          "document": "nxp-se051-errata",
+          "locator": "catalogue Rev1.1"
+        },
+        {
+          "document": "nxp-se051-config",
+          "locator": "pp.2–5"
+        },
+        {
+          "document": "nxp-sems-update",
+          "locator": "§§1–3 pp.2–6"
+        }
+      ],
+      "applicability": "SE051C2 exact OPN/OEF/applet tuple unresolved",
+      "status": "blocking-selection-gap",
+      "engineering_consequence": "Public headers do not establish command preconditions, policy enforcement or applicable errata. NXP applet update authority is separate from MCU owner authority; H02S/H04 remain blocked for selected-SE guarantees.",
+      "open_assumption": "Lawful API/errata/update/personalization access, developer redistribution and actual package/configuration.",
+      "required_negative_case": "Reproducible developer setup must fail visibly if required credentials, docs or update rights are unavailable.",
+      "closure_owner": "H02S/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C17",
+      "claim": "Algorithm labels do not establish non-exportable Nostr services.",
+      "evidence": [
+        {
+          "document": "nxp-se051-ds",
+          "locator": "features/algorithm table"
+        },
+        {
+          "document": "optiga-m-ds",
+          "locator": "tables1–4, pp.8–9"
+        },
+        {
+          "document": "tropic-api",
+          "locator": "pp.36–41 curve/sign command inventory"
+        }
+      ],
+      "applicability": "SE051C2, standard Trust M V3, TROPIC01 reviewed versions",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not infer BIP340 from ECDSA or Nostr ECDH from generic ECC. Plan host software custody/work buffers unless exact required SE commands/policies are demonstrated; no SE is selected.",
+      "open_assumption": "Exact commands, curve, key import/export policy and public-vector behavior.",
+      "required_negative_case": "Unsupported curve/algorithm, wrong object policy and export attempt must fail with documented status.",
+      "closure_owner": "H02S",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C18",
+      "claim": "PIN retry protection includes host persistent-state and reset semantics.",
+      "evidence": [
+        {
+          "document": "tropic-pin",
+          "locator": "pp.5–10"
+        },
+        {
+          "document": "optiga-m-manual",
+          "locator": "pp.23–24,34–36"
+        },
+        {
+          "document": "tropic-pairing",
+          "locator": "p.5"
+        }
+      ],
+      "applicability": "Candidate-specific policy, not interchangeable SE API",
+      "status": "documented-selected",
+      "engineering_consequence": "Specify enrollment/change/recovery, destructive retry state, authorization lifetime and replacement of default pairing keys. No automatic timed delay or independent dual-SE protection is inferred.",
+      "open_assumption": "Complete selected object/channel/counter/reset and power-cut state machines.",
+      "required_negative_case": "Power cut/reboot/rollback between each state change must not restore attempts or preserve authorization unintentionally.",
+      "closure_owner": "H02S/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C19",
+      "claim": "The TROPIC public advisory includes T310; no qualified fix is established.",
+      "evidence": [
+        {
+          "document": "tropic-advisory",
+          "locator": "affected-products p.3, mitigation pp.5–6, timeline p.10"
+        }
+      ],
+      "applicability": "TR01-C2P-T310 Boot2.0.1/App2.0.0/SPECT1.0.0 in advisory; wider architecture scope as stated there",
+      "status": "blocking-selection-gap",
+      "engineering_consequence": "Open documentation is useful but does not close affected asset protection. Future hardened-part forecasts are not received-qualified remediation.",
+      "open_assumption": "Exact intended part/threat, vendor remedy and independent qualification.",
+      "required_negative_case": "A newer part label or public-disclosure schedule must not be accepted as proof the intended service resists the published attack.",
+      "closure_owner": "H02S/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C20",
+      "claim": "A vendor USB command bridge is not a local custody signer.",
+      "evidence": [
+        {
+          "document": "ref-ts1303",
+          "locator": "single-page visually reviewed schematic; PA4/5/6/7, PB0, PA0"
+        },
+        {
+          "document": "tropic-api",
+          "locator": "command inventory"
+        }
+      ],
+      "applicability": "TS1303 USB devkit/host bridge reference",
+      "status": "documented-reference",
+      "engineering_consequence": "Host-driven bus commands and host-held protocol secrets are useful for command testing, not proof of local consent or secret isolation. MCU U535CCT6 has 256KiB flash despite inconsistent README wording.",
+      "open_assumption": "Received assembly/firmware and exact documented command tool.",
+      "required_negative_case": "Raw host commands must be unable to bypass the eventual Signer review boundary; reference bridge cannot satisfy that test.",
+      "closure_owner": "H02S fixture owner/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C21",
+      "claim": "Reference display and battery wiring is not generic.",
+      "evidence": [
+        {
+          "document": "ref-safe7-main",
+          "locator": "visually reviewed physical pp.5,11–13"
+        }
+      ],
+      "applicability": "Safe7 RevD main schematic; firmware revC mapping unresolved",
+      "status": "documented-reference",
+      "engineering_consequence": "Custom DSI flex, switched rails, touch/IRQ/backlight paths and LiFePO4 reference require exact module/chemistry contracts. Do not transplant a generic 4.2V charger or standard-display connector claim.",
+      "open_assumption": "RevD-to-firmware correspondence, excluded UI/battery assembly details and native CAD/BOM.",
+      "required_negative_case": "Wrong FPC contact orientation or wrong cell chemistry must be rejected before wiring.",
+      "closure_owner": "H03/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C22",
+      "claim": "Battery optionality does not remove current entitlement or power-path review.",
+      "evidence": [
+        {
+          "document": "ti-bq24074",
+          "locator": "pp.19–22"
+        },
+        {
+          "document": "ti-bq25628",
+          "locator": "p.21,pp.37–38,p.46"
+        },
+        {
+          "document": "ti-tusb320lai",
+          "locator": "pp.11–14,16–17"
+        }
+      ],
+      "applicability": "5V USB sink and protected Li-ion optional-cell investigation",
+      "status": "documented-selected",
+      "engineering_consequence": "BQ24074 permits absent-battery operation under input limits; BQ25628 reset/current/watchdog policy needs hardware-safe limits. A 500mA fuse or regulator capacity grants no USB current entitlement.",
+      "open_assumption": "Current USB-IF normative clauses, exact charger OPN/thermal/components, chemistry/protection and attach/reset default.",
+      "required_negative_case": "Attach before firmware, default-current source, battery absent, CE/I2C fault and watchdog reset must remain within allowed draw.",
+      "closure_owner": "H01 normative review/H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C23",
+      "claim": "A single-cell 3.3V rail needs full-range regulation analysis.",
+      "evidence": [
+        {
+          "document": "ti-tps63802",
+          "locator": "pp.1,4–5,14–17"
+        },
+        {
+          "document": "diodes-ap2112",
+          "locator": "dropout/electrical selected historical reading"
+        }
+      ],
+      "applicability": "TPS63802 buck-boost lead versus AP2112 LDO reference",
+      "status": "documented-selected",
+      "engineering_consequence": "LDO dropout near low cell voltage prevents assuming a stable 3.3V rail. Buck-boost current ratings depend on Vin and temperature; startup, reverse current and effective L/C matter.",
+      "open_assumption": "Exact load/cell voltage/temperature, startup and shutdown/backfeed measurements.",
+      "required_negative_case": "Low cell/high backlight load, plug/unplug and disabled-rail backdrive must not corrupt state or exceed pin limits.",
+      "closure_owner": "H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C24",
+      "claim": "Maker buses require explicit lifecycle ownership and voltage limits.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§6 routing, §3 DMA, §15 permissions"
+        },
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal witness only"
+        }
+      ],
+      "applicability": "Generic Board SDK and separate Signer firmware",
+      "status": "engineering-requirement",
+      "engineering_consequence": "Expose useful SPI/I2C/UART/GPIO through a bounded API; keep SE and approval/input paths private. Default disconnect/reset must not power or clock a private device through headers. A GPIO count is not an isolation proof.",
+      "open_assumption": "Exact package/pad/AF/reset/power/master ownership and protected-load design.",
+      "required_negative_case": "Hostile accessory driving while off, stuck bus, DMA request and firmware replacement must obey the declared development/owner-secured lifecycle.",
+      "closure_owner": "H04",
+      "reviewer": "/root/h01_author"
+    }
+  ]
+}
