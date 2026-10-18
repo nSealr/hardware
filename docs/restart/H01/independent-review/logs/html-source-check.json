@@ -1,0 +1,26 @@
+{
+  "initial_attempt": "bs4 unavailable; no installation or source mutation; repeated using stdlib HTMLParser",
+  "checks": [
+    {
+      "id": "s3-ar2026-005",
+      "original_sha256": "bb478a50d17fa6e0d6309b7b8d7a43776b415bc08e988a08fa96c4513ac28e36",
+      "method": "Python stdlib HTMLParser; manual surrounding-text inspection",
+      "terms_present": {
+        "ephemeral": true,
+        "long-lived": true,
+        "XTS-AES": true,
+        "no complete": true
+      }
+    },
+    {
+      "id": "s3-rng-sdk",
+      "original_sha256": "9c3964b751cbcd9d8e79544c310a9ea88bab4f09b66fc24caa4084d59e7331da",
+      "method": "Python stdlib HTMLParser; manual surrounding-text inspection",
+      "terms_present": {
+        "pseudo-random only": true,
+        "Secondary Entropy": true,
+        "bootloader_random_disable": true
+      }
+    }
+  ]
+}

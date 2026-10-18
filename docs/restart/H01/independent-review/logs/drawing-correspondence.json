@@ -1,0 +1,28 @@
+[
+  {
+    "source": "ref-ts1501",
+    "original_sha256": "76095194b2a4ac7034fe79f46b761145792b75d983d4f2b5bab5a37b18199437",
+    "physical_page": 1,
+    "method": "pdftoppm render at preserved image dimensions; RGB pixel comparison",
+    "dimensions": [
+      2300,
+      1627
+    ],
+    "exit_code": 0,
+    "render_matches_preserved_pixels": false,
+    "followup": "Exact-pixel comparison inconclusive (different raster result); freshly rendered exact original independently viewed. Named nets/parts/revisions support only report sample. Temporary render removed and not committed."
+  },
+  {
+    "source": "ref-safe7-main",
+    "original_sha256": "f772fe1f33a294683abfd9a8f64dc728598a6d12d9f02b043afe2a0b7e8bda61",
+    "physical_page": 13,
+    "method": "pdftoppm render at preserved image dimensions; RGB pixel comparison",
+    "dimensions": [
+      2200,
+      1557
+    ],
+    "exit_code": 0,
+    "render_matches_preserved_pixels": false,
+    "followup": "Exact-pixel comparison inconclusive (different raster result); freshly rendered exact original independently viewed. Named nets/parts/revisions support only report sample. Temporary render removed and not committed."
+  }
+]

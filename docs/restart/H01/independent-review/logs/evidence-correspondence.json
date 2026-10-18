@@ -1,0 +1,1026 @@
+{
+  "scope": "Record/byte correspondence only. Independent source reading is in report.md; H01 is incomplete.",
+  "frozen_candidate": "d5d75306a082215453d329e31ca9c11d6effa80d",
+  "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+  "python": "3.13.5",
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "44e65289753dd800c66c6db7d967ae3f8000d12bd2a082ffecaa2d857720b650",
+      "bytes": 2710,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/brief.md",
+      "sha256": "89f5e3487d669e1555bf07f8207ddc8cf783f554b72a7f02785fffd5deccf5e8",
+      "bytes": 18448,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "sha256": "085392d51fe5471bf201c2613d24f30f042334bb0ed638d223fdbed351fb33b4",
+      "bytes": 24592,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/input-notes.json",
+      "sha256": "75b54942af4cace291f3f60f234ccb35b02a45b831a6961d2b26b8a8ad39a7b0",
+      "bytes": 27778,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "sha256": "733b051efa0167b9034a10eb24f459e81aefdb87806c877cab2ccebaee84e58a",
+      "bytes": 103583,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "sha256": "7c30a2314f0d8cb699f5e0982cbd95c400606254e4a5a04d6446f7dab763ccc2",
+      "bytes": 6966,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/option-comparison.md",
+      "sha256": "11e54b36947b98196ecf5fb1b71856d80c6c48ac1b55a6cb6bf1bce8914c61d8",
+      "bytes": 14945,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "sha256": "f0a072cdff3a58a1b46abe60f5860f99f89de5096747f99220d0a38f6c8f814d",
+      "bytes": 44335,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/probe-plan.md",
+      "sha256": "c471e380cc0db7f786736c4af910cb1f209067a57afe03f323c92234d014d69f",
+      "bytes": 8631,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "sha256": "3e6779b2d0b1041760112ae1266dc66ac464dcff843ce9f6cca1bf15f6915a54",
+      "bytes": 8178,
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/spec-review.json",
+      "sha256": "9700d170688af1fcb1096c18d173164feb0751ccce0156b1bb369b3524eeb93d",
+      "bytes": 3194,
+      "match": true
+    }
+  ],
+  "originals": [
+    {
+      "id": "u5-rm7",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u585-ds",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u585-es",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u5g9-ds",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u5g9-es",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u5a5-ds",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u5a5-es",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "s3-ds",
+      "expected_sha256": "2d5a7cb7fd559d8d972bd88db32669c0196d23f22d7afaafb0f63d099b589a3f",
+      "result": "match",
+      "bytes": 1098115,
+      "size_match": true
+    },
+    {
+      "id": "s3-module",
+      "expected_sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435",
+      "result": "match",
+      "bytes": 1280501,
+      "size_match": true
+    },
+    {
+      "id": "s3-trm",
+      "expected_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
+      "result": "match",
+      "bytes": 15215232,
+      "size_match": true
+    },
+    {
+      "id": "s3-es",
+      "expected_sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500",
+      "result": "match",
+      "bytes": 628997,
+      "size_match": true
+    },
+    {
+      "id": "p4-ds",
+      "expected_sha256": "fb4f3e91cc2ac519ec08cdec3dac9cb62b546cf5402ead1c5b83595a21bb6bc6",
+      "result": "match",
+      "bytes": 1576185,
+      "size_match": true
+    },
+    {
+      "id": "p4-es",
+      "expected_sha256": "76c8e48cfc7248fc85b449da3bdce5ff402d19a3d763c36751ca1f09a1dff049",
+      "result": "match",
+      "bytes": 145290,
+      "size_match": true
+    },
+    {
+      "id": "st-tn1489",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "st-sa0055",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "s3-ar2026-005",
+      "expected_sha256": "bb478a50d17fa6e0d6309b7b8d7a43776b415bc08e988a08fa96c4513ac28e36",
+      "result": "match",
+      "bytes": 22624,
+      "size_match": true
+    },
+    {
+      "id": "s3-rng-sdk",
+      "expected_sha256": "9c3964b751cbcd9d8e79544c310a9ea88bab4f09b66fc24caa4084d59e7331da",
+      "result": "match",
+      "bytes": 42336,
+      "size_match": true
+    },
+    {
+      "id": "s3-boot-sdk",
+      "expected_sha256": "194c69488c2d8f432a388790b901d19fabf02e275cc19ef7ee6cb2786f3a4e6d",
+      "result": "match",
+      "bytes": 78020,
+      "size_match": true
+    },
+    {
+      "id": "s3-flash-sdk",
+      "expected_sha256": "4452ad1c24780494fb276afd874ad5c2af2e281fb0762977fcc1808c65f08716",
+      "result": "match",
+      "bytes": 105725,
+      "size_match": true
+    },
+    {
+      "id": "s3-ota-sdk",
+      "expected_sha256": "1c7d30a8cd73c1dc98537d360857e062a78e729276df92fbe9aace14058e7515",
+      "result": "match",
+      "bytes": 146079,
+      "size_match": true
+    },
+    {
+      "id": "s3-board",
+      "expected_sha256": "c716b4efb69b6c9385ec99caee7f1b97a787b5944fc9c8218bfacf8d2eceb452",
+      "result": "match",
+      "bytes": 40560,
+      "size_match": true
+    },
+    {
+      "id": "s3-usb-sdk-current",
+      "expected_sha256": "321048b473bc73fdadb2f26ef048a67b6e9359627591aeb0e3fcc2b1a9122469",
+      "result": "match",
+      "bytes": 326182,
+      "size_match": true
+    },
+    {
+      "id": "st-tn1474",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "ti-bq24074",
+      "expected_sha256": "4fe4e4f9855501f83b400c6932e3098439e51c50539e40dc45b44a8d509e8db1",
+      "result": "match",
+      "bytes": 3739103,
+      "size_match": true
+    },
+    {
+      "id": "ti-bq25628",
+      "expected_sha256": "9a3c78c4480317de72e33bd962cc2d33f147ecf430759710a9e40103b39b0c26",
+      "result": "match",
+      "bytes": 3715036,
+      "size_match": true
+    },
+    {
+      "id": "ti-tps63802",
+      "expected_sha256": "be07deca1231c5493957bc64c2dc1cad5543bff330e49ae41caf3286fd80dca6",
+      "result": "match",
+      "bytes": 2466159,
+      "size_match": true
+    },
+    {
+      "id": "ti-tusb320lai",
+      "expected_sha256": "62f7b3f65338e25ebd6fd46ef04474ba806b06b1cc04bc0b3d7b8191b01ca87d",
+      "result": "match",
+      "bytes": 1313743,
+      "size_match": true
+    },
+    {
+      "id": "nxp-mcxn947-ds",
+      "expected_sha256": "f3a680d2ac36960f81b474e9e7589ab7a54fc2690eaf9baa67de1d442c5135aa",
+      "result": "match",
+      "bytes": 4198528,
+      "size_match": true
+    },
+    {
+      "id": "nxp-se051-ds",
+      "expected_sha256": "5aaf11205161d88ad5445576c655e74cc672c313fe924083516548c0c65d0aaa",
+      "result": "match",
+      "bytes": 398266,
+      "size_match": true
+    },
+    {
+      "id": "nxp-se051-config",
+      "expected_sha256": "69a3999ad5af9bc2108bdc6c042271456fe0158816a46559f51a947c2657f30a",
+      "result": "match",
+      "bytes": 302338,
+      "size_match": true
+    },
+    {
+      "id": "nxp-se051-errata",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "nxp-se05x-api",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "optiga-m-ds",
+      "expected_sha256": "f9495234e67a7626dc64e1c19fbc9d1b72681f66ad6d9d17bec4b43c16c242b2",
+      "result": "match",
+      "bytes": 689653,
+      "size_match": true
+    },
+    {
+      "id": "tropic-ds",
+      "expected_sha256": "ae647fa59ace0f386d3e964ab6dc476fcc6b6ac584932f5a8bab360478a7978a",
+      "result": "match",
+      "bytes": 1601225,
+      "size_match": true
+    },
+    {
+      "id": "tropic-api",
+      "expected_sha256": "377fdef6a88ae49521f669aa50bf8e4154ac67b6eb57d35c6d0abc92afd8b5b7",
+      "result": "match",
+      "bytes": 222578,
+      "size_match": true
+    },
+    {
+      "id": "tropic-pin",
+      "expected_sha256": "014fd5457d8df41987f464b92802a3ed4af9711b2393d46d5ee637540cfdd0bc",
+      "result": "match",
+      "bytes": 421179,
+      "size_match": true
+    },
+    {
+      "id": "tropic-pairing",
+      "expected_sha256": "f41942a27c17d455ebb73f0a74d95e1899e6f565dad131867ae91bc995b9960c",
+      "result": "match",
+      "bytes": 181612,
+      "size_match": true
+    },
+    {
+      "id": "tropic-advisory",
+      "expected_sha256": "299fa8f07ad0611cdc2a56b24d46ead257fe42dca9c3d96cd38b3384c598f1ad",
+      "result": "match",
+      "bytes": 109967,
+      "size_match": true
+    },
+    {
+      "id": "tropic-catalog",
+      "expected_sha256": "0c5dec4c4c4f7d5b7ae075f9451d809826465737f4d5e92bd6f48d0aa4df83d0",
+      "result": "match",
+      "bytes": 336760,
+      "size_match": true
+    },
+    {
+      "id": "diodes-ap2112",
+      "expected_sha256": "ef8d376f2ec356e29172eb9e053819a0ebdcc576dba7fc9ab0505c568427920f",
+      "result": "match",
+      "bytes": 755270,
+      "size_match": true
+    },
+    {
+      "id": "optiga-m-manual",
+      "expected_sha256": "41315a418c287f9cfff54b51a3538eec8026de2a601d83a6196b69aeee9adc4d",
+      "result": "match",
+      "bytes": 4222596,
+      "size_match": true
+    },
+    {
+      "id": "optiga-m-releases",
+      "expected_sha256": "487600f59f0a8e2e9a9054481547b8bf875a14e58606cb0be85cc8e97789b3c7",
+      "result": "match",
+      "bytes": 237775,
+      "size_match": true
+    },
+    {
+      "id": "optiga-m-i2c",
+      "expected_sha256": "04288206e14412cd6dc6bbbdbc45fc469a28a1cc260b2e42e022d8f33397774d",
+      "result": "match",
+      "bytes": 1287505,
+      "size_match": true
+    },
+    {
+      "id": "nxp-sems-update",
+      "expected_sha256": "d582655f13ecdd83cc51744c5d7aae427c26ee2650b625e3d83d9936495f0381",
+      "result": "match",
+      "bytes": 16038741,
+      "size_match": true
+    },
+    {
+      "id": "nxp-host-binding",
+      "expected_sha256": "90359040045583d17b54eeb9c57b261ace8a0e32ce8d5a3f906dd381fd3c87d0",
+      "result": "match",
+      "bytes": 2376778,
+      "size_match": true
+    },
+    {
+      "id": "st-pins-STM32U585VITx",
+      "expected_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "result": "match",
+      "bytes": 90707,
+      "size_match": true
+    },
+    {
+      "id": "st-pins-STM32U585VITxQ",
+      "expected_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "result": "match",
+      "bytes": 89737,
+      "size_match": true
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTx",
+      "expected_sha256": "91b2ed0c6121e556d807ba50dfb68735988588432b62aa8f9a77593a57dc4d9d",
+      "result": "match",
+      "bytes": 93647,
+      "size_match": true
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTxQ",
+      "expected_sha256": "13fd6f903148a018a4c10917d74259cc882ea212c353e40e00cfb9842d8d23fb",
+      "result": "match",
+      "bytes": 92539,
+      "size_match": true
+    },
+    {
+      "id": "st-u5-rm6-jp",
+      "expected_sha256": "52152e414e2ac329cfd9038481b97e8ff70592f9892d171dcb63b7d283722616",
+      "result": "match",
+      "bytes": 73439635,
+      "size_match": true
+    },
+    {
+      "id": "st-h5-98864_en",
+      "expected_sha256": "0001ab2a6ed8d31553cf6bbdf732fde16545ab5b3a7147fc8835432c3707657a",
+      "result": "match",
+      "bytes": 72018543,
+      "size_match": true
+    },
+    {
+      "id": "nxp-i2c-spec",
+      "expected_sha256": "dc91f00f65584e06ef36e26c93bf9d91a95fb3c8a1830a9223e53caf678b36af",
+      "result": "match",
+      "bytes": 750958,
+      "size_match": true
+    },
+    {
+      "id": "ref-safe7-main",
+      "expected_sha256": "f772fe1f33a294683abfd9a8f64dc728598a6d12d9f02b043afe2a0b7e8bda61",
+      "result": "match",
+      "bytes": 3115068,
+      "size_match": true
+    },
+    {
+      "id": "ref-ts1303",
+      "expected_sha256": "6d5d751e6d2934b8d6c505dec84830e26a760e961f2768bf4360d57da2f2f2fe",
+      "result": "match",
+      "bytes": 271360,
+      "size_match": true
+    },
+    {
+      "id": "ref-ts1401",
+      "expected_sha256": "3d9108969d0c61bffa376392345642d16abc9d0d07dee70b4e93959c47172afe",
+      "result": "match",
+      "bytes": 137265,
+      "size_match": true
+    },
+    {
+      "id": "ref-ts1501",
+      "expected_sha256": "76095194b2a4ac7034fe79f46b761145792b75d983d4f2b5bab5a37b18199437",
+      "result": "match",
+      "bytes": 111505,
+      "size_match": true
+    },
+    {
+      "id": "ref-ts1702",
+      "expected_sha256": "e08c79d3f76b87278b773e52145146e2795ebfaebb0af9ffd9b775fa933c5aff",
+      "result": "match",
+      "bytes": 63565,
+      "size_match": true
+    },
+    {
+      "id": "embassy-stm32-cargo",
+      "expected_sha256": "55631e05bcf036ce3bf657912353900489e2376f3121e7858d0e00bdced5e775",
+      "result": "match",
+      "bytes": 104211,
+      "size_match": true
+    },
+    {
+      "id": "embassy-stm32-lib",
+      "expected_sha256": "6f8843e578a23d0d8f6fdd6be31b0e3ad846c17e3ab93fb9ec438611e59301be",
+      "result": "match",
+      "bytes": 34386,
+      "size_match": true
+    },
+    {
+      "id": "esp-hal-cargo",
+      "expected_sha256": "943c532dfa2412f408284210c5e29cd446c936867e5c5010cb6e8e3631701770",
+      "result": "match",
+      "bytes": 15284,
+      "size_match": true
+    },
+    {
+      "id": "esp-rust-book",
+      "expected_sha256": "d3a64a6610e48c5fc69d8b3fe3cec4781345ead583feccf0590026ccbf0e9ce7",
+      "result": "match",
+      "bytes": 28611,
+      "size_match": true
+    },
+    {
+      "id": "esp-classic-ds",
+      "expected_sha256": "a7917e6b47528c9dcab06837a49d452e582751335797db879f1cf2d17cd29adf",
+      "result": "match",
+      "bytes": 989523,
+      "size_match": true
+    },
+    {
+      "id": "h573-ds",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "h573-es",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "mcxn947-rm",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "mcxn947-security-rm",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "nxp-se051-current-index",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "usb-c-normative",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u5g9-opn",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    },
+    {
+      "id": "u5g9-kit",
+      "expected_sha256": null,
+      "result": "no validated original claimed; no original hash inferred"
+    }
+  ],
+  "extractions": [
+    {
+      "id": "s3-module",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "reextracted_sha256": "0b40dc77fe19addf3b483a71d59da3ce96002cb68317800c06d7b70c9d8fa0ab",
+      "preserved_extraction_sha256": "0b40dc77fe19addf3b483a71d59da3ce96002cb68317800c06d7b70c9d8fa0ab",
+      "exact_match": true
+    },
+    {
+      "id": "s3-trm",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "reextracted_sha256": "2e0c0f12eb615808484b4663ce9200f74dd3c757e49f2a882fcc1ff5b4282e3d",
+      "preserved_extraction_sha256": "2e0c0f12eb615808484b4663ce9200f74dd3c757e49f2a882fcc1ff5b4282e3d",
+      "exact_match": true
+    },
+    {
+      "id": "s3-es",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "reextracted_sha256": "9d5fc1bb115f818fb9ff92e655823e8a1d1be7300c435889469d41b352a8f19b",
+      "preserved_extraction_sha256": "9d5fc1bb115f818fb9ff92e655823e8a1d1be7300c435889469d41b352a8f19b",
+      "exact_match": true
+    },
+    {
+      "id": "p4-es",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "reextracted_sha256": "7f3fa7e47241cd39e7fb3a4b5756bddd4b24f4bce6511a83a2a2a0d1b3bc68bb",
+      "preserved_extraction_sha256": "7f3fa7e47241cd39e7fb3a4b5756bddd4b24f4bce6511a83a2a2a0d1b3bc68bb",
+      "exact_match": true
+    },
+    {
+      "id": "ti-bq24074",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "reextracted_sha256": "63b3a751d8108320d6786640ef70251c3a8a865ba090fd527436f4332b685840",
+      "preserved_extraction_sha256": "63b3a751d8108320d6786640ef70251c3a8a865ba090fd527436f4332b685840",
+      "exact_match": true
+    },
+    {
+      "id": "ti-bq25628",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "reextracted_sha256": "69d57914543f84b8c2a8f24c42a8901b800a8e879b644f745a2af6b265d98ec6",
+      "preserved_extraction_sha256": "69d57914543f84b8c2a8f24c42a8901b800a8e879b644f745a2af6b265d98ec6",
+      "exact_match": true
+    },
+    {
+      "id": "ti-tusb320lai",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "reextracted_sha256": "61baf4ef955b9fdb2e5345464d86a7c1385b39e7842ef11b392841fa7b4e07c8",
+      "preserved_extraction_sha256": "61baf4ef955b9fdb2e5345464d86a7c1385b39e7842ef11b392841fa7b4e07c8",
+      "exact_match": true
+    }
+  ],
+  "manufacturer_xml_pin_checks": [
+    {
+      "row": "P-STM32U585VITx-debug",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "72",
+      "gpio": "PA13",
+      "signal": "DEBUG_JTMS-SWDIO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-debug",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "76",
+      "gpio": "PA14",
+      "signal": "DEBUG_JTCK-SWCLK",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-debug",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "89",
+      "gpio": "PB3",
+      "signal": "DEBUG_JTDO-SWO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-usb",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "70",
+      "gpio": "PA11",
+      "signal": "USB_OTG_FS_DM",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-usb",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "71",
+      "gpio": "PA12",
+      "signal": "USB_OTG_FS_DP",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-usb",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "68",
+      "gpio": "PA9",
+      "signal": "USB_OTG_FS_VBUS",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-ucpd",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "77",
+      "gpio": "PA15",
+      "signal": "UCPD1_CC1",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-ucpd",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "54",
+      "gpio": "PB15",
+      "signal": "UCPD1_CC2",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-ucpd",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "91",
+      "gpio": "PB5",
+      "signal": "UCPD1_DBCC1",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-ucpd",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "53",
+      "gpio": "PB14",
+      "signal": "UCPD1_DBCC2",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-display",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "44",
+      "gpio": "PE13",
+      "signal": "SPI1_SCK",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-display",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "45",
+      "gpio": "PE14",
+      "signal": "SPI1_MISO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-display",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "46",
+      "gpio": "PE15",
+      "signal": "SPI1_MOSI",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-private_se",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "92",
+      "gpio": "PB6",
+      "signal": "I2C1_SCL",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-private_se",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "96",
+      "gpio": "PB9",
+      "signal": "I2C1_SDA",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-board_i2c",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "59",
+      "gpio": "PD12",
+      "signal": "I2C4_SCL",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-board_i2c",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "60",
+      "gpio": "PD13",
+      "signal": "I2C4_SDA",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-maker_spi",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "78",
+      "gpio": "PC10",
+      "signal": "SPI3_SCK",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-maker_spi",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "79",
+      "gpio": "PC11",
+      "signal": "SPI3_MISO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-maker_spi",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "80",
+      "gpio": "PC12",
+      "signal": "SPI3_MOSI",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-maker_i2c",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "15",
+      "gpio": "PC0",
+      "signal": "I2C3_SCL",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-maker_i2c",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "16",
+      "gpio": "PC1",
+      "signal": "I2C3_SDA",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-maker_uart",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "23",
+      "gpio": "PA0",
+      "signal": "UART4_TX",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITx-maker_uart",
+      "source": "st-pins-STM32U585VITx",
+      "source_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c",
+      "pad": "24",
+      "gpio": "PA1",
+      "signal": "UART4_RX",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-debug",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "72",
+      "gpio": "PA13",
+      "signal": "DEBUG_JTMS-SWDIO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-debug",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "76",
+      "gpio": "PA14",
+      "signal": "DEBUG_JTCK-SWCLK",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-debug",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "89",
+      "gpio": "PB3",
+      "signal": "DEBUG_JTDO-SWO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-usb",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "70",
+      "gpio": "PA11",
+      "signal": "USB_OTG_FS_DM",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-usb",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "71",
+      "gpio": "PA12",
+      "signal": "USB_OTG_FS_DP",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-usb",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "68",
+      "gpio": "PA9",
+      "signal": "USB_OTG_FS_VBUS",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-ucpd",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "77",
+      "gpio": "PA15",
+      "signal": "UCPD1_CC1",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-ucpd",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "54",
+      "gpio": "PB15",
+      "signal": "UCPD1_CC2",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-ucpd",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "91",
+      "gpio": "PB5",
+      "signal": "UCPD1_DBCC1",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-ucpd",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "53",
+      "gpio": "PB14",
+      "signal": "UCPD1_DBCC2",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-display",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "41",
+      "gpio": "PE13",
+      "signal": "SPI1_SCK",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-display",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "42",
+      "gpio": "PE14",
+      "signal": "SPI1_MISO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-display",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "43",
+      "gpio": "PE15",
+      "signal": "SPI1_MOSI",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-private_se",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "92",
+      "gpio": "PB6",
+      "signal": "I2C1_SCL",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-private_se",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "96",
+      "gpio": "PB9",
+      "signal": "I2C1_SDA",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-board_i2c",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "59",
+      "gpio": "PD12",
+      "signal": "I2C4_SCL",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-board_i2c",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "60",
+      "gpio": "PD13",
+      "signal": "I2C4_SDA",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-maker_spi",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "78",
+      "gpio": "PC10",
+      "signal": "SPI3_SCK",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-maker_spi",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "79",
+      "gpio": "PC11",
+      "signal": "SPI3_MISO",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-maker_spi",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "80",
+      "gpio": "PC12",
+      "signal": "SPI3_MOSI",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-maker_i2c",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "15",
+      "gpio": "PC0",
+      "signal": "I2C3_SCL",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-maker_i2c",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "16",
+      "gpio": "PC1",
+      "signal": "I2C3_SDA",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-maker_uart",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "22",
+      "gpio": "PA0",
+      "signal": "UART4_TX",
+      "match": true
+    },
+    {
+      "row": "P-STM32U585VITxQ-maker_uart",
+      "source": "st-pins-STM32U585VITxQ",
+      "source_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5",
+      "pad": "23",
+      "gpio": "PA1",
+      "signal": "UART4_RX",
+      "match": true
+    }
+  ],
+  "unique_source_ids": true,
+  "dangling_references": [],
+  "counts": {
+    "sources": 70,
+    "claims": 24,
+    "pin_rows": 25,
+    "errata_rows": 20
+  }
+}
