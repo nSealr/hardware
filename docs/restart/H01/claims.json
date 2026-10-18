@@ -13,7 +13,7 @@
         },
         {
           "document": "st-u5-rm6-jp",
-          "locator": "cover, historical selected §§3.3/3.5 and OEM/RDP"
+          "locator": "cover, historical selected \u00a7\u00a73.3/3.5 and OEM/RDP"
         }
       ],
       "applicability": "U585, U5A5 and U5G9",
@@ -47,13 +47,17 @@
       "evidence": [
         {
           "document": "u5g9-ds",
-          "locator": "pp.1–2, §§3.6–3.7"
+          "locator": "\u00a73.5 p.27; \u00a7\u00a73.19\u20133.20 pp.54\u201355; \u00a7\u00a73.41\u20133.42 pp.73\u201375"
+        },
+        {
+          "document": "u5g9-dk2",
+          "locator": "exact package/supply/RGB feature list; UM3223 reading inherited separately"
         }
       ],
       "applicability": "U5G9ZJ; not every U5 family member",
       "status": "documented-selected",
-      "engineering_consequence": "Assess 480×480 review/recovery UI without assuming external PSRAM stores secrets. Larger RAM is not proof of trusted display ownership.",
-      "open_assumption": "Full SRAM banks/graphics master attribution/current RM and peak workload budget.",
+      "engineering_consequence": "Assess 480\u00d7480 review/recovery UI without assuming external PSRAM stores secrets. Larger RAM is not proof of trusted display ownership.",
+      "open_assumption": "Exact package rail/AF map, current RM graphics/master attribution, driver/license and linked peak workload budget; full bank text now read.",
       "required_negative_case": "Stress UI+USB+crypto while checking that non-secret frame buffers cannot disclose or overwrite secret arenas.",
       "closure_owner": "H01/H02/H04",
       "reviewer": "/root/h01_author"
@@ -64,7 +68,7 @@
       "evidence": [],
       "applicability": "RGB565 buffers, no compression",
       "status": "calculated",
-      "engineering_consequence": "240×320×2=153600 bytes (150 KiB); 480×480×2×2=921600 bytes (900 KiB). The latter exceeds U585 main SRAM before stacks/USB/crypto. Strip rendering remains a possible alternative.",
+      "engineering_consequence": "240\u00d7320\u00d72=153600 bytes (150 KiB); 480\u00d7480\u00d72\u00d72=921600 bytes (900 KiB). The latter exceeds U585 main SRAM before stacks/USB/crypto. Strip rendering remains a possible alternative.",
       "open_assumption": "Actual stack, allocator, retained buffers, ECC, application concurrency and rendering rate.",
       "required_negative_case": "Largest allowed review text/recovery input plus host flooding must remain bounded without hidden truncation.",
       "closure_owner": "H02",
@@ -76,12 +80,12 @@
       "evidence": [
         {
           "document": "s3-module",
-          "locator": "pp.2–4,10–18,27–30"
+          "locator": "pp.2\u20134,10\u201318,27\u201330"
         }
       ],
       "applicability": "ESP32-S3-WROOM-1-N8R8 lead only",
       "status": "documented-selected",
-      "engineering_consequence": "8MB flash+8MB PSRAM; GPIO35–37 reserved by octal PSRAM. Use 3.0–3.6V module supply and preserve EN/strap requirements; exposed external RAM is not default secret storage.",
+      "engineering_consequence": "8MB flash+8MB PSRAM; GPIO35\u201337 reserved by octal PSRAM. Use 3.0\u20133.6V module supply and preserve EN/strap requirements; exposed external RAM is not default secret storage.",
       "open_assumption": "Exact memory die, received silicon, kit revision and regulator margins.",
       "required_negative_case": "Wrong module variant, boot strap held by accessory, or battery below module operating minimum must fail safely.",
       "closure_owner": "H02/H03",
@@ -93,7 +97,7 @@
       "evidence": [
         {
           "document": "s3-trm",
-          "locator": "§§3.1–3.6 pp.357–368; §§4.1–4.3.4 pp.400–407; §§15.1–15.4.1 pp.683–694"
+          "locator": "\u00a7\u00a73.1\u20133.6 pp.357\u2013368; \u00a7\u00a74.1\u20134.3.4 pp.400\u2013407; \u00a7\u00a715.1\u201315.4.1 pp.683\u2013694"
         }
       ],
       "applicability": "S3 internal RAM, GDMA and selected USB controller",
@@ -110,17 +114,25 @@
       "evidence": [
         {
           "document": "s3-trm",
-          "locator": "§25 pp.920–921"
+          "locator": "\u00a725 pp.920\u2013921"
         },
         {
           "document": "s3-rng-sdk",
           "locator": "entire technical body/API"
+        },
+        {
+          "document": "s3-idf-random",
+          "locator": "esp_random/esp_fill_random entire functions"
+        },
+        {
+          "document": "s3-idf-boot-random",
+          "locator": "S3 enable/disable entire functions"
         }
       ],
       "applicability": "ESP-IDF v6.1 S3 RNG path",
       "status": "documented-selected",
       "engineering_consequence": "After boot, RF or SAR entropy conditions must be maintained. esp_random returning a u32 cannot signal source loss; the Board entropy adapter must enforce S02 fallibility and prohibit silent pseudo-random fallback.",
-      "open_assumption": "Pinned implementation/health policy and hardware fault observability; ADC/RF ownership conflicts.",
+      "open_assumption": "Actual chosen adapter/build health policy and fault observability; vendor functions inspected but no nSealr target path or qualified source-loss detection.",
       "required_negative_case": "Disable/lose the qualified source, request during startup/sleep transition, or contend for SAR; secret operations must fail.",
       "closure_owner": "H02/S02-contract integration",
       "reviewer": "/root/h01_author"
@@ -131,7 +143,7 @@
       "evidence": [
         {
           "document": "s3-trm",
-          "locator": "§§5.1–5.3.3 pp.410–421; chapter8 pp.532–538"
+          "locator": "\u00a7\u00a75.1\u20135.3.3 pp.410\u2013421; chapter8 pp.532\u2013538"
         },
         {
           "document": "s3-boot-sdk",
@@ -177,13 +189,21 @@
       "evidence": [
         {
           "document": "s3-trm",
-          "locator": "chapter7 pp.526–531; §§10.3–10.4 pp.574–580"
+          "locator": "chapter7 pp.526\u2013531; \u00a7\u00a710.3\u201310.4 pp.574\u2013580"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "chapter13 pp.672\u2013679; MWDT/RWDT selected registers pp.613\u2013615,665\u2013668"
+        },
+        {
+          "document": "s3-idf-sleep",
+          "locator": "selected defaults and forbidden-condition assertions"
         }
       ],
       "applicability": "S3 reset/power states",
       "status": "documented-selected",
       "engineering_consequence": "Reset type and RTC retention must be included in secret zeroization and consent invalidation. Default 2.7V brownout setting is below the module 3.0V operating minimum.",
-      "open_assumption": "NV-write voltage margin and complete reset/sleep driver sequence.",
+      "open_assumption": "NV-write voltage margin, exact watchdog/reset domain, entire chosen sleep path and actual secret-clear policy; selected vendor assertions do not qualify custom callers.",
       "required_negative_case": "CPU reset, watchdog reset, brownout and retained sleep must invalidate pending approval and clear designated secret buffers.",
       "closure_owner": "H02/H03",
       "reviewer": "/root/h01_author"
@@ -194,17 +214,33 @@
       "evidence": [
         {
           "document": "s3-trm",
-          "locator": "§32 pp.1227–1237; §33 pp.1243–1247"
+          "locator": "\u00a732 pp.1227\u20131237; \u00a733 pp.1243\u20131247"
         },
         {
           "document": "s3-usb-sdk-current",
           "locator": "Hardware/External PHY/Power Management"
+        },
+        {
+          "document": "s3-usb-config",
+          "locator": "lines92\u2013144 speed/slave/DMA configuration"
+        },
+        {
+          "document": "s3-usb-component",
+          "locator": "entire lower-bounded dependency manifest"
+        },
+        {
+          "document": "s3-usb-device",
+          "locator": "tinyusb_driver_install lines272\u2013350"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "\u00a732.5 p.1242 NDA boundary"
         }
       ],
       "applicability": "S3 internal PHY USB device probe",
       "status": "documented-selected",
       "engineering_consequence": "Use the actual USB device path and separate debugging arrangement. USB Serial/JTAG is a debug/download surface. FS USB wake from light sleep is not supported by the reviewed stack page.",
-      "open_assumption": "Exact TinyUSB component commit, endpoint/FIFO/DMA and suspend policy.",
+      "open_assumption": "Underlying TinyUSB exact lock/driver, actual preprocessed target settings, FIFO/reset/suspend semantics and required IP documentation; wrapper HEAD alone is insufficient.",
       "required_negative_case": "Host reset/flood/unplug during consent and suspend/resume must neither approve nor deadlock UI; debug commands must not enter custody protocol.",
       "closure_owner": "H01/H02",
       "reviewer": "/root/h01_author"
@@ -270,12 +306,12 @@
       "evidence": [
         {
           "document": "p4-es",
-          "locator": "ROM-764/770/816 and ECDSA_DS-836/837, §§3–4"
+          "locator": "ROM-764/770/816 and ECDSA_DS-836/837, \u00a7\u00a73\u20134"
         }
       ],
       "applicability": "P4 v0.x/1.x/3.0/3.1/3.2 as listed by each erratum",
       "status": "documented-selected",
-      "engineering_consequence": "Do not admit v3.0 ROM-764 by disabling a required secure-boot property. ECDSA_DS-836 affects v3.0–3.2 and 837 earlier revisions; vendor workaround uses RSA_DS secure boot. ROM maintenance/power errata also differ by revision.",
+      "engineering_consequence": "Do not admit v3.0 ROM-764 by disabling a required secure-boot property. ECDSA_DS-836 affects v3.0\u20133.2 and 837 earlier revisions; vendor workaround uses RSA_DS secure boot. ROM maintenance/power errata also differ by revision.",
       "open_assumption": "Actual silicon/ROM, chosen boot algorithm, SDK/esptool and maintenance procedure.",
       "required_negative_case": "Invalid r/s secure-boot signature, secure-download flash access and programming/power sequence require revision-specific tests.",
       "closure_owner": "P4 profile owner before admission",
@@ -295,11 +331,11 @@
         },
         {
           "document": "nxp-se051-config",
-          "locator": "pp.2–5"
+          "locator": "pp.2\u20135"
         },
         {
           "document": "nxp-sems-update",
-          "locator": "§§1–3 pp.2–6"
+          "locator": "\u00a7\u00a71\u20133 pp.2\u20136"
         }
       ],
       "applicability": "SE051C2 exact OPN/OEF/applet tuple unresolved",
@@ -320,11 +356,11 @@
         },
         {
           "document": "optiga-m-ds",
-          "locator": "tables1–4, pp.8–9"
+          "locator": "tables1\u20134, pp.8\u20139"
         },
         {
           "document": "tropic-api",
-          "locator": "pp.36–41 curve/sign command inventory"
+          "locator": "pp.36\u201341 curve/sign command inventory"
         }
       ],
       "applicability": "SE051C2, standard Trust M V3, TROPIC01 reviewed versions",
@@ -341,11 +377,11 @@
       "evidence": [
         {
           "document": "tropic-pin",
-          "locator": "pp.5–10"
+          "locator": "pp.5\u201310"
         },
         {
           "document": "optiga-m-manual",
-          "locator": "pp.23–24,34–36"
+          "locator": "pp.23\u201324,34\u201336"
         },
         {
           "document": "tropic-pairing",
@@ -366,7 +402,7 @@
       "evidence": [
         {
           "document": "tropic-advisory",
-          "locator": "affected-products p.3, mitigation pp.5–6, timeline p.10"
+          "locator": "affected-products p.3, mitigation pp.5\u20136, timeline p.10"
         }
       ],
       "applicability": "TR01-C2P-T310 Boot2.0.1/App2.0.0/SPECT1.0.0 in advisory; wider architecture scope as stated there",
@@ -404,7 +440,7 @@
       "evidence": [
         {
           "document": "ref-safe7-main",
-          "locator": "visually reviewed physical pp.5,11–13"
+          "locator": "visually reviewed physical pp.5,11\u201313"
         }
       ],
       "applicability": "Safe7 RevD main schematic; firmware revC mapping unresolved",
@@ -421,15 +457,15 @@
       "evidence": [
         {
           "document": "ti-bq24074",
-          "locator": "pp.19–22"
+          "locator": "pp.19\u201322"
         },
         {
           "document": "ti-bq25628",
-          "locator": "p.21,pp.37–38,p.46"
+          "locator": "p.21,pp.37\u201338,p.46"
         },
         {
           "document": "ti-tusb320lai",
-          "locator": "pp.11–14,16–17"
+          "locator": "pp.11\u201314,16\u201317"
         }
       ],
       "applicability": "5V USB sink and protected Li-ion optional-cell investigation",
@@ -446,7 +482,7 @@
       "evidence": [
         {
           "document": "ti-tps63802",
-          "locator": "pp.1,4–5,14–17"
+          "locator": "pp.1,4\u20135,14\u201317 plus \u00a7\u00a79.3.3\u20139.3.10 pp.11\u201312 startup/reverse-boost/PG"
         },
         {
           "document": "diodes-ap2112",
@@ -467,7 +503,7 @@
       "evidence": [
         {
           "document": "s3-trm",
-          "locator": "§6 routing, §3 DMA, §15 permissions"
+          "locator": "\u00a76 routing, \u00a73 DMA, \u00a715 permissions"
         },
         {
           "document": "st-pins-STM32U585VITx",
@@ -480,6 +516,65 @@
       "open_assumption": "Exact package/pad/AF/reset/power/master ownership and protected-load design.",
       "required_negative_case": "Hostile accessory driving while off, stuck bus, DMA request and firmware replacement must obey the declared development/owner-secured lifecycle.",
       "closure_owner": "H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C25",
+      "claim": "S3 watchdog response is domain- and clock-specific.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "chapter13 pp.672\u2013679; selected MWDT/RWDT registers pp.613\u2013615,665\u2013668"
+        }
+      ],
+      "applicability": "Selected S3 MWDT/RWDT/SWD configuration",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind timeout and consent invalidation to actual clock/reset domain; automatic SWD feeding is not application health.",
+      "open_assumption": "Chosen stages, sleep clock behavior, driver and retained-state cleanup.",
+      "required_negative_case": "Stalled UI/task and clock/power transition must produce the specified bounded recovery and invalidate consent.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C26",
+      "claim": "S3 XTS enable is not proof of correct key material or complete zeroization.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "chapter23 pp.908\u2013918, Table23.4-1 p.911; eFuse field p.433"
+        }
+      ],
+      "applicability": "S3 external flash/PSRAM encryption configuration",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind valid key-purpose/material and plaintext-buffer lifecycle separately from encryption enable; preserve D-S3-XTSENABLE.",
+      "open_assumption": "Exact authorized provisioning and selected driver; no real keys or irreversible operation used.",
+      "required_negative_case": "Future qualified software fixture rejects absent/inconsistent key configuration; secret-buffer cleanup is independently checked without forbidden destructive hardware tests.",
+      "closure_owner": "H01/H02 with separate concrete provisioning authorization",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C27",
+      "claim": "S3 public USB functional text does not include the comprehensive IP register specification.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "\u00a732.5 p.1242; \u00a732.4 is OTG/HNP/SRP"
+        },
+        {
+          "document": "s3-idf-usb-struct",
+          "locator": "IN/OUT structures"
+        },
+        {
+          "document": "s3-usb-component",
+          "locator": "dependency manifest"
+        }
+      ],
+      "applicability": "Exact selected device mode, not every USB IP path",
+      "status": "documented-selected",
+      "engineering_consequence": "Treat public-access limits as a selection criterion; close only required device semantics and exact driver, and do not infer DMA isolation from software headers.",
+      "open_assumption": "Needed register/FIFO/reset/interrupt semantics under \u00a732.5 boundary; complete selected dependency lock.",
+      "required_negative_case": "Reset, malformed transfer, FIFO exhaustion and detach must terminate safely; tests alone do not prove undocumented bus isolation.",
+      "closure_owner": "H01 documentary; H02 implementation/measurement",
       "reviewer": "/root/h01_author"
     }
   ]

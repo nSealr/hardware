@@ -26,15 +26,19 @@
       "evidence": [
         {
           "document": "s3-module",
-          "locator": "Table3-1 pp.11–12"
+          "locator": "Table3-1 pp.11\u201312"
         },
         {
           "document": "s3-trm",
-          "locator": "§32.3,§33.3"
+          "locator": "\u00a732.3,\u00a733.3"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "\u00a732.5 p.1242 register-access boundary; \u00a732.4 is OTG/HNP/SRP"
         }
       ],
       "status": "feasibility witness only; no netlist or wiring approval",
-      "unknown": "VBUS sensing, exact endpoint/DMA configuration, board connector/ESD and suspend strategy"
+      "unknown": "Exact locked device stack and CPU-FIFO/DMA configuration, VBUS/suspend/connector/ESD; \u00a732.5 NDA boundary and D-S3-USBREG remain."
     },
     {
       "id": "P-S3-DISPLAY",
@@ -46,25 +50,29 @@
         "21": "GPIO13 FSPIQ"
       },
       "function": "SPI2 candidate bus, MISO optional",
-      "alternate_function": null,
+      "alternate_function": "IO_MUX function4 for GPIO10 FSPICS0, GPIO11 FSPID, GPIO12 FSPICLK, GPIO13 FSPIQ",
       "owner": "trusted image display service, private from maker header",
       "power_domain": "3.3V module",
-      "reset_and_straps": "Boot/reset pin state must be checked for complete module and external panel",
+      "reset_and_straps": "TRM Table6.12-1: inputs enabled at reset; hold/output-enable ownership must be considered. External panel reset/pulls remain unallocated.",
       "peripheral_and_master_access": "SPI2 CPU or bounded GDMA; direct IOMUX function exists",
       "interface_limits": "Host peripheral maximum is not panel/cable validated speed",
-      "competing_use": "ADC2; octal data roles; do not use GPIO35–37",
+      "competing_use": "ADC2; octal data roles; do not use GPIO35\u201337",
       "evidence": [
         {
           "document": "s3-module",
-          "locator": "Table3-1 pp.11–12"
+          "locator": "Table3-1 pp.11\u201312"
         },
         {
           "document": "s3-trm",
-          "locator": "§30.5,§30.7"
+          "locator": "\u00a730.5,\u00a730.7"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "Table6.12-1 pp.493\u2013494; GPIO/IOMUX descriptions pp.507\u2013515; \u00a7\u00a730.5.8.2/30.6"
         }
       ],
       "status": "feasibility witness only; no netlist or wiring approval",
-      "unknown": "Complete panel module/controller/rail/DC/reset/backlight pins and timing; IOMUX function-number register check"
+      "unknown": "Complete panel/controller/rail/DC/reset/backlight requirements and chosen SPI transaction/error/DMA driver; bit-order contradiction D-S3-SPIORDER."
     },
     {
       "id": "P-S3-BOOT",
@@ -82,12 +90,12 @@
       "power_domain": "3.3V module",
       "reset_and_straps": "EN must not float; strap setup/hold including 3ms after EN must be preserved",
       "peripheral_and_master_access": "ROM/eFuse boot/debug selection",
-      "interface_limits": "EN low and supply settling timings per module §§4–5",
+      "interface_limits": "EN low and supply settling timings per module \u00a7\u00a74\u20135",
       "competing_use": "Buttons or expansion can force download/debug/flash voltage",
       "evidence": [
         {
           "document": "s3-module",
-          "locator": "pp.13–18"
+          "locator": "pp.13\u201318"
         }
       ],
       "status": "feasibility witness only; no netlist or wiring approval",
@@ -156,10 +164,10 @@
         "7": "GPIO7"
       },
       "function": "candidate GPIO pool for physical controls/DC/reset; unallocated",
-      "alternate_function": null,
+      "alternate_function": "GPIO via IO_MUX function0/1 and GPIO matrix; exact selection must be pinned",
       "owner": "trusted image UI service",
       "power_domain": "3.3V module",
-      "reset_and_straps": "No input consent accepted during reset/debounce; exact reset pulls unread",
+      "reset_and_straps": "GPIO4\u20137 reset table has input disabled; external pull/conditioning required by the eventual design. Hold can persist older states. No reset/debounce state grants consent.",
       "peripheral_and_master_access": "GPIO interrupt matrix; CPU owner",
       "interface_limits": "No raw host-controlled approval",
       "competing_use": "ADC1/touch/entropy peripherals",
@@ -167,6 +175,10 @@
         {
           "document": "s3-module",
           "locator": "Table3-1 p.11"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "Table6.12-1 pp.493\u2013494 and selected GPIO interrupt/status/IOMUX descriptions pp.507\u2013515"
         }
       ],
       "status": "feasibility witness only; no netlist or wiring approval",
@@ -623,15 +635,23 @@
       "function": "No signal allocation admitted",
       "alternate_function": null,
       "owner": "future Board owner",
-      "power_domain": "Internal SMPS OPNs; exact domains unresolved",
+      "power_domain": "DS Rev5 \u00a7\u00a73.9\u20133.9.2 supply-domain/sequence text read; exact package rail allocation remains open",
       "reset_and_straps": "Current package electrical/reset table unread",
-      "peripheral_and_master_access": "LTDC/DSI/graphics/memory ownership unresolved",
-      "interface_limits": "Do not copy DK1 1.8V TFBGA216 pin/supply setup",
+      "peripheral_and_master_access": "GPU2D two AHB masters, DMA2D and LTDC master paths identified at feature level; current RM ownership and chosen driver remain open",
+      "interface_limits": "DK2 is ZJT6Q LQFP144/3.3V/RGB reference; DK1 is a different package/rail. Neither transfers a custom pin allocation.",
       "competing_use": "Safe7 custom FPC and generic U5G9ZJ name do not select exact OPN",
       "evidence": [
         {
           "document": "u5g9-ds",
           "locator": "Rev5 cover/features and official OPN table"
+        },
+        {
+          "document": "u5g9-ds",
+          "locator": "\u00a73.5, \u00a7\u00a73.9\u20133.9.2, \u00a7\u00a73.19\u20133.20, \u00a7\u00a73.41\u20133.42 and \u00a77"
+        },
+        {
+          "document": "u5g9-dk2",
+          "locator": "manufacturer technical feature list"
         }
       ],
       "status": "feasibility witness only; no netlist or wiring approval",
@@ -643,7 +663,7 @@
       "id": "E-S3-CACHE126",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 CACHE-126"
+        "locator": "\u00a73 CACHE-126"
       },
       "affected_revision": "v0.0/v0.1/v0.2",
       "configuration": "CPU access during cache writeback",
@@ -657,7 +677,7 @@
       "id": "E-S3-RTC126",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 RTC-126"
+        "locator": "\u00a73 RTC-126"
       },
       "affected_revision": "all listed S3 revisions",
       "configuration": "light-sleep wake with RTC peripheral domain down",
@@ -671,12 +691,12 @@
       "id": "E-S3-ANALOG160",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3.3 ANALOG-160, printed p.7 (PDF page9)"
+        "locator": "\u00a73.3 ANALOG-160, printed p.7 (PDF page9)"
       },
       "affected_revision": "all listed S3 revisions",
       "configuration": "Damaging condition: BIAS_SLEEP=0 AND PD_CUR=1; may be triggered with ULP and/or touch during Light-sleep or Deep-sleep",
       "documented_mitigation": "Avoid/disable that conjunction in sleep software. Espressif reports this configuration disabled in ESP-IDF v4.4.2+ and v5.0+; verify the selected implementation.",
-      "driver_or_probe_implication": "Review the chosen sleep implementation against the forbidden configuration before any physical use; this is a documentation constraint, not a register-write recipe.",
+      "driver_or_probe_implication": "Pinned IDF v6.1 rtc_sleep.c selected branches/assertions and rtc.h defaults correspond to avoidance (see s3-idf-sleep/s3-idf-rtc-header). Exact chosen callers, assertion configuration and any Rust/custom path remain unqualified. Never exercise the damaging condition as a physical test.",
       "residual_limit": "Affected v0.0/v0.1/v0.2; permanent chip damage possible under the forbidden condition; no silicon fix scheduled.",
       "reviewer": "/root/h01_author",
       "physical_validation": false
@@ -685,7 +705,7 @@
       "id": "E-S3-USB4289",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 USB-OTG-4289"
+        "locator": "\u00a73 USB-OTG-4289"
       },
       "affected_revision": "early lots; some v0.2 fixed",
       "configuration": "USB-OTG download eFuse preprogrammed",
@@ -699,7 +719,7 @@
       "id": "E-S3-ADC183",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 ADC-183"
+        "locator": "\u00a73 ADC-183"
       },
       "affected_revision": "all listed S3 revisions",
       "configuration": "ADC2 digital-controller/DMA use",
@@ -713,7 +733,7 @@
       "id": "E-S3-LCD239",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 LCD-239"
+        "locator": "\u00a73 LCD-239"
       },
       "affected_revision": "all listed S3 revisions",
       "configuration": "LCD_CAM RGB divider1 or 8080 FIFO lookahead configuration",
@@ -727,7 +747,7 @@
       "id": "E-S3-RMT176",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3 RMT-176"
+        "locator": "\u00a73 RMT-176"
       },
       "affected_revision": "all listed S3 revisions",
       "configuration": "RMT configured idle level",
@@ -741,7 +761,7 @@
       "id": "E-S3-TOUCH100",
       "evidence": {
         "document": "s3-es",
-        "locator": "§3.7 TOUCH-100, printed p.10 (PDF page12)"
+        "locator": "\u00a73.7 TOUCH-100, printed p.10 (PDF page12)"
       },
       "affected_revision": "all listed S3 revisions",
       "configuration": "First two TOUCH_SCAN_DONE_INT interrupts have undefined raw data",
@@ -799,7 +819,7 @@
         "document": "p4-es",
         "locator": "ECDSA_DS-836/837"
       },
-      "affected_revision": "836: v3.0–3.2; 837: earlier revisions as listed",
+      "affected_revision": "ECDSA_DS-836: v3.0/v3.1/v3.2; ECDSA_DS-837: v0.0/v1.0/v1.3",
       "configuration": "ECDSA secure-boot signature validation",
       "documented_mitigation": "Use RSA_DS secure boot",
       "driver_or_probe_implication": "Include invalid signature components in future boot-negative fixtures",
@@ -839,7 +859,7 @@
       "id": "E-U5G9-PC13",
       "evidence": {
         "document": "u5g9-es",
-        "locator": "§2.2.1"
+        "locator": "\u00a72.2.1"
       },
       "affected_revision": "Rev Z, LQFP only",
       "configuration": "PC13 transitions while LSE crystal used",
@@ -853,7 +873,7 @@
       "id": "E-U5G9-EXTI",
       "evidence": {
         "document": "u5g9-es",
-        "locator": "§2.2.9"
+        "locator": "\u00a72.2.9"
       },
       "affected_revision": "Rev Z",
       "configuration": "EXTI_LOCKR lock",
@@ -867,7 +887,7 @@
       "id": "E-U5G9-ECC",
       "evidence": {
         "document": "u5g9-es",
-        "locator": "§2.2.10"
+        "locator": "\u00a72.2.10"
       },
       "affected_revision": "Rev Z/documentation error",
       "configuration": "RAMCFG ECC monitoring",
@@ -881,7 +901,7 @@
       "id": "E-U5G9-VBAT",
       "evidence": {
         "document": "u5g9-es",
-        "locator": "§2.2.11"
+        "locator": "\u00a72.2.11"
       },
       "affected_revision": "Rev Z",
       "configuration": "separate VBAT/VDD and partial VBAT brownout with monitoring off",
@@ -892,16 +912,16 @@
       "physical_validation": false
     },
     {
-      "id": "E-U5G9-DSI-SAES-PENDING",
+      "id": "E-U5G9-DSI",
       "evidence": {
         "document": "u5g9-es",
-        "locator": "summary §§2.9.1–2.9.3,2.10.1"
+        "locator": "\u00a7\u00a72.9.1\u20132.9.3 p.19, bodies read"
       },
       "affected_revision": "Rev Z",
-      "configuration": "DSI and SAES promoted paths",
-      "documented_mitigation": "Not signed off: summary read, bodies unread",
-      "driver_or_probe_implication": "Read concrete clock-lane/EoT/contention and key-transfer conditions before promotion",
-      "residual_limit": "Summary is not mitigation implementation proof",
+      "configuration": "RevZ DSI automatic clock lane, EoT and HS contention indications",
+      "documented_mitigation": "Automatic clock-lane control must be disabled; video needs continuous clock, and command-mode clock transitions obey the documented no-transfer/HS conditions. Do not rely on the false EoT/HS contention error indications.",
+      "driver_or_probe_implication": "Check exact DSI driver/state transitions and panel mode before promotion.",
+      "residual_limit": "Body reading only; no DSI implementation or physical link qualification.",
       "reviewer": "/root/h01_author",
       "physical_validation": false
     },
@@ -909,13 +929,83 @@
       "id": "E-U585-PENDING",
       "evidence": {
         "document": "u585-es",
-        "locator": "cover/applicability only"
+        "locator": "Rev12 summary plus selected bodies listed in manual register; not cover-only anymore"
       },
       "affected_revision": "X 0x2001, W 0x3001, U 0x3007; received unknown",
       "configuration": "Any selected U585 host configuration",
-      "documented_mitigation": "Not signed off; exact selected errata bodies remain",
+      "documented_mitigation": "No blanket sign-off: selected USB/SPI/memory/SAES/watchdog/UCPD bodies read; remaining applicable system/clock/retention/I2C and current RM remain.",
       "driver_or_probe_implication": "Gate host admission with current manual review",
       "residual_limit": "Historical excerpts not current selected-subset clearance",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U5G9-SAES",
+      "evidence": {
+        "document": "u5g9-es",
+        "locator": "\u00a72.10.1 p.20"
+      },
+      "affected_revision": "RevZ/documentation error",
+      "configuration": "BHK or DHUK XOR BHK key transfer (KEYSEL010/100)",
+      "documented_mitigation": "The specified single read of TAMP_BKPxR must be ascending, with register count determined by key size.",
+      "driver_or_probe_implication": "Verify selected secure transfer implementation, not a generic AES feature label.",
+      "residual_limit": "No qualified key lifecycle or physical-resistance claim.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-USB",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "\u00a7\u00a72.25.2\u20132.25.5 pp.38\u201340; applicability Table3 p.5"
+      },
+      "affected_revision": "X/W/U",
+      "configuration": "Device CPU-FIFO transfers, zero-length packets and ID/reset interrupts",
+      "documented_mitigation": "Use documented one-packet transfer scheduling and staggered NAK/enable ZLP handling; account for hidden/shared ID interrupt behavior.",
+      "driver_or_probe_implication": "Exact driver check required; record ambiguous register/packet wording in D-U585-USB, without inventing a register-write procedure.",
+      "residual_limit": "No current RM or target-binary correspondence; host-only \u00a72.25.1 does not apply to a device-only proposal.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-SPI",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "\u00a7\u00a72.23.1\u20132.23.7 pp.35\u201337"
+      },
+      "affected_revision": "X/W/U",
+      "configuration": "SPI CRC-disabled receive, mode faults, completion and conditional slave/autonomous modes",
+      "documented_mitigation": "Preserve documented CRC-size default for affected receive; poll mode fault; preserve final clock/data interval before disabling.",
+      "driver_or_probe_implication": "Check exact master panel/SE driver; exclude unused slave/autonomous modes explicitly.",
+      "residual_limit": "No panel/SE bus timing or complete driver qualification.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-IWDG",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "\u00a7\u00a72.18.1\u20132.18.2 p.30"
+      },
+      "affected_revision": "X/W/U",
+      "configuration": "Stop-mode early wake and backup-domain reset",
+      "documented_mitigation": "Early interrupt cannot wake specified Stop modes although reset remains functional; backup reset stops LSI and needs the documented bounded handling and security attribution.",
+      "driver_or_probe_implication": "Watchdog recovery contract must bind clock/reset domain and retained state.",
+      "residual_limit": "No uninterrupted watchdog or hostile-app-isolation assurance.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-UCPD-RD",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "\u00a72.26.4 p.41 and Table3 p.5"
+      },
+      "affected_revision": "X only; W/U not affected per summary",
+      "configuration": "UCPD sink Rd, supply and temperature",
+      "documented_mitigation": "No workaround listed; stated in-range envelope is 3.0\u20133.6V and -10 to 90\u00b0C.",
+      "driver_or_probe_implication": "Exact allowed revision and operating envelope matter before selecting MCU UCPD for the 5V sink.",
+      "residual_limit": "No USB normative or physical conformance qualification; PD transmit and source-only limits are separate.",
       "reviewer": "/root/h01_author",
       "physical_validation": false
     }
@@ -936,7 +1026,7 @@
       "id": "D-S3-EFUSE",
       "source": "s3-trm",
       "locators": [
-        "§5.3 coding restrictions",
+        "\u00a75.3 coding restrictions",
         "p.420 programming procedure"
       ],
       "issue": "Generic retry instruction conflicts with one-shot RS-coded block restrictions.",
@@ -955,10 +1045,10 @@
       "id": "D-S3-USBREG",
       "source": "s3-trm",
       "locators": [
-        "§32.3.6 device DMA tables/examples"
+        "\u00a732.3.6 device DMA tables/examples"
       ],
       "issue": "IN DMA address field names DOEP while direction suggests DIEP; OUT example also names DIEPTSIZ.",
-      "disposition": "Resolve against actual direction-specific register definition and chosen maintained driver before DMA use; CPU FIFO option requires separate qualified configuration."
+      "disposition": "Pinned usb_struct.h confirms direction-specific software fields; selected global low-level helpers are host-oriented and do not qualify the device path. TRM \u00a732.5 p.1242 limits comprehensive IP register access. Exact locked device driver, selected mode and any required normative semantics remain open; no DMA isolation claim from headers."
     },
     {
       "id": "D-S3-BOOTUPDATE",
@@ -974,7 +1064,7 @@
       "id": "D-S3-PMS",
       "source": "s3-trm",
       "locators": [
-        "§15.3/15.4 peripheral-master list"
+        "\u00a715.3/15.4 peripheral-master list"
       ],
       "issue": "Narrative count and enumerated peripheral masters differ; USB master relationship cannot be inferred from GDMA text.",
       "disposition": "Enumerate every enabled master for selected path and verify permissions; no hostile-app isolation claim."
@@ -997,6 +1087,37 @@
       ],
       "issue": "Exact MCU designation implies 256KiB, unlike 512KiB README claim.",
       "disposition": "Reference bridge capability must use exact part datasheet; no Board host choice inherited."
+    },
+    {
+      "id": "D-S3-XTSENABLE",
+      "source": "s3-trm",
+      "locators": [
+        "\u00a7\u00a723.4.6\u201323.4.7 p.913",
+        "SPI_BOOT_CRYPT_CNT field p.433"
+      ],
+      "issue": "XTS prose refers to first or third bit, whereas the eFuse field defines encryption from odd versus even population count.",
+      "disposition": "Use the precise field definition as the documentary counterpart and require exact maintained implementation correspondence; do not convert ambiguous prose into a bit-OR or fuse recipe."
+    },
+    {
+      "id": "D-S3-SPIORDER",
+      "source": "s3-trm",
+      "locators": [
+        "Tables30.5-9/10 footnotes pp.1127\u20131128",
+        "Table30.5-5 p.1114",
+        "register30.6 p.1158"
+      ],
+      "issue": "Command/address table footnotes give 0:LSB/1:MSB while the general bit-order table and register description give 0:MSB/1:LSB for one-bit mode.",
+      "disposition": "Record agreement of table30.5-5 and register description, but do not sign off a driver or wire format without chosen-source correspondence and later bounded transfer evidence."
+    },
+    {
+      "id": "D-U585-USB",
+      "source": "u585-es",
+      "locators": [
+        "\u00a72.25.2 p.38",
+        "\u00a7\u00a72.25.4\u20132.25.5 pp.39\u201340"
+      ],
+      "issue": "Text compares packet count with packet-size field; hidden-interrupt note says two distinct register steps can be a single write; mode-status register naming also needs reconciliation.",
+      "disposition": "Do not reproduce these phrases as a literal recipe. Resolve exact current-RM register semantics and chosen driver against vendor clarification if needed; no external inquiry sent."
     }
   ]
 }

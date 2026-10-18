@@ -11,14 +11,20 @@ RM0456 Rev7 is a mandatory unresolved current-manual gap. Other concrete subset
 checks remain in [review-coverage.md](review-coverage.md). SE-specific gaps do not
 block unrelated host research, but remain hard selected-service gates.
 
+The first source candidate's independent review requested changes. Its evidence
+is preserved, and [review-response.md](review-response.md) maps the author fixes.
+[host-subset-notes.md](host-subset-notes.md) records subsequent actual reading;
+none of it silently promotes a source inventory into complete host admission.
+
 | Register IDs | Version and actual reading | Consequence |
 | --- | --- | --- |
 | `u5-rm7`, `st-u5-rm6-jp` | Current official locator identifies RM0456 Rev7 March2026. Web-reader/native retrieval did not yield the original. Preserved Rev6 January2025 is hashed; only its recorded memory/security/lifecycle excerpts are inherited. | No current register or relevant delta sign-off from the historical text. Native ST, DM-ID, China, family and Japan alternatives were tried; the guessed Japan “Rev7” response was HTML, not PDF. |
-| `u585-ds`, `u585-es` | DS13086 Rev10 July2024 selected features/SRAM/supply/reset excerpts through primary web extraction. ES0499 Rev12 June2026 applicability/index only. | Exact VI/VIQ electrical/AF, supply pads and selected erratum bodies remain open. |
-| `u5g9-ds`, `u5g9-es`, `u5g9-opn`, `u5g9-kit` | DS14102 **Rev5 May2026** supersedes stale Rev4 snippets; selected feature/security/lifecycle extracts. ES0595 Rev4 July2026: summary and core/system body pp.1–9. Exact ZJ OPN table and distinct NJ-kit overview read. | LQFP144 versus UFBGA144 is explicit. No package drawing visual clearance. Full memory/power/graphics path and DSI/SAES erratum bodies remain open. |
+| `u585-ds`, `u585-es` | DS13086 Rev10 July2024 selected features/SRAM/supply/reset excerpts. ES0499 Rev12 June2026 summary plus selected memory/flash, SAES, LPTIM/IWDG, SPI, USB and UCPD bodies now read. | Exact VI/VIQ electrical/AF and remaining applicable system/clock/retention/I2C bodies remain; exact implementation/current RM correspondence is not closed. |
+| `u5g9-ds`, `u5g9-es`, `u5g9-opn`, `u5g9-kit`, `u5g9-dk2`, `u5g9-um3223` | DS14102 **Rev5 May2026** selected SRAM/power/graphics/ordering text; ES0595 Rev4 selected DSI/SAES bodies now read. Exact ZJ OPN table and distinct DK1/DK2 features; UM3223 cover/§§1–2 inherited from reviewer, author §7.5 indexed excerpt only. | LQFP144 versus UFBGA144 and DK2 3.3V/RGB versus DK1 are explicit. Exact pads/AF/rails/current RM/driver/license remain. No package drawing visual clearance or full UM3223 reading. |
 | `u5a5-ds`, `u5a5-es`, `st-h5-98864_en`, `h573-ds`, `h573-es` | U5A family DS13543 Rev3 feature screen; H573 DS14121 Rev5 feature screen; current preserved H5 RM0481 Rev5 only §3.11 lifecycle inherited. Remaining current errata/subsets incomplete. | Conditional alternatives, not additional admitted ports. |
 | `s3-module`, `s3-trm`, `s3-es` | Module v1.8: variants/pins/straps/electrical/current/flash; pinout p.10 visually checked. TRM v1.8: exact selected page list covers DMA/memory/eFuse/clock/reset/GPIO/interrupt/timer/power/PMS/world/USB/SPI/RNG. Errata v1.3: all technical §§1–4. | Stronger selected coverage, not a full 1531-page manual read. Exact selected driver, pin/configuration and unresolved register-wording checks remain. |
 | `s3-rng-sdk`, `s3-boot-sdk`, `s3-flash-sdk`, `s3-ota-sdk`, `s3-usb-sdk-current`, `s3-board` | Versioned IDF v6.1 selected technical bodies; redirected USB component page and DevKitC guide are mutable snapshots with original HTML hashes. | SDK describes software expectations; chip behavior still needs TRM/errata correspondence. No target build or fuse operation occurred. |
+| `s3-idf-random`, `s3-idf-boot-random`, `s3-idf-sleep`, `s3-idf-rtc-header`, `s3-idf-usb-struct`, `s3-idf-usb-ll`, `s3-usb-component`, `s3-usb-config`, `s3-usb-device` | Nine freshly hashed immutable source files; exact full/selected function and line coverage in JSON. RNG functions, sleep avoidance correspondence, USB direction fields and wrapper configuration/dependency boundary read. | Source behavior does not qualify a chosen binary or replace comprehensive USB IP register specifications, which TRM §32.5 p.1242 identifies as NDA-limited. The wrapper's lower-bounded TinyUSB dependency is not an exact driver lock. |
 | `s3-ar2026-005`, `st-tn1474`, `st-tn1489`, `st-sa0055` | Current manufacturer technical security bulletins read; ST originals unavailable, web extraction clearly labelled. | Scope includes physical AES fault attack, shared-resource timing, exact certified-service limits and affected SFI manufacturing tuples. No blanket security ranking. |
 | `p4-ds`, `p4-es`, `esp-classic-ds` | P4 DS pre-release0.7 feature screen; errata v1.4 October12'26 all technical body; classic ESP32 DS5.3 feature/status screen only. | P4 boot/maintenance gates bind actual silicon and algorithm. Classic ESP32 is not S3. |
 | `nxp-mcxn947-ds`, `mcxn947-rm`, `mcxn947-security-rm` | Fresh DS8.2 pp.1–6 feature/package/revision/resource screen. Current RM7/security-RM6 catalogue entries require an account; bodies unread. | No additional port or security-state assumption. |
@@ -33,7 +39,8 @@ block unrelated host research, but remain hard selected-service gates.
 Every retained claim points to a locator and an owner in [claims.json](claims.json).
 The [pin/errata ledger](pin-errata-ledger.json) retains adverse findings and
 contradictions, including S3 RTC address/provisioning/download/USB register
-wording, P4 algorithm/revision limits, and U5G9 package revision changes. Unread
+wording, XTS-enable and SPI-bit-order discrepancies, current U585 USB wording,
+P4 algorithm/revision limits, and U5G9 package revision changes. Unread
 sections remain unread even where a document was successfully downloaded.
 
 The public analysis is newly written. Reuse of private historical research is

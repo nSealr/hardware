@@ -28,6 +28,14 @@ security provisioning. S02's accepted maintained crypto is reused within its
 contract; no duplicate portable benchmark campaign is needed. Identify each
 actual target call, fallible entropy source and adapter ABI before benchmarking.
 
+The [follow-up notes](host-subset-notes.md) supply concrete prerequisites: the
+S3 device stack needs its underlying TinyUSB lock and actual CPU-FIFO/DMA
+configuration; current U585 USB/SPI errata need chosen-driver correspondence.
+S3 sleep callers must prevent ANALOG-160's damaging condition. That condition
+is prohibited, never a proposed physical negative test. An unused touch or
+host-USB path must be explicitly excluded from the proposal rather than marked
+reviewed. Headers and software tests do not close missing normative IP semantics.
+
 Record operator, equipment model/ID, calibration or accuracy limitations, supply
 current limit, ambient conditions, test wiring and measurement point. Scope/logic
 analyzer voltage compatibility and debugger backpower must be checked. Missing
