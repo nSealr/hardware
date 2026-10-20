@@ -64,6 +64,15 @@ limits the remaining work to ten explicit H01 items, with H02/H04 work separate.
 
 ## Host review sign-off matrix
 
+[The finite entropy/crypto table](entropy-contract-review.md) supersedes the
+older open-ended RNG source-reading scope for its exact retained paths. U585
+nominal-HSI48/A is a conditional manufacturer reference with an explicit
+coordinator H02 stop; S3's supported SAR lease needs exact source/ownership and
+failure-observability qualification before use. The maintained software route
+and backend-scratch gates are retained; unused accelerators are not new reading
+tasks. This signs the conditional documentary table, not an entropy provider,
+complete host row or physical result.
+
 “Selected reviewed” below signs only the stated reading, not a complete probe or
 measured result. Locators resolve through [manual-register.json](manual-register.json).
 

@@ -25,6 +25,14 @@ than qualifying stock startup. The [calculation tuple](s3-clock-proposal.json)
 keeps reference/PHY and effective-feature conditions unsatisfied; no actual
 clock or completed time/host contract is inferred.
 
+[Two-host entropy/crypto correspondence](entropy-contract-review.md) now fixes
+the finite all-or-error adapter table, exact U585 manufacturer-reference
+conditions and S3 non-RF SAR ownership. U585's coordinator-approved conditional
+documentary allocation has a strict H02 stop before entropy-dependent use;
+no nominal clock, output statistic, certificate label or successful API call
+admits random output. Actual provider/source/backend and binary qualification
+remain separate from this completed conditional source table.
+
 The same-kit [S3 USB Serial/JTAG source assessment](s3-usb-serial-assessment.md)
 examines a fixed CDC alternative under the existing host scope. It is not
 selected: stock receive-loss/reset/error, console ownership and lifecycle

@@ -1534,6 +1534,17 @@
       ],
       "issue": "Replacementtext/tableminimumRPD14.25kΩversusnativefigurelabels14.75kΩ;maximum24.80kΩagrees.",
       "disposition": "Preservedifference;usewidertablerange14.25–24.80kΩforengineeringbudgets,notunreadfigureinferenceorameasuredPHYclaim."
+    },
+    {
+      "id": "D-S3-SAR-PATTERN-EXAMPLE",
+      "source": "s3-trm /s3-idf-rng-adc-ll",
+      "locators": [
+        "NativeTRM1471Figure39.3-4",
+        "NativeTRM1472example39.3-9",
+        "adc_ll_digi_set_pattern_table"
+      ],
+      "issue": "Firstpatternfigureplacescmd0inbits23:18,matchingLLslot0write;exampletextcallsbits5:0cmd0. ADC2slot1/length1sourcecorrespondenceisnotresolvedbyselectedDIGADC1text.",
+      "disposition": "Preservemanualdifference/exactsourcewrites;noSDKdefectorguessedfix. ReservebothSARunitsandrequireexactsource/ownership/readbackjustificationbeforeentropyuse;no newADCdriver."
     }
   ]
 }

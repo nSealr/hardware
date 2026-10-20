@@ -128,6 +128,15 @@ conditional CPU160/APB80/PLL480 and UNIT1 polling tuple reviewable. Finite
 snapshot/PLL remedies and reference/PHY/effective-feature conditions remain;
 no stock source or actual clock is qualified.
 
+[Two-host entropy/crypto correspondence](entropy-contract-review.md) adds4
+exact existing S3 dependency originals,192 document entries and83 claims.
+Its finite provider/ownership/failure table preserves S02 all-or-error semantics
+and source limits. Nominal U585 HSI48/A is only the coordinator's conditional
+documentary reference, with an explicit pre-use H02 stop. S3 internal SAR
+source/health and actual call-path qualifications remain pre-use gates. No
+entropy or real identity was generated, no new ADC/timer/backend was selected,
+and the native pattern/example difference is not called an SDK defect.
+
 [Existing Newhaven panel correspondence](panel-subset-review.md) adds the
 current breakout product/specification and the raw module's recommended
 connector identity,167 entries/69 claims. The breakout is a different

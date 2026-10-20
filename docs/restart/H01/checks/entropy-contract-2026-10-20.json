@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "10541aa7f7cf0d5e3e0e055b3a4bd30bf62f4727",
+  "result": "PASS conditional documentary integrityonly",
+  "checks": [
+    "JSONparse/uniqueIDs/claimreferences",
+    "Twelve relevantoriginalhashes/bytes",
+    "Two nativeSARpatternrenderhashes/bytes",
+    "Three canonicalS02input Gitobjecthashes match originalinputnotes",
+    "ReferenceRNG_CRfield/definedNSCRrange arithmetic",
+    "ObservedpinnedADCslot-bit arithmetic only",
+    "AffectedlocalMarkdownlinks",
+    "gitdiff--check"
+  ],
+  "document_count": 192,
+  "claim_count": 83,
+  "affected_originals": [
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "id": "u5-an4230",
+      "bytes": 1372482,
+      "sha256": "e3bd33d2909e4d326ae856a3b1e847cc4c76ca2a4c0636dc1dc6b995f70df0c6"
+    },
+    {
+      "id": "nist-e11-public-use",
+      "bytes": 251262,
+      "sha256": "add4fbf929c4e7f503705d6e595b2d70dc6b4a5f2663a87abf2124632626b41a"
+    },
+    {
+      "id": "u5-embassy-rng",
+      "bytes": 23525,
+      "sha256": "60131a83269c2634fdc896c3ab475d93dea0cbaf122fbcfe6c3fcb7fd5c4b370"
+    },
+    {
+      "id": "s3-trm",
+      "bytes": 15215232,
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+    },
+    {
+      "id": "s3-rng-sdk",
+      "bytes": 42336,
+      "sha256": "9c3964b751cbcd9d8e79544c310a9ea88bab4f09b66fc24caa4084d59e7331da"
+    },
+    {
+      "id": "s3-idf-random",
+      "bytes": 4621,
+      "sha256": "45b8381aef1a2e7bd9e42fc198c6b0a8644ae7eb28c1dc56bc1b561178e7b5bd"
+    },
+    {
+      "id": "s3-idf-boot-random",
+      "bytes": 2701,
+      "sha256": "ec501ea8fccaccdc11514415f77931d7c22381e396d8315834ac03447e666071"
+    },
+    {
+      "id": "s3-idf-rtc-timer-hal",
+      "bytes": 790,
+      "sha256": "dd40f28c7dd46520d185d867a9724dd3d0b237bc06b0c5ee98c894b0eb9fb235"
+    },
+    {
+      "id": "s3-idf-rtc-timer-ll",
+      "bytes": 1450,
+      "sha256": "ef9e8c81765644019f345e846b84a50fb35f00f6d8ee06354510fdc0a70c1a4f"
+    },
+    {
+      "id": "s3-idf-soc-caps",
+      "bytes": 25529,
+      "sha256": "843a2ae552eef850442bc748fcf3f807626b25d34eada462805bc24f827ba96e"
+    },
+    {
+      "id": "s3-idf-rng-adc-ll",
+      "bytes": 44782,
+      "sha256": "71d4bef84ce725e4533e2eab6f7f5a3ac1e3d4dee58c1ee9988413f21be3717f"
+    }
+  ],
+  "native_visual_reviews": [
+    {
+      "document": "s3-trm",
+      "private_render": "sol-s3-adc-pattern1471.png",
+      "page": "native1471Figure39.3-4/patternFSM/DMAexclusion",
+      "bytes": 238428,
+      "sha256": "bb2ff51cd4d5e879090a0768d336e1cc0e43e415289c3d035a170505f55705df",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    },
+    {
+      "document": "s3-trm",
+      "private_render": "sol-s3-adc-pattern1472.png",
+      "page": "native1472pattern/example39.3-9",
+      "bytes": 194173,
+      "sha256": "c76a44d6b4627b1618cbf330f47d626e31bd982ded43cec509ffd5a329c8e5df",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    }
+  ],
+  "canonical_core_reads": [
+    {
+      "path": "docs/restart/implementation/S02/entropy-contract.md",
+      "commit": "7b5553685dac56029a4379be12054154b6b5e0b5",
+      "bytes": 4710,
+      "sha256": "a0883cbd920b85ab1db71e619b2c503d7a84137761ab60d8913e5353c9ce0916",
+      "reading": "Fullpinnedtext reread;no historicaltest rerun"
+    },
+    {
+      "path": "docs/restart/implementation/S02/crypto-selection.md",
+      "commit": "7b5553685dac56029a4379be12054154b6b5e0b5",
+      "bytes": 7734,
+      "sha256": "6f02f64a24e5747f63d25b81a472dc5e257055f4fbb853587113b1c355bd7f56",
+      "reading": "Fullpinnedtext reread;no historicaltest rerun"
+    },
+    {
+      "path": "docs/restart/implementation/S02/secret-flow.md",
+      "commit": "7b5553685dac56029a4379be12054154b6b5e0b5",
+      "bytes": 4334,
+      "sha256": "067030391a583560d95d78f9f768afa093fee3f6a65ae489b18be774e7324cba",
+      "reading": "Fullpinnedtext reread;no historicaltest rerun"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/entropy-contract-review.md",
+      "bytes": 16437,
+      "sha256": "39c5523016219fba7458f910a9b703d1191830eccd09c1e6ab8a7d4c33487087"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 21297,
+      "sha256": "009ddfae36bdda1f9827149749ea584a7c086e7447320751285b693a603bbccd"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 17593,
+      "sha256": "2050dbaca2be1e743ce87be3c22fad71bb4c58e1e1ab03d2f7f71605e20fb324"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 15338,
+      "sha256": "af039da2bea1147880a6ac35422daa284147bf60f61d13c47512c506eccb6c87"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 11033,
+      "sha256": "8a613cb6d41e980ff465cd01d80a506ff29232bb99f2eec8123476f1556ee6e2"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 336916,
+      "sha256": "3cb016b54a558490cd72fc35accb665095e56f2d20504bb82a0657cd4299dc37"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 116383,
+      "sha256": "34af1be797820da731826e5ff17bb1c903cf170ceca88dbdb9ae1a4fb007dcaf"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 76444,
+      "sha256": "0bdd5797385e8bfd7dc238dc92e5253164ac9ff3b07382fa8c4c5a9e0b2eeaac"
+    }
+  ],
+  "private_receipt_sha256": "0033a9a18fdb577d0931656828ae53842994a04167db1f4b362fda7fe144560f",
+  "limits": "Noentropy/source/clock/latency/backend/effectivebinaryqualification. U585explicitcoordinatorH02stop;S3pre-usesource/health/readbackqualification. Historicalchecks/reviewsretainbindings.",
+  "not_run": [
+    "FinalintegratedhardwareCI",
+    "Targetbuild/link/providerinvocation",
+    "AnyRNG/ADC/timer/cryptohelperexecution",
+    "Entropyquality/statistics/fault/physicaltests",
+    "Identitygeneration,fuse,flashorprovisioning"
+  ],
+  "status": "C08conditionaldocumentarytableonly;completehostpackage/sixrowsremainopen."
+}
