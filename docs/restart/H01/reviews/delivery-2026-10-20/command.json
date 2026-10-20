@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-10-20T15:06:33.277763+00:00",
+  "reviewer": "/root",
+  "candidate": "52afe973a2daceed25f4861af2663e5baa49a097",
+  "tree": "e1ee6541f047fb336b69869f43d75b614aca4725",
+  "command": [
+    "make",
+    "ci"
+  ],
+  "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-delivery-review",
+  "python": "3.13.5",
+  "platform": "Linux-6.12.101+deb13-amd64-x86_64-with-glibc2.41",
+  "exit_code": 0,
+  "elapsed_seconds": 0.15,
+  "clean_before": true,
+  "clean_after": true,
+  "artifacts": [
+    {
+      "path": "stdout.log",
+      "bytes": 646,
+      "sha256": "f4475e319aad6455b95f807e62217d89de4209331271e37639f630cea1a23d37"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 142,
+      "sha256": "20080ea24349c6baeb102057d77016cc125864ee54fb3973c6025fede0691658"
+    }
+  ],
+  "scope": "Exact stable documentary candidate; 43 existing tests, repository checks, compilation and hardware validation only, not board qualification or H01 acceptance."
+}

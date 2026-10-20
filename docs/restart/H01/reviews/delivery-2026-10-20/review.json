@@ -1,0 +1,48 @@
+{
+  "reviewer": "/root",
+  "author": "/root/h01_sol",
+  "candidate_commit": "52afe973a2daceed25f4861af2663e5baa49a097",
+  "candidate_tree": "e1ee6541f047fb336b69869f43d75b614aca4725",
+  "verdict": "PASS_scoped_research_publication_only",
+  "task_closed": false,
+  "host_admissions": [],
+  "blocking_publication_findings": [],
+  "reviewed_scope": [
+    "Current C10 host-review-outcomes.md (all122lines), dated handoff/result and relevant checklist/configuration/probe/coverage delta against7326630; full g9-comparison-review.md177lines.",
+    "Native existing MB1918-C01 renders sheets2,3,4,9 visually examined against their hierarchy, MCU, crystal and button correspondence; original PDF hash matches register. Not an independent full drawing, BOM or board review.",
+    "DS14102 selected text lines1596-1606 (SRAM banks/ECC); ES0595 lines293-304 (PC13/LSE limitation); pinned RM0456 lines26324-26344 (DCACHE implementation/nonsecure GPU traffic).",
+    "Pinned gpu2d.rs complete1-162; gfxmmu.rs selected185-198 cache loops; ltdc.rs selected640-689 and782-805 error/reload/raw pointer/Drop. No build or full graphics implementation review."
+  ],
+  "limits": [
+    "No review of every registered manual/claim or unexamined body is asserted. Historical reviews retain exact candidate/scope.",
+    "No H01 criterion or task closed, no component selected or host/probe admitted, no electrical/physical/crypto/provider guarantee added.",
+    "Source-outcome publication only; exact missing properties and first evidence gates remain open."
+  ],
+  "evidence": [
+    {
+      "path": "report.md",
+      "bytes": 2797,
+      "sha256": "d081d8e44c3110924cd6e755dc5bf4acf4005ca657a45b53087b08254b9fb900"
+    },
+    {
+      "path": "bindings.json",
+      "bytes": 9433,
+      "sha256": "3e5dec25a5716bd3cb451e81a5d2cb49f236da596992c6b9f0c4293e3b8d3d6c"
+    },
+    {
+      "path": "command.json",
+      "bytes": 965,
+      "sha256": "ce82417f03e281290c0bc1f1370053044303a6e5a61e6acbc58622b6f7d74776"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 646,
+      "sha256": "f4475e319aad6455b95f807e62217d89de4209331271e37639f630cea1a23d37"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 142,
+      "sha256": "20080ea24349c6baeb102057d77016cc125864ee54fb3973c6025fede0691658"
+    }
+  ]
+}

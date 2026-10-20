@@ -1,0 +1,231 @@
+{
+  "recorded_utc": "2026-10-20T15:08:08.051307+00:00",
+  "reviewer": "/root",
+  "author": "/root/h01_sol",
+  "candidate": "52afe973a2daceed25f4861af2663e5baa49a097",
+  "tree": "e1ee6541f047fb336b69869f43d75b614aca4725",
+  "base": "b48229d47ea93ef552ccdf4521aab6b37880fe96",
+  "research_checkpoint": "732663024e5fde3a5ee73a2525769d88a99795de",
+  "candidate_artifacts_verified": [
+    {
+      "path": "README.md",
+      "bytes": 3406,
+      "sha256": "c6156bdce41c98f9d41ecc5ffc1f294581f699d8ccdd902bb3f2f4be99f1c0aa"
+    },
+    {
+      "path": "docs/restart/H01/host-review-outcomes.md",
+      "bytes": 17297,
+      "sha256": "cfefab1c3a7f229c98863e6f76784a6dc40d1e74397c6197a8e027662be07acd"
+    },
+    {
+      "path": "docs/restart/H01/handoff-2026-10-20.md",
+      "bytes": 5219,
+      "sha256": "3274e2f596c104e682a4e84ace1b0de0f6320c77d94ee41ee785e5c273242edc"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 17164,
+      "sha256": "e58e6ae1c58aa4086ecf8b946557b9547c7fd3517ce4797671c356d35f26a47a"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 27357,
+      "sha256": "6bbab0d0e01aaa1fd8876cee14a93488b3d26199509c1c694d44ccf93895744a"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 23770,
+      "sha256": "f7dcbca19941cf593b2c96e6597aebd844813a2bf075e70f29625aab5a7ab72d"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 20025,
+      "sha256": "dfc3a35fae6939b1641b0157851d37622be1936e3f015212ac5e51bb13d3a555"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 407839,
+      "sha256": "895e69b969e1ed7c8587b96d9a351080e058173733683601ac7d02df4694e047"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 167157,
+      "sha256": "b698a2b8d2c041b79cab58c4afb7b4990f8d1440d586dc90bddaefd9250b6d2a"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 83782,
+      "sha256": "4829b84b109cab6752a6fe7e27d04b072f30f306d74b76d0a2c03b89da86b924"
+    },
+    {
+      "path": "docs/restart/H01/option-comparison.md",
+      "bytes": 25973,
+      "sha256": "6e2c7386d6cdba85177dd227408557c63f58f85b24e24440ce027acb60c0966a"
+    },
+    {
+      "path": "docs/restart/H01/probe-plan.md",
+      "bytes": 11617,
+      "sha256": "d222e705fad04d2311e65a14cc536d8ecb779a937783143364f4e434bd01efb9"
+    },
+    {
+      "path": "docs/restart/H01/g9-comparison-review.md",
+      "bytes": 14032,
+      "sha256": "49fd79e1c9a45c351cbccedb16ddeeea3dffb866e0b2ddfdd844a53bbbadac6a"
+    },
+    {
+      "path": "docs/restart/H01/g9-comparison-proposal.json",
+      "bytes": 6260,
+      "sha256": "b4b54498c155723423052257023c99d61668d6b12bbc24de89ffa5e8ab44b7b5"
+    },
+    {
+      "path": "docs/restart/H01/power-attach-lifetime-contract.md",
+      "bytes": 17439,
+      "sha256": "20f9e3cf6ef525e58ca758671725c1c6f7fac01e10b0ef22c4bf19bfea3c9fa6"
+    },
+    {
+      "path": "docs/restart/H01/power-attach-lifetime-proposal.json",
+      "bytes": 6118,
+      "sha256": "0a07c90bb746f99d1f5d85486a4cf627a2903e664d466a74bce35aef5236aa5d"
+    },
+    {
+      "path": "docs/restart/H01/owner-update-contract.md",
+      "bytes": 21475,
+      "sha256": "9a5ff45b8f17134415ac3297da3615d5a32dab632ec3a60f210c2efc902831fd"
+    },
+    {
+      "path": "docs/restart/H01/owner-update-proposal.json",
+      "bytes": 7301,
+      "sha256": "16d7b9b44729cc2e76f44f9c99bc21205904c390d768246edf3dc991b685276b"
+    },
+    {
+      "path": "docs/restart/H01/memory-ownership-contract.md",
+      "bytes": 15180,
+      "sha256": "9a148884351bacaa54ea7b611b9f7f3c57ac94a49edc2c414a7f504089108eb7"
+    },
+    {
+      "path": "docs/restart/H01/memory-ownership-proposal.json",
+      "bytes": 6850,
+      "sha256": "f854ac1ae044f38f325c23421e560d8f030570fb97fd01bb0057edd13af17d5f"
+    },
+    {
+      "path": "docs/restart/H01/system-runtime-contract.md",
+      "bytes": 18322,
+      "sha256": "704b801d42864943925ffc35d71ce61fa95ab56830cb0ad4e8ad94f1a2688ce5"
+    },
+    {
+      "path": "docs/restart/H01/system-runtime-proposal.json",
+      "bytes": 7271,
+      "sha256": "52157c4371346e4245cf2028241f4fad652f6f455b317f950691f4b21b331ff8"
+    },
+    {
+      "path": "docs/restart/H01/panel-subset-review.md",
+      "bytes": 14533,
+      "sha256": "ed5119b1d78895aadd32bc49474cb86d581f3075a3547056495c3e0e6cac7dc0"
+    },
+    {
+      "path": "docs/restart/H01/entropy-contract-review.md",
+      "bytes": 16437,
+      "sha256": "39c5523016219fba7458f910a9b703d1191830eccd09c1e6ab8a7d4c33487087"
+    },
+    {
+      "path": "docs/restart/H01/u585-usb-endpoint-contract.md",
+      "bytes": 12613,
+      "sha256": "28eb34b426ea4e162deffda7cb9ffeb48a4479e165ca7cb394a904e559520997"
+    },
+    {
+      "path": "docs/restart/H01/u585-usb-proposal.json",
+      "bytes": 5526,
+      "sha256": "b22bfe70682a884e6422f802f22e3f7835c94881d891e7b8baa3cf9ea8a6316f"
+    },
+    {
+      "path": "docs/restart/H01/s3-usj-contract.md",
+      "bytes": 13470,
+      "sha256": "d38d1a035f6643b2e5b1d34009299d0ad86e93830f5a9324261d2a00d46b3fdf"
+    },
+    {
+      "path": "docs/restart/H01/s3-attach-contract.md",
+      "bytes": 13147,
+      "sha256": "fbb5c56f3cfe5f5eab21b30f0e28f4b2b6230b1c29a454d49a72956a50c95fe2"
+    },
+    {
+      "path": "docs/restart/H01/s3-spi-input-contract.md",
+      "bytes": 11318,
+      "sha256": "de74812184b39dbc33264872674831e8ef2a6b884945cddfd790fa34e6da3e4c"
+    },
+    {
+      "path": "docs/restart/H01/s3-spi-input-proposal.json",
+      "bytes": 5922,
+      "sha256": "dc4e4448b59520f9e9f82104fe17c856173dc09aa63f3ea0356a5f18f0971858"
+    }
+  ],
+  "base_paths_preserved_outside_scope": 138,
+  "historical_inputs_and_reports_preserved": 5,
+  "canonical_criteria_exact": 6,
+  "source_count": 210,
+  "claim_count": 105,
+  "primary_originals_hash_verified": [
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
+      "primary_url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf"
+    },
+    {
+      "id": "u5g9-ds",
+      "bytes": 4310781,
+      "sha256": "89bf1f0a9c367372a721c1e0ebfdd7f5731456f7d35463e290bbfc487ace6176",
+      "primary_url": "https://www.st.com/resource/en/datasheet/stm32u5g9nj.pdf"
+    },
+    {
+      "id": "u5g9-es",
+      "bytes": 1502594,
+      "sha256": "c717275ccc1fcda1d06c3d64fc9ca7c8fd758c612bc2dc0e5a0059a3a4e9392b",
+      "primary_url": "https://www.st.com/resource/en/errata_sheet/es0595-stm32u5fxxx-and-stm32u5gxxx-device-errata-stmicroelectronics.pdf"
+    },
+    {
+      "id": "u5g9-mb1918-c01",
+      "bytes": 2511501,
+      "sha256": "65c90d6af3771e4cd1539598883039f850b794f4c6cc117c7dca5309000f9bd2",
+      "primary_url": "https://www.st.com/resource/en/schematic_pack/mb1918-u5g9zjq-c01-schematic.pdf"
+    },
+    {
+      "id": "u5-embassy-gpu2d",
+      "bytes": 5648,
+      "sha256": "2423b0bffa5cb2abe1d344c7aeee1c7bfa9d5d77f64f24807e2d793b8cfe55fd",
+      "primary_url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/src/gpu2d.rs"
+    },
+    {
+      "id": "u5-embassy-ltdc",
+      "bytes": 31426,
+      "sha256": "88b603a52a0c48cfc7be720d86180789e4e574f084553aac9bbf9a50df849f47",
+      "primary_url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/src/ltdc.rs"
+    },
+    {
+      "id": "u5-embassy-gfxmmu",
+      "bytes": 7652,
+      "sha256": "047bbcfbd5cf305bf37e978fbd5da732bab9e78f5a93508a87d3d5ff62ab0c0f",
+      "primary_url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/src/gfxmmu.rs"
+    }
+  ],
+  "new_reading_scopes": [
+    "Current C10 host-review-outcomes.md (all122lines), dated handoff/result and relevant checklist/configuration/probe/coverage delta against7326630; full g9-comparison-review.md177lines.",
+    "Native existing MB1918-C01 renders sheets2,3,4,9 visually examined against their hierarchy, MCU, crystal and button correspondence; original PDF hash matches register. Not an independent full drawing, BOM or board review.",
+    "DS14102 selected text lines1596-1606 (SRAM banks/ECC); ES0595 lines293-304 (PC13/LSE limitation); pinned RM0456 lines26324-26344 (DCACHE implementation/nonsecure GPU traffic).",
+    "Pinned gpu2d.rs complete1-162; gfxmmu.rs selected185-198 cache loops; ltdc.rs selected640-689 and782-805 error/reload/raw pointer/Drop. No build or full graphics implementation review."
+  ],
+  "reused_review": {
+    "commit": "2bd030b6a88d87428540ef4a0eaf59efb68d53d7",
+    "scope": "Two exact C04 source/contract blobs unchanged fromaa383df; previously selected primary reading and nuance only; no final H01 acceptance."
+  },
+  "arithmetic": {
+    "internal_SRAM_KiB_before_ECC": 3024,
+    "two_800x480_RGB565_frames_bytes": 1536000,
+    "two_frames_KiB": 1500,
+    "hypothetical_60Hz_active_pixel_bytes_per_second": 46080000
+  },
+  "limits": [
+    "No review of every registered manual/claim or unexamined body is asserted. Historical reviews retain exact candidate/scope.",
+    "No H01 criterion or task closed, no component selected or host/probe admitted, no electrical/physical/crypto/provider guarantee added.",
+    "Source-outcome publication only; exact missing properties and first evidence gates remain open."
+  ]
+}
