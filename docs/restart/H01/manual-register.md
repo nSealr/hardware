@@ -90,6 +90,12 @@ facts correspond, while effective time features, warning-only recovery, ZLP
 erratum handling and software VBUS behavior remain unqualified. Remaining
 endpoint/control/interrupt/time-base reading and distinct review stay open.
 
+[U585 interrupt/core-time correspondence](u585-interrupt-review.md) adds the
+current PM0264 Rev8 native original and17 selected IRQ mappings against both
+exact AI/VI metadata objects.164 entries/64 claims remain selected evidence,
+not a completed host. The [finite closure checklist](closure-checklist.md)
+fixes the remaining ten H01 work items and separates later H02/H04 evidence.
+
 Every retained claim points to a locator and an owner in [claims.json](claims.json).
 The [pin/errata ledger](pin-errata-ledger.json) retains adverse findings and
 contradictions, including S3 RTC address/provisioning/download/USB register

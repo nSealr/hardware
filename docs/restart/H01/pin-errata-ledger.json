@@ -1404,6 +1404,28 @@
       ],
       "issue": "Generic software-override option is not honored in the reset-CID0x3000 branch: BVAL is forced true when hardware detection is disabled.",
       "disposition": "Do not use defaults or that option as a kit sensing implementation. CID is writable; source reset value is not received identity. PF14ADC/TCPP sensing and power policy remain open."
+    },
+    {
+      "id": "D-U5-NVIC-BANKING",
+      "source": "u5-rm7 / u5-pm0264",
+      "locators": [
+        "RM22p912 blanket banking sentence",
+        "PM4.2pp176–181 field-specific NVIC definitions"
+      ],
+      "issue": "RM broadly calls NVIC registers banked; current core manual says external enable/pending/active/IPR registers are not banked and are filtered by ITNS.",
+      "disposition": "Use field-specific definitions and explicit secure ITNS/access policy; do not treat a nonsecure zero read as secure readback. Banked system masks and SysTick are separate."
+    },
+    {
+      "id": "D-U5-CORE-VECTOR-TEXT",
+      "source": "u5-pm0264",
+      "locators": [
+        "Vector section2.4.4pp32–33",
+        "VTOR introductionp189",
+        "NVIC4.2.10.1p182",
+        "ISER/ISPR definitionspp177–179"
+      ],
+      "issue": "VTOR section describes secure/nonsecure banks but register introduction says not banked; pending paragraph names set-enable while explicit registers separate enabling and force-pending. Generic vector figure labels and implementation placeholders are not the U585 mapping.",
+      "disposition": "Preserve inconsistency. Single-image proposal uses secure vector base only; explicit RM/PAC positive IRQ map and named register operations, no nonsecure-isolation or generic480-IRQ claim."
     }
   ]
 }

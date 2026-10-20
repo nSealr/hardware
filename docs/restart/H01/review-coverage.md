@@ -56,6 +56,12 @@ and VBUS override behavior prevent selecting the candidate driver now.
 Remaining endpoint/control/model, interrupt/time-base and normative work remain;
 this advances a subset and does not sign any complete host row.
 
+[U585 interrupt/core-time reading](u585-interrupt-review.md) adds exact IRQ/
+priority-width correspondence, field-specific security/masking and conditional
+polling SysTick requirements. Its final handler/priority/clock/deadline tuple
+remains unselected. The [finite closure checklist](closure-checklist.md) now
+limits the remaining work to ten explicit H01 items, with H02/H04 work separate.
+
 ## Host review sign-off matrix
 
 “Selected reviewed” below signs only the stated reading, not a complete probe or

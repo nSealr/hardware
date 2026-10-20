@@ -1518,5 +1518,11 @@
       "metadata": "v1,APB1ENR2.UCPD1EN/APB1RSTR2.UCPD1RST;metadataPCLK1kernel differs from currentRMHSI16clocktree",
       "scope": "SelectedCCconstructor/trim/drop source only;stockDMArequestenablesnotnarrowproposal, notselected"
     }
-  ]
+  ],
+  "interrupt_correspondence": {
+    "artifact": "u585-interrupt-subset.json",
+    "scope": "17 selected exact-device IRQ mappings and priority width, not complete source/priority/vector configuration",
+    "time_base": "Secure polling SysTick short-deadline alternative only; no chosen backend or TIM2 promotion",
+    "remaining": "Final handler/source masks/acknowledgements, clock/latency/critical-section and fault/reset policy remain."
+  }
 }

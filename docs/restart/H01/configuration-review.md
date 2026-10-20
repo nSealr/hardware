@@ -229,6 +229,10 @@ The [U585 OTG source review](u585-otg-source-review.md) subsequently adds
 selected CPU-FIFO/state/reset and actual Rust path correspondence. Its ZLP,
 deadline/failure, buffer-bound and VBUS requirements remain unmet; no USB
 adapter or complete host configuration is selected by that source increment.
+The [U585 interrupt/core-time review](u585-interrupt-review.md) adds a selected
+IRQ map and secure masking/SysTick limits. It promotes no excluded peripheral.
+The [finite closure checklist](closure-checklist.md) is the remaining H01 work
+list; later received-unit, adapter execution and design measurements stay separate.
 
 New current-RM reading: pp150–194 (§§2.3.4,3,4); pp195–212 (GTZC introduction,
 implementation, functional body and selected secure configuration registers);
