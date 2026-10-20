@@ -438,7 +438,8 @@
       "related_claims": [
         "H01-C05",
         "H01-C78",
-        "H01-C81"
+        "H01-C81",
+        "H01-C89"
       ],
       "review_events": [
         {
@@ -475,7 +476,7 @@
       "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
       "original_bytes": 15215232,
       "access": "public URL; downloaded",
-      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted. Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction. Author /root/h01_sol,2026-10-20: pp526–533 and634–639functionaltext/tablebodies reread; freshselectedregisterbodypp640–645,649–652. Alarm/UNIT0/HSunusedcontextencountered,not newalarmfeature. Native641CONFand644UNIT1OP/load layout newlyvisuallychecked. No fullclocktree/register-summary/remainingalarmbodyreview. ProposedexclusiveUNIT1polling/freshVALID/finiteguardandfixedRun tuple in s3-clock-time-review.md remainunqualified. Author /root/h01_sol,2026-10-20: RNGpp920–921reread;freshselectedSARsource/control/pattern/DMAexclusion/arbiterbodypp1469–1474text,unusedfilter/threshold/RTC/ULPcontextencounteredonly. Native1471–1472patternfigures/examplevisuallyread:Figure39.3-4cmd0MSBagreesLLbutexamplecmd0LSBdiffers. No newapplicationADC/DMA/ULP/touchfeature orcompleteADCchapterclaim. Author /root/h01_sol,2026-10-20: pp400–407 SRAM/cache/alias/GDMA reach text reread;PMS selectedfunctionaltext/tablespp683–705 read/reread,including first-fault/defaultresponse/locks. Selectedregisterdefinitionprosepp712–713,716,743–757 read (diagramlayout excluded);onlynamedDMApermission-lockdefinitions/registertitlespp715–738 additionallyselected,notallunusedregisterbodies. SYSTEM825–826 andselectedfielddefinitionprose829,831–834 read/reread;nativebitdiagramsnotnewlyvisuallyreviewed. No fullPMS/worldswitch/peripheral/external-protectionconfiguration ornewDMAfeature.",
+      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted. Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction. Author /root/h01_sol,2026-10-20: pp526–533 and634–639functionaltext/tablebodies reread; freshselectedregisterbodypp640–645,649–652. Alarm/UNIT0/HSunusedcontextencountered,not newalarmfeature. Native641CONFand644UNIT1OP/load layout newlyvisuallychecked. No fullclocktree/register-summary/remainingalarmbodyreview. ProposedexclusiveUNIT1polling/freshVALID/finiteguardandfixedRun tuple in s3-clock-time-review.md remainunqualified. Author /root/h01_sol,2026-10-20: RNGpp920–921reread;freshselectedSARsource/control/pattern/DMAexclusion/arbiterbodypp1469–1474text,unusedfilter/threshold/RTC/ULPcontextencounteredonly. Native1471–1472patternfigures/examplevisuallyread:Figure39.3-4cmd0MSBagreesLLbutexamplecmd0LSBdiffers. No newapplicationADC/DMA/ULP/touchfeature orcompleteADCchapterclaim. Author /root/h01_sol,2026-10-20: pp400–407 SRAM/cache/alias/GDMA reach text reread;PMS selectedfunctionaltext/tablespp683–705 read/reread,including first-fault/defaultresponse/locks. Selectedregisterdefinitionprosepp712–713,716,743–757 read (diagramlayout excluded);onlynamedDMApermission-lockdefinitions/registertitlespp715–738 additionallyselected,notallunusedregisterbodies. SYSTEM825–826 andselectedfielddefinitionprose829,831–834 read/reread;nativebitdiagramsnotnewlyvisuallyreviewed. No fullPMS/worldswitch/peripheral/external-protectionconfiguration ornewDMAfeature. Author /root/h01_sol,2026-10-20: selectedSPIfunctionaltext/tables1114–1116,1124–1125,1144,1149–1150 read/reread;selectedfielddefinitionprose1153–1155,1157–1160,1162,1164–1165,1172–1177 read,notallunusedbitlayout. ShortcontinuationsforusedCMD/USER/DLEN/CLOCK/sourcefieldson1153/1155/1158/1164/1165 explicitlyrecovered. Native1114onebitorderand1174CLRbitlayoutvisuallyread. PriorselectedGPIO/IOmux/reset/IRQ/holdreadingreused,notnewmatrix/wake/filterfeature. NoSPI3/DMA/slave/segmented/multiline/DDR/readbackfeature,fullchapterorwaveformclaim.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -527,7 +528,9 @@
         "H01-C81",
         "H01-C83",
         "H01-C84",
-        "H01-C85"
+        "H01-C85",
+        "H01-C89",
+        "H01-C90"
       ],
       "review_events": [
         {
@@ -554,6 +557,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: pp400–407 SRAM/cache/alias/GDMA reach text reread;PMS selectedfunctionaltext/tablespp683–705 read/reread,including first-fault/defaultresponse/locks. Selectedregisterdefinitionprosepp712–713,716,743–757 read (diagramlayout excluded);onlynamedDMApermission-lockdefinitions/registertitlespp715–738 additionallyselected,notallunusedregisterbodies. SYSTEM825–826 andselectedfielddefinitionprose829,831–834 read/reread;nativebitdiagramsnotnewlyvisuallyreviewed. No fullPMS/worldswitch/peripheral/external-protectionconfiguration ornewDMAfeature."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: selectedSPIfunctionaltext/tables1114–1116,1124–1125,1144,1149–1150 read/reread;selectedfielddefinitionprose1153–1155,1157–1160,1162,1164–1165,1172–1177 read,notallunusedbitlayout. ShortcontinuationsforusedCMD/USER/DLEN/CLOCK/sourcefieldson1153/1155/1158/1164/1165 explicitlyrecovered. Native1114onebitorderand1174CLRbitlayoutvisuallyread. PriorselectedGPIO/IOmux/reset/IRQ/holdreadingreused,notnewmatrix/wake/filterfeature. NoSPI3/DMA/slave/segmented/multiline/DDR/readbackfeature,fullchapterorwaveformclaim."
         }
       ],
       "native_visual_reviews": [
@@ -594,6 +602,22 @@
           "page": "native1472pattern/example39.3-9",
           "bytes": 194173,
           "sha256": "c76a44d6b4627b1618cbf330f47d626e31bd982ded43cec509ffd5a329c8e5df",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        },
+        {
+          "private_render": "sol-s3-spi1114.png",
+          "page": "Native1114Table30.5-5onebitMSB0",
+          "bytes": 122033,
+          "sha256": "41776aab36e9377b3b4945c67266b3b9b0ab9f789ba4aa26aac3b56fbac1f5f6",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        },
+        {
+          "private_render": "sol-s3-spi1174.png",
+          "page": "Native1174SPI_DMA_INT_CLRbitlayout",
+          "bytes": 272176,
+          "sha256": "aa1b1e3aa3d4148619d03480302b675256cf4b03495e2c632fe3f15af7fbdaa1",
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20"
         }
@@ -864,7 +888,9 @@
       "original_distribution": "Link/hash and original analysis only; original private.",
       "remaining": "Receive and identify board/module revision; read exact schematic/header conflicts before wiring. Guide has mutually exclusive power modes; USB-UART and SoC USB are separate paths.",
       "reviewed_on": "2026-10-18",
-      "related_claims": []
+      "related_claims": [
+        "H01-C90"
+      ]
     },
     {
       "id": "s3-usb-sdk-current",
@@ -2618,7 +2644,9 @@
       ],
       "related_claims": [
         "H01-C77",
-        "H01-C78"
+        "H01-C78",
+        "H01-C89",
+        "H01-C90"
       ]
     },
     {
@@ -5226,6 +5254,98 @@
         "H01-C85"
       ],
       "license": "UpstreamSPDXApache-2.0;originalnotrepublished."
+    },
+    {
+      "id": "s3-idf-spi-master",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_driver_spi/src/gpspi/spi_master.c",
+      "revision": "v6.1 /fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3SPI2/six-controlpathonly;no newdriver/peripheral/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_driver_spi/src/gpspi/spi_master.c",
+      "retrieved_utc": "2026-10-20T12:54:25.224073+00:00",
+      "original_sha256": "51bdac6264b48c8215e768fdd46a2e7708d44257177455d44665bf1a857654e1",
+      "original_bytes": 81878,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Selected432–575,761–858,1093–1205,1320–1477read fordeviceflags/sourceclock/CS/singleline/CPUbuffer/validation/privatebuffer/pollingstart-endwrapper. ExactXFR/DMA/PSRAM/iso/queuecontextencounteredunused. Init288–356,interveningHAL/bus/pin/clockcalculator/allocator andremainingdriverbody notreviewed;noneffectivebinary/stockconformanceclaim.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalsource/manual/renderprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Scopedfiniteadapter/effectiveHALbuspinclockIRQfeaturelinkpath andactualtargetqualification;stocksourceunselected.",
+      "related_claims": [
+        "H01-C89"
+      ],
+      "license": "UpstreamSPDXApache-2.0wherepresent;originalnotrepublished."
+    },
+    {
+      "id": "s3-idf-spi-ll",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hal_gpspi/esp32s3/include/hal/spi_ll.h",
+      "revision": "v6.1 /fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3SPI2/six-controlpathonly;no newdriver/peripheral/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hal_gpspi/esp32s3/include/hal/spi_ll.h",
+      "retrieved_utc": "2026-10-20T12:54:25.450100+00:00",
+      "original_sha256": "98a4880ac0c615d48e75a0ab44754fdd81d3998c97ea0dfb4db15f5518c18cff",
+      "original_bytes": 57670,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Selected175–252,275–325,400–432,440–470,560–620,720–780,936–960,1175–1198read;CPUmax512bitexactline43andTRANS_DONE/clear-eventlocator matches. Master/source/mode/bitorder/UPDATEwait/wholewordTXread/bitlength/disableDMA/CLRcorresponded;unusedslave/CS/rxtimingnearbyencountered. Remainingheader/HAL/registersourceunread,notnewfeatureorcompleteLLreview.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalsource/manual/renderprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Scopedfiniteadapter/effectiveHALbuspinclockIRQfeaturelinkpath andactualtargetqualification;stocksourceunselected.",
+      "related_claims": [
+        "H01-C89"
+      ],
+      "license": "UpstreamSPDXApache-2.0wherepresent;originalnotrepublished."
+    },
+    {
+      "id": "s3-idf-gpio",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_driver_gpio/src/gpio.c",
+      "revision": "v6.1 /fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3SPI2/six-controlpathonly;no newdriver/peripheral/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_driver_gpio/src/gpio.c",
+      "retrieved_utc": "2026-10-20T12:54:25.677746+00:00",
+      "original_sha256": "08a3f4a751f5329c9257f767681fef48300a9911d7a8f861426ffdddd2ac0a49",
+      "original_bytes": 42279,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Selected170–210,245–268,351–479,517–617,642–696read:inputconfig/pulls/mux,conflictwarningstillcontinues,RTCdeinitcall;capturedstatusedge-beforecallback/finitebitloops/internalISRallocation/corebinding/returnchecks. Wakeupbeginningencounteredunused;RTC/allocator/interruptcalleeandremainingdrivernotfullyreviewed.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalsource/manual/renderprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Scopedfiniteadapter/effectiveHALbuspinclockIRQfeaturelinkpath andactualtargetqualification;stocksourceunselected.",
+      "related_claims": [
+        "H01-C90"
+      ],
+      "license": "UpstreamSPDXApache-2.0wherepresent;originalnotrepublished."
+    },
+    {
+      "id": "s3-idf-gpio-ll",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hal_gpio/esp32s3/include/hal/gpio_ll.h",
+      "revision": "v6.1 /fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3SPI2/six-controlpathonly;no newdriver/peripheral/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hal_gpio/esp32s3/include/hal/gpio_ll.h",
+      "retrieved_utc": "2026-10-20T12:54:25.922052+00:00",
+      "original_sha256": "74a29cfac197d9b9c599fdf91892a14b790af7308326960d1eafd1ac5306335b",
+      "original_bytes": 25452,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Selected15–38,100–261,324–367read:sharedCPUinterruptenable/status/coreargignored,per-pinINTenable/W1TC/input/output/levelandzeroreadwarning. Filterdeclarationsencounteredunused;restLL/matrix/hold/RTCcallee/featurebodiesunread. NoNMI/wake/filterselection.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalsource/manual/renderprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Scopedfiniteadapter/effectiveHALbuspinclockIRQfeaturelinkpath andactualtargetqualification;stocksourceunselected.",
+      "related_claims": [
+        "H01-C90"
+      ],
+      "license": "UpstreamSPDXApache-2.0wherepresent;originalnotrepublished."
     }
   ],
   "retrieval_attempts": [

@@ -2165,6 +2165,72 @@
       "applicability": "FiniteH01sourcecontract/triage;explicitunsatisfiedproperties,noUSBqualification",
       "closure_owner": "H01 unresolvedsourceproperties / H02 pre-usegates",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C89",
+      "claim": "S3 SPI2 has a finite CPU-buffer/MSB/mode/clock/CS requirement table; selected stock polling and tail handling do not establish a conformant bounded path.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "CPUbuffer1114–1116;mastermodeclock/registerfieldselected1153–1165;event1149–1150/1172–1177;native1114/1174"
+        },
+        {
+          "document": "s3-idf-spi-master",
+          "locator": "Selected432–575,761–858,1093–1205,1320–1477read fordeviceflags/sourceclock/CS/singleline/CPUbuffer/validation/privatebuffer/pollingstart-endwrapper. ExactXFR/DMA/PSRAM/iso/queuecontextencounteredunused. Init288–356,interveningHAL/bus/pin/clockcalculator/allocator andremainingdriverbody notreviewed;noneffectivebinary/stockconformanceclaim."
+        },
+        {
+          "document": "s3-idf-spi-ll",
+          "locator": "Selected175–252,275–325,400–432,440–470,560–620,720–780,936–960,1175–1198read;CPUmax512bitexactline43andTRANS_DONE/clear-eventlocator matches. Master/source/mode/bitorder/UPDATEwait/wholewordTXread/bitlength/disableDMA/CLRcorresponded;unusedslave/CS/rxtimingnearbyencountered. Remainingheader/HAL/registersourceunread,notnewfeatureorcompleteLLreview."
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "Priorv1.1nativepin/netwitness"
+        },
+        {
+          "document": "s3-module",
+          "locator": "PriorselectedGPIO/memorypinstraps/electricalbody"
+        }
+      ],
+      "engineering_consequence": "ProposeSPI2MOSI11/SCLK12mode0onebitWRorder0,softwareCS10/DC13/reset14/blank9;PLL_F80M/32conditional2.5MHz,referenceconditionfalse. CPU64B/512bitmax,alignedinitializedroundup4backingincludingcommands;separateC05public/private512Brows,480active. Pollfreshdone12+USR0,check/clearcapturedmaster17/18andunexpectedDMA0/1;noDMA/queued/readback/segmented/multilinefeature. Cap1ms+8192poll/chunk,10msrow,qualified1usguard;finiteabort/blank/invalidate.",
+      "open_assumption": "NoPLL/edge/reference/displaystartup/driver/actualbyteorder/waveform/latency/fitadmission. PollingstartportMAX/endtimeoutbeforecleanup/UPDATEunboundedneedscopedremedy;intermediateHAL/bus/pin/clockinit/effectivesourcebinarynotfullyreviewed. FullwordLLreadisobservedsource,no reproducedOOBclaim.",
+      "required_negative_case": "Oversize/unpaddedtail/staledone/updatewait/error/clockchange/failurecannotrepeatbufferwrap,continuepartialrow,retainconsentorcopyrecoverypixelsviaUSB/publicstaging;no weakerdriverfallback.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01samehostsourcecontract;no hardwareorUSBselection",
+      "closure_owner": "H01remaininghosttables / H02effectivepathandphysicalgates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C90",
+      "claim": "The S3 six physical controls require enabled inputs, explicit shared-core IRQ ownership and a bounded change latch distinct from consent.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "PreviouslyselectedGPIO/IOmux/reset/hold/IRQbody;nonewwake/filterfeature"
+        },
+        {
+          "document": "s3-idf-gpio",
+          "locator": "Selected170–210,245–268,351–479,517–617,642–696read:inputconfig/pulls/mux,conflictwarningstillcontinues,RTCdeinitcall;capturedstatusedge-beforecallback/finitebitloops/internalISRallocation/corebinding/returnchecks. Wakeupbeginningencounteredunused;RTC/allocator/interruptcalleeandremainingdrivernotfullyreviewed."
+        },
+        {
+          "document": "s3-idf-gpio-ll",
+          "locator": "Selected15–38,100–261,324–367read:sharedCPUinterruptenable/status/coreargignored,per-pinINTenable/W1TC/input/output/levelandzeroreadwarning. Filterdeclarationsencounteredunused;restLL/matrix/hold/RTCcallee/featurebodiesunread. NoNMI/wake/filterselection."
+        },
+        {
+          "document": "s3-board",
+          "locator": "Priorv1.1headerrowsGPIO4–7/17/18"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "Priornativev1.1signal/headerwitness"
+        }
+      ],
+      "engineering_consequence": "GPIO4/5/6/7directions,17selection,18separateconsent;mask0x600F0;fixture8reservednotconsent. CPU0ordinarylevel1ANYEDGE,onecapturedsnapshot/sixcallback/50usproposed,selectedW1TCandchange/invalidationonly;CPU1reset/gated.20msstableboot/faultreleaseand20msstablepress,trustedpostrenderflowonly;edge/cancel/sourcechangeslatchedthroughbackendandcheckedbeforeoutput. ConflictwarningESP_OKorinputdisabled0neverprovesownership/contact.",
+      "open_assumption": "No actualreceivedS3identityfrominventory,contacttiming/debounce/holdrelease/filter/wakeup/NMI/IRQallocation/effectiveUNICORE/callbackRAM/readbackorlocalrecoveryqualification. C01/C03/C09andH02source/binary/physicalgatesremain.",
+      "required_negative_case": "Heldstartupconsent,bounce,edgeflood/loss,misroute/coreconflict/disabledinput/reset/staleepochcannotgrantauthority;ISRnevercallscrypto/display/USB/log/allocateorapproves. No physicalunplugdeducedfromGPIO/timeout/busreset.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01samehostsourcecontract;no hardwareorUSBselection",
+      "closure_owner": "H01remaininghosttables / H02effectivepathandphysicalgates",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

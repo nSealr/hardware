@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "29a16bb1d54b5d6bb2cb0c3e8c94b364dc40e2ee",
+  "result": "PASS finite conditional source-table arithmetic/integrity only",
+  "checks": [
+    "JSON parse/unique IDs/claim references",
+    "Eight affected original hashes/bytes",
+    "Two native SPI bit-order/clear-event render hashes/bytes",
+    "Divider/duty/reference-only propagated-range arithmetic",
+    "64-byte/512-bit/roundup4 initialized-backing requirements for every1–64-byte chunk",
+    "Row/chunk/C05 allocation correspondence",
+    "Six-control mask/exclusion/sharedIRQ count and named event-mask arithmetic",
+    "Conditional wire-only duration and finite row budget,not measured latency",
+    "Affected local Markdown links",
+    "git diff --check"
+  ],
+  "document_count": 199,
+  "claim_count": 90,
+  "affected_originals": [
+    {
+      "id": "s3-trm",
+      "bytes": 15215232,
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+    },
+    {
+      "id": "s3-module",
+      "bytes": 1280501,
+      "sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435"
+    },
+    {
+      "id": "s3-board",
+      "bytes": 40560,
+      "sha256": "c716b4efb69b6c9385ec99caee7f1b97a787b5944fc9c8218bfacf8d2eceb452"
+    },
+    {
+      "id": "s3-devkitc1-schematic",
+      "bytes": 134287,
+      "sha256": "f116b5d9f1fdce126e9a63d8450388eb11295d8322d831502fbc9729442b72e4"
+    },
+    {
+      "id": "s3-idf-spi-master",
+      "bytes": 81878,
+      "sha256": "51bdac6264b48c8215e768fdd46a2e7708d44257177455d44665bf1a857654e1"
+    },
+    {
+      "id": "s3-idf-spi-ll",
+      "bytes": 57670,
+      "sha256": "98a4880ac0c615d48e75a0ab44754fdd81d3998c97ea0dfb4db15f5518c18cff"
+    },
+    {
+      "id": "s3-idf-gpio",
+      "bytes": 42279,
+      "sha256": "08a3f4a751f5329c9257f767681fef48300a9911d7a8f861426ffdddd2ac0a49"
+    },
+    {
+      "id": "s3-idf-gpio-ll",
+      "bytes": 25452,
+      "sha256": "74a29cfac197d9b9c599fdf91892a14b790af7308326960d1eafd1ac5306335b"
+    }
+  ],
+  "native_visual_reviews": [
+    {
+      "document": "s3-trm",
+      "private_render": "sol-s3-spi1114.png",
+      "page": "Native1114Table30.5-5onebitMSB0",
+      "bytes": 122033,
+      "sha256": "41776aab36e9377b3b4945c67266b3b9b0ab9f789ba4aa26aac3b56fbac1f5f6",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    },
+    {
+      "document": "s3-trm",
+      "private_render": "sol-s3-spi1174.png",
+      "page": "Native1174SPI_DMA_INT_CLRbitlayout",
+      "bytes": 272176,
+      "sha256": "aa1b1e3aa3d4148619d03480302b675256cf4b03495e2c632fe3f15af7fbdaa1",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    }
+  ],
+  "arithmetic": {
+    "nominal_SPI_Hz": 2500000,
+    "reference_only_range_Hz": [
+      2499750.0,
+      2500250.0
+    ],
+    "conditional_64byte_payload_us": 204.82048204820484,
+    "row_chunks": 8,
+    "GPIO_control_mask": "0x600f0",
+    "captured_SPI_event_mask": "0x61003"
+  },
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/s3-spi-input-contract.md",
+      "bytes": 11318,
+      "sha256": "de74812184b39dbc33264872674831e8ef2a6b884945cddfd790fa34e6da3e4c"
+    },
+    {
+      "path": "docs/restart/H01/s3-spi-input-proposal.json",
+      "bytes": 5922,
+      "sha256": "dc4e4448b59520f9e9f82104fe17c856173dc09aa63f3ea0356a5f18f0971858"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 23015,
+      "sha256": "3277e0eed06c6b0375cdfacdacb094d441a5bbf1bb6637d2a37b033ab87009a3"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 19231,
+      "sha256": "3e084c7e8af3dc8247c7cb7f0e34b88c84a1f684d5069b71f2b9761f945427a9"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 16587,
+      "sha256": "9ee77bb657197da38b5adf8487b43addb23b90df66752a68d2c10652b56fee45"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 11352,
+      "sha256": "28e89b63f9c009577a48208aa0e1e2dbd99f0b8df654840160df172ccda58b0d"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 361012,
+      "sha256": "a469be50037f99c5556ff45d5f8c1cbadf34c271e7698f987bddb382ca5aec05"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 131251,
+      "sha256": "a85d7bf0524fc36fdb049f08d5e3ed07f72d6869f47198f346508e21db0ace75"
+    }
+  ],
+  "private_receipt_sha256": "6af52af1575ee89d562812d7461a4c4d4823995a97de7155b8a7020d08a045d7",
+  "limits": "No selected transport/driver/display/fixture or measured clock/edge/debounce/latency/target fit/security result. Fixed descriptors/current/status unknown and reference condition false; C01/C03/C04/C09 and all H02 pre-use gates remain. Source triage does not sign a whole host criterion. Historical reviews/checks retain bindings.",
+  "not_run": [
+    "Final integrated hardware CI",
+    "Target build/link/driver or helper calls",
+    "Register writes,USB enumeration",
+    "Physical SPI/GPIO/fault/debounce/fixture tests",
+    "Entropy/identity/fuse/flash/provisioning/energizing"
+  ]
+}

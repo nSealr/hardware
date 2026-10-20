@@ -171,3 +171,9 @@ finite C06 reading, four new native register/formula views and selected USB2
 standard-request/endpoint and applicable errata text. The195-source inventory
 does not grow in this increment. OUT64/68 remains an unsatisfied source
 property; source triage is not a completed criterion, driver or USB admission.
+
+The [S3 SPI/input source table](s3-spi-input-contract.md) adds four pinned IDF
+driver/LL originals with exact selected functions and unread callees distinguished,
+plus two native SPI bit-order/event views. The199 entries remain an inventory.
+Observed source gaps imply finite adapter/ownership requirements, not an
+upstream failure reproduction, driver selection, USB/kit or display admission.

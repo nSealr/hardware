@@ -69,6 +69,12 @@ conditional mode. No dependent enumeration/normal probe is admitted; class/IDs,
 address on-wire correspondence and short-IN/errata/effective-adapter conditions
 remain explicit before use. C03/C09 still bind complete TCPP/attach lifetime.
 
+The [S3 SPI/control table](s3-spi-input-contract.md) completes that finite
+selected source table, including the stock polling/cleanup/UPDATE and padded-tail
+requirements, shared-core GPIO IRQ controls and conflict-warning behavior.
+The underlying USB descriptor/route, clock/reference, lifecycle and physical
+display/fixture stops remain. No whole host row is signed by this subset.
+
 ## Host review sign-off matrix
 
 [The finite entropy/crypto table](entropy-contract-review.md) supersedes the

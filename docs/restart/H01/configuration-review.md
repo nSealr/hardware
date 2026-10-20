@@ -73,6 +73,14 @@ remain unselected; H02 lawful identity/class-source review and any separately
 reviewed diagnostic procedure are explicit gates. This triage does not close
 the unsatisfied H01 interface criterion.
 
+The [S3 SPI/input table](s3-spi-input-contract.md) now fixes the selected
+CPU64-byte path, bit-order/phase/CS requirements, padded short-tail backing,
+finite polling/abort remedies and six-contact change-latch/debounce proposal.
+The [allocation](s3-spi-input-proposal.json) leaves clock/reference, effective
+binary/IRQ, pin/rail and display conditions unqualified; fixed CDC and both
+power arrangements remain unselected. No received kit is inferred from the
+maintainer's separate inventory or from a source header mapping.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,
