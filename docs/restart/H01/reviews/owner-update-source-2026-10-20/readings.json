@@ -1,0 +1,108 @@
+{
+  "recorded_utc": "2026-10-20T14:32:50.396133+00:00",
+  "task": "H01",
+  "reviewer": "/root",
+  "author": "/root/h01_sol",
+  "model_policy": "Sol6.1 xhigh; no exceptional escalation",
+  "kind": "Selected C04 source pre-read while author completes C09/C10; no final H01 review or admission",
+  "candidate": "aa383dfd253171f0d06325aeab1d2a6310cdce39",
+  "scope": "Two fixed C04 outputs; selected RM/SDK/TRM fields and independent capacity arithmetic only",
+  "sources": [
+    {
+      "id": "u5-rm7",
+      "url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf",
+      "original_bytes": 73588589,
+      "original_sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
+      "private_cache": "/home/tux/nsealr/.restart-tools/goal/manual-retrieval-root/curl-experiment/run-02/rm0456.pdf",
+      "body_copied_to_public_review": false
+    },
+    {
+      "id": "s3-trm",
+      "url": "https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf",
+      "original_bytes": 15215232,
+      "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
+      "private_cache": "/home/tux/nsealr/.restart-tools/hardware-research/documents/esp-s3-trm.pdf",
+      "body_copied_to_public_review": false
+    },
+    {
+      "id": "s3-boot-sdk",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/v6.1/esp32s3/security/secure-boot-v2.html",
+      "original_bytes": 78020,
+      "original_sha256": "194c69488c2d8f432a388790b901d19fabf02e275cc19ef7ee6cb2786f3a4e6d",
+      "private_cache": "/home/tux/nsealr/.restart-tools/hardware-research/documents/esp-s3-boot.html",
+      "body_copied_to_public_review": false
+    },
+    {
+      "id": "s3-idf-efuse-api",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/efuse/src/esp_efuse_api.c",
+      "original_bytes": 11398,
+      "original_sha256": "dddd15e910322cd8f5707b983857f31acc3399438e163293fb9adaeb8cc47e0b",
+      "private_cache": "/home/tux/nsealr/.restart-tools/goal/h01-private/originals/s3-idf-efuse-api.txt",
+      "body_copied_to_public_review": false
+    },
+    {
+      "id": "s3-idf-efuse-fields",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/efuse/src/esp_efuse_fields.c",
+      "original_bytes": 8661,
+      "original_sha256": "450c8b8d6eb208d9e7aac21d96d8b6ad495ef4b40b2e8dd7922087a8a7d9735e",
+      "private_cache": "/home/tux/nsealr/.restart-tools/goal/h01-private/originals/s3-idf-efuse-fields.txt",
+      "body_copied_to_public_review": false
+    }
+  ],
+  "candidate_bindings": [
+    {
+      "commit": "aa383dfd253171f0d06325aeab1d2a6310cdce39",
+      "path": "docs/restart/H01/owner-update-contract.md",
+      "mode": "100644",
+      "blob": "f0c92ca5a23da393ee24d213557abcd638831d53",
+      "bytes": 21475,
+      "sha256": "9a5ff45b8f17134415ac3297da3615d5a32dab632ec3a60f210c2efc902831fd"
+    },
+    {
+      "commit": "aa383dfd253171f0d06325aeab1d2a6310cdce39",
+      "path": "docs/restart/H01/owner-update-proposal.json",
+      "mode": "100644",
+      "blob": "a46105a9ce5593653cc3370df1546501a657a7ff",
+      "bytes": 7301,
+      "sha256": "16d7b9b44729cc2e76f44f9c99bc21205904c390d768246edf3dc991b685276b"
+    }
+  ],
+  "source_reading_scopes": {
+    "u5-rm7": "3.7.2 p176;3.10.1/Tables21\u201322 pp184\u2013186;7.5.3/Tables60\u201361 pp310\u2013311;option-change rules p308;selected SECBOOTADD0,HDPPEND,WRP,FLASH_NSSR,SECHDP fields pp334/346/348/349/354. Text reading; no fresh diagram/native drawing review.",
+    "s3-trm": "Table5.3-1 printed413 SECURE_VERSION/WR_DIS18;Table5.3-2 printed414 purposes2/3/9/10/11;selected RD_REPEAT fields printed434\u2013436. Text reading, not all fields/chapters.",
+    "s3-boot-sdk": "Key management/multiplekeys/conservative/aggressive sections and selected readable-digest/first-boot protection notes. Exact cached body verified; no fresh web/counter/root operation.",
+    "s3-idf-efuse-fields": "lines1\u2013112, particularly44\u201395 version read/check/write-return handling",
+    "s3-idf-efuse-api": "lines1\u2013102, boundedness/error distinctions of blob/count/bit read and write wrapper, not complete utility/HAL/caller chain"
+  },
+  "observations": {
+    "u5_boot_field_and_HDP_WRP_capacity_consistent": true,
+    "u5_pages": "8KiB,page0..31 boot256KiB;32/33 journal16KiB;HDP0..33 272KiB;eachapp640KiB;2MiB disjoint total",
+    "s3_capacity": "8MiB disjoint total;eachapp3MiB;two-sector8KiB OTA metadata;no map/fit/padding qualification",
+    "s3_finite_counter_and_purposes_match_selected_manual": true,
+    "helper_read_and_write_errors_not_propagated": "Confirmed directly in pinned version functions; equal triplicate counts cannot repair ignored lower errors.",
+    "helper_read_loop": "Confirmed ESP_ERR_DAMAGED_READING retry has no finite cap in both blob/count entrypoints. No execution or complete utility-chain audit.",
+    "aggressive_revocation_nuance": "Vendor specifies signature verification failure after valid structure/image digest; malformed signature block or invalid digest alone is excluded. Retiring all accepted roots can permanently brick. This is a paper hypothesis, not a tested attack/recovery guarantee.",
+    "OEM_lock_nuance": "OEM1LOCK/OEM2LOCK are derived FLASH_NSSR read-only lock observations after option loading, not standalone writable configuration bits. Future exact provisioning/readback procedure must preserve this distinction."
+  },
+  "blocking_findings_in_selected_correspondence": [],
+  "not_executed": [
+    "Any target/firmware/helper/eFuse/RDP/flash/provisioning operation",
+    "No new CI, full suite or public-fixture fault experiment",
+    "No whole-manual, other C01\u2013C10, entropy, USB, panel, two-SE or complete boot-helper audit"
+  ],
+  "remaining": "Exact final selected-surface candidate, full six-row/H01 assessment, unresolved source/electrical preconditions, actual source/build/journal/update/root/owner qualification and authorization gates remain. Reuse this pre-read only by exact C04/source correspondence; it cannot qualify a part/host/operation or claim H01 closure.",
+  "RM_text_correspondence": {
+    "private_path": "/home/tux/nsealr/.restart-tools/goal/manual-retrieval-root/curl-experiment/run-02/rm0456.txt",
+    "bytes": 18823134,
+    "sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
+    "exact_register_extraction_binding_verified": true,
+    "fresh_regeneration_claimed": false
+  },
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/reviews/owner-update-source-2026-10-20/report.md",
+      "bytes": 2312,
+      "sha256": "709f3b402e5a0f495fe31bc7e0b34e7bbac46217ea5e4c3399fbef8df4a1fc2a"
+    }
+  ]
+}
