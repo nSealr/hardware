@@ -220,6 +220,11 @@ conditional. PF14 analog VBUS sensing needs an explicitly reviewed ADC4 policy
 or another complete alternative. The initial apparent U8 pin9/11 mismatch is
 withdrawn: enlarged PDF, native schematic and PCB agree. No host, sensing path
 or wiring admission results.
+The [subsequent I2C/CC review](u585-i2c-ucpd-review.md) adds selected current
+register/body and exact source/metadata correspondence. Native clock-tree
+inspection confirms the HSI16 UCPD branch; the metadata's PCLK1 kernel label
+is retained as a discrepancy. The blocking I2C API needs explicit byte-count,
+deadline-feature and bounded recovery correspondence before selection.
 
 New current-RM reading: pp150–194 (§§2.3.4,3,4); pp195–212 (GTZC introduction,
 implementation, functional body and selected secure configuration registers);

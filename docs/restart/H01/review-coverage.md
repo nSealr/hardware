@@ -42,6 +42,13 @@ CAD. The apparent U8 pin9/11 conflict is withdrawn; the sources agree. PF14's
 analog divider still needs ADC4 or another fully specified sensing policy.
 Boot/CC/I2C/reset/power and all six documentary signoffs remain open.
 
+[U585 I2C/CC correspondence](u585-i2c-ucpd-review.md) advances the short
+polling control contract, source-to-metadata checks and current register text.
+It preserves revision limits and exact byte-count/deadline/recovery gaps in
+the pinned I2C source. The UCPD constructor enables DMA requests and NVIC;
+it is not equivalent to the proposed no-PD/no-DMA configuration. Final control,
+clock, reset, low-power and interrupt policy remains open.
+
 ## Host review sign-off matrix
 
 “Selected reviewed” below signs only the stated reading, not a complete probe or

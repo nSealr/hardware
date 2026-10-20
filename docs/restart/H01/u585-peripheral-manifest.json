@@ -1494,6 +1494,29 @@
       "generated_commit": "b99bf17d58e6a8d385faf4b87b5f310ca2c057a0",
       "metadata": "spi versionv6, PCLK2, CCIPR1.SPI1SEL, APB2ENR.SPI1EN and APB2RSTR.SPI1RST agree with current RM correspondence",
       "scope": "Selected metadata/init/blocking path only. New u585-spi-review.md describes differences; no target build, selected bounded adapter or complete manifest correspondence."
+    },
+    {
+      "peripheral": "I2C2",
+      "documents": [
+        "u5-pac-u585ai",
+        "u5-pac-u585vi",
+        "u5-embassy-i2c",
+        "u5-embassy-i2c-v2"
+      ],
+      "generated_commit": "b99bf17d58e6a8d385faf4b87b5f310ca2c057a0",
+      "metadata": "v2,PCLK1,CCIPR1.I2C2SEL,APB1ENR1.I2C2EN/APB1RSTR1.I2C2RST;AI PH4/PH5AF4;VI no kitPH4/PH5",
+      "scope": "Selected init/blocking/error/timing source; bounded adapter/time backend remains unselected/unbuilt"
+    },
+    {
+      "peripheral": "UCPD1",
+      "documents": [
+        "u5-pac-u585ai",
+        "u5-pac-u585vi",
+        "u5-embassy-ucpd"
+      ],
+      "generated_commit": "b99bf17d58e6a8d385faf4b87b5f310ca2c057a0",
+      "metadata": "v1,APB1ENR2.UCPD1EN/APB1RSTR2.UCPD1RST;metadataPCLK1kernel differs from currentRMHSI16clocktree",
+      "scope": "SelectedCCconstructor/trim/drop source only;stockDMArequestenablesnotnarrowproposal, notselected"
     }
   ]
 }

@@ -78,6 +78,12 @@ withdraws the initial apparent pin9/11 conflict: native PDF, SchDoc and PCB agre
 ROM resource ownership, watchdog behavior, mode-dependent USB status and the
 currently excluded ADC4 sensing path still require concrete policy.
 
+[U585 I2C/CC correspondence](u585-i2c-ucpd-review.md) adds6 exact source
+originals,159 total document entries and57 claims. Selected current I2C/UCPD
+register/body and native clock-tree reading distinguishes actual counted
+completion, deadline features, revision-specific trimming and the HSI16/PCLK1
+metadata discrepancy. A source count is not a complete configuration signoff.
+
 Every retained claim points to a locator and an owner in [claims.json](claims.json).
 The [pin/errata ledger](pin-errata-ledger.json) retains adverse findings and
 contradictions, including S3 RTC address/provisioning/download/USB register

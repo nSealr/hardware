@@ -1082,6 +1082,20 @@
       "residual_limit": "Exact input/expansion allocation remains mandatory.",
       "reviewer": "/root/h01_author",
       "physical_validation": false
+    },
+    {
+      "id": "E-U585-I2C-CONTROL",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§§2.20.1–3pp32–33;Table3p4"
+      },
+      "affected_revision": "X/W/U: sampling P; controller BERR and target timeout A",
+      "configuration": "I2C clock/setup and controller BERR; target SMBus timeout excluded",
+      "documented_mitigation": "Minimum kernel4/10/20MHz for250/100/50ns setup; clear spurious controller BERR; apply target-timeout reset sequence if that mode is ever admitted.",
+      "driver_or_probe_implication": "Bounded polling TCPP short-control policy is in u585-i2c-ucpd-review.md; stock clock-minimum assertions and unbounded soft_reset do not prove the exact adapter.",
+      "residual_limit": "No actual I2C waveform, deadline driver or bus-recovery qualification.",
+      "reviewer": "/root/h01_sol",
+      "physical_validation": false
     }
   ],
   "contradictions": [
@@ -1313,6 +1327,55 @@
       ],
       "issue": "Activation row contains malformed TZEN text; unused SPI3 direction prose disagrees with its function/direction labels.",
       "disposition": "No option-byte recipe or unused SPI3 wiring inferred. Current RM remains register authority; actual selected boot behavior still requires review."
+    },
+    {
+      "id": "D-U5-UCPD-CLOCK-METADATA",
+      "source": "u5-rm7 / u5-pac-u585ai / u5-pac-u585vi",
+      "locators": [
+        "NativeFigure38p487",
+        "SelectedPACUCPD1.rcc.kernel_clock",
+        "EmbassyUCPDconstructorHSI16comment/divider"
+      ],
+      "issue": "Current clock tree directly supplies UCPD1 from HSI16; exact generated metadata labels the kernel PCLK1, while the pinned driver assumes HSI16.",
+      "disposition": "Preserve discrepancy. Do not use metadata PCLK1 to calculate the UCPD divider; actual oscillator/clock configuration still requires review, build and H02 correspondence."
+    },
+    {
+      "id": "D-U5-UCPD-REGISTER-SEQUENCE",
+      "source": "u5-rm7",
+      "locators": [
+        "§74.5.1p3474",
+        "CFGR2p3482",
+        "TYPECEVT1statusp3488",
+        "ICRperlineclearpp3490–3491",
+        "chapter74PWR_CR3referencep3473",
+        "actualPWR_UCPDRpp458–459"
+      ],
+      "issue": "Generic sequence enables the peripheral before the analog filter, while CFGR2 writes take effect only when disabled. CC1 status prose names the CC2 clear bit, but ICR defines the CC1 clear bit. Dead-battery prose names old PWR_CR3 rather than actual UCPDR.",
+      "disposition": "Use explicit current register constraints/location, prepare configuration before releasing dead-battery termination and verify per-line status. No automatic CC/PD driver qualification."
+    },
+    {
+      "id": "D-U5-I2C-RELOAD-TIMING-TEXT",
+      "source": "u5-rm7",
+      "locators": [
+        "TCRclearTable671p2737",
+        "functionalnonzeroNBYTESp2699",
+        "ISR.TCRp2748",
+        "SDADELfunctionalexpressionp2695",
+        "shortTIMINGRexpressionp2746"
+      ],
+      "issue": "Interrupt table says TCR clears when NBYTES=0; functional/register body says nonzero. SDADEL functional path includes an additional I2CCLK term absent from the short register expression.",
+      "disposition": "Reload is excluded in the short TCPP control proposal. Timing must use the full functional path and external edge/filter/tolerance bounds, not the bare SDADEL label. No arbitrary formula or workaround claimed."
+    },
+    {
+      "id": "D-U585-TCPP-VSENSE-RANGE",
+      "source": "u585-tcpp03",
+      "locators": [
+        "Recommended conditions Table5p7",
+        "OVP threshold electrical tablep8",
+        "OVP divider Table13p14"
+      ],
+      "issue": "Table5 groups Vsense with a2.7–5.5V recommended range, while the functional divider/threshold uses about1.16V at nominal trip.",
+      "disposition": "Preserve source inconsistency; no silent correction of the recommended range and no final TCPP electrical qualification from the example alone."
     }
   ]
 }

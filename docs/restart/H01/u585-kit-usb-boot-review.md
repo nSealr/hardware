@@ -58,6 +58,11 @@ nor permission to draw that current before USB configuration. Protection fault
 recovery must follow the applicable I2C/mode sequence; it is not a blanket
 automatic retry policy.
 
+Table5 p7 groups Vsense with a2.7–5.5V recommended range, whereas the
+functional divider/OVP threshold uses about1.16V at the nominal trip point.
+That source inconsistency remains unresolved; the functional example does not
+silently certify the stated recommended-range table or final electrical limits.
+
 The separate PF14 VBUS divider is R5=330kΩ/R6=49.9kΩ. Nominal5V becomes
 about0.657V at PF14. DS13086 identifies PF14 as ADC4_IN5. This is an analog
 sensing path, not a demonstrated3.3V digital-high signal. The present

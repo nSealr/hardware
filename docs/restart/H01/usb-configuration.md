@@ -50,6 +50,11 @@ the correct TCPP03 seven-bit address0x34 and mode-dependent FLGn/gate behavior.
 Its native PDF/SchDoc/PCB check withdraws the apparent pin9/11 conflict. The
 separate PF14 divider is an analog ADC4_IN5 path, while ADC4 remains excluded
 from the present manifest; a complete sensing/CC/EN/reset policy is still needed.
+The [subsequent I2C/CC review](u585-i2c-ucpd-review.md) specifies the counted,
+bounded control requirements and checks the candidate source. Its deadline,
+early-STOP and recovery gaps prevent selecting the stock adapter as that policy.
+UCPD sink trimming and configuration lifetime are revision-specific; source,
+PD, FRS, VCONN and DMA remain excluded proposals.
 
 ## Controller and software boundary still being closed
 
