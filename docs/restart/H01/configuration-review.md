@@ -12,6 +12,12 @@ cache/GPIO/watchdog reading and the native kit startup/power branch findings.
 It supersedes the older unread-cache/watchdog scope statements below only for
 the exact newly recorded sections. The proposed configurations remain unsigned.
 
+The subsequent [U585 initialization contract](u585-initialization.md) and
+[field manifest](u585-peripheral-manifest.json) add the current MPCBB/TZSC lock
+and RCC reset/clock correspondence. They account for the real U585 DMA2D master
+and distinguish OTG fields from the USB fields reserved on that device. Final
+clock values, fault/interrupt masks and selected driver paths remain open.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,

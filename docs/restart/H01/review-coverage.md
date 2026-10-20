@@ -19,6 +19,12 @@ native kit drawing review. This advances selected evidence in the memory,
 input, recovery and kit rows; it does not sign any complete host configuration.
 All six documentary rows below remain incomplete.
 
+The [U585 initialization contract](u585-initialization.md) and
+[peripheral manifest](u585-peripheral-manifest.json) further bind the selected
+current GTZC lock and RCC field reading. The 66 reset/clock rows and 64 TZSC
+field correspondences are source-derived proposals, requiring exact-device
+software correspondence and distinct review; they do not sign a complete row.
+
 ## Host review sign-off matrix
 
 “Selected reviewed” below signs only the stated reading, not a complete probe or

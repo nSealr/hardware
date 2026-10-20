@@ -1251,6 +1251,16 @@
       ],
       "issue": "SPI/UART tables label UART default while selector pull-ups R10/R11 are DNF. MCU selector pins are normally analog after reset.",
       "disposition": "No hardware-defined default established; leave expansion connectors empty and program selector before SPI; exact switch behavior remains open."
+    },
+    {
+      "id": "D-U5-GTZC-SDMMC-NAMES",
+      "source": "u5-rm7",
+      "locators": [
+        "§5.6.4 p210",
+        "§5.6.7 p218"
+      ],
+      "issue": "SDMMC2SEC/SDMMC2PRIV bit18 prose says SDMMC1; SDMMC1SEC/SDMMC1PRIV bit17 prose says SDMMC2. Field names/diagrams distinguish the two.",
+      "disposition": "Preserve the source discrepancy. Both instances have the same secure/privileged, held-reset exclusion in the initial proposal; no per-instance operation depends on the swapped prose. Future per-instance driver needs exact correspondence."
     }
   ]
 }

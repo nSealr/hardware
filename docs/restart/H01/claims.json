@@ -850,6 +850,57 @@
       "required_negative_case": "No radio-off/reset-isolation, zero-current or absent-injection guarantee from driver omission or empty connector alone.",
       "closure_owner": "H01 documentary / H02 implementation and measurement",
       "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C42",
+      "claim": "MPCBB control locking and superblock-attribution locking are separate; U585 implements 12/4/32/1 superblocks across SRAM1/2/3/4.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Table33 p199; §§5.8.1–5.8.5 pp256–259; §§5.11.1–5.11.4 pp272–274"
+        }
+      ],
+      "applicability": "Both U585 proposed package witnesses, TZEN active, all-secure/privileged initial image",
+      "status": "documented-selected",
+      "engineering_consequence": "Verify every implemented attribution word, set each implemented SPLCK bit, and lock the CR policy; no generic larger-device lock ranges. TZSC1/2 have separate LCK until system reset.",
+      "open_assumption": "Final source-to-binary correspondence, secure vector/fault policy, independent review and H02 runtime readback.",
+      "required_negative_case": "Reset must reestablish both lock classes before requests; GLOCK alone must not be accepted as locking the SRAM tables.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C43",
+      "claim": "RCC clock enable, peripheral enable and held reset are distinct; U585 OTG fields differ from USB fields reserved on that device.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§5.6.3–5.6.4 pp207–211; §§11.8.21–11.8.36 pp540–569"
+        }
+      ],
+      "applicability": "U585 internal-memory CPU-FIFO/SPI proposal",
+      "status": "documented-selected",
+      "engineering_consequence": "Use OTGSEC/OTGEN/OTGRST; keep reserved APB2 USB and LTDCUSB fields reset. Verify peripheral state while its interface clock permits access; later RCC readback checks gating/reset. All-zero RSTR reset values mean deasserted reset.",
+      "open_assumption": "Selected clock/VOS/calibration tuple, exact software register fields and H02 behavior remain open.",
+      "required_negative_case": "A zero read from a clock-gated register or default reset snapshot must not pass ownership/cleanup/held-reset checks.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C44",
+      "claim": "DMA2D is a real U585 memory master even in a proposal that uses CPU-driven SPI graphics.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§2.1 Table1 p129; RCC AHB1 reset/enable §§11.8.21/11.8.29 pp540–541,553–555"
+        }
+      ],
+      "applicability": "Both U585 proposed package witnesses; initial DMA2D exclusion",
+      "status": "documented-selected",
+      "engineering_consequence": "Hold DMA2D in RCC AHB1 reset with its interface clock disabled, alongside separately mapped GPDMA1/LPDMA1/SDMMC exclusions. Secure/privilege attribution remains explicit.",
+      "open_assumption": "Exact startup implementation/readback and H02 evidence. Full enabled DMA2D operation is outside this proposal.",
+      "required_negative_case": "An unused graphics API or no display DMA request is not evidence that this independent master is held reset.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

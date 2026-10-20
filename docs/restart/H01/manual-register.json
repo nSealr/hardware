@@ -23,11 +23,11 @@
       "original_sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
       "original_bytes": 73588589,
       "access": "Public official original retrieved; author independently rehashed coordinator retrieval",
-      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md.",
+      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
-      "remaining": "Complete remaining selected GTZC locks/RCC clock and excluded-master manifest/SPI/I2C/USB/interrupt/power paths, exact proposed configurations and driver correspondence. Current cache/GPIO/IWDG functional/register reading is recorded; it is not whole-manual or six-row signoff.",
+      "remaining": "Complete TZIC/NVIC masks/priorities, selected SPI1/I2C2/USB/interrupt/power bodies, final clock/VOS/flash-latency/watchdog/deadline values and exact driver/configuration correspondence. New U585 GTZC/RCC manifest is a source-derived incomplete proposal; independent review and device/PAC correspondence remain. All six host rows remain unsigned.",
       "reviewed_on": "2026-10-20",
       "related_claims": [
         "H01-C01",
@@ -37,7 +37,10 @@
         "H01-C37",
         "H01-C38",
         "H01-C39",
-        "H01-C40"
+        "H01-C40",
+        "H01-C42",
+        "H01-C43",
+        "H01-C44"
       ],
       "extracted_text_sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
       "extracted_text_bytes": 18823134,
@@ -59,6 +62,11 @@
           "reviewer": "/root/h01_resume",
           "date": "2026-10-20",
           "scope": "Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json."
         }
       ]
     },
@@ -74,16 +82,23 @@
       "original_sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3",
       "original_bytes": 4842120,
       "access": "Public official native PDF retrieved and rehashed; cover/revision confirmed",
-      "reading": "Fresh primary PDF extraction cover/features pp.1–2; §3.5 pp.28 SRAM/ownership; selected §3.9.1 pp.35–37 supply scheme/sequencing excerpts and §3.9.4–3.9.6 p.47 reset/VBAT excerpts; §3.15 p.52 bus-matrix excerpt. No full table/drawing review. Already completed before pause: pp108–109 complete pin-definition text; selected rows pp110–114,117,120–124; selected PE7/PB6/PE13/PE15/AF rows pp116,127,133,140,149. pp155–158,160,162–163,232 complete text; pp159/161/233+ not read. Native p99 Figure14 LQFP100 SMPS and p100 non-SMPS diagrams visually compared; PC4/PC5 are not exposed on proposed VIQ. Earlier private p100 filename/interpretation corrected in pause-reading-notes.md.",
+      "reading": "Fresh primary PDF extraction cover/features pp.1–2; §3.5 pp.28 SRAM/ownership; selected §3.9.1 pp.35–37 supply scheme/sequencing excerpts and §3.9.4–3.9.6 p.47 reset/VBAT excerpts; §3.15 p.52 bus-matrix excerpt. No full table/drawing review. Already completed before pause: pp108–109 complete pin-definition text; selected rows pp110–114,117,120–124; selected PE7/PB6/PE13/PE15/AF rows pp116,127,133,140,149. pp155–158,160,162–163,232 complete text; pp159/161/233+ not read. Native p99 Figure14 LQFP100 SMPS and p100 non-SMPS diagrams visually compared; PC4/PC5 are not exposed on proposed VIQ. Earlier private p100 filename/interpretation corrected in pause-reading-notes.md. Author /root/h01_sol, 2026-10-20: reread cover, Table2 pp18–20 and §3.19 p56 for U585 peripheral availability and DMA2D master correspondence; no new drawing review.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
       "remaining": "Exact proposed pad/AF/rail/reset/load reconciliation remains incomplete; native SMPS package correction is not host admission.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "related_claims": [],
       "extracted_text_sha256": "e254b85cb2416df2bf52376b362e729af10d4370de496b694e441f4a63d48277",
       "extracted_text_bytes": 1663375,
-      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound"
+      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol, 2026-10-20: reread cover, Table2 pp18–20 and §3.19 p56 for U585 peripheral availability and DMA2D master correspondence; no new drawing review."
+        }
+      ]
     },
     {
       "id": "u585-es",
