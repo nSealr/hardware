@@ -13,6 +13,13 @@ reviewed sections, inherited correspondence and remaining work. No manufacturer
 manual is redistributed here. A null hash is an access/retrieval gap, not a hash
 of extracted text or an HTML error page. A source entry is not a full-manual read.
 
+The 20 October [U585 field manifest](u585-peripheral-manifest.json) records the
+source-derived lock/reset/clock proposal. The later
+[S3 fixed-CDC assessment](s3-usb-serial-assessment.md) registers23 bounded public
+source/original files, including full AR2022-004 V1.1 and the selected IDF
+driver/compile controls. Unrelated fetched bodies remain unread, and the
+alternative is unselected. The resulting147 document entries are an inventory.
+
 **H01 is not complete and no U5 or S3 host probe is admitted by this candidate.**
 RM0456 Rev7 is now a verified current original with selected body reading. The
 remaining mandatory current-body and concrete-subset checks remain in [review-coverage.md](review-coverage.md). SE-specific gaps do not

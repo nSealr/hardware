@@ -25,6 +25,12 @@ current GTZC lock and RCC field reading. The 66 reset/clock rows and 64 TZSC
 field correspondences are source-derived proposals, requiring exact-device
 software correspondence and distinct review; they do not sign a complete row.
 
+The [S3 fixed-CDC assessment](s3-usb-serial-assessment.md) adds a bounded
+same-kit alternative with public register text and pinned vendor-source
+correspondence. Stock overflow/reset/error and output-writer behavior prevent
+selection now. AR2022-004's two separate ROM-download gates are newly read;
+the controller choice, lifecycle, power/VBUS and six-row signoffs remain open.
+
 ## Host review sign-off matrix
 
 “Selected reviewed” below signs only the stated reading, not a complete probe or

@@ -18,6 +18,12 @@ and RCC reset/clock correspondence. They account for the real U585 DMA2D master
 and distinguish OTG fields from the USB fields reserved on that device. Final
 clock values, fault/interrupt masks and selected driver paths remain open.
 
+The same-kit [S3 USB Serial/JTAG source assessment](s3-usb-serial-assessment.md)
+examines a fixed CDC alternative under the existing host scope. It is not
+selected: stock receive-loss/reset/error, console ownership and lifecycle
+behavior still need a bounded adapter and exact configuration. OTG's earlier
+NDA boundary is retained; no controller substitution or USB-row signoff occurs.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,

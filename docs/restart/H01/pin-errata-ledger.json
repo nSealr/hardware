@@ -1261,6 +1261,17 @@
       ],
       "issue": "SDMMC2SEC/SDMMC2PRIV bit18 prose says SDMMC1; SDMMC1SEC/SDMMC1PRIV bit17 prose says SDMMC2. Field names/diagrams distinguish the two.",
       "disposition": "Preserve the source discrepancy. Both instances have the same secure/privileged, held-reset exclusion in the initial proposal; no per-instance operation depends on the swapped prose. Future per-instance driver needs exact correspondence."
+    },
+    {
+      "id": "D-S3-DIS-USB-JTAG-PROSE",
+      "source": "s3-trm",
+      "locators": [
+        "eFuse definition p434",
+        "Table8.5-1 p538",
+        "s3-usj-jtag-guide S3 branch"
+      ],
+      "issue": "Chapter5 DIS_USB_JTAG definition calls the disabled path USB OTG-to-JTAG. Chapter8 and the current pinned JTAG guide identify USB Serial/JTAG-to-CPU JTAG and explicitly retain CDC.",
+      "disposition": "Do not conflate controllers or whole-block disable. Use the cross-checked CPU-JTAG/CDC distinction while preserving source wording discrepancy; exact owner fuse policy remains documentary/unexecuted."
     }
   ]
 }

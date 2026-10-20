@@ -1,0 +1,67 @@
+{
+  "task": "H01",
+  "author": "/root/h01_sol",
+  "recorded_utc": "2026-10-20T09:49:18.812298+00:00",
+  "base_commit": "0db23d7a0023b65667641c72e676785ba935de47",
+  "scope": "Bounded same-kit fixed USB Serial/JTAG source assessment, unselected; no host or physical admission",
+  "checks": {
+    "json_parse": "all H01 JSON parsed",
+    "ids_references": "147 unique document IDs;48 unique claim IDs; claim-to-document references valid; ledger IDs unique",
+    "new_originals": "23 affected original/source hashes and lengths recomputed and matched public register",
+    "existing_originals": "S3 TRM v1.8 and errata v1.3 original hashes/lengths matched",
+    "whitespace": "git diff --check passed"
+  },
+  "private_reading_receipt": {
+    "name": "s3-usj-2026-10-20-reading.json",
+    "sha256": "c151701f40fa2a77f84f5ffe0e35ff8fb2afc2e8621b3e61047c97551397dcec"
+  },
+  "not_repeated": [
+    "whole source inventory",
+    "unchanged hardware CI",
+    "target build",
+    "physical tests"
+  ],
+  "review_status": "All previous independent review/result bindings remain historical; this source increment requires distinct affected review, and all six host rows remain incomplete",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/s3-usb-serial-assessment.md",
+      "bytes": 12611,
+      "sha256": "7ba7e1d04c8ed2db0f25985a612c6acd3d4f672e603a58a10a1b384cf3689169"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 16724,
+      "sha256": "55533f49758e10bdef5d9523d89aae933858750fde9872d5ffda084fd3ed3a16"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 12297,
+      "sha256": "803cdc1ef3fa0c3757325e9a8de5cfb4f93316905ce4cb7898a63aa9733c2592"
+    },
+    {
+      "path": "docs/restart/H01/usb-configuration.md",
+      "bytes": 6584,
+      "sha256": "894ddb60da81136e7bbc8e63dc2041f722ccc52fb01c4d27d108a897389ed214"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 10280,
+      "sha256": "bc970ad6cd4eabc5d91f0775ec1e06a65bf1a9c3174fc538c47fbdabb1abff7d"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 224678,
+      "sha256": "d0f8da612b9b979ced14a4d6ae0a02761c129bea8f0f1136b424bbafa9455370"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 53473,
+      "sha256": "0e56f58c36193fba944824eba2489ca1de2f06100e688b3656c8e7e7c8490bd4"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 61076,
+      "sha256": "22a377b33c75d6493f9d16d0b61d72dc5727221330f8892c3390c8b6cbe57fed"
+    }
+  ]
+}

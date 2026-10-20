@@ -901,6 +901,94 @@
       "required_negative_case": "An unused graphics API or no display DMA request is not evidence that this independent master is held reset.",
       "closure_owner": "H01 documentary / H02 implementation and measurement",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C45",
+      "claim": "The S3 fixed USB Serial/JTAG CDC controller has a public APB/FIFO and register contract separate from the OTG IP NDA boundary.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "Chapter33 pp1243–1254 functional text/tables; pp1256–1268 register field bodies"
+        }
+      ],
+      "applicability": "Same ESP32-S3-DevKitC-1-N8R8 v1.1 native USB alternative, unselected",
+      "engineering_consequence": "A fixed CDC byte transport can be assessed without inventing OTG register semantics; it still needs bounded framing, reset/error, clock and lifecycle correspondence.",
+      "open_assumption": "Exact adapter/build and FIFO/reset behavior; no promotion from public source availability alone.",
+      "required_negative_case": "Host not reading, packet-boundary/zero-length behavior, CPU restart with retained controller state, malformed/error/reset traffic and bounded recovery.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C46",
+      "claim": "Pinned stock IDF Serial/JTAG driver and console do not provide the required observable receive-loss/reset/error and bounded-frame boundary.",
+      "evidence": [
+        {
+          "document": "s3-usj-driver",
+          "locator": "Complete ISR/install/read/write/wait_tx_done/uninstall body"
+        },
+        {
+          "document": "s3-usj-vfs",
+          "locator": "Selected lines142–209,339–373,650–735"
+        },
+        {
+          "document": "s3-usj-monitor",
+          "locator": "Complete SOF monitor"
+        }
+      ],
+      "applicability": "ESP-IDF v6.1 fff9895c82d744c7237be8847347bdd1b07c6643 S3 assessment",
+      "engineering_consequence": "RX enqueue failure is ignored; reset/error callbacks absent; VFS may drop bytes while reporting write size; install/uninstall do not clear hardware state. A selected bounded adapter requires explicit remedy and review. SOF heuristic cannot prove physical unplug.",
+      "open_assumption": "No replacement adapter/binary built or independently reviewed; no controller/FIFO erasure or physical disconnect claim.",
+      "required_negative_case": "Flood RX until software ring full; reset/error mid-frame; closed host port; console interference and stale queued data must invalidate pending review and consent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C47",
+      "claim": "S3 USB Serial/JTAG console and CPU JTAG controls have distinct compile/lifecycle scopes; the default secondary console can violate exclusive transport ownership.",
+      "evidence": [
+        {
+          "document": "s3-usj-stdio-kconfig",
+          "locator": "Complete primary/secondary console choices and feature derivation"
+        },
+        {
+          "document": "s3-usj-jtag-guide",
+          "locator": "Complete S3-relevant DIS_USB_JTAG branch"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "§8.3 Table8.3-2 pp536–537; §8.5 Table8.5-1 p538; selected definitions pp434–435"
+        }
+      ],
+      "applicability": "Unselected fixed-CDC alternative, development versus owner-secured conditions",
+      "engineering_consequence": "Require explicit primary/secondary console exclusion and ROM/panic/trace/GDB/core-dump writer control before secrets. DIS_USB_JTAG removes CPU USB JTAG while CDC can remain; whole DIS_USB_SERIAL_JTAG removes the transport. Pad JTAG and downloads are separate.",
+      "open_assumption": "Effective bootloader/app config, exact owner roots/update/debug/download policy and H02 readback; no fuse action authorized or performed.",
+      "required_negative_case": "No framing/log interleaving or secret dumps; USB-only debug disable must not be mistaken for disabling pad JTAG or ROM download.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C48",
+      "claim": "Manufacturer AR2022-004 distinguishes separate, historically renamed OTG and Serial/JTAG ROM-download gates.",
+      "evidence": [
+        {
+          "document": "s3-ar2022-004-usb",
+          "locator": "V1.1 pp1–3, issue summary/recommendations/history"
+        },
+        {
+          "document": "s3-es",
+          "locator": "§3.5 printedp9, lot-dependent USBOTG-4289"
+        }
+      ],
+      "applicability": "ESP32-S3 allowed revision/lot and owner-secured download/recovery policy",
+      "engineering_consequence": "Track OTG BLK0 byte19 bit7 separately from Serial/JTAG byte16 bit4 and legacy aliases. Serial/JTAG download-disable alone does not disable OTG download. Revision0.2 alone does not fix default-fuse identity.",
+      "open_assumption": "Received lot/eFuse state, final verified lifecycle and owner recovery remain open. No fuse writes or blanket remedy inferred.",
+      "required_negative_case": "Legacy alias or one-controller download-disable must not pass both-controller ROM-download closure.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

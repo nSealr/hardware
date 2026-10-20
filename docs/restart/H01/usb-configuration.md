@@ -9,6 +9,12 @@ an allowed operating mode. Received-kit power topology and currents remain H02
 checks. The S3 kit has Micro-B connectors, so Type-C CC requirements apply to a
 future Type-C implementation and its cable, not to nonexistent kit CC pins.
 
+The later [S3 USB Serial/JTAG assessment](s3-usb-serial-assessment.md) is an
+unselected alternative to this S3 OTG proposal. That fixed composite device
+has an additional JTAG interface and separate lifecycle gates; it is not
+silently covered by the single-data-interface proposal above. Its public
+register availability does not close driver/error, VBUS or power requirements.
+
 ## Normative power and connection requirements
 
 The primary source is USB2.0, 27 April 2000, as distributed in USB-IF's
