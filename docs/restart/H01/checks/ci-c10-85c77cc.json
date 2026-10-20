@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-10-20T14:59:52.265937+00:00",
+  "command": [
+    "make",
+    "ci"
+  ],
+  "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-delivery",
+  "source_commit": "85c77cc9c46a73724b4f7234026de559755e914c",
+  "source_tree": "a1d796c9861aacd78a4106f4b7496ff33e527cd6",
+  "exit_code": 0,
+  "elapsed_s": 0.14949313551187515,
+  "python": "3.13.5",
+  "platform": "Linux-6.12.101+deb13-amd64-x86_64-with-glibc2.41",
+  "worktree_clean_before": true,
+  "worktree_status_after": "",
+  "log_bytes": 788,
+  "log_sha256": "b4254acb2a1bd1b195d65934405716f99dedbf9f9b60c368f891996fe18c2d8a",
+  "scope": "Actualintegratedhardwarecontentcandidate/currentreviewedverifier;notmanual/electrical/USB/target/admissionproof",
+  "hosted_CI": "Notpolled;rootowned",
+  "test_count": 43,
+  "public_log": "checks/ci-c10-85c77cc.log",
+  "limits": "Actualintegratedcontentcandidateonly;laterproof/statusmetadataisnotthatcommit. RootfinalexactdeliveryCIanddistinctreviewremain;noelectrical/manual/USB/target/hostadmissionproof."
+}
