@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-20T14:58:41.474653+00:00",
+  "command": [
+    "python3",
+    "scripts/validate_restart_plan.py"
+  ],
+  "cwd": "/home/tux/nsealr/firmware",
+  "source_commit": "1620ab19d3fbcaf3438a76a5817d266babe30511",
+  "exit_code": 0,
+  "stdout": "Restart plan valid: 47 tasks; ready: \nStructural check only; hardware, review quality and security remain evidence gates.\n",
+  "stderr": "",
+  "worktree_status_unchanged": true,
+  "pre_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "post_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "Readonlycanonicalplanstructure/requirementsnotH01admission"
+}

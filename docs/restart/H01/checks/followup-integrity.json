@@ -1,0 +1,427 @@
+{
+  "task": "H01",
+  "author": "/root/h01_author",
+  "source_commit": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+  "recorded_utc": "2026-10-18T18:49:34.100810+00:00",
+  "result": "pass",
+  "scope": "Author record/byte correspondence only; independent source-substance review pending; no H01 acceptance.",
+  "source_artifacts_match_commit": 21,
+  "approved_brief_input_hashes_unchanged": true,
+  "old_source_identities_unchanged": [
+    {
+      "id": "u5-rm7",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u585-ds",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u585-es",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u5g9-ds",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u5g9-es",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u5a5-ds",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u5a5-es",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "s3-ds",
+      "identity_unchanged": true,
+      "original_sha256": "2d5a7cb7fd559d8d972bd88db32669c0196d23f22d7afaafb0f63d099b589a3f"
+    },
+    {
+      "id": "s3-module",
+      "identity_unchanged": true,
+      "original_sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435"
+    },
+    {
+      "id": "s3-trm",
+      "identity_unchanged": true,
+      "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+    },
+    {
+      "id": "s3-es",
+      "identity_unchanged": true,
+      "original_sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500"
+    },
+    {
+      "id": "p4-ds",
+      "identity_unchanged": true,
+      "original_sha256": "fb4f3e91cc2ac519ec08cdec3dac9cb62b546cf5402ead1c5b83595a21bb6bc6"
+    },
+    {
+      "id": "p4-es",
+      "identity_unchanged": true,
+      "original_sha256": "76c8e48cfc7248fc85b449da3bdce5ff402d19a3d763c36751ca1f09a1dff049"
+    },
+    {
+      "id": "st-tn1489",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "st-sa0055",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "s3-ar2026-005",
+      "identity_unchanged": true,
+      "original_sha256": "bb478a50d17fa6e0d6309b7b8d7a43776b415bc08e988a08fa96c4513ac28e36"
+    },
+    {
+      "id": "s3-rng-sdk",
+      "identity_unchanged": true,
+      "original_sha256": "9c3964b751cbcd9d8e79544c310a9ea88bab4f09b66fc24caa4084d59e7331da"
+    },
+    {
+      "id": "s3-boot-sdk",
+      "identity_unchanged": true,
+      "original_sha256": "194c69488c2d8f432a388790b901d19fabf02e275cc19ef7ee6cb2786f3a4e6d"
+    },
+    {
+      "id": "s3-flash-sdk",
+      "identity_unchanged": true,
+      "original_sha256": "4452ad1c24780494fb276afd874ad5c2af2e281fb0762977fcc1808c65f08716"
+    },
+    {
+      "id": "s3-ota-sdk",
+      "identity_unchanged": true,
+      "original_sha256": "1c7d30a8cd73c1dc98537d360857e062a78e729276df92fbe9aace14058e7515"
+    },
+    {
+      "id": "s3-board",
+      "identity_unchanged": true,
+      "original_sha256": "c716b4efb69b6c9385ec99caee7f1b97a787b5944fc9c8218bfacf8d2eceb452"
+    },
+    {
+      "id": "s3-usb-sdk-current",
+      "identity_unchanged": true,
+      "original_sha256": "321048b473bc73fdadb2f26ef048a67b6e9359627591aeb0e3fcc2b1a9122469"
+    },
+    {
+      "id": "st-tn1474",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "ti-bq24074",
+      "identity_unchanged": true,
+      "original_sha256": "4fe4e4f9855501f83b400c6932e3098439e51c50539e40dc45b44a8d509e8db1"
+    },
+    {
+      "id": "ti-bq25628",
+      "identity_unchanged": true,
+      "original_sha256": "9a3c78c4480317de72e33bd962cc2d33f147ecf430759710a9e40103b39b0c26"
+    },
+    {
+      "id": "ti-tps63802",
+      "identity_unchanged": true,
+      "original_sha256": "be07deca1231c5493957bc64c2dc1cad5543bff330e49ae41caf3286fd80dca6"
+    },
+    {
+      "id": "ti-tusb320lai",
+      "identity_unchanged": true,
+      "original_sha256": "62f7b3f65338e25ebd6fd46ef04474ba806b06b1cc04bc0b3d7b8191b01ca87d"
+    },
+    {
+      "id": "nxp-mcxn947-ds",
+      "identity_unchanged": true,
+      "original_sha256": "f3a680d2ac36960f81b474e9e7589ab7a54fc2690eaf9baa67de1d442c5135aa"
+    },
+    {
+      "id": "nxp-se051-ds",
+      "identity_unchanged": true,
+      "original_sha256": "5aaf11205161d88ad5445576c655e74cc672c313fe924083516548c0c65d0aaa"
+    },
+    {
+      "id": "nxp-se051-config",
+      "identity_unchanged": true,
+      "original_sha256": "69a3999ad5af9bc2108bdc6c042271456fe0158816a46559f51a947c2657f30a"
+    },
+    {
+      "id": "nxp-se051-errata",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "nxp-se05x-api",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "optiga-m-ds",
+      "identity_unchanged": true,
+      "original_sha256": "f9495234e67a7626dc64e1c19fbc9d1b72681f66ad6d9d17bec4b43c16c242b2"
+    },
+    {
+      "id": "tropic-ds",
+      "identity_unchanged": true,
+      "original_sha256": "ae647fa59ace0f386d3e964ab6dc476fcc6b6ac584932f5a8bab360478a7978a"
+    },
+    {
+      "id": "tropic-api",
+      "identity_unchanged": true,
+      "original_sha256": "377fdef6a88ae49521f669aa50bf8e4154ac67b6eb57d35c6d0abc92afd8b5b7"
+    },
+    {
+      "id": "tropic-pin",
+      "identity_unchanged": true,
+      "original_sha256": "014fd5457d8df41987f464b92802a3ed4af9711b2393d46d5ee637540cfdd0bc"
+    },
+    {
+      "id": "tropic-pairing",
+      "identity_unchanged": true,
+      "original_sha256": "f41942a27c17d455ebb73f0a74d95e1899e6f565dad131867ae91bc995b9960c"
+    },
+    {
+      "id": "tropic-advisory",
+      "identity_unchanged": true,
+      "original_sha256": "299fa8f07ad0611cdc2a56b24d46ead257fe42dca9c3d96cd38b3384c598f1ad"
+    },
+    {
+      "id": "tropic-catalog",
+      "identity_unchanged": true,
+      "original_sha256": "0c5dec4c4c4f7d5b7ae075f9451d809826465737f4d5e92bd6f48d0aa4df83d0"
+    },
+    {
+      "id": "diodes-ap2112",
+      "identity_unchanged": true,
+      "original_sha256": "ef8d376f2ec356e29172eb9e053819a0ebdcc576dba7fc9ab0505c568427920f"
+    },
+    {
+      "id": "optiga-m-manual",
+      "identity_unchanged": true,
+      "original_sha256": "41315a418c287f9cfff54b51a3538eec8026de2a601d83a6196b69aeee9adc4d"
+    },
+    {
+      "id": "optiga-m-releases",
+      "identity_unchanged": true,
+      "original_sha256": "487600f59f0a8e2e9a9054481547b8bf875a14e58606cb0be85cc8e97789b3c7"
+    },
+    {
+      "id": "optiga-m-i2c",
+      "identity_unchanged": true,
+      "original_sha256": "04288206e14412cd6dc6bbbdbc45fc469a28a1cc260b2e42e022d8f33397774d"
+    },
+    {
+      "id": "nxp-sems-update",
+      "identity_unchanged": true,
+      "original_sha256": "d582655f13ecdd83cc51744c5d7aae427c26ee2650b625e3d83d9936495f0381"
+    },
+    {
+      "id": "nxp-host-binding",
+      "identity_unchanged": true,
+      "original_sha256": "90359040045583d17b54eeb9c57b261ace8a0e32ce8d5a3f906dd381fd3c87d0"
+    },
+    {
+      "id": "st-pins-STM32U585VITx",
+      "identity_unchanged": true,
+      "original_sha256": "bf9cc92c404e150569d122a6a2d8abb5e0a03fa28511512957ce8edd7de7793c"
+    },
+    {
+      "id": "st-pins-STM32U585VITxQ",
+      "identity_unchanged": true,
+      "original_sha256": "5aeb9833518becd07c4437c53150b73d37be0d7e7df7aee8893a77e723722da5"
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTx",
+      "identity_unchanged": true,
+      "original_sha256": "91b2ed0c6121e556d807ba50dfb68735988588432b62aa8f9a77593a57dc4d9d"
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTxQ",
+      "identity_unchanged": true,
+      "original_sha256": "13fd6f903148a018a4c10917d74259cc882ea212c353e40e00cfb9842d8d23fb"
+    },
+    {
+      "id": "st-u5-rm6-jp",
+      "identity_unchanged": true,
+      "original_sha256": "52152e414e2ac329cfd9038481b97e8ff70592f9892d171dcb63b7d283722616"
+    },
+    {
+      "id": "st-h5-98864_en",
+      "identity_unchanged": true,
+      "original_sha256": "0001ab2a6ed8d31553cf6bbdf732fde16545ab5b3a7147fc8835432c3707657a"
+    },
+    {
+      "id": "nxp-i2c-spec",
+      "identity_unchanged": true,
+      "original_sha256": "dc91f00f65584e06ef36e26c93bf9d91a95fb3c8a1830a9223e53caf678b36af"
+    },
+    {
+      "id": "ref-safe7-main",
+      "identity_unchanged": true,
+      "original_sha256": "f772fe1f33a294683abfd9a8f64dc728598a6d12d9f02b043afe2a0b7e8bda61"
+    },
+    {
+      "id": "ref-ts1303",
+      "identity_unchanged": true,
+      "original_sha256": "6d5d751e6d2934b8d6c505dec84830e26a760e961f2768bf4360d57da2f2f2fe"
+    },
+    {
+      "id": "ref-ts1401",
+      "identity_unchanged": true,
+      "original_sha256": "3d9108969d0c61bffa376392345642d16abc9d0d07dee70b4e93959c47172afe"
+    },
+    {
+      "id": "ref-ts1501",
+      "identity_unchanged": true,
+      "original_sha256": "76095194b2a4ac7034fe79f46b761145792b75d983d4f2b5bab5a37b18199437"
+    },
+    {
+      "id": "ref-ts1702",
+      "identity_unchanged": true,
+      "original_sha256": "e08c79d3f76b87278b773e52145146e2795ebfaebb0af9ffd9b775fa933c5aff"
+    },
+    {
+      "id": "embassy-stm32-cargo",
+      "identity_unchanged": true,
+      "original_sha256": "55631e05bcf036ce3bf657912353900489e2376f3121e7858d0e00bdced5e775"
+    },
+    {
+      "id": "embassy-stm32-lib",
+      "identity_unchanged": true,
+      "original_sha256": "6f8843e578a23d0d8f6fdd6be31b0e3ad846c17e3ab93fb9ec438611e59301be"
+    },
+    {
+      "id": "esp-hal-cargo",
+      "identity_unchanged": true,
+      "original_sha256": "943c532dfa2412f408284210c5e29cd446c936867e5c5010cb6e8e3631701770"
+    },
+    {
+      "id": "esp-rust-book",
+      "identity_unchanged": true,
+      "original_sha256": "d3a64a6610e48c5fc69d8b3fe3cec4781345ead583feccf0590026ccbf0e9ce7"
+    },
+    {
+      "id": "esp-classic-ds",
+      "identity_unchanged": true,
+      "original_sha256": "a7917e6b47528c9dcab06837a49d452e582751335797db879f1cf2d17cd29adf"
+    },
+    {
+      "id": "h573-ds",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "h573-es",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "mcxn947-rm",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "mcxn947-security-rm",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "nxp-se051-current-index",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "usb-c-normative",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u5g9-opn",
+      "identity_unchanged": true,
+      "original_sha256": null
+    },
+    {
+      "id": "u5g9-kit",
+      "identity_unchanged": true,
+      "original_sha256": null
+    }
+  ],
+  "old_original_validation_inherited_from": "independent review 5186b7207fa397ceb4cd237d710d8adc163c6eb0 of 19362fc; no repeated full original/PDF/XML review claimed",
+  "new_originals_rehashed": [
+    {
+      "id": "s3-idf-random",
+      "sha256": "45b8381aef1a2e7bd9e42fc198c6b0a8644ae7eb28c1dc56bc1b561178e7b5bd",
+      "bytes": 4621,
+      "match": true
+    },
+    {
+      "id": "s3-idf-boot-random",
+      "sha256": "ec501ea8fccaccdc11514415f77931d7c22381e396d8315834ac03447e666071",
+      "bytes": 2701,
+      "match": true
+    },
+    {
+      "id": "s3-idf-sleep",
+      "sha256": "88b35f6a99ee7aec939055a9e1da5b1583c8a9cee904d0baaeebefac66b67993",
+      "bytes": 14105,
+      "match": true
+    },
+    {
+      "id": "s3-idf-rtc-header",
+      "sha256": "d9b1f31947556b96e24566a30a57b116d11b4b2c95d138b5dbe8af74c26fbdc8",
+      "bytes": 35802,
+      "match": true
+    },
+    {
+      "id": "s3-idf-usb-struct",
+      "sha256": "4887739d8aaf4b849e4cd77cd505617ad6b8c2059de0f6a0d92bbde013ed44d1",
+      "bytes": 6351,
+      "match": true
+    },
+    {
+      "id": "s3-idf-usb-ll",
+      "sha256": "2696e26ae119ff22f85defda74884ae5d8c4138798985374c191755b4ad63739",
+      "bytes": 35485,
+      "match": true
+    },
+    {
+      "id": "s3-usb-component",
+      "sha256": "e467e6ae1d679263b2439aa7a9d41a1695a29e809e410c2a14b982ab90915d39",
+      "bytes": 653,
+      "match": true
+    },
+    {
+      "id": "s3-usb-config",
+      "sha256": "85e10f8f3ea61dbd3d75d324f88393f7994535de1fd192789a5f01d78bfc2557",
+      "bytes": 10529,
+      "match": true
+    },
+    {
+      "id": "s3-usb-device",
+      "sha256": "6c9259a905910a50b476fa7027700769592ed9d1b414a6a3f7b2710ff1db85c8",
+      "bytes": 13593,
+      "match": true
+    }
+  ],
+  "unique_ids_and_source_references": "pass",
+  "counts": {
+    "sources": 81,
+    "claims": 27,
+    "pin_rows": 25,
+    "errata_rows": 25,
+    "contradictions": 11
+  }
+}

@@ -1,0 +1,2731 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "status": "Selected evidence; no measurements or host admission",
+  "claims": [
+    {
+      "id": "H01-C01",
+      "claim": "Current RM0456 Rev7 original retrieval is resolved; selected current body review has advanced but required host coverage is incomplete.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "verified3651-page original; selected pages in reading field, revision historyp.3637"
+        }
+      ],
+      "applicability": "U585, U5A5 and U5G9",
+      "status": "current-original-verified-partial-review",
+      "engineering_consequence": "Do not admit a U5 host probe whose behavior depends on unread current register descriptions; H01 cannot claim complete host review.",
+      "open_assumption": "Remaining current used body sections and relevant content delta; exact package/configuration/driver sign-off.",
+      "required_negative_case": "Do not treat successful download or revision-history list as full relevant body review.",
+      "closure_owner": "H01",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C02",
+      "claim": "The U5G9 package table must use DS14102 Rev5, not stale Rev4 snippets.",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "cover/features and manufacturer OPN table"
+        }
+      ],
+      "applicability": "STM32U5G9ZJT6Q LQFP144 and STM32U5G9ZJJ6Q UFBGA144",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep both exact package leads visible; Safe7 generic U5G9ZJ and DK1 U5G9NJH6Q are not package substitutions.",
+      "open_assumption": "Exact ZJ pad/AF/supply/electrical mapping; outlines now visually inspected; actual received marking later in H02.",
+      "required_negative_case": "Reject pin assignments copied from NJ/TFBGA216 or older package tables.",
+      "closure_owner": "H01/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C03",
+      "claim": "U5G9 offers materially more internal UI working memory, subject to ECC and ownership.",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "§3.5 p.27; §§3.19–3.20 pp.54–55; §§3.41–3.42 pp.73–75"
+        },
+        {
+          "document": "u5g9-dk2",
+          "locator": "exact package/supply/RGB feature list; UM3223 reading inherited separately"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "§2.1 pp.129–134 main/SRD master paths"
+        },
+        {
+          "document": "u5g9-um3223",
+          "locator": "§§7.5–8.6 pp.14–23; exact RGB/power/input reference"
+        }
+      ],
+      "applicability": "U5G9ZJ; not every U5 family member",
+      "status": "documented-selected",
+      "engineering_consequence": "Assess 480×480 review/recovery UI without assuming external PSRAM stores secrets. Larger RAM is not proof of trusted display ownership.",
+      "open_assumption": "Exact pad/AF/rail, GTZC/cache/buffer ownership, driver/license and linked workload; DK2 PC13/LSE combination requires explicit avoidance/review.",
+      "required_negative_case": "Stress UI+USB+crypto while checking that non-secret frame buffers cannot disclose or overwrite secret arenas.",
+      "closure_owner": "H01/H02/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C04",
+      "claim": "A framebuffer budget alone can reject an unsuitable UI configuration.",
+      "evidence": [],
+      "applicability": "RGB565 buffers, no compression",
+      "status": "calculated",
+      "engineering_consequence": "240×320×2=153600 bytes (150 KiB); 480×480×2×2=921600 bytes (900 KiB). The latter exceeds U585 main SRAM before stacks/USB/crypto. Strip rendering remains a possible alternative.",
+      "open_assumption": "Actual stack, allocator, retained buffers, ECC, application concurrency and rendering rate.",
+      "required_negative_case": "Largest allowed review text/recovery input plus host flooding must remain bounded without hidden truncation.",
+      "closure_owner": "H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C05",
+      "claim": "S3 module variant controls available pins, rail voltage and external memory.",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "pp.2–4,10–18,27–30"
+        }
+      ],
+      "applicability": "ESP32-S3-WROOM-1-N8R8 lead only",
+      "status": "documented-selected",
+      "engineering_consequence": "8MB flash+8MB PSRAM; GPIO35–37 reserved by octal PSRAM. Use 3.0–3.6V module supply and preserve EN/strap requirements; exposed external RAM is not default secret storage.",
+      "open_assumption": "Exact memory die, received silicon, kit revision and regulator margins.",
+      "required_negative_case": "Wrong module variant, boot strap held by accessory, or battery below module operating minimum must fail safely.",
+      "closure_owner": "H02/H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C06",
+      "claim": "S3 DMA descriptors and memory placement are explicit ownership work.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§§3.1–3.6 pp.357–368; §§4.1–4.3.4 pp.400–407; §§15.1–15.4.1 pp.683–694"
+        }
+      ],
+      "applicability": "S3 internal RAM, GDMA and selected USB controller",
+      "status": "documented-selected",
+      "engineering_consequence": "Internal descriptor storage, transfer bounds/alignment, core/cache coherence and descriptor lifetime need static ownership. Descriptor owner bit is not a security authorization. USB OTG has its own AHB master.",
+      "open_assumption": "Exact USB slave/DMA path and all enabled masters; remaining permission-register subset if protection used.",
+      "required_negative_case": "Malformed length/stale descriptor, simultaneous core writes and peripheral reset during transfer must not reach secret memory.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C07",
+      "claim": "S3 RNG strength depends on a live qualified entropy source.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§25 pp.920–921"
+        },
+        {
+          "document": "s3-rng-sdk",
+          "locator": "entire technical body/API"
+        },
+        {
+          "document": "s3-idf-random",
+          "locator": "esp_random/esp_fill_random entire functions"
+        },
+        {
+          "document": "s3-idf-boot-random",
+          "locator": "S3 enable/disable entire functions"
+        }
+      ],
+      "applicability": "ESP-IDF v6.1 S3 RNG path",
+      "status": "documented-selected",
+      "engineering_consequence": "After boot, RF or SAR entropy conditions must be maintained. esp_random returning a u32 cannot signal source loss; the Board entropy adapter must enforce S02 fallibility and prohibit silent pseudo-random fallback. Effective build must exclude CONFIG_ESP_BRINGUP_BYPASS_RANDOM_SETTING, whose pinned hw_random.c branch returns fixed0x5A5A5A5A.",
+      "open_assumption": "Actual chosen adapter/build health policy and fault observability; vendor functions inspected but no nSealr target path or qualified source-loss detection.",
+      "required_negative_case": "Disable/lose the qualified source, request during startup/sleep transition, or contend for SAR; secret operations must fail.",
+      "closure_owner": "H02/S02-contract integration",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C08",
+      "claim": "S3 boot and update authorities are finite lifecycle choices.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§§5.1–5.3.3 pp.410–421; chapter8 pp.532–538"
+        },
+        {
+          "document": "s3-boot-sdk",
+          "locator": "Key Management/Key Revocation/eFuse Usage"
+        },
+        {
+          "document": "s3-ota-sdk",
+          "locator": "Rollback/Anti-rollback/unsafe update"
+        }
+      ],
+      "applicability": "S3 Secure Boot v2 and selected OTA configuration",
+      "status": "documented-selected",
+      "engineering_consequence": "Separate owner firmware signing roots from Nostr identity and Bridge transport keys. Three digest slots and 16 secure-version fuse bits require an explicit owner rotation/recovery policy; ordinary app A/B safety does not cover all bootloader/data updates.",
+      "open_assumption": "Exact SDK build, fuse map, surviving state and bootloader-update contradiction.",
+      "required_negative_case": "Unsigned/old firmware, power loss during update, revocation of last usable root and rollback to incompatible state require distinct expected outcomes.",
+      "closure_owner": "H02; irreversible actions require concrete authorization",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C09",
+      "claim": "Enabling S3 release security can irreversibly alter the device.",
+      "evidence": [
+        {
+          "document": "s3-flash-sdk",
+          "locator": "Development/Release/transition and Relevant eFuses"
+        },
+        {
+          "document": "s3-boot-sdk",
+          "locator": "How To Enable"
+        }
+      ],
+      "applicability": "S3 owner-secured lifecycle, not development probe",
+      "status": "documented-selected",
+      "engineering_consequence": "Start H02 with public fixtures and a non-provisioning build. A config toggle is not an authorized fuse operation. Flash encryption protects storage paths, not a compromised running privileged CPU.",
+      "open_assumption": "Exact key custody, flash/NVS regions, debug/download policy and recovery transition.",
+      "required_negative_case": "Rebuild/config mistake must not auto-provision development hardware; loss of update authority must not silently destroy recoverability.",
+      "closure_owner": "H02/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C10",
+      "claim": "S3 resets do not uniformly erase internal state.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "chapter7 pp.526–531; §§10.3–10.4 pp.574–580"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "chapter13 pp.672–679; MWDT/RWDT selected registers pp.613–615,665–668"
+        },
+        {
+          "document": "s3-idf-sleep",
+          "locator": "selected defaults and forbidden-condition assertions"
+        }
+      ],
+      "applicability": "S3 reset/power states",
+      "status": "documented-selected",
+      "engineering_consequence": "Reset type and RTC retention must be included in secret zeroization and consent invalidation. Default 2.7V brownout setting is below the module 3.0V operating minimum.",
+      "open_assumption": "NV-write voltage margin, exact watchdog/reset domain, entire chosen sleep path and actual secret-clear policy; selected vendor assertions do not qualify custom callers.",
+      "required_negative_case": "CPU reset, watchdog reset, brownout and retained sleep must invalidate pending approval and clear designated secret buffers.",
+      "closure_owner": "H02/H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C11",
+      "claim": "S3 USB-OTG and USB-Serial/JTAG share the internal PHY.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§32 pp.1227–1237; §33 pp.1243–1247"
+        },
+        {
+          "document": "s3-usb-sdk-current",
+          "locator": "Hardware/External PHY/Power Management"
+        },
+        {
+          "document": "s3-usb-config",
+          "locator": "lines92–144 speed/slave/DMA configuration"
+        },
+        {
+          "document": "s3-usb-component",
+          "locator": "entire lower-bounded dependency manifest"
+        },
+        {
+          "document": "s3-usb-device",
+          "locator": "tinyusb_driver_install lines272–350"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "§32.5 p.1242 NDA boundary"
+        }
+      ],
+      "applicability": "S3 internal PHY USB device probe",
+      "status": "documented-selected",
+      "engineering_consequence": "Use the actual USB device path and separate debugging arrangement. USB Serial/JTAG is a debug/download surface. FS USB wake from light sleep is not supported by the reviewed stack page.",
+      "open_assumption": "Underlying TinyUSB exact lock/driver, actual preprocessed target settings, FIFO/reset/suspend semantics and required IP documentation; wrapper HEAD alone is insufficient.",
+      "required_negative_case": "Host reset/flood/unplug during consent and suspend/resume must neither approve nor deadlock UI; debug commands must not enter custody protocol.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C12",
+      "claim": "S3 physical AES advisory is relevant to long-lived wrapping designs.",
+      "evidence": [
+        {
+          "document": "s3-ar2026-005",
+          "locator": "entire four-page technical body"
+        }
+      ],
+      "applicability": "AR2026-005, general-purpose AES-128 under voltage fault injection",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not transfer the vendor ephemeral/per-device-key assumption to a long-lived SE wrapping key. No complete fix is established here; XTS scope is distinct.",
+      "open_assumption": "Concrete threat, key usage and proposed mitigation qualification.",
+      "required_negative_case": "If physical fault resistance is advertised, test the exact relevant service under an appropriate independently defined campaign.",
+      "closure_owner": "H04/security qualification",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C13",
+      "claim": "TrustZone does not alone establish application or physical isolation.",
+      "evidence": [
+        {
+          "document": "st-tn1474",
+          "locator": "entire bulletin"
+        },
+        {
+          "document": "st-tn1489",
+          "locator": "entire bulletin"
+        }
+      ],
+      "applicability": "ST M33 secure/nonsecure shared resources and exact certified services",
+      "status": "documented-selected",
+      "engineering_consequence": "Initial SDK is one trusted image. Constant-time secret code and exact service assurance scope remain necessary; neither a TrustZone feature label nor certification of a different service closes the Board threat model.",
+      "open_assumption": "Any future hostile-app model needs a separate complete ownership/side-channel design.",
+      "required_negative_case": "A future adversarial nonsecure workload must not infer secrets through shared-resource timing.",
+      "closure_owner": "Architecture/H04 before expanded isolation claim",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C14",
+      "claim": "SA0055 concerns a manufacturing SFI configuration, not every runtime use.",
+      "evidence": [
+        {
+          "document": "st-sa0055",
+          "locator": "affected products/versions/remedy"
+        }
+      ],
+      "applicability": "U5 external-flash SFI using affected RSSe/personalization tuple",
+      "status": "documented-selected",
+      "engineering_consequence": "Use the qualified replacement RSSe and matched personalization if this production flow is selected; do not label unrelated H573 runtime behavior affected.",
+      "open_assumption": "Exact factory tuple and current terms; SFI not selected in H01.",
+      "required_negative_case": "Wrong/old RSSe or mismatched personalization must be rejected before production secrets are introduced.",
+      "closure_owner": "H04/manufacturing",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C15",
+      "claim": "P4 secure boot must be bound to silicon revision and algorithm.",
+      "evidence": [
+        {
+          "document": "p4-es",
+          "locator": "ROM-764/770/816 and ECDSA_DS-836/837, §§3–4"
+        }
+      ],
+      "applicability": "P4 v0.x/1.x/3.0/3.1/3.2 as listed by each erratum",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not admit v3.0 ROM-764 by disabling a required secure-boot property. ECDSA_DS-836 affects v3.0–3.2 and 837 earlier revisions; vendor workaround uses RSA_DS secure boot. ROM maintenance/power errata also differ by revision.",
+      "open_assumption": "Actual silicon/ROM, chosen boot algorithm, SDK/esptool and maintenance procedure.",
+      "required_negative_case": "Invalid r/s secure-boot signature, secure-download flash access and programming/power sequence require revision-specific tests.",
+      "closure_owner": "P4 profile owner before admission",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C16",
+      "claim": "SE051 mandatory command/errata access remains unresolved.",
+      "evidence": [
+        {
+          "document": "nxp-se05x-api",
+          "locator": "AN12543 catalogue Rev4.5"
+        },
+        {
+          "document": "nxp-se051-errata",
+          "locator": "catalogue Rev1.1"
+        },
+        {
+          "document": "nxp-se051-config",
+          "locator": "pp.2–5"
+        },
+        {
+          "document": "nxp-sems-update",
+          "locator": "§§1–3 pp.2–6"
+        }
+      ],
+      "applicability": "SE051C2 exact OPN/OEF/applet tuple unresolved",
+      "status": "blocking-selection-gap",
+      "engineering_consequence": "Public headers do not establish command preconditions, policy enforcement or applicable errata. NXP applet update authority is separate from MCU owner authority; H02S/H04 remain blocked for selected-SE guarantees.",
+      "open_assumption": "Lawful API/errata/update/personalization access, developer redistribution and actual package/configuration.",
+      "required_negative_case": "Reproducible developer setup must fail visibly if required credentials, docs or update rights are unavailable.",
+      "closure_owner": "H02S/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C17",
+      "claim": "Algorithm labels do not establish non-exportable Nostr services.",
+      "evidence": [
+        {
+          "document": "nxp-se051-ds",
+          "locator": "features/algorithm table"
+        },
+        {
+          "document": "optiga-m-ds",
+          "locator": "tables1–4, pp.8–9"
+        },
+        {
+          "document": "tropic-api",
+          "locator": "pp.36–41 curve/sign command inventory"
+        }
+      ],
+      "applicability": "SE051C2, standard Trust M V3, TROPIC01 reviewed versions",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not infer BIP340 from ECDSA or Nostr ECDH from generic ECC. Plan host software custody/work buffers unless exact required SE commands/policies are demonstrated; no SE is selected.",
+      "open_assumption": "Exact commands, curve, key import/export policy and public-vector behavior.",
+      "required_negative_case": "Unsupported curve/algorithm, wrong object policy and export attempt must fail with documented status.",
+      "closure_owner": "H02S",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C18",
+      "claim": "PIN retry protection includes host persistent-state and reset semantics.",
+      "evidence": [
+        {
+          "document": "tropic-pin",
+          "locator": "pp.5–10"
+        },
+        {
+          "document": "optiga-m-manual",
+          "locator": "pp.23–24,34–36"
+        },
+        {
+          "document": "tropic-pairing",
+          "locator": "p.5"
+        }
+      ],
+      "applicability": "Candidate-specific policy, not interchangeable SE API",
+      "status": "documented-selected",
+      "engineering_consequence": "Specify enrollment/change/recovery, destructive retry state, authorization lifetime and replacement of default pairing keys. No automatic timed delay or independent dual-SE protection is inferred.",
+      "open_assumption": "Complete selected object/channel/counter/reset and power-cut state machines.",
+      "required_negative_case": "Power cut/reboot/rollback between each state change must not restore attempts or preserve authorization unintentionally.",
+      "closure_owner": "H02S/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C19",
+      "claim": "The TROPIC public advisory includes T310; no qualified fix is established.",
+      "evidence": [
+        {
+          "document": "tropic-advisory",
+          "locator": "affected-products p.3, mitigation pp.5–6, timeline p.10"
+        }
+      ],
+      "applicability": "TR01-C2P-T310 Boot2.0.1/App2.0.0/SPECT1.0.0 in advisory; wider architecture scope as stated there",
+      "status": "blocking-selection-gap",
+      "engineering_consequence": "Open documentation is useful but does not close affected asset protection. Future hardened-part forecasts are not received-qualified remediation.",
+      "open_assumption": "Exact intended part/threat, vendor remedy and independent qualification.",
+      "required_negative_case": "A newer part label or public-disclosure schedule must not be accepted as proof the intended service resists the published attack.",
+      "closure_owner": "H02S/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C20",
+      "claim": "A vendor USB command bridge is not a local custody signer.",
+      "evidence": [
+        {
+          "document": "ref-ts1303",
+          "locator": "single-page visually reviewed schematic; PA4/5/6/7, PB0, PA0"
+        },
+        {
+          "document": "tropic-api",
+          "locator": "command inventory"
+        }
+      ],
+      "applicability": "TS1303 USB devkit/host bridge reference",
+      "status": "documented-reference",
+      "engineering_consequence": "Host-driven bus commands and host-held protocol secrets are useful for command testing, not proof of local consent or secret isolation. MCU U535CCT6 has 256KiB flash despite inconsistent README wording.",
+      "open_assumption": "Received assembly/firmware and exact documented command tool.",
+      "required_negative_case": "Raw host commands must be unable to bypass the eventual Signer review boundary; reference bridge cannot satisfy that test.",
+      "closure_owner": "H02S fixture owner/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C21",
+      "claim": "Reference display and battery wiring is not generic.",
+      "evidence": [
+        {
+          "document": "ref-safe7-main",
+          "locator": "visually reviewed physical pp.5,11–13"
+        }
+      ],
+      "applicability": "Safe7 RevD main schematic; firmware revC mapping unresolved",
+      "status": "documented-reference",
+      "engineering_consequence": "Custom DSI flex, switched rails, touch/IRQ/backlight paths and LiFePO4 reference require exact module/chemistry contracts. Do not transplant a generic 4.2V charger or standard-display connector claim.",
+      "open_assumption": "RevD-to-firmware correspondence, excluded UI/battery assembly details and native CAD/BOM.",
+      "required_negative_case": "Wrong FPC contact orientation or wrong cell chemistry must be rejected before wiring.",
+      "closure_owner": "H03/H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C22",
+      "claim": "Battery optionality does not remove current entitlement or power-path review.",
+      "evidence": [
+        {
+          "document": "ti-bq24074",
+          "locator": "pp.19–22"
+        },
+        {
+          "document": "ti-bq25628",
+          "locator": "p.21,pp.37–38,p.46"
+        },
+        {
+          "document": "ti-tusb320lai",
+          "locator": "pp.11–14,16–17"
+        }
+      ],
+      "applicability": "5V USB sink and protected Li-ion optional-cell investigation",
+      "status": "documented-selected",
+      "engineering_consequence": "BQ24074 permits absent-battery operation under input limits; BQ25628 reset/current/watchdog policy needs hardware-safe limits. A 500mA fuse or regulator capacity grants no USB current entitlement.",
+      "open_assumption": "Current USB-IF normative clauses, exact charger OPN/thermal/components, chemistry/protection and attach/reset default.",
+      "required_negative_case": "Attach before firmware, default-current source, battery absent, CE/I2C fault and watchdog reset must remain within allowed draw.",
+      "closure_owner": "H01 normative review/H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C23",
+      "claim": "A single-cell 3.3V rail needs full-range regulation analysis.",
+      "evidence": [
+        {
+          "document": "ti-tps63802",
+          "locator": "pp.1,4–5,14–17 plus §§9.3.3–9.3.10 pp.11–12 startup/reverse-boost/PG"
+        },
+        {
+          "document": "diodes-ap2112",
+          "locator": "dropout/electrical selected historical reading"
+        }
+      ],
+      "applicability": "TPS63802 buck-boost lead versus AP2112 LDO reference",
+      "status": "documented-selected",
+      "engineering_consequence": "LDO dropout near low cell voltage prevents assuming a stable 3.3V rail. Buck-boost current ratings depend on Vin and temperature; startup, reverse current and effective L/C matter.",
+      "open_assumption": "Exact load/cell voltage/temperature, startup and shutdown/backfeed measurements.",
+      "required_negative_case": "Low cell/high backlight load, plug/unplug and disabled-rail backdrive must not corrupt state or exceed pin limits.",
+      "closure_owner": "H03",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C24",
+      "claim": "Maker buses require explicit lifecycle ownership and voltage limits.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§6 routing, §3 DMA, §15 permissions"
+        },
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal witness only"
+        }
+      ],
+      "applicability": "Generic Board SDK and separate Signer firmware",
+      "status": "engineering-requirement",
+      "engineering_consequence": "Expose useful SPI/I2C/UART/GPIO through a bounded API; keep SE and approval/input paths private. Default disconnect/reset must not power or clock a private device through headers. A GPIO count is not an isolation proof.",
+      "open_assumption": "Exact package/pad/AF/reset/power/master ownership and protected-load design.",
+      "required_negative_case": "Hostile accessory driving while off, stuck bus, DMA request and firmware replacement must obey the declared development/owner-secured lifecycle.",
+      "closure_owner": "H04",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C25",
+      "claim": "S3 watchdog response is domain- and clock-specific.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "chapter13 pp.672–679; selected MWDT/RWDT registers pp.613–615,665–668"
+        }
+      ],
+      "applicability": "Selected S3 MWDT/RWDT/SWD configuration",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind timeout and consent invalidation to actual clock/reset domain; automatic SWD feeding is not application health.",
+      "open_assumption": "Chosen stages, sleep clock behavior, driver and retained-state cleanup.",
+      "required_negative_case": "Stalled UI/task and clock/power transition must produce the specified bounded recovery and invalidate consent.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C26",
+      "claim": "S3 XTS enable is not proof of correct key material or complete zeroization.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "chapter23 pp.908–918, Table23.4-1 p.911; eFuse field p.433"
+        }
+      ],
+      "applicability": "S3 external flash/PSRAM encryption configuration",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind valid key-purpose/material and plaintext-buffer lifecycle separately from encryption enable; preserve D-S3-XTSENABLE.",
+      "open_assumption": "Exact authorized provisioning and selected driver; no real keys or irreversible operation used.",
+      "required_negative_case": "Future qualified software fixture rejects absent/inconsistent key configuration; secret-buffer cleanup is independently checked without forbidden destructive hardware tests.",
+      "closure_owner": "H01/H02 with separate concrete provisioning authorization",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C27",
+      "claim": "S3 public USB functional text does not include the comprehensive IP register specification.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§32.5 p.1242; §32.4 is OTG/HNP/SRP"
+        },
+        {
+          "document": "s3-idf-usb-struct",
+          "locator": "IN/OUT structures"
+        },
+        {
+          "document": "s3-usb-component",
+          "locator": "dependency manifest"
+        },
+        {
+          "document": "s3-tinyusb-dcd_dwc2.c",
+          "locator": "selected actual device FIFO/init/reset/IRQ paths; current-manual-notes.md"
+        }
+      ],
+      "applicability": "Exact selected device mode, not every USB IP path",
+      "status": "documented-selected",
+      "engineering_consequence": "Treat public-access limits as a selection criterion; close only required device semantics and exact driver, and do not infer DMA isolation from software headers.",
+      "open_assumption": "Needed register/FIFO/reset/interrupt semantics under §32.5 boundary; complete selected dependency lock.",
+      "required_negative_case": "Reset, malformed transfer, FIFO exhaustion and detach must terminate safely; tests alone do not prove undocumented bus isolation.",
+      "closure_owner": "H01 documentary; H02 implementation/measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C28",
+      "claim": "U585 and U5G9 qualified entropy configurations are product-specific and differ from a generic reset/default claim.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "chapter48 pp.1903–1919"
+        },
+        {
+          "document": "u5-an4230",
+          "locator": "§5.1.3 Tables3–4 pp.20–21"
+        },
+        {
+          "document": "nist-e11-public-use",
+          "locator": "configuration/operating/health sections"
+        },
+        {
+          "document": "nist-e116-public-use",
+          "locator": "pp.4–7"
+        }
+      ],
+      "applicability": "U585 and U5G9 RNG",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind source/clock/conditioning/health policy, restore it after reset, reject pending errors/zero race and invalidate partial outputs. Preserve active-low CED conflict.",
+      "open_assumption": "Actual target configuration/driver, certificate-use scope and board operating conditions.",
+      "required_negative_case": "No generic U545/default tuple, raw-test bypass, output statistics or trait label may imply a qualified source.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C29",
+      "claim": "Pinned Embassy RNG retries are bounded but its waits and custom-policy preservation are not a complete qualified host contract.",
+      "evidence": [
+        {
+          "document": "u5-embassy-rng",
+          "locator": "complete file: reset_with_config/reset/recover_seed_error/poll_word/fill_bytes/suspend/trait and crypto adapters"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "§§48.3–48.7"
+        }
+      ],
+      "applicability": "Observed candidate source69006a4; no built nSealr target",
+      "status": "documented-selected",
+      "engineering_consequence": "Require product NSCR/HTCR/config persistence and real deadlines including synchronous work inside async recovery; choose a fallible adapter and partial-buffer cleanup.",
+      "open_assumption": "Exact target/PAC and actual linked implementation; no source patch/port undertaken.",
+      "required_negative_case": "Seed/clock/no-ready failure, reset after custom init, partial destination, blocking zero-word path and panic handling need explicit evidence.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C30",
+      "claim": "The pinned S3 TinyUSB device path reaches unbounded reset/flush/endpoint-disable waits.",
+      "evidence": [
+        {
+          "document": "s3-tinyusb-registry",
+          "locator": "0.21.0~2 repository commit"
+        },
+        {
+          "document": "s3-tinyusb-dcd_dwc2.c",
+          "locator": "dcd_init/dfifo_alloc/edpt_disable/handle_bus_reset/dcd_int_handler"
+        },
+        {
+          "document": "s3-tinyusb-dwc2_common.c",
+          "locator": "reset_core/dwc2_core_init/deinit"
+        },
+        {
+          "document": "s3-tinyusb-dwc2_common.h",
+          "locator": "dfifo_flush_tx/rx"
+        }
+      ],
+      "applicability": "Candidate commit894ea0; not a resolved target build",
+      "status": "documented-selected",
+      "engineering_consequence": "Require recovery/timeout policy for actual ISR/spin-lock context, locked configuration and bounded descriptor/FIFO ownership. Interpacket timeout is separate.",
+      "open_assumption": "Normative selected-IP semantics under TRM§32.5, actual lock/configuration/binary and driver adaptation.",
+      "required_negative_case": "No software deadline may be inferred from a finite packet budget or a task timeout around an ISR-held wait.",
+      "closure_owner": "H01/H02",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C31",
+      "claim": "U585 reset defaults do not establish the proposed security ownership or complete erasure.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§3.5–3.8,5.3–5.6,6.3/6.6,7.9.13; pp150–212,276–286,342–344"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Set explicit secure/master/alternate-function ownership and erase/retention manifest before input; startup validates it.",
+      "open_assumption": "Exact manifest/locked bits and later reset observations; no already-running isolation claim.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C32",
+      "claim": "The proposed U585 immutable owner root needs BOOT_LOCK, protected-region and recovery-lifecycle policy, not an RDP label.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§3.3,3.10,7.4–7.6 pp150–194,307–328"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind verifier/version journal and signed update; distinguish full regression from partial or non-erasing transitions; no secret OTP.",
+      "open_assumption": "Final layout/policy and implementation/physical lifecycle qualification.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C33",
+      "claim": "Two modest SPI module leads contain unresolved controller/rail correspondence, and the buffered alternative has VIN-side control pullups.",
+      "evidence": [
+        {
+          "document": "lcd-2inch-module",
+          "locator": "pp1–9; lcd-2inch-schematic p1; adafruit-4311-module pp1–13 and schematic revC"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Do not assume5V wiring or a universally compatible ST7789 command/flex; resolve exact panel identity and worst-case rails.",
+      "open_assumption": "Exact module/controller applicability and compatible supply/control interface.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C34",
+      "claim": "S3 DevKitC-1 v1.1 diode-ORs both USB supplies and does not route its native-USB VBUS to an MCU session-valid input.",
+      "evidence": [
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "sheet2 native visual; D1/D7/J2/J4/U3/U4/J1/J3"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "A two-port or externally powered fixture needs actual VBUS sensing; bounded J4-only operation must exclude any other power/injection path and treat disconnect as power loss.",
+      "open_assumption": "Suspend and startup current, received topology and physical reset/erasure evidence.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C35",
+      "claim": "USB sink mode does not waive enumeration, suspend, inrush, backfeed or5.50V component limits.",
+      "evidence": [
+        {
+          "document": "usb2-base",
+          "locator": "§§7.2.1–7.2.4 plus USB-IF VBUS Max Limit, Suspend Current, Device Capacitance and Connect Timing ECNs; Type-C2.5 selected clauses in usb-configuration.md"
+        }
+      ],
+      "applicability": "Proposed U585/S3 H01 subset",
+      "status": "documented-selected",
+      "engineering_consequence": "Bind power/current descriptors and safe connection state to kit circuitry and proposed firmware before H02.",
+      "open_assumption": "Remaining selected electrical/control clauses, ECNs and physical USB measurements.",
+      "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C36",
+      "claim": "U585 internal SRAM bypasses DCACHE1; disabled cache/remapping and cache invalidation do not establish data erasure.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§8.4.9–8.7.7 pp374–380; §§9.3–9.7.10 pp383–399"
+        }
+      ],
+      "applicability": "U585 internal-memory-only CPU-SPI proposal",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep DCACHE1 disabled and all ICACHE region-remap enables clear; bound cache startup/maintenance/error paths. No external-memory cache service is admitted.",
+      "open_assumption": "Exact initialization/link-map and H02 runtime evidence; DCACHE command typo retained.",
+      "required_negative_case": "Wrong remap, stale validity, write-back error or ownership context must invalidate pending operation; no data-erasure claim from tag invalidation.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C37",
+      "claim": "G9 GPU2D transactions are nonsecure and its DCACHE2 does not support TrustZone.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§9.3 p383; general §9.4.7 p390"
+        }
+      ],
+      "applicability": "U5G9 graphics document comparison",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep a future GPU-visible framebuffer outside the secure arena; the implementation exception limits the generic cache security statement.",
+      "open_assumption": "Remaining graphics/GTZC/buffer/driver allocation; no G9 promotion.",
+      "required_negative_case": "Do not authorize GPU access to secure secret memory or infer its ownership from CPU SAU/MPU alone.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C38",
+      "claim": "Secure GPIO nonsecure accesses can return zero without illegal-access events, while analog-mode reads also return zero.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§13.3.1–13.3.19 pp624–631; §§13.4.1–13.4.13 pp633–641"
+        }
+      ],
+      "applicability": "U585 active-low physical consent/input proposal with explicit TZEN state",
+      "status": "documented-selected",
+      "engineering_consequence": "Validate input mode, rail, attribution and reader context before interpreting a bit. Preserve release-then-press consent rule and reinitialize locks after reset.",
+      "open_assumption": "Exact manifest and driver context, board electrical checks and measured debounce.",
+      "required_negative_case": "RAZ/analog zero or held input at reset must never become a fresh authorization.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C39",
+      "claim": "HSLV is forbidden above 2.7 V and together with Fm+; no hardware protection prevents a destructive setting.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§13.3.20 pp631–632; §13.4.12 p640"
+        }
+      ],
+      "applicability": "Proposed 3.3 V U585 I/O rails; family-specific availability still applies",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep HSLV disabled and enforce that configuration in the proposed startup/option policy.",
+      "open_assumption": "Exact rail tolerances and selected pads; implementation readback required H02.",
+      "required_negative_case": "Static/configuration checks reject the prohibited setting. No physical destructive test.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C40",
+      "claim": "IWDG early-wake register writes reload its downcounter; EWI acknowledgement is not independent of feeding.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§61.3–61.7.6 pp2562–2574"
+        }
+      ],
+      "applicability": "Proposed U585 independent bounded recovery",
+      "status": "documented-selected",
+      "engineering_consequence": "Initial policy leaves EWI disabled and uses one feed owner requiring forward progress; establish hardware watchdog before candidate blocking paths and account for LSI/debug/power behavior.",
+      "open_assumption": "Complete timeout calculation, option/clock setup, reset and startup-clear policy, plus H02 execution.",
+      "required_negative_case": "Stuck USB/RNG ISR or repeated early-wake handling cannot indefinitely receive progress-qualified feeds; verify on authorized hardware.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C41",
+      "claim": "U585 kit mux/radio startup isolation is not established by disabling unused drivers.",
+      "evidence": [
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Native sheets4,7,8,13,14; UM2839 Rev4 pp21–29"
+        }
+      ],
+      "applicability": "B-U585I-IOT02A MB1551-U585AI-D01 documentary proposal",
+      "status": "documented-selected",
+      "engineering_consequence": "R10/R11 mux pull-ups are DNF; Wi-Fi CHIP_EN lacks a drawn external hold-low; Bluetooth power selection does not establish unpowered-I/O safety. Explicit startup/fixture policy remains required.",
+      "open_assumption": "Exact mux/radio component electrical behavior, full target net correspondence and received-board evidence.",
+      "required_negative_case": "No radio-off/reset-isolation, zero-current or absent-injection guarantee from driver omission or empty connector alone.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C42",
+      "claim": "MPCBB control locking and superblock-attribution locking are separate; U585 implements 12/4/32/1 superblocks across SRAM1/2/3/4.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Table33 p199; §§5.8.1–5.8.5 pp256–259; §§5.11.1–5.11.4 pp272–274"
+        }
+      ],
+      "applicability": "Both U585 proposed package witnesses, TZEN active, all-secure/privileged initial image",
+      "status": "documented-selected",
+      "engineering_consequence": "Verify every implemented attribution word, set each implemented SPLCK bit, and lock the CR policy; no generic larger-device lock ranges. TZSC1/2 have separate LCK until system reset.",
+      "open_assumption": "Final source-to-binary correspondence, secure vector/fault policy, independent review and H02 runtime readback.",
+      "required_negative_case": "Reset must reestablish both lock classes before requests; GLOCK alone must not be accepted as locking the SRAM tables.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C43",
+      "claim": "RCC clock enable, peripheral enable and held reset are distinct; U585 OTG fields differ from USB fields reserved on that device.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§5.6.3–5.6.4 pp207–211; §§11.8.21–11.8.36 pp540–569"
+        }
+      ],
+      "applicability": "U585 internal-memory CPU-FIFO/SPI proposal",
+      "status": "documented-selected",
+      "engineering_consequence": "Use OTGSEC/OTGEN/OTGRST; keep reserved APB2 USB and LTDCUSB fields reset. Verify peripheral state while its interface clock permits access; later RCC readback checks gating/reset. All-zero RSTR reset values mean deasserted reset.",
+      "open_assumption": "Selected clock/VOS/calibration tuple, exact software register fields and H02 behavior remain open.",
+      "required_negative_case": "A zero read from a clock-gated register or default reset snapshot must not pass ownership/cleanup/held-reset checks.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C44",
+      "claim": "DMA2D is a real U585 memory master even in a proposal that uses CPU-driven SPI graphics.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§2.1 Table1 p129; RCC AHB1 reset/enable §§11.8.21/11.8.29 pp540–541,553–555"
+        }
+      ],
+      "applicability": "Both U585 proposed package witnesses; initial DMA2D exclusion",
+      "status": "documented-selected",
+      "engineering_consequence": "Hold DMA2D in RCC AHB1 reset with its interface clock disabled, alongside separately mapped GPDMA1/LPDMA1/SDMMC exclusions. Secure/privilege attribution remains explicit.",
+      "open_assumption": "Exact startup implementation/readback and H02 evidence. Full enabled DMA2D operation is outside this proposal.",
+      "required_negative_case": "An unused graphics API or no display DMA request is not evidence that this independent master is held reset.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C45",
+      "claim": "The S3 fixed USB Serial/JTAG CDC controller has a public APB/FIFO and register contract separate from the OTG IP NDA boundary.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "Chapter33 pp1243–1254 functional text/tables; pp1256–1268 register field bodies"
+        }
+      ],
+      "applicability": "Same ESP32-S3-DevKitC-1-N8R8 v1.1 native USB alternative, unselected",
+      "engineering_consequence": "A fixed CDC byte transport can be assessed without inventing OTG register semantics; it still needs bounded framing, reset/error, clock and lifecycle correspondence.",
+      "open_assumption": "Exact adapter/build and FIFO/reset behavior; no promotion from public source availability alone.",
+      "required_negative_case": "Host not reading, packet-boundary/zero-length behavior, CPU restart with retained controller state, malformed/error/reset traffic and bounded recovery.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C46",
+      "claim": "Pinned stock IDF Serial/JTAG driver and console do not provide the required observable receive-loss/reset/error and bounded-frame boundary.",
+      "evidence": [
+        {
+          "document": "s3-usj-driver",
+          "locator": "Complete ISR/install/read/write/wait_tx_done/uninstall body"
+        },
+        {
+          "document": "s3-usj-vfs",
+          "locator": "Selected lines142–209,339–373,650–735"
+        },
+        {
+          "document": "s3-usj-monitor",
+          "locator": "Complete SOF monitor"
+        }
+      ],
+      "applicability": "ESP-IDF v6.1 fff9895c82d744c7237be8847347bdd1b07c6643 S3 assessment",
+      "engineering_consequence": "RX enqueue failure is ignored; reset/error callbacks absent; VFS may drop bytes while reporting write size; install/uninstall do not clear hardware state. A selected bounded adapter requires explicit remedy and review. SOF heuristic cannot prove physical unplug.",
+      "open_assumption": "No replacement adapter/binary built or independently reviewed; no controller/FIFO erasure or physical disconnect claim.",
+      "required_negative_case": "Flood RX until software ring full; reset/error mid-frame; closed host port; console interference and stale queued data must invalidate pending review and consent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C47",
+      "claim": "S3 USB Serial/JTAG console and CPU JTAG controls have distinct compile/lifecycle scopes; the default secondary console can violate exclusive transport ownership.",
+      "evidence": [
+        {
+          "document": "s3-usj-stdio-kconfig",
+          "locator": "Complete primary/secondary console choices and feature derivation"
+        },
+        {
+          "document": "s3-usj-jtag-guide",
+          "locator": "Complete S3-relevant DIS_USB_JTAG branch"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "§8.3 Table8.3-2 pp536–537; §8.5 Table8.5-1 p538; selected definitions pp434–435"
+        }
+      ],
+      "applicability": "Unselected fixed-CDC alternative, development versus owner-secured conditions",
+      "engineering_consequence": "Require explicit primary/secondary console exclusion and ROM/panic/trace/GDB/core-dump writer control before secrets. DIS_USB_JTAG removes CPU USB JTAG while CDC can remain; whole DIS_USB_SERIAL_JTAG removes the transport. Pad JTAG and downloads are separate.",
+      "open_assumption": "Effective bootloader/app config, exact owner roots/update/debug/download policy and H02 readback; no fuse action authorized or performed.",
+      "required_negative_case": "No framing/log interleaving or secret dumps; USB-only debug disable must not be mistaken for disabling pad JTAG or ROM download.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C48",
+      "claim": "Manufacturer AR2022-004 distinguishes separate, historically renamed OTG and Serial/JTAG ROM-download gates.",
+      "evidence": [
+        {
+          "document": "s3-ar2022-004-usb",
+          "locator": "V1.1 pp1–3, issue summary/recommendations/history"
+        },
+        {
+          "document": "s3-es",
+          "locator": "§3.5 printedp9, lot-dependent USBOTG-4289"
+        }
+      ],
+      "applicability": "ESP32-S3 allowed revision/lot and owner-secured download/recovery policy",
+      "engineering_consequence": "Track OTG BLK0 byte19 bit7 separately from Serial/JTAG byte16 bit4 and legacy aliases. Serial/JTAG download-disable alone does not disable OTG download. Revision0.2 alone does not fix default-fuse identity.",
+      "open_assumption": "Received lot/eFuse state, final verified lifecycle and owner recovery remain open. No fuse writes or blanket remedy inferred.",
+      "required_negative_case": "Legacy alias or one-controller download-disable must not pass both-controller ROM-download closure.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C49",
+      "claim": "U585 SPI FIFO submission/completion, final signal hold and configuration-lock lifetimes are distinct.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§68.4.10–68.4.14 pp2918–2926; §68.8.1 pp2935–2936; §§68.8.6–68.8.7 pp2943–2946"
+        },
+        {
+          "document": "u585-es",
+          "locator": "§§2.23.1–2.23.7 pp35–37; applicability p5"
+        }
+      ],
+      "applicability": "Proposed U585 SPI1 CPU-driven display,8-bit simplex alternative",
+      "engineering_consequence": "TXP/TXTF are not final wire completion; finite TSIZE requires fresh EOT/TXC plus panel/errata hold before SPE disable. IOLOCK clears on every SPE1→0. Poll MODF; all waits need deadlines and whole render/consent invalidation.",
+      "open_assumption": "Panel/controller/frequency/hold tuple, bounded adapter and H02 timing remain unresolved. Current flag-clear source discrepancy preserved.",
+      "required_negative_case": "Stale status, lost mode-fault IRQ, partial last clock, transfer timeout or cleared transient lock must not pass rendered-screen/consent completion.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C50",
+      "claim": "Pinned candidate Embassy enhanced-SPI source is not configuration-equivalent to the proposed finite/simplex CPU display adapter.",
+      "evidence": [
+        {
+          "document": "u5-embassy-spi",
+          "locator": "Selected init/blocking-write/ready/flush/drop/baud source ranges in u585-spi-review.md"
+        },
+        {
+          "document": "u5-pac-u585vi",
+          "locator": "SPI1 metadata versionv6 and RCC/signal fields at exact generated commit"
+        },
+        {
+          "document": "u5-embassy-build",
+          "locator": "lines1–89 peripheral version/cfg derivation"
+        },
+        {
+          "document": "embassy-stm32-cargo",
+          "locator": "lines219–224 generated-data dependency tag"
+        }
+      ],
+      "applicability": "Embassy69006a4158aa6d605ad8506ade0f2f79159131e3; generated metadata b99bf17d58e6a8d385faf4b87b5f310ca2c057a0; no actual target build",
+      "engineering_consequence": "Tx-only constructor still initializes full-duplex/TSIZE0; selected path uses unbounded waits and all-ones IFCR, and drop gates only the RCC clock. Actual supported baud divider can exceed requested frequency. Require exact adapter/remedy or separately specified continuous-transfer path.",
+      "open_assumption": "No stronger upstream bug or physical failure claim. Effective binary/features, internal NSS and selected stop/error/deadline/hold behavior remain unqualified.",
+      "required_negative_case": "An API name, requested frequency, immediate trait flush or destructor must not establish the finite/simplex, bounded, completed and reset-safe hardware configuration.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C51",
+      "claim": "U585 ROM boot has different resource ownership and watchdog behavior from the proposed application configuration.",
+      "evidence": [
+        {
+          "document": "u5-an2606",
+          "locator": "§4.8 p57;boot-model constraints pp58–60;chapter95 Table217 pp501–504 and Table219p506"
+        },
+        {
+          "document": "u585-um2839",
+          "locator": "Table12 Bluetooth UART p24 and selected expansion assignments"
+        }
+      ],
+      "applicability": "Proposed U585 kit PA7/PB0 and PC0/PC1/PB6 pins; no received ROM identity",
+      "engineering_consequence": "ROM I2C3 PC0/PC1 and I2C1 PB6/PB7 overlap proposal; PA7 input and PB0 absent from selected ROM resource table alone do not prove universal button safety. ROM periodically feeds hardware-enabled IWDG; its Go path is not equivalent to fresh secure reset. Require explicit boot-entry/return and reset-pin/radio policy.",
+      "open_assumption": "Current RM options remain authority; malformed AN activation text and unused SPI3 direction disagreement are not wiring/write recipes. Actual ROM/silicon identity remains H02.",
+      "required_negative_case": "ROM wait-loop, reset or bootloader Go must not be treated as an application watchdog timeout, established secure attribution or already-safe external-pin state.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C52",
+      "claim": "U585 kit TCPP03 I2C address, gate controls and status depend on the documented encoding and power mode.",
+      "evidence": [
+        {
+          "document": "u585-tcpp03",
+          "locator": "I2C/modes pp10–12 including Figure11; protection pp13–18;electricalpp6–8"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Native sheet9 U8,I2C_ADD,EN and gate/sense paths"
+        },
+        {
+          "document": "u585-um2839",
+          "locator": "§7.5 pp20–21"
+        }
+      ],
+      "applicability": "MB1551 D01 source proposal, no physical board observation",
+      "engineering_consequence": "Grounded I2C_ADD gives7-bit0x34, distinct from0x68 write-address byte. GDC/GDP gate bits have opposite senses; FLGn changes meaning by mode. EN reset/edge and valid CC termination must be specified; OVP/OCP labels are not exact voltage clamps or USB current permission.",
+      "open_assumption": "Final I2C/UCPD/USB/reset/suspend/power policy remains unselected, including actual EN-low proof.",
+      "required_negative_case": "Shifted I2C address, generic gate-enable assumption, mode-independent FLGn or nominal500mA label must not pass the USB power/connection boundary.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C53",
+      "claim": "The native U585 kit USB sense wiring agrees across PDF/CAD, but its separate PF14 divider requires analog-sensing configuration.",
+      "evidence": [
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Native sheet9 and enlarged U8 region;PF14 R5=330k/R6=49.9k path"
+        },
+        {
+          "document": "u585-mb1551-design",
+          "locator": "Selected MB1551D SchDoc U8 pins9/11,R7/R8 wires/junctions and PCB pad nets"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "PF14 pin-function row p115 ADC4_IN5"
+        },
+        {
+          "document": "u585-tcpp03",
+          "locator": "Pinoutp2;OVP Table13p14"
+        }
+      ],
+      "applicability": "Selected MB1551D source objects only; ADC4 remains excluded in present manifest",
+      "engineering_consequence": "Initial pin9/11 conflict reading withdrawn: pin9 fullVBUS andpin11 divider agree in all three sources. PF14 receives about0.657V at nominal5V; it is not demonstrated as a digital-high VBUS detector. Admit/review ADC4 or specify another complete sensing policy before choosing.",
+      "open_assumption": "R8 annotation differs from actual2.4k label; no physical board defect, assembly proof, tolerance/deadline qualification or chosen sensing alternative.",
+      "required_negative_case": "A full-sheet visual misread or a digital GPIO read of the analog divider must not establish defective wiring, valid VBUS or physical unplug.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C54",
+      "claim": "U585 CPU-I2C control requires exact transfer counting, real timing margins and bounded reset/error completion.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§65.4.3–7 pp2692–2699;controller§65.4.9pp2709–2719;error/lowpower/interruptpp2735–2737;registerpp2739–2753"
+        },
+        {
+          "document": "u585-es",
+          "locator": "§§2.20.1–3 pp32–33;§2.4.1p17 and selected applicabilityp3–4"
+        }
+      ],
+      "applicability": "Proposed polling, seven-bit TCPP03 I2C2 control; no target, SMBus, DMA or autonomous mode",
+      "engineering_consequence": "Require fresh RXNE, exact byte count and final STOP. PE reset retains configuration, releases only this MCU lines and needs three APB cycles. Clock/timing equations and erratum minimum kernel rates of4/10/20MHz are separate from nominal bus rates. Stop modes and filters require exact revision/configuration correspondence.",
+      "open_assumption": "Actual clock, TIMINGR, tolerance, load and deadline tuple plus qualified adapter remain. GPIO section2.4.1 is X-only, not W/U.",
+      "required_negative_case": "Premature STOP, stale RXDR, externally held-low bus, missing kernel clock, arbitration or nonexpiring recovery must fail control/transport without granting local consent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C55",
+      "claim": "The pinned I2C blocking source does not by itself establish the proposed bounded exact-length control adapter.",
+      "evidence": [
+        {
+          "document": "u5-embassy-i2c",
+          "locator": "lines185–255 blocking constructor/init/timeout feature dispatch"
+        },
+        {
+          "document": "u5-embassy-i2c-v2",
+          "locator": "lines131–170 init/reset;309–357errors;440–535RX status/read;537–632write/write-read;2657–2763timings"
+        },
+        {
+          "document": "u5-embassy-i2c-config",
+          "locator": "7-bitSADD conversion and Config defaults/GPIO lines1–145,158–235"
+        },
+        {
+          "document": "u5-embassy-wait",
+          "locator": "Complete source;feature-dependent Timeout::check/with"
+        }
+      ],
+      "applicability": "Exact Embassy commit69006a4158aa6d605ad8506ade0f2f79159131e3; no effective target/time backend",
+      "engineering_consequence": "An absolute deadline is shared when the time feature is active and never expires without it. The soft_reset PE loop is unbounded. wait_rxne distinguishes early STOP from DataAvailable, but master read ignores the enum before RXDR access. Require count/status proof and bounded cleanup; no reproduced upstream bug or physical failure asserted.",
+      "open_assumption": "Clock, filter, timing and overall deadline/abort policy are not proved by API/default1000ms or source readability.",
+      "required_negative_case": "A disabled time feature, stuck PE or STOP before fresh RXNE must not return a qualified complete TCPP status or preserve pending consent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C56",
+      "claim": "U585 UCPD-assisted sink ownership has revision-specific trimming and reset/termination lifetimes distinct from TCPP03 state.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§74.3Table774p3460;§§74.4.6–74.5.2pp3472–3475;softwaretrim3478;controlregisterpp3480–3491;PWR_UCPDRpp458–459"
+        },
+        {
+          "document": "u585-es",
+          "locator": "§2.26pp40–41 and applicabilityTable3p5"
+        },
+        {
+          "document": "u5-embassy-ucpd",
+          "locator": "selectedconstructor/CC/U5trim lines120–214,265–310,327–365"
+        }
+      ],
+      "applicability": "Revision U no-PD/no-DMA sink proposal, unselected; X/W/U differences preserved",
+      "engineering_consequence": "Prepare both Rd terminations before DBDIS; disabling UCPDEN resets control state. Revision U software Rd trim source addresses agree; X requires automatic trim and reserves CFGR3. Stock constructor enables DMA requests, NVIC and a Hard Reset mask, which differs from the narrow proposal. TCPP CC/EN/sense and MCU low-power policy remain separate.",
+      "open_assumption": "No PD packet algorithm, source/VCONN/FRS path or selected EN/termination/sensing alternative admitted. Rp/Rd tolerance errata affect X only, not W/U.",
+      "required_negative_case": "RCC re-enable, destructor drop, ROM return, wrong-revision trim or TCPP mode change must not be treated as established valid sink termination.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C57",
+      "claim": "Exact U585 software metadata and current manual clock topology must be reconciled per package and peripheral.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "NativeFigure38p487 visuallyinspected;UCPDclock§74.4.2p3462"
+        },
+        {
+          "document": "u5-pac-u585ai",
+          "locator": "I2C2/UCPD1 selectedobjects at generatedcommitb99bf17d58e6a8d385faf4b87b5f310ca2c057a0"
+        },
+        {
+          "document": "u5-pac-u585vi",
+          "locator": "I2C2/UCPD1 selectedobjects at samegeneratedcommit"
+        },
+        {
+          "document": "u5-embassy-ucpd",
+          "locator": "constructorHSI16assumption/divider lines146–163"
+        }
+      ],
+      "applicability": "Existing AI kit and VI custom-package documentary leads only",
+      "engineering_consequence": "AI metadata includes PH4/PH5 I2C2 AF4; VI allocation does not. I2C2 RCC fields correspond. The current clock tree HSI16 to UCPD1 differs from the PAC kernel label PCLK1; do not derive the UCPD divider from that metadata label.",
+      "open_assumption": "Software metadata is not package electrical proof; oscillator enable/ready and effective build clock remain unqualified.",
+      "required_negative_case": "Cross-package pad reuse or a metadata frequency label must not pass physical pin/clock qualification.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C58",
+      "claim": "Current U585 OTG_FS selected architecture is a CPU-driven FIFO device path, distinct from the family HS DMA controller.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§72.1,72.4 pp3133–3139;device endpoints pp3143–3144;FIFO allocation pp3152–3156;GAHBCFG p3168"
+        },
+        {
+          "document": "u5-embassy-otg-wrapper",
+          "locator": "FS constructor lines60–96; U5 constants lines540–640"
+        }
+      ],
+      "applicability": "U575/U585 chapter72 and exact existing U585 FS wrapper candidate",
+      "engineering_consequence": "CPU32-bit FIFO accesses,320-word dedicated FIFO and six endpoint slots correspond. GAHBCFG bits6:1 are reserved; do not copy HS DMA configuration or infer arbitrary SRAM DMA from generic reset-field wording. Exact FIFO/buffer/endpoint tuple and source bounds remain required.",
+      "open_assumption": "Remaining endpoint/current-model and complete master/driver/build correspondence is not signed. No throughput or capacity measurement.",
+      "required_negative_case": "HS API naming, generic AHB-master text or empirical FIFO allowance must not qualify a DMA path, buffer bound or complete U585 device configuration.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C59",
+      "claim": "Pinned U585 USB wait limits and failure behavior depend on separate features and actual call paths.",
+      "evidence": [
+        {
+          "document": "u5-embassy-usb-mod",
+          "locator": "U5 common setup supply-ready wait, complete file"
+        },
+        {
+          "document": "u5-embassy-otg-wrapper",
+          "locator": "Bus::init/disable lines273–490"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "IRQ lines1–226; wait/flush/abort lines815–1055; reset/poll lines1158–1455"
+        },
+        {
+          "document": "u5-embassy-otg-cargo",
+          "locator": "Complete manifest optional embassy-time feature/default empty"
+        },
+        {
+          "document": "embassy-stm32-cargo",
+          "locator": "time feature lines364–376 and dependency lines170–171"
+        }
+      ],
+      "applicability": "Exact Embassy69006a4158aa6d605ad8506ade0f2f79159131e3 source; no resolved binary",
+      "engineering_consequence": "Supply-ready, wrapper AHB-idle and forced-mode waits are unbounded. Flush/abort helpers get10ms only with USB dependency embassy-time, otherwise infinite; STM32 time does not forward it. Timeout warns then continues. IRQ/critical-section timer progress and one overall failure budget remain required.",
+      "open_assumption": "Public core_soft_reset method is not conflated with actual wrapper RCC-reset path. No physical hang, exploit or target feature graph asserted.",
+      "required_negative_case": "A finite local timeout, warning log or outer task deadline must not count as successful quiescence/recovery or preempt synchronous IRQ work.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C60",
+      "claim": "Pinned U585 OTG zero-length IN source does not establish the current erratum workaround.",
+      "evidence": [
+        {
+          "document": "u585-es",
+          "locator": "§2.25.3p39;Table3p5;related TxFIFO§2.25.2pp38–39"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "start_in_transfer lines2031–2060;IN write/copy lines2088–2143;control accept lines2208–2230"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "Current device and reset/flush selected text in u585-otg-source-review.md"
+        }
+      ],
+      "applicability": "U585 X/W/U device IN ZLP, including control accept; no hardware failure observation",
+      "engineering_consequence": "Erratum requires SNAK/CNAK split with20/15 AHB-cycle delays around EPENA. Selected source sets CNAK and EPENA together for zero length too. Require exact workaround and bounded transfer/error policy before selection. Protected one-packet FIFO write is useful correspondence for separate corruption erratum, not a full device signoff.",
+      "open_assumption": "Remaining multipacket, reserved masks, endpoint/control/error and current source correspondence open. No reproduced upstream bug or physical qualification.",
+      "required_negative_case": "An API returning after FIFO copy, or combined zero-length endpoint enable, must not prove successful/erratum-compliant host delivery or permit local consent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C61",
+      "claim": "U585 USB software VBUS defaults and CID branch selection do not implement the kit sensing policy.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Peripheral states pp3142–3143;GCCFG/CID pp3186–3187"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "Config/defaults lines541–588;config_v2v3 lines1068–1090;power events lines1370–1415"
+        },
+        {
+          "document": "u5-embassy-otg-wrapper",
+          "locator": "CID routing lines390–409"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Sheet9 PF14 analog sensing and power topology"
+        }
+      ],
+      "applicability": "RM CID reset0x3000 source value, not an actual received-unit measurement",
+      "engineering_consequence": "CID is writable and is not immutable identity. Default detection/override are off. Under reset0x3000 branch, hardware detection off forces B-session valid true even when generic software override requested. Require explicit PF14 ADC/TCPP sensing and attach/removal policy; second kit supply defeats VBUS-absent-implies-off assumption.",
+      "open_assumption": "No sensing/controller/host choice or physical unplug proof. Exact clock/supply/bounds/connection timing remain unqualified.",
+      "required_negative_case": "Forced BVAL, reset, timeout or writable CID must not be treated as physical plug state, valid power, immutable silicon identity or a completed sensing configuration.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C62",
+      "claim": "U585 IRQ position, priority, security targeting and pending/active state require distinct configuration and source acknowledgement.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Chapter22pp912–918 and Table186"
+        },
+        {
+          "document": "u5-pm0264",
+          "locator": "NVIC4.2pp176–183;vector/prioritiespp31–35;selectedAIRCRTable67pp191–192"
+        },
+        {
+          "document": "u5-pac-u585ai",
+          "locator": "17 selected IRQ names/numbers and4 implemented priority bits"
+        },
+        {
+          "document": "u5-pac-u585vi",
+          "locator": "Same selected IRQ metadata"
+        }
+      ],
+      "applicability": "Single trusted secure-image U585 proposal, no hostile-application isolation",
+      "engineering_consequence": "Use explicit real IRQ masks/offsets and supported priority grouping. External enable/pending/IPR fields are not banked; ITNS filters access and targets state. Disable does not clear pending, and clearing pending does not acknowledge a held peripheral source or clear active state. Initialize secure handlers before unmask.",
+      "open_assumption": "Final source/handler/priority/vector/reset policy remains unselected. Table/metadata match is not an effective interrupt image or complete allowlist.",
+      "required_negative_case": "A zero nonsecure read, sequential vector priority column or cleared NVIC pending bit must not establish secure ownership, runtime priority or recovered peripheral state.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C63",
+      "claim": "A higher-priority timer interrupt cannot by itself bound waits executed with secure configurable exceptions masked.",
+      "evidence": [
+        {
+          "document": "u5-pm0264",
+          "locator": "PRIMASK/FAULTMASK/BASEPRIpp15–17;priority/groupingpp34–35;NVICpending behaviorpp178–182"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "Selected synchronous wait/critical-section paths in OTG review"
+        },
+        {
+          "document": "u5-embassy-wait",
+          "locator": "Time-feature deadline implementation"
+        }
+      ],
+      "applicability": "U585 selected polling and USB IRQ/critical-section contexts",
+      "engineering_consequence": "PRIMASK_S masks configurable secure exceptions including timer ISR. Require an actually advancing clock in every synchronous wait and a separate progress/watchdog policy; feature flags and outer task deadlines alone cannot preempt a blocked synchronous path.",
+      "open_assumption": "No effective timer/time backend, priority/mask schedule, latency or physical fault qualification.",
+      "required_negative_case": "Masked timer ISR, stopped time backend or unbounded fault recovery must not leave pending consent valid or keep feeding IWDG.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C64",
+      "claim": "Secure polling SysTick is a same-core short-deadline alternative with strict ownership, wrap and clock-state limits.",
+      "evidence": [
+        {
+          "document": "u5-pm0264",
+          "locator": "CompleteSysTicksection4.4pp205–207"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "U585-specificSysTick/calibrationsection22.2p912"
+        }
+      ],
+      "applicability": "Conditional unselected alternative; TIM2 remains excluded",
+      "engineering_consequence": "A 24-bit secure counter with processor clock and TICKINT=0 can be polled without ISR. Reserve one owner, configure unknown reload/current state, use actual frequency/tolerance and validated modular intervals/poll gaps below one wrap. COUNTFLAG is not a wrap counter; debug halt stops counting.",
+      "open_assumption": "No wall-clock, Stop/Sleep/debug-halt elapsed time, compiled backend or final clock/deadline selection; independent watchdog and invalidation policy remain required.",
+      "required_negative_case": "Multiple missed wraps, another SysTick owner, clock change/halt or inherited calibration constant must not produce a qualified elapsed-time or recovery claim.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C65",
+      "claim": "The existing Newhaven CTXP breakout differs from the raw DB/ILI9341V panel and does not document the proposed separate D/C and backlight contract.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp4–6,8 controller/pin/interface/rail identity"
+        },
+        {
+          "document": "nhd-breakout-product",
+          "locator": "Selected identity/features body integratedAF-CTXP/ST7789VI"
+        },
+        {
+          "document": "nhd-breakout-spec",
+          "locator": "physicalpp3–6; nativep5pin/interface table"
+        }
+      ],
+      "applicability": "Existing common U585/S3 modest SPI panel lead only",
+      "engineering_consequence": "Defer the breakout for the current four-wire/DC/backlight subset: its current specification documents three-wire SPI and BLK no-connect. Do not inherit raw DB power or commands. No new controller, driver or panel pursuit.",
+      "open_assumption": "This is documentary deferral, not proof that every undocumented mode is physically impossible. The raw panel remains unadmitted.",
+      "required_negative_case": "A matching 2.4-inch/CTXP name or integrated regulator/backlight must not transfer commands, LED requirements or pin mapping across assemblies.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C66",
+      "claim": "The raw DB panel requires exact 45-contact orientation, normal logic-rail margin and a separate controlled-current backlight.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp4–6,8; nativep4mechanical"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp11,26,239–241 pin/electricallimits"
+        },
+        {
+          "document": "nhd-molex-connector",
+          "locator": "Selected officialproduct identity/physical/electricalbody"
+        }
+      ],
+      "applicability": "Conditional raw NHD-2.4-240320DB-CTXP four-wire interface-I proposal",
+      "engineering_consequence": "IM3:0=0110; pin32 clock,30 data,33 DC,34 CS,6 reset; unused DB low/RDX high. Module VDD max3.3V and VIH maxVDD require worst-case kit rail/I/O bounds; nominal3.3V does not prove margin. LEDA40/LEDK41 need current control,15mA typical/25mA maximum,10.8–13.6V at15mA; no direct MCU drive.",
+      "open_assumption": "Module internal VDDI/VCI/factory straps, connector sales drawing, fixture orientation, rails/current driver/default-off and unpowered I/O remain unresolved. No available bench supply inferred.",
+      "required_negative_case": "Installed connector orientation, a12V source or an MCU backlight drive must not be inferred from rear view/nominal VF or energized before powered-off/injection proof.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C67",
+      "claim": "Raw ILI9341V four-wire rendering requires explicit edge, byte, pixel, window and final wire completion correspondence.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "nativephysicalp12fourwiretiming"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp33–35,40–42,63–64,112–116,129–130,136–138,247"
+        }
+      ],
+      "applicability": "Write-only8bit CPU render proposal; no TE/readback/DMA",
+      "engineering_consequence": "Bind rising capture/falling change and MSB first; RGB565 high byte first; explicit MADCTL/COLMOD/window and complete pixels. Full image153600bytes and row480bytes are calculated only. Partial-parameter failure restarts the whole command. CS/FIFO flags alone are not a complete frame or authenticated visible pixels.5MHz is a conditional ceiling, not a selected clock.",
+      "open_assumption": "Actual host mode/divider/first-bit/hold/errata, memory bounds, time backend, temperature/load and optical render remain H01 configuration/H02 evidence gaps.",
+      "required_negative_case": "Partial byte/pixel, unexpected reset, timeout or stale screen invalidates pending consent. Do not resume at an assumed GRAM address or treat wire byte count as readback.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C68",
+      "claim": "Raw panel reset, sleep and display-off do not establish GRAM erasure or an immediately valid screen.",
+      "evidence": [
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp92,102–104,110–111,116,219–220,233–235"
+        },
+        {
+          "document": "nhd-24-module",
+          "locator": "nativephysicalp14reset/powerdiagram"
+        }
+      ],
+      "applicability": "Proposed review/consent startup, cancel and reset policy",
+      "engineering_consequence": "Respect10us RESX low,5ms quiet and120ms sleep/reset intervals; use a conservative120ms recovery when state is unknown. Reset/off/sleep do not replace blanking and full rewrite. Explicit format/orientation and released controls are required.",
+      "open_assumption": "p233 repair-data versus p116 HW no-clear, power-down reset released versus falling-edge wording, external blanking and unpowered I/O remain unresolved. No zeroization or optical result.",
+      "required_negative_case": "Reset,28h or10h with a retained screen must not preserve consent or count as secret-image erasure.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C69",
+      "claim": "The raw DB module example is not yet a complete source-consistent startup recipe for the linked ILI9341V.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp15–16example"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp11,86–90,103,109,157–158,166–169,180–185,197–199,206,240"
+        }
+      ],
+      "applicability": "Exact existing module/controller startup correspondence; C02 open",
+      "engineering_consequence": "CB/CF are present and read; the initial absence inference is withdrawn. Preserve C0 extra-byte, B6 partial-write, post-SLPOUT delay, gamma-comment and CB AVDD5.8V versus5.5V restriction differences. Factory/EXTC enable and internal power must match the module before selecting either the example or a standard-command/defaults alternative.",
+      "open_assumption": "Coordinator permits a conditional factory-default-only H01 interface/qualification contract, not valid startup or a selected display. Exact module startup/internal-power/factory-state evidence is a named H02 stop before any operation requiring it; no blind internal-power experiment. H01 external rail/level/current/blanking/contact and all host decisions remain mandatory; no H04 freeze or new lead/outreach.",
+      "required_negative_case": "Disabled factory commands treated as NOP, retained settings, missing quiet time or an unreviewed rail code must not count as known successful panel initialization.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C70",
+      "claim": "The proposed U585 MSIS48 Run tuple must budget oscillator drift in flash, SPI and short-deadline configuration.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Tables47/54,pp280,295–297;PWRpp410–411,450;RCCpp488–492,516–517,589–591"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "Table83pp221–224;Table84pp224–225"
+        },
+        {
+          "document": "u5-pm0264",
+          "locator": "SysTick4.4pp205–207"
+        }
+      ],
+      "applicability": "Conditional fixed Run VOS3 MSIS48 proposal;no Stop-retained request/time claim",
+      "engineering_consequence": "Use the conservative45–51MHz calculation envelope, flash2WS/SRAM0WS and divide16 SPI at most3.1875MHz. Exclusive secure polling24-bit SysTick uses requested intervals≤200ms; Fmin converts maximum deadlines and Fmax minimum waits. Oscillator readiness or nominal48MHz alone does not establish USB accuracy.",
+      "open_assumption": "No complete host, effective backend, build or measured frequency. Final PWR/RCC/ownership/phase/error policy and source-to-binary correspondence remain.",
+      "required_negative_case": "A nominal48MHz one-WS flash setting, wrong deadline conversion, missed wrap, inherited Stop-wake range or halted counter must not preserve consent or extend a bounded synchronous wait.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C71",
+      "claim": "U585 CRS SYNCOK includes captured errors below three times FELIM and is not a continuous qualified USB clock.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "FullCRSpp610–619 andp620beforemap;RCCsecurityp508"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "HSI48trim/frequencyTable84pp224–225;MSIPLLsettlingTable83p223"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Nativeclock/reset sheet4"
+        },
+        {
+          "document": "u585-mb1551-design",
+          "locator": "SelectedX2records inD/MCU_CLOCK_&_RESET.SchDoc"
+        },
+        {
+          "document": "u585-x2-ndk-product",
+          "locator": "Selectedtechnicaltable"
+        },
+        {
+          "document": "u585-x2-ndk-spec",
+          "locator": "pp1–2,8–9 selectedstandardidentity/electrical/notes"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "Printed159–160§§7.1.11–7.1.13.1.1 FS-only frequency and source-jitter requirements"
+        }
+      ],
+      "applicability": "Already fittedLSE→CRS→HSI48 clock alternative,not a newoscillator or qualifiedclock",
+      "engineering_consequence": "Configure CFGR with CEN=0; use32-bit access and valid ICR mask0xF. Secure CRS.TRIM separately from HSI48 RCC. Candidate LSE/32=1024Hz, RELOAD46874/FELIM29 needs fresh whole periods, reference/error-age policy and a≤100ppm total reference condition before using the calculated budget.",
+      "open_assumption": "Exact EXS00A-MU01499 variant/load/temperature/aging and comparison/jitter/effective-feature binding remain unestablished. USB2 printed159–160 frequency/jitter requirements are now read. No measured LSE/USB accuracy.",
+      "required_negative_case": "Stale SYNCOK, missing reference, a trim limit, Stop freeze or1% MSI settling must not count as USB clock qualification; a clock failure invalidates transport and consent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C72",
+      "claim": "A U585 I2C2 timing candidate can be calculated for the bounded kernel envelope without assuming an exact48MHz clock.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "I2Ctimingpp2694–2697;I2C2SELp591"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "I2C/filterpp298–299;Table83pp221–224"
+        },
+        {
+          "document": "nxp-i2c-spec",
+          "locator": "Tables10/11pp43–45before6.2;pullupbodyp50"
+        }
+      ],
+      "applicability": "ConditionalCPUcontroller Standard-mode I2C2 subset,not actualbus qualification",
+      "engineering_consequence": "Candidate TIMINGR0x50A2272C uses PRESC5/SCLDEL10/SDADEL2/SCLH39/SCLL44, analog filter50–115ns, digital filter0 and rise≤1000ns/fall≤300ns. Calculated LOW/HIGH≥5.294/4.706us and setup≥1.294us at51MHz. Disable PE before changing timing/filter configuration; retain byte/STOP/deadline/recovery requirements.",
+      "open_assumption": "Actual PH4/PH5 pull-ups, capacitance, shared targets/enable-derived voltage, START/STOP/bus-free and source-to-binary correspondence remain required.",
+      "required_negative_case": "A frequency-only calculator, another device/filter value, early STOP, stuck bus or changed kernel must not establish a complete counted transfer or valid TCPP status.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C73",
+      "claim": "Existing U585 kit power rails and TCPP mode semantics constrain the proposed self-powered USB device contract.",
+      "evidence": [
+        {
+          "document": "u585-um2839",
+          "locator": "pp15–21 power/clock/USBsourcechoices"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Nativepower14,clock4 andUSB9"
+        },
+        {
+          "document": "u585-st1l05",
+          "locator": "A-versionpinsp7,Table7p10;selectedapp/limitspp1,5,8,17–18"
+        },
+        {
+          "document": "u585-tcpp03",
+          "locator": "pp11–14 modes/registers/UVLO andpriorselectedelectricaltable"
+        },
+        {
+          "document": "usb-typec-r2p5",
+          "locator": "pp153,180–183,201 defaultselfpoweredUSB2sink/disconnect"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "printed141§7.1.5.1 and150connectiontiming;currentECNsupersessionsseparate"
+        }
+      ],
+      "applicability": "SameU585kit self-powered/TCPP-onlyHibernate alternative,not selectedsupply or mode",
+      "engineering_consequence": "U19A has no enable and JP3 separates only the target rail; MCU sleep does not turn off board loads. Stated regulator limits can exceed the raw panel3.3V maximum. Hibernate can retain Rd/I2C/provider-off; VBUS_OK UVLO1.9–2.9V fits the Type-C disconnect threshold range, but EN/mode/status validity, bounded polling, actual pull-up detach and port-power limits must bind. ADC4/UCPD/PD/source remain excluded.",
+      "open_assumption": "Exact permitted existing5V source/JP4, EN startup/gate acknowledgement/reset, fresh polling/deadlines, VBUS-visible capacitance/suspend/reverse current and actual waveforms/current remain incomplete.",
+      "required_negative_case": "Whole-kit power/suspend compliance, physical unplug or panel-safe voltage must not be inferred from MCU sleep, a stale VBUS bit, nominal3.3V, charger bypass or GPIO reset alone.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C74",
+      "claim": "The pinned Embassy clock startup does not implement the proposed bounded drift-aware U585/LSE-CRS tuple.",
+      "evidence": [
+        {
+          "document": "u5-embassy-rcc-u5",
+          "locator": "Declarations/defaults;U5init throughset_clocks publication;MSIrange mapping;PLLdisablehelper. Nativefirstinitlogicalbody correspondedwithprimarywebsource;initialunusedPLLsetupcontext encountered,remainingPLLalgorithm/DSI/USBHS notsigned. Nominalfrequency/latency andboundedness gaps recorded."
+        },
+        {
+          "document": "u5-embassy-rcc-hsi48",
+          "locator": "Entire91line nativehelper read;allgenericfamilycfgbranches encountered,onlyU585selectedpathassessed. SOF-onlyconfiguration/defaults,unboundedready andlackoffreshCRSqualification recorded."
+        },
+        {
+          "document": "u5-embassy-rcc-mod",
+          "locator": "Selectedfamilymoduledeclarations andcfg routing;init/reinit/featureglue sites aroundlines645–763. LPtime-drivercontext encounterednotselected;remainingclockgate/refcount/prescalerhelpersnotreviewed."
+        },
+        {
+          "document": "u5-embassy-rcc-bd",
+          "locator": "Complete422linebackup-domainhelper textread;unusedfamilybranches encountered,onlyU5/default/LSI/LSE/DBP/RTC/backup-retention behaviorassessed. No livebackupdomain operation."
+        },
+        {
+          "document": "embassy-stm32-lib",
+          "locator": "Selectedinitwrapper/init_hwcriticalsection/RCCcalls"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "Clock/power/flash/CRSselectedbody in clock-power review"
+        }
+      ],
+      "applicability": "ExistingU585Rustcandidate,samecommit69006a4;no newdriver orclockbackend selected",
+      "engineering_consequence": "Require bounded readiness/switch/LSE/DBP/PLL-disable paths and clock-phase-correct polling time. Nominal MSIS48/VOS3 selects1 flash WS while this proposal needs2 for the upper envelope. The HSI48 helper supports SOF/default CRS, not the proposed LSE/reload/FELIM/fresh-capture policy. Explicit backup-domain/RTC state audit is required; returned metadata does not prove inherited disable or erasure.",
+      "open_assumption": "No remedy implemented or compiled. Full global HAL master/debug/time feature effects and final source-to-binary/supply/reset policy remain required.",
+      "required_negative_case": "An outer asynchronous deadline, timer IRQ, nominal frequency metadata, RTCDisable request or SOF flag must not establish finite initialization, physical clock accuracy, master exclusion or cleared retained state.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C75",
+      "claim": "The public S3 fixed-CDC registers permit an explicit finite IRQ/FIFO field set, while stock-driver reset/loss handling still needs a bounded remedy.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "chapter33 pp1243–1254,1256–1268;native1258MEMlayout"
+        },
+        {
+          "document": "s3-usj-reg",
+          "locator": "Selectedlines1–127,202–451,650–732 read for FIFO/RAW/enable/clear/CONF0/outcount/MISC/MEM/DATE. Incidentaltestregisterstart encountered,not used. Remainingtest/JTAG/endpoints not selected. No entireheader claim."
+        },
+        {
+          "document": "s3-usj-struct",
+          "locator": "Selectedlines1–125,202–259 read for FIFO32bitaccess/IRQ/conf0/outcount/MISC/MEM. OtherJTAG/test/endpointstructures not selected."
+        },
+        {
+          "document": "s3-usj-ll",
+          "locator": "Completeheader;intrmask/enum/FIFO/ZLP/reset helpers"
+        },
+        {
+          "document": "s3-usj-driver",
+          "locator": "Previouslyreadinstall/uninstall/ISR/bytequeue paths"
+        }
+      ],
+      "applicability": "ExistingS3CDC assessment,not selectedtransport or implementedISR",
+      "engineering_consequence": "DefinedIRQbits0–11 give0xfff; proposedCDCset0x6f6 plusTXbit3onlypending gives0x6fe. Service≤64bytes,checkDATA_AVAIL/FREE perbyte,avoidunchecked7bitpointerlength;W1Cobserveddefinedsourceevents. Error/reset/overflow/deadline invalidatepartialrequest/render/consent. No all-oneshelpermask,FIFOerase orpacketboundaryasframe.",
+      "open_assumption": "Clock/power/descriptor contract,exactadapter/init/queue/time/interrupt/source/binary correspondence remain; H02 error/reset/flood tests later.",
+      "required_negative_case": "Hostflood,closedport,64bytefinalpacket,softwarequeuefull,error/resetrace orretainedFIFO mustnotblockforever,loseinputsilently,preserveconsent orrepeatasecretoperation.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C76",
+      "claim": "Pinned S3 owner-security helpers separate JTAG disable from wholeCDC disable, but their shared write locks require an ordered lifecycle contract.",
+      "evidence": [
+        {
+          "document": "s3-idf-secure-boot-chip",
+          "locator": "Completechiphelper"
+        },
+        {
+          "document": "s3-idf-flash-encrypt-chip",
+          "locator": "Completechiphelper"
+        },
+        {
+          "document": "s3-efuse-table-csv",
+          "locator": "SelectedWRrows15–60 andfields128–182"
+        },
+        {
+          "document": "s3-efuse-table-header",
+          "locator": "USB/JTAG/PHYaliases/declarations"
+        },
+        {
+          "document": "s3-usj-boot-kconfig",
+          "locator": "Selectedsecurity/download/sharedlock/firstboot choices"
+        }
+      ],
+      "applicability": "Documentary developer/owner CDC conditions only; no provisioning procedure",
+      "engineering_consequence": "OwnerCDC requiresUSBJTAG/padJTAG disabled,wholeSerialJTAG enabled,correctPHY/pins,ROMprint suppressed andcompleteC04download/secureboot/update policy. WRbit2groupsCDC/PHY/debug;WRbit18groupsROMprint/download/secureversion;WRbit19separateOTGdownload/revisioncontrols. Establish/readbackdesiredvaluesbeforelocks;do not inferallfirstbootbehavior fromchiphelper alone.",
+      "open_assumption": "Fullorderedboot/update/recovery/rollback/interruptedprovisioning contract andreceivedstate remain. No fuse/code/build executed; automaticfirstbootfuseeffects require separateH02authorization.",
+      "required_negative_case": "WholeCDCdisabled,wrongPHY,uncontrolledROMwriter orprematuresharedlock mustrefusesecretloading; debug-onlydisable mustnotbe mistakenforwholeUSBdisable orcompleteownerstate.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C77",
+      "claim": "S3 sleep and stream settings do not close the same-kit physical VBUS and USB suspend contract.",
+      "evidence": [
+        {
+          "document": "s3-usj-guide",
+          "locator": "Completeversionedguide,SleepModeConsiderations"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "§33.4.2p1253"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "Previouslyreviewednativepower/resettwoports"
+        },
+        {
+          "document": "s3-usj-stdio-kconfig",
+          "locator": "Previouslyreadprimary/secondaryconsolechoices"
+        },
+        {
+          "document": "s3-usj-cmake",
+          "locator": "CompleteforcedVFS/monitor featureconditions"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "Previouslyreadsource/pullup/current clauses"
+        },
+        {
+          "document": "usb2-suspend",
+          "locator": "CompletepreviouslyreadECN"
+        }
+      ],
+      "applicability": "SameS3kit CDCselectiongate;oneconditionalexternalJ4attachfixture assessment authorized,not selected/wired",
+      "engineering_consequence": "Keeponeexclusivewriter andfreshsession withfiniteframe/queue/timebounds. Light sleepgatesAPB/PHYwithpossibleassertedpullup/unresponsiveUSB;deepsleepdisconnects. J4hasnoVBUSsense;SOF/reset/timeout !=physicalunplug. Buspoweredwholekit≤2.5mAsuspend orselfpoweredactualVBUS-controlledpullup mustbe specified beforeselection.",
+      "open_assumption": "Exacthardwireddescriptor/current/identity,clock/power/attach/suspend arrangement andphysicalqualification remain. Coordinator permitsoneexternalattachfixtureifwholekitbuspoweredsuspendcannotclose;actualthreshold/default/isolation/backfeedcontract stillmustbe specified. No assumptionthatkitfailssuspend.",
+      "required_negative_case": "A second supply,PMflag,sleepcall,busactivityheuristic orclosedCDCport mustnotestablishVBUSpresence,portcurrentpermission,correctdisconnect orfreshconsent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C78",
+      "claim": "A conditional external S3 J4 attach fixture needs autonomous VBUS/default-state isolation and an actual USB suspend contract.",
+      "evidence": [
+        {
+          "document": "usb2-base",
+          "locator": "§§7.1.5.1/7.1.7.6/7.2.1/7.2.3;Tables7-7/7-9/7-14 selectedbody"
+        },
+        {
+          "document": "usb2-connect",
+          "locator": "FullECNtext;nativepp4–5redlines;thresholdpp5–6"
+        },
+        {
+          "document": "usb2-resistors",
+          "locator": "Full5pagetext;nativep4figures"
+        },
+        {
+          "document": "usb2-suspend",
+          "locator": "Full2pageECN"
+        },
+        {
+          "document": "usb2-vbus",
+          "locator": "PriorcompleteECN"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "NativeNov30v1.1sheet2J4/J2/J1/power/reset"
+        },
+        {
+          "document": "s3-module",
+          "locator": "pp10–11GPIO8pad12,p29currentconditions"
+        },
+        {
+          "document": "s3-ds",
+          "locator": "pp64–65supply/DCconditions"
+        },
+        {
+          "document": "s3-usj-guide",
+          "locator": "PriorcompleteS3sleep/controllerlimits"
+        }
+      ],
+      "applicability": "Onecoordinator-authorizedconditionalexistingkitJ4attachfixture assessment;not selected/connectedhardware",
+      "engineering_consequence": "SpecifyrealVBUSdetection,autonomousdataisolation/backfeed/defaultpowerstateswithatmostGPIO8J1.12status. Proposedrising3.90±.05/falling3.30±.05V,1msisolation/poll,≤.50mAVBUSdraw,≤1µAoffdataleakareengineeringrequirements,notparts/measurements. Sharedkitloadsremainexternalonlyifseparatesupply/descriptorgatesclose. Suspendkeepspullup/resume;deepsleepdisconnectisnotcompliance.",
+      "open_assumption": "Fixeddescriptor/status,selfpower/supply/regulator/bridge/reset/clock/adapter policy remain;actualfixtureparts andtiming/load/injection/waveformsH02. Wholekitbuspoweredsuspendisunmeasured,notdeclaredfailed.",
+      "required_negative_case": "VBUSlossduringreset/boot/clockloss/localpoweroffmustnotdependonrunningfirmwaretoisolatedataorpreventbackfeed;stuckstatusmustnotgrantconsent. Invalidsuspend/current/edge/thresholdorboottimingrefusesfixtureuse.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C79",
+      "claim": "The fixed S3 USB power-source descriptor and device-status contract remains independent of any external attach fixture.",
+      "evidence": [
+        {
+          "document": "usb2-base",
+          "locator": "§9.1.1.2p242;§9.4.5pp254–255;§9.6.3pp264–266"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "Previouslyreviewedchapter33functional/registerbody"
+        },
+        {
+          "document": "s3-usj-driver",
+          "locator": "Previouslyreadcompletedriver"
+        },
+        {
+          "document": "s3-usj-header",
+          "locator": "PreviouslyreadAPI"
+        },
+        {
+          "document": "s3-usj-ll",
+          "locator": "PreviouslyreadLL"
+        },
+        {
+          "document": "s3-usj-guide",
+          "locator": "Completeguide"
+        }
+      ],
+      "applicability": "FinitefixedCDCdescriptor/statusgap beforeC07admission;notNDAwaiverorUSBcertification",
+      "engineering_consequence": "ConfigurationbmAttributesD6muststateactualselfpowercapability,GET_STATUSdeviceD0actualcurrentsource,andbMaxPoweruses2mAunits. ReviewedTRM/driver/API/LL/guide scope suppliesnocompletehardwireddescriptortree/powerfieldvalues. Requireexactrawreceiveddescriptor/statuscapturewithknownsilicon/ROM/lot/lifecycle,safeindependentlyreviewedpower/fixture,hashes/tool/supply/resetconditions;GET_STATUSonlydefinedAddress/Configuredstates.",
+      "open_assumption": "No descriptorcaptureorhostadmission. Publicsourcegapislimitedtoreviewedexactscope,notproofallpublicsourceslackit. Fixedselfpowerincompatibilitycannotberepairedbyfixtureorsoftwaremisreport.",
+      "required_negative_case": "Rejectselfpoweredrouteifdescriptorcapability/statusdoesnotmatchactualsourceorcurrent/treeviolatescontract;do notenabledebug/changefixedresponses/relaxnormativerequirements. Ifbuspoweredsuspendandselfpoweredroutebothfail,coordinatormustdecidescope.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C80",
+      "claim": "S3 fixed-clock SYSTIMER permits an explicit separate polling unit, but the stock timestamp read is not fallibly bounded.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "§§11.1–11.5pp634–639;selectedregisterbody640–645,649–652;native641/644"
+        },
+        {
+          "document": "s3-idf-systimer-ll",
+          "locator": "CompleteLLsource"
+        },
+        {
+          "document": "s3-idf-systimer-hal",
+          "locator": "CompleteHALsource"
+        },
+        {
+          "document": "s3-idf-esp-timer",
+          "locator": "Completeesp_timerSYSTIMERsource"
+        }
+      ],
+      "applicability": "ExistingS3UNIT1exclusivepollingproposal;no newtimer/alarm/driverselected",
+      "engineering_consequence": "52bitUNIT1 usesXTAL/2.5average16MHz,APBregisterclock. KeepUnit0/frameworkownership;no globalreset/deinitasunitrepair. ClearoldWTCVALID29,issueUPDATE30,freshboundedlatch/consistency/progresschecks,64pollguards/twoconsistencyattempts proposed. HALsnapshotandLO/HIretryareunbounded;esp_timerusesUnit0/alarm2andthatHAL.",
+      "open_assumption": "Actualexclusiveowner/effectivefeatures,fallibleimplementation,referenceaccuracy/quantization/IRQ-overhead/normalguardlatency andH02negativecasesremain;no64bitcounterorwholeframeworkabsenceclaim.",
+      "required_negative_case": "StaleVALID,secondowner/reload/stall/clocklossorhostfloodmustnotcreatefreshdeadline,unboundedpoll,retainedconsent orcorruptframeworktimers.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C81",
+      "claim": "The proposed S3 CPU160/APB80/PLL480 tuple must preserve USB clock dependencies and bounded startup rather than trust defaults or nested waits.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "pp526–533reset/clocktables;§33.4.2p1253"
+        },
+        {
+          "document": "s3-module",
+          "locator": "Nativep39WROOM-1reference40MHz±10ppmannotation/TBDcaps"
+        },
+        {
+          "document": "s3-idf-cpu-kconfig",
+          "locator": "Completefile"
+        },
+        {
+          "document": "s3-idf-xtal-kconfig",
+          "locator": "Completefile"
+        },
+        {
+          "document": "s3-idf-rtc-clk",
+          "locator": "Selectedlines1–48,174–318,377–424read;CPU/PLLcalibration/setfreq/consumer/defaultsleep paths. OtherLSI/LSE/RTCsource bodies not newlyread. Internalanalogwrites are softwarebehavior,not publicPLLtimingguarantees."
+        },
+        {
+          "document": "s3-idf-rtc-clk-init",
+          "locator": "Completefile"
+        },
+        {
+          "document": "s3-idf-clk-tree-ll",
+          "locator": "Selectedlines63–91,272–523read:BBPLLenable/disable/frequency/config/calibration andCPUsource/dividerfields.32MHz/320MHzbranches encounteredunused. RemainingRTC/slow-clock/MSPItuning/helpersunread;no newanalogtuningfeature."
+        }
+      ],
+      "applicability": "ConditionalfixedactiveS3tuple,not measuredclock/USB/selfpower/transportselection",
+      "engineering_consequence": "CPU160usesPLL480/3/APB80;fixedUSJrequiresPLL48/APB≥40. Excluderuntimefrequency/sleep/bypasschanges. ClockinitUARTidleandPLLcalibrationcanwaitunbounded;requirefinitephase-correctstartupbeforesecrets. Requiredreference±100ppmengineeringenvelopegivesSYSTIMER15,998,400–16,001,600Hz;deadlineusesFmin/minwaitFmaxplusfractionaltick/overheadguard.",
+      "open_assumption": "Moduleannotationnotfactoryload/temp/agingguarantee;clock/reference/PLL/PHYjitter/supply/normalstartup/effectivebinarynotqualified. FullC03/C04/C05policystillneeded.",
+      "required_negative_case": "Nominal160/40MHzmetadata,PLLcalibrationbit,outerasynctimeoutorclockconsumerrefcountmustnotestablishfiniteinitialization,USBaccuracy,deadlinecontinuityorownerstate.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C82",
+      "claim": "U585 nominal-HSI48/A entropy reading can close conditional documentary triage without accepting its real clock/profile or any entropy output.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "EntireRNGbodypp1903–1919,especially48.6.2/footnote1914/48.7"
+        },
+        {
+          "document": "u5-an4230",
+          "locator": "Rev14§5.1.3T3–4pp20–21"
+        },
+        {
+          "document": "nist-e11-public-use",
+          "locator": "v1.1operating/configuration/fulltext"
+        },
+        {
+          "document": "u5-embassy-rng",
+          "locator": "Priorcompletepinnedsource"
+        }
+      ],
+      "applicability": "ExplicitcoordinatorconditionalC08/H01allocation;notqualifiedentropy/clock/component/H04selection",
+      "engineering_consequence": "RetainmanufacturerreferenceCR0x00F00D00/HTCRA2B0/NSCR17CBBatnominal48MHz;polling/locked/RNGENcalculated0x80F00D04doesnotqualifyoperation. Exactproposedrange/AHB48≠E11CPU/AHB160;CEDconflictremains. H02STOPbeforeentropy-dependentuseuntilclock/divider/profile/silicon/VDD/temp/sourcejustificationresolved;publicfixturesonlyotherwise.",
+      "open_assumption": "NoacceptedRNGoutput,certificate reuseorreceivedassessment. CLKDIV1departsexactANtupleandisunselected. Frequency/outputstatisticscannotrecreaterawnoiseassessment;explicitsourceimpossibilitystayscoordinatorfeasibilityblocker,notlatermeasurement.",
+      "required_negative_case": "No genericdriver/default/reset/retry/traitsuccess/nominalclock/statisticalpassmayadmitentropy;faultwipeswhole32bytedestinationandinvalidatesoperationwithoutin-fillrecovery.",
+      "status": "documented-selected",
+      "closure_owner": "H01 conditional documentary / H02 explicit pre-use stops",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C83",
+      "claim": "S3 supported non-RF entropy needs an exclusive live SAR source lease and a fallible bounded adapter, while exact internal source/health evidence remains a pre-use gate.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "pp920–921;selected1469–1474andnative1471–1472"
+        },
+        {
+          "document": "s3-rng-sdk",
+          "locator": "Completeversionedtechnicalbody/API"
+        },
+        {
+          "document": "s3-idf-random",
+          "locator": "Completepinnedsource"
+        },
+        {
+          "document": "s3-idf-boot-random",
+          "locator": "CompleteS3enable/disable"
+        },
+        {
+          "document": "s3-idf-rng-adc-ll",
+          "locator": "Selectedlines190–310,342–420,632–672,684–778,812–839,909–991read foronlybootloader_random dependencies:clock/reset,pattlength/index,conversionmode,trigger,ADC1DIG/ADC2arbiter,sleepcontroller,internalreference/analogwrites. Unusednearbyfilter/conversionlimit/calibration/outputbitsencounteredonly;remainingADCdriverfunctionsnotreviewed. No applicationADCdriver/feature orcorrectedhardwaremappingselected."
+        },
+        {
+          "document": "s3-idf-rtc-timer-hal",
+          "locator": "Completeheader"
+        },
+        {
+          "document": "s3-idf-rtc-timer-ll",
+          "locator": "Completeheader"
+        },
+        {
+          "document": "s3-idf-soc-caps",
+          "locator": "SelectedRTC/RNG/corecapabilitylines"
+        }
+      ],
+      "applicability": "ExistingS3API/internalSARdependencyassessment,notnewADC/timer/backendorqualifiedprovider",
+      "engineering_consequence": "ReservebothSARunits/analogcontrolsonfixedcorewithRF/ADC/ULP/touch/otheranalogwritersabsent. DocumentactualADC1slot0/ADC2slot1,len1,commonrefenableandunresolvedADC2correspondencewithoutinventingfix. SDKmain-sourcepreconditionoverridesRC-onlycomment;bootstateseednotunlimitedentropy. Busywait/staticCCOUNT/partialfill/healthlessreturnneedfiniteall-errorwrapper;RTCmixhelperhasnoextrapollingloopandisnotnewdeadline/fallbacksource.",
+      "open_assumption": "No real-sourcehealth/readback/quality/callpath/effectivebinaryqualification. Pre-usegateincludesexactsource/ownership/clock/statejustificationandH02failureobservability;simpleoutputtests/APIreturncannotcloseit. NoSDKdefect orimpossiblehostconclusionassertedfrompatternexampledifference.",
+      "required_negative_case": "RC-only/sourceoff/SARorRFconflict/clockchange/fixedpattern/partialorfailedfill/timeoutmustproducezerooperationoutputandwhole-destinationcleanup,no weakerfallback;injectedfailurepassdoesnotproveallphysicalstuckfaultsdetected.",
+      "status": "documented-selected",
+      "closure_owner": "H01 conditional documentary / H02 explicit pre-use stops",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C84",
+      "claim": "The two retained hosts have explicit fixed internal-memory and copy/stack/queue qualification caps, without measured-fit or hostile-app isolation claims.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Figure4p142native;Table33p199;priorSRAM/ECC/MPCBB/cachebody"
+        },
+        {
+          "document": "embassy-stm32-lib",
+          "locator": "Selectedinit_hw792–850,1018–1075;globalcalleeproofnotcomplete"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "pp400–407;selectedPMS683–705;SYSTEM825–826,829,831–834"
+        },
+        {
+          "document": "s3-idf-memory-ld",
+          "locator": "Completefile"
+        },
+        {
+          "document": "s3-idf-sections-ld",
+          "locator": "Completefile"
+        },
+        {
+          "document": "s3-idf-boot-memory-ld",
+          "locator": "Completefile;loaderstartassertion"
+        }
+      ],
+      "engineering_consequence": "Adoptmemory-ownership-proposal.jsonasconditionalfiniteH02qualificationcaps:one16KiBframe/result/review,onepending,public/secretrow480activebytesinseparate512Bslots;64KiBpublic/64KiBsecret/64KiBstack-backend,exactper-hostaddressmaps. S3noaliasdoublecount;320KiBallocation+14080staticmarginwithin341760pinnedwindow;U585usesSRAM1+2only. Requireeffectivelinkermap/copy/master/stackinventoryandrefusalonoverflow.",
+      "open_assumption": "No linkedfit/peak/timing/clearingevidence;P01numericmaximaaremeasurementgates. Backendspills/FFI/TLS/hiddenownershipnotuniversalDropwipe. No framebuffers,externalRAMsecrets,implicitgrowth,USBbackupplaintextorhostile-imageisolation.",
+      "required_negative_case": "Byte+1/secondpending/unaccountedcopy/stackoverflowmustrefusewithouttruncation,blindreview,secrettransportorpendingauthority;reset/faultinvalidatesandclearsownedstatewithinqualifiedlimits.",
+      "status": "documented-selected",
+      "applicability": "ConditionalH01papercontract;no targetcapacity/security/physicalqualification",
+      "closure_owner": "H01 documentary / H02 effectivebuildandphysicalgates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C85",
+      "claim": "S3 memory permissions and master exclusions require explicit readback/locks/reset ownership; defaults and denied reads cannot prove isolation.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "PMS683–705;selectedusage/DMA-lock/split/IRAM/DRAMregisterprose712–757;SYSTEM825–826,829,831–834"
+        },
+        {
+          "document": "s3-idf-memory-ld",
+          "locator": "Completefile;active403CB700andcomment403B9000"
+        },
+        {
+          "document": "s3-idf-boot-memory-ld",
+          "locator": "Completefile;permittedappstaticupperbound/assert403CB700"
+        }
+      ],
+      "engineering_consequence": "CPU0World0only/CPU1heldresetandgated;alignedcode/dataPMSsplits,World1internalSRAM/ROMdeny,World0codeRX/dataRWwithoutcrossbusaccess;all12namedDMArequesterssixinternalfieldsdenyandnamedlocks. GDMA/EDMAandunusedtrafficenginesreset/gated;SARCPUleaseandflashbootsecuritydistinct. Readbackthenusage/split/permissionlocks,repeatafterCPUreset.",
+      "open_assumption": "TrustedWorld0codecanreadallitsdata;noapp/corecompartmentsorpermanenteFuselockclaim. Periph/worldswitch/externalPMSfeaturesnotpromoted;effectivemaster/feature/handlerproofH02/C04/C07. Appintroductoryreservationcommentdiffersactiveconstant,butreferencedbootloaderassertionsupportsselectedstaticlimit;noROMdownloaderinliveapp.",
+      "required_negative_case": "Denied0/deadbeafreadorsilentwritefailurecannotbevalidreadback/cleanup;firstfaultmustinvalidatestate,notbeignored. No secondcore,DMA,PSRAM/RTC/trace/dumpsecretpathorcacheinvalidate-as-erasure.",
+      "status": "documented-selected",
+      "applicability": "ConditionalH01papercontract;no targetcapacity/security/physicalqualification",
+      "closure_owner": "H01 documentary / H02 effectivebuildandphysicalgates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C86",
+      "claim": "U585 generic EP0/bulk control/FIFO/interrupt requirements are finite, without selecting a class/identity/driver or admitting enumeration.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Selecteddeviceendpoint/control/register/modelbody3204–3230,3274–3278,3282;native3173/3218/3223"
+        },
+        {
+          "document": "u585-es",
+          "locator": "2.25pp38–40"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "Printed52–53;225–228;245–263selected;267–271"
+        },
+        {
+          "document": "usb2-errata2000",
+          "locator": "Selected9–10,12–13"
+        },
+        {
+          "document": "usb2-errata2002",
+          "locator": "p2bcdUSB0200"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "Selectedactualcontrol/arm/IRQpath;2195–2250"
+        }
+      ],
+      "engineering_consequence": "GenericEP0MPS64+EP1bulkINOUTMPS64,96+16+16FIFOwordswithin320,explicitdefinedW1Csets/childsourceack,40msactivecontrol/20msrecovery/4pop256B200usIRQqualificationcaps. ExactSETUP/wLength/state/halt/toggle/status/addressrulesandZLP20/15AHBsteps;noalloneswrites/stockwarncontinue/USBcopy-as-completion. ClassVIDPIDunselected;lawfulidentityandchosenclasssourcegateH02,noS3CDCinheritanceorT01transportimplementationclaim.",
+      "open_assumption": "OUTsemanticblockerandaddress-onwire/shortIN-errata/effectivedriver/time/clock/attachconditionsunresolved. Noenumeration,measuredcapacity/latency/USBcomplianceorwholehostrowadmission.",
+      "required_negative_case": "Malformedrecipient/state/length/endpoint/status/hostflood/fault/deadline/resetmustrefusewithoutunsafeBCNTslice,unboundedIRQ,partialframe/consent,reexecutionorweakfallback.",
+      "status": "documented-selected",
+      "applicability": "FiniteH01sourcecontract/triage;explicitunsatisfiedproperties,noUSBqualification",
+      "closure_owner": "H01 unresolvedsourceproperties / H02 pre-usegates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C87",
+      "claim": "The current U585 non-isochronous OUT model has an unresolved64/68 transfer-size correspondence that remains an unsatisfied interface property.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Native3269formula;3270completionconditions;3228–3229bytefields"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "1282/1595/1835XFRSIZ=MPS×packets"
+        }
+      ],
+      "engineering_consequence": "ForMPS64/n1printedformula68versuspinneddriver64;neitherselected/supported/qualifiedbydeduction. FiniteC06reading/triagemaycompletebutrequiredcriterionremainsunsatisfied. H02STOPbeforedependentOUTenumeration/operation. Correctapplicablemanufacturersourceorevaluateddedicateddiagnosticevidenceneeded.",
+      "open_assumption": "Notprovenhostimpossibilityorobserveddriver/hardwarebug. No sourceformulaedit,newclass/driver/IPlead,normalprobeassumingconformanceorautomaticmeasurementwaiver. Anyfinitepublicdatadiagnosticfirstneedsreviewedprocedure/identifiedbench/bufferFIFO/abortIRQcounterlimits.",
+      "required_negative_case": "Do notaccept64or68asconformantbecausefieldfits,allocationislargeorvendorcodeusesit;no pendingauthorityorrealidentityinunqualifieddiagnostics.",
+      "status": "documented-selected",
+      "applicability": "FiniteH01sourcecontract/triage;explicitunsatisfiedproperties,noUSBqualification",
+      "closure_owner": "H01 unresolvedsourceproperties / H02 pre-usegates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C88",
+      "claim": "The retained TCPP-only Hibernate sensing proposal has exact mode/gate/readback and finite normal-software validity limits, with independent lifetime/electrical gates still open.",
+      "evidence": [
+        {
+          "document": "u585-tcpp03",
+          "locator": "Tables11/12pp11;Figure11p12;priorEN/UVLOtext8–14"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "DCTLSDIS3206–3207;currentI2Csubset"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "Priorpower/source/pullupandcurrentstateclauses"
+        },
+        {
+          "document": "usb-typec-r2p5",
+          "locator": "PriorUSB2-onlydefault-powersinkanddisconnectthreshold40msclauses"
+        }
+      ],
+      "engineering_consequence": "ProposeENPB5valid3.3/rise<50us,Hibernate0x08,GDCopen/GDPoff,reg1ack0x08,reg2VBUS_OKbit5freshvalidI2C. Poll10ms+statusgroup2ms+SDIS/BVALinvalid1ms=>13msnormalreactioncap;noADC4/UCPD/PD/faultrecovery. Unknown/stale/off/readfailureinvalidatesepoch/refusesattach.",
+      "open_assumption": "NoENdefault/powered-offIO/autonomousclockloss/portcurrent/inrush/backfeed/suspendorphysicalunplugproof. C03/C09bindactualpermissiblesupply/lifetime;stockforcedtrueBVALnotconformant.",
+      "required_negative_case": "I2Cfailure/ENoff/modegateidentitymismatch/fault/stalestatuscannotbevalidzeroread/physicaldetachclaim;actualpullupmustdisconnectunderqualifiedfailurepolicy,no retainedconsent.",
+      "status": "documented-selected",
+      "applicability": "FiniteH01sourcecontract/triage;explicitunsatisfiedproperties,noUSBqualification",
+      "closure_owner": "H01 unresolvedsourceproperties / H02 pre-usegates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C89",
+      "claim": "S3 SPI2 has a finite CPU-buffer/MSB/mode/clock/CS requirement table; selected stock polling and tail handling do not establish a conformant bounded path.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "CPUbuffer1114–1116;mastermodeclock/registerfieldselected1153–1165;event1149–1150/1172–1177;native1114/1174"
+        },
+        {
+          "document": "s3-idf-spi-master",
+          "locator": "Selected432–575,761–858,1093–1205,1320–1477read fordeviceflags/sourceclock/CS/singleline/CPUbuffer/validation/privatebuffer/pollingstart-endwrapper. ExactXFR/DMA/PSRAM/iso/queuecontextencounteredunused. Init288–356,interveningHAL/bus/pin/clockcalculator/allocator andremainingdriverbody notreviewed;noneffectivebinary/stockconformanceclaim."
+        },
+        {
+          "document": "s3-idf-spi-ll",
+          "locator": "Selected175–252,275–325,400–432,440–470,560–620,720–780,936–960,1175–1198read;CPUmax512bitexactline43andTRANS_DONE/clear-eventlocator matches. Master/source/mode/bitorder/UPDATEwait/wholewordTXread/bitlength/disableDMA/CLRcorresponded;unusedslave/CS/rxtimingnearbyencountered. Remainingheader/HAL/registersourceunread,notnewfeatureorcompleteLLreview."
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "Priorv1.1nativepin/netwitness"
+        },
+        {
+          "document": "s3-module",
+          "locator": "PriorselectedGPIO/memorypinstraps/electricalbody"
+        }
+      ],
+      "engineering_consequence": "ProposeSPI2MOSI11/SCLK12mode0onebitWRorder0,softwareCS10/DC13/reset14/blank9;PLL_F80M/32conditional2.5MHz,referenceconditionfalse. CPU64B/512bitmax,alignedinitializedroundup4backingincludingcommands;separateC05public/private512Brows,480active. Pollfreshdone12+USR0,check/clearcapturedmaster17/18andunexpectedDMA0/1;noDMA/queued/readback/segmented/multilinefeature. Cap1ms+8192poll/chunk,10msrow,qualified1usguard;finiteabort/blank/invalidate.",
+      "open_assumption": "NoPLL/edge/reference/displaystartup/driver/actualbyteorder/waveform/latency/fitadmission. PollingstartportMAX/endtimeoutbeforecleanup/UPDATEunboundedneedscopedremedy;intermediateHAL/bus/pin/clockinit/effectivesourcebinarynotfullyreviewed. FullwordLLreadisobservedsource,no reproducedOOBclaim.",
+      "required_negative_case": "Oversize/unpaddedtail/staledone/updatewait/error/clockchange/failurecannotrepeatbufferwrap,continuepartialrow,retainconsentorcopyrecoverypixelsviaUSB/publicstaging;no weakerdriverfallback.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01samehostsourcecontract;no hardwareorUSBselection",
+      "closure_owner": "H01remaininghosttables / H02effectivepathandphysicalgates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C90",
+      "claim": "The S3 six physical controls require enabled inputs, explicit shared-core IRQ ownership and a bounded change latch distinct from consent.",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "PreviouslyselectedGPIO/IOmux/reset/hold/IRQbody;nonewwake/filterfeature"
+        },
+        {
+          "document": "s3-idf-gpio",
+          "locator": "Selected170–210,245–268,351–479,517–617,642–696read:inputconfig/pulls/mux,conflictwarningstillcontinues,RTCdeinitcall;capturedstatusedge-beforecallback/finitebitloops/internalISRallocation/corebinding/returnchecks. Wakeupbeginningencounteredunused;RTC/allocator/interruptcalleeandremainingdrivernotfullyreviewed."
+        },
+        {
+          "document": "s3-idf-gpio-ll",
+          "locator": "Selected15–38,100–261,324–367read:sharedCPUinterruptenable/status/coreargignored,per-pinINTenable/W1TC/input/output/levelandzeroreadwarning. Filterdeclarationsencounteredunused;restLL/matrix/hold/RTCcallee/featurebodiesunread. NoNMI/wake/filterselection."
+        },
+        {
+          "document": "s3-board",
+          "locator": "Priorv1.1headerrowsGPIO4–7/17/18"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "Priornativev1.1signal/headerwitness"
+        }
+      ],
+      "engineering_consequence": "GPIO4/5/6/7directions,17selection,18separateconsent;mask0x600F0;fixture8reservednotconsent. CPU0ordinarylevel1ANYEDGE,onecapturedsnapshot/sixcallback/50usproposed,selectedW1TCandchange/invalidationonly;CPU1reset/gated.20msstableboot/faultreleaseand20msstablepress,trustedpostrenderflowonly;edge/cancel/sourcechangeslatchedthroughbackendandcheckedbeforeoutput. ConflictwarningESP_OKorinputdisabled0neverprovesownership/contact.",
+      "open_assumption": "No actualreceivedS3identityfrominventory,contacttiming/debounce/holdrelease/filter/wakeup/NMI/IRQallocation/effectiveUNICORE/callbackRAM/readbackorlocalrecoveryqualification. C01/C03/C09andH02source/binary/physicalgatesremain.",
+      "required_negative_case": "Heldstartupconsent,bounce,edgeflood/loss,misroute/coreconflict/disabledinput/reset/staleepochcannotgrantauthority;ISRnevercallscrypto/display/USB/log/allocateorapproves. No physicalunplugdeducedfromGPIO/timeout/busreset.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01samehostsourcecontract;no hardwareorUSBselection",
+      "closure_owner": "H01remaininghosttables / H02effectivepathandphysicalgates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C91",
+      "claim": "Exact two-kit UI/control pin tables do not establish a complete pin-equivalent LQFP100 custom design.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "u585-ds",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "u585-um2839",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "s3-module",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "s3-es",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "SelectedTable776p3462/74.4.6pp3472–3473 andactualPWR_UCPDRp458;DBCCdistinctCCcontrol;noUCPDmodeselected"
+        }
+      ],
+      "engineering_consequence": "PA7/PB0defaultSB10/13andROMoverlaps/blankingrequired;customVIQPC4/5,PH4/5,PB11absent. PB13/14AF4existsbutPB14DBCC2controlnotphysicalCC2(PB15);initialprivatephysicalconflict/alertinferencewithdrawn. CustomAF4PB13/14unselected;additionalfunction/resetownerrequired. KitPH4/5BGAE10/F9not100pinclaim. S3proposedv0.2/N8R8/v1.1notactualinventoryidentification.",
+      "open_assumption": "C03/C04/C09lifetime/effectiveownershipandreceivedROM/silicon/bridgesremain;no completecustomBOM/privateSE/expansionallocation.",
+      "required_negative_case": "Wrongpackage/revision/ROM/bridge/straps/sharedownerorretainedholdmustrefusebeforeintake;noadditionalDBCC2activation/incorrectCCnetassumptionorheldstartupconsent.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C92",
+      "claim": "The installed Wi-Fi module has an internal CHIP_EN pull-up; no external kit hold-low still does not prove radio inactivity from POR.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "u585-um2839",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "emw3080-ds0122cn",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "u585-stg3692",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        }
+      ],
+      "engineering_consequence": "Correctwhole-netfloatinginference:EMW3080(BP)pin11active-lowwithnominal100kPU/10nF. PF15lowpreintakerequirementonly. STModPH13highUART/R11DNFrequiresdeliberatecontrol;LED/muxloadremain. B1BTresetnotMCUcontrol,SW3notOFF.",
+      "open_assumption": "RadioquietfromPOR/resetcurrent/unpoweredIOisolationandactualfixtureunproven. KeeppoweredBTwithunusedinterfacesexcluded,notradiofreeclaim.",
+      "required_negative_case": "Reset/POR/clockloss/unusedAPI/nominalresistor/defaultUARTlabelmustnotbecountedashardwarehold/inactivity/isolation/currentproof.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C93",
+      "claim": "The conditional raw-panel and contact fixture has explicit normal rail/logic/current/edge/default requirements, without selecting parts or waiving startup evidence.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "nhd-molex-connector",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "s3-ds",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "u585-stg3692",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "u585-tcpp03",
+          "locator": "PreviouslyreadnormalEN3.3V±10%/rise<50us supplycondition;U585VOHflooraloneinsufficient"
+        }
+      ],
+      "engineering_consequence": "Proposepanel3V±2%,normaloutput0.9..1.0/0..0.1rail,hostfacingvalidlevels/totalcurrent/load,translationnotdirect3V3,15mAcontrolledbacklight25max,failoffresetblanking/lifetime.10k±1%contactsclosed<=100ohm/leak<=1uA;normalthresholdmarginsconditional. U5OSPEED01/HSLV0totalpadload<=30pFsourceconditions;paneledges<=15nsrequirequalification.",
+      "open_assumption": "Noactualregulator/translator/blanking/connector/fixture/latency/temp/load/powersequenceproof;modulefactory/internalpower/startupSTOPunchanged;TCPPENlowrailnormalmarginnotproved.",
+      "required_negative_case": "Neverenergizefromtheseproposals,exceednormalpanelVDD,useabsmaxforlogicmargin,driveunpoweredside,connectLEDdirectlyorgrantconsentbeforevalidrender/release.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C94",
+      "claim": "The current no-touch/row-rendering host subset is a comparative baseline with explicit generic-SDK and touchscreen limits.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "nhd-db-product",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "nhd-24-module",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "nhd-breakout-product",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "nhd-breakout-spec",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        }
+      ],
+      "engineering_consequence": "ThreeboundednonNostrusecasesandone-trusted-imageboundary;fullframe153600Bwire409.6msat3MHz/491.52msat2.5MHz,notUIlatencyguarantee. NoTouchexactmodule,datedUSD19.58module-onlynotBOM. ExistingG9comparisonandtwo-SEhypothesesneededbeforeH04selection;no newmarket/MCU/SEselected.",
+      "open_assumption": "Touch/generality/headroom/cost/performanceandtwo-SEcompositionnotdemonstrated. Pairhypothesesarenotcapabilities;S04/H02S/API/advisory/update/custodygatesunchanged;noqualifiedthirdbenefit.",
+      "required_negative_case": "SDKorsecondSEmustnotimplyhostileappisolation/nativeBIP340/nonexportableNostrECDH/runtimehostprotection/displaybinding;no securitydowngradeorS04retry.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C95",
+      "claim": "The two-host active supply/watchdog contract separates valid operating rail, conditional count bounds and unsupported clock-loss timing.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC03source/requirementstable;noqualifiedfunctionalityorhostadmission",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        },
+        {
+          "document": "s3-ds",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        }
+      ],
+      "engineering_consequence": "U5LDO/REGSEL0/VOS3/WS2/HSLV0,USB3.0minnotUVM1.28/BOR/PVDproof;IWDG32/RLR999/EWI0progress-only250msfeedandconservative0.95048–1.05375scountenvelope. S3MWDT0APB80/40000/2000nominal1score-reset;RWDT544ktickssystemRTCreset/read-onlyEFUSEstage0shift,nominal4snotminmax. Explicitnormalrail/reset/retentionanddebug/faultconditions.",
+      "open_assumption": "Nosuccessfulinit/binary/current/timing/resetpropagation/clockloss/railqualification. S3RCslowminmaxnotestablished;notqualifiedtimedrecovery. Completepower/lifecycleC04/C09andH02gatesremain. S3brownoutRST_SELreset-scopepolaritybody576vsregister623unsatisfied;noalternate modehop.",
+      "required_negative_case": "UVM/BOR/PVDgoodcannotprove3Vvalidorwritehold-up;ISR/failedloop/repeatedretry/EWCRorframeworkautofeedmustnotkeepstalledappalive. NoRTCretention/erasureinferredfromcore-reset. No dependentbrownoutoperation/probeassumesonepolaritybeforecorrectedsourceorreviewedevaluatedsafediagnostic.",
+      "closure_owner": "H01C04/C09/C10andH02/H03effective/physicalqualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C96",
+      "claim": "The fixed-source IRQ/startup contract distinguishes child status, mux collisions, finite refusal guards and actual time/ownership proof.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC03source/requirementstable;noqualifiedfunctionalityorhostadmission",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "u5-pm0264",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "u5-pac-u585ai",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "u5-pac-u585vi",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        }
+      ],
+      "engineering_consequence": "U5securePRIGROUP3/fourbits/fault0/clock1/EXTI2/USB3,onlyPE7/PD15edgeIRQs18/26andall6contactspolled;singleEXTIportperlinepreventsfull6edgehistoryclaim. S3CPU0line0GPIO16/line2USJ96/line23faultslevel3requirements;disableunselectedsourcebymap6not0,CPU1reset/gated. Proposed20uscritical/50uscontactISR/1msscan/finiteguardsandstartupsequencewithnosecretintakeuntilallgates.",
+      "open_assumption": "Noeffectivevector/allocator/RTOS/callplacement/criticalsection/latency/clock/reference/halinitproof. Bootstrapiterationcapsarenotlaterclockmillisecondguarantees;opaqueU5backend<=200msmustbeprovenbeforeuse. USJandU5OUTpreusestopsremain.",
+      "required_negative_case": "Fault/masked/deniedinput/staleedge/readwrap/cachefault/sharedIRQ/sourcecollision/clockchangecannotgrantconsentorcontinueoutput. Noallonesclear/NMIpromotion/implicitbroadHALinit/externalmakerowner ornewtimerfeature.",
+      "closure_owner": "H01C04/C09/C10andH02/H03effective/physicalqualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C97",
+      "claim": "U585 paper owner boot, floor journal and destructive owner replacement have exact protection/reset requirements, not an implemented verified boot.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC04hostrequirements;notqualifiedfunctionality/custody/provisioning",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "owner-update-contract.md U585;RM3.10.1/T21–22/7.3.1/7.5.3/current7.6.2HDPWRPSECMWBOOT/OEMfields"
+        },
+        {
+          "document": "u5-an2606",
+          "locator": "owner-update-contract.md U585;RM3.10.1/T21–22/7.3.1/7.5.3/current7.6.2HDPWRPSECMWBOOT/OEMfields"
+        }
+      ],
+      "engineering_consequence": "TZEN1/RDP1/BOOT_LOCK1/secureentryC000000,64bitseparateOEMcredentialsLOCK1;2MiBmap/root256KiBWRP0..31/HDP0..33includes2journalpages,640KiBdistinctlinkedslots. RaisedfloorverifiedBEFOREactivation,nobelowfloorfallback;destructiveRDP1to0newownerwithOTP/optionssurvival;noROMGoownerresume.",
+      "open_assumption": "Acceptedk256rawBIP340paperverifier/manifest/journal/completeRAMtransition/map/fit/updatepathunimplementedandunaudited. Persistentidentity/PINvaultnotinvented;D02/S04gatebeforeuse. C09rail/writepermissionandH02interruptionsrequired.",
+      "required_negative_case": "Badslot/target/version/signature,ambiguousfloor/ECC/tornGC/onlycopyerase,hiddenrootentry,ROMlog/Go,missingOEM,retainedOTP/optionsmustnotauthorizeidentityorrollback.",
+      "closure_owner": "H01C09/C10andH02/D02/S04/H02S/K01beforedependentuse",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C98",
+      "claim": "S3 paper owner security state keeps CDC/debug/download distinctions and finite immutable-root/counter limits explicit.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC04hostrequirements;notqualifiedfunctionality/custody/provisioning",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-efuse-table-csv",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-boot-sdk",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-ota-sdk",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-idf-flash-encrypt",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        }
+      ],
+      "engineering_consequence": "XTS256exact2keys/purposes2+3notAES1284;publicSBdigestsWPnotRD;3independentpreloadedroots/all3signfixedloader,aggressiverevocationavailabilitycostexplicit. Requireddebug/allROMdownload/printsdisabledwhilewholeUSJ0,groups2/18/19distinct,group18notlockedwhile16floorbitsneedupdates. Fixedboot/PT,nounsafeOTA;publicpendingverifybeforeVALID/floorreadback/reset/secretload.",
+      "open_assumption": "Noactualfuse/firstboot/provisioning/map/PT/enforcement/build/keys/rollbackqualification;C07CDCnotselected. Immutablefiniteownerrootsetdoesnotpromisearbitrarynewpostlockowner;16bumpsnotunlimited,loss/exhaustioncanretireunit.",
+      "required_negative_case": "Wrong/missingXTSkeyhalf/bothkeytypes,readprotecteddigest,emptyunrevokedroot,sharedgroupmislock,automaticfuseburn,consolewriter,belowfloorpending/fallbackorunsafePTupdatemustrefusewithoutsecretload.",
+      "closure_owner": "H01C09/C10andH02/D02/S04/H02S/K01beforedependentuse",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C99",
+      "claim": "Pinned S3 counter helpers do not establish bounded error-preserving read or successful floor commitment.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC04hostrequirements;notqualifiedfunctionality/custody/provisioning",
+      "evidence": [
+        {
+          "document": "s3-idf-efuse-api",
+          "locator": "owner-update-contract.md helperadversefinding;API1–92/fieldhelpers1–112(selected44–95)"
+        },
+        {
+          "document": "s3-idf-efuse-fields",
+          "locator": "owner-update-contract.md helperadversefinding;API1–92/fieldhelpers1–112(selected44–95)"
+        }
+      ],
+      "engineering_consequence": "Blob/countretryDAMAGED_READINGwithoutfinitecap;biterrorcanbecomefalseassertsoff. Counterdefault4requires16explicit,ignoresblobread/writereturns;outerESP_OK/log/tripleequalcountsnotcheckedcommit. Requireboundederror-preservingexactcoding/synchronization/reload/status/freshfloorreadbackbeforesecretuse;neverblindlyreburnalreadysetbits.",
+      "open_assumption": "Completeutility/HAL/caller/effectiveconfig/source-remedypathnotreviewedorimplemented;precisesource-to-requirementgapnotexecutedfailure/upstreamvulnerabilityfinding. Anydependentowner/counteroperationstopsuntilqualified;noeFuseoperationauthorized.",
+      "required_negative_case": "Damaged/error/zero/misreadfloor,truncatedfield,partialburn,noncanonicalbitpattern,writefailure/hang,assertsdisabledorfalsezeroownerfieldmustnotgrantsecurestateorloadsecrets.",
+      "closure_owner": "H01C09/C10andH02/D02/S04/H02S/K01beforedependentuse",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C100",
+      "claim": "Exact kit supply proposals do not establish permissible connected power or a whole-board normal-rail/current guarantee.",
+      "status": "documented-selected",
+      "applicability": "FiniteC09source/requirementsandnegativeoutcome;notqualifiedhostpower/USB",
+      "evidence": [
+        {
+          "document": "u585-um2839",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "s3-devkitc1-guide",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "u585-st1l05",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "s3-sgm2212",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        }
+      ],
+      "engineering_consequence": "U5CN8power-only5VJP4[7–8]notPC/CN1transportproposed;TCPP0x08GDC1opensconsumerandcannotpowerJP4[5–6]. S3J4-onlybuspowerorconditionalisolatedVBUS+J1.21/22independentsupplyremainunselected;USB/headerpowerexclusive. InstalledSGM2212conditionalnormal/output/COUT/thermalrowsnotwholeboardqualification;C9=10uF,C10=.1uFplusotherraildecoupling.",
+      "open_assumption": "Exactreceivedunit/marking/lot/jumpers/source/loads/rail/capacitance/ESR/thermal/reversecurrent/debugger/resetandsupplysequencingunqualified. UMp16CN14TypeCsentencecontradictsnativeCN1;notdefectiveboardclaim.",
+      "required_negative_case": "Dualpowerselection/PCchargerbypass/wrongU2/nominalcaps/dropout95%/MCU-onlycurrentmustnotgrantnormalrail/USBpermission;local-only/VBUS-only/unpowered/slowriseandbackfeedmustrefuseuntilsafe.",
+      "closure_owner": "H01C10admissionresult/H02H03beforedependentuse;H04selection",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C101",
+      "claim": "U585 EN margin and autonomous VBUS-off data removal remain unsatisfied mandatory attachment properties; finite source triage is not USB admission.",
+      "status": "documented-selected",
+      "applicability": "FiniteC09source/requirementsandnegativeoutcome;notqualifiedhostpower/USB",
+      "evidence": [
+        {
+          "document": "u585-tcpp03",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-connect",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-capacitance",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-suspend",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-vbus",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb-typec-r2p5",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        }
+      ],
+      "engineering_consequence": "Hibernate/OFFCCswitchOFF/RdONdistinguishconnectorfromMCUDBCC;proposePWR_UCPDRDBDIS1/STBY0withoutUCPDpromotion. ENneeded2.97VversusconditionalGPIO2.8175floorand<50usriseunproved. CN1datadirecttoMCU/noTCPPdatagate;13msnormalsoftwarebudgetdoesnotproveautonomousreset/clocklossVBUSoffpullupremoval. Retain100mA/unconfigured/2.5mAsuspend/any1s/1sready/1–10uF/inrush/backfeed/defaultsourcedeadlinesandS3separatedescriptor/fixturegates.",
+      "open_assumption": "MandatoryU5ENandindependentdataremovalUNSATISFIED. Bothportaggregatecap/current/suspend/backfeed/physicaltimingandS3fixeddescriptor/status/fixtureunqualified. No newfixture/controller/protocolorpartsselected;H02dependentattach/enumeration/operationstopped.",
+      "required_negative_case": "Heldreset/bootROM/clockloss/stuckI2C/stalestatus/unpoweredrailmustnotleaveunsupportedpulluporacceptapproval;SOFtimeout/reset/statusnotphysicalunplug. No conditionalpropertypromotion,quietcurrentwaiverorweak/deadbatteryexception.",
+      "closure_owner": "H01C10admissionresult/H02H03beforedependentuse;H04selection",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C102",
+      "claim": "The two retained custom-Board H03 chains have distinct current/default/reverse-energy feasibility gates and no complete load/runtime budget.",
+      "status": "documented-selected",
+      "applicability": "FiniteC09source/requirementsandnegativeoutcome;notqualifiedhostpower/USB",
+      "evidence": [
+        {
+          "document": "ti-bq24074",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        },
+        {
+          "document": "ti-bq25628",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        },
+        {
+          "document": "ti-tps63802",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        },
+        {
+          "document": "nhd-24-module",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        }
+      ],
+      "engineering_consequence": "RetainonlyBQ24074+TPS63802andBQ25628+TPS63802where3V3required;linearfirst/control/absentbatteryvsconditionalthermalbenefits. BQUSB100EN2/1=00,500=01afterpermission;BQ25628IINDPMPOR/adapterremoved3.2AandI2Chost/watchdog/selectivedefaultsrequirehardwaresafecurrent/CE. TPSreverseboostnotisolation/PGnotwritehold-up. Display15mAat3Vplus15mAat13.6V=249mWbeforelossesonly,nocompletepeak/runtimebudget.",
+      "open_assumption": "NoexactOPN/cell/protection/componentvalues/PCB/current/efficiency/thermal/USBbudgetormodesselected. H03source/advisory/electrical/fullreset/lifetime/measurementgatesremain. Batteryabsentcannotassumepeakbuffer;25mALEDlimitnotqualifiedVfmaxat25mA.",
+      "required_negative_case": "Missingfirmware/currentlimit/watchdog/I2C/reset/suspend/cellabsent/empty/cutoff/reverseenergy/thermalrestartandwriteinterruptionmustnotexceedpermissionorcontinueoldoperation;noLiFePO4/thirdchain/marketingcurrentguarantee.",
+      "closure_owner": "H01C10admissionresult/H02H03beforedependentuse;H04selection",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C103",
+      "claim": "Exact G9 package/pad/rail costs and the native DK2 PC13/LSE chain support a bounded comparison, not another port or unaffected reference.",
+      "status": "documented-selected",
+      "applicability": "FiniteG9comparativeevidence/deferpromotion;noG9benchportorqualifiedUI",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        },
+        {
+          "document": "u5g9-es",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        },
+        {
+          "document": "u5g9-um3223",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        },
+        {
+          "document": "u5g9-mb1918-c01",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        }
+      ],
+      "engineering_consequence": "ZJT6QLQFP144SMPSvsZJJ6QUFBGA144notDK1equivalent;baselinePE13/15/12andPE7/PD15collidewithDK2RGB. RGB24+timing4+control2+touch3=33GPIO+sharedNRST,50pinconnector. Native2/3/4/9chainB2USER_BUTTONtoPC13pad7andX1crystalPC14/15pads8/9confirmsLQFPerratum;softwareignoredoesnotpreventphysicaltoggling. Exact3.3/USB/IO2/DSI11/SMPSrailcostsandsupplysequencingnotfreepins.",
+      "open_assumption": "Noactualreceivedsilicon/clock/rail/pin/kit/PBC/cost/assemblyqualification;nofullcustomprivateSE/expansionmaporDSIpanel. Nativecircuitcorrespondenceonly,nomeasuredLSEfailure/boarddefect. Noexternalbuttonpulldowninvented.",
+      "required_negative_case": "StockB2withX1/PC13transitionsorwrongpackage/rail/pad/newSPIonfittedRGBmustnotgrantvalidreference/consentorusableport;noDK1sourceinheritance.",
+      "closure_owner": "H01C10comparison/H04beforefuturepromotion;H02/H03physicalqualificationonlyifseparatelyadmitted",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C104",
+      "claim": "G9 banked memory has a concrete UI capacity advantage, while GPU2D traffic/cache and display master ownership require separate private-frame proof.",
+      "status": "documented-selected",
+      "applicability": "FiniteG9comparativeevidence/deferpromotion;noG9benchportorqualifiedUI",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "g9-comparison-review.md memory/masters;DS3.5p27;RM2.1.7/8p132/Table10p159/GTZCselected205–210/DCACHE9.3p383"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "g9-comparison-review.md memory/masters;DS3.5p27;RM2.1.7/8p132/Table10p159/GTZCselected205–210/DCACHE9.3p383"
+        }
+      ],
+      "engineering_consequence": "Banklist3024KiBbeforeECCreservationnotfree3MiB;SRAM3ECC256+512=768KiB,backupseparate. Two800x480RGB565frames1500KiB,capacitycomparisonnotactualcontiguousallocation/fit;hypothetical60Hzactivepixelread46.08MB/snotthroughputproof. GPUtrafficnonsecure/DCACHE2noTZdespitecontrolSECfields;privatebuffers/rowsnotacceptedthere. LTDC/GFXMMUmaster/backing/securityseparatemustbespecifiedifpromoted.",
+      "open_assumption": "NoG9allocation/completebackend/stack/SDKfit/scanoutprivatepixel/bus/clock/timing/mastermanifestoropticalqualification;C05U585manifestcannotbeinherited. No hostileapporsecuregraphicspromotion.",
+      "required_negative_case": "GPUcommand/texture/framecopies/privatepixels,wrongaliases/retainedcache/master/fault/stalegeneration/failedtransfermustnotleaksecretsorgrantconsent;memoryheadline/APIflagcannotstandforphysicalrendercompletion.",
+      "closure_owner": "H01C10comparison/H04beforefuturepromotion;H02/H03physicalqualificationonlyifseparatelyadmitted",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C105",
+      "claim": "Pinned maintained graphics modules and declared license support a finite G9 source comparison but do not qualify an integrated private touch renderer.",
+      "status": "documented-selected",
+      "applicability": "FiniteG9comparativeevidence/deferpromotion;noG9benchportorqualifiedUI",
+      "evidence": [
+        {
+          "document": "embassy-stm32-cargo",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "embassy-stm32-lib",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "u5-embassy-gpu2d",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "u5-embassy-ltdc",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "u5-embassy-gfxmmu",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "st-opla",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        }
+      ],
+      "engineering_consequence": "DeclaredG9feature+graphicsmodules/0.6.0MITORApache2.0refutesunsupportedabsenceinferencebutnotbuildproof. LTDCheaderH735test/rawpointer/controllerflags/noawaitdeadline/Dropempty;GPUwaitignoresseparatesystemerror/hookexternalNemaGFXownership;GFXMMUsynchronouscachewaitsunbounded. RetainexistingG9higherUI/RAMH04comparisonforconcretetouch/SDKworkload,deferpromotionuntilmaster/pin/rail/driver/license/fit/module/manufacturing/costgatesclose.",
+      "open_assumption": "NoG9build/commandgenerator/ISA/vendorbinary/NemaGFXterms/ABI/transitiveSDKlicenseorFTOclearance. NoallRustrequirementornewdriver/host/MCU/panelmarketlead. Actuallatency/quality/energy/costunestablished.",
+      "required_negative_case": "Missingflag/errorhook/busfault/unboundedcacheloop/timeout/Drop/staleframe/licenseorplatformmismatchmustnotbeacceptedbyAPI/modulepresence;nosecuritydowngradetoclaimfasterUI.",
+      "closure_owner": "H01C10comparison/H04beforefuturepromotion;H02/H03physicalqualificationonlyifseparatelyadmitted",
+      "reviewer": "/root/h01_sol"
+    }
+  ]
+}

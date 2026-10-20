@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "7d72fb95acf434ad34ea120d793ac7d8534bde56",
+  "result": "PASS finite source-contract arithmetic/integrity only; OUT semantic property UNSATISFIED",
+  "checks": [
+    "JSON parse/unique IDs/claim references",
+    "Eight affected original hashes/bytes",
+    "Four native register/formula render hashes/bytes",
+    "FIFO minimum/contiguous allocation/unused-word arithmetic",
+    "Defined W1C/mask bit arithmetic and excluded RO/reserved/host/CIDS/OUTbit8 fields",
+    "C05 software budget/setup/IRQ byte-cap correspondence",
+    "Printed68 and pinned64 conflict preserved, no selected result",
+    "Clock-conditioned ZLP/PHY/SDIS guard arithmetic only",
+    "TCPP0x08/gate-bit/normal13ms-reaction arithmetic only",
+    "Affected local Markdown links",
+    "git diff --check"
+  ],
+  "document_count": 195,
+  "claim_count": 88,
+  "affected_originals": [
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "id": "u585-es",
+      "bytes": 2246742,
+      "sha256": "52dac38c801ae72c42ebffd39296ddf7c80ae378cd555f1a1d1baf49daf86a56"
+    },
+    {
+      "id": "u5-embassy-otg-lib",
+      "bytes": 80956,
+      "sha256": "3dbdf15f42083923820714de5cfdd47493214f419be42e95b5dde549ccee02ce"
+    },
+    {
+      "id": "u585-tcpp03",
+      "bytes": 1928352,
+      "sha256": "adea648fe44d721b65d731ca80cc7c0d37e90d815074141c810ba8fb8765d4ae"
+    },
+    {
+      "id": "usb2-base",
+      "bytes": 5983789,
+      "sha256": "d39698a33486c399124af92bd02e4f978fd9a836b5cf4e52e6e4633eb1d89f61"
+    },
+    {
+      "id": "usb2-errata2000",
+      "bytes": 138383,
+      "sha256": "1b94cd1cf303bdf0aba75a76d6a9333a357fa4ad626a57a76d6f132cb1498f23"
+    },
+    {
+      "id": "usb2-errata2002",
+      "bytes": 176056,
+      "sha256": "0d5d8aa0128ae08c78928765da3ab10d6ec913732e13f5357ed085a5ceabf481"
+    },
+    {
+      "id": "usb-typec-r2p5",
+      "bytes": 15750907,
+      "sha256": "6636cd61387a2f78b0fa96c8ea86ccc0f39ec59f98821cdb57b206d31445a328"
+    }
+  ],
+  "native_visual_reviews": [
+    {
+      "document": "u5-rm7",
+      "private_render": "sol-u5-usb-reg3173.png",
+      "page": "native3173GINTSTSaccesslayout",
+      "bytes": 289589,
+      "sha256": "2944384c4a5ef0f55d2e829d98bea1e96e0f28adba7af5effdd79a017af4ca03",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    },
+    {
+      "document": "u5-rm7",
+      "private_render": "sol-u5-usb-reg3218.png",
+      "page": "native3218DIEPINTaccesslayout",
+      "bytes": 275253,
+      "sha256": "69467e6ac0f34b9177394f744f226969887c8ad2ccde750ac0e146a3442aa71b",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    },
+    {
+      "document": "u5-rm7",
+      "private_render": "sol-u5-usb-reg3223.png",
+      "page": "native3223DOEPINTaccesslayout",
+      "bytes": 268789,
+      "sha256": "fd1d8e1683701161de50030d722287dc98745c9ff317622ac3c71bef6843df02",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    },
+    {
+      "document": "u5-rm7",
+      "private_render": "sol-u5-out-model3269.png",
+      "page": "native3269OUTformula/applicationmodel",
+      "bytes": 341693,
+      "sha256": "65a0144f6206e48fbce3d85f001e59fed3fc46cc6cd319a53ad0ce20e3f7526f",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/u585-usb-endpoint-contract.md",
+      "bytes": 12142,
+      "sha256": "db7039cc751d92936b539f4566cdeb2d70ed3f90a809cd9419da8d4d888ab781"
+    },
+    {
+      "path": "docs/restart/H01/u585-usb-proposal.json",
+      "bytes": 5526,
+      "sha256": "b22bfe70682a884e6422f802f22e3f7835c94881d891e7b8baa3cf9ea8a6316f"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 22490,
+      "sha256": "475148ebb9041ef8bc3e6dbe9b8e2492b366118f6520b598b475e08f0f215770"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 18847,
+      "sha256": "7c93634d497ca1b936163e174b3dbdf10757571921a07e770e31e38b51c89613"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 16192,
+      "sha256": "f7a90081279ca21400940ba5b024b9cf8ea21425d38b7f27629fc9f415ca1a8a"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 11571,
+      "sha256": "cb06dab019672a503b279ebcd9b5b8b10e502f423db1a9916ba381f199c36d07"
+    },
+    {
+      "path": "docs/restart/H01/probe-plan.md",
+      "bytes": 10494,
+      "sha256": "f0cd0071e82c0310b03ad5fccf7ad2c072b523bcc11fb4be2cb7a8ac7dbe9007"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 352715,
+      "sha256": "893089ba1a2da2c8df918042fb7f2c639134be347ba7c80e0e2e774e7fed4795"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 125828,
+      "sha256": "2a6c8e8f5769838a07beb3140c8720ad276d3e15179086efbd1e02e5d0753b31"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 79197,
+      "sha256": "d6d44aba75d5df9f59586d1e57ab10ebfa6f20ebf620688cb74a89e7e63a5efa"
+    }
+  ],
+  "private_receipt_sha256": "4a4a756cea04088e77c044a5886cfec0cf924fcee1bd6a90a16a1250e879c50e",
+  "limits": "C06 finite reading/triage is not satisfied OUT criterion. No supported64/68 mode, enumeration, driver/class/identity selection, actual timing/fit/PHY/current/USB compliance, physical or complete-host admission. C03/C04/C07/C09 and H02 pre-use/source/diagnostic gates remain. Historical checks/reviews retain bindings.",
+  "not_run": [
+    "Final integrated hardware CI",
+    "Target build or driver/helper execution",
+    "Enumeration/register write",
+    "Any64/68 or other diagnostic",
+    "Identity/fuse/flash/provisioning/wiring/energizing/physical test"
+  ]
+}

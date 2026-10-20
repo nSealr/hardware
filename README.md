@@ -11,6 +11,11 @@ Nostr Signer is one application. Its [Board SDK](https://github.com/nSealr/board
 is independent of Nostr. Historical specs and reference files below do not
 announce supported hardware or override the current contract.
 
+The [H01 source package](docs/restart/H01/handoff-2026-10-20.md) records the
+bounded component/manual comparison and two paper host review outcomes. Its
+unsatisfied source and interface properties remain explicit; it admits no
+connected probe, selected Board or physical qualification.
+
 ## Reference artifacts
 
 - ESP32-S3 USB/NIP-46 signer reference requirements.

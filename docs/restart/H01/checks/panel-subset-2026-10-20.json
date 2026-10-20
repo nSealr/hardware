@@ -1,0 +1,95 @@
+{
+  "task": "H01",
+  "author": "/root/h01_sol",
+  "recorded_utc": "2026-10-20T11:05:18.353460+00:00",
+  "base_commit": "ea3122647863100285a712d5cb35a094d6578ab7",
+  "scope": "Existing Newhaven raw DB/ILI9341V subset and distinct breakout deferral; no new panel/controller/driver or admission",
+  "checks": {
+    "json_ids_references": "All H01 JSON parsed;167 unique document IDs;69 unique claims;all claim/pin evidence references and ledger IDs valid",
+    "source_originals": "5 affected original hashes/lengths matched",
+    "native_renders": "4 private native render hashes/lengths matched",
+    "arithmetic": "240x320x2=153600 payload bytes;480-byte row;245.76ms payload-only lower bound at5MHz",
+    "whitespace": "git diff --check passed"
+  },
+  "not_repeated": [
+    "unchanged source inventory",
+    "unchanged hardware CI",
+    "target build",
+    "physical tests"
+  ],
+  "private_reading_receipt": {
+    "name": "panel-subset-2026-10-20-reading.json",
+    "bytes": 3254,
+    "sha256": "777b92055d389f1731a33cc8f45b55bb2cab0e957ccb08f7f2c9752eee66be42"
+  },
+  "original_correspondence": [
+    {
+      "document": "nhd-24-module",
+      "bytes": 2523755,
+      "sha256": "5be1a35fe829165fecc561dda2c0707af50090f5cbc441482f75e5dff998e6bb"
+    },
+    {
+      "document": "nhd-ili9341v",
+      "bytes": 3472793,
+      "sha256": "97623e55bc7d8a4045867fb2c04ee3d6de7da61a2ea926961e7b400218dddca8"
+    },
+    {
+      "document": "nhd-breakout-product",
+      "bytes": 320809,
+      "sha256": "2fb26eec6bbc5aedeea7173288bcfb0f41c4b81ea0a881c0f2d64771df215e63"
+    },
+    {
+      "document": "nhd-breakout-spec",
+      "bytes": 1906633,
+      "sha256": "1f6786753c7c3465025e79892f4a842c4c011c90634afefbd749bfa2e61b352f"
+    },
+    {
+      "document": "nhd-molex-connector",
+      "bytes": 138124,
+      "sha256": "bb0144b638755eaa01cc7af77a41918667a1a6cd8d3b157d8161dd8ea2845e5e"
+    }
+  ],
+  "review_status": "C02 exact module startup/internalpower,normalrailmargin andfixture remain open;bothpaperconfigurationsandsixrowsincomplete;distinctexactcandidatereviewrequired;historicalevidencenotrebound",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/panel-subset-review.md",
+      "bytes": 13176,
+      "sha256": "f3b68ae63148b9374c984b4016e089daac1fcce766bb9ae909f9f90e12144d69"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 9421,
+      "sha256": "d1f0c6cddf096e7e8c9d00322da4b50c29ac91f6a5fabda54b53898f8a820cf5"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 19138,
+      "sha256": "66ba47380bda5ab99d8a2ee031406220efc67f0f9d1209497476e6bef11544f2"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 12811,
+      "sha256": "30c9486e1b581b788b502758b51e1b9ab2104e472b225766a4171a07c522243a"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 14803,
+      "sha256": "d9374a399df9008ae2504e6a0bc762259d5e2d755044c9d9588284e84122dd91"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 271202,
+      "sha256": "1e227b2f859d3e0dd5553127431f631ed0b614e05f700a29f015772f2817b3ab"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 86357,
+      "sha256": "83972bb007dafe2d9135dab788603c956cb302a109c0e3fa25d52f82896e3135"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 74295,
+      "sha256": "656bccd35011a7fe5af50f04dfb3e69200b034422abe3a94ac248efbfacb4c95"
+    }
+  ]
+}

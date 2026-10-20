@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "record_kind": "Explicit user pause handoff; not acceptance or a final review candidate",
+  "recorded_utc": "2026-10-18T20:22:57.264181+00:00",
+  "author": "/root/h01_author",
+  "status": "paused; H01 incomplete; no host admission or selected components",
+  "branch": "restart/h01-manuals",
+  "worktree": "/home/tux/nsealr/.restart-tools/goal/h01",
+  "head_at_pause_request": "c8a933f3d11e73b2c6678bf33c915b50985dffff",
+  "preserved_source_head": "136d9ccea3422fa47e530b41c2fb2720a2a090a4",
+  "metadata_commit_identity": "Commit containing PAUSE-HANDOFF.md and pause-state.json; final exact pushed HEAD is reported to coordinator and retained in private pause-git-receipt.json. No recursive self-hash is asserted.",
+  "dirty_at_pause_request": false,
+  "source_disposition": "Already completed reading and package correction committed; no source or original discarded. Only this handoff metadata was uncommitted when this record was generated.",
+  "historical_result_source_commit": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+  "historical_handoff_commit": "e39015ae20efd37d509054f4b98ddd68ee7e98c9",
+  "latest_distinct_review_original": "9d5ed3baf936157a26b55bf42e51da4ce6d240c2",
+  "latest_distinct_review_import": "5fae213",
+  "latest_review_scope": "Historical e39015a candidate only. New c8a933f/136d9cc findings and all future completed configurations need distinct exact affected review.",
+  "process_status": "No H01 fetch/render/parser/probe child was active in the process snapshot at pause. No author-owned scheduled automation or child agent exists. No command/download was interrupted mid-write. Unrelated services were not changed.",
+  "checks_during_pause": "Checkpoint diff inspected and Git commit/push bookkeeping only; no new research, design, tests, ports, physical work or CI invocation.",
+  "source_artifacts": [
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 15633,
+      "sha256": "087d28f7f37c116257569a7cc216735528d478fd43ebd7d594a3ad210fd5cb83"
+    },
+    {
+      "path": "docs/restart/H01/usb-configuration.md",
+      "bytes": 6205,
+      "sha256": "1eb9a039a6747fc973a1409191f7b56629eb1afaa8cc97a3180839c1bb396055"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 183700,
+      "sha256": "3f3d8d3d207d36aca4cf4d2a0738b8495c3efbf2901a7877f8ea758a90ef8f54"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 9411,
+      "sha256": "0bd1e971de5cdc026743fb53dcf22a4c737364224176e438e56283bb8b793ba7"
+    },
+    {
+      "path": "docs/restart/H01/pause-reading-notes.md",
+      "bytes": 4767,
+      "sha256": "be7e751a8a0a54801e0c50b58373c3863ade9025efe70b4b07d328ca754fad64"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 10699,
+      "sha256": "2fe445e5afa219ef2aeabb1e25ef60648f18ce14f896374f1855b8beca20550d"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 38762,
+      "sha256": "68cdb065a8fdf8640e4bb0318f28dfeb8756e381c8741b4601b589f4922ddcf3"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 58708,
+      "sha256": "8014918def0121fe01fcab1da8834819cf3be27ed194005edf3bffa285a2b15b"
+    },
+    {
+      "path": "docs/restart/H01/result.json",
+      "bytes": 13218,
+      "sha256": "5c10be2874d6eb6eb194f1c71259a95f3197fb7aef79b085064ee8a601b7836e"
+    },
+    {
+      "path": "docs/restart/H01/handoff.md",
+      "bytes": 6726,
+      "sha256": "2f8d26bdedd671e1d91e47639192bf049c3cfdac5293a4e3c177dc8ac76a5240"
+    }
+  ],
+  "private_reading_inputs": [
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/pause-2026-10-18-reading.json",
+      "bytes": 3765,
+      "sha256": "8919e0cb92dde249ccb47f04a9b63e06af68085a6b5f081484bc568990cca65f",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/after-c8a933f-reading.json",
+      "bytes": 2312,
+      "sha256": "731c97a62ef8e425db87b5d398455a0389b455c082cc903400d7623245edf4e9",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/configuration-reading-progress.json",
+      "bytes": 1497,
+      "sha256": "6f8f2a2d44e0f47175b6c26f0ebe3aa698b7cd50642dade55955a3da1c9fdf37",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/retrieval-extra-bounded.json",
+      "bytes": 4162,
+      "sha256": "f05a746c1ce12771c02f0dee8ddd79af0a8f11fcfc9f077280356940492fce82",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/usb-extracted-members.json",
+      "bytes": 4306,
+      "sha256": "869239ab03b2436f691f6072ee2993cebed840104ead6ad7639c5fe1cb91537e",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/retrieval-configuration.json",
+      "bytes": 6467,
+      "sha256": "2247be7388fb661b938a0d66c49972fb93cfd551152dd9a45d33e2475e8e259a",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/retrieval-display.json",
+      "bytes": 4819,
+      "sha256": "516d1e780e813871e2f0579fc1f733c0093a9af6a60e865ec707bd79aa98438c",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/retrieval-display-alternative.json",
+      "bytes": 3278,
+      "sha256": "90f56aa38b4a046310a5e6d2e523d51409cdba2eec48fa40fc6a0ca674edbe7f",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/retrieval-primary-html.json",
+      "bytes": 1203,
+      "sha256": "915992f091b41877e5b3b4d0493a9cbd4118482e0039f622182876a54dc89a26",
+      "disposition": "Retained privately, not copied into Git"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/retrieval-usb-normative.json",
+      "bytes": 1111,
+      "sha256": "bd4baf10a138a75a520b0934f5d5dc17a9ff376901811c7f1d54ecd9183d00cf",
+      "disposition": "Retained privately, not copied into Git"
+    }
+  ],
+  "resume_authorization": "Explicit root/user resume required before any research or implementation restarts."
+}

@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "efc087d0d9bb0c2cd1f9f936e46b565c56d56fe0",
+  "result": "PASS focusedsource/identity/reference/arithmeticintegrityonly",
+  "checks": [
+    "UniqueJSONIDs/claimreferences",
+    "12affectedoriginalhashes/bytes",
+    "7existingnativerenderhashes/bytes",
+    "Normalpanelrail/levelboundsarithmetic",
+    "Contactresistance/leak/currentconditionalcalculation",
+    "Fullframe/partialwire-onlydurationarithmetic",
+    "TCPPENunsupportedlowrailVOHcomparison",
+    "Affectedlocallinks/gitdiffcheck"
+  ],
+  "document_count": 202,
+  "claim_count": 94,
+  "affected_originals": [
+    {
+      "id": "u585-ds",
+      "bytes": 4842120,
+      "sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3"
+    },
+    {
+      "id": "u585-um2839",
+      "bytes": 3299835,
+      "sha256": "00b3650d881649661574b3889062545cb4e74450ef15991c68b2e74fffe8ddf3"
+    },
+    {
+      "id": "u585-mb1551-d01",
+      "bytes": 6198100,
+      "sha256": "040d70dc5da0e6ef0d0e5cfe33abfbffdfe4b01cbb9d5348ec20679752ebe221"
+    },
+    {
+      "id": "s3-ds",
+      "bytes": 1098115,
+      "sha256": "2d5a7cb7fd559d8d972bd88db32669c0196d23f22d7afaafb0f63d099b589a3f"
+    },
+    {
+      "id": "s3-module",
+      "bytes": 1280501,
+      "sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435"
+    },
+    {
+      "id": "s3-es",
+      "bytes": 628997,
+      "sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500"
+    },
+    {
+      "id": "s3-devkitc1-schematic",
+      "bytes": 134287,
+      "sha256": "f116b5d9f1fdce126e9a63d8450388eb11295d8322d831502fbc9729442b72e4"
+    },
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "id": "nhd-24-module",
+      "bytes": 2523755,
+      "sha256": "5be1a35fe829165fecc561dda2c0707af50090f5cbc441482f75e5dff998e6bb"
+    },
+    {
+      "id": "emw3080-ds0122cn",
+      "bytes": 3022210,
+      "sha256": "46e923837e14454195593fab748d6635ab44a54e334fd1cd8cae1dace68d3fab"
+    },
+    {
+      "id": "u585-stg3692",
+      "bytes": 445955,
+      "sha256": "78402d1990a05079c42918d19173a4072e66d01c7ae124a401f9e433eef513e2"
+    },
+    {
+      "id": "nhd-db-product",
+      "bytes": 325804,
+      "sha256": "7dbd1d15f7f08252b931dba8c12b7aa3b092c3d37130f0ec98ce8c2acd28de06"
+    }
+  ],
+  "native_visual_reviews": [
+    {
+      "document": "u585-ds",
+      "private_render": "u585-lqfp100-smps-actual.png",
+      "page": "Fig14p99reread",
+      "bytes": 161906,
+      "sha256": "56bde0507a434f90f3f45957d54dacb8491bce1af1edefd5b102d35946962bf4"
+    },
+    {
+      "document": "u585-mb1551-d01",
+      "private_render": "resume-mb1551-sheet7.png",
+      "page": "Native7reread",
+      "bytes": 615122,
+      "sha256": "453734f6385f8f30001fb3842b558850814a9e03a3501006dab15c778958198b"
+    },
+    {
+      "document": "u585-mb1551-d01",
+      "private_render": "u585-mb1551-arduino.png",
+      "page": "Native8reread",
+      "bytes": 360212,
+      "sha256": "320ab5b0ede7ed9f79e8e57be2afb5f84f3458dfa26ae42b0c1a64f6c5c71904"
+    },
+    {
+      "document": "u585-mb1551-d01",
+      "private_render": "resume-mb1551-sheet13.png",
+      "page": "Native13reread",
+      "bytes": 406484,
+      "sha256": "86cc88962d127ff74535eb2e3af2f7906adaa5a5a9527c618ea608a5c9cd3be7"
+    },
+    {
+      "document": "s3-devkitc1-schematic",
+      "private_render": "s3-devkitc1-1.png",
+      "page": "Native1historicalApril13blockdiagramreread",
+      "bytes": 257122,
+      "sha256": "d8e10656c119fe49cb9f42a701ab0813cd71229e5366b1dbcaa280c4c0c064d3"
+    },
+    {
+      "document": "s3-devkitc1-schematic",
+      "private_render": "s3-devkitc1-2.png",
+      "page": "Native2Nov30v1.1reread",
+      "bytes": 340033,
+      "sha256": "48904287215e8b7225caa0d9dc8ce5259a16f60510d86751672a0038480a1eca"
+    },
+    {
+      "document": "u585-mb1551-d01",
+      "private_render": "sol-mb1551-sheet9.png",
+      "page": "Native9reread;CC/EN/fault/currentnetsdistinct",
+      "bytes": 314994,
+      "sha256": "3da206a584be22559d794746a8b2c4715949e7cc5ac4cf4c0ec08ecad116376d"
+    }
+  ],
+  "arithmetic": {
+    "contact_current_max_A_at3p6V": 0.00036363636363636367,
+    "closed_contact_low_rail_ratio": 0.01,
+    "U585_worst_selected_pad_plus_fixture_high_drop_V": 0.01515,
+    "U585_nominal_fullframe_wire_s": 0.4096,
+    "S3_nominal_fullframe_wire_s": 0.49152,
+    "TCPP_EN_VOH_generic_floor_V": 2.8175,
+    "TCPP_EN_normal_min_V": 2.9699999999999998
+  },
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/pin-electrical-contract.md",
+      "bytes": 14571,
+      "sha256": "6b7919eadbcbcda642a26fcea89d6e6c3e005ba1b76108eaaee05a5e88f300a9"
+    },
+    {
+      "path": "docs/restart/H01/pin-electrical-proposal.json",
+      "bytes": 2992,
+      "sha256": "9554b80805f3bfad5d0c7e14b7a48718cd07fd07a26d38dbd6ea599cfbddd382"
+    },
+    {
+      "path": "docs/restart/H01/option-comparison.md",
+      "bytes": 24591,
+      "sha256": "7a976df2bf6123d31ad65e71d0ab397279e15120ff0f808ca2c2543a15006c3c"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 24025,
+      "sha256": "9f1f3d40cabbcfdb8128ba9eae2d18d6842d47a89f1755a8f18349df54420cf6"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 19784,
+      "sha256": "8687d6278d55d7f77f80354e17f8db356ecb55002261f8759e95681b6150ebd3"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 11985,
+      "sha256": "36e9869da2026ec5a4983bd6eb267f437d501f41adb23644434df720a245243c"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 17373,
+      "sha256": "d204adb647e38444400fcb83b9cee6064682aa6fc2763d02136c59751ddb370f"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 371501,
+      "sha256": "ad69cb6d7f6a1f4c170b6232478eeed1a33eea097ae9b50250f51e1bd5380f4c"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 140764,
+      "sha256": "e85e28767b6bfd6711fe1426933d9996d927a573dde513dd3db8a55a2eaf26f4"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 81205,
+      "sha256": "49fe9f5ff8a016b5f9414c0ae167d3b54c48aadfa4f3cbf8242218250b9696f5"
+    },
+    {
+      "path": "docs/restart/H01/resume-source-notes.md",
+      "bytes": 11402,
+      "sha256": "0bb66b675b73b05e9406b8a55df3015358081ecd071918aa75deee5b4c414ef6"
+    }
+  ],
+  "private_receipt_sha256": "e732e10e5ed2a75a2e8d8d64794c066ef4986de98ae38c97441b2c9fb9657bb7",
+  "limits": "Noactualelectrical/UI/RF/current/clock/fixture/link/build/driver/hostadmission;sourcecorrectionsnotdefectiveboardclaim. Proposednormalcontractsretainpre-usestops/unchangedS04andphysicalgates. C03/C04/C09/C10remainincomplete;neithersystemprovenworking.",
+  "not_run": [
+    "IntegratedhardwareCI/root-owned",
+    "Targetbuild/link/API/registerwrites",
+    "Wiring/energizing/enumeration/RF/current/faulttests",
+    "Fuse/flash/provisioning/productionsecrets"
+  ]
+}

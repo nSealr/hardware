@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "source_checkpoint": "77310fc512d8cb4d175315b43b016ce2ec87b3f1",
+  "status": "FiniteconditionalC04paperrequirements;notprovisioningrecipeorqualifiedboot/update/custody",
+  "analysis": "owner-update-contract.md",
+  "U585": {
+    "TZEN": 1,
+    "RDP": "Level1",
+    "BOOT_LOCK": 1,
+    "SECBOOTADD0_field": "0x0180000",
+    "secure_entry": "0x0c000000",
+    "DUALBANK": 1,
+    "SWAP_BANK": 0,
+    "SRAM2_RST": 0,
+    "SRAM_RST": 0,
+    "SRAM2_ECC": 0,
+    "SRAM3_ECC": 0,
+    "OEM1LOCK": 1,
+    "OEM2LOCK": 1,
+    "OEM_credential_bits_each": 64,
+    "OEM_credentials_on_host_or_public": false,
+    "IWDG_mode": "Software/progress-only/EWI0;system-runtime-proposal.json",
+    "flash_bytes": 2097152,
+    "page_bytes": 8192,
+    "program_bytes": 16,
+    "regions": [
+      {
+        "owner": "ImmutableOwnerBoot",
+        "start": 134217728,
+        "end_exclusive": 134479872,
+        "secure_alias_start": 201326592
+      },
+      {
+        "owner": "BootOnlyFloorJournal",
+        "start": 134479872,
+        "end_exclusive": 134496256,
+        "pages": [
+          32,
+          33
+        ]
+      },
+      {
+        "owner": "Unallocated",
+        "start": 134496256,
+        "end_exclusive": 134610944
+      },
+      {
+        "owner": "AppA",
+        "start": 134610944,
+        "end_exclusive": 135266304,
+        "secure_entry": 201719808
+      },
+      {
+        "owner": "AppB",
+        "start": 135266304,
+        "end_exclusive": 135921664,
+        "secure_entry": 202375168
+      },
+      {
+        "owner": "Unallocated",
+        "start": 135921664,
+        "end_exclusive": 136314880
+      }
+    ],
+    "SECWM": {
+      "bank1": [
+        0,
+        127
+      ],
+      "bank2": [
+        0,
+        127
+      ]
+    },
+    "WRP1A": {
+      "pages_inclusive": [
+        0,
+        31
+      ],
+      "UNLOCK": 0
+    },
+    "HDP1": {
+      "EN": 1,
+      "inclusive_PEND": 33,
+      "bytes": 278528,
+      "ACCDIS": "Closeafterverifiedtransitionbeforeappentry;reviewedRAMpathrequired"
+    },
+    "HDP2": "Unused",
+    "firmware_verifier_hypothesis": "Existingacceptedk2560.14.0rawBIP340/separateofflineownerkey/domainseparatedtarget-slot-load-entry-length-digest-versionmanifest;notimplementedoraudited",
+    "counter_commit": "Persist+verifyraisedfloorBEFOREactivation;ambiguous/ECC/torn/GCstatefailsclosed,nolowerfloorfallback",
+    "owner_root_replacement": "AuthenticatedfullRDP1to0destructive;OTP/optionssurviveandmustbereconciled;notRDP.5/2",
+    "ROM_Go_owner_resume_allowed": false
+  },
+  "S3": {
+    "SECURE_BOOT_EN": 1,
+    "SECURE_BOOT_AGGRESSIVE_REVOKE": 1,
+    "revocation_initial": [
+      0,
+      0,
+      0
+    ],
+    "root_set": "ThreeindependentofflineownerRSA3072rootsatprovision;fixedinitialbootloadersignedbyall3;finitepreplannedrootset,noarbitrarypostlocknewownerroot",
+    "XTS": "AES256only/two256bitkeys/purposes2+3/noAES128purpose4",
+    "SPI_BOOT_CRYPT_CNT": 7,
+    "key_blocks": [
+      {
+        "index": 0,
+        "physical_block": 4,
+        "purpose": 2,
+        "read_protected": true,
+        "write_protected": true
+      },
+      {
+        "index": 1,
+        "physical_block": 5,
+        "purpose": 3,
+        "read_protected": true,
+        "write_protected": true
+      },
+      {
+        "index": 2,
+        "physical_block": 6,
+        "purpose": 9,
+        "read_protected": false,
+        "write_protected": true
+      },
+      {
+        "index": 3,
+        "physical_block": 7,
+        "purpose": 10,
+        "read_protected": false,
+        "write_protected": true
+      },
+      {
+        "index": 4,
+        "physical_block": 8,
+        "purpose": 11,
+        "read_protected": false,
+        "write_protected": true
+      },
+      {
+        "index": 5,
+        "physical_block": 9,
+        "purpose": 0,
+        "read_protected": false,
+        "write_protected": "Block+purposelockunusedstate;exactfutureceremonyreview"
+      }
+    ],
+    "DIS_PAD_JTAG": 1,
+    "DIS_USB_JTAG": 1,
+    "DIS_FORCE_DOWNLOAD": 1,
+    "DIS_DIRECT_BOOT": 1,
+    "DIS_DOWNLOAD_MODE": 1,
+    "DIS_USB_SERIAL_JTAG_DOWNLOAD_MODE": 1,
+    "DIS_USB_OTG_DOWNLOAD_MODE": 1,
+    "ENABLE_SECURITY_DOWNLOAD": 0,
+    "DIS_USB_SERIAL_JTAG": 0,
+    "USB_PHY_SEL": 0,
+    "DIS_USB_OTG": 1,
+    "DIS_APP_CPU": 0,
+    "software_CPU1": "Reset/gated",
+    "DIS_USB_SERIAL_JTAG_ROM_PRINT": 1,
+    "UART_PRINT_CONTROL": 3,
+    "software_stream_writers": "Boot/appconsoleNONE/secondaryNONE/noVFS-REPL-panic-coredump-trace;C07effectivewriterclosure",
+    "WR_DIS2": "Onlyafterentiregroupverified",
+    "WR_DIS18": "NotblanketlockedwhileSECURE_VERSIONmustadvance;monotonicdisabledprintbits+neighborDoSriskexplicit",
+    "WR_DIS19": "Separateexactgroupstate",
+    "SECURE_VERSION_bits": 16,
+    "APP_SEC_VER_SIZE_EFUSE_FIELD_required": 16,
+    "max_security_floor_increments": 16,
+    "one_authorized_app_content_per_security_version": true,
+    "helper_return_or_log_is_commit_proof": false,
+    "bounded_error_preserving_read_commit_source_path_proven": false,
+    "flash_bytes": 8388608,
+    "partition_table_offset": 131072,
+    "regions": [
+      {
+        "owner": "BootAndSignaturesReservation",
+        "start": 0,
+        "end_exclusive": 131072
+      },
+      {
+        "owner": "PartitionTableReservation",
+        "start": 131072,
+        "end_exclusive": 135168
+      },
+      {
+        "owner": "OTADataTwoSectors",
+        "start": 135168,
+        "end_exclusive": 143360
+      },
+      {
+        "owner": "Unallocated",
+        "start": 143360,
+        "end_exclusive": 196608
+      },
+      {
+        "owner": "AppA",
+        "start": 196608,
+        "end_exclusive": 3342336
+      },
+      {
+        "owner": "AppB",
+        "start": 3342336,
+        "end_exclusive": 6488064
+      },
+      {
+        "owner": "Unallocated",
+        "start": 6488064,
+        "end_exclusive": 8388608
+      }
+    ],
+    "layout_implemented_or_fit_qualified": false,
+    "OTA_bootloader_partitiontable_otherdata_allowed": false,
+    "OTA_factory_or_test_partition_allowed": false,
+    "NEW_PENDING_VERIFY": "Publicselftestonly/noidentity;VALIDcanburnfuses;freshcheckedfloorreadback/reset/preuseconditionsbeforesecrets",
+    "flash_erase_clears_fuse_root_or_counter": false,
+    "unusable_roots_or_counter_exhaustion": "Recoveryfailure/retirement,nosecuritybypass"
+  },
+  "persistent_identity_or_PIN_vault": "NOTallocatedorimplemented;D02/S04/H02S/K01preusestop",
+  "qualification_secrets": "Publicfixtures/disposableRAMsessionidentitiesonly",
+  "owner_root_is_Nostr_identity": false,
+  "authorization_for_fuse_RDP_flash_or_target_operations": false,
+  "unsatisfied_source_and_effective_gates": [
+    "U585OUT64/68interfaceproperty",
+    "S3brownoutresetselector",
+    "RawDBstartup/internalpower/factorystate",
+    "S3descriptor/status/attach/suspend/powercontract",
+    "C04bootmanifest/journal/PT/authenticatedboundedreadcommit/fullsource-build-map-fit-path",
+    "Entropyrealclock/profile/source/healthconditions",
+    "Actualreceivedresources/power/reset/interruption/UI/clearingqualification"
+  ],
+  "not_run": [
+    "Fuse/RDP/flash/provisioning/ownerkeys",
+    "Targetbuild/link/registerwrites",
+    "Update/rollback/reset/physicalmeasurements",
+    "Root-ownedfinalintegratedCI"
+  ]
+}

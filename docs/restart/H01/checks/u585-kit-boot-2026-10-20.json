@@ -1,0 +1,104 @@
+{
+  "task": "H01",
+  "author": "/root/h01_sol",
+  "recorded_utc": "2026-10-20T10:16:38.349550+00:00",
+  "base_commit": "2adec7ddb2024694a3baf5016bdab9ca874f6437",
+  "scope": "Selected U585 ROM/kit/TCPP03 and native-source correspondence; apparent pin9/11 conflict withdrawn; no host or sensing configuration admission",
+  "status": "Active after explicit maintainer revocation of the brief stop; all six documentary rows incomplete",
+  "checks": {
+    "json_ids_references": "All H01 JSON parsed;153 unique document IDs;53 unique claims; valid claim references and unique ledger IDs",
+    "originals": "7 affected original hashes/lengths and4 selected archive member hashes/lengths matched",
+    "whitespace": "git diff --check passed"
+  },
+  "not_repeated": [
+    "source inventory",
+    "unchanged hardware CI",
+    "target build",
+    "physical tests"
+  ],
+  "private_reading_receipt": {
+    "name": "u585-kit-boot-2026-10-20-reading.json",
+    "bytes": 3647,
+    "sha256": "0f9653b5fd448770e56aa2ff131bf07a8148a6854c56474f1e846690c524c052"
+  },
+  "original_correspondence": [
+    {
+      "document": "u585-ds",
+      "bytes": 4842120,
+      "sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3"
+    },
+    {
+      "document": "u585-um2839",
+      "bytes": 3299835,
+      "sha256": "00b3650d881649661574b3889062545cb4e74450ef15991c68b2e74fffe8ddf3"
+    },
+    {
+      "document": "u585-mb1551-d01",
+      "bytes": 6198100,
+      "sha256": "040d70dc5da0e6ef0d0e5cfe33abfbffdfe4b01cbb9d5348ec20679752ebe221"
+    },
+    {
+      "document": "u585-tcpp03",
+      "bytes": 1928352,
+      "sha256": "adea648fe44d721b65d731ca80cc7c0d37e90d815074141c810ba8fb8765d4ae"
+    },
+    {
+      "document": "u5-an2606",
+      "bytes": 7560428,
+      "sha256": "25b466e39ecc61671dcb988d8ca538462d6452d85f68140cb981ed728f57e654"
+    },
+    {
+      "document": "u585-mb1551-design",
+      "bytes": 22018475,
+      "sha256": "c48391854b70c934a78971fe6baa3882bf974075eed4c4f2846ba15b4ce14a4b"
+    },
+    {
+      "document": "st-opla",
+      "bytes": 43549,
+      "sha256": "0809c990f7a3b971bc9517e20d93c3da880b46d30505409c47f61b371703d2a0"
+    }
+  ],
+  "review_status": "Awaiting distinct affected review; historical reviews/results not rebound",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/u585-kit-usb-boot-review.md",
+      "bytes": 7978,
+      "sha256": "343140f9343c34ddb9c9d6c94ad3aad5d5a7104eda40d8fca0d29a37009777dd"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 17525,
+      "sha256": "28358ae02b548e240cc501117f76905c989338465818e8cbcdc6d88acd15c126"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 12985,
+      "sha256": "d6487ba0fb3f761df17a9d5d40943b8fd05c24c6849be0f9ee4a675a9517a53f"
+    },
+    {
+      "path": "docs/restart/H01/usb-configuration.md",
+      "bytes": 6981,
+      "sha256": "b539f4959e035ff1b129803b2a7a691a6435bd5294f54868e9f9b08a3a28b0ce"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 11088,
+      "sha256": "b9907b004ac6c853d69f237fd2c086829c5ff1a32424e5af4f12c91b0bbbe0ad"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 239674,
+      "sha256": "abb3b14ffc2a3a2fcee81cbdc221aa97adc292cfaa76762e0115db449d9329a5"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 61238,
+      "sha256": "4084f3a92279592a2909fbbf38b7e06bea5947fe1ac9fc51d1fe01b5dc971be5"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 63496,
+      "sha256": "0e931a45c8e5ae92eea5bdd57937ac96e33262d457fc934cb6da6a56f95cc054"
+    }
+  ]
+}

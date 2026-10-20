@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "source_checkpoint": "4d3fa674e8f6cbb0c484dba914d9c63063ad893f",
+  "status": "FiniteG9documentcomparison;retainhigher-UI/H04comparison,deferpromotion/selection;noadditionalhostport",
+  "analysis": "g9-comparison-review.md",
+  "exact_leads": [
+    {
+      "OPN": "STM32U5G9ZJT6Q",
+      "package": "LQFP144",
+      "power_option": "SMPS",
+      "body_mm": [
+        20,
+        20
+      ],
+      "reference": "DK2MB1918-U5G9ZJQ-C01/3.3V/RGBtouch"
+    },
+    {
+      "OPN": "STM32U5G9ZJJ6Q",
+      "package": "UFBGA144",
+      "power_option": "SMPS",
+      "body_mm": [
+        10,
+        10
+      ],
+      "reference": "Differentpackage/notDK2wiringequivalent"
+    }
+  ],
+  "received_unit_or_REV_ID_known": false,
+  "promoted_selected_or_bench_port_admitted": false,
+  "prior_no_touch_baseline_is_product_freeze": false,
+  "baseline_pin_comparison": [
+    {
+      "role": "SCK",
+      "pin": "PE13",
+      "pad": 59,
+      "AF": 5,
+      "DK2_conflict": "RGBG6"
+    },
+    {
+      "role": "MOSI",
+      "pin": "PE15",
+      "pad": 61,
+      "AF": 5,
+      "DK2_conflict": "RGBR2"
+    },
+    {
+      "role": "softwareCS",
+      "pin": "PE12",
+      "pad": 58,
+      "AF": null,
+      "DK2_conflict": "RGBG5"
+    },
+    {
+      "role": "DC",
+      "pin": "PC1",
+      "pad": 30,
+      "AF": null
+    },
+    {
+      "role": "RESET",
+      "pin": "PA8",
+      "pad": 102,
+      "AF": null
+    },
+    {
+      "role": "BLANK",
+      "pin": "PB6",
+      "pad": 136,
+      "AF": null
+    },
+    {
+      "role": "Up",
+      "pin": "PC0",
+      "pad": 29
+    },
+    {
+      "role": "Down",
+      "pin": "PC2",
+      "pad": 31
+    },
+    {
+      "role": "Left",
+      "pin": "PA7",
+      "pad": 45
+    },
+    {
+      "role": "Right",
+      "pin": "PB0",
+      "pad": 46
+    },
+    {
+      "role": "Select",
+      "pin": "PE7",
+      "pad": 51,
+      "DK2_conflict": "RGBB6"
+    },
+    {
+      "role": "Consent",
+      "pin": "PD15",
+      "pad": 80,
+      "DK2_conflict": "RGBB3"
+    }
+  ],
+  "USB_pads": {
+    "PA11_DM": 105,
+    "PA12_DP": 106,
+    "VDDUSB": 108
+  },
+  "DK2_RGB_gpio_cost": {
+    "data": 24,
+    "timing": 4,
+    "display_backlight_control": 2,
+    "touch_I2C_IRQ": 3,
+    "total_GPIO": 33,
+    "shared_NRST_separate": true,
+    "connector_pins": 50,
+    "touch_bus_private_SE_bus": false
+  },
+  "rails": {
+    "VDD_V": [
+      1.71,
+      3.6
+    ],
+    "VDDSMPS_V": [
+      1.71,
+      3.6
+    ],
+    "VDDIO2_V": [
+      1.08,
+      3.6
+    ],
+    "VDDUSB_V": [
+      3,
+      3.6
+    ],
+    "VDD11DSI_V": [
+      1.0,
+      1.26
+    ],
+    "VDDDSI": "SameasVDD",
+    "VDD11DSI": "ConnectedVDD11",
+    "when_VDD_below_1V_other_supply_max_above_VDD_V": 0.3,
+    "powerdown_energy_exception_max_mJ": 1,
+    "sequencing_qualified": false
+  },
+  "PC13_LSE": {
+    "native_source": "u5g9-mb1918-c01",
+    "source_sheets": [
+      2,
+      3,
+      4,
+      9
+    ],
+    "MCU": "STM32U5G9ZJT6Q",
+    "PC13_pad": 7,
+    "PC14_pad": 8,
+    "PC15_pad": 9,
+    "X1_nominal_Hz": 32768,
+    "C2_C3_nominal_pF": 3.3,
+    "B2": "USER_BUTTONto3V3;sheet2joinstoPC13WKUP2",
+    "external_button_low_hold_resistor_drawn_in_branch": false,
+    "LSE_bypass": false,
+    "erratum": "ES0595Rev4section2.2.1p5/LQFP/inputoroutputPC13transitions",
+    "applicable_published_workaround": "None",
+    "UFBGA_WLCSP_and_bypass_affected_by_this_limitation": false,
+    "software_ignoring_button_prevents_physical_transition": false,
+    "actual_clock_failure_measured": false
+  },
+  "memory_capacity_only": {
+    "SRAM1_KiB": 768,
+    "SRAM2_KiB": 64,
+    "SRAM3_before_ECC_reservation_KiB": 832,
+    "SRAM4_KiB": 16,
+    "SRAM5_KiB": 832,
+    "SRAM6_KiB": 512,
+    "bank_sum_before_reservation_KiB": 3024,
+    "SRAM3_with_ECC_total_KiB": 768,
+    "SRAM3_ECC_supported_part_KiB": 256,
+    "SRAM3_nonECC_accessible_part_KiB": 512,
+    "separate_backup_KiB": 2,
+    "MPCBB_block_bytes": 512,
+    "blocks_per_lock_superblock": 32,
+    "frame_800x480_RGB565_bytes": 768000,
+    "two_frames_800x480_RGB565_KiB": 1500,
+    "two_frames_480x480_RGB565_KiB": 900,
+    "one_frame_240x320_RGB565_KiB": 150,
+    "hypothetical_scanout_Hz": 60,
+    "single_active_pixel_read_bytes_per_s": 46080000,
+    "contiguous_map_fit_arbitration_or_performance_qualified": false
+  },
+  "master_boundary": {
+    "LTDC": "Readmaster/GTZC1SECCFGR2LTDCUSBSECbit9onG9;exactprivate-scanoutproofnotestablished",
+    "GPU2D_traffic": "Nonsecure/RM9.3p383",
+    "DCACHE2_TrustZone_supported": false,
+    "GPU2DSEC_or_DCACHE2_REGSEC_makes_traffic_secure": false,
+    "GFXMMU_register_vs_memory_security_fields_distinct": true,
+    "GPU_private_secret_rows_or_recovery_framebuffers_accepted": false,
+    "complete_G9_selected_master_manifest": "Requiredonlybeforefuturepromotion;notU585manifestinheritance"
+  },
+  "software": {
+    "embassy_pin": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+    "embassy_stm32_declared_version": "0.6.0",
+    "crate_declared_license": "MIT OR Apache-2.0",
+    "stm32u5g9zj_feature_declared": true,
+    "graphics_modules_declared": true,
+    "G9_effective_build_or_display_qualified": false,
+    "LTDC_selected_source_limits": [
+      "HeadertestH735GDKnotG9",
+      "Rawframebufferaddressandcontrollerflagsnotopticalcompletion",
+      "Noabsoluteawaitdeadline",
+      "Dropempty"
+    ],
+    "GPU_selected_source_limits": [
+      "StatusIRQnotreviewedcommandgeneratorISA",
+      "Completionwaitdoesnotobserveseparatesystemerror",
+      "NemaGFXerrorhookownershipexternaltocrate;notmiddlewarelicense/implementationapproval"
+    ],
+    "GFXMMU_selected_source_limits": [
+      "IRQandbufferLUTownersneedqualification",
+      "Synchronouscacheflush/invalidatewaitunbounded"
+    ],
+    "external_middleware_selected_or_terms_cleared": false
+  },
+  "decision": "RetainexistinghigherUI/RAMH04comparisonformaterialtouch/recovery/SDKquestion;deferpromotion/selectionuntilpin/SE/expansion/rail/clock/master/privacy/driver/license/fit/module/optical/manufacturing/costgatesclose",
+  "exact_G9_custom_BOM_cost_established": false,
+  "no_new_MCU_SE_panel_market_or_bench_scope": true,
+  "not_run": [
+    "Build/link/API/registerwrites",
+    "Target/clock/USB/UI/power/physicaltests",
+    "CI"
+  ]
+}

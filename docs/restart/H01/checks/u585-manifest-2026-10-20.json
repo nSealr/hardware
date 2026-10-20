@@ -1,0 +1,63 @@
+{
+  "task": "H01",
+  "author": "/root/h01_sol",
+  "recorded_utc": "2026-10-20T09:39:15.166611+00:00",
+  "base_commit": "e35ee73b53813b2892267edf9a07088b4a7c0036",
+  "scope": "Selected U585 GTZC/RCC/master correspondence; incomplete source-derived proposal, no host/physical admission",
+  "checks": {
+    "json_parse": "all H01 JSON parsed",
+    "document_claim_ids": "124 document IDs and44 claim IDs unique; claim document references valid",
+    "ledger_ids": "unique pins/errata/contradiction IDs",
+    "manifest_structure": "64 TZSC field correspondences;66 unique reset/clock rows; derived masks recomputed",
+    "originals": "RM0456 Rev7 and DS13086 Rev10 original hashes/lengths independently matched register",
+    "whitespace": "git diff --check passed"
+  },
+  "not_repeated": [
+    "whole source inventory",
+    "unchanged hardware CI",
+    "target builds",
+    "physical tests"
+  ],
+  "historical_result": "result.json, handoff.md and preserved reviews retain their historical candidate bindings",
+  "private_reading_receipt": {
+    "name": "u585-manifest-2026-10-20-reading.json",
+    "sha256": "dce2325203fc5208ac55ab0524a8519018990d3f6c6de6c5545a74c4b558f8fe"
+  },
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/u585-initialization.md",
+      "bytes": 7783,
+      "sha256": "e67b49cc4ce30ae6a8acf6786dc500301b2a0884af179c2a3b0c536bbf219a4b"
+    },
+    {
+      "path": "docs/restart/H01/u585-peripheral-manifest.json",
+      "bytes": 53217,
+      "sha256": "a622bb7f7e411f9e3f5e1fbff2338ad4c7f2245f63d62b29b4c0578cc0e84dc1"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 16337,
+      "sha256": "831e3ec499de395731cacc59bc0f9062b2b754a6cd62129ca4f5525fbb5c5a6d"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 11917,
+      "sha256": "ccf298f5eabd0f71ed0a9d4d025f26ba8dc9a05d9b64d42459aa685ecf9fbfc9"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 188449,
+      "sha256": "5fae301eb568ae0f3422cf829f70b60a7e5d562510a0e58ab788b1181330766e"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 48055,
+      "sha256": "77f106d71787e55dc7c29c00e23f0db28ca6d279ec3ee4d1304ab5516b2b3e94"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 60449,
+      "sha256": "81e453fd07a090b523bad16337c7ee5e89c90a95ea67a16fdf904f71adcb395d"
+    }
+  ]
+}

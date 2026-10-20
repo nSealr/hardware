@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "source_checkpoint": "aa383dfd253171f0d06325aeab1d2a6310cdce39",
+  "status": "FiniteC09sourceassessment/requirements;mandatoryattachmentpropertiesUNSATISFIED;neitherconnectedhostadmitted",
+  "analysis": "power-attach-lifetime-contract.md",
+  "physical_connection_or_energizing_authorized": false,
+  "U585": {
+    "supply_proposal": "CN8dedicatedpower-only5Vsource/JP4[7–8]/CN1nativeUSBtransport;notselectedusableattachedimplementation",
+    "source_at_board_V_proposed": [
+      4.75,
+      5.25
+    ],
+    "PC_on_CN8_in_this_setting_permitted": false,
+    "JP4_multiple_sources_permitted": false,
+    "JP4_5_6_UCPD_is_operating_supply_under_GDC1": false,
+    "TCPP": {
+      "EN": "Required3.3V±10%;actualvalidityUNSATISFIED",
+      "EN_required_min_V": 2.97,
+      "conditional_MCU_GPIO_high_floor_V": 2.8175,
+      "dynamically_triggered_rise_max_us_exclusive": 50,
+      "mode": "Hibernate",
+      "write_register0_hex": "0x08",
+      "read_register1_expected_hex": "0x08",
+      "GDC": 1,
+      "consumer_load_switch": "Open",
+      "provider_VCONN_discharge": "Off",
+      "OFF_Hibernate_connector_deadbattery_Rd": "Enabled",
+      "OFF_Hibernate_MCU_CC_switch": "Off",
+      "RDB_source_kohm": [
+        4.1,
+        5.6
+      ],
+      "RDB_source_test_uA": 400,
+      "default_power_Rd_kohm_envelope": [
+        4.08,
+        6.12
+      ],
+      "VBUS_UVLO_source_V": [
+        1.9,
+        2.9
+      ],
+      "VBUS_OK_proves_physical_unplug_or_normal_5V": false
+    },
+    "PWR_UCPDR": {
+      "UCPD_DBDIS": 1,
+      "UCPD_STBY": 0,
+      "UCPD_peripheral_promoted": false,
+      "reset_DBDIS": 0,
+      "Standby_exit_resets_register": false
+    },
+    "normal_running_status_reaction_ms_proposed": {
+      "poll": 10,
+      "readback_transaction_group": 2,
+      "SDIS_BVAL_action": 1,
+      "total": 13
+    },
+    "autonomous_VBUSoff_data_removal_proven": false,
+    "mandatory_properties_unsatisfied": [
+      "ENnormallevel/rise/lifetime",
+      "Autonomouspullupremovalwithoutfirmware/clock/resetowner"
+    ],
+    "native_typec_connector": "CN1",
+    "UM2839_p16_CN14_sentence_correct_for_native_USB": false
+  },
+  "S3": {
+    "transport": "FixedUSJCDCunselected",
+    "selected_power_alternative": null,
+    "alternativeA": "J4-onlywholekitbuspowered/noJ2/headerpower;aggregatecurrent/suspend/rail/inrushunqualified",
+    "alternativeB": "ExistingconditionalattachfixtureupstreamVBUSnotfedtoJ4pin1/kit;independentJ1.21/22power/J2empty;notselected",
+    "independent_header_source_V_proposed": [
+      4.75,
+      5.25
+    ],
+    "USB_and_header_power_simultaneous_permitted": false,
+    "fixed_descriptor_power_capability_and_status_known": false,
+    "fixture_part_or_implementation_selected": false,
+    "fixture_status_GPIO": 8,
+    "fixture_contract": "s3-attach-contract.md",
+    "existing_U2": "SGM2212-3.3XKC3G/TR",
+    "SGM2212": {
+      "source_revision": "July2023RevA.2",
+      "normal_input_V": [
+        2.7,
+        20
+      ],
+      "conditional_output_V": [
+        3.251,
+        3.349
+      ],
+      "conditional_source_current_mA": [
+        0,
+        800
+      ],
+      "SOT223_source_thetaJA_C_per_W": 117,
+      "recommended_effective_COUT_uF": [
+        1,
+        10
+      ],
+      "kit_C9_nominal_uF": 10,
+      "kit_C10_nominal_uF": 0.1,
+      "additional_same_rail_capacitance_present": true,
+      "actual_effective_sum_ESR_stability_or_board_thermal_capacity_proven": false
+    }
+  },
+  "USB_normative_requirements": {
+    "unconfigured_max_mA": 100,
+    "configured_scope_max_mA": 500,
+    "VBUS_upper_after_ECN_V": 5.5,
+    "nonhub_suspend_any_1s_average_max_mA": 2.5,
+    "suspend_idle_trigger_ms_exclusive": 3,
+    "suspend_current_by_ms": 10,
+    "postconnect_allowance_s": 1,
+    "preconnect_unitload_window_ms": 100,
+    "powered_connect_ready_max_s": 1,
+    "session_valid_threshold_range_V": [
+      0.8,
+      4.0
+    ],
+    "pullup_removal_after_VBUS_removed_max_s": 10,
+    "TypeC_selected_disconnect_threshold_range_V": [
+      0.8,
+      3.67
+    ],
+    "TypeC_disconnect_max_ms": 40,
+    "connector_effective_capacitance_ECN_uF": [
+      1,
+      10
+    ],
+    "capacitance_ECN_stated_voltage_range_V": [
+      0,
+      5.25
+    ],
+    "inrush_model_uF": 10,
+    "inrush_model_parallel_ohm": 44,
+    "hub_droop_max_mV": 330,
+    "suspend_spike_rising_max_mA_per_us": 100,
+    "remote_wakeup_selected": false,
+    "sleep_stop_to_escape_suspend_selected": false
+  },
+  "normal_session_NV_writes_or_persistent_vault": false,
+  "update_write_policy": "C04dedicatedauthorizedno-secretsstate;exactprogrammingconditions/fullcheckedinterruptionrecoverybeforeuse;nohold-up/atomicity/automaticambiguousirreversibleretryassumption",
+  "H03_retained_chains": [
+    {
+      "id": "BQ24074+TPS63802",
+      "reason": "Firstsimplerhardwarecontrol/absentbatterypathinvestigation",
+      "USB100_EN2_EN1": [
+        0,
+        0
+      ],
+      "USB500_EN2_EN1_after_permission": [
+        0,
+        1
+      ],
+      "source_initial_output_short_test_mA": 100,
+      "qualified_or_exactparts_selected": false
+    },
+    {
+      "id": "BQ25628+TPS63802where3V3required",
+      "reason": "Onlyifload/thermalbenefitjustifiescontrolcomplexity",
+      "IINDPM_POR_or_adapter_removed_mA": 3200,
+      "BQ25629_Dplus_Dminus_detection_selected": false,
+      "safe_hardware_current_charge_default_state_proven": false,
+      "qualified_or_exactparts_selected": false
+    }
+  ],
+  "third_power_chain_selected": false,
+  "cell_chemistry_scope": "Protected1SLiion/Lipolymerhypotheses;notLiFePO4orselectedcell",
+  "TPS63802_reverse_boost_is_isolation": false,
+  "display_specified_point_only": {
+    "logic_V": 3,
+    "logic_mA": 15,
+    "LED_mA": 15,
+    "LED_Vf_at_that_current_V": 13.6,
+    "calculated_load_mW_before_losses": 249,
+    "complete_maximum_or_runtime_budget": false
+  },
+  "not_run": [
+    "Targetbuild/flash/fuse/registerwrites",
+    "Connection/energizing/current/waveform/inrush/backfeed/suspend/thermal/clockloss/reset/writeinterruptionmeasurements",
+    "CI"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "ee43719e1578a4d60492dfd207d1f7d675223f28",
+  "result": "PASS conditional documentary arithmetic/integrity only",
+  "checks": [
+    "JSON parse/unique IDs/claim references",
+    "Six affected original hashes/bytes",
+    "One native U585 memory-map render hash/bytes",
+    "Canonical pinned P01 requirement Git object hash",
+    "Aggregate public/secret/stack budgets and separate row capacity",
+    "Contiguous nonoverlapping per-host fixed regions against implemented/source window bounds",
+    "S3 physical alias and same-pin bootloader loader-start arithmetic",
+    "256-byte split alignment and finite requester/field set",
+    "Affected local Markdown links",
+    "git diff --check"
+  ],
+  "document_count": 195,
+  "claim_count": 85,
+  "affected_originals": [
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "id": "s3-trm",
+      "bytes": 15215232,
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+    },
+    {
+      "id": "embassy-stm32-lib",
+      "bytes": 34386,
+      "sha256": "6f8843e578a23d0d8f6fdd6be31b0e3ad846c17e3ab93fb9ec438611e59301be"
+    },
+    {
+      "id": "s3-idf-memory-ld",
+      "bytes": 8918,
+      "sha256": "442bd739004878091ef47ff3e681bde5a913b85bf4eb6f52396f572f590b3806"
+    },
+    {
+      "id": "s3-idf-sections-ld",
+      "bytes": 15727,
+      "sha256": "49533ca219b1596503961e8c346c71d68477b478a184ea955e91716fc6d658da"
+    },
+    {
+      "id": "s3-idf-boot-memory-ld",
+      "bytes": 4462,
+      "sha256": "17d7225880bfea6e746c782ee72ea88ed3497054575ce8133a23c3a45e0bebd9"
+    }
+  ],
+  "native_visual_reviews": [
+    {
+      "document": "u5-rm7",
+      "private_render": "sol-u5-memory142.png",
+      "page": "nativeRM0456p142Figure4U575/585IDAUmemorymap",
+      "bytes": 291239,
+      "sha256": "131d7f77ed75a0df0c6917b608aaadb6dc0f1fceeeadfdd149967bd2c3b4b809",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    }
+  ],
+  "canonical_core_reads": [
+    {
+      "path": "docs/restart/implementation/P01/requirements.md",
+      "commit": "7b5553685dac56029a4379be12054154b6b5e0b5",
+      "bytes": 17199,
+      "sha256": "f8635e2941895b7d4043e769c9b73e2064036b1358e5f4266854b074a9b81326",
+      "reading": "Fullpinnedrequirementsreread;PROD09measurement-boundnumericlimitsretained,nohistoricaltests rerun"
+    }
+  ],
+  "arithmetic": {
+    "u585_allocated_bytes": 262144,
+    "s3_initial_static_window_bytes": 341760,
+    "s3_allocated_bytes": 327680,
+    "s3_unallocated_margin_bytes": 14080,
+    "s3_bootloader_loader_start": "0x403cb700"
+  },
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/memory-ownership-contract.md",
+      "bytes": 15180,
+      "sha256": "9a148884351bacaa54ea7b611b9f7f3c57ac94a49edc2c414a7f504089108eb7"
+    },
+    {
+      "path": "docs/restart/H01/memory-ownership-proposal.json",
+      "bytes": 6850,
+      "sha256": "f854ac1ae044f38f325c23421e560d8f030570fb97fd01bb0057edd13af17d5f"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 21909,
+      "sha256": "21fd37bf272d997058c5d838c5b839e740e6e1a9f0418fd0694fe11d49af9e85"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 18382,
+      "sha256": "eacc0a16048a97f5cb13f177bd3904938dc817a97fc7b2c987ec64905961e00b"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 15808,
+      "sha256": "bc42cb112037caf6477dd664391ec0adff8918c11f6719eb5ad6e2c0643033d3"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 11253,
+      "sha256": "f61a92b5b1389b1f5a0f1d80704fdbd8fb989e41a7a50180165e5a3b208e1c37"
+    },
+    {
+      "path": "docs/restart/H01/u585-initialization.md",
+      "bytes": 8176,
+      "sha256": "38332da3c4a82c40cfbf9ee4cafcbb70b299658672917d039e5ec31f02d0d423"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 345019,
+      "sha256": "64ced97748935998963bc264ae336c0ab9aa4e5c9d97246e058d370e3cba4028"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 120445,
+      "sha256": "79c64692ea934c9b9413936bf579ad0c260e945549ce24a90e1ebf0510d512de"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 77558,
+      "sha256": "0e3f84596ce15666ebdc6d3b644446b566fc456a3b3342e2a683a683edf61dbd"
+    }
+  ],
+  "private_receipt_sha256": "a1f4fbd1082337f3110fc6f0e0412cdadb1ee3038127bc70dbd47001cc598c83",
+  "limits": "Engineering qualification caps, not measured capacities. No target fit, erasure, master isolation, complete host row or physical security claim. Other C01–C09/C10 and H02 gates remain. Historical checks/reviews retain original candidate bindings.",
+  "not_run": [
+    "Final integrated hardware CI",
+    "Target build/link/map/stack/capacity measurements",
+    "Master/PMS/reset/clearing/IRQ tests",
+    "Entropy/crypto helper execution or identity generation",
+    "Fuse,flash,provisioning,wiring or fixture operation"
+  ]
+}

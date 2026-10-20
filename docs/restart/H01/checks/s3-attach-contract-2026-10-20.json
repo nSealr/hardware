@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "33fc993cf0f32b6e638bacda0e749f0be0014194",
+  "result": "PASS scoped documentary integrity and calculation only",
+  "checks": [
+    "JSON parse, unique document/claim/ledger IDs, claim references",
+    "Eight affected original SHA256/byte identities",
+    "Three new native ECN render hashes plus existing S3 render reread hash",
+    "Proposed threshold ordering/session-range/headroom arithmetic",
+    "Proposed 1uA ×24.80kohm =24.8mV leakage contribution arithmetic",
+    "Proposed deadline/current/logic-level subset inequalities",
+    "Affected local Markdown links",
+    "git diff --check"
+  ],
+  "document_count": 180,
+  "claim_count": 79,
+  "affected_originals": [
+    {
+      "id": "usb2-base",
+      "bytes": 5983789,
+      "sha256": "d39698a33486c399124af92bd02e4f978fd9a836b5cf4e52e6e4633eb1d89f61"
+    },
+    {
+      "id": "usb2-connect",
+      "bytes": 171397,
+      "sha256": "31528541e9d829b1401fd0c747829012c56e6d6d6b12d8f1591ff4cb6549b73b"
+    },
+    {
+      "id": "usb2-resistors",
+      "bytes": 135192,
+      "sha256": "7d54e297fd8b79706a37912a899d20dca08d01861b940f4ebe2c11498d492e51"
+    },
+    {
+      "id": "usb2-suspend",
+      "bytes": 71263,
+      "sha256": "1e3375761a72c37eebd198e48bccf528a4bd153bc56cc124e1f88c72722d5019"
+    },
+    {
+      "id": "usb2-vbus",
+      "bytes": 49944,
+      "sha256": "9ea1f49b46f295e71e175d950ffaebd9edfd82f831787c40e74c2486d7773767"
+    },
+    {
+      "id": "s3-ds",
+      "bytes": 1098115,
+      "sha256": "2d5a7cb7fd559d8d972bd88db32669c0196d23f22d7afaafb0f63d099b589a3f"
+    },
+    {
+      "id": "s3-module",
+      "bytes": 1280501,
+      "sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435"
+    },
+    {
+      "id": "s3-devkitc1-schematic",
+      "bytes": 134287,
+      "sha256": "f116b5d9f1fdce126e9a63d8450388eb11295d8322d831502fbc9729442b72e4"
+    }
+  ],
+  "native_visual_reviews": [
+    {
+      "document": "usb2-connect",
+      "private_render": "sol-usb-connect4.png",
+      "page": "native4replacementconnectfigure",
+      "bytes": 193029,
+      "sha256": "e198b2895e5ce5cc3e916fa9fb031a0f84cd12126e98c14f1c830381cd479470",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    },
+    {
+      "document": "usb2-connect",
+      "private_render": "sol-usb-connect5.png",
+      "page": "native5coloredredline/threshold",
+      "bytes": 446931,
+      "sha256": "769f535c64992a7d48258473ce5d385f3284ef0339d62d68e87cf45533fa40c9",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    },
+    {
+      "document": "usb2-resistors",
+      "private_render": "sol-usb-resistors4.png",
+      "page": "native4figures7-20/21/22andHScontext",
+      "bytes": 264477,
+      "sha256": "f360d981ee598c5839171cd783d6b846db092aa335243e87f04ba07415832cb2",
+      "reviewer": "/root/h01_sol",
+      "date": "2026-10-20"
+    }
+  ],
+  "native_s3_render_reread": {
+    "name": "s3-devkitc1-2.png",
+    "bytes": 340033,
+    "sha256": "48904287215e8b7225caa0d9dc8ce5259a16f60510d86751672a0038480a1eca"
+  },
+  "calculation_limits": "Engineering requirement arithmetic only;no actual comparator/switch/GPIO/current/timing/leakage proof. Descriptor/status may rejectselfpower.",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/s3-attach-contract.md",
+      "bytes": 12721,
+      "sha256": "103dc1a234ceb32edf87da5d498d32c014b84f9175ad2fe0a9447352e9b83f80"
+    },
+    {
+      "path": "docs/restart/H01/s3-usj-contract.md",
+      "bytes": 13470,
+      "sha256": "d38d1a035f6643b2e5b1d34009299d0ad86e93830f5a9324261d2a00d46b3fdf"
+    },
+    {
+      "path": "docs/restart/H01/usb-configuration.md",
+      "bytes": 9120,
+      "sha256": "1326f1dd6c3be008d660faf11fef6d77574eb5792038abbec5907b7934a70f61"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 20333,
+      "sha256": "1577d111745e7bdbce19dccfb1f33b33180e2803b0e9a408c6ce0eeb3fddffe6"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 16511,
+      "sha256": "a4408d2fe5e59f954aafc361402f0b25ceab82c2bf1468dac69b704029fb0dc1"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 14310,
+      "sha256": "e5e5c21074039c682985c281a38aff5a3c697974d04cdd2fd012c4e945a6f6c8"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 10246,
+      "sha256": "31fa80ca0f689d5f7dbf93aac769dd2bd1f286b7945db1405f1cc42a64bd98b7"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 310007,
+      "sha256": "925b568f09de2cb12ea5ca7ea8e440637148f650f026a38d551715f24c3824e9"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 107572,
+      "sha256": "de22f842a2f62731e423ee6d968e7c5b1a79e9e5053acb393fbf9ab0b82aa4eb"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 75824,
+      "sha256": "667ec270924cbd9535b93f40372071417f51314b70c0b1d3805f60d804e17d60"
+    }
+  ],
+  "private_receipt_sha256": "a96f32b08f913638ab625896433dae65014d7dd0b4e8001698eb343f25f692b9",
+  "not_run": [
+    "Final integrated hardware CI",
+    "Target build/effectivefeatures/linker",
+    "Read-only received descriptor capture: no unit/electricalsetup admitted",
+    "Any physical fixture/wiring/energizing/power/USB operation",
+    "Fuse/flash/provisioning"
+  ],
+  "status": "H01partial;CDC/fixture/selfpowerunselected,twohostpaperconfigurations/sixrowsincomplete;historicalchecks/reviews/resultsretainoriginalbindings."
+}
