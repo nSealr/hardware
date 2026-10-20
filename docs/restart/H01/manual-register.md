@@ -177,3 +177,14 @@ driver/LL originals with exact selected functions and unread callees distinguish
 plus two native SPI bit-order/event views. The199 entries remain an inventory.
 Observed source gaps imply finite adapter/ownership requirements, not an
 upstream failure reproduction, driver selection, USB/kit or display admission.
+
+The [pin/electrical source table](pin-electrical-contract.md) adds the exact
+installed EMW3080(BP) and STG3692 documentation and raw DB product identity.
+The 202 entries remain an inventory, with 94 bounded claims. Selected pin/AF/
+electrical and existing native-kit reading is recorded precisely. Internal
+Wi-Fi enable pull-up/capacitor corrects a whole-net floating inference; native
+sheet9 corrects the private DBCC2/CC2 and alert draft. No false physical conflict
+or defective-board assertion survives. The normal external fixture is specified,
+not implemented; display startup, transport, clock, radio and physical gates
+remain. The option comparison now states the exact no-touch identity, finite
+wire-bandwidth/SDK limits and unselected two-SE hypotheses under unchanged gates.

@@ -703,6 +703,34 @@
       ],
       "status": "Conditional paper mapping only; C02 remains open; no fixture/wiring/panel admitted",
       "unknown": "Module factory/startup/internalpower,normal kitlogicrail margin,contact fixture/defaultoff,current source andpoweredoffIO. Exactconnector drawing andactualorientation H02/H04."
+    },
+    {
+      "id": "P-TWOHOST-UI-EXACT",
+      "candidate": "U585AII6QU/D01kitandS3WROOM1N8R8/DevKitC1v1.1;customVIQwitnessdistinct",
+      "function": "ExactUI/control/USB/TCPP/conditionalattachpinmap",
+      "source_table": "pin-electrical-contract.md",
+      "alternate_function": "U585SPI1AF5/I2C2PH4/5AF4;S3SPI2GPIO11/12IOmux4;softwareCS/DC/reset/blanking",
+      "owner": "Singletrustedfirmware;noexternalmaker/UI/secretsharing",
+      "status": "Source-boundconditionalcontractonly",
+      "unknown": "C03/C04/C09systemlifetime/receivedidentity/effectiveownersandallpre-usequalificationgates",
+      "evidence": [
+        {
+          "document": "u585-ds",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        },
+        {
+          "document": "s3-module",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        }
+      ]
     }
   ],
   "errata": [
@@ -1597,6 +1625,22 @@
       ],
       "issue": "IntroductorylinecallsSetAddress0undefinedwhilefollowingstatetablesexplicitlydefinestateretention/transitionforzero.",
       "disposition": "Preservedifference;useexplicitstatetableasdocumentaryrequirement,no broadundefined-inputsuccess. PinnedDAD-beforeacceptonwirecorrespondenceremainsunprovenanddependentusegated."
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "D-U585-SMPS100-I2C2-DBCC-CORRECTION",
+      "status": "recorded-adverse-source-correction",
+      "description": "PH4/PH5andPB11notexposed100SMPS. PB13/PB14AF4exists;PB14isDBCC2control,kitCC2isPB15. Initialdraftphysicalconflict/alertinferencewithdrawn;PE8FLGn/PD13IANAprovednative9. Additionalfunction/resetpolicyandactualcustomallocationremain;no replacement/customBOMselected.",
+      "claim": "H01-C91",
+      "closure_owner": "H01/H02/H04exactconfiguration"
+    },
+    {
+      "id": "D-KIT-WIFI-ENABLE-PULLUP",
+      "status": "recorded-adverse-source-correction",
+      "description": "WholeCHIP_ENnetfloatinginferencewithdrawn;exactM1BPsourceinternalnominal100kPU+10nF/active-low. Noexternalholdlow remains true;nominalmathnotPOR/RF/offcurrentproof.",
+      "claim": "H01-C92",
+      "closure_owner": "H01/H02/H04exactconfiguration"
     }
   ]
 }

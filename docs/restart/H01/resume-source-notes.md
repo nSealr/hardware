@@ -114,3 +114,30 @@ the remaining G9 package/rail/driver comparison. The six documentary signoff
 rows therefore remain incomplete. This increment does not convert the S3 NDA
 USB boundary, display source contradictions, physical-resource gaps or
 selected-SE gates into accepted compromises.
+
+## Subsequent finite pin/electrical and product-priority checkpoint
+
+[pin-electrical-contract.md](pin-electrical-contract.md) and its
+[proposal](pin-electrical-proposal.json) record C01's exact two-kit pad/header/AF
+and normal external fixture requirements. Claims H01-C91–C94 carry exact source
+scope, assumptions and negative cases. Original MXCHIP DS0122CN v2.8, STG3692
+DS4909 Rev9 and the exact raw DB product page remain private, with metadata and
+hashes public. Existing native sheets7/8/9/13 and S3 pages1/2 are reread, not a
+new whole-CAD/assembly audit.
+
+Two corrections are explicit. Installed EMW3080(BP) CHIP_EN has internal nominal
+100 kΩ pull-up/10 nF, so the whole-net floating inference is withdrawn; no external
+hold-low and no POR radio-quiet proof remain. A private draft also confused
+PB14 **DBCC2 control** with the physical CC2 net: kit CC2 is **PB15**, CC1 PA15.
+The draft's PB4 alert is likewise withdrawn: native sheet9 gives **PE8 FLGn and
+PD13 IANA**. DS p134 note4 and actual PWR_UCPDR ownership resolve the distinction;
+no false physical conflict or defective-board claim follows. PB11/PH4/PH5 are
+still absent from the LQFP100 SMPS witness, which is not a completed custom BOM.
+
+The maintainer's 20 October priorities make the no-touch baseline comparative.
+Existing option-comparison.md now covers generic Board/SDK use, three bounded
+non-Nostr workloads, concrete UI bandwidth/memory limits, a physical-confirmation
+decision and unselected two-SE composition hypotheses. No chip/panel is selected,
+no new market sweep or task tracker is opened, and S04/manufacturing/owner/physical
+gates are unchanged. C03/C04/C09 and the final G9/six-row packet remain incomplete;
+there is no hardware result or completed H01 acceptance at this checkpoint.

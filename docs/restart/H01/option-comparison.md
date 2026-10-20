@@ -15,6 +15,70 @@ without SE over USB, offline Pi, offline P4, and initially connected custom Boar
 No SE does not mean automatically compromised; an SE does not establish a trusted
 display, valid consent, secure host firmware or hostile-application isolation.
 
+## Maintainer priority update, 20 October 2026
+
+The generic programmable Board and Nostr-independent SDK have autonomous product
+value. The maintainer now explicitly prefers a readable, responsive touchscreen
+and asks for a concrete two-SE study, with a third only for a distinct verifiable
+benefit. The retained six-contact/no-touch tuples are **comparison baselines**,
+not an irrevocable product choice. This update preserves the accepted threat,
+owner, manufacturing and physical gates; it does not select a touch controller,
+MCU, SE pair or production design. Root coordinates any requirements/acceptance
+changes; this document records the concrete delta inside existing H01 scope.
+
+The exact [DB module product](https://newhavendisplay.com/2-4-inch-ips-tft-lcd/)
+declares no touchscreen. Its 45-contact specification provides no touch path.
+The already deferred AF breakout is also explicitly no-touch. Neither can meet
+the new preference by interpreting `CTXP` as a touch-controller identity. No
+neighboring product or extra display search is admitted by this observation.
+
+| Few representative uses | Useful baseline capability to qualify | Concrete limit / decision evidence |
+| --- | --- | --- |
+| Instrument/status and local approval console | Bounded public records, small updated regions, SPI/I2C/UART SDK services with explicit pin/current/owner contracts; review followed by separate physical consent. | Existing C05 caps are16KiB incoming/result/review and one operation, not arbitrary record/history capacity. No measured latency or safely exported expansion bus yet; fitted kit branches and private UI/SE paths constrain routing. |
+| Credential or key-operation agent | One trusted owner firmware can expose a protocol-independent bounded operation/review/error API. S02's maintained software backend remains relevant beyond Nostr. | No new credential protocol, native SE signature capability or concurrent hostile application is inferred. Actual algorithm/backend RAM/stack/time and secret copies need K01/H02;16KiB is a qualification cap, not a demonstrated usable maximum. |
+| Local provisioning, backup and recovery | Private row buffer and local controls can specify secret entry/review without sending recovery pixels over public USB staging. | Six-button text entry is a usability constraint, especially for long recovery data. A touchscreen could improve navigation/entry; it still needs exact input ownership, layout/legibility/error handling and a dedicated sensitive confirmation decision. No touchscreen or recovery workflow is qualified here. |
+
+The actual proposals are U585 MSIS48 (calculation45–51MHz), not its headline
+160MHz, and S3 CPU160/APB80. At nominal U585 SPI 3 MHz a 153600-byte RGB565 full
+frame takes **409.6ms on the wire**; S3 SPI 2.5 MHz takes **491.52ms**. A240×32
+rectangle takes 40.96/49.152ms respectively, before commands, scheduling and
+optical response. These lower bounds cannot establish smooth full-screen
+interaction, touch responsiveness or animation. Optical module bounds are
+separate, and source clock/reference conditions remain unsatisfied. A faster
+unreviewed divider/driver is not selected to conceal the limit.
+
+C05 deliberately allocates row rendering and separate public/private buffers,
+not a framebuffer. Its public 64 KiB and secret 64 KiB groups, 64 KiB stack/backend,
+separate runtime/code and finite residual margins are **qualification budgets**;
+none proves future SDK headroom or full-workload fit. A 150 KiB RGB565 frame cannot
+be inserted into an already allocated arena without a new map/ownership budget.
+External S3 PSRAM remains excluded for secrets. U585 remaining SRAM is not a
+free framebuffer claim: ECC, master attribution, capacity and effective linker
+ownership must be accounted. The mandatory existing G9 comparison will assess
+its larger-RAM/display path against these concrete UI limits, with GPU2D/
+DCACHE2's nonsecure boundary retained. No arbitrary new MCU or additional port
+is opened.
+
+For touch comparison, navigation, text entry, recovery and scrolling deserve
+quality/latency checks; sensitive approval still needs a screen-generation/
+operation binding, fresh input epoch and a separately evaluated physical
+confirmation. A touch event or button edge alone grants no authority. A general
+Board may run owner-installed firmware, with clearly different guarantees from
+the qualified Signer; SDK programmability does not establish safe coexistence of
+untrusted apps. This distinction must survive C04's install/update/recovery and
+owner-transition tables.
+
+The next hardware decision needs the existing G9 source comparison plus a small
+coherent configuration comparison under root's H04 gate: demonstrable UI/SDK
+benefit, exact pins/rails/memory/master ownership, maintained source/licenses,
+indicative cost with uncertainty, missing measurements and a recommendation.
+The current exact raw-panel page showed **USD 19.58 on 20 October 2026**, for the
+module alone, before tax/shipping/connector/translation/backlight/assembly and
+quantity changes. This is a dated indication, not a quote, complete BOM cost or
+reason to prefer the electrically/startup-unqualified no-touch module. No
+purchase or new supplier inquiry follows. Independent S03/T01/Pi work continues;
+the user's listed boards are an unverified inventory, not H01 test results.
+
 ## MCU triage
 
 | Investigation | Concrete benefit and constraint | Decision condition and remaining evidence |
@@ -99,6 +163,35 @@ argument; merely adding both does not yield independent protection (H01-C16–C1
 These SE gates do not block independent MCU/USB/UI research. They also cannot be
 silently converted into accepted compromises while the associated guarantee is
 advertised. The present U5 host gate is an remaining current-manual content and configuration review.
+
+The two-SE study is a required **composition question**, not a device count.
+Within the three retained approaches, two concrete pair hypotheses can structure
+the existing S04/H02S review, without selecting or asserting their services:
+
+| Pair hypothesis, unselected | Proposed distinct role / one-compromise question | Unchanged mandatory gate |
+| --- | --- | --- |
+| SE051C2 + standard OPTIGA Trust M V3 | Independently provisioned wrapping/authorization components, both required for at-rest release, with separately validated persistent attempt policies. If one is compromised, the other must enforce its own credential/policy rather than trust the first device's success flag. Exact algorithm/output combination is not chosen. | Exact SE051 OPN/OEF/applet/API/errata/update access is missing; Trust M exact order/firmware/object/channel/counter/reset/update behavior is unqualified. Neither independent PIN throttling nor a composable wrapping service is established for these exact tuples. |
+| TROPIC01 + standard OPTIGA Trust M V3 | Separately paired TROPIC authorization/PIN-side construction plus an independent Trust M wrapping/authorization component. Define independent credentials, host state and reset/attempt persistence before crediting diversity or protection after one compromise. | Applicable TROPIC advisory/remediation gate remains unsatisfied, including T310. Pairing/PIN notes do not qualify an intended vulnerable custody state. Trust M exact-service gates remain. No retry or alternative tuple bypasses S04's disposition. |
+
+Serial wrapping, XOR shares or a second approval bit are not assumed secure
+compositions. The construction needs exact algorithms, output/non-exportability,
+credential distribution, persistent rate-limit semantics, rollback and interrupted
+writes. A corrupt host can capture PIN input, request both authorized services,
+read reconstructed plaintext and change an operation unless the actual protocol
+prevents it. Two at-rest components therefore do not themselves isolate signing
+from the MCU or bind display content to the operation. Native BIP340 and
+non-exportable Nostr ECDH remain unestablished; key-at-rest and signing/use
+protection must be assessed separately.
+
+For either pair, specify separate owner/vendor update authorities, replacement,
+identity and credential recovery, atomic host journal, one-device outage,
+developer-document access and repeatable maintenance. Failure needs a defined
+recovery path without an unadvertised single-device fallback. The kit's shared
+I2C2 and custom-package pad/reset/additional-function constraints are real
+allocation costs, not a private
+dual-SE implementation. No third device has a demonstrated distinct benefit;
+none is recommended on a device-count argument. Exact-service study and the
+unchanged S04/H02S gates precede any selection, custody or H04 freeze claim.
 
 ## Power, USB, UI and expansion
 

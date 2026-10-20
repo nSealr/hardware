@@ -75,6 +75,14 @@ requirements, shared-core GPIO IRQ controls and conflict-warning behavior.
 The underlying USB descriptor/route, clock/reference, lifecycle and physical
 display/fixture stops remain. No whole host row is signed by this subset.
 
+The [pin/electrical contract](pin-electrical-contract.md) adds the exact two-kit
+signal/pad/header tables, installed mux/module source correspondence and normal
+external rail/translation/contact/blanking requirements. It does not establish
+unpowered isolation, radio quiet from POR or a complete custom LQFP100 design.
+C03/C04/C09 and the unsatisfied display/USB/source conditions remain. The new
+touchscreen/generic-Board priorities are a concrete comparison delta in
+option-comparison.md; the old no-touch subset is a baseline, not a product freeze.
+
 ## Host review sign-off matrix
 
 [The finite entropy/crypto table](entropy-contract-review.md) supersedes the

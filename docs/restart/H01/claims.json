@@ -2231,6 +2231,158 @@
       "applicability": "FiniteconditionalH01samehostsourcecontract;no hardwareorUSBselection",
       "closure_owner": "H01remaininghosttables / H02effectivepathandphysicalgates",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C91",
+      "claim": "Exact two-kit UI/control pin tables do not establish a complete pin-equivalent LQFP100 custom design.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "u585-ds",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "u585-um2839",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "s3-module",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "s3-es",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "pin-electrical-contract.md exactpad/AF/header/source table;U585DSselectedTable26/27/28;S3module10–14/erratav1.3Table1.1"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "SelectedTable776p3462/74.4.6pp3472–3473 andactualPWR_UCPDRp458;DBCCdistinctCCcontrol;noUCPDmodeselected"
+        }
+      ],
+      "engineering_consequence": "PA7/PB0defaultSB10/13andROMoverlaps/blankingrequired;customVIQPC4/5,PH4/5,PB11absent. PB13/14AF4existsbutPB14DBCC2controlnotphysicalCC2(PB15);initialprivatephysicalconflict/alertinferencewithdrawn. CustomAF4PB13/14unselected;additionalfunction/resetownerrequired. KitPH4/5BGAE10/F9not100pinclaim. S3proposedv0.2/N8R8/v1.1notactualinventoryidentification.",
+      "open_assumption": "C03/C04/C09lifetime/effectiveownershipandreceivedROM/silicon/bridgesremain;no completecustomBOM/privateSE/expansionallocation.",
+      "required_negative_case": "Wrongpackage/revision/ROM/bridge/straps/sharedownerorretainedholdmustrefusebeforeintake;noadditionalDBCC2activation/incorrectCCnetassumptionorheldstartupconsent.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C92",
+      "claim": "The installed Wi-Fi module has an internal CHIP_EN pull-up; no external kit hold-low still does not prove radio inactivity from POR.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "u585-um2839",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "emw3080-ds0122cn",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "u585-stg3692",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "MB1551native7/8/13;UMTables12–14/25–27;MXCHIPselectedPDF7–10/19;STG3692pp1–7"
+        }
+      ],
+      "engineering_consequence": "Correctwhole-netfloatinginference:EMW3080(BP)pin11active-lowwithnominal100kPU/10nF. PF15lowpreintakerequirementonly. STModPH13highUART/R11DNFrequiresdeliberatecontrol;LED/muxloadremain. B1BTresetnotMCUcontrol,SW3notOFF.",
+      "open_assumption": "RadioquietfromPOR/resetcurrent/unpoweredIOisolationandactualfixtureunproven. KeeppoweredBTwithunusedinterfacesexcluded,notradiofreeclaim.",
+      "required_negative_case": "Reset/POR/clockloss/unusedAPI/nominalresistor/defaultUARTlabelmustnotbecountedashardwarehold/inactivity/isolation/currentproof.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C93",
+      "claim": "The conditional raw-panel and contact fixture has explicit normal rail/logic/current/edge/default requirements, without selecting parts or waiving startup evidence.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "nhd-molex-connector",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "s3-ds",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "u585-stg3692",
+          "locator": "pin-electrical-contract.md normalfixturetable;module8/selectedserial/reset;DSU5Tables95/96/98;S3Table5-4"
+        },
+        {
+          "document": "u585-tcpp03",
+          "locator": "PreviouslyreadnormalEN3.3V±10%/rise<50us supplycondition;U585VOHflooraloneinsufficient"
+        }
+      ],
+      "engineering_consequence": "Proposepanel3V±2%,normaloutput0.9..1.0/0..0.1rail,hostfacingvalidlevels/totalcurrent/load,translationnotdirect3V3,15mAcontrolledbacklight25max,failoffresetblanking/lifetime.10k±1%contactsclosed<=100ohm/leak<=1uA;normalthresholdmarginsconditional. U5OSPEED01/HSLV0totalpadload<=30pFsourceconditions;paneledges<=15nsrequirequalification.",
+      "open_assumption": "Noactualregulator/translator/blanking/connector/fixture/latency/temp/load/powersequenceproof;modulefactory/internalpower/startupSTOPunchanged;TCPPENlowrailnormalmarginnotproved.",
+      "required_negative_case": "Neverenergizefromtheseproposals,exceednormalpanelVDD,useabsmaxforlogicmargin,driveunpoweredside,connectLEDdirectlyorgrantconsentbeforevalidrender/release.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C94",
+      "claim": "The current no-touch/row-rendering host subset is a comparative baseline with explicit generic-SDK and touchscreen limits.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalH01source/triageandcomparison;nohostorcomponentadmission",
+      "evidence": [
+        {
+          "document": "nhd-db-product",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "nhd-24-module",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "nhd-breakout-product",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "nhd-breakout-spec",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "option-comparison.md prioritydelta/workloadtable;currentC05memory/C03clock/C07SPIproposals;module/noTouchproductidentity"
+        }
+      ],
+      "engineering_consequence": "ThreeboundednonNostrusecasesandone-trusted-imageboundary;fullframe153600Bwire409.6msat3MHz/491.52msat2.5MHz,notUIlatencyguarantee. NoTouchexactmodule,datedUSD19.58module-onlynotBOM. ExistingG9comparisonandtwo-SEhypothesesneededbeforeH04selection;no newmarket/MCU/SEselected.",
+      "open_assumption": "Touch/generality/headroom/cost/performanceandtwo-SEcompositionnotdemonstrated. Pairhypothesesarenotcapabilities;S04/H02S/API/advisory/update/custodygatesunchanged;noqualifiedthirdbenefit.",
+      "required_negative_case": "SDKorsecondSEmustnotimplyhostileappisolation/nativeBIP340/nonexportableNostrECDH/runtimehostprotection/displaybinding;no securitydowngradeorS04retry.",
+      "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

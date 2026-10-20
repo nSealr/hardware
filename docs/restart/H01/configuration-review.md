@@ -81,6 +81,21 @@ binary/IRQ, pin/rail and display conditions unqualified; fixed CDC and both
 power arrangements remain unselected. No received kit is inferred from the
 maintainer's separate inventory or from a source header mapping.
 
+The subsequent [pin/electrical contract](pin-electrical-contract.md) binds the
+two kit pin tables, custom-package differences and allowed external fixture
+limits. It corrects the complete Wi-Fi enable-net inference using the exact
+installed module's internal pull-up/capacitor, retains radio/reset exclusions,
+and records the LQFP100 SMPS PB11/PH4/PH5 omissions and distinct DBCC2/CC2
+ownership. The initial draft conflict/alert inference is explicitly withdrawn.
+Normal source requirements are not received electrical or radio isolation proof.
+
+The maintainer's 20 October product-priority update is assessed in the existing
+[option comparison](option-comparison.md): generic Board/SDK value, a strong
+touchscreen preference, dedicated physical confirmation to evaluate and a
+concrete two-SE composition study. The following no-touch workload is now a
+comparative baseline; it does not freeze product UI, MCU or SE choice. Existing
+security/owner/production gates and independent software/Pi paths remain.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,
@@ -111,7 +126,7 @@ is not USB permission to draw 500 mA before configuration.
 
 ## Concrete UI wiring witness, still under electrical review
 
-UM2839 Table24 p33 and native schematic MB1551-D01 sheet8 agree on this U585
+UM2839 Table 24 p33 and native schematic MB1551-D01 sheet8 agree on this U585
 allocation. Sheet8 was visually inspected; this is connector-to-net evidence,
 not an assembled continuity test. All controls are external normally-open dry
 contacts to target ground, with a proposed 10 kΩ pull-up to the target I/O supply.
@@ -314,7 +329,7 @@ text of lifecycle Figures25/26 is not a visual review; the readable normative
 transition tables and body were read.
 
 UM2839 Rev4: pp1–5,12–21,29–34; schematic sheet8 visually correlated with
-Table24. Other kit schematic sheets are not yet signed. Waveshare schematic
+Table 24. Other kit schematic sheets are not yet signed. Waveshare schematic
 page1 was visually reviewed; linked module specification pp1–9 were read for
 identity/electrical contradictions. Adafruit XML parts/nets and the complete native revC schematic image were
 reviewed; linked controller command correspondence remains pending. Its reset
