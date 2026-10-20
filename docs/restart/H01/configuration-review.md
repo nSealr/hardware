@@ -33,6 +33,15 @@ no nominal clock, output statistic, certificate label or successful API call
 admits random output. Actual provider/source/backend and binary qualification
 remain separate from this completed conditional source table.
 
+The [two-host memory/ownership contract](memory-ownership-contract.md) now binds
+fixed internal address partitions, aggregate copies/stacks/queues and separate
+public/private row buffers. Its [allocation](memory-ownership-proposal.json)
+contains unmeasured qualification caps, no alias double count or claimed free
+heap. U585 global HAL init is not an exclusion proof; S3 locks reset with the
+CPU, and a trusted World0 image can still read all its data. Effective source/
+feature/linker correspondence, complete-workload fit and clearing remain H02
+gates; no host row or hostile-app isolation is accepted here.
+
 The same-kit [S3 USB Serial/JTAG source assessment](s3-usb-serial-assessment.md)
 examines a fixed CDC alternative under the existing host scope. It is not
 selected: stock receive-loss/reset/error, console ownership and lifecycle

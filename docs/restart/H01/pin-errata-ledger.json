@@ -1545,6 +1545,26 @@
       ],
       "issue": "Firstpatternfigureplacescmd0inbits23:18,matchingLLslot0write;exampletextcallsbits5:0cmd0. ADC2slot1/length1sourcecorrespondenceisnotresolvedbyselectedDIGADC1text.",
       "disposition": "Preservemanualdifference/exactsourcewrites;noSDKdefectorguessedfix. ReservebothSARunitsandrequireexactsource/ownership/readbackjustificationbeforeentropyuse;no newADCdriver."
+    },
+    {
+      "id": "D-S3-STATIC-LINKER-COMMENT",
+      "source": "s3-idf-memory-ld /s3-idf-boot-memory-ld",
+      "locators": [
+        "Appintroductory403B9000comment/activeSRAM_IRAM_END403CB700",
+        "Same-pinbootloaderloaderstartarithmetic/assert403CB700"
+      ],
+      "issue": "Introductoryappmemorycommentcalls403B9000–403E0000startup-onlywhileactiveconstantendsstaticat403CB700.",
+      "disposition": "Preserveboth. Directreferencedbootloaderexplicitlypermitsappstaticup toloaderstartandasserts403CB700;selectedconstantcorrespondencesupported,actualreceivedbootloader/generatedmapandROMreservedstatesstillH02/C04gates."
+    },
+    {
+      "id": "D-S3-PMS-I2S1-LOCK-SUMMARY",
+      "source": "s3-trm",
+      "locators": [
+        "Table15.8-1p704",
+        "Register15.14p723"
+      ],
+      "issue": "Lock-summaryrowcoveringI2S1usesI2S0_CONSTRAIN_1asitsleftlabel;I2S1registerbodygivesdistinctI2S1_CONSTRAIN_0lock.",
+      "disposition": "Useexactper-registerI2S1lockdefinition,notblindsummarycopy;noI2Sfeatureselected,allDMApermissionfieldsdenied. Otherunusedsummaryrowsnotgenerallyrepaired."
     }
   ]
 }

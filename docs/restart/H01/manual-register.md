@@ -25,6 +25,13 @@ The subsequent [U585 SPI correspondence](u585-spi-review.md) adds3 pinned
 software/metadata sources; the current150 entries remain an inventory, with
 every actual read range and unread remainder distinguished in JSON.
 
+The later [two-host memory contract](memory-ownership-contract.md) registers
+three pinned IDF app/bootloader linker sources and selected current memory,
+PMS/lock, master/core reset and HAL initialization correspondence. The195 entries
+remain an inventory, with exact reading and excluded bodies in JSON. Fixed
+address/copy/stack/queue caps are unmeasured qualification proposals; no alias
+double count, admitted fit, physical clearing or hostile-app isolation follows.
+
 **H01 is not complete and no U5 or S3 host probe is admitted by this candidate.**
 RM0456 Rev7 is now a verified current original with selected body reading. The
 remaining mandatory current-body and concrete-subset checks remain in [review-coverage.md](review-coverage.md). SE-specific gaps do not

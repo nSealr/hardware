@@ -123,3 +123,9 @@ GTZC/TZIC and NVIC interrupt mask/priority correspondence; selected bus-driver
 register behavior; final clock/power/watchdog values; exact kit/pad controls;
 the lifecycle/clear contract and source-to-binary configuration. The two complete
 host configurations and six documentary signoffs remain outstanding.
+
+The later [two-host memory contract](memory-ownership-contract.md) fixes the
+SRAM1/2 address/copy/stack allocation and global HAL init correspondence. Its
+limits are conditional H02 qualification caps. The older remaining-work list
+above records this manifest's original stage; current finite residual scope is
+in [closure-checklist.md](closure-checklist.md), without rebinding past reviews.

@@ -23,7 +23,7 @@
       "original_sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
       "original_bytes": 73588589,
       "access": "Public official original retrieved; author independently rehashed coordinator retrieval",
-      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json. Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt. Author /root/h01_sol,2026-10-20: fresh text pp2687–2699,2709–2719,2735–2737 (only initial DMA paragraph on2737),2739–2753;pp3459–3463,3472–3475,3478–3490;p3491 before74.8.8;pp458–459 before10.10.13. Encountered partial PD/DMA text is not full protocol review. Native Figure38p487 visually inspected, selected HSI16→UCPD1 and I2C paths; not complete clock/electrical validation. Selected UCPD1EN definitionp565 reread. No new visual register-bit diagram review. I2C target/SMBus/autonomous functional bodies, full DMA/PD algorithms and register maps unread. Author /root/h01_sol,2026-10-20: fresh text pp3133–3134,3138–3140,3142–3144,3150–3153,3155–3158,3168–3169,3179–3182,3186–3187,3267–3271; pp3170–3175 reread. Adjacent host/isochronous and extracted figure text encountered, no complete unused-mode algorithms or new native OTG/bit-layout visual review. Existing core/device initialization reading remains at its earlier stated scope. Remaining endpoint/model, control/bounds/IN/error and interrupt/time-base correspondence open; p3269 alignment expression not adopted as qualified tuple. Author /root/h01_sol,2026-10-20: fullNVICchapter22pp912–918 text/tables including device/revisionfootnotes read. Sequential priority column is not configuredIPRpriority. Field-specific PM0264 and selected exact PAC IRQ correspondence in u585-interrupt-review.md; no interrupt/time-backend admission. Author /root/h01_sol,2026-10-20: fresh full CRS text pp610–619 andp620 before12.7.5 register-map summary; p609wideRCCmap encountered/excluded. Rereadpp280,295–297,410–411,450,488–492,508,516–517,589–591,2694–2697. pp2700–2704 unusedtargetmode text incidentally read after locatorerror,not a selectedmode/feature. No newnativeRMfigures. Clock/deadline/I2Cproposals in u585-clock-power-review.md remain incomplete. Author /root/h01_sol,2026-10-20: entirepreviouslyreadRNGfunctional/registerbodypp1903–1919reread inboundedparts;1919registermapnotnewvisualaudit. AN/E11referenceconditions,48MHzsampling/divider,CED/health/CONFIGLOCK/CONDRST/zero/error/lowpower distinction retained. No newnativeRMfigureview orentropyuse.",
+      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json. Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt. Author /root/h01_sol,2026-10-20: fresh text pp2687–2699,2709–2719,2735–2737 (only initial DMA paragraph on2737),2739–2753;pp3459–3463,3472–3475,3478–3490;p3491 before74.8.8;pp458–459 before10.10.13. Encountered partial PD/DMA text is not full protocol review. Native Figure38p487 visually inspected, selected HSI16→UCPD1 and I2C paths; not complete clock/electrical validation. Selected UCPD1EN definitionp565 reread. No new visual register-bit diagram review. I2C target/SMBus/autonomous functional bodies, full DMA/PD algorithms and register maps unread. Author /root/h01_sol,2026-10-20: fresh text pp3133–3134,3138–3140,3142–3144,3150–3153,3155–3158,3168–3169,3179–3182,3186–3187,3267–3271; pp3170–3175 reread. Adjacent host/isochronous and extracted figure text encountered, no complete unused-mode algorithms or new native OTG/bit-layout visual review. Existing core/device initialization reading remains at its earlier stated scope. Remaining endpoint/model, control/bounds/IN/error and interrupt/time-base correspondence open; p3269 alignment expression not adopted as qualified tuple. Author /root/h01_sol,2026-10-20: fullNVICchapter22pp912–918 text/tables including device/revisionfootnotes read. Sequential priority column is not configuredIPRpriority. Field-specific PM0264 and selected exact PAC IRQ correspondence in u585-interrupt-review.md; no interrupt/time-backend admission. Author /root/h01_sol,2026-10-20: fresh full CRS text pp610–619 andp620 before12.7.5 register-map summary; p609wideRCCmap encountered/excluded. Rereadpp280,295–297,410–411,450,488–492,508,516–517,589–591,2694–2697. pp2700–2704 unusedtargetmode text incidentally read after locatorerror,not a selectedmode/feature. No newnativeRMfigures. Clock/deadline/I2Cproposals in u585-clock-power-review.md remain incomplete. Author /root/h01_sol,2026-10-20: entirepreviouslyreadRNGfunctional/registerbodypp1903–1919reread inboundedparts;1919registermapnotnewvisualaudit. AN/E11referenceconditions,48MHzsampling/divider,CED/health/CONFIGLOCK/CONDRST/zero/error/lowpower distinction retained. No newnativeRMfigureview orentropyuse. Author /root/h01_sol,2026-10-20: selectedexistingSRAMsize/alias/lock/reset/ECC evidence reused;Figure4p142 selectedU585memorymap freshly text-read and nativevisuallychecked;adjacentother-familyfigures text encounteredonly,not selected. Table33p199 andpriorSRAMattributionbody reread. No newmemorycontrollerfeature orphysicalclearingproof.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -54,7 +54,8 @@
         "H01-C71",
         "H01-C72",
         "H01-C74",
-        "H01-C82"
+        "H01-C82",
+        "H01-C84"
       ],
       "extracted_text_sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
       "extracted_text_bytes": 18823134,
@@ -111,6 +112,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: entirepreviouslyreadRNGfunctional/registerbodypp1903–1919reread inboundedparts;1919registermapnotnewvisualaudit. AN/E11referenceconditions,48MHzsampling/divider,CED/health/CONFIGLOCK/CONDRST/zero/error/lowpower distinction retained. No newnativeRMfigureview orentropyuse."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: selectedexistingSRAMsize/alias/lock/reset/ECC evidence reused;Figure4p142 selectedU585memorymap freshly text-read and nativevisuallychecked;adjacentother-familyfigures text encounteredonly,not selected. Table33p199 andpriorSRAMattributionbody reread. No newmemorycontrollerfeature orphysicalclearingproof."
         }
       ],
       "drawing_review": [
@@ -119,6 +125,16 @@
           "physical_page": 487,
           "render_sha256": "c953f5f6efc7ed9f7141be5c4b2fd8f8e0ffcaa610f67c050431f196329c182c",
           "method": "pdftoppm PNG scaled3400; /root/h01_sol visually inspected2026-10-20, particularly directHSI16→UCPD1 and I2C clock branches; no complete timing/electrical qualification"
+        }
+      ],
+      "native_visual_reviews": [
+        {
+          "private_render": "sol-u5-memory142.png",
+          "page": "nativeRM0456p142Figure4U575/585IDAUmemorymap",
+          "bytes": 291239,
+          "sha256": "131d7f77ed75a0df0c6917b608aaadb6dc0f1fceeeadfdd149967bd2c3b4b809",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
         }
       ]
     },
@@ -413,7 +429,7 @@
       "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
       "original_bytes": 15215232,
       "access": "public URL; downloaded",
-      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted. Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction. Author /root/h01_sol,2026-10-20: pp526–533 and634–639functionaltext/tablebodies reread; freshselectedregisterbodypp640–645,649–652. Alarm/UNIT0/HSunusedcontextencountered,not newalarmfeature. Native641CONFand644UNIT1OP/load layout newlyvisuallychecked. No fullclocktree/register-summary/remainingalarmbodyreview. ProposedexclusiveUNIT1polling/freshVALID/finiteguardandfixedRun tuple in s3-clock-time-review.md remainunqualified. Author /root/h01_sol,2026-10-20: RNGpp920–921reread;freshselectedSARsource/control/pattern/DMAexclusion/arbiterbodypp1469–1474text,unusedfilter/threshold/RTC/ULPcontextencounteredonly. Native1471–1472patternfigures/examplevisuallyread:Figure39.3-4cmd0MSBagreesLLbutexamplecmd0LSBdiffers. No newapplicationADC/DMA/ULP/touchfeature orcompleteADCchapterclaim.",
+      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted. Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction. Author /root/h01_sol,2026-10-20: pp526–533 and634–639functionaltext/tablebodies reread; freshselectedregisterbodypp640–645,649–652. Alarm/UNIT0/HSunusedcontextencountered,not newalarmfeature. Native641CONFand644UNIT1OP/load layout newlyvisuallychecked. No fullclocktree/register-summary/remainingalarmbodyreview. ProposedexclusiveUNIT1polling/freshVALID/finiteguardandfixedRun tuple in s3-clock-time-review.md remainunqualified. Author /root/h01_sol,2026-10-20: RNGpp920–921reread;freshselectedSARsource/control/pattern/DMAexclusion/arbiterbodypp1469–1474text,unusedfilter/threshold/RTC/ULPcontextencounteredonly. Native1471–1472patternfigures/examplevisuallyread:Figure39.3-4cmd0MSBagreesLLbutexamplecmd0LSBdiffers. No newapplicationADC/DMA/ULP/touchfeature orcompleteADCchapterclaim. Author /root/h01_sol,2026-10-20: pp400–407 SRAM/cache/alias/GDMA reach text reread;PMS selectedfunctionaltext/tablespp683–705 read/reread,including first-fault/defaultresponse/locks. Selectedregisterdefinitionprosepp712–713,716,743–757 read (diagramlayout excluded);onlynamedDMApermission-lockdefinitions/registertitlespp715–738 additionallyselected,notallunusedregisterbodies. SYSTEM825–826 andselectedfielddefinitionprose829,831–834 read/reread;nativebitdiagramsnotnewlyvisuallyreviewed. No fullPMS/worldswitch/peripheral/external-protectionconfiguration ornewDMAfeature.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -463,7 +479,9 @@
         "H01-C79",
         "H01-C80",
         "H01-C81",
-        "H01-C83"
+        "H01-C83",
+        "H01-C84",
+        "H01-C85"
       ],
       "review_events": [
         {
@@ -485,6 +503,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: RNGpp920–921reread;freshselectedSARsource/control/pattern/DMAexclusion/arbiterbodypp1469–1474text,unusedfilter/threshold/RTC/ULPcontextencounteredonly. Native1471–1472patternfigures/examplevisuallyread:Figure39.3-4cmd0MSBagreesLLbutexamplecmd0LSBdiffers. No newapplicationADC/DMA/ULP/touchfeature orcompleteADCchapterclaim."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: pp400–407 SRAM/cache/alias/GDMA reach text reread;PMS selectedfunctionaltext/tablespp683–705 read/reread,including first-fault/defaultresponse/locks. Selectedregisterdefinitionprosepp712–713,716,743–757 read (diagramlayout excluded);onlynamedDMApermission-lockdefinitions/registertitlespp715–738 additionallyselected,notallunusedregisterbodies. SYSTEM825–826 andselectedfielddefinitionprose829,831–834 read/reread;nativebitdiagramsnotnewlyvisuallyreviewed. No fullPMS/worldswitch/peripheral/external-protectionconfiguration ornewDMAfeature."
         }
       ],
       "native_visual_reviews": [
@@ -1666,20 +1689,26 @@
       "original_sha256": "6f8843e578a23d0d8f6fdd6be31b0e3ad846c17e3ab93fb9ec438611e59301be",
       "original_bytes": 34386,
       "access": "Public original bytes rehashed",
-      "reading": "Lines168–210 and227–290 conditional DSI/graphics/LTDC/RNG/crypto/UCPD/USB module declarations only. Author /root/h01_sol,2026-10-20: selected existingHALlib init wrapper lines594–603,init_hwcriticalsectionentry around792–810 andRCC/initfeaturecalls around1033–1065 reread. Globalinitbody/dependency sideeffects notfullyreviewed;no boot/masterexclusionclaim fromcallsite.",
+      "reading": "Lines168–210 and227–290 conditional DSI/graphics/LTDC/RNG/crypto/UCPD/USB module declarations only. Author /root/h01_sol,2026-10-20: selected existingHALlib init wrapper lines594–603,init_hwcriticalsectionentry around792–810 andRCC/initfeaturecalls around1033–1065 reread. Globalinitbody/dependency sideeffects notfullyreviewed;no boot/masterexclusionclaim fromcallsite. Author /root/h01_sol,2026-10-20: selectedinit_hw792–850 and1018–1075 read forSYSCFG/PWR/FLASH/GPIO/DMA/RCC/EXTI/time/RTC automaticcallcorrespondence. Remainingglobalbody andcallee sideeffects notfullyreviewed;no held-reset/bounded-initclaim. Require scopedstartup/effectivefeaturemap ratherthanassumestockglobalinitconformant.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Private snapshot; links/hash/paraphrase only",
       "remaining": "Exact selected toolchain/target/configuration, dependency licenses, build and implementation/manual correspondence remain.",
       "reviewed_on": "2026-10-20",
       "related_claims": [
-        "H01-C74"
+        "H01-C74",
+        "H01-C84"
       ],
       "review_events": [
         {
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: selected existingHALlib init wrapper lines594–603,init_hwcriticalsectionentry around792–810 andRCC/initfeaturecalls around1033–1065 reread. Globalinitbody/dependency sideeffects notfullyreviewed;no boot/masterexclusionclaim fromcallsite."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: selectedinit_hw792–850 and1018–1075 read forSYSCFG/PWR/FLASH/GPIO/DMA/RCC/EXTI/time/RTC automaticcallcorrespondence. Remainingglobalbody andcallee sideeffects notfullyreviewed;no held-reset/bounded-initclaim. Require scopedstartup/effectivefeaturemap ratherthanassumestockglobalinitconformant."
         }
       ]
     },
@@ -5037,6 +5066,77 @@
         "H01-C83"
       ],
       "license": "UpstreamSPDXApache-2.0wherepresent;generatedcapabilityheaderupstreamtermsretained,originalnotrepublished."
+    },
+    {
+      "id": "s3-idf-memory-ld",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_system/ld/esp32s3/memory.ld.in",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3memory/linkerreservationcorrespondenceonly;nonewhost/peripheral/driver",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_system/ld/esp32s3/memory.ld.in",
+      "retrieved_utc": "2026-10-20T12:21:28.123281+00:00",
+      "original_sha256": "442bd739004878091ef47ff3e681bde5a913b85bf4eb6f52396f572f590b3806",
+      "original_bytes": 8918,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Complete8918-bytefile read;selectedS3cache/sharedalias/staticlimit/ROMreservation/RTC/external/heap-symbol conditions. Defaultsnotfixedpartitionproof;RTC/externalfeaturesnotselected. Introductory403B9000startupcommentdiffersactive403CB700;directbootloadersourcechecked.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalsource/manual/renderprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Actualeffectivefeatures/generatedscript/map/ROMreservations/allocators/stacks/binaryfitandphysicalclearingH02;notmeasuredcapacity.",
+      "related_claims": [
+        "H01-C84",
+        "H01-C85"
+      ],
+      "license": "UpstreamSPDXApache-2.0;originalnotrepublished."
+    },
+    {
+      "id": "s3-idf-sections-ld",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_system/ld/esp32s3/sections.ld.in",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3memory/linkerreservationcorrespondenceonly;nonewhost/peripheral/driver",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_system/ld/esp32s3/sections.ld.in",
+      "retrieved_utc": "2026-10-20T12:21:28.350119+00:00",
+      "original_sha256": "49533ca219b1596503961e8c346c71d68477b478a184ea955e91716fc6d658da",
+      "original_bytes": 15727,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Complete15727-bytefile read inthreeboundedparts;IRAMdummy/sharedaliasaccounting,staticfitassertions,prefetch/alignment,stack/TLS/sectionboundaries,noinit/RTC/optionalexternalBSS/noinitcontext. Notcompleteincludedld.common/debug/discard oractualgeneratedscript;noexternalsecretfeature selected.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalsource/manual/renderprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Actualeffectivefeatures/generatedscript/map/ROMreservations/allocators/stacks/binaryfitandphysicalclearingH02;notmeasuredcapacity.",
+      "related_claims": [
+        "H01-C84"
+      ],
+      "license": "UpstreamSPDXApache-2.0;originalnotrepublished."
+    },
+    {
+      "id": "s3-idf-boot-memory-ld",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/bootloader/subproject/main/ld/esp32s3/bootloader.memory.ld.in",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3memory/linkerreservationcorrespondenceonly;nonewhost/peripheral/driver",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/bootloader/subproject/main/ld/esp32s3/bootloader.memory.ld.in",
+      "retrieved_utc": "2026-10-20T12:32:40.329652+00:00",
+      "original_sha256": "17d7225880bfea6e746c782ee72ea88ed3497054575ce8133a23c3a45e0bebd9",
+      "original_bytes": 4462,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Complete4462-bytefile read toresolveonlyappstaticlimitquestion;loader-startarithmetic/assertion403CB700agreesappconstant,explicitapplicationstaticpermissionup toloaderstart;ROMdownloadsharedbuffers3FCD7E00/startupstacks/retainedROMdata reserved. No downloaderimplementation/lifecycleoractualbootloaderfitclaim.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalsource/manual/renderprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Actualeffectivefeatures/generatedscript/map/ROMreservations/allocators/stacks/binaryfitandphysicalclearingH02;notmeasuredcapacity.",
+      "related_claims": [
+        "H01-C84",
+        "H01-C85"
+      ],
+      "license": "UpstreamSPDXApache-2.0;originalnotrepublished."
     }
   ],
   "retrieval_attempts": [
