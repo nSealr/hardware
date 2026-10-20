@@ -1662,6 +1662,20 @@
       "engineering_consequence": "Beforedependentoperationrequireeffectiveboundederror-preservingfullsourcepath/status/freshreadback;no blind reprogramretry;noeFuseoperationauthorized.",
       "claim": "H01-C99",
       "closure_owner": "H02completeeffectivehelper/bootpathqualification"
+    },
+    {
+      "id": "D-U585-ATTACH-EN-LIFETIME",
+      "status": "unsatisfied-source-property",
+      "claim": "H01-C101",
+      "description": "TCPP3.3VmodeENmin2.97/rise<50usnotprovenbyU19/GPIO2.8175floor;nativeCN1datadirectMCU/TCPPonlyCCVBUSgates;normalI2C13msnotautonomouspullupremovalwithreset/clockloss. Nofixtureexpansionorconnectedhostadmission.",
+      "closure_owner": "H01admissionnegative/H02exactsafeapplicablesource/implementationbeforedependentuse"
+    },
+    {
+      "id": "D-U585-UM-CN14-LABEL",
+      "status": "recorded-source-correspondence",
+      "claim": "H01-C100",
+      "description": "UM2839p16namesTypeCCN14butnativeUSBsheet9CN1andmanualexpansionheaderCN14. UseexactnativeCN1identity;nophysicaldefectinferred.",
+      "closure_owner": "H01sourceidentity/H02receivedunit"
     }
   ]
 }

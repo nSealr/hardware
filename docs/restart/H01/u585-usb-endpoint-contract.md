@@ -107,3 +107,11 @@ cancel a task. The final permissible supply/attach arrangement remains C09.
 Actual exact source scopes, native register/formula renders and originals are
 recorded in [manual-register.json](manual-register.json); originals stay private.
 No firmware, helper, diagnostic, enumeration, register write or physical test ran.
+
+
+C09 now records valid EN level/rise and autonomous VBUS-off data removal as
+**unsatisfied mandatory properties** in power-attach-lifetime-contract.md.
+Hibernate0x08 opens the consumer switch and cannot be assumed to power the kit
+through JP4[5–6]. Its normal13 ms status proposal does not qualify reset/clock-
+loss/absent-owner pull-up removal. These stops are independent of OUT64/68;
+no enumeration, connection, external-fixture expansion or USB admission follows.

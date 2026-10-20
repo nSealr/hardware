@@ -23,7 +23,7 @@
       "original_sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
       "original_bytes": 73588589,
       "access": "Public official original retrieved; author independently rehashed coordinator retrieval",
-      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json. Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt. Author /root/h01_sol,2026-10-20: fresh text pp2687–2699,2709–2719,2735–2737 (only initial DMA paragraph on2737),2739–2753;pp3459–3463,3472–3475,3478–3490;p3491 before74.8.8;pp458–459 before10.10.13. Encountered partial PD/DMA text is not full protocol review. Native Figure38p487 visually inspected, selected HSI16→UCPD1 and I2C paths; not complete clock/electrical validation. Selected UCPD1EN definitionp565 reread. No new visual register-bit diagram review. I2C target/SMBus/autonomous functional bodies, full DMA/PD algorithms and register maps unread. Author /root/h01_sol,2026-10-20: fresh text pp3133–3134,3138–3140,3142–3144,3150–3153,3155–3158,3168–3169,3179–3182,3186–3187,3267–3271; pp3170–3175 reread. Adjacent host/isochronous and extracted figure text encountered, no complete unused-mode algorithms or new native OTG/bit-layout visual review. Existing core/device initialization reading remains at its earlier stated scope. Remaining endpoint/model, control/bounds/IN/error and interrupt/time-base correspondence open; p3269 alignment expression not adopted as qualified tuple. Author /root/h01_sol,2026-10-20: fullNVICchapter22pp912–918 text/tables including device/revisionfootnotes read. Sequential priority column is not configuredIPRpriority. Field-specific PM0264 and selected exact PAC IRQ correspondence in u585-interrupt-review.md; no interrupt/time-backend admission. Author /root/h01_sol,2026-10-20: fresh full CRS text pp610–619 andp620 before12.7.5 register-map summary; p609wideRCCmap encountered/excluded. Rereadpp280,295–297,410–411,450,488–492,508,516–517,589–591,2694–2697. pp2700–2704 unusedtargetmode text incidentally read after locatorerror,not a selectedmode/feature. No newnativeRMfigures. Clock/deadline/I2Cproposals in u585-clock-power-review.md remain incomplete. Author /root/h01_sol,2026-10-20: entirepreviouslyreadRNGfunctional/registerbodypp1903–1919reread inboundedparts;1919registermapnotnewvisualaudit. AN/E11referenceconditions,48MHzsampling/divider,CED/health/CONFIGLOCK/CONDRST/zero/error/lowpower distinction retained. No newnativeRMfigureview orentropyuse. Author /root/h01_sol,2026-10-20: selectedexistingSRAMsize/alias/lock/reset/ECC evidence reused;Figure4p142 selectedU585memorymap freshly text-read and nativevisuallychecked;adjacentother-familyfigures text encounteredonly,not selected. Table33p199 andpriorSRAMattributionbody reread. No newmemorycontrollerfeature orphysicalclearingproof. Author /root/h01_sol,2026-10-20: freshselectedendpoint/control/registerprose3183–3184,3192,3204–3229and3230before72.15.55;3176–3178plus3167reread;3172–3175/3169–3170/3155–3158/3269–3271reread. FreshselectednonperiodicIN/NAK/disable/stoppp3274–3278beforegenericperiodicINand3282;unusediso/hostcontextencounteredonly. Native3173/3218/3223registeraccesslayoutsand3269OUTformulavisuallychecked. OUT64/68remainsunsatisfiedsource-semanticblocker,notqualifiedmode;no newIP/driver/class/read-allchapterclaim. Author /root/h01_sol,2026-10-20: selectedTable776p3462/74.4.6pp3472–3473 andPWR_UCPDRp458 read/rereadforDBCCinputvsCCnet/groundwhenunused/control. UCPDchapterCR3andUSBPD_DISreferencesdifferfromactualUCPDR/FLASH_OPTR.PA15_PUPEN. No newmode/driver/physicaloperation. Author /root/h01_sol,2026-10-20 C03: RereadIWDGselectedfunctional/registerpp2563–2573/61.4.3/4/6/61.7.2–5 andTable623 actiondelays. FreshselectedEXTI23.3/23.3.2/23.4pp921–924 andregisterfieldprose23.6.1–11pp926–934 usedGPIO7/15mux/trigger/pending/security/priv/lock/IMR;unusedSWtrigger/EMR/maplayoutcontextencountered. ExactEXTICRtopbyteGPIOportE4/D3recoveredafterinitialslicestoppedbeforefield. IRQ18EXTI7/26EXTI15Table186reread. No nativefigures newlyviewed. Subsequentlyreread10.4.4–6pp406–407,10.10.3–5pp449–452 andselectedPWR_SVMSRfieldproseforREGSEL/FSTEN/VOS/VOSRDY/USV/ASV/IO2SV/PVDE/PVDLS;LSECSS11.4.12alreadyreadrereadfornegativeexclusion,noRTC/TAMPfeature;NVIC125entryreread. EXTI_EXTICRfieldprose931–933fullyrecoveredusedtopbytes E4/D3;LOCKR933/IMR934 read. No nativefigure. Author /root/h01_sol,2026-10-20 C04: Selectedreread3.10.1pp184–186/Table21/22andFLASH7.3.1pp292–293/selected7.6.2pp321–324:8KiBpages/16Bquadword,OEM1/2are64bitandLOCK1passwordactive;LOCK0regressionunrestricted. RDP1->0erasesmainflash/allSRAM/cache/backup/OTFDEC/PKA,OTPnoterased;RDP1->.5retainssecurewatermarkflash. OEMkeyscanmodifyatRDP0eveniflocked;onlyoneunlockattempt/powercycle. SourceFigure25/26garbledtextencounteredagainNOTnativevisualreview. Already-readHDP/WRP/currentflashinterruptionbodywillbereused,exactmapfieldsstilltocheck. Selected7.5.3pp310–311andcurrentHDP/WRP/SECWM/BOOT/OEMregister344–354reread;inclusivepagefieldsnotinconsistentp310numericalexample. Exactproposedlayoutcapacitynotactualmap/optionresult.",
+      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json. Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt. Author /root/h01_sol,2026-10-20: fresh text pp2687–2699,2709–2719,2735–2737 (only initial DMA paragraph on2737),2739–2753;pp3459–3463,3472–3475,3478–3490;p3491 before74.8.8;pp458–459 before10.10.13. Encountered partial PD/DMA text is not full protocol review. Native Figure38p487 visually inspected, selected HSI16→UCPD1 and I2C paths; not complete clock/electrical validation. Selected UCPD1EN definitionp565 reread. No new visual register-bit diagram review. I2C target/SMBus/autonomous functional bodies, full DMA/PD algorithms and register maps unread. Author /root/h01_sol,2026-10-20: fresh text pp3133–3134,3138–3140,3142–3144,3150–3153,3155–3158,3168–3169,3179–3182,3186–3187,3267–3271; pp3170–3175 reread. Adjacent host/isochronous and extracted figure text encountered, no complete unused-mode algorithms or new native OTG/bit-layout visual review. Existing core/device initialization reading remains at its earlier stated scope. Remaining endpoint/model, control/bounds/IN/error and interrupt/time-base correspondence open; p3269 alignment expression not adopted as qualified tuple. Author /root/h01_sol,2026-10-20: fullNVICchapter22pp912–918 text/tables including device/revisionfootnotes read. Sequential priority column is not configuredIPRpriority. Field-specific PM0264 and selected exact PAC IRQ correspondence in u585-interrupt-review.md; no interrupt/time-backend admission. Author /root/h01_sol,2026-10-20: fresh full CRS text pp610–619 andp620 before12.7.5 register-map summary; p609wideRCCmap encountered/excluded. Rereadpp280,295–297,410–411,450,488–492,508,516–517,589–591,2694–2697. pp2700–2704 unusedtargetmode text incidentally read after locatorerror,not a selectedmode/feature. No newnativeRMfigures. Clock/deadline/I2Cproposals in u585-clock-power-review.md remain incomplete. Author /root/h01_sol,2026-10-20: entirepreviouslyreadRNGfunctional/registerbodypp1903–1919reread inboundedparts;1919registermapnotnewvisualaudit. AN/E11referenceconditions,48MHzsampling/divider,CED/health/CONFIGLOCK/CONDRST/zero/error/lowpower distinction retained. No newnativeRMfigureview orentropyuse. Author /root/h01_sol,2026-10-20: selectedexistingSRAMsize/alias/lock/reset/ECC evidence reused;Figure4p142 selectedU585memorymap freshly text-read and nativevisuallychecked;adjacentother-familyfigures text encounteredonly,not selected. Table33p199 andpriorSRAMattributionbody reread. No newmemorycontrollerfeature orphysicalclearingproof. Author /root/h01_sol,2026-10-20: freshselectedendpoint/control/registerprose3183–3184,3192,3204–3229and3230before72.15.55;3176–3178plus3167reread;3172–3175/3169–3170/3155–3158/3269–3271reread. FreshselectednonperiodicIN/NAK/disable/stoppp3274–3278beforegenericperiodicINand3282;unusediso/hostcontextencounteredonly. Native3173/3218/3223registeraccesslayoutsand3269OUTformulavisuallychecked. OUT64/68remainsunsatisfiedsource-semanticblocker,notqualifiedmode;no newIP/driver/class/read-allchapterclaim. Author /root/h01_sol,2026-10-20: selectedTable776p3462/74.4.6pp3472–3473 andPWR_UCPDRp458 read/rereadforDBCCinputvsCCnet/groundwhenunused/control. UCPDchapterCR3andUSBPD_DISreferencesdifferfromactualUCPDR/FLASH_OPTR.PA15_PUPEN. No newmode/driver/physicaloperation. Author /root/h01_sol,2026-10-20 C03: RereadIWDGselectedfunctional/registerpp2563–2573/61.4.3/4/6/61.7.2–5 andTable623 actiondelays. FreshselectedEXTI23.3/23.3.2/23.4pp921–924 andregisterfieldprose23.6.1–11pp926–934 usedGPIO7/15mux/trigger/pending/security/priv/lock/IMR;unusedSWtrigger/EMR/maplayoutcontextencountered. ExactEXTICRtopbyteGPIOportE4/D3recoveredafterinitialslicestoppedbeforefield. IRQ18EXTI7/26EXTI15Table186reread. No nativefigures newlyviewed. Subsequentlyreread10.4.4–6pp406–407,10.10.3–5pp449–452 andselectedPWR_SVMSRfieldproseforREGSEL/FSTEN/VOS/VOSRDY/USV/ASV/IO2SV/PVDE/PVDLS;LSECSS11.4.12alreadyreadrereadfornegativeexclusion,noRTC/TAMPfeature;NVIC125entryreread. EXTI_EXTICRfieldprose931–933fullyrecoveredusedtopbytes E4/D3;LOCKR933/IMR934 read. No nativefigure. Author /root/h01_sol,2026-10-20 C04: Selectedreread3.10.1pp184–186/Table21/22andFLASH7.3.1pp292–293/selected7.6.2pp321–324:8KiBpages/16Bquadword,OEM1/2are64bitandLOCK1passwordactive;LOCK0regressionunrestricted. RDP1->0erasesmainflash/allSRAM/cache/backup/OTFDEC/PKA,OTPnoterased;RDP1->.5retainssecurewatermarkflash. OEMkeyscanmodifyatRDP0eveniflocked;onlyoneunlockattempt/powercycle. SourceFigure25/26garbledtextencounteredagainNOTnativevisualreview. Already-readHDP/WRP/currentflashinterruptionbodywillbereused,exactmapfieldsstilltocheck. Selected7.5.3pp310–311andcurrentHDP/WRP/SECWM/BOOT/OEMregister344–354reread;inclusivepagefieldsnotinconsistentp310numericalexample. Exactproposedlayoutcapacitynotactualmap/optionresult. Author /root/h01_sol,2026-10-20 C09: CurrentPWR_UCPDRpp458–459reread,DBDIS1disabledadditionalCCpulldown/STBY0/noStandbyreset;manifestownerreadbackrequired. UCPDnotpromoted.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -62,7 +62,8 @@
         "H01-C91",
         "H01-C95",
         "H01-C96",
-        "H01-C97"
+        "H01-C97",
+        "H01-C101"
       ],
       "extracted_text_sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
       "extracted_text_bytes": 18823134,
@@ -144,6 +145,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20 C04: Selectedreread3.10.1pp184–186/Table21/22andFLASH7.3.1pp292–293/selected7.6.2pp321–324:8KiBpages/16Bquadword,OEM1/2are64bitandLOCK1passwordactive;LOCK0regressionunrestricted. RDP1->0erasesmainflash/allSRAM/cache/backup/OTFDEC/PKA,OTPnoterased;RDP1->.5retainssecurewatermarkflash. OEMkeyscanmodifyatRDP0eveniflocked;onlyoneunlockattempt/powercycle. SourceFigure25/26garbledtextencounteredagainNOTnativevisualreview. Already-readHDP/WRP/currentflashinterruptionbodywillbereused,exactmapfieldsstilltocheck. Selected7.5.3pp310–311andcurrentHDP/WRP/SECWM/BOOT/OEMregister344–354reread;inclusivepagefieldsnotinconsistentp310numericalexample. Exactproposedlayoutcapacitynotactualmap/optionresult."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: CurrentPWR_UCPDRpp458–459reread,DBDIS1disabledadditionalCCpulldown/STBY0/noStandbyreset;manifestownerreadbackrequired. UCPDnotpromoted."
         }
       ],
       "drawing_review": [
@@ -209,7 +215,7 @@
       "original_sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3",
       "original_bytes": 4842120,
       "access": "Public official native PDF retrieved and rehashed; cover/revision confirmed",
-      "reading": "Fresh primary PDF extraction cover/features pp.1–2; §3.5 pp.28 SRAM/ownership; selected §3.9.1 pp.35–37 supply scheme/sequencing excerpts and §3.9.4–3.9.6 p.47 reset/VBAT excerpts; §3.15 p.52 bus-matrix excerpt. No full table/drawing review. Already completed before pause: pp108–109 complete pin-definition text; selected rows pp110–114,117,120–124; selected PE7/PB6/PE13/PE15/AF rows pp116,127,133,140,149. pp155–158,160,162–163,232 complete text; pp159/161/233+ not read. Native p99 Figure14 LQFP100 SMPS and p100 non-SMPS diagrams visually compared; PC4/PC5 are not exposed on proposed VIQ. Earlier private p100 filename/interpretation corrected in pause-reading-notes.md. Author /root/h01_sol, 2026-10-20: reread cover, Table2 pp18–20 and §3.19 p56 for U585 peripheral availability and DMA2D master correspondence; no new drawing review. Author /root/h01_sol,2026-10-20: checked selected PF14 pin-function row p115 (ADC4_IN5) against kit sheet9. Not a new complete electrical/AF table review. Author /root/h01_sol,2026-10-20: freshpp221–225 MSI/HSI48 table andfootnotes; pp298–299 throughI2Canalogfilter beforeUSARTbody; p166currenttestconditions reread. pp297unusedSD andp299USARTcontext encountered only. No newnativeDSfigures. Characterization/designconditions remain explicit; no measuredaccuracy. Author /root/h01_sol,2026-10-20: selected Table26p107,normalinputTable95p232,leak/output/HSLV-OFF Tables95/96/98pp233–238 andNRSTp242 read/reread. Table27 usedrowsPC0/1/2p111,PA7/PB0p114,PE7/PF15p116,PE12/13/15p117,PB10/11p118,PB13/14p119,PD15/PG6p121,PA8p123,PA11/12/VDDUSBp124,PC10/11p125,PB4/5/6p129,PH4/5p131,PH13/15p132; AFrows137/140/143 read. NativeFig14p99reread,notnewpackageoutline. LSIp226readforC03;HSLV-ON/specialpins240–241/p216externalLSEbypasscontextencounteredunused. No exhaustivepin/AF/electricaltableaudit. PB11/PH4/5absent100SMPS;PB14AF4I2C2alternativeunselected;DBCC2controlnotphysicalCC2net. NativekitCC2PB15. Initialprivatephysicalconflict/alertinferencewithdrawn;PE8FLGn/PD13IANA. DS134note4andRM458/3462/3472–3473nowreadforDBCC/CCdistinctionandcontrol. Author /root/h01_sol,2026-10-20: Table27p134notes4/5read;DBCC1PB5highactivatesRdPA15,DBCC2PB14highactivatesRdPB15,disabledviaUCPD_DBDIS. DistinctfromphysicalkitCC2PB15. Sourceprivateinferencecorrectedbeforepublication. Author /root/h01_sol,2026-10-20 C03: RereadTable35pp163–164embeddedreset/power;previousprivateLSIp226/Table86andnormalrail/NRSTbodyreused. BOR4fall2.67–2.90/PVD6fall2.76–3.00, VUVM1.15–1.28 versusUSBnormal3.0min;characternotproduction.",
+      "reading": "Fresh primary PDF extraction cover/features pp.1–2; §3.5 pp.28 SRAM/ownership; selected §3.9.1 pp.35–37 supply scheme/sequencing excerpts and §3.9.4–3.9.6 p.47 reset/VBAT excerpts; §3.15 p.52 bus-matrix excerpt. No full table/drawing review. Already completed before pause: pp108–109 complete pin-definition text; selected rows pp110–114,117,120–124; selected PE7/PB6/PE13/PE15/AF rows pp116,127,133,140,149. pp155–158,160,162–163,232 complete text; pp159/161/233+ not read. Native p99 Figure14 LQFP100 SMPS and p100 non-SMPS diagrams visually compared; PC4/PC5 are not exposed on proposed VIQ. Earlier private p100 filename/interpretation corrected in pause-reading-notes.md. Author /root/h01_sol, 2026-10-20: reread cover, Table2 pp18–20 and §3.19 p56 for U585 peripheral availability and DMA2D master correspondence; no new drawing review. Author /root/h01_sol,2026-10-20: checked selected PF14 pin-function row p115 (ADC4_IN5) against kit sheet9. Not a new complete electrical/AF table review. Author /root/h01_sol,2026-10-20: freshpp221–225 MSI/HSI48 table andfootnotes; pp298–299 throughI2Canalogfilter beforeUSARTbody; p166currenttestconditions reread. pp297unusedSD andp299USARTcontext encountered only. No newnativeDSfigures. Characterization/designconditions remain explicit; no measuredaccuracy. Author /root/h01_sol,2026-10-20: selected Table26p107,normalinputTable95p232,leak/output/HSLV-OFF Tables95/96/98pp233–238 andNRSTp242 read/reread. Table27 usedrowsPC0/1/2p111,PA7/PB0p114,PE7/PF15p116,PE12/13/15p117,PB10/11p118,PB13/14p119,PD15/PG6p121,PA8p123,PA11/12/VDDUSBp124,PC10/11p125,PB4/5/6p129,PH4/5p131,PH13/15p132; AFrows137/140/143 read. NativeFig14p99reread,notnewpackageoutline. LSIp226readforC03;HSLV-ON/specialpins240–241/p216externalLSEbypasscontextencounteredunused. No exhaustivepin/AF/electricaltableaudit. PB11/PH4/5absent100SMPS;PB14AF4I2C2alternativeunselected;DBCC2controlnotphysicalCC2net. NativekitCC2PB15. Initialprivatephysicalconflict/alertinferencewithdrawn;PE8FLGn/PD13IANA. DS134note4andRM458/3462/3472–3473nowreadforDBCC/CCdistinctionandcontrol. Author /root/h01_sol,2026-10-20: Table27p134notes4/5read;DBCC1PB5highactivatesRdPA15,DBCC2PB14highactivatesRdPB15,disabledviaUCPD_DBDIS. DistinctfromphysicalkitCC2PB15. Sourceprivateinferencecorrectedbeforepublication. Author /root/h01_sol,2026-10-20 C03: RereadTable35pp163–164embeddedreset/power;previousprivateLSIp226/Table86andnormalrail/NRSTbodyreused. BOR4fall2.67–2.90/PVD6fall2.76–3.00, VUVM1.15–1.28 versusUSBnormal3.0min;characternotproduction. Author /root/h01_sol,2026-10-20 C09: DS134note4rereadPB5DBCC1vsPA15CC1,PB14DBCC2vsPB15CC2;no falsephysicalconflict.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -224,7 +230,8 @@
         "H01-C92",
         "H01-C93",
         "H01-C94",
-        "H01-C95"
+        "H01-C95",
+        "H01-C101"
       ],
       "extracted_text_sha256": "e254b85cb2416df2bf52376b362e729af10d4370de496b694e441f4a63d48277",
       "extracted_text_bytes": 1663375,
@@ -259,6 +266,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20 C03: RereadTable35pp163–164embeddedreset/power;previousprivateLSIp226/Table86andnormalrail/NRSTbodyreused. BOR4fall2.67–2.90/PVD6fall2.76–3.00, VUVM1.15–1.28 versusUSBnormal3.0min;characternotproduction."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: DS134note4rereadPB5DBCC1vsPA15CC1,PB14DBCC2vsPB15CC2;no falsephysicalconflict."
         }
       ]
     },
@@ -1051,14 +1063,22 @@
       "original_sha256": "4fe4e4f9855501f83b400c6932e3098439e51c50539e40dc45b44a8d509e8db1",
       "original_bytes": 3739103,
       "access": "Public; fresh original downloaded and hash verified",
-      "reading": "pp.1,19–22 §§9.3.1–9.3.4.1.3 input detection, battery absence, power path and input limit",
+      "reading": "pp.1,19–22 §§9.3.1–9.3.4.1.3 input detection, battery absence, power path and input limit Author /root/h01_sol,2026-10-20 C09: Priorselectedpp19–22rereadUVLO/start100mA/EN/DPPM/systempriority/batterysupplement/inrushconditions;flow/plotextractiononlynotnativefigureaudit.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Private original; links/hash/paraphrase only",
       "remaining": "Selected-design exact OPN, complete electrical/timing/application/errata review and physical validation remain.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "related_claims": [
-        "H01-C22"
+        "H01-C22",
+        "H01-C102"
+      ],
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Priorselectedpp19–22rereadUVLO/start100mA/EN/DPPM/systempriority/batterysupplement/inrushconditions;flow/plotextractiononlynotnativefigureaudit."
+        }
       ]
     },
     {
@@ -1073,14 +1093,22 @@
       "original_sha256": "9a3c78c4480317de72e33bd962cc2d33f147ecf430759710a9e40103b39b0c26",
       "original_bytes": 3715036,
       "access": "Public; fresh original downloaded and hash verified",
-      "reading": "cover, p.6 pin functions, p.21 startup, pp.37–38 watchdog, p.46 IINDPM",
+      "reading": "cover, p.6 pin functions, p.21 startup, pp.37–38 watchdog, p.46 IINDPM Author /root/h01_sol,2026-10-20 C09: Priorselectedpp21/37–38/46rereadstartup/default/hostI2Cwatchdog/selectiveresets/IINDPM3.2Aafteradapterremoval. BQ25629D+-detectionencounterednotpromoted;OTGnotselected.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Private original; links/hash/paraphrase only",
       "remaining": "Selected-design exact OPN, complete electrical/timing/application/errata review and physical validation remain.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "related_claims": [
-        "H01-C22"
+        "H01-C22",
+        "H01-C102"
+      ],
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Priorselectedpp21/37–38/46rereadstartup/default/hostI2Cwatchdog/selectiveresets/IINDPM3.2Aafteradapterremoval. BQ25629D+-detectionencounterednotpromoted;OTGnotselected."
+        }
       ]
     },
     {
@@ -1095,14 +1123,22 @@
       "original_sha256": "be07deca1231c5493957bc64c2dc1cad5543bff330e49ae41caf3286fd80dca6",
       "original_bytes": 2466159,
       "access": "Public; fresh original downloaded and hash verified",
-      "reading": "pp.1,4–5,14–17 electrical ratings and application component criteria; follow-up §§9.3.3–9.3.10 pp.11–12 mode/UVLO/soft-start/output/thermal/reverse-boost/OVP/PG text. Drawing text extraction, not a new visual drawing inspection.",
+      "reading": "pp.1,4–5,14–17 electrical ratings and application component criteria; follow-up §§9.3.3–9.3.10 pp.11–12 mode/UVLO/soft-start/output/thermal/reverse-boost/OVP/PG text. Drawing text extraction, not a new visual drawing inspection. Author /root/h01_sol,2026-10-20 C09: Priorselectedpp11–12rereadMODE/noFloat/UVLO/softstart/load/thermal/reverseboost/PG;figuretextonlynotnewnativeaudit.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Private original; links/hash/paraphrase only",
       "remaining": "Selected-design exact OPN, complete electrical/timing/application/errata review and physical validation remain.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "related_claims": [
-        "H01-C23"
+        "H01-C23",
+        "H01-C102"
+      ],
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Priorselectedpp11–12rereadMODE/noFloat/UVLO/softstart/load/thermal/reverseboost/PG;figuretextonlynotnewnativeaudit."
+        }
       ]
     },
     {
@@ -2587,7 +2623,7 @@
       "original_sha256": "00b3650d881649661574b3889062545cb4e74450ef15991c68b2e74fffe8ddf3",
       "original_bytes": 3299835,
       "access": "Public official original, retained privately",
-      "reading": "UM2839 Rev4 May2023 pp1–5,12–21,29–34; kit power/USB/header/module identities. Not all54pages read. Resumed author /root/h01_resume, 2026-10-20: pp21–29 extracted text read, including RF power/debug and bus assignments. No complete-manual claim. Author /root/h01_sol,2026-10-20: reread §7.5 pp20–21 and selected Bluetooth Table12 p24; freshly read §§10.2–10.3 pp44–45 product/board history. No new whole-manual reading or received-product identity. Author /root/h01_sol,2026-10-20: pp14–21 reread including supplyselection,commonrail,unfittedHSE/LSE andUSBconnections. No newwholeguide review. Author /root/h01_sol,2026-10-20: Table12p24BTUART/wake,Table13p25SW3/4/5/6,WiFi7.8.3intro/Table14p26 and7.12intro/Tables25/26p34/Table27p35 read. EarlierTable24Arduinoevidencereused;notcompleteinterveningmoduleupdatebody.",
+      "reading": "UM2839 Rev4 May2023 pp1–5,12–21,29–34; kit power/USB/header/module identities. Not all54pages read. Resumed author /root/h01_resume, 2026-10-20: pp21–29 extracted text read, including RF power/debug and bus assignments. No complete-manual claim. Author /root/h01_sol,2026-10-20: reread §7.5 pp20–21 and selected Bluetooth Table12 p24; freshly read §§10.2–10.3 pp44–45 product/board history. No new whole-manual reading or received-product identity. Author /root/h01_sol,2026-10-20: pp14–21 reread including supplyselection,commonrail,unfittedHSE/LSE andUSBconnections. No newwholeguide review. Author /root/h01_sol,2026-10-20: Table12p24BTUART/wake,Table13p25SW3/4/5/6,WiFi7.8.3intro/Table14p26 and7.12intro/Tables25/26p34/Table27p35 read. EarlierTable24Arduinoevidencereused;notcompleteinterveningmoduleupdatebody. Author /root/h01_sol,2026-10-20 C09: pp15–18selectedpowertext/tablesreread;CN8chargerJP4[7–8]notPC,defaultSTLINKrequiresenum,VIN7–12,JP4[5–6]UCPD;CN14TypeCsentencecontradictsnativeCN1/headeridentity. Figure14textreusednotnewvisualwholepoweraudit.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -2616,6 +2652,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: Table12p24BTUART/wake,Table13p25SW3/4/5/6,WiFi7.8.3intro/Table14p26 and7.12intro/Tables25/26p34/Table27p35 read. EarlierTable24Arduinoevidencereused;notcompleteinterveningmoduleupdatebody."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: pp15–18selectedpowertext/tablesreread;CN8chargerJP4[7–8]notPC,defaultSTLINKrequiresenum,VIN7–12,JP4[5–6]UCPD;CN14TypeCsentencecontradictsnativeCN1/headeridentity. Figure14textreusednotnewvisualwholepoweraudit."
         }
       ],
       "related_claims": [
@@ -2623,7 +2664,8 @@
         "H01-C52",
         "H01-C73",
         "H01-C91",
-        "H01-C92"
+        "H01-C92",
+        "H01-C100"
       ]
     },
     {
@@ -2637,7 +2679,7 @@
       "original_sha256": "040d70dc5da0e6ef0d0e5cfe33abfbffdfe4b01cbb9d5348ec20679752ebe221",
       "original_bytes": 6198100,
       "access": "Public official original, retained privately",
-      "reading": "D01 schematic sheets1–3 selected text; sheet8 Arduino visually reviewed against UM2839 Table24. Other sheets pending. Resumed author /root/h01_resume, 2026-10-20: native sheets4,7,13,14 visually inspected; sheet8 rechecked. Source-to-net conclusions and remaining radio/mux/injection limits in resume-source-notes.md. Author /root/h01_sol,2026-10-20: native sheet9 USB_TYPEC and enlarged U8 region visually inspected. Initial full-sheet pin9/11 conflict reading withdrawn: PDF crop, native SchDoc records and selected PCB pad nets agree (pin9 fullVBUS;pin11 R7/R8 divider). R8 annotation and analog PF14 sense constraints retained in u585-kit-usb-boot-review.md. No whole-kit/layout/assembly audit. Author /root/h01_sol,2026-10-20: native sheet14power visually inspected, sheet4clock/reset reread. U19 A-version has noenable;JP3onlyMCUrail. No assembledcontinuity/current/rail proof. Author /root/h01_sol,2026-10-20: existingnative sheets7/8/13 visuallyreread forSTG3692/R11DNF/PH13branch,SB10/13versusDNFSB11/12/LEDQ3R48,andM1EMW3080(BP)pin11CHIP_EN/PF15,SW3/B1/BTUART. No newnativeoriginal/CADaudit. Attemptedwholeextracted7/13outputtruncated,onlyselectednormalizednames/netsread,notnewfullsheettextreview.",
+      "reading": "D01 schematic sheets1–3 selected text; sheet8 Arduino visually reviewed against UM2839 Table24. Other sheets pending. Resumed author /root/h01_resume, 2026-10-20: native sheets4,7,13,14 visually inspected; sheet8 rechecked. Source-to-net conclusions and remaining radio/mux/injection limits in resume-source-notes.md. Author /root/h01_sol,2026-10-20: native sheet9 USB_TYPEC and enlarged U8 region visually inspected. Initial full-sheet pin9/11 conflict reading withdrawn: PDF crop, native SchDoc records and selected PCB pad nets agree (pin9 fullVBUS;pin11 R7/R8 divider). R8 annotation and analog PF14 sense constraints retained in u585-kit-usb-boot-review.md. No whole-kit/layout/assembly audit. Author /root/h01_sol,2026-10-20: native sheet14power visually inspected, sheet4clock/reset reread. U19 A-version has noenable;JP3onlyMCUrail. No assembledcontinuity/current/rail proof. Author /root/h01_sol,2026-10-20: existingnative sheets7/8/13 visuallyreread forSTG3692/R11DNF/PH13branch,SB10/13versusDNFSB11/12/LEDQ3R48,andM1EMW3080(BP)pin11CHIP_EN/PF15,SW3/B1/BTUART. No newnativeoriginal/CADaudit. Attemptedwholeextracted7/13outputtruncated,onlyselectednormalizednames/netsread,notnewfullsheettextreview. Author /root/h01_sol,2026-10-20 C09: Existingnative9rereadforCN1directUSBdata/TCPPVBUSCC-onlygates/powersource/EN/pulldown/nativeconnectoridentity;earlier14supplytreeevidencereused,nocompleteCADaudit.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -2666,6 +2708,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: existingnative sheets7/8/13 visuallyreread forSTG3692/R11DNF/PH13branch,SB10/13versusDNFSB11/12/LEDQ3R48,andM1EMW3080(BP)pin11CHIP_EN/PF15,SW3/B1/BTUART. No newnativeoriginal/CADaudit. Attemptedwholeextracted7/13outputtruncated,onlyselectednormalizednames/netsread,notnewfullsheettextreview."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Existingnative9rereadforCN1directUSBdata/TCPPVBUSCC-onlygates/powersource/EN/pulldown/nativeconnectoridentity;earlier14supplytreeevidencereused,nocompleteCADaudit."
         }
       ],
       "drawing_review": [
@@ -2714,7 +2761,9 @@
         "H01-C71",
         "H01-C73",
         "H01-C91",
-        "H01-C92"
+        "H01-C92",
+        "H01-C100",
+        "H01-C101"
       ],
       "native_visual_reviews": [
         {
@@ -2738,7 +2787,7 @@
       "original_sha256": "f116b5d9f1fdce126e9a63d8450388eb11295d8322d831502fbc9729442b72e4",
       "original_bytes": 134287,
       "access": "Public official original, retained privately",
-      "reading": "Both native pages visually reviewed: block diagram and full schematic; sheet2 dated2022-11-30 v1.1. Module/header/power/USB/auto-program nets traced; no continuity measurement. Author /root/h01_sol,2026-10-20: native sheet2 visually reread for existingtwo diode-ORedpowerpaths,bridge/sharedrail,regulator/LED/reset branches. No newS3sensing/clock/supply selection. Author /root/h01_sol,2026-10-20: nativecurrentv1.1sheet2visuallyreread forJ1.12GPIO8,J1.21VCC5V/J1.22GND,J2/D1andJ4/D7ORpaths,bridge/reset/regulator/LEDloads. Originalhashf116b5d9...matched;sheet1historicaldateApril13doesnotreplacecurrentsheet2Nov30. No continuity/injection/current/fixtureproof. Author /root/h01_sol,2026-10-20: existingnativepages1/2reread;sheet1historicalApril13blockdiagramandactualsheet2Nov30v1.1keptdistinct. GPIO/header/sharedCP2102N/autoreset/SGM2212rail/diodepowerbranchesremainactualconnectedloads,notisolationproof.",
+      "reading": "Both native pages visually reviewed: block diagram and full schematic; sheet2 dated2022-11-30 v1.1. Module/header/power/USB/auto-program nets traced; no continuity measurement. Author /root/h01_sol,2026-10-20: native sheet2 visually reread for existingtwo diode-ORedpowerpaths,bridge/sharedrail,regulator/LED/reset branches. No newS3sensing/clock/supply selection. Author /root/h01_sol,2026-10-20: nativecurrentv1.1sheet2visuallyreread forJ1.12GPIO8,J1.21VCC5V/J1.22GND,J2/D1andJ4/D7ORpaths,bridge/reset/regulator/LEDloads. Originalhashf116b5d9...matched;sheet1historicaldateApril13doesnotreplacecurrentsheet2Nov30. No continuity/injection/current/fixtureproof. Author /root/h01_sol,2026-10-20: existingnativepages1/2reread;sheet1historicalApril13blockdiagramandactualsheet2Nov30v1.1keptdistinct. GPIO/header/sharedCP2102N/autoreset/SGM2212rail/diodepowerbranchesremainactualconnectedloads,notisolationproof. Author /root/h01_sol,2026-10-20 C09: Existingnativepage2Nov30rereadU2SGM2212/C9=10uF/C10=0.1uF/J4D7/5Vheader/shared3V3/bridge/LED/defaultresetbranches. Privateuntrackedinitialdrafttwo10uFoutputcapinferencewithdrawnbeforeregistration;C10is0.1uF,furtherraildecouplingstillpresent. No continuity/current/effectivecapmeasurement.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -2762,6 +2811,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: existingnativepages1/2reread;sheet1historicalApril13blockdiagramandactualsheet2Nov30v1.1keptdistinct. GPIO/header/sharedCP2102N/autoreset/SGM2212rail/diodepowerbranchesremainactualconnectedloads,notisolationproof."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Existingnativepage2Nov30rereadU2SGM2212/C9=10uF/C10=0.1uF/J4D7/5Vheader/shared3V3/bridge/LED/defaultresetbranches. Privateuntrackedinitialdrafttwo10uFoutputcapinferencewithdrawnbeforeregistration;C10is0.1uF,furtherraildecouplingstillpresent. No continuity/current/effectivecapmeasurement."
         }
       ],
       "related_claims": [
@@ -2769,7 +2823,8 @@
         "H01-C78",
         "H01-C89",
         "H01-C90",
-        "H01-C91"
+        "H01-C91",
+        "H01-C100"
       ]
     },
     {
@@ -2783,13 +2838,23 @@
       "original_sha256": "c716b4efb69b6c9385ec99caee7f1b97a787b5944fc9c8218bfacf8d2eceb452",
       "original_bytes": 40560,
       "access": "Public official original, retained privately",
-      "reading": "Technical v1.1 guide: order-code/module/revision/power and complete J1/J3 header tables; current schematic link.",
+      "reading": "Technical v1.1 guide: order-code/module/revision/power and complete J1/J3 header tables; current schematic link. Author /root/h01_sol,2026-10-20 C09: HTMLselected362–369actualmutuallyexclusivepower-methodsrereadwithheader5V/Gidentitiesalreadyrecorded. USBmethodallowsbothUSBsocketsnotUSB+header.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
-      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound"
+      "reviewed_on": "2026-10-20",
+      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: HTMLselected362–369actualmutuallyexclusivepower-methodsrereadwithheader5V/Gidentitiesalreadyrecorded. USBmethodallowsbothUSBsocketsnotUSB+header."
+        }
+      ],
+      "related_claims": [
+        "H01-C100"
+      ]
     },
     {
       "id": "lcd-2inch-doc",
@@ -3116,7 +3181,7 @@
       "original_sha256": "6636cd61387a2f78b0fa96c8ea86ccc0f39ec59f98821cdb57b206d31445a328",
       "original_bytes": 15750907,
       "access": "Public official original, retained privately",
-      "reading": "pp153,180–184,198–201,210–212,218–219,224–232,243–246,251–252 selected body; selected sink/default-current/power/suspend/disconnect/Rd requirements. Not all figures visually reviewed or all442pages read. Author /root/h01_sol,2026-10-20: pp153,180–183,198–201 reread selectedsink/VBUS/defaultpower with unrelatedcharge-throughcontext encountered only. No newPD/accessoryreview ormodeadmission.",
+      "reading": "pp153,180–184,198–201,210–212,218–219,224–232,243–246,251–252 selected body; selected sink/default-current/power/suspend/disconnect/Rd requirements. Not all figures visually reviewed or all442pages read. Author /root/h01_sol,2026-10-20: pp153,180–183,198–201 reread selectedsink/VBUS/defaultpower with unrelatedcharge-throughcontext encountered only. No newPD/accessoryreview ormodeadmission. Author /root/h01_sol,2026-10-20 C09: Reusealreadyreaddefault-power/no-PD/no-accessoryRd/threshold/40ms/notAttachedcapclauses,nonewfigure/bodyclaim.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -3133,11 +3198,17 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: pp153,180–183,198–201 reread selectedsink/VBUS/defaultpower with unrelatedcharge-throughcontext encountered only. No newPD/accessoryreview ormodeadmission."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Reusealreadyreaddefault-power/no-PD/no-accessoryRd/threshold/40ms/notAttachedcapclauses,nonewfigure/bodyclaim."
         }
       ],
       "related_claims": [
         "H01-C73",
-        "H01-C88"
+        "H01-C88",
+        "H01-C101"
       ]
     },
     {
@@ -3185,7 +3256,7 @@
       "original_sha256": "31528541e9d829b1401fd0c747829012c56e6d6d6b12d8f1591ff4cb6549b73b",
       "original_bytes": 171397,
       "access": "Public official original, retained privately",
-      "reading": "Complete6page extracted text; dead/weak-battery redline ambiguity not visually resolved and excluded from initial kit proposal. Normal powered-device1s and preconnect100ms requirements read. Author /root/h01_sol,2026-10-20: completepreviouslyread6pageECN text reread inboundedparts; nativepp4–5 newlyvisuallyread for replacementfigure/redlines andthreshold0.8–4.0V. Δt7unconfiguredafter1srequiresISUSP;not an indefiniteactiveunitloadallowance. Weak/deadbattery500mAprovision retainedunused,no batteryfeatureadmission.",
+      "reading": "Complete6page extracted text; dead/weak-battery redline ambiguity not visually resolved and excluded from initial kit proposal. Normal powered-device1s and preconnect100ms requirements read. Author /root/h01_sol,2026-10-20: completepreviouslyread6pageECN text reread inboundedparts; nativepp4–5 newlyvisuallyread for replacementfigure/redlines andthreshold0.8–4.0V. Δt7unconfiguredafter1srequiresISUSP;not an indefiniteactiveunitloadallowance. Weak/deadbattery500mAprovision retainedunused,no batteryfeatureadmission. Author /root/h01_sol,2026-10-20 C09: Reusealreadyread/visuallyresolvednormal1s/100ms/postconnectconditions;nodeadbatteryexception. No newread.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -3202,6 +3273,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: completepreviouslyread6pageECN text reread inboundedparts; nativepp4–5 newlyvisuallyread for replacementfigure/redlines andthreshold0.8–4.0V. Δt7unconfiguredafter1srequiresISUSP;not an indefiniteactiveunitloadallowance. Weak/deadbattery500mAprovision retainedunused,no batteryfeatureadmission."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Reusealreadyread/visuallyresolvednormal1s/100ms/postconnectconditions;nodeadbatteryexception. No newread."
         }
       ],
       "native_visual_reviews": [
@@ -3223,7 +3299,8 @@
         }
       ],
       "related_claims": [
-        "H01-C78"
+        "H01-C78",
+        "H01-C101"
       ]
     },
     {
@@ -3237,18 +3314,28 @@
       "original_sha256": "a6a8213b57001e3397e9376a287c09c882d9870ac1ef465465104321385a24d1",
       "original_bytes": 14057,
       "access": "Public official original, retained privately",
-      "reading": "Complete2page ECN text; required connector capacitance replaces recommendation.",
+      "reading": "Complete2page ECN text; required connector capacitance replaces recommendation. Author /root/h01_sol,2026-10-20 C09: Complete2pageECNreread1–10uFspecified0..5.25Vpowered/unpoweredrequirementnotrecommendation;VBUSMaxsupersessionretained.",
       "full_manual_review": true,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
       "member": "usb_20_20250603/usb_20_20240927/usb_20_20240927/Device Capacitance ECN.pdf",
       "archive": "usb2-20250603-archive.zip",
       "archive_sha256": "5fe9c53c04033818af396e8852b3acbca5c3a76ba92fab549fd81cd0ea7b3692",
       "pages": 2,
-      "extracted_text_sha256": "3516ca85dca3684d3916d1dc27a35db27a1b61caefb7af964dde7062aa891653"
+      "extracted_text_sha256": "3516ca85dca3684d3916d1dc27a35db27a1b61caefb7af964dde7062aa891653",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Complete2pageECNreread1–10uFspecified0..5.25Vpowered/unpoweredrequirementnotrecommendation;VBUSMaxsupersessionretained."
+        }
+      ],
+      "related_claims": [
+        "H01-C101"
+      ]
     },
     {
       "id": "usb2-errata2000",
@@ -3363,7 +3450,7 @@
       "original_sha256": "1e3375761a72c37eebd198e48bccf528a4bd153bc56cc124e1f88c72722d5019",
       "original_bytes": 71263,
       "access": "Public official original, retained privately",
-      "reading": "Complete2page ECN text;2.5mA non-ICUSB limit and unchanged averaging obligations. Author /root/h01_sol,2026-10-20: completepreviouslyread2pageECNreread;2.5mA/nonhub andunchangedaveraging/peakrules retained. No measuredcurrent.",
+      "reading": "Complete2page ECN text;2.5mA non-ICUSB limit and unchanged averaging obligations. Author /root/h01_sol,2026-10-20: completepreviouslyread2pageECNreread;2.5mA/nonhub andunchangedaveraging/peakrules retained. No measuredcurrent. Author /root/h01_sol,2026-10-20 C09: Complete2pageECNreread2.5mA/nohub/any1saveraging;unchangedspike/slopeviaUSBbase.",
       "full_manual_review": true,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -3377,13 +3464,19 @@
       "extracted_text_sha256": "f8717ae19ee9623df53bb91b813d47f520caf0fd45eee8e99b2674a11cb79a44",
       "related_claims": [
         "H01-C77",
-        "H01-C78"
+        "H01-C78",
+        "H01-C101"
       ],
       "review_events": [
         {
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: completepreviouslyread2pageECNreread;2.5mA/nonhub andunchangedaveraging/peakrules retained. No measuredcurrent."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Complete2pageECNreread2.5mA/nohub/any1saveraging;unchangedspike/slopeviaUSBbase."
         }
       ]
     },
@@ -3422,7 +3515,7 @@
       "original_sha256": "9ea1f49b46f295e71e175d950ffaebd9edfd82f831787c40e74c2486d7773767",
       "original_bytes": 49944,
       "access": "Public official original, retained privately",
-      "reading": "Complete5page ECN text;5.50V maximum replaces5.25V; no inference that unchanged suspend rows override separate Suspend ECN. Author /root/h01_sol,2026-10-20: priorcompleteVBUSMaxECNreading reused for5.50Vsupersession;no newbodyclaim.",
+      "reading": "Complete5page ECN text;5.50V maximum replaces5.25V; no inference that unchanged suspend rows override separate Suspend ECN. Author /root/h01_sol,2026-10-20: priorcompleteVBUSMaxECNreading reused for5.50Vsupersession;no newbodyclaim. Author /root/h01_sol,2026-10-20 C09: Reusecompleteprior5.50VECN,nonewbodyclaim.",
       "full_manual_review": true,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -3439,10 +3532,16 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: priorcompleteVBUSMaxECNreading reused for5.50Vsupersession;no newbodyclaim."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Reusecompleteprior5.50VECN,nonewbodyclaim."
         }
       ],
       "related_claims": [
-        "H01-C78"
+        "H01-C78",
+        "H01-C101"
       ]
     },
     {
@@ -3456,7 +3555,7 @@
       "original_sha256": "d39698a33486c399124af92bd02e4f978fd9a836b5cf4e52e6e4633eb1d89f61",
       "original_bytes": 5983789,
       "access": "Public official original, retained privately",
-      "reading": "Physicalpp198–207/printed170–179: selected §7.2 power and start7.3; base values require ECNs. No complete controller/protocol review claimed. Author /root/h01_sol,2026-10-20: physicalpp169–170,178 /printed141–142,150 text newlyread:FS/LS pullup control,selectedreceiverlimits andconnecttiming withunusedHScontext. No newnativefigures. CurrentECNsupersessions retained. Author /root/h01_sol,2026-10-20: additionally physicalpp187–188 /printed159–160§§7.1.10–7.1.13 textread withunusedHScontext,includingFS-onlyfrequency±0.25% allsourcesandconsecutive/pairedsourcejitter±2/±1ns. Figuretextonly,notnewnativevisual. Author /root/h01_sol,2026-10-20: selected text/table bodies printed141,150–151,154–156,170–171,175–182,188,242§9.1.1.2,254–256§9.4.5 throughendpointHaltparagraph,264–266§9.6.3 read/reread. Physicaloffset+28. Notcompleteeverypage:printed158bitstufffigure andunusedHS/LS/hub/testcontext encountered;no newnativebasewaveform/eye/figureaudit. Power-sourcecapability/status/bMaxPower units,3/10ms suspend,pullup-removal10s andwidecurrent/edge/termination constraints corresponded. Author /root/h01_sol,2026-10-20: printed52–53bulkformat/MPS/serviceconstraints;225–228selectedbulk/controlprotocolproseandfiguretext(notnativewaveform/statevisualaudit);245–260request/state/timing/error/SET_ADDRESS/haltanddescriptorintro;261from9.6throughend,262–263devicefields;267–271interface/endpointfieldsselectedtext/tablebody read. Printed259–260explicitlyrecoveredaftertruncatedtooloutput. Existing264–266configuration/powerreadingreused. UnusedHS/LS/iso/testcontextencounterednotselected;no classspecificationorUSBcomplianceclaim.",
+      "reading": "Physicalpp198–207/printed170–179: selected §7.2 power and start7.3; base values require ECNs. No complete controller/protocol review claimed. Author /root/h01_sol,2026-10-20: physicalpp169–170,178 /printed141–142,150 text newlyread:FS/LS pullup control,selectedreceiverlimits andconnecttiming withunusedHScontext. No newnativefigures. CurrentECNsupersessions retained. Author /root/h01_sol,2026-10-20: additionally physicalpp187–188 /printed159–160§§7.1.10–7.1.13 textread withunusedHScontext,includingFS-onlyfrequency±0.25% allsourcesandconsecutive/pairedsourcejitter±2/±1ns. Figuretextonly,notnewnativevisual. Author /root/h01_sol,2026-10-20: selected text/table bodies printed141,150–151,154–156,170–171,175–182,188,242§9.1.1.2,254–256§9.4.5 throughendpointHaltparagraph,264–266§9.6.3 read/reread. Physicaloffset+28. Notcompleteeverypage:printed158bitstufffigure andunusedHS/LS/hub/testcontext encountered;no newnativebasewaveform/eye/figureaudit. Power-sourcecapability/status/bMaxPower units,3/10ms suspend,pullup-removal10s andwidecurrent/edge/termination constraints corresponded. Author /root/h01_sol,2026-10-20: printed52–53bulkformat/MPS/serviceconstraints;225–228selectedbulk/controlprotocolproseandfiguretext(notnativewaveform/statevisualaudit);245–260request/state/timing/error/SET_ADDRESS/haltanddescriptorintro;261from9.6throughend,262–263devicefields;267–271interface/endpointfieldsselectedtext/tablebody read. Printed259–260explicitlyrecoveredaftertruncatedtooloutput. Existing264–266configuration/powerreadingreused. UnusedHS/LS/iso/testcontextencounterednotselected;no classspecificationorUSBcomplianceclaim. Author /root/h01_sol,2026-10-20 C09: Physical199,204–207selectedfunctionpower/suspend/inrushbodyreread;physical200hubcontextencounterednotselected. Baseoldcurrent/voltagelimitsmustapplyECNs. No newnativefigures/eyes.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -3488,6 +3587,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: printed52–53bulkformat/MPS/serviceconstraints;225–228selectedbulk/controlprotocolproseandfiguretext(notnativewaveform/statevisualaudit);245–260request/state/timing/error/SET_ADDRESS/haltanddescriptorintro;261from9.6throughend,262–263devicefields;267–271interface/endpointfieldsselectedtext/tablebody read. Printed259–260explicitlyrecoveredaftertruncatedtooloutput. Existing264–266configuration/powerreadingreused. UnusedHS/LS/iso/testcontextencounterednotselected;no classspecificationorUSBcomplianceclaim."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: Physical199,204–207selectedfunctionpower/suspend/inrushbodyreread;physical200hubcontextencounterednotselected. Baseoldcurrent/voltagelimitsmustapplyECNs. No newnativefigures/eyes."
         }
       ],
       "related_claims": [
@@ -3497,7 +3601,8 @@
         "H01-C78",
         "H01-C79",
         "H01-C86",
-        "H01-C88"
+        "H01-C88",
+        "H01-C101"
       ]
     },
     {
@@ -3560,7 +3665,8 @@
         "H01-C68",
         "H01-C69",
         "H01-C93",
-        "H01-C94"
+        "H01-C94",
+        "H01-C102"
       ]
     },
     {
@@ -3611,7 +3717,7 @@
       "extracted_text_sha256": "4118a4abfedb3bb935383966784f7aeba04c69fdf518d7313f23f5e762de5fe8",
       "pages": 27,
       "access": "Public official original retained privately",
-      "reading": "Retrieval only; no technical body reading claimed. Author /root/h01_sol,2026-10-20: DS13618 Rev5 September2025 (history25Sep2025), selected extracted-text pp1–2,4,6–8,10–19,26. Page5 diagram text encountered, not visually reviewed. Native pages2,4,12,19 visually inspected. Remaining thermal/package/layout bodies unread; no complete controller/configuration admission. Author /root/h01_sol,2026-10-20: pp8–14 reread for mode/EN/gate/UVLO/VBUS_OK; p9curve text encountered, no newnativecurveaudit. TCPP-onlyHibernate alternative remains incomplete noADC4/UCPD admission. Author /root/h01_sol,2026-10-20: priorselectedmode/EN/gate/UVLOreadingreused;Table11/12andFigure11registertextp11–12 reread foronlyHibernate0x08/GDC1/GDP0/readback0x08/VBUS_OKbit5. No newnativefigure,completeelectricalstartup/slope/unpowered-I/Oorautonomousdetachproof.",
+      "reading": "Retrieval only; no technical body reading claimed. Author /root/h01_sol,2026-10-20: DS13618 Rev5 September2025 (history25Sep2025), selected extracted-text pp1–2,4,6–8,10–19,26. Page5 diagram text encountered, not visually reviewed. Native pages2,4,12,19 visually inspected. Remaining thermal/package/layout bodies unread; no complete controller/configuration admission. Author /root/h01_sol,2026-10-20: pp8–14 reread for mode/EN/gate/UVLO/VBUS_OK; p9curve text encountered, no newnativecurveaudit. TCPP-onlyHibernate alternative remains incomplete noADC4/UCPD admission. Author /root/h01_sol,2026-10-20: priorselectedmode/EN/gate/UVLOreadingreused;Table11/12andFigure11registertextp11–12 reread foronlyHibernate0x08/GDC1/GDP0/readback0x08/VBUS_OKbit5. No newnativefigure,completeelectricalstartup/slope/unpowered-I/Oorautonomousdetachproof. Author /root/h01_sol,2026-10-20 C09: pp6–8/10–14textread/reread:guarantee/normalvsabsmax,EN3.3±10/rise<50us/ILVBUSc0.7mAat5Vnot5.5bound,RDB4.1–5.6kunder400uA,Table11/12OFF/HibCCswitchOFF/RdON/ENlowselfbiasedconsumer/TableFigure11GDC1loadOPEN,UVLO/vbusstatusnotdatagate. No newnativefigaudit;earliernative2/4/12/19reused.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "No original, extraction or manufacturer drawing redistributed; public links, metadata and original analysis only.",
@@ -3634,6 +3740,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: priorselectedmode/EN/gate/UVLOreadingreused;Table11/12andFigure11registertextp11–12 reread foronlyHibernate0x08/GDC1/GDP0/readback0x08/VBUS_OKbit5. No newnativefigure,completeelectricalstartup/slope/unpowered-I/Oorautonomousdetachproof."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: pp6–8/10–14textread/reread:guarantee/normalvsabsmax,EN3.3±10/rise<50us/ILVBUSc0.7mAat5Vnot5.5bound,RDB4.1–5.6kunder400uA,Table11/12OFF/HibCCswitchOFF/RdON/ENlowselfbiasedconsumer/TableFigure11GDC1loadOPEN,UVLO/vbusstatusnotdatagate. No newnativefigaudit;earliernative2/4/12/19reused."
         }
       ],
       "drawing_review": [
@@ -3667,7 +3778,8 @@
         "H01-C53",
         "H01-C73",
         "H01-C88",
-        "H01-C93"
+        "H01-C93",
+        "H01-C101"
       ]
     },
     {
@@ -4808,17 +4920,25 @@
       "original_sha256": "6432b2813c8c290a70f36f78491750fa2dd056cc5c9866d0c2c2df8d7006816a",
       "original_bytes": 1126654,
       "access": "Official public original retained privately",
-      "reading": "Nativepp1,3–5,7–8,10,16–18text including unusedversion/typicalplotcontext; no nativefigureaudit. Table7andA-versionpins read. Conditions/normalversusabsolutemaximum distinct.",
+      "reading": "Nativepp1,3–5,7–8,10,16–18text including unusedversion/typicalplotcontext; no nativefigureaudit. Table7andA-versionpins read. Conditions/normalversusabsolutemaximum distinct. Author /root/h01_sol,2026-10-20 C09: ReusealreadyrecordedexactU19A-versionnormal/tolerance/noenableconditions,notfreshwholemanualread.",
       "full_manual_review": false,
       "reviewer": "/root/h01_sol",
       "reviewed_on": "2026-10-20",
       "original_distribution": "Original/extraction/renders private;sourceidentity/hash andoriginalparaphrasedanalysis only",
       "remaining": "Exactkitload/supply/temperature/aging/variant andphysicalqualification; clock/powerproposals incomplete. No fixture or regulator/crystal selection.",
       "related_claims": [
-        "H01-C73"
+        "H01-C73",
+        "H01-C100"
       ],
       "pages": 30,
-      "extracted_text_sha256": "4779deba2b37e84a78f093b3773f90884a90ca8af7843f2702fe5748e3e788f4"
+      "extracted_text_sha256": "4779deba2b37e84a78f093b3773f90884a90ca8af7843f2702fe5748e3e788f4",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20 C09: ReusealreadyrecordedexactU19A-versionnormal/tolerance/noenableconditions,notfreshwholemanualread."
+        }
+      ]
     },
     {
       "id": "u5-embassy-rcc-u5",
@@ -5623,6 +5743,28 @@
       "license": "SourceheaderApache-2.0;upstreamtermsretained,nooriginalcodepublished",
       "related_claims": [
         "H01-C98"
+      ]
+    },
+    {
+      "id": "s3-sgm2212",
+      "manufacturer": "SGMICRO",
+      "document_id": "SGM2212/installedSGM2212-3.3XKC3G/TR",
+      "revision": "July2023RevA.2",
+      "document_date": "2023-07",
+      "candidate_scope": "ExistingretainedS3kitU2normalpowerconditionsonly;notnewregulatorlead",
+      "url": "https://www.sg-micro.com/rect/assets/54089b71-cc25-4f36-af2e-34b07f00a108/SGM2212.pdf",
+      "retrieved_utc": "2026-10-20T14:21:16.641617+00:00",
+      "original_sha256": "9dbdd68baf96fe58ca011183b0c2bfba09a9ea9cce0b15755ab258cfda78d71b",
+      "original_bytes": 1121215,
+      "access": "Officialpublicoriginalretainedprivately",
+      "reading": "NewofficialRevA.2July2023selectedtextpp1–6/10–11read;normal/electrical/thermal/dropout95%definition/pin/order/capacitance1–10uFvslargercapprose. Otherpackagecontextencountered;page12unrelatedoutlineextractionencounterednotselected,no newnativefigure/packageaudit. Noprice/market/alternativecomponentselection.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Original/code/renders/extractionsprivate;URL/hash/originalanalysispublic",
+      "remaining": "Actualmarking/lot/effectivecapacitors/PCBthermal/stability/normalrail/current/transient/sequence/H02H03qualification;noimplementationorpartselection",
+      "related_claims": [
+        "H01-C100"
       ]
     }
   ],

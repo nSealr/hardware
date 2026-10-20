@@ -372,3 +372,13 @@ A log, outer success or equal reads is not a checked floor commit. Required
 bounded error-preserving effective source/config/map/fit and every pre-use
 power/entropy/display/USB/custody gate remain. No provisioning, implemented
 boot/update, persistent vault, irreversible action or complete host signoff follows.
+
+
+The [finite C09 power/attach lifetime assessment](power-attach-lifetime-contract.md)
+and [proposal](power-attach-lifetime-proposal.json) bind exact kit supply methods,
+normal electrical conditions, CC/EN/default/reset/clock-loss behavior, USB current/
+suspend/inrush/backfeed obligations and the two retained H03 chain decisions.
+The new source is only the installed S3 regulator (206 entries total); claims
+H01-C100–C102 preserve mandatory U585 EN/autonomous-data-removal **UNSATISFIED**
+and S3 descriptor/status/fixture unknowns. Finite source triage does not satisfy
+the power/interface criteria or authorize target/connection/write activity.

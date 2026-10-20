@@ -20,8 +20,10 @@ For this **conditional self-powered** assessment, upstream VBUS is confined to
 the external fixture's sensing/load circuit and must not feed J4 pin1 or the
 kit's VCC_5V/3.3 V rails. The independent permitted kit supply uses the
 documented5 V header J1.21 and ground J1.22; J2 remains empty. Exact supply
-tolerance/current, shared-rail/bridge/reset behavior and normal kit regulator
-limits must still close C01/C03/C09 before this becomes a selected topology.
+tolerance/current, shared-rail/bridge/reset behavior and installed regulator
+conditions are now assessed in power-attach-lifetime-contract.md. Effective
+normal rail/capacitance/stability and all physical/current/descriptor gates
+remain unqualified; this is still not a selected topology.
 The display's separate conditional rail/backlight fixture must not backpower
 the kit or USB. This does not add a USB port or a second controller.
 

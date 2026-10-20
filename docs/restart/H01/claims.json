@@ -2520,6 +2520,125 @@
       "required_negative_case": "Damaged/error/zero/misreadfloor,truncatedfield,partialburn,noncanonicalbitpattern,writefailure/hang,assertsdisabledorfalsezeroownerfieldmustnotgrantsecurestateorloadsecrets.",
       "closure_owner": "H01C09/C10andH02/D02/S04/H02S/K01beforedependentuse",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C100",
+      "claim": "Exact kit supply proposals do not establish permissible connected power or a whole-board normal-rail/current guarantee.",
+      "status": "documented-selected",
+      "applicability": "FiniteC09source/requirementsandnegativeoutcome;notqualifiedhostpower/USB",
+      "evidence": [
+        {
+          "document": "u585-um2839",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "s3-devkitc1-guide",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "u585-st1l05",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        },
+        {
+          "document": "s3-sgm2212",
+          "locator": "power-attach-lifetime-contract.md supplies;UM15–18/nativekit9/14;S3guide362–369/native2;SGMpp1–6/10–11"
+        }
+      ],
+      "engineering_consequence": "U5CN8power-only5VJP4[7–8]notPC/CN1transportproposed;TCPP0x08GDC1opensconsumerandcannotpowerJP4[5–6]. S3J4-onlybuspowerorconditionalisolatedVBUS+J1.21/22independentsupplyremainunselected;USB/headerpowerexclusive. InstalledSGM2212conditionalnormal/output/COUT/thermalrowsnotwholeboardqualification;C9=10uF,C10=.1uFplusotherraildecoupling.",
+      "open_assumption": "Exactreceivedunit/marking/lot/jumpers/source/loads/rail/capacitance/ESR/thermal/reversecurrent/debugger/resetandsupplysequencingunqualified. UMp16CN14TypeCsentencecontradictsnativeCN1;notdefectiveboardclaim.",
+      "required_negative_case": "Dualpowerselection/PCchargerbypass/wrongU2/nominalcaps/dropout95%/MCU-onlycurrentmustnotgrantnormalrail/USBpermission;local-only/VBUS-only/unpowered/slowriseandbackfeedmustrefuseuntilsafe.",
+      "closure_owner": "H01C10admissionresult/H02H03beforedependentuse;H04selection",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C101",
+      "claim": "U585 EN margin and autonomous VBUS-off data removal remain unsatisfied mandatory attachment properties; finite source triage is not USB admission.",
+      "status": "documented-selected",
+      "applicability": "FiniteC09source/requirementsandnegativeoutcome;notqualifiedhostpower/USB",
+      "evidence": [
+        {
+          "document": "u585-tcpp03",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-connect",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-capacitance",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-suspend",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb2-vbus",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        },
+        {
+          "document": "usb-typec-r2p5",
+          "locator": "power-attach-lifetime-contract.md CC/EN/lifetime;TCPP6–8/10–14/currentPWR458–459/DS134note4;USB2physical199/204–207/applicableECNs/previousTypeCselectedclauses"
+        }
+      ],
+      "engineering_consequence": "Hibernate/OFFCCswitchOFF/RdONdistinguishconnectorfromMCUDBCC;proposePWR_UCPDRDBDIS1/STBY0withoutUCPDpromotion. ENneeded2.97VversusconditionalGPIO2.8175floorand<50usriseunproved. CN1datadirecttoMCU/noTCPPdatagate;13msnormalsoftwarebudgetdoesnotproveautonomousreset/clocklossVBUSoffpullupremoval. Retain100mA/unconfigured/2.5mAsuspend/any1s/1sready/1–10uF/inrush/backfeed/defaultsourcedeadlinesandS3separatedescriptor/fixturegates.",
+      "open_assumption": "MandatoryU5ENandindependentdataremovalUNSATISFIED. Bothportaggregatecap/current/suspend/backfeed/physicaltimingandS3fixeddescriptor/status/fixtureunqualified. No newfixture/controller/protocolorpartsselected;H02dependentattach/enumeration/operationstopped.",
+      "required_negative_case": "Heldreset/bootROM/clockloss/stuckI2C/stalestatus/unpoweredrailmustnotleaveunsupportedpulluporacceptapproval;SOFtimeout/reset/statusnotphysicalunplug. No conditionalpropertypromotion,quietcurrentwaiverorweak/deadbatteryexception.",
+      "closure_owner": "H01C10admissionresult/H02H03beforedependentuse;H04selection",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C102",
+      "claim": "The two retained custom-Board H03 chains have distinct current/default/reverse-energy feasibility gates and no complete load/runtime budget.",
+      "status": "documented-selected",
+      "applicability": "FiniteC09source/requirementsandnegativeoutcome;notqualifiedhostpower/USB",
+      "evidence": [
+        {
+          "document": "ti-bq24074",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        },
+        {
+          "document": "ti-bq25628",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        },
+        {
+          "document": "ti-tps63802",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        },
+        {
+          "document": "nhd-24-module",
+          "locator": "power-attach-lifetime-contract.md H03;BQ24074pp19–22/BQ25628pp21/37–38/46/TPS63802pp11–12/rawDBspecifiedcurrentpoint"
+        }
+      ],
+      "engineering_consequence": "RetainonlyBQ24074+TPS63802andBQ25628+TPS63802where3V3required;linearfirst/control/absentbatteryvsconditionalthermalbenefits. BQUSB100EN2/1=00,500=01afterpermission;BQ25628IINDPMPOR/adapterremoved3.2AandI2Chost/watchdog/selectivedefaultsrequirehardwaresafecurrent/CE. TPSreverseboostnotisolation/PGnotwritehold-up. Display15mAat3Vplus15mAat13.6V=249mWbeforelossesonly,nocompletepeak/runtimebudget.",
+      "open_assumption": "NoexactOPN/cell/protection/componentvalues/PCB/current/efficiency/thermal/USBbudgetormodesselected. H03source/advisory/electrical/fullreset/lifetime/measurementgatesremain. Batteryabsentcannotassumepeakbuffer;25mALEDlimitnotqualifiedVfmaxat25mA.",
+      "required_negative_case": "Missingfirmware/currentlimit/watchdog/I2C/reset/suspend/cellabsent/empty/cutoff/reverseenergy/thermalrestartandwriteinterruptionmustnotexceedpermissionorcontinueoldoperation;noLiFePO4/thirdchain/marketingcurrentguarantee.",
+      "closure_owner": "H01C10admissionresult/H02H03beforedependentuse;H04selection",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

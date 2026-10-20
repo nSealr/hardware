@@ -44,8 +44,9 @@ current rule set. The selected Type-C source is Release2.5, March2026, published
 | CC and disconnect | Type-C Table4-28: nominal5.1 kΩ Rd tolerance depends on whether power capability is detected; total equivalent resistance includes internal paths. Table4-3 and §4.5.2.2.5.2 require leaving Attached.SNK within40 ms below the selected valid disconnect threshold (5 V scope: threshold within0.8–3.67 V). The chosen sensing circuit must establish margins and timing. |
 
 For the U585 kit, CN1's TCPP03-M20, CC protection, VBUS divider and supply-select
-jumper must be traced together. No source-role or charger-bypass configuration
-is proposed. For the S3 kit, the two USB power paths and auto-programming
+jumper must be traced together. No source role is proposed. C09 now assesses
+the existing CN8 charger-only supply selection strictly as a power-only source,
+with a PC forbidden there and mandatory CN1 attach properties unsatisfied. For the S3 kit, the two USB power paths and auto-programming
 circuit must be reconciled with its v1.1 schematic before choosing how the
 transport port is powered. Neither kit is assumed to satisfy suspend while
 running the full display workload. On suspend/disconnect the application stops
@@ -102,3 +103,12 @@ Device Capacitance and Suspend Current ECNs complete; VBUS Max Limit ECN
 complete; Connect Timing ECN complete extracted text, with the redline caveat
 above. Remaining applicable electrical/reset/control-transfer/descriptor
 clauses and errata are not claimed read by this checkpoint.
+
+
+The [finite C09 lifetime table](power-attach-lifetime-contract.md) supersedes
+earlier open-ended supply reading for the exact retained proposals. It records
+U585 EN and autonomous VBUS-off data removal as unsatisfied, S3 fixed-descriptor/
+status and fixture conditions as unqualified, and both aggregate-port current/
+capacitance/inrush/backfeed evidence as absent. Requirements are complete enough
+to review the negative outcome; no connected configuration or USB criterion
+is admitted by a conditional table.
