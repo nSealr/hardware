@@ -7,6 +7,11 @@ All identities here are **proposals for documentary analysis**. H02 must identif
 received hardware before execution. No kit ownership, fuse change, wiring,
 measurement or production firmware is implied.
 
+The 20 October [resumed source increment](resume-source-notes.md) adds current
+cache/GPIO/watchdog reading and the native kit startup/power branch findings.
+It supersedes the older unread-cache/watchdog scope statements below only for
+the exact newly recorded sections. The proposed configurations remain unsigned.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,

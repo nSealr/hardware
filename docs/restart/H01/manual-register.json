@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task": "H01",
   "record_kind": "Selected review and bounded triage; incomplete host admission",
-  "as_of": "2026-10-18T20:21:41.153360+00:00",
+  "as_of": "2026-10-20",
   "acceptance_status": "Incomplete; explicitly paused by user. No host configuration admitted. This preserves already completed reading, not new sign-off.",
   "rules": [
     "Original bytes and extracted text are separate private artifacts.",
@@ -23,16 +23,21 @@
       "original_sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
       "original_bytes": 73588589,
       "access": "Public official original retrieved; author independently rehashed coordinator retrieval",
-      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md.",
+      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
-      "remaining": "Complete remaining selected GTZC locks/RCC reset/cache/GPIO/AF/peripheral/USB paths, exact proposed configurations and driver correspondence. New security/flash/power body reading is not whole-manual or six-row signoff.",
-      "reviewed_on": "2026-10-18",
+      "remaining": "Complete remaining selected GTZC locks/RCC clock and excluded-master manifest/SPI/I2C/USB/interrupt/power paths, exact proposed configurations and driver correspondence. Current cache/GPIO/IWDG functional/register reading is recorded; it is not whole-manual or six-row signoff.",
+      "reviewed_on": "2026-10-20",
       "related_claims": [
         "H01-C01",
         "H01-C28",
-        "H01-C29"
+        "H01-C29",
+        "H01-C36",
+        "H01-C37",
+        "H01-C38",
+        "H01-C39",
+        "H01-C40"
       ],
       "extracted_text_sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
       "extracted_text_bytes": 18823134,
@@ -48,7 +53,14 @@
         "11 RCC reset register text pp540–547",
         "8 ICACHE functional text pp366–373"
       ],
-      "retrieval_method": "curl-cffi0.15.0 Chrome HTTP/2 verified TLS; coordinator bounded128MiB success after32MiB cap; independent author hash verification. Previous failures retained as historical, now resolved."
+      "retrieval_method": "curl-cffi0.15.0 Chrome HTTP/2 verified TLS; coordinator bounded128MiB success after32MiB cap; independent author hash verification. Previous failures retained as historical, now resolved.",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_resume",
+          "date": "2026-10-20",
+          "scope": "Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md."
+        }
+      ]
     },
     {
       "id": "u585-ds",
@@ -2081,15 +2093,22 @@
       "original_sha256": "00b3650d881649661574b3889062545cb4e74450ef15991c68b2e74fffe8ddf3",
       "original_bytes": 3299835,
       "access": "Public official original, retained privately",
-      "reading": "UM2839 Rev4 May2023 pp1–5,12–21,29–34; kit power/USB/header/module identities. Not all54pages read.",
+      "reading": "UM2839 Rev4 May2023 pp1–5,12–21,29–34; kit power/USB/header/module identities. Not all54pages read. Resumed author /root/h01_resume, 2026-10-20: pp21–29 extracted text read, including RF power/debug and bus assignments. No complete-manual claim.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
       "extracted_text_sha256": "bbaa23746d2203b62e898f87879ea9a8b214c08e1cc934147dc8e2ae8a7bbb18",
-      "pages": 54
+      "pages": 54,
+      "review_events": [
+        {
+          "reviewer": "/root/h01_resume",
+          "date": "2026-10-20",
+          "scope": "Resumed author /root/h01_resume, 2026-10-20: pp21–29 extracted text read, including RF power/debug and bus assignments. No complete-manual claim."
+        }
+      ]
     },
     {
       "id": "u585-mb1551-d01",
@@ -2102,15 +2121,51 @@
       "original_sha256": "040d70dc5da0e6ef0d0e5cfe33abfbffdfe4b01cbb9d5348ec20679752ebe221",
       "original_bytes": 6198100,
       "access": "Public official original, retained privately",
-      "reading": "D01 schematic sheets1–3 selected text; sheet8 Arduino visually reviewed against UM2839 Table24. Other sheets pending.",
+      "reading": "D01 schematic sheets1–3 selected text; sheet8 Arduino visually reviewed against UM2839 Table24. Other sheets pending. Resumed author /root/h01_resume, 2026-10-20: native sheets4,7,13,14 visually inspected; sheet8 rechecked. Source-to-net conclusions and remaining radio/mux/injection limits in resume-source-notes.md.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
       "extracted_text_sha256": "0c13a0bf645ab449299eb8399d5b597c2f51fecf6bd13bba4b9041b887074488",
-      "pages": 18
+      "pages": 18,
+      "review_events": [
+        {
+          "reviewer": "/root/h01_resume",
+          "date": "2026-10-20",
+          "scope": "Resumed author /root/h01_resume, 2026-10-20: native sheets4,7,13,14 visually inspected; sheet8 rechecked. Source-to-net conclusions and remaining radio/mux/injection limits in resume-source-notes.md."
+        }
+      ],
+      "drawing_review": [
+        {
+          "printed_sheet": 4,
+          "physical_page": 4,
+          "render_sha256": "a60cc0881ebc6a0a0897341e762f33e504cfd01b129326a31acfb8ee51795c8a",
+          "method": "pdftoppm PNG scaled2400; /root/h01_resume visually inspected 2026-10-20"
+        },
+        {
+          "printed_sheet": 7,
+          "physical_page": 7,
+          "render_sha256": "453734f6385f8f30001fb3842b558850814a9e03a3501006dab15c778958198b",
+          "method": "pdftoppm PNG scaled2400; /root/h01_resume visually inspected 2026-10-20"
+        },
+        {
+          "printed_sheet": 13,
+          "physical_page": 13,
+          "render_sha256": "86cc88962d127ff74535eb2e3af2f7906adaa5a5a9527c618ea608a5c9cd3be7",
+          "method": "pdftoppm PNG scaled2400; /root/h01_resume visually inspected 2026-10-20"
+        },
+        {
+          "printed_sheet": 14,
+          "physical_page": 14,
+          "render_sha256": "bc73784475feadb95e50c40abb628f08eb77791ac2a783362be7c9662257dfcb",
+          "method": "pdftoppm PNG scaled2400; /root/h01_resume visually inspected 2026-10-20"
+        }
+      ],
+      "related_claims": [
+        "H01-C41"
+      ]
     },
     {
       "id": "s3-devkitc1-schematic",

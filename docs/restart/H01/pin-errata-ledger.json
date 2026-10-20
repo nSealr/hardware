@@ -637,7 +637,7 @@
       "owner": "future Board owner",
       "power_domain": "DS Rev5 §§3.9–3.9.2 supply-domain/sequence text read; exact package rail allocation remains open",
       "reset_and_straps": "Current package electrical/reset table unread",
-      "peripheral_and_master_access": "GPU2D two AHB masters, DMA2D and LTDC master paths identified at feature level; current RM ownership and chosen driver remain open",
+      "peripheral_and_master_access": "Current RM §2.1 identifies GPU2D/DMA2D/LTDC master paths; §9.3 p383 now explicitly establishes nonsecure GPU2D traffic and no TrustZone on DCACHE2. Exact GTZC/buffer/driver allocation remains open.",
       "interface_limits": "DK2 is ZJT6Q LQFP144/3.3V/RGB reference; DK1 is a different package/rail. Neither transfers a custom pin allocation.",
       "competing_use": "Safe7 custom FPC and generic U5G9ZJ name do not select exact OPN",
       "evidence": [
@@ -652,6 +652,10 @@
         {
           "document": "u5g9-dk2",
           "locator": "manufacturer technical feature list"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "§9.3 p383; §9.4.7 p390; resume-source-notes.md"
         }
       ],
       "status": "feasibility witness only; no netlist or wiring approval",
@@ -1227,6 +1231,26 @@
       ],
       "issue": "Power section calls Type-C connectorCN14; USB section/schematic identifyCN1 whileCN14is Arduino header.",
       "disposition": "Proposed transport connector isCN1; retain discrepancy, confirm received silkscreen/continuity H02."
+    },
+    {
+      "id": "D-U5-DCACHE-CACHEINV",
+      "source": "u5-rm7",
+      "locators": [
+        "§9.4.3 p385",
+        "§9.4.8 p390",
+        "§9.7.1 p395"
+      ],
+      "issue": "TAG discussion lists CACHEINV=0 as invalidation; functional command and register explicitly require one and say zero has no effect.",
+      "disposition": "Retain conflict. Initial U585 DCACHE-disabled proposal does not issue the command; any future enabled driver must follow explicit command/register contract and carry clarification item."
+    },
+    {
+      "id": "D-U585-STMOD-DEFAULT",
+      "source": "u585-mb1551-d01",
+      "locators": [
+        "native sheet7"
+      ],
+      "issue": "SPI/UART tables label UART default while selector pull-ups R10/R11 are DNF. MCU selector pins are normally analog after reset.",
+      "disposition": "No hardware-defined default established; leave expansion connectors empty and program selector before SPI; exact switch behavior remains open."
     }
   ]
 }

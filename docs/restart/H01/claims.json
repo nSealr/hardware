@@ -748,6 +748,108 @@
       "required_negative_case": "No host admission from this documentary checkpoint; exact source correspondence and adverse/reset cases remain required.",
       "closure_owner": "H01 documentary / H02 implementation and measurement",
       "reviewer": "/root/h01_author"
+    },
+    {
+      "id": "H01-C36",
+      "claim": "U585 internal SRAM bypasses DCACHE1; disabled cache/remapping and cache invalidation do not establish data erasure.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§8.4.9–8.7.7 pp374–380; §§9.3–9.7.10 pp383–399"
+        }
+      ],
+      "applicability": "U585 internal-memory-only CPU-SPI proposal",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep DCACHE1 disabled and all ICACHE region-remap enables clear; bound cache startup/maintenance/error paths. No external-memory cache service is admitted.",
+      "open_assumption": "Exact initialization/link-map and H02 runtime evidence; DCACHE command typo retained.",
+      "required_negative_case": "Wrong remap, stale validity, write-back error or ownership context must invalidate pending operation; no data-erasure claim from tag invalidation.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C37",
+      "claim": "G9 GPU2D transactions are nonsecure and its DCACHE2 does not support TrustZone.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§9.3 p383; general §9.4.7 p390"
+        }
+      ],
+      "applicability": "U5G9 graphics document comparison",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep a future GPU-visible framebuffer outside the secure arena; the implementation exception limits the generic cache security statement.",
+      "open_assumption": "Remaining graphics/GTZC/buffer/driver allocation; no G9 promotion.",
+      "required_negative_case": "Do not authorize GPU access to secure secret memory or infer its ownership from CPU SAU/MPU alone.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C38",
+      "claim": "Secure GPIO nonsecure accesses can return zero without illegal-access events, while analog-mode reads also return zero.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§13.3.1–13.3.19 pp624–631; §§13.4.1–13.4.13 pp633–641"
+        }
+      ],
+      "applicability": "U585 active-low physical consent/input proposal with explicit TZEN state",
+      "status": "documented-selected",
+      "engineering_consequence": "Validate input mode, rail, attribution and reader context before interpreting a bit. Preserve release-then-press consent rule and reinitialize locks after reset.",
+      "open_assumption": "Exact manifest and driver context, board electrical checks and measured debounce.",
+      "required_negative_case": "RAZ/analog zero or held input at reset must never become a fresh authorization.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C39",
+      "claim": "HSLV is forbidden above 2.7 V and together with Fm+; no hardware protection prevents a destructive setting.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§13.3.20 pp631–632; §13.4.12 p640"
+        }
+      ],
+      "applicability": "Proposed 3.3 V U585 I/O rails; family-specific availability still applies",
+      "status": "documented-selected",
+      "engineering_consequence": "Keep HSLV disabled and enforce that configuration in the proposed startup/option policy.",
+      "open_assumption": "Exact rail tolerances and selected pads; implementation readback required H02.",
+      "required_negative_case": "Static/configuration checks reject the prohibited setting. No physical destructive test.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C40",
+      "claim": "IWDG early-wake register writes reload its downcounter; EWI acknowledgement is not independent of feeding.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§61.3–61.7.6 pp2562–2574"
+        }
+      ],
+      "applicability": "Proposed U585 independent bounded recovery",
+      "status": "documented-selected",
+      "engineering_consequence": "Initial policy leaves EWI disabled and uses one feed owner requiring forward progress; establish hardware watchdog before candidate blocking paths and account for LSI/debug/power behavior.",
+      "open_assumption": "Complete timeout calculation, option/clock setup, reset and startup-clear policy, plus H02 execution.",
+      "required_negative_case": "Stuck USB/RNG ISR or repeated early-wake handling cannot indefinitely receive progress-qualified feeds; verify on authorized hardware.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
+    },
+    {
+      "id": "H01-C41",
+      "claim": "U585 kit mux/radio startup isolation is not established by disabling unused drivers.",
+      "evidence": [
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Native sheets4,7,8,13,14; UM2839 Rev4 pp21–29"
+        }
+      ],
+      "applicability": "B-U585I-IOT02A MB1551-U585AI-D01 documentary proposal",
+      "status": "documented-selected",
+      "engineering_consequence": "R10/R11 mux pull-ups are DNF; Wi-Fi CHIP_EN lacks a drawn external hold-low; Bluetooth power selection does not establish unpowered-I/O safety. Explicit startup/fixture policy remains required.",
+      "open_assumption": "Exact mux/radio component electrical behavior, full target net correspondence and received-board evidence.",
+      "required_negative_case": "No radio-off/reset-isolation, zero-current or absent-injection guarantee from driver omission or empty connector alone.",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_resume"
     }
   ]
 }

@@ -1,9 +1,11 @@
 # H01 manual register — selected review, incomplete host gate
 
-**Explicitly paused by the user.** [Pause reading notes](pause-reading-notes.md)
-preserve already completed reading and the corrected VIQ package allocation;
-[PAUSE-HANDOFF.md](PAUSE-HANDOFF.md) records the resumable checkpoint. No new
-host sign-off or independent acceptance is implied.
+**Explicitly resumed by the maintainer on 20 October 2026.**
+[Resumed source notes](resume-source-notes.md) bind the new selected
+cache/GPIO/watchdog and kit reading. [Pause reading notes](pause-reading-notes.md)
+and [PAUSE-HANDOFF.md](PAUSE-HANDOFF.md) remain historical recovery evidence,
+including the corrected VIQ package allocation. No new host sign-off or
+independent acceptance is implied.
 
 The auditable record is [manual-register.json](manual-register.json). It records
 original-byte hashes where an original was obtained, exact URLs, revisions,
@@ -26,6 +28,10 @@ none of it silently promotes a source inventory into complete host admission.
 security/flash/power body findings, proposed kit/header identities and real panel
 contradictions. [usb-configuration.md](usb-configuration.md) records actual
 current normative clauses and remaining controller/power requirements.
+The resumed increment additionally establishes U585 internal-SRAM cache bypass,
+the G9 GPU2D/DCACHE2 nonsecure exception, GPIO silent-zero input hazards, the
+3.3 V HSLV prohibition, IWDG early-wake reload behavior and kit startup branch
+limits. Exact scopes and remaining configuration work are in the resumed notes.
 
 | Register IDs | Version and actual reading | Consequence |
 | --- | --- | --- |
