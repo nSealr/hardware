@@ -19,6 +19,9 @@ source-derived lock/reset/clock proposal. The later
 source/original files, including full AR2022-004 V1.1 and the selected IDF
 driver/compile controls. Unrelated fetched bodies remain unread, and the
 alternative is unselected. The resulting147 document entries are an inventory.
+The subsequent [U585 SPI correspondence](u585-spi-review.md) adds3 pinned
+software/metadata sources; the current150 entries remain an inventory, with
+every actual read range and unread remainder distinguished in JSON.
 
 **H01 is not complete and no U5 or S3 host probe is admitted by this candidate.**
 RM0456 Rev7 is now a verified current original with selected body reading. The

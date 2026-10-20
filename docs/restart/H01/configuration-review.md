@@ -24,6 +24,11 @@ selected: stock receive-loss/reset/error, console ownership and lifecycle
 behavior still need a bounded adapter and exact configuration. OTG's earlier
 NDA boundary is retained; no controller substitution or USB-row signoff occurs.
 
+[U585 SPI correspondence](u585-spi-review.md) now adds selected current
+functional/register body and errata reading, with the pinned enhanced-SPI
+driver and exact U585VI metadata. Completion/hold, transient IOLOCK, flag-clear
+wording and unbounded driver waits remain explicit adapter/configuration gates.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,

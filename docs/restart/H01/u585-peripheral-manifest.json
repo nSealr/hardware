@@ -1486,5 +1486,14 @@
     "Kit radio/mux/CC startup and all physical-pad/rail/electrical correspondence",
     "Complete host lifecycle/update/rollback/entropy/clear configuration and source-to-binary review",
     "All six host documentary rows and the S3/G9 comparisons remain incomplete"
+  ],
+  "software_correspondence": [
+    {
+      "peripheral": "SPI1",
+      "document": "u5-pac-u585vi",
+      "generated_commit": "b99bf17d58e6a8d385faf4b87b5f310ca2c057a0",
+      "metadata": "spi versionv6, PCLK2, CCIPR1.SPI1SEL, APB2ENR.SPI1EN and APB2RSTR.SPI1RST agree with current RM correspondence",
+      "scope": "Selected metadata/init/blocking path only. New u585-spi-review.md describes differences; no target build, selected bounded adapter or complete manifest correspondence."
+    }
   ]
 }

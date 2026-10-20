@@ -31,6 +31,11 @@ correspondence. Stock overflow/reset/error and output-writer behavior prevent
 selection now. AR2022-004's two separate ROM-download gates are newly read;
 the controller choice, lifecycle, power/VBUS and six-row signoffs remain open.
 
+[U585 SPI correspondence](u585-spi-review.md) advances the CPU-driven display
+interface subset using current body/register text, errata and selected source.
+Its exact bounded adapter, final panel/clock/hold tuple and complete bus/
+interrupt coverage remain open. Reading this subset does not sign the row.
+
 ## Host review sign-off matrix
 
 “Selected reviewed” below signs only the stated reading, not a complete probe or

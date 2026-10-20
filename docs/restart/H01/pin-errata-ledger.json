@@ -980,7 +980,7 @@
       "affected_revision": "X/W/U",
       "configuration": "SPI CRC-disabled receive, mode faults, completion and conditional slave/autonomous modes",
       "documented_mitigation": "Preserve documented CRC-size default for affected receive; poll mode fault; preserve final clock/data interval before disabling.",
-      "driver_or_probe_implication": "Check exact master panel/SE driver; exclude unused slave/autonomous modes explicitly.",
+      "driver_or_probe_implication": "Current RM selected SPI1 body and exact candidate source now compared in u585-spi-review.md. Finite/simplex proposal differs from enhanced Embassy full-duplex/TSIZE0 path; deadlines, valid IFCR masks, mode-fault polling and final signal hold remain required. Excluded slave/RDY/autonomous modes retain explicit disable controls.",
       "residual_limit": "No panel/SE bus timing or complete driver qualification.",
       "reviewer": "/root/h01_author",
       "physical_validation": false
@@ -1272,6 +1272,16 @@
       ],
       "issue": "Chapter5 DIS_USB_JTAG definition calls the disabled path USB OTG-to-JTAG. Chapter8 and the current pinned JTAG guide identify USB Serial/JTAG-to-CPU JTAG and explicitly retain CDC.",
       "disposition": "Do not conflate controllers or whole-block disable. Use the cross-checked CPU-JTAG/CDC distinction while preserving source wording discrepancy; exact owner fuse policy remains documentary/unexecuted."
+    },
+    {
+      "id": "D-U5-SPI-FLAG-REENABLE",
+      "source": "u5-rm7",
+      "locators": [
+        "§68.8.6 p2943 introduction",
+        "per-flag CRCE/OVR/UDR/EOT definitions pp2944–2945"
+      ],
+      "issue": "SPI_SR introduction says flags do not clear automatically on re-enable and require explicit IFCR; several per-flag definitions say re-enable clears them. EOT prose also mentions re-enable in both completion and clearing.",
+      "disposition": "Preserve source inconsistency. Proposal explicitly clears documented valid IFCR flags, verifies fresh state and counts submitted data; no reliance on automatic clearing or a stale completion bit. Exact selected-driver/state-machine review remains."
     }
   ]
 }

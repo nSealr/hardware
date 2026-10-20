@@ -23,11 +23,11 @@
       "original_sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
       "original_bytes": 73588589,
       "access": "Public official original retrieved; author independently rehashed coordinator retrieval",
-      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json.",
+      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json. Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
-      "remaining": "Complete TZIC/NVIC masks/priorities, selected SPI1/I2C2/USB/interrupt/power bodies, final clock/VOS/flash-latency/watchdog/deadline values and exact driver/configuration correspondence. New U585 GTZC/RCC manifest is a source-derived incomplete proposal; independent review and device/PAC correspondence remain. All six host rows remain unsigned.",
+      "remaining": "Complete TZIC/NVIC masks/priorities, selected I2C2/USB/interrupt/power bodies, final clock/VOS/flash-latency/watchdog/deadline tuple and bounded SPI/RNG/USB adapter/source-to-binary correspondence. Selected SPI body/errata and U585 GTZC/RCC manifest now recorded, not complete host signoff. Independent affected review and remaining device/PAC correspondence remain.",
       "reviewed_on": "2026-10-20",
       "related_claims": [
         "H01-C01",
@@ -40,7 +40,8 @@
         "H01-C40",
         "H01-C42",
         "H01-C43",
-        "H01-C44"
+        "H01-C44",
+        "H01-C49"
       ],
       "extracted_text_sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
       "extracted_text_bytes": 18823134,
@@ -67,6 +68,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt."
         }
       ]
     },
@@ -112,16 +118,25 @@
       "original_sha256": "52dac38c801ae72c42ebffd39296ddf7c80ae378cd555f1a1d1baf49daf86a56",
       "original_bytes": 2246742,
       "access": "Public official native PDF retrieved and rehashed; cover/revision confirmed",
-      "reading": "Fresh primary PDF cover/applicability and complete summaries pp.1–6; selected bodies §§2.2.20–2.2.26 pp.14–16, §2.15.1 p.28, §§2.17–2.18 pp.29–30, §2.23 pp.35–37, §§2.25–2.26 pp.38–41. Surrounding text read only where returned; not all core/system/clock/retention/I2C or full errata body. USB wording contradictions retained in ledger. Native original follow-up: all core/system body text pp.7–16 (§2.1.1 and §§2.2.1–2.2.27), with X/W/U summary pp.2–3. §2.3.1 beginning read, not its complete workaround.",
+      "reading": "Fresh primary PDF cover/applicability and complete summaries pp.1–6; selected bodies §§2.2.20–2.2.26 pp.14–16, §2.15.1 p.28, §§2.17–2.18 pp.29–30, §2.23 pp.35–37, §§2.25–2.26 pp.38–41. Surrounding text read only where returned; not all core/system/clock/retention/I2C or full errata body. USB wording contradictions retained in ledger. Native original follow-up: all core/system body text pp.7–16 (§2.1.1 and §§2.2.1–2.2.27), with X/W/U summary pp.2–3. §2.3.1 beginning read, not its complete workaround. Author /root/h01_sol,2026-10-20: reread SPI §§2.23.1–2.23.7 pp35–37 and Table3 applicability p5 against current RM selected body and candidate driver; no physical qualification.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
       "remaining": "Remaining used GTZC/GPIO/memory/I2C and any other selected peripheral erratum bodies, exact proposed X/W/U/RSS/bootloader tuple and complete driver mitigation correspondence. Current RM retrieved; used body review remains incomplete.",
-      "reviewed_on": "2026-10-18",
-      "related_claims": [],
+      "reviewed_on": "2026-10-20",
+      "related_claims": [
+        "H01-C49"
+      ],
       "extracted_text_sha256": "8a6d428743f3510a45101951a3fe88f71a875190b9025433d83f6f13b5ebca82",
       "extracted_text_bytes": 207048,
-      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound"
+      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: reread SPI §§2.23.1–2.23.7 pp35–37 and Table3 applicability p5 against current RM selected body and candidate driver; no physical qualification."
+        }
+      ]
     },
     {
       "id": "u5g9-ds",
@@ -1440,7 +1455,9 @@
       "original_distribution": "Private snapshot; links/hash/paraphrase only",
       "remaining": "Exact selected toolchain/target/configuration, dependency licenses, build and implementation/manual correspondence remain.",
       "reviewed_on": "2026-10-18",
-      "related_claims": []
+      "related_claims": [
+        "H01-C50"
+      ]
     },
     {
       "id": "embassy-stm32-lib",
@@ -3373,6 +3390,72 @@
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [
         "H01-C48"
+      ]
+    },
+    {
+      "id": "u5-embassy-spi",
+      "manufacturer": "Embassy project",
+      "document_id": "Embassy STM32 spi/mod.rs",
+      "revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "document_date": null,
+      "candidate_scope": "U585 selected CPU-SPI software correspondence only; no target binary or admitted adapter",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/src/spi/mod.rs",
+      "retrieved_utc": "2026-10-20T09:51:15.952420+00:00",
+      "original_sha256": "01df478fa6f909aed17a4a60420a0c5c1a130b105f96355d630b1df11c3cb680",
+      "original_bytes": 84424,
+      "access": "Public upstream source original retrieved and retained privately",
+      "reading": "Selected lines1–116,150–265,366–550,790–868,955–1035,1895–1935,2020–2175,2260–2400. No complete driver, async/DMA/slave or license audit.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; public URL/hash and original analysis only",
+      "remaining": "Exact bounded adapter/clock/panel/driver configuration and independent review remain; no whole-driver/PAC or target-build verdict.",
+      "related_claims": [
+        "H01-C50"
+      ]
+    },
+    {
+      "id": "u5-pac-u585vi",
+      "manufacturer": "Embassy project",
+      "document_id": "stm32-data-generated STM32U585VI device metadata",
+      "revision": "b99bf17d58e6a8d385faf4b87b5f310ca2c057a0",
+      "document_date": null,
+      "candidate_scope": "U585 selected CPU-SPI software correspondence only; no target binary or admitted adapter",
+      "url": "https://raw.githubusercontent.com/embassy-rs/stm32-data-generated/b99bf17d58e6a8d385faf4b87b5f310ca2c057a0/data/chips/STM32U585VI.json",
+      "retrieved_utc": "2026-10-20T09:52:24.082357+00:00",
+      "original_sha256": "0c2fdd1feaead5dc98bc92f1d4d16ec87a2164b0ef5288590c623c2821517c71",
+      "original_bytes": 229283,
+      "access": "Public upstream source original retrieved and retained privately",
+      "reading": "SPI1 metadata object only: versionv6, RCC PCLK2/kernel/enable/reset, listed signals/AF/interrupt/DMA request labels. Remaining chip metadata unread; not package electrical proof.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; public URL/hash and original analysis only",
+      "remaining": "Exact bounded adapter/clock/panel/driver configuration and independent review remain; no whole-driver/PAC or target-build verdict.",
+      "related_claims": [
+        "H01-C50"
+      ]
+    },
+    {
+      "id": "u5-embassy-build",
+      "manufacturer": "Embassy project",
+      "document_id": "Embassy STM32 build.rs",
+      "revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "document_date": null,
+      "candidate_scope": "U585 selected CPU-SPI software correspondence only; no target binary or admitted adapter",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/build.rs",
+      "retrieved_utc": "2026-10-20T09:52:41.533350+00:00",
+      "original_sha256": "a15ab85b93640e9f9e96cad6cc6781e5e04a75c72e8152038f51a1892a5fb17f",
+      "original_bytes": 136166,
+      "access": "Public upstream source original retrieved and retained privately",
+      "reading": "Selected lines1–89, target feature and peripheral kind/version cfg derivation. Remaining build-script body and build_common.rs not reviewed.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; public URL/hash and original analysis only",
+      "remaining": "Exact bounded adapter/clock/panel/driver configuration and independent review remain; no whole-driver/PAC or target-build verdict.",
+      "related_claims": [
+        "H01-C50"
       ]
     }
   ],

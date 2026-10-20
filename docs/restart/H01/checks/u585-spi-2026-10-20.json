@@ -1,0 +1,67 @@
+{
+  "task": "H01",
+  "author": "/root/h01_sol",
+  "recorded_utc": "2026-10-20T09:56:35.255675+00:00",
+  "base_commit": "c90dcbc49088e5d7eb444b491996753460d87976",
+  "scope": "Selected current U585 SPI body/register/errata and candidate driver/PAC correspondence; no adapter, host, panel, wiring or physical admission",
+  "checks": {
+    "json_ids_references": "All H01 JSON parsed;150 unique document IDs;50 unique claims; valid claim references and unique ledger IDs",
+    "new_originals": "3 new source originals rehashed and byte lengths matched",
+    "existing_originals": "RM0456 Rev7 and ES0499 Rev12 original hashes/lengths matched",
+    "manifest_masks": "Recomputed field masks match; selected SPI1 PAC correspondence added, full device correspondence still open",
+    "whitespace": "git diff --check passed"
+  },
+  "not_repeated": [
+    "unchanged source inventory",
+    "unchanged hardware CI",
+    "target build",
+    "physical tests"
+  ],
+  "private_reading_receipt": {
+    "name": "u585-spi-2026-10-20-reading.json",
+    "sha256": "bddcfad7eb38ca1e7793ae563760bd39122eeffe4ce8a7a33fa52e6084395f14"
+  },
+  "review_status": "Selected source increment awaiting distinct affected review; all six host rows remain incomplete; earlier review/result bindings retained as historical",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/u585-spi-review.md",
+      "bytes": 8438,
+      "sha256": "7b94a05af23a6f959ddf5fc5af1e78b5f433bc1b4a1be1a7f9d9a8833bb3960f"
+    },
+    {
+      "path": "docs/restart/H01/u585-peripheral-manifest.json",
+      "bytes": 53715,
+      "sha256": "339e82fa7bd1886830c33165cd5e64cf0ac645f63ac1ac999119a558daef09ae"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 17031,
+      "sha256": "c416ba54787e6cc48c403f12a2ee34a33fab064cc9ab16506cca5e442c195068"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 12604,
+      "sha256": "d51ac98988ac5a6107b0ace447abf5526cac058e48e1f3e23df7907d724628d1"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 10498,
+      "sha256": "7f4a11800402acdadd40effeaf319ad463c9301556f399bc5c42516d4e214fbd"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 230162,
+      "sha256": "682a1545c150233a55c4277b504b6337b2ef7a3ba4554273efd8322252ee0a03"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 56634,
+      "sha256": "aa8e7d7561aee0b8085cb870d9ec05b911823a59f2d743f4be388b6c48ee5eb6"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 62036,
+      "sha256": "891bc43ca3553725347ba52fbe47890a6441fc3f7d2d460465e41dfde34732ad"
+    }
+  ]
+}
