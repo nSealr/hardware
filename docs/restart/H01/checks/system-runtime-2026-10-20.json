@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "e589c1e",
+  "result": "PASS focusedsource/reference/conditionalcountarithmeticintegrityonly",
+  "checks": [
+    "JSONuniqueIDs/claimrefs",
+    "Sevenaffectedoriginalhashes/bytes",
+    "IWDGprescale/conditionalcount/delay/update/refusal/feedmarginarithmetic",
+    "S3MWDTnominaldividerandRWDTreadonlyEFUSEshiftarithmetic",
+    "EXTImask/muxandIRQ/vector/index/prioritycorrespondence",
+    "SelectedS3IRQline/source/typeanddisable-mapconstraints",
+    "USBminrailvsmonitorandBODselectoradversecorrespondence",
+    "Affectedlocallinks/gitdiffcheck"
+  ],
+  "document_count": 202,
+  "claim_count": 96,
+  "affected_originals": [
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "id": "u585-ds",
+      "bytes": 4842120,
+      "sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3"
+    },
+    {
+      "id": "s3-trm",
+      "bytes": 15215232,
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+    },
+    {
+      "id": "s3-ds",
+      "bytes": 1098115,
+      "sha256": "2d5a7cb7fd559d8d972bd88db32669c0196d23f22d7afaafb0f63d099b589a3f"
+    },
+    {
+      "id": "u5-pm0264",
+      "bytes": 11499369,
+      "sha256": "6e42f26331c28aab3ef88d4a271c9e596b10090a594ebc2011edd1a265e50903"
+    },
+    {
+      "id": "u5-pac-u585ai",
+      "bytes": 270815,
+      "sha256": "e541d0157a9fadeb2b93eb4a91f5bc69d4031f2aa700f17bf8912df565bff64e"
+    },
+    {
+      "id": "u5-pac-u585vi",
+      "bytes": 229283,
+      "sha256": "0c2fdd1feaead5dc98bc92f1d4d16ec87a2164b0ef5288590c623c2821517c71"
+    }
+  ],
+  "arithmetic": {
+    "U585_conditional_WDT_early_s": 0.9504761904761905,
+    "U585_conditional_WDT_late_s": 1.05375,
+    "U585_conditional_status_update_max_us": 197.36842105263156,
+    "S3_MWDT_nominal_s": 1.0,
+    "S3_RWDT_nominal_s_not_bound": 4.0,
+    "EXTI_GPIO_mask": "0x8080",
+    "EXTI_selected_security_mask": "0x98080"
+  },
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/system-runtime-contract.md",
+      "bytes": 18322,
+      "sha256": "704b801d42864943925ffc35d71ce61fa95ab56830cb0ad4e8ad94f1a2688ce5"
+    },
+    {
+      "path": "docs/restart/H01/system-runtime-proposal.json",
+      "bytes": 7271,
+      "sha256": "52157c4371346e4245cf2028241f4fad652f6f455b317f950691f4b21b331ff8"
+    },
+    {
+      "path": "docs/restart/H01/u585-clock-proposal.json",
+      "bytes": 3677,
+      "sha256": "f5bc1b7ad8178c904a5b3427f64352bbafec68155136ada032caa157b0644875"
+    },
+    {
+      "path": "docs/restart/H01/u585-interrupt-subset.json",
+      "bytes": 11208,
+      "sha256": "5c2899bdbb8026ec27ec0d1ff60d0ad261883a83ca607558840a0bd6291ec6d9"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 24643,
+      "sha256": "ce553beac21966c5b51058e6da03ea203f39204a6f5c6474bd36bdf130064a5a"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 20219,
+      "sha256": "50e48f03c72a0e9ea3d5d8eac895b8190e06828d612d54a0cbd59a0b1a67e4ff"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 11955,
+      "sha256": "60b2a9cb463817c40552c63f61ac04797a2e1808f8e7db819dda8c9d35bc22b8"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 17849,
+      "sha256": "5c532047727fc465caab435edef06bc867b1816ed9227f3ede335ec495c612d0"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 376988,
+      "sha256": "a46efbfd7517bd7c382ecbd62305c6772963aec7ddaba391f826df4786ec7a86"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 145722,
+      "sha256": "68ab69ee23e8ffce3fcfb541d965067cf0ea554c21e1f62ad04100dde81338d6"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 81740,
+      "sha256": "1b632a4aea407b908785c29536401854cc3a81f61baa07b26e2729e7f8e18ee6"
+    }
+  ],
+  "private_receipt_sha256": "a271364e663d1d9b08ccdd122697902353864a08ffd98301214e781bff0e4570",
+  "limits": "No actualtiming/clock/reference/rail/startup/IRQ/effectivebinary/watchdog/reset/hostqualification. Brownoutresetselectorbody576vsregister623isunsatisfied;S3RCslowminmax/timedclocklossboundunestablished. OUT/display/USJ/entropy/owner/attachpreusestopsremain. No six-criterionclosure. Historicalreviewbindingsunchanged.",
+  "not_run": [
+    "Root-ownedfinalintegratedhardwareCI",
+    "Targetbuild/link/API/registerwrites",
+    "Watchdog/brownout/clock/latency/flood/wiring/USBtests",
+    "Fuse/flash/provisioning/productionsecrets"
+  ]
+}

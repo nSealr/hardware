@@ -7,7 +7,7 @@
   "status": "Conditional clock/timing calculation proposal only;not complete host,selected backend or physical qualification",
   "source_analysis": "u585-clock-power-review.md",
   "core": {
-    "regulator": "LDO proposal;finaleffectivePWR/supplyfieldsremain",
+    "regulator": "LDO/REGSEL0/FSTEN0proposal;effectivePWR/normalrailreadbackH02",
     "vcore_range": 3,
     "vos_field_binary": "01",
     "boost_enable": false,
@@ -39,7 +39,7 @@
     "comparison_guard_ticks_engineering_assumption": 3,
     "crs_cfgr_calculated_hex": "0x151db71a",
     "icr_defined_mask_hex": "0x0000000f",
-    "irq_priority_and_runtime_policy": null,
+    "irq_priority_and_runtime_policy": "system-runtime-contract.md /system-runtime-proposal.json;conditionalCRS74priority1/noLSECSSfeature",
     "qualified": false
   },
   "systick": {
@@ -82,7 +82,7 @@
   },
   "limits": [
     "Reference/load/aging andUSBnormativeclock/jitter condition unsatisfied.",
-    "FinalPWR/RCC/supply/init/readback/IRQ/sourcebounds remain.",
+    "C03system-runtime-contractnowbindsconditionalPWR/IRQ/startuprequirements;C04/C09andactualnormalrail/reference/effectivebinarygatesremain.",
     "Bothcompletepaperhostconfigurationsandsixdocumentaryrows incomplete.",
     "No build,measurement,source-role,ADC4/UCPD/TIM2 promotion ornewcomponentlead."
   ],

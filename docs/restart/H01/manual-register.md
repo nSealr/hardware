@@ -188,3 +188,10 @@ or defective-board assertion survives. The normal external fixture is specified,
 not implemented; display startup, transport, clock, radio and physical gates
 remain. The option comparison now states the exact no-touch identity, finite
 wire-bandwidth/SDK limits and unselected two-SE hypotheses under unchanged gates.
+
+The [system runtime table](system-runtime-contract.md) reuses the202-source
+inventory with exact selected PWR/IWDG/EXTI/interrupt/reset/RTC-watchdog reading.
+Claims H01-C95/C96 bind conditional source/count/ownership requirements. No new
+original, native drawing, timer/driver/clock lead, build or physical result is
+claimed. Monitors below3V and an unbounded RC clock range receive no unsupported
+valid-rail or timed-reset guarantee; all six complete host rows remain open.

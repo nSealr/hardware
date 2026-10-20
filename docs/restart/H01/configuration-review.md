@@ -96,6 +96,15 @@ concrete two-SE composition study. The following no-touch workload is now a
 comparative baseline; it does not freeze product UI, MCU or SE choice. Existing
 security/owner/production gates and independent software/Pi paths remain.
 
+The [system runtime contract](system-runtime-contract.md) and
+[proposal](system-runtime-proposal.json) now bind the finite C03 active supply,
+watchdog, IRQ and startup requirements. BOR/PVD/UVM are not a valid3V USB rail
+proof. U585 progress-only IWDG avoids the EWCR reload trap; S3 core versus RTC
+reset and EFUSE-shifted watchdog counts stay distinct, with no guaranteed RC
+clock-loss timeout. Fixed priorities, two U585 control-edge lines and S3 source
+allocation are requirements, not an observed binary/allocator. Clock/reference,
+C04/C09 and all independent pre-use stops remain; no complete host is admitted.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,

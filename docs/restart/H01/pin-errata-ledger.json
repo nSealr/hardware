@@ -1641,6 +1641,15 @@
       "description": "WholeCHIP_ENnetfloatinginferencewithdrawn;exactM1BPsourceinternalnominal100kPU+10nF/active-low. Noexternalholdlow remains true;nominalmathnotPOR/RF/offcurrentproof.",
       "claim": "H01-C92",
       "closure_owner": "H01/H02/H04exactconfiguration"
+    },
+    {
+      "id": "D-S3-BOD-RESET-SELECTOR",
+      "status": "unsatisfied-source-property",
+      "document": "s3-trm",
+      "description": "TRM1.8p576bodyBROWN_OUT_RST_SEL0Chip/1SystemvsRegister10.51p6231Chip/0System. Neitherpolarityqualified;mode1notselectedtoevade.",
+      "engineering_consequence": "H02STOPdependentoperationuntilcorrectapplicablesourceorreviewedevaluatedsafefinitediagnostic;no currentdiagnosticauthorization.",
+      "claim": "H01-C95",
+      "closure_owner": "H01sourceassessment/H02qualifiedbehavior"
     }
   ]
 }

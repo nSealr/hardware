@@ -83,6 +83,13 @@ C03/C04/C09 and the unsatisfied display/USB/source conditions remain. The new
 touchscreen/generic-Board priorities are a concrete comparison delta in
 option-comparison.md; the old no-touch subset is a baseline, not a product freeze.
 
+The [finite C03 system table](system-runtime-contract.md) specifies active
+supply/reset/watchdog/IRQ/startup ownership and refusal guards. It explicitly
+retains unsupported rail-valid and RC clock-loss timing inferences, conditional
+clock/reference/effective-build limits, and the separate C04/C09 obligations.
+Source/requirement-table completion does not sign a qualified clock, watchdog,
+transport or complete power/host criterion.
+
 ## Host review sign-off matrix
 
 [The finite entropy/crypto table](entropy-contract-review.md) supersedes the

@@ -2383,6 +2383,68 @@
       "required_negative_case": "SDKorsecondSEmustnotimplyhostileappisolation/nativeBIP340/nonexportableNostrECDH/runtimehostprotection/displaybinding;no securitydowngradeorS04retry.",
       "closure_owner": "H01C03/C04/C09/C10androotproductreconciliation;H02/H02S/H03/H04qualification",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C95",
+      "claim": "The two-host active supply/watchdog contract separates valid operating rail, conditional count bounds and unsupported clock-loss timing.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC03source/requirementstable;noqualifiedfunctionalityorhostadmission",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        },
+        {
+          "document": "u585-ds",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        },
+        {
+          "document": "s3-ds",
+          "locator": "system-runtime-contract.md supply/watchdogtable;U585DS35/86;RMPWR449–452/selectedIWDG2563–2573/Table623;S3RTC613–616/TIMG665–668/functional675–677/DC/reset/RTCclock"
+        }
+      ],
+      "engineering_consequence": "U5LDO/REGSEL0/VOS3/WS2/HSLV0,USB3.0minnotUVM1.28/BOR/PVDproof;IWDG32/RLR999/EWI0progress-only250msfeedandconservative0.95048–1.05375scountenvelope. S3MWDT0APB80/40000/2000nominal1score-reset;RWDT544ktickssystemRTCreset/read-onlyEFUSEstage0shift,nominal4snotminmax. Explicitnormalrail/reset/retentionanddebug/faultconditions.",
+      "open_assumption": "Nosuccessfulinit/binary/current/timing/resetpropagation/clockloss/railqualification. S3RCslowminmaxnotestablished;notqualifiedtimedrecovery. Completepower/lifecycleC04/C09andH02gatesremain. S3brownoutRST_SELreset-scopepolaritybody576vsregister623unsatisfied;noalternate modehop.",
+      "required_negative_case": "UVM/BOR/PVDgoodcannotprove3Vvalidorwritehold-up;ISR/failedloop/repeatedretry/EWCRorframeworkautofeedmustnotkeepstalledappalive. NoRTCretention/erasureinferredfromcore-reset. No dependentbrownoutoperation/probeassumesonepolaritybeforecorrectedsourceorreviewedevaluatedsafediagnostic.",
+      "closure_owner": "H01C04/C09/C10andH02/H03effective/physicalqualification",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C96",
+      "claim": "The fixed-source IRQ/startup contract distinguishes child status, mux collisions, finite refusal guards and actual time/ownership proof.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC03source/requirementstable;noqualifiedfunctionalityorhostadmission",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "u5-pm0264",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "u5-pac-u585ai",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "u5-pac-u585vi",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "system-runtime-contract.md IRQ/startup;RMEXTI921–924/926–934/NVIC186;PMselectedAIRCR/securemask;S3interruptTables9.3-1/2pp540–546"
+        }
+      ],
+      "engineering_consequence": "U5securePRIGROUP3/fourbits/fault0/clock1/EXTI2/USB3,onlyPE7/PD15edgeIRQs18/26andall6contactspolled;singleEXTIportperlinepreventsfull6edgehistoryclaim. S3CPU0line0GPIO16/line2USJ96/line23faultslevel3requirements;disableunselectedsourcebymap6not0,CPU1reset/gated. Proposed20uscritical/50uscontactISR/1msscan/finiteguardsandstartupsequencewithnosecretintakeuntilallgates.",
+      "open_assumption": "Noeffectivevector/allocator/RTOS/callplacement/criticalsection/latency/clock/reference/halinitproof. Bootstrapiterationcapsarenotlaterclockmillisecondguarantees;opaqueU5backend<=200msmustbeprovenbeforeuse. USJandU5OUTpreusestopsremain.",
+      "required_negative_case": "Fault/masked/deniedinput/staleedge/readwrap/cachefault/sharedIRQ/sourcecollision/clockchangecannotgrantconsentorcontinueoutput. Noallonesclear/NMIpromotion/implicitbroadHALinit/externalmakerowner ornewtimerfeature.",
+      "closure_owner": "H01C04/C09/C10andH02/H03effective/physicalqualification",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }
