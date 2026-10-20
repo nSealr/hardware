@@ -36,6 +36,12 @@ interface subset using current body/register text, errata and selected source.
 Its exact bounded adapter, final panel/clock/hold tuple and complete bus/
 interrupt coverage remain open. Reading this subset does not sign the row.
 
+[U585 kit/boot correspondence](u585-kit-usb-boot-review.md) adds selected ROM
+resource/watchdog and TCPP03 control reading, and checks sheet9 against native
+CAD. The apparent U8 pin9/11 conflict is withdrawn; the sources agree. PF14's
+analog divider still needs ADC4 or another fully specified sensing policy.
+Boot/CC/I2C/reset/power and all six documentary signoffs remain open.
+
 ## Host review sign-off matrix
 
 “Selected reviewed” below signs only the stated reading, not a complete probe or

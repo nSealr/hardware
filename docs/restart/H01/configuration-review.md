@@ -213,6 +213,14 @@ be advertised as an already implemented partition.
 
 ## Actual reading and remaining work in this checkpoint
 
+Later [U585 kit/boot correspondence](u585-kit-usb-boot-review.md) records
+selected AN2606 ROM resource/watchdog, TCPP03 mode/control and sheet9/native-CAD
+reading. ROM PC0/PC1/PB6 ownership overlaps the proposal; PA7/PB0 remains
+conditional. PF14 analog VBUS sensing needs an explicitly reviewed ADC4 policy
+or another complete alternative. The initial apparent U8 pin9/11 mismatch is
+withdrawn: enlarged PDF, native schematic and PCB agree. No host, sensing path
+or wiring admission results.
+
 New current-RM reading: pp150–194 (§§2.3.4,3,4); pp195–212 (GTZC introduction,
 implementation, functional body and selected secure configuration registers);
 pp276–286 and p287 before Table50 (RAMCFG body/registers); pp291–305,307–330

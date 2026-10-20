@@ -1,6 +1,8 @@
 # H01 manual register — selected review, incomplete host gate
 
 **Explicitly resumed by the maintainer on 20 October 2026.**
+The same day's brief stop was explicitly revoked before the subsequent kit/boot
+checkpoint; H01 remains active and incomplete.
 [Resumed source notes](resume-source-notes.md) bind the new selected
 cache/GPIO/watchdog and kit reading. [Pause reading notes](pause-reading-notes.md)
 and [PAUSE-HANDOFF.md](PAUSE-HANDOFF.md) remain historical recovery evidence,
@@ -68,6 +70,13 @@ New primary rows `u5-an4230`, `nist-e11-public-use`, `nist-e116-public-use`,
 CED wording conflict, candidate RNG policy/wait gaps and the actual device USB
 reset/FIFO/IRQ path. Exact source versions and read ranges are in JSON; no
 resolved target build or physical result is inferred.
+
+The [U585 kit/boot correspondence](u585-kit-usb-boot-review.md) adds AN2606,
+the official MB1551 design archive and OPLA metadata, and selected TCPP03/kit
+reading. The register now has153 entries and53 claims. Its explicit correction
+withdraws the initial apparent pin9/11 conflict: native PDF, SchDoc and PCB agree.
+ROM resource ownership, watchdog behavior, mode-dependent USB status and the
+currently excluded ADC4 sensing path still require concrete policy.
 
 Every retained claim points to a locator and an owner in [claims.json](claims.json).
 The [pin/errata ledger](pin-errata-ledger.json) retains adverse findings and

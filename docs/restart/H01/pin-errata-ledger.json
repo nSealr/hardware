@@ -1282,6 +1282,37 @@
       ],
       "issue": "SPI_SR introduction says flags do not clear automatically on re-enable and require explicit IFCR; several per-flag definitions say re-enable clears them. EOT prose also mentions re-enable in both completion and clearing.",
       "disposition": "Preserve source inconsistency. Proposal explicitly clears documented valid IFCR flags, verifies fresh state and counts submitted data; no reliance on automatic clearing or a stale completion bit. Exact selected-driver/state-machine review remains."
+    },
+    {
+      "id": "D-U585-TCPP-ADDRESS",
+      "source": "u585-um2839 / u585-tcpp03",
+      "locators": [
+        "UM2839 §7.5 pp20–21",
+        "DS13618 I2C register/address definition p12",
+        "MB1551D sheet9 I2C_ADD GND"
+      ],
+      "issue": "Kit0x68 notation is a shifted write-address byte; TCPP03 seven-bit011010x with ground strap is0x34.",
+      "disposition": "Use explicit7-bitAPIaddress0x34; no wholeI2Cadapter admission."
+    },
+    {
+      "id": "D-U585-TCPP-R8-ANNOTATION",
+      "source": "u585-mb1551-d01",
+      "locators": [
+        "Native sheet9 U8/R7/R8 enlarged region",
+        "DS13618 Table13p14"
+      ],
+      "issue": "Comment mentions2.7k sense resistance while actual R8 value is2.4k; actual2.4k matches nominal6V table.",
+      "disposition": "Actual PDF/SchDoc/PCB pin9 fullVBUS andpin11 divider agree; initial apparentpin9/11conflict withdrawn. Retain annotation discrepancy only; no board defect or exact clamp claim."
+    },
+    {
+      "id": "D-U585-AN2606-BOOT-TEXT",
+      "source": "u5-an2606",
+      "locators": [
+        "Table2 Pattern12 p35",
+        "U585 Table217 SPI3 pp503–504"
+      ],
+      "issue": "Activation row contains malformed TZEN text; unused SPI3 direction prose disagrees with its function/direction labels.",
+      "disposition": "No option-byte recipe or unused SPI3 wiring inferred. Current RM remains register authority; actual selected boot behavior still requires review."
     }
   ]
 }

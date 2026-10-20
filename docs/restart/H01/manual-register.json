@@ -3,7 +3,7 @@
   "task": "H01",
   "record_kind": "Selected review and bounded triage; incomplete host admission",
   "as_of": "2026-10-20",
-  "acceptance_status": "Incomplete; explicitly paused by user. No host configuration admitted. This preserves already completed reading, not new sign-off.",
+  "acceptance_status": "Incomplete; active after explicit maintainer resumption and revocation of the brief 2026-10-20 stop. No host configuration admitted.",
   "rules": [
     "Original bytes and extracted text are separate private artifacts.",
     "A null original hash means no validated original PDF was retrieved; HTML error content is not a manual.",
@@ -88,13 +88,15 @@
       "original_sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3",
       "original_bytes": 4842120,
       "access": "Public official native PDF retrieved and rehashed; cover/revision confirmed",
-      "reading": "Fresh primary PDF extraction cover/features pp.1–2; §3.5 pp.28 SRAM/ownership; selected §3.9.1 pp.35–37 supply scheme/sequencing excerpts and §3.9.4–3.9.6 p.47 reset/VBAT excerpts; §3.15 p.52 bus-matrix excerpt. No full table/drawing review. Already completed before pause: pp108–109 complete pin-definition text; selected rows pp110–114,117,120–124; selected PE7/PB6/PE13/PE15/AF rows pp116,127,133,140,149. pp155–158,160,162–163,232 complete text; pp159/161/233+ not read. Native p99 Figure14 LQFP100 SMPS and p100 non-SMPS diagrams visually compared; PC4/PC5 are not exposed on proposed VIQ. Earlier private p100 filename/interpretation corrected in pause-reading-notes.md. Author /root/h01_sol, 2026-10-20: reread cover, Table2 pp18–20 and §3.19 p56 for U585 peripheral availability and DMA2D master correspondence; no new drawing review.",
+      "reading": "Fresh primary PDF extraction cover/features pp.1–2; §3.5 pp.28 SRAM/ownership; selected §3.9.1 pp.35–37 supply scheme/sequencing excerpts and §3.9.4–3.9.6 p.47 reset/VBAT excerpts; §3.15 p.52 bus-matrix excerpt. No full table/drawing review. Already completed before pause: pp108–109 complete pin-definition text; selected rows pp110–114,117,120–124; selected PE7/PB6/PE13/PE15/AF rows pp116,127,133,140,149. pp155–158,160,162–163,232 complete text; pp159/161/233+ not read. Native p99 Figure14 LQFP100 SMPS and p100 non-SMPS diagrams visually compared; PC4/PC5 are not exposed on proposed VIQ. Earlier private p100 filename/interpretation corrected in pause-reading-notes.md. Author /root/h01_sol, 2026-10-20: reread cover, Table2 pp18–20 and §3.19 p56 for U585 peripheral availability and DMA2D master correspondence; no new drawing review. Author /root/h01_sol,2026-10-20: checked selected PF14 pin-function row p115 (ADC4_IN5) against kit sheet9. Not a new complete electrical/AF table review.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
       "remaining": "Exact proposed pad/AF/rail/reset/load reconciliation remains incomplete; native SMPS package correction is not host admission.",
       "reviewed_on": "2026-10-20",
-      "related_claims": [],
+      "related_claims": [
+        "H01-C53"
+      ],
       "extracted_text_sha256": "e254b85cb2416df2bf52376b362e729af10d4370de496b694e441f4a63d48277",
       "extracted_text_bytes": 1663375,
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
@@ -103,6 +105,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol, 2026-10-20: reread cover, Table2 pp18–20 and §3.19 p56 for U585 peripheral availability and DMA2D master correspondence; no new drawing review."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: checked selected PF14 pin-function row p115 (ADC4_IN5) against kit sheet9. Not a new complete electrical/AF table review."
         }
       ]
     },
@@ -2143,7 +2150,7 @@
       "original_sha256": "00b3650d881649661574b3889062545cb4e74450ef15991c68b2e74fffe8ddf3",
       "original_bytes": 3299835,
       "access": "Public official original, retained privately",
-      "reading": "UM2839 Rev4 May2023 pp1–5,12–21,29–34; kit power/USB/header/module identities. Not all54pages read. Resumed author /root/h01_resume, 2026-10-20: pp21–29 extracted text read, including RF power/debug and bus assignments. No complete-manual claim.",
+      "reading": "UM2839 Rev4 May2023 pp1–5,12–21,29–34; kit power/USB/header/module identities. Not all54pages read. Resumed author /root/h01_resume, 2026-10-20: pp21–29 extracted text read, including RF power/debug and bus assignments. No complete-manual claim. Author /root/h01_sol,2026-10-20: reread §7.5 pp20–21 and selected Bluetooth Table12 p24; freshly read §§10.2–10.3 pp44–45 product/board history. No new whole-manual reading or received-product identity.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -2157,7 +2164,16 @@
           "reviewer": "/root/h01_resume",
           "date": "2026-10-20",
           "scope": "Resumed author /root/h01_resume, 2026-10-20: pp21–29 extracted text read, including RF power/debug and bus assignments. No complete-manual claim."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: reread §7.5 pp20–21 and selected Bluetooth Table12 p24; freshly read §§10.2–10.3 pp44–45 product/board history. No new whole-manual reading or received-product identity."
         }
+      ],
+      "related_claims": [
+        "H01-C51",
+        "H01-C52"
       ]
     },
     {
@@ -2171,7 +2187,7 @@
       "original_sha256": "040d70dc5da0e6ef0d0e5cfe33abfbffdfe4b01cbb9d5348ec20679752ebe221",
       "original_bytes": 6198100,
       "access": "Public official original, retained privately",
-      "reading": "D01 schematic sheets1–3 selected text; sheet8 Arduino visually reviewed against UM2839 Table24. Other sheets pending. Resumed author /root/h01_resume, 2026-10-20: native sheets4,7,13,14 visually inspected; sheet8 rechecked. Source-to-net conclusions and remaining radio/mux/injection limits in resume-source-notes.md.",
+      "reading": "D01 schematic sheets1–3 selected text; sheet8 Arduino visually reviewed against UM2839 Table24. Other sheets pending. Resumed author /root/h01_resume, 2026-10-20: native sheets4,7,13,14 visually inspected; sheet8 rechecked. Source-to-net conclusions and remaining radio/mux/injection limits in resume-source-notes.md. Author /root/h01_sol,2026-10-20: native sheet9 USB_TYPEC and enlarged U8 region visually inspected. Initial full-sheet pin9/11 conflict reading withdrawn: PDF crop, native SchDoc records and selected PCB pad nets agree (pin9 fullVBUS;pin11 R7/R8 divider). R8 annotation and analog PF14 sense constraints retained in u585-kit-usb-boot-review.md. No whole-kit/layout/assembly audit.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -2185,6 +2201,11 @@
           "reviewer": "/root/h01_resume",
           "date": "2026-10-20",
           "scope": "Resumed author /root/h01_resume, 2026-10-20: native sheets4,7,13,14 visually inspected; sheet8 rechecked. Source-to-net conclusions and remaining radio/mux/injection limits in resume-source-notes.md."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: native sheet9 USB_TYPEC and enlarged U8 region visually inspected. Initial full-sheet pin9/11 conflict reading withdrawn: PDF crop, native SchDoc records and selected PCB pad nets agree (pin9 fullVBUS;pin11 R7/R8 divider). R8 annotation and analog PF14 sense constraints retained in u585-kit-usb-boot-review.md. No whole-kit/layout/assembly audit."
         }
       ],
       "drawing_review": [
@@ -2211,10 +2232,24 @@
           "physical_page": 14,
           "render_sha256": "bc73784475feadb95e50c40abb628f08eb77791ac2a783362be7c9662257dfcb",
           "method": "pdftoppm PNG scaled2400; /root/h01_resume visually inspected 2026-10-20"
+        },
+        {
+          "printed_page_or_sheet": 9,
+          "physical_page": 9,
+          "render_sha256": "3da206a584be22559d794746a8b2c4715949e7cc5ac4cf4c0ec08ecad116376d",
+          "method": "Private native-PDF PNG; /root/h01_sol visually inspected2026-10-20; selected native page/sheet"
+        },
+        {
+          "printed_page_or_sheet": 9,
+          "physical_page": 9,
+          "render_sha256": "d222b442bc766a5a96d15b36152346314b98bf65eeac23c5c44507656bb7d0a7",
+          "method": "Private native-PDF PNG; /root/h01_sol visually inspected2026-10-20; enlarged U8 region"
         }
       ],
       "related_claims": [
-        "H01-C41"
+        "H01-C41",
+        "H01-C52",
+        "H01-C53"
       ]
     },
     {
@@ -2881,7 +2916,7 @@
       "id": "u585-tcpp03",
       "manufacturer": "ST",
       "document_id": "TCPP03-M20 datasheet",
-      "revision": "Cover revision/body not read at pause; PDF metadata is not revision review",
+      "revision": "DS13618 Rev5, September2025",
       "candidate_scope": "Bounded proposed U585/S3 documentary configurations; no component selection",
       "url": "https://www.st.com/resource/en/datasheet/tcpp03-m20.pdf",
       "retrieved_utc": "2026-10-18T20:08:53.999250+00:00",
@@ -2890,13 +2925,51 @@
       "extracted_text_sha256": "4118a4abfedb3bb935383966784f7aeba04c69fdf518d7313f23f5e762de5fe8",
       "pages": 27,
       "access": "Public official original retained privately",
-      "reading": "Retrieval only; no technical body reading claimed.",
+      "reading": "Retrieval only; no technical body reading claimed. Author /root/h01_sol,2026-10-20: DS13618 Rev5 September2025 (history25Sep2025), selected extracted-text pp1–2,4,6–8,10–19,26. Page5 diagram text encountered, not visually reviewed. Native pages2,4,12,19 visually inspected. Remaining thermal/package/layout bodies unread; no complete controller/configuration admission.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "No original, extraction or manufacturer drawing redistributed; public links, metadata and original analysis only.",
-      "remaining": "Read applicable protection/control/supply/reset/I2C sections to resolve the U585 kit USB boundary; no inherited shutdown or 7-bit address assertion.",
-      "reviewed_on": null,
-      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound"
+      "remaining": "Complete selected I2C/UCPD/USB/EN/CC/sensing/reset policy and independent review; no full controller or host signoff.",
+      "reviewed_on": "2026-10-20",
+      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
+      "document_date": "2025-09-25",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: DS13618 Rev5 September2025 (history25Sep2025), selected extracted-text pp1–2,4,6–8,10–19,26. Page5 diagram text encountered, not visually reviewed. Native pages2,4,12,19 visually inspected. Remaining thermal/package/layout bodies unread; no complete controller/configuration admission."
+        }
+      ],
+      "drawing_review": [
+        {
+          "printed_page_or_sheet": 2,
+          "physical_page": 2,
+          "render_sha256": "06ee58d13bd25c77dd3bf4f07697360eb9e25cfe5252d160dab73cb0858d1d03",
+          "method": "Private native-PDF PNG; /root/h01_sol visually inspected2026-10-20; selected native page/sheet"
+        },
+        {
+          "printed_page_or_sheet": 4,
+          "physical_page": 4,
+          "render_sha256": "8ca422144bfa6b64ffa35a3ebd83f23dd9c25472e1ac5bc3ffed241b9ab897f4",
+          "method": "Private native-PDF PNG; /root/h01_sol visually inspected2026-10-20; selected native page/sheet"
+        },
+        {
+          "printed_page_or_sheet": 12,
+          "physical_page": 12,
+          "render_sha256": "711cfaff652be870a56886be361bba7b2682b3095c77a6f1a9602afab0d1cfef",
+          "method": "Private native-PDF PNG; /root/h01_sol visually inspected2026-10-20; selected native page/sheet"
+        },
+        {
+          "printed_page_or_sheet": 19,
+          "physical_page": 19,
+          "render_sha256": "5d9444845c3ea8280b5d2121f8b85b317cb6dee33cd422a457eff56655858d29",
+          "method": "Private native-PDF PNG; /root/h01_sol visually inspected2026-10-20; selected native page/sheet"
+        }
+      ],
+      "related_claims": [
+        "H01-C52",
+        "H01-C53"
+      ]
     },
     {
       "id": "s3-usj-driver",
@@ -3457,6 +3530,96 @@
       "related_claims": [
         "H01-C50"
       ]
+    },
+    {
+      "id": "u5-an2606",
+      "manufacturer": "ST",
+      "document_id": "AN2606",
+      "revision": "Rev70, February2026",
+      "document_date": "2026-02",
+      "candidate_scope": "U585 selected documentary kit/ROM boot configuration, no host or hardware admission",
+      "url": "https://www.st.com/resource/en/application_note/an2606-stm32-microcontroller-system-memory-boot-mode-stmicroelectronics.pdf",
+      "retrieved_utc": "2026-10-20T09:57:08.589536+00:00",
+      "original_sha256": "25b466e39ecc61671dcb988d8ca538462d6452d85f68140cb981ed728f57e654",
+      "original_bytes": 7560428,
+      "pages": 553,
+      "access": "Public official original retained privately",
+      "reading": "Selected extracted-text pp1–2,34–37; U585 Table3 row p46;pp47–48,57–60;chapter95 pp501–506. Flowchart text only, no new visual flowchart review. Remaining manual unread.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "No original/CAD/extraction redistributed; public metadata and original paraphrased analysis only",
+      "remaining": "Exact proposed runtime/startup/reset/I2C/UCPD/USB policy, independent review and later H02 received-unit checks remain.",
+      "related_claims": [
+        "H01-C51"
+      ]
+    },
+    {
+      "id": "u585-mb1551-design",
+      "manufacturer": "ST",
+      "document_id": "MB1551 board design project archive",
+      "revision": "2.1",
+      "document_date": "2023-08-01",
+      "candidate_scope": "U585 selected documentary kit/ROM boot configuration, no host or hardware admission",
+      "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1551-bdp.zip",
+      "retrieved_utc": "2026-10-20T10:03:58.478265+00:00",
+      "original_sha256": "c48391854b70c934a78971fe6baa3882bf974075eed4c4f2846ba15b4ce14a4b",
+      "original_bytes": 22018475,
+      "pages": null,
+      "access": "Public official original retained privately",
+      "reading": "Archive readme; selected MB1551D/USB_TYPEC.SchDoc U8/R7/R8 pins/wires/junctions and selected MB1551D/MB1551.PcbDoc pad nets. PDF correspondence in u585-kit-usb-boot-review.md. No whole CAD/layout/assembly audit; extracted project file unread.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "No original/CAD/extraction redistributed; public metadata and original paraphrased analysis only",
+      "remaining": "Exact proposed runtime/startup/reset/I2C/UCPD/USB policy, independent review and later H02 received-unit checks remain.",
+      "related_claims": [
+        "H01-C53"
+      ],
+      "selected_members": [
+        {
+          "archive_member": "readme.txt",
+          "member_sha256": "ec9ba86519a812253a9b900e0df2a986a78069806c92b539d6f895051bbf7eaf",
+          "member_bytes": 1806
+        },
+        {
+          "archive_member": "MB1551D/USB_TYPEC.SchDoc",
+          "member_sha256": "6397a6741b13c9872e4fbab6c0b7f0e27e4d0709b77674479419bbdfc02ca841",
+          "member_bytes": 214528
+        },
+        {
+          "archive_member": "MB1551D/MB1551.PcbDoc",
+          "member_sha256": "70705e1ba96ed08acb42a410dda15caafe55c7643c398336a29e653ea162b65b",
+          "member_bytes": 17646592
+        },
+        {
+          "archive_member": "MB1551D/MB1551.PrjPcb",
+          "member_sha256": "0b729bb3f3c5c03436ce1f6051f0caf59278045b7803bfbbfea5438cacb780ec",
+          "member_bytes": 102769
+        }
+      ],
+      "reading_correction": "Withdrawn initial pin9/11 conflict; enlarged native PDF, selected SchDoc wires and PCB pad nets agree. No stale-export or defective-board claim."
+    },
+    {
+      "id": "st-opla",
+      "manufacturer": "ST",
+      "document_id": "Open Platform License Agreement",
+      "revision": "No revision/date claimed; exact retrieved bytes identified",
+      "document_date": null,
+      "candidate_scope": "Public reference design-source access terms only",
+      "url": "https://www.st.com/resource/en/license_agreement/open_platform_license_agreement.pdf",
+      "retrieved_utc": "2026-10-20T10:09:18.177147+00:00",
+      "original_sha256": "0809c990f7a3b971bc9517e20d93c3da880b46d30505409c47f61b371703d2a0",
+      "original_bytes": 43549,
+      "pages": 3,
+      "access": "Public official original retained privately",
+      "reading": "Full three-page extracted text read by /root/h01_sol2026-10-20. No license-transfer, legal-advice or whole-source licensing conclusion.",
+      "full_manual_review": true,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Original remains private; no redistribution performed",
+      "remaining": "Any future design/reuse has its own scope and terms review; not a component/board/host acceptance.",
+      "related_claims": []
     }
   ],
   "retrieval_attempts": [

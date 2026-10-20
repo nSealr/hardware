@@ -45,6 +45,12 @@ requires a new rendered review and fresh released-then-pressed consent after
 reconnection. Exact low-power implementation and measured port current are H02
 requirements.
 
+The subsequent [U585 kit/boot review](u585-kit-usb-boot-review.md) establishes
+the correct TCPP03 seven-bit address0x34 and mode-dependent FLGn/gate behavior.
+Its native PDF/SchDoc/PCB check withdraws the apparent pin9/11 conflict. The
+separate PF14 divider is an analog ADC4_IN5 path, while ADC4 remains excluded
+from the present manifest; a complete sensing/CC/EN/reset policy is still needed.
+
 ## Controller and software boundary still being closed
 
 The existing TinyUSB source review found unbounded core-reset/FIFO-flush loops,
