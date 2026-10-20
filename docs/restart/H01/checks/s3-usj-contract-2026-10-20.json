@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "f839d1de89659d89421108e8e191ab437a75dc4f",
+  "result": "PASS scoped documentary integrity only",
+  "checks": [
+    "JSON parse and document/claim/ledger unique IDs",
+    "All claim-to-document references",
+    "13 affected original hash/byte identities",
+    "One private native render hash/bytes",
+    "12 exact interrupt-enable positions and proposed masks",
+    "Affected local Markdown links",
+    "git diff --check"
+  ],
+  "document_count": 180,
+  "claim_count": 77,
+  "affected_originals": [
+    {
+      "id": "s3-trm",
+      "bytes": 15215232,
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+    },
+    {
+      "id": "s3-usj-boot-kconfig",
+      "bytes": 66074,
+      "sha256": "867aa5bd776a4a4c76d457752d157a325829b97a7c8f2c2a26782c96a41a9017"
+    },
+    {
+      "id": "s3-usj-ll",
+      "bytes": 10965,
+      "sha256": "252be11c4cd7d9c050459a237f413fc312d27b3881817a877a45a1b78e9facf8"
+    },
+    {
+      "id": "s3-usj-guide",
+      "bytes": 8293,
+      "sha256": "db253af9f7e5ffe98e51c811447cdc17dab99f105cd4265a612f7510fc37cb6a"
+    },
+    {
+      "id": "s3-usj-cmake",
+      "bytes": 1329,
+      "sha256": "2ef1aa21de4d0a4cf39ad6b54f0f7ce00fb65e128d5803886f0dcfe85bc9f104"
+    },
+    {
+      "id": "s3-usj-kconfig",
+      "bytes": 2041,
+      "sha256": "74eb43afb57eabdadcff2d755cf564b7c4e0c26f7a38636472e59b40f75aa264"
+    },
+    {
+      "id": "s3-usj-boot-console",
+      "bytes": 5648,
+      "sha256": "48e41bde6b681db9afd764be656544b8079081c6a40fe8a953f320d4b13ea105"
+    },
+    {
+      "id": "s3-idf-secure-boot-chip",
+      "bytes": 2270,
+      "sha256": "4e09d2262d2f136e742bb4fd0acffa3489c775565df5a41f1c8285f34cd22cc9"
+    },
+    {
+      "id": "s3-usj-reg",
+      "bytes": 42379,
+      "sha256": "bf1a92f6521e1274ad4f12fb767796b96ff772958cfc86339f66808c0e16d482"
+    },
+    {
+      "id": "s3-usj-struct",
+      "bytes": 16739,
+      "sha256": "ddd27fb9b51e480184fef20084e4061d00e091dcf047c791f902aa2d5153598c"
+    },
+    {
+      "id": "s3-efuse-table-csv",
+      "bytes": 26731,
+      "sha256": "cdbede45a9fa5f21d0948723e27b07f493e437bae3e35ff40148f00b46c248a6"
+    },
+    {
+      "id": "s3-efuse-table-header",
+      "bytes": 18558,
+      "sha256": "127967c7e661f3411557d19c6ff1e6a1089d84b4552bf1384fb2b549d1b8a9fa"
+    },
+    {
+      "id": "s3-idf-flash-encrypt-chip",
+      "bytes": 2318,
+      "sha256": "5c76dafd30747b3087346904907bb48749ec65822f50986c1a8a13a4dc04a87f"
+    }
+  ],
+  "private_render": {
+    "private_render": "sol-s3-usj-mem1258.png",
+    "page": "TRM1.8 native1258 MISC/MEMbitlayout",
+    "bytes": 114082,
+    "sha256": "8bd3af8a8065cf4020b4931fef7d097b37f7cfcf4610de5df669c03f89e736c8",
+    "reviewer": "/root/h01_sol",
+    "date": "2026-10-20"
+  },
+  "irq_masks": {
+    "public_defined": "0x00000fff",
+    "proposed_base": "0x000006f6",
+    "proposed_pending_tx": "0x000006fe"
+  },
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/s3-usj-contract.md",
+      "sha256": "aa9a370cfe007afc00cb419f0df731e7bca90c2155beba27a3028e541aeae817"
+    },
+    {
+      "path": "docs/restart/H01/s3-usb-serial-assessment.md",
+      "sha256": "dbd46eb33be9637ce8199e851eb36ce97ddd7c949e34f9b7c00f1949baeedd8a"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "sha256": "9c11f8caf43c4b0aa076d86e1562b2694b25d655cae3fa082677a6f858a030e4"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "sha256": "72fbfe08be6b72cfeffd89b737e30b43cf519c1899e72cb2ae7b68eff2e12fb2"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "sha256": "60484ea1f56c9697e745c8e35b070d1a9afafb0c60c1ad213c090947da47c2bb"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "sha256": "8c5307c465cd8a5811e17fe55ea2e72bef47101c7e2e1e39794d097df82af50e"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "sha256": "e444d731c769fe7c9b57625d32be0e9406bd9bf76079fd2e968d9ed849ccc50c"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "sha256": "40840e88f97e6fd4cc1903037fafce1c6bd1dacff2fe3bab366dc90b3a41af29"
+    }
+  ],
+  "private_receipt_sha256": "c70e884e010428fffa93656e46392d49443889004e71702aac4760612d083b5d",
+  "not_run": [
+    "Canonical hardware CI reserved for root-supplied final integrated candidate",
+    "Target build/link/feature execution",
+    "Fuse/provisioning/flash operations",
+    "Any physical power/USB/fixture/display test"
+  ],
+  "limits": "No completehost/sixrow/CDC/fixtureselection/USBcompliance/measurementclaim. Historicalchecks/reviews/results retainoriginalbindings."
+}

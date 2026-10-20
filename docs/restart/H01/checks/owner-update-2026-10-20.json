@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "77310fc512d8cb4d175315b43b016ce2ec87b3f1",
+  "result": "PASS focusedsource/reference/flash-protectioncapacityintegrityonly",
+  "checks": [
+    "UniqueIDs/claimrefs",
+    "Nineaffectedoriginalhashes/bytes",
+    "Bothflashreservationscomplete/nonoverlap/alignment/slotcapacity",
+    "U585securealias/bootaddress/page/WRP/HDP/watermarkcapacitycorrespondence",
+    "S3keypurpose/readprotection/countercapacity/JTAGvsCDCdistinctions",
+    "Affectedlocallinks/gitdiffcheck"
+  ],
+  "document_count": 205,
+  "claim_count": 99,
+  "affected_originals": [
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "id": "u5-an2606",
+      "bytes": 7560428,
+      "sha256": "25b466e39ecc61671dcb988d8ca538462d6452d85f68140cb981ed728f57e654"
+    },
+    {
+      "id": "s3-trm",
+      "bytes": 15215232,
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f"
+    },
+    {
+      "id": "s3-efuse-table-csv",
+      "bytes": 26731,
+      "sha256": "cdbede45a9fa5f21d0948723e27b07f493e437bae3e35ff40148f00b46c248a6"
+    },
+    {
+      "id": "s3-boot-sdk",
+      "bytes": 78020,
+      "sha256": "194c69488c2d8f432a388790b901d19fabf02e275cc19ef7ee6cb2786f3a4e6d"
+    },
+    {
+      "id": "s3-ota-sdk",
+      "bytes": 146079,
+      "sha256": "1c7d30a8cd73c1dc98537d360857e062a78e729276df92fbe9aace14058e7515"
+    },
+    {
+      "id": "s3-idf-flash-encrypt",
+      "bytes": 19018,
+      "sha256": "9dab036e56c8f7bc2c76f6196a7cac73dcb458efc165bf420408a7c8ec091c7c"
+    },
+    {
+      "id": "s3-idf-efuse-api",
+      "bytes": 11398,
+      "sha256": "dddd15e910322cd8f5707b983857f31acc3399438e163293fb9adaeb8cc47e0b"
+    },
+    {
+      "id": "s3-idf-efuse-fields",
+      "bytes": 8661,
+      "sha256": "450c8b8d6eb208d9e7aac21d96d8b6ad495ef4b40b2e8dd7922087a8a7d9735e"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/owner-update-contract.md",
+      "bytes": 21475,
+      "sha256": "9a5ff45b8f17134415ac3297da3615d5a32dab632ec3a60f210c2efc902831fd"
+    },
+    {
+      "path": "docs/restart/H01/owner-update-proposal.json",
+      "bytes": 7301,
+      "sha256": "16d7b9b44729cc2e76f44f9c99bc21205904c390d768246edf3dc991b685276b"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 12246,
+      "sha256": "52b93d8bce78fd5ff0a68b449c9a52a24ec8040ebcd5c309b77d5f26b9613dcd"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 25416,
+      "sha256": "548afa2947be244fe6e234728a8a65a67955202ec6a989b72bdde623652a38c3"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 20992,
+      "sha256": "c65bb9db1933e6835d1b8561b3fff02b48822d2c635d56a4201a37bf7ff5de78"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 18622,
+      "sha256": "d4435f18f7459e61c0b2f08937852cfdc860afe66b5687aa5c9e0ac86117f6a2"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 386503,
+      "sha256": "ff979d3b35f58e0b24275b14fafdca8a5da6f05e1f3527253d08da4801b0dd2e"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 151589,
+      "sha256": "66364b6e8ff5eff44ddaa23b5d5b5207e61223f56e7f9f354b92c0ecaa86f329"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 82421,
+      "sha256": "a9e38a3f033c371842a6091f3440ad58ddabfcbd1cb0a5c69966dab0431a5bb4"
+    },
+    {
+      "path": "docs/restart/H01/resume-source-notes.md",
+      "bytes": 12218,
+      "sha256": "299aa7b5afeb2e9918d1612e834d286fe6e3a603fdfa460dfc04ec20e2b60882"
+    }
+  ],
+  "private_receipt_sha256": "39a6c3dc46e1be3d264445eab70614ae88bc8b1be2c3827dd7b29e4479da3c98",
+  "limits": "Paperrequirements/capacity/sourceintegrityonly. Nobootmanifest/journal/PT/utility/HAL/completecaller/effectivebuild/fit/authentication/provisioning/update/counter/reset/custodyqualification. Counterhelpergap/OUT/BOD/display/entropy/USB/powerpreusestopsremain;no6rowclosure. Historicalreviewbindingsunchanged.",
+  "not_run": [
+    "Fuse/RDP/flash/provisioning/ownerkeys",
+    "Targetbuild/link/registerwrites",
+    "Update/rollback/reset/physicalmeasurements",
+    "Root-ownedfinalintegratedCI"
+  ]
+}

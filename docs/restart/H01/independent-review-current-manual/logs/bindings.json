@@ -1,0 +1,1022 @@
+{
+  "scope": "Byte/source/extraction correspondence only; substantive report separate; H01 INCOMPLETE.",
+  "candidate": "e39015ae20efd37d509054f4b98ddd68ee7e98c9",
+  "source": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+  "python": "3.13.5",
+  "metadata": [
+    {
+      "path": "docs/restart/H01/result.json",
+      "sha256": "5c10be2874d6eb6eb194f1c71259a95f3197fb7aef79b085064ee8a601b7836e",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/handoff.md",
+      "sha256": "2f8d26bdedd671e1d91e47639192bf049c3cfdac5293a4e3c177dc8ac76a5240",
+      "match": true
+    },
+    {
+      "path": "private coordinator RM0456 original",
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
+      "bytes": 73588589,
+      "match": true
+    }
+  ],
+  "artifact_bindings": [
+    {
+      "kind": "artifacts",
+      "path": "README.md",
+      "bytes": 2710,
+      "sha256": "44e65289753dd800c66c6db7d967ae3f8000d12bd2a082ffecaa2d857720b650",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/brief.md",
+      "bytes": 18448,
+      "sha256": "89f5e3487d669e1555bf07f8207ddc8cf783f554b72a7f02785fffd5deccf5e8",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 33765,
+      "sha256": "7a288f1c2c4513c0cb1d38f19ca31bcd703406868d182d3e4b0e71bdb2c995ae",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/current-manual-notes.md",
+      "bytes": 14764,
+      "sha256": "f16029e531a43b69dda90f7f2925f13e0225c74b4c8f53f1f401abe56e5f5924",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/errata-correction.md",
+      "bytes": 1955,
+      "sha256": "e9b32c00ebe125fcf12aab95224fb361ca66f6c2dbcf3a092aefc8d4a1e76004",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/host-subset-notes.md",
+      "bytes": 11587,
+      "sha256": "67eedb4016d546029da0bb986885027deaff2a114c8c640fe62c07c786de3d7d",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review-followup/logs/bindings.json",
+      "bytes": 15806,
+      "sha256": "9f7572bed1bc1082b343b9c73a905226dce2f5820e81ce14aabd34461059db5e",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review-followup/probes/check_bindings.py",
+      "bytes": 5814,
+      "sha256": "6c4bd41406ed78c924fedf73a738cd700deed393e8a9d7c24fe7a2446b7321d5",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review-followup/report.md",
+      "bytes": 11893,
+      "sha256": "6b20a32f262feb4011a9b386832dcab803bedacef52acaa9a07660ada581dc18",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review-followup/review.json",
+      "bytes": 16435,
+      "sha256": "9218d863d8b557d69956d88bb300a23db1930b6ab0d0c26cf93ffdca461bfe88",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/dk2-retrieval.json",
+      "bytes": 773,
+      "sha256": "6af7075283b32f618ac1b426ab7db995227f98d24869a5879fb8ce6223e0bc14",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/drawing-correspondence.json",
+      "bytes": 1182,
+      "sha256": "a7ff23a3ce2e44358669915f3a240963b9558e624faeb89fdcd5b38b37569598",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/evidence-correspondence.json",
+      "bytes": 31499,
+      "sha256": "30ecdf2eb6bdc1e13d5fd071c54cf46c7f88db075e78e7a0a396fcf62483ed54",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/html-source-check.json",
+      "bytes": 845,
+      "sha256": "6e719521230d764cb40d03d82dcc0b1b3d3ee00b49a98b2b64939aa6c142aec7",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/probes/check_evidence.py",
+      "bytes": 6470,
+      "sha256": "7d12f4d0f7614ae7814f2a04e37dcaad59e60906da7725e04e5e298a9877c20f",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/report.md",
+      "bytes": 19082,
+      "sha256": "aff49a9b71244a4b7f459ad983055d7b12428438c65f65f17c7bbb033e9877e3",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/review.json",
+      "bytes": 19069,
+      "sha256": "dae32ac9c27ad348a3ff3e07fea54a4cca50ae67881eabc34803ff60b86fd49b",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/input-notes.json",
+      "bytes": 27778,
+      "sha256": "75b54942af4cace291f3f60f234ccb35b02a45b831a6961d2b26b8a8ad39a7b0",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 136502,
+      "sha256": "e2d4f3faa28a403a86c44ef48fe2ee194a016d64b94524510b6ed4d3c7f3f2bf",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 8688,
+      "sha256": "445e802f8089e03159ab4c9f55ffc98de296d935f41321ffccdc8a766fc643f6",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/option-comparison.md",
+      "bytes": 16352,
+      "sha256": "e674810963b4fafa080c78ca950d5ae68e5bc61d701ddbe9208e897907f6572d",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 57457,
+      "sha256": "5da139704b2487c45966976f4a001d99b77212c36a3beaff91e3dc14585c4c6e",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/probe-plan.md",
+      "bytes": 10032,
+      "sha256": "74ed5f0d56b96a5da56b9e8f109729de3cace2515ca2a8f4ecbaa47cad385eb0",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 10266,
+      "sha256": "06499c9a9d9f8b553d596c55d8553dd24f45b03bee9dac77469a4d87e12c5c15",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/review-response.md",
+      "bytes": 3752,
+      "sha256": "e59066152e606542b51996bbd79b23ea3f8decd740b3269e795877f7bb6a6180",
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/spec-review.json",
+      "bytes": 3194,
+      "sha256": "9700d170688af1fcb1096c18d173164feb0751ccce0156b1bb369b3524eeb93d",
+      "match": true
+    },
+    {
+      "kind": "verification_artifacts",
+      "path": "docs/restart/H01/checks/ci-6b45f6f.log",
+      "bytes": 788,
+      "sha256": "3f7ae2db7a4116851dbdee90055c4cef2596ab01372132089465dab82f34f45f",
+      "match": true
+    },
+    {
+      "kind": "verification_artifacts",
+      "path": "docs/restart/H01/checks/followup-integrity.json",
+      "bytes": 12771,
+      "sha256": "929176475d926c9692338c613519c8a6302addca1c83264b9fca7f93033f6c65",
+      "match": true
+    },
+    {
+      "kind": "verification_artifacts",
+      "path": "docs/restart/H01/checks/ci-4d50d15.log",
+      "bytes": 788,
+      "sha256": "3f7ae2db7a4116851dbdee90055c4cef2596ab01372132089465dab82f34f45f",
+      "match": true
+    },
+    {
+      "kind": "verification_artifacts",
+      "path": "docs/restart/H01/checks/current-manual-integrity.json",
+      "bytes": 13440,
+      "sha256": "bdce08f5b5787cc42f8bb520d5d46a38b45701eb00e845c4582814f1efa04330",
+      "match": true
+    }
+  ],
+  "prior_source_identity": [
+    {
+      "id": "u5-rm7",
+      "changed_fields": [
+        "original_sha256",
+        "original_bytes"
+      ],
+      "resolved_original": true,
+      "match": true
+    },
+    {
+      "id": "u585-ds",
+      "changed_fields": [
+        "original_sha256",
+        "original_bytes"
+      ],
+      "resolved_original": true,
+      "match": true
+    },
+    {
+      "id": "u585-es",
+      "changed_fields": [
+        "original_sha256",
+        "original_bytes"
+      ],
+      "resolved_original": true,
+      "match": true
+    },
+    {
+      "id": "u5g9-ds",
+      "changed_fields": [
+        "original_sha256",
+        "original_bytes"
+      ],
+      "resolved_original": true,
+      "match": true
+    },
+    {
+      "id": "u5g9-es",
+      "changed_fields": [
+        "original_sha256",
+        "original_bytes"
+      ],
+      "resolved_original": true,
+      "match": true
+    },
+    {
+      "id": "u5a5-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "u5a5-es",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-module",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-trm",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-es",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "p4-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "p4-es",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-tn1489",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-sa0055",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-ar2026-005",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-rng-sdk",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-boot-sdk",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-flash-sdk",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-ota-sdk",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-board",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-usb-sdk-current",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-tn1474",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ti-bq24074",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ti-bq25628",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ti-tps63802",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ti-tusb320lai",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-mcxn947-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-se051-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-se051-config",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-se051-errata",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-se05x-api",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "optiga-m-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "tropic-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "tropic-api",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "tropic-pin",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "tropic-pairing",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "tropic-advisory",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "tropic-catalog",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "diodes-ap2112",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "optiga-m-manual",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "optiga-m-releases",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "optiga-m-i2c",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-sems-update",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-host-binding",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-pins-STM32U585VITx",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-pins-STM32U585VITxQ",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTx",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTxQ",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-u5-rm6-jp",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "st-h5-98864_en",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-i2c-spec",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ref-safe7-main",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ref-ts1303",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ref-ts1401",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ref-ts1501",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "ref-ts1702",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "embassy-stm32-cargo",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "embassy-stm32-lib",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "esp-hal-cargo",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "esp-rust-book",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "esp-classic-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "h573-ds",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "h573-es",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "mcxn947-rm",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "mcxn947-security-rm",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "nxp-se051-current-index",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "usb-c-normative",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "u5g9-opn",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "u5g9-kit",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-idf-random",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-idf-boot-random",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-idf-sleep",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-idf-rtc-header",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-idf-usb-struct",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-idf-usb-ll",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-usb-component",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-usb-config",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "s3-usb-device",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "u5g9-dk2",
+      "changed_fields": [],
+      "resolved_original": false,
+      "match": true
+    },
+    {
+      "id": "u5g9-um3223",
+      "changed_fields": [
+        "original_sha256",
+        "original_bytes"
+      ],
+      "resolved_original": true,
+      "match": true
+    }
+  ],
+  "new_source_ids": [
+    "nist-e11-public-use",
+    "nist-e116-public-use",
+    "s3-tinyusb-dcd_dwc2.c",
+    "s3-tinyusb-dwc2_common.c",
+    "s3-tinyusb-dwc2_common.h",
+    "s3-tinyusb-dwc2_esp32.h",
+    "s3-tinyusb-registry",
+    "u5-an4230",
+    "u5-embassy-rng"
+  ],
+  "affected_originals": [
+    {
+      "id": "u5-rm7",
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
+      "bytes": 73588589,
+      "match": true
+    },
+    {
+      "id": "u585-ds",
+      "sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3",
+      "bytes": 4842120,
+      "match": true
+    },
+    {
+      "id": "u585-es",
+      "sha256": "52dac38c801ae72c42ebffd39296ddf7c80ae378cd555f1a1d1baf49daf86a56",
+      "bytes": 2246742,
+      "match": true
+    },
+    {
+      "id": "u5g9-ds",
+      "sha256": "89bf1f0a9c367372a721c1e0ebfdd7f5731456f7d35463e290bbfc487ace6176",
+      "bytes": 4310781,
+      "match": true
+    },
+    {
+      "id": "u5g9-es",
+      "sha256": "c717275ccc1fcda1d06c3d64fc9ca7c8fd758c612bc2dc0e5a0059a3a4e9392b",
+      "bytes": 1502594,
+      "match": true
+    },
+    {
+      "id": "u5g9-um3223",
+      "sha256": "2640fcef38954942c6b30efc605bcca265c0b07f666eb5eef0530e2094049af6",
+      "bytes": 3424472,
+      "match": true
+    },
+    {
+      "id": "u5-an4230",
+      "sha256": "e3bd33d2909e4d326ae856a3b1e847cc4c76ca2a4c0636dc1dc6b995f70df0c6",
+      "bytes": 1372482,
+      "match": true
+    },
+    {
+      "id": "nist-e11-public-use",
+      "sha256": "add4fbf929c4e7f503705d6e595b2d70dc6b4a5f2663a87abf2124632626b41a",
+      "bytes": 251262,
+      "match": true
+    },
+    {
+      "id": "nist-e116-public-use",
+      "sha256": "6560b92bdf61b92b445537697070e68d00c02c0be6f9bd723f63799d3636d8f7",
+      "bytes": 321561,
+      "match": true
+    },
+    {
+      "id": "u5-embassy-rng",
+      "sha256": "60131a83269c2634fdc896c3ab475d93dea0cbaf122fbcfe6c3fcb7fd5c4b370",
+      "bytes": 23525,
+      "match": true
+    },
+    {
+      "id": "s3-tinyusb-registry",
+      "sha256": "7730cc51a81316a97e1de79b45c724af724037b22d28e61ad45a83b6eb2d1101",
+      "bytes": 57695,
+      "match": true
+    },
+    {
+      "id": "s3-tinyusb-dcd_dwc2.c",
+      "sha256": "27678dabda2c227c1d472d6cd6b77770287c399cf4944f061e594561ef9be4b3",
+      "bytes": 45383,
+      "match": true
+    },
+    {
+      "id": "s3-tinyusb-dwc2_common.c",
+      "sha256": "3971bcb1b0fd639dad056dab97a2671aa430a5892347938427a11d864679559b",
+      "bytes": 9812,
+      "match": true
+    },
+    {
+      "id": "s3-tinyusb-dwc2_common.h",
+      "sha256": "1bbfe05848a9de8275fc8650176c847a89f5b5d550556f7f47085e1ce31af637",
+      "bytes": 4234,
+      "match": true
+    },
+    {
+      "id": "s3-tinyusb-dwc2_esp32.h",
+      "sha256": "5465d886b354ef9a419931905cc2081bb0c9ef52ced7e4e7434fa420f8d72eec",
+      "bytes": 7386,
+      "match": true
+    },
+    {
+      "id": "s3-idf-random",
+      "sha256": "45b8381aef1a2e7bd9e42fc198c6b0a8644ae7eb28c1dc56bc1b561178e7b5bd",
+      "bytes": 4621,
+      "match": true
+    }
+  ],
+  "preserved_reviews": [
+    {
+      "path": "docs/restart/H01/independent-review/logs/dk2-retrieval.json",
+      "original_review_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+      "sha256": "6af7075283b32f618ac1b426ab7db995227f98d24869a5879fb8ce6223e0bc14",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/drawing-correspondence.json",
+      "original_review_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+      "sha256": "a7ff23a3ce2e44358669915f3a240963b9558e624faeb89fdcd5b38b37569598",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/evidence-correspondence.json",
+      "original_review_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+      "sha256": "30ecdf2eb6bdc1e13d5fd071c54cf46c7f88db075e78e7a0a396fcf62483ed54",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/html-source-check.json",
+      "original_review_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+      "sha256": "6e719521230d764cb40d03d82dcc0b1b3d3ee00b49a98b2b64939aa6c142aec7",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/probes/check_evidence.py",
+      "original_review_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+      "sha256": "7d12f4d0f7614ae7814f2a04e37dcaad59e60906da7725e04e5e298a9877c20f",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/report.md",
+      "original_review_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+      "sha256": "aff49a9b71244a4b7f459ad983055d7b12428438c65f65f17c7bbb033e9877e3",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/review.json",
+      "original_review_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+      "sha256": "dae32ac9c27ad348a3ff3e07fea54a4cca50ae67881eabc34803ff60b86fd49b",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/logs/bindings.json",
+      "original_review_commit": "2f9ea3a18d8fb18e3fbaa8f58b6272102f83b9c2",
+      "sha256": "9f7572bed1bc1082b343b9c73a905226dce2f5820e81ce14aabd34461059db5e",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/probes/check_bindings.py",
+      "original_review_commit": "2f9ea3a18d8fb18e3fbaa8f58b6272102f83b9c2",
+      "sha256": "6c4bd41406ed78c924fedf73a738cd700deed393e8a9d7c24fe7a2446b7321d5",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/report.md",
+      "original_review_commit": "2f9ea3a18d8fb18e3fbaa8f58b6272102f83b9c2",
+      "sha256": "6b20a32f262feb4011a9b386832dcab803bedacef52acaa9a07660ada581dc18",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/review.json",
+      "original_review_commit": "2f9ea3a18d8fb18e3fbaa8f58b6272102f83b9c2",
+      "sha256": "9218d863d8b557d69956d88bb300a23db1930b6ab0d0c26cf93ffdca461bfe88",
+      "match": true
+    }
+  ],
+  "fresh_extractions": [
+    {
+      "id": "u5-rm7",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
+      "bytes": 18823134,
+      "match": true
+    },
+    {
+      "id": "u585-ds",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "e254b85cb2416df2bf52376b362e729af10d4370de496b694e441f4a63d48277",
+      "bytes": 1663375,
+      "match": true
+    },
+    {
+      "id": "u585-es",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "8a6d428743f3510a45101951a3fe88f71a875190b9025433d83f6f13b5ebca82",
+      "bytes": 207048,
+      "match": true
+    },
+    {
+      "id": "u5g9-ds",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "7209a1c62a259e9e71e251ba7c464970b61bca0f747d6fbf74525a9b50c88503",
+      "bytes": 1563943,
+      "match": true
+    },
+    {
+      "id": "u5g9-es",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "333a795452a2630ad0cfbc0878335e72a4d6abd30e94450f1d8adc912e3e0f7d",
+      "bytes": 138524,
+      "match": true
+    },
+    {
+      "id": "u5g9-um3223",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "89e7fec898259eaa4fe416296bcf0a345e65867cdbe75b6e39df1e238207236a",
+      "bytes": 111101,
+      "match": true
+    },
+    {
+      "id": "u5-an4230",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "234abb11cb7fb187d91dd85516ff52d36707a9a6d297fb618666103309950dfa",
+      "bytes": 92199,
+      "match": true
+    },
+    {
+      "id": "nist-e116-public-use",
+      "method": "fresh pdftotext -layout to memory",
+      "exit_code": 0,
+      "sha256": "ee473ea3bef6973f2bb3776ae3e3ef8d025e8720ead0393f0c3f228ce7af8ce8",
+      "bytes": 11562,
+      "match": true
+    },
+    {
+      "id": "nist-e11-public-use",
+      "method": "fresh document.xml w:t in order; whitespace-insensitive correspondence",
+      "normalized_sha256": "9f91b4a723e50ded5c1b0ccc9e8a198e4a78fceb790d194b92b818886160a064",
+      "match": true
+    }
+  ],
+  "fresh_native_renders": [
+    {
+      "id": "u5g9-lqfp144",
+      "pdf_physical_page": 330,
+      "sha256": "478a1f870ebc2ffb92cc746265b376afbb13a93b6422abea7a03a308b199bb7e",
+      "exit_code": 0,
+      "match": true,
+      "distribution": "Temporary native render deleted; hashes only retained."
+    },
+    {
+      "id": "u5g9-ufbga144",
+      "pdf_physical_page": 334,
+      "sha256": "2843239e7349044da03fe9ded2ad11c2be60573b21f2dda49f1db8867ec342a1",
+      "exit_code": 0,
+      "match": true,
+      "distribution": "Temporary native render deleted; hashes only retained."
+    }
+  ],
+  "approved_brief_input_unchanged": true,
+  "unique_source_ids": true,
+  "dangling_references": [],
+  "host_admissions": [],
+  "selected_components": [],
+  "counts": {
+    "sources": 90,
+    "claims": 30,
+    "pins": 25,
+    "errata": 30,
+    "contradictions": 12
+  },
+  "result": "pass"
+}

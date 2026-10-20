@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "source_checkpoint": "e589c1e",
+  "status": "FiniteconditionalC03sourceandrequirements;noclock/startup/USB/hostqualification",
+  "analysis": "system-runtime-contract.md",
+  "clock_bindings": [
+    "u585-clock-proposal.json",
+    "s3-clock-proposal.json"
+  ],
+  "application_power_states": [
+    "FixedactiveRunonly"
+  ],
+  "dynamic_clock_or_sleep_while_operation_allowed": false,
+  "U585": {
+    "REGSEL": 0,
+    "FSTEN": 0,
+    "VOS": 1,
+    "BOOSTEN": 0,
+    "FLASH_latency": 2,
+    "SRAM_latency": 0,
+    "USV": "1onlyafteractualnormalVDDUSBvalid;notsetbyUVMalone",
+    "ASV": 0,
+    "IO2SV": 0,
+    "UVMEN": 1,
+    "PVDLS": 6,
+    "PVDE": 1,
+    "BOR_LEV": 4,
+    "HSLV": false,
+    "USB_supply_normal_V": [
+      3.0,
+      3.6
+    ],
+    "BOR4_falling_V": [
+      2.67,
+      2.9
+    ],
+    "PVD6_falling_V": [
+      2.76,
+      3.0
+    ],
+    "UVM_threshold_V": [
+      1.15,
+      1.28
+    ],
+    "IWDG": {
+      "mode": "Software;optionreadbackC04",
+      "LSIPREDIV": 0,
+      "LSI_conditional_Hz": [
+        30400,
+        33600
+      ],
+      "PR": 3,
+      "prescaler": 32,
+      "RLR": 999,
+      "WINR": 4095,
+      "EWIE": 0,
+      "EWCR_periodic_or_irq_write": false,
+      "update_delay_max_kernel_cycles": 6,
+      "update_refusal_us_proposed": 500,
+      "update_poll_cap_proposed": 8192,
+      "conservative_early_prescaled_periods": 998,
+      "conservative_late_prescaled_periods": 1000,
+      "refresh_extra_kernel_cycles_max": 34,
+      "conditional_earliest_s": 0.9504761904761905,
+      "conditional_latest_s": 1.05375,
+      "qualified_reset_propagation": false
+    },
+    "NVIC": {
+      "implemented_priority_bits": 4,
+      "PRIGROUP": 3,
+      "PRIS": 0,
+      "BFHFNMINS": 0,
+      "target": "Secure",
+      "priority_groups": {
+        "0": [
+          1,
+          5,
+          7,
+          8
+        ],
+        "1": [
+          10,
+          74
+        ],
+        "2": [
+          18,
+          26
+        ],
+        "3": [
+          73
+        ]
+      },
+      "peripheral_polling_or_excluded_disabled": [
+        27,
+        45,
+        57,
+        58,
+        59,
+        94,
+        106,
+        113,
+        125
+      ],
+      "allother_unselected_sources": "Disabledsource+NVIC;sourcefieldreservedbitsretained"
+    },
+    "EXTI": {
+      "edge_lines": [
+        7,
+        15
+      ],
+      "port_values": {
+        "7": 4,
+        "15": 3
+      },
+      "EXTICR_top_byte_mask": "0xff000000",
+      "EXTICR2_top_byte_value": "0x04000000",
+      "EXTICR4_top_byte_value": "0x03000000",
+      "edge_mask": "0x8080",
+      "security_privilege_selected_lines": [
+        7,
+        15,
+        16,
+        19
+      ],
+      "selected_security_mask": "0x98080",
+      "IRQ_numbers": [
+        18,
+        26
+      ],
+      "captured_RPR_FPR_W1C_only": true,
+      "directions_full_edge_history_during_opaque_backend": false,
+      "global_attribution_lock_after_readback": true
+    }
+  },
+  "S3": {
+    "normal_supply_V": [
+      3.0,
+      3.6
+    ],
+    "brownout_default_nominal_V": 2.7,
+    "brownout_or_UVM_proves_normal_3V_rail": false,
+    "MWDT0": {
+      "source": "APB80MHzconditional",
+      "APB_nominal_Hz": 80000000,
+      "prescale": 40000,
+      "stage0_hold": 2000,
+      "stage0_action": 3,
+      "reset_scope": "Mainsystem/core;notRTC/PMU",
+      "stage1_2_3_actions": [
+        0,
+        0,
+        0
+      ],
+      "interrupt": false,
+      "TIMG_reset_length_code": 7,
+      "TIMG_source_reset_pulse_us": 3.2,
+      "nominal_seconds": 1.0,
+      "clockloss_timed_recovery_guaranteed": false
+    },
+    "RWDT": {
+      "RTCslow_source_selector": 0,
+      "RTCslow_divider": "Unchangeddefault;noRCtrim/calibrationfeature",
+      "typical_nominal_Hz": 136000,
+      "stage0_effective_ticks": 544000,
+      "stage0_action": 4,
+      "reset_scope": "Mainsystem+RTC/PMU",
+      "stage1_2_3_actions": [
+        0,
+        0,
+        0
+      ],
+      "pause_in_sleep": false,
+      "EFUSE_WDT_DELAY_SEL_readonly_allowed": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hold_by_readonly_efuse_d": {
+        "0": 272000,
+        "1": 136000,
+        "2": 68000,
+        "3": 34000
+      },
+      "nominal_seconds": 4.0,
+      "source_min_max_Hz": null,
+      "qualified_clockloss_or_wallclock_deadline": false,
+      "reset_length_fields": "Preserve/readback;notassumedTIMGmapping"
+    },
+    "write_key_hex": "0x50d83aa1",
+    "feed_owner": "Trustedforegroundverifiedprogressonly;noISR/frameworkautofeed",
+    "superWDT_application_progress_credit": false,
+    "CPU0_interrupt_allocations": [
+      {
+        "line": 0,
+        "priority_level": 1,
+        "trigger": "Level",
+        "sources": [
+          16
+        ],
+        "role": "GPIOchangeonly"
+      },
+      {
+        "line": 2,
+        "priority_level": 1,
+        "trigger": "Level",
+        "sources": [
+          96
+        ],
+        "role": "USJconditionalunselected"
+      },
+      {
+        "line": 23,
+        "priority_level": 3,
+        "trigger": "Level",
+        "sources": [
+          56,
+          84,
+          85,
+          86,
+          87,
+          88,
+          93,
+          94,
+          98
+        ],
+        "role": "SelectedPMS/cachefault"
+      }
+    ],
+    "unselected_external_interrupt_disable_map_value": 6,
+    "CPU1": "Heldreset/clockgated;noowner",
+    "effective_framework_source_map_proven": false,
+    "brownout_reset_selector_source_correspondence": {
+      "section10p576": {
+        "0": "ChipReset",
+        "1": "SystemReset"
+      },
+      "register10p623": {
+        "1": "ChipReset",
+        "0": "SystemReset"
+      },
+      "selected_polarity": null,
+      "qualified_reset_scope": false,
+      "disposition": "Unsatisfied;nodependentoperationbeforecorrectedsourceorreviewedevaluateddiagnosticevidence;nomodehop"
+    }
+  },
+  "common_limits": {
+    "progress_feed_max_ms_proposed": 250,
+    "critical_section_max_us_proposed": 20,
+    "control_ISR_max_us_proposed": 50,
+    "idle_render_contact_scan_max_us_proposed": 1000,
+    "stable_release_ms_proposed": 20,
+    "stable_press_ms_proposed": 20,
+    "controlled_reset_low_ms_proposed": 1,
+    "U585_bootstrap_ready_poll_cap_proposed": 65536,
+    "post_time_VOS_MSI_LSI_ready_refusal_ms_proposed": 10,
+    "post_time_LSE_ready_refusal_ms_proposed": 400,
+    "post_time_CRS_qualification_refusal_ms_proposed": 64,
+    "S3_startup_allowance_ms_proposed": 500,
+    "USB_attach_ready_ms_proposed": 1000,
+    "screen_ready_is_same_as_USB_attach": false,
+    "U585_max_unsampled_or_opaque_ms_prerequisite": 200
+  },
+  "unsatisfied_prerequisites": [
+    "U585OUT64/68requiredsemantics",
+    "RawDBstartup/internalpower/factory-state",
+    "S3fixeddescriptor/powerstatus/lifecycle/attachroute",
+    "Actualreference/PLL/PHY/normalrail/effectivebinary/IRQ/clockloss/reset/fixturequalification",
+    "S3RCslowminmaxandtimedclocklossresetnotestablished",
+    "C04owner/updateandC09completepowerlifetime",
+    "S3BROWN_OUT_RST_SEL0/1reset-scopecontradictionp576versus623"
+  ],
+  "not_run": [
+    "Targetbuild/link/API/registerwrites",
+    "Watchdog/fuse/flash/provisioning/productionsecrets",
+    "USB/wiring/power/clock/fault/current/latencymeasurement"
+  ]
+}

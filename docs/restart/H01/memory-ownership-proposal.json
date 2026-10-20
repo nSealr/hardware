@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "status": "Conditional engineering qualification proposal; no measured capacity, fit, clearing or target admission",
+  "common": {
+    "pending_operations": 1,
+    "active_reviews": 1,
+    "queued_approvals": 0,
+    "row_pixels": 240,
+    "rgb565_bytes_per_pixel": 2,
+    "active_row_bytes": 480,
+    "row_slot_bytes": 512,
+    "full_framebuffer_selected": false,
+    "public_partition_bytes": 65536,
+    "public_budget": {
+      "request_including_framing": 16384,
+      "response_including_framing": 16384,
+      "public_parse_and_review_cumulative": 16384,
+      "usb_software_all_storage": 4096,
+      "public_row_slot": 512,
+      "control_metadata": 4096,
+      "unallocated": 7680
+    },
+    "secret_partition_bytes": 65536,
+    "secret_budget": {
+      "input_plaintext": 16384,
+      "output_plaintext": 16384,
+      "key_source": 8192,
+      "local_encoded_recovery": 8192,
+      "session_entropy": 4096,
+      "private_row_slot": 512,
+      "owned_operation_scratch": 11776
+    },
+    "stack_backend_partition_bytes": 65536,
+    "stack_backend_budget": {
+      "application_stack": 32768,
+      "exception_ISR_stack": 8192,
+      "owned_backend_workspace": 24576
+    },
+    "entropy_fill_bytes": 32,
+    "entropy_fill_max_ms_proposed": 100,
+    "scalar_draws_max_proposed": 8,
+    "scalar_total_max_ms_proposed": 200,
+    "caps_are_measured_or_protocol_maxima": false,
+    "arbitrary_trusted_image_execution_isolated": false,
+    "private_recovery_row_can_alias_usb_or_public_row": false,
+    "operation_overflow_behavior": "Reject whole operation; no truncation, implicit heap growth, partial consent or plaintext fallback"
+  },
+  "u585": {
+    "boundary": "One trusted secure privileged image; TZEN; no nonsecure app",
+    "application_data_alias": "Secure system-bus0x30000000; C-bus/nonsecure aliases are not extra memory",
+    "regions": [
+      {
+        "name": "secret_stacks_backend_SRAM1",
+        "start": "0x30000000",
+        "end_exclusive": "0x30010000",
+        "bytes": 65536
+      },
+      {
+        "name": "public_SRAM1",
+        "start": "0x30010000",
+        "end_exclusive": "0x30020000",
+        "bytes": 65536
+      },
+      {
+        "name": "runtime_allocator_and_RAM_code_SRAM1",
+        "start": "0x30020000",
+        "end_exclusive": "0x30030000",
+        "bytes": 65536
+      },
+      {
+        "name": "secret_data_SRAM2",
+        "start": "0x30030000",
+        "end_exclusive": "0x30040000",
+        "bytes": 65536
+      }
+    ],
+    "SRAM1_ECC_claimed": false,
+    "unallocated_physical_memory": [
+      "SRAM3",
+      "SRAM4",
+      "backup SRAM"
+    ],
+    "manifest": "u585-peripheral-manifest.json",
+    "locks": "MPCBB per-superblock SPLCK and control GLOCK; TZSC LCK, until system reset; reinitialize before intake",
+    "DMA": "GPDMA1/LPDMA1/DMA2D/SDMMC/external interfaces held reset and clock gated; no configured channel",
+    "cache": "DCACHE1 disabled/internal SRAM bypass; ICACHE no remap; invalidation not erasure"
+  },
+  "s3": {
+    "boundary": "One trusted CPU0 World0 image; CPU1 reset/clock-gated; no World1 entry",
+    "instruction_cache_bytes": 32768,
+    "data_cache_bytes": 65536,
+    "SRAM1_data_start": "0x3fc88000",
+    "SRAM1_physical_end_exclusive": "0x3fcf0000",
+    "IRAM_DRAM_alias_offset": "0x6f0000",
+    "pinned_initial_static_end_exclusive": "0x3fcdb700",
+    "bootloader_loader_instruction_start": "0x403cb700",
+    "regions": [
+      {
+        "name": "IRAM_code_alias_not_data_heap",
+        "start": "0x3fc88000",
+        "end_exclusive": "0x3fc98000",
+        "bytes": 65536
+      },
+      {
+        "name": "public",
+        "start": "0x3fc98000",
+        "end_exclusive": "0x3fca8000",
+        "bytes": 65536
+      },
+      {
+        "name": "secret_data",
+        "start": "0x3fca8000",
+        "end_exclusive": "0x3fcb8000",
+        "bytes": 65536
+      },
+      {
+        "name": "secret_stacks_backend",
+        "start": "0x3fcb8000",
+        "end_exclusive": "0x3fcc8000",
+        "bytes": 65536
+      },
+      {
+        "name": "runtime_allocator_and_background_stacks",
+        "start": "0x3fcc8000",
+        "end_exclusive": "0x3fcd8000",
+        "bytes": 65536
+      },
+      {
+        "name": "unallocated_static_margin",
+        "start": "0x3fcd8000",
+        "end_exclusive": "0x3fcdb700",
+        "bytes": 14080
+      }
+    ],
+    "main_split_data": "0x3fc98000",
+    "instruction_splits_data_equivalent": [
+      "0x3fc98000",
+      "0x3fc98000"
+    ],
+    "data_splits": [
+      "0x3fca8000",
+      "0x3fcc8000"
+    ],
+    "split_granularity_bytes": 256,
+    "World0_policy": "IBUS instructionRX/data-denied;DBUS instruction-denied/dataRW;ROM IBUS RX/DBUS R;cache blocks not app storage",
+    "World1_internal_memory_policy": "Deny all implemented SRAM/ROM permissions; no world-switching feature",
+    "CPU1": "SYSTEM_CONTROL_CORE_1_RESETING1/CLKGATE_EN0; no second-core startup; RUNSTALL alone insufficient",
+    "DMA_requesters_denied": [
+      "SPI2",
+      "SPI3",
+      "UHCI0",
+      "I2S0",
+      "I2S1",
+      "AES",
+      "SHA",
+      "ADC_DAC",
+      "RMT",
+      "LCD_CAM",
+      "USB",
+      "SDIO"
+    ],
+    "DMA_internal_fields_denied": [
+      "instruction_region",
+      "data_region0",
+      "data_region1",
+      "data_region2",
+      "cache_block9",
+      "cache_block10"
+    ],
+    "DMA_locks": "Each named PMS_DMA_APBPERI_<requester>_PMS_CONSTRAIN_0 lock after permissions readback",
+    "configuration_locks": "PMS SRAM usage, five split lines, IRAM/DRAM permission locks; until next CPU reset, not permanent fuse locks",
+    "excluded_secret_placement": [
+      "PSRAM",
+      "external BSS/noinit",
+      "RTC fast/slow/noinit",
+      "trace",
+      "cache-line copy",
+      "core/panic dump"
+    ],
+    "PSRAM_physically_absent": false,
+    "live_ROM_download_allowed": false,
+    "bootloader_comment_conflict": "Appmemory introductory0x403b9000 startup prose differs from active0x403cb700; same-pin bootloader loader-start assertion supports active static upper bound. Preserve both; no received-image fit claim."
+  },
+  "H02_required": [
+    "Effective linker/map/aliases/prefetch/ROM-reserved-region check",
+    "Every allocator/task/ISR stack/copy/master/core accounted within hard partitions",
+    "Boundary success and byte+1/pending+1 refusal without hidden suffix",
+    "Secret/recovery transport exclusion and clearing/fault/reset tests",
+    "Exact effective config/features/archives/LTO/backend scratch/callpath inventory",
+    "Measured complete supported workload, latency and source/entropy gates before admission"
+  ],
+  "not_run": [
+    "Target link/build",
+    "Peak RAM/stack/latency measurements",
+    "Master/protection/clearing/fault physical tests",
+    "Any real entropy, key, fuse, flash, provisioning or fixture operation"
+  ]
+}

@@ -1,0 +1,1692 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "status": "Partial feasibility evidence; no host admitted",
+  "limits": [
+    "No package/AF/electrical/DMA/layout qualification is inferred from this witness.",
+    "No camera/NFC or universal display FPC allocation.",
+    "Unknown fields are gates, not safe defaults."
+  ],
+  "pins": [
+    {
+      "id": "P-S3-USB",
+      "candidate": "ESP32-S3-WROOM-1-N8R8, module pads (not bare SoC pads)",
+      "package_pads": {
+        "13": "GPIO19 D-",
+        "14": "GPIO20 D+"
+      },
+      "function": "USB OTG device internal PHY",
+      "alternate_function": null,
+      "owner": "bounded host transport; never consent authority",
+      "power_domain": "3.3V module/USB PHY",
+      "reset_and_straps": "PHY defaults to USB Serial/JTAG; select OTG explicitly",
+      "peripheral_and_master_access": "USB own AHB master or CPU FIFO, distinct from GDMA",
+      "interface_limits": "USB FS; never wire 5V into GPIO",
+      "competing_use": "UART1 CTS/RTS, ADC2; Serial/JTAG PHY",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "Table3-1 pp.11–12"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "§32.3,§33.3"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "§32.5 p.1242 register-access boundary; §32.4 is OTG/HNP/SRP"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Exact locked device stack and CPU-FIFO/DMA configuration, VBUS/suspend/connector/ESD; §32.5 NDA boundary and D-S3-USBREG remain."
+    },
+    {
+      "id": "P-S3-DISPLAY",
+      "candidate": "ESP32-S3-WROOM-1-N8R8, module pads (not bare SoC pads)",
+      "package_pads": {
+        "18": "GPIO10 FSPICS0",
+        "19": "GPIO11 FSPID",
+        "20": "GPIO12 FSPICLK",
+        "21": "GPIO13 FSPIQ"
+      },
+      "function": "SPI2 candidate bus, MISO optional",
+      "alternate_function": "IO_MUX function4 for GPIO10 FSPICS0, GPIO11 FSPID, GPIO12 FSPICLK, GPIO13 FSPIQ",
+      "owner": "trusted image display service, private from maker header",
+      "power_domain": "3.3V module",
+      "reset_and_straps": "TRM Table6.12-1: inputs enabled at reset; hold/output-enable ownership must be considered. External panel reset/pulls remain unallocated.",
+      "peripheral_and_master_access": "SPI2 CPU or bounded GDMA; direct IOMUX function exists",
+      "interface_limits": "Host peripheral maximum is not panel/cable validated speed",
+      "competing_use": "ADC2; octal data roles; do not use GPIO35–37",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "Table3-1 pp.11–12"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "§30.5,§30.7"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "Table6.12-1 pp.493–494; GPIO/IOMUX descriptions pp.507–515; §§30.5.8.2/30.6"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Complete panel/controller/rail/DC/reset/backlight requirements and chosen SPI transaction/error/DMA driver; bit-order contradiction D-S3-SPIORDER."
+    },
+    {
+      "id": "P-S3-BOOT",
+      "candidate": "ESP32-S3-WROOM-1-N8R8, module pads (not bare SoC pads)",
+      "package_pads": {
+        "3": "EN",
+        "15": "GPIO3",
+        "16": "GPIO46",
+        "26": "GPIO45",
+        "27": "GPIO0"
+      },
+      "function": "power enable and straps",
+      "alternate_function": null,
+      "owner": "boot/lifecycle service",
+      "power_domain": "3.3V module",
+      "reset_and_straps": "EN must not float; strap setup/hold including 3ms after EN must be preserved",
+      "peripheral_and_master_access": "ROM/eFuse boot/debug selection",
+      "interface_limits": "EN low and supply settling timings per module §§4–5",
+      "competing_use": "Buttons or expansion can force download/debug/flash voltage",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "pp.13–18"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Exact pull networks, startup waveforms and owner-secured debug/download configuration"
+    },
+    {
+      "id": "P-S3-MEMORY",
+      "candidate": "ESP32-S3-WROOM-1-N8R8, module pads (not bare SoC pads)",
+      "package_pads": {
+        "28": "GPIO35",
+        "29": "GPIO36",
+        "30": "GPIO37"
+      },
+      "function": "octal PSRAM reserved",
+      "alternate_function": null,
+      "owner": "memory controller only",
+      "power_domain": "module selected memory domain",
+      "reset_and_straps": "eFuse/module-dependent default",
+      "peripheral_and_master_access": "SPI0/1 cache/external memory path",
+      "interface_limits": "Unavailable for other use in R8/R16 module",
+      "competing_use": "Do not infer availability from bare-chip GPIO count",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "Table3-1 note b p.12"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Exact received memory manufacturer/temperature and external-memory secret policy"
+    },
+    {
+      "id": "P-S3-DEBUG",
+      "candidate": "ESP32-S3-WROOM-1-N8R8, module pads (not bare SoC pads)",
+      "package_pads": {
+        "32": "GPIO39 MTCK",
+        "33": "GPIO40 MTDO",
+        "34": "GPIO41 MTDI",
+        "35": "GPIO42 MTMS",
+        "36": "GPIO44 U0RXD",
+        "37": "GPIO43 U0TXD"
+      },
+      "function": "development debug/UART",
+      "alternate_function": null,
+      "owner": "owner-controlled lifecycle",
+      "power_domain": "3.3V module",
+      "reset_and_straps": "strap/eFuse debug choices must be recorded",
+      "peripheral_and_master_access": "CPU debug/ROM download access",
+      "interface_limits": "Not an automatically safe maker UART/header",
+      "competing_use": "JTAG and expansion, boot logs and secret leakage",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "Table3-1 p.12"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Actual kit header/RGB conflict, intended exposed pads and disable/recovery behavior"
+    },
+    {
+      "id": "P-S3-INPUT",
+      "candidate": "ESP32-S3-WROOM-1-N8R8, module pads (not bare SoC pads)",
+      "package_pads": {
+        "4": "GPIO4",
+        "5": "GPIO5",
+        "6": "GPIO6",
+        "7": "GPIO7"
+      },
+      "function": "candidate GPIO pool for physical controls/DC/reset; unallocated",
+      "alternate_function": "GPIO via IO_MUX function0/1 and GPIO matrix; exact selection must be pinned",
+      "owner": "trusted image UI service",
+      "power_domain": "3.3V module",
+      "reset_and_straps": "GPIO4–7 reset table has input disabled; external pull/conditioning required by the eventual design. Hold can persist older states. No reset/debounce state grants consent.",
+      "peripheral_and_master_access": "GPIO interrupt matrix; CPU owner",
+      "interface_limits": "No raw host-controlled approval",
+      "competing_use": "ADC1/touch/entropy peripherals",
+      "evidence": [
+        {
+          "document": "s3-module",
+          "locator": "Table3-1 p.11"
+        },
+        {
+          "document": "s3-trm",
+          "locator": "Table6.12-1 pp.493–494 and selected GPIO interrupt/status/IOMUX descriptions pp.507–515"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Final controls, electrical conditioning, interrupt/wake/debounce and anti-ghosting policy"
+    },
+    {
+      "id": "P-STM32U585VITx-debug",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "72": "PA13 DEBUG_JTMS-SWDIO",
+        "76": "PA14 DEBUG_JTCK-SWCLK",
+        "89": "PB3 DEBUG_JTDO-SWO"
+      },
+      "function": "debug",
+      "alternate_function": null,
+      "owner": "private lifecycle/UI/SE service",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-usb",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "70": "PA11 USB_OTG_FS_DM",
+        "71": "PA12 USB_OTG_FS_DP",
+        "68": "PA9 USB_OTG_FS_VBUS"
+      },
+      "function": "usb",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-ucpd",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "77": "PA15 UCPD1_CC1",
+        "54": "PB15 UCPD1_CC2",
+        "91": "PB5 UCPD1_DBCC1",
+        "53": "PB14 UCPD1_DBCC2"
+      },
+      "function": "ucpd",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-display",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "44": "PE13 SPI1_SCK",
+        "45": "PE14 SPI1_MISO",
+        "46": "PE15 SPI1_MOSI"
+      },
+      "function": "display",
+      "alternate_function": null,
+      "owner": "private lifecycle/UI/SE service",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-private_se",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "92": "PB6 I2C1_SCL",
+        "96": "PB9 I2C1_SDA"
+      },
+      "function": "private_se",
+      "alternate_function": null,
+      "owner": "private lifecycle/UI/SE service",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-board_i2c",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "59": "PD12 I2C4_SCL",
+        "60": "PD13 I2C4_SDA"
+      },
+      "function": "board_i2c",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-maker_spi",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "78": "PC10 SPI3_SCK",
+        "79": "PC11 SPI3_MISO",
+        "80": "PC12 SPI3_MOSI"
+      },
+      "function": "maker_spi",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-maker_i2c",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "15": "PC0 I2C3_SCL",
+        "16": "PC1 I2C3_SDA"
+      },
+      "function": "maker_i2c",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITx-maker_uart",
+      "candidate": "STM32U585VITx LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "23": "PA0 UART4_TX",
+        "24": "PA1 UART4_RX"
+      },
+      "function": "maker_uart",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITx",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-debug",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "72": "PA13 DEBUG_JTMS-SWDIO",
+        "76": "PA14 DEBUG_JTCK-SWCLK",
+        "89": "PB3 DEBUG_JTDO-SWO"
+      },
+      "function": "debug",
+      "alternate_function": null,
+      "owner": "private lifecycle/UI/SE service",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-usb",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "70": "PA11 USB_OTG_FS_DM",
+        "71": "PA12 USB_OTG_FS_DP",
+        "68": "PA9 USB_OTG_FS_VBUS"
+      },
+      "function": "usb",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-ucpd",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "77": "PA15 UCPD1_CC1",
+        "54": "PB15 UCPD1_CC2",
+        "91": "PB5 UCPD1_DBCC1",
+        "53": "PB14 UCPD1_DBCC2"
+      },
+      "function": "ucpd",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-display",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "41": "PE13 SPI1_SCK",
+        "42": "PE14 SPI1_MISO",
+        "43": "PE15 SPI1_MOSI"
+      },
+      "function": "display",
+      "alternate_function": null,
+      "owner": "private lifecycle/UI/SE service",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-private_se",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "92": "PB6 I2C1_SCL",
+        "96": "PB9 I2C1_SDA"
+      },
+      "function": "private_se",
+      "alternate_function": null,
+      "owner": "private lifecycle/UI/SE service",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-board_i2c",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "59": "PD12 I2C4_SCL",
+        "60": "PD13 I2C4_SDA"
+      },
+      "function": "board_i2c",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-maker_spi",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "78": "PC10 SPI3_SCK",
+        "79": "PC11 SPI3_MISO",
+        "80": "PC12 SPI3_MOSI"
+      },
+      "function": "maker_spi",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-maker_i2c",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "15": "PC0 I2C3_SCL",
+        "16": "PC1 I2C3_SDA"
+      },
+      "function": "maker_i2c",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-STM32U585VITxQ-maker_uart",
+      "candidate": "STM32U585VITxQ LQFP100; temperature/order suffix not fixed",
+      "package_pads": {
+        "22": "PA0 UART4_TX",
+        "23": "PA1 UART4_RX"
+      },
+      "function": "maker_uart",
+      "alternate_function": null,
+      "owner": "separate bounded peripheral owner",
+      "power_domain": "Exact VDD/VDDIO/VDDA/VDDUSB/SMPS mapping unread; Q differs",
+      "reset_and_straps": "Current DS/RM reset/AF/electrical not signed off",
+      "peripheral_and_master_access": "GTZC/GPIO/interrupt/DMA ownership not established by XML",
+      "interface_limits": "XML is signal presence, not electrical qualification",
+      "competing_use": "UCPD dead-battery PB14/PB5 conflicts with alternatives; LQFP PC13/LSE erratum; optional camera/NFC omitted",
+      "evidence": [
+        {
+          "document": "st-pins-STM32U585VITxQ",
+          "locator": "Pin/Signal exact package XML"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Current DS13086 Rev10 AF numbers and power-pad reconciliation; RM0456 Rev7 and selected ES0499 required"
+    },
+    {
+      "id": "P-U5G9-GATE",
+      "candidate": "STM32U5G9ZJT6Q LQFP144 or STM32U5G9ZJJ6Q UFBGA144",
+      "package_pads": {},
+      "function": "No signal allocation admitted",
+      "alternate_function": null,
+      "owner": "future Board owner",
+      "power_domain": "DS Rev5 §§3.9–3.9.2 supply-domain/sequence text read; exact package rail allocation remains open",
+      "reset_and_straps": "Current package electrical/reset table unread",
+      "peripheral_and_master_access": "Current RM §2.1 identifies GPU2D/DMA2D/LTDC master paths; §9.3 p383 now explicitly establishes nonsecure GPU2D traffic and no TrustZone on DCACHE2. Exact GTZC/buffer/driver allocation remains open.",
+      "interface_limits": "DK2 is ZJT6Q LQFP144/3.3V/RGB reference; DK1 is a different package/rail. Neither transfers a custom pin allocation.",
+      "competing_use": "Safe7 custom FPC and generic U5G9ZJ name do not select exact OPN",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "Rev5 cover/features and official OPN table"
+        },
+        {
+          "document": "u5g9-ds",
+          "locator": "§3.5, §§3.9–3.9.2, §§3.19–3.20, §§3.41–3.42 and §7"
+        },
+        {
+          "document": "u5g9-dk2",
+          "locator": "manufacturer technical feature list"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "§9.3 p383; §9.4.7 p390; resume-source-notes.md"
+        }
+      ],
+      "status": "feasibility witness only; no netlist or wiring approval",
+      "unknown": "Full exact package/AF/rail/graphics chapter and current RM; physical assembly/manufacturing choice"
+    },
+    {
+      "id": "P-NHD-DB-SPI",
+      "candidate": "NHD-2.4-240320DB-CTXP raw45-contact module; not AF/ST7789VI breakout",
+      "package_pads": {
+        "2": "IM0 low",
+        "3": "IM1 high",
+        "4": "IM2 high",
+        "5": "IM3 low",
+        "6": "RESX",
+        "30": "SDI/SDA",
+        "32": "SCL",
+        "33": "D/CX",
+        "34": "CSX",
+        "36/37": "VDD",
+        "38/39": "GND",
+        "40": "LEDA",
+        "41": "LEDK"
+      },
+      "function": "Conditional four-wire interfaceI CPU write-only SPI, MSB first,RGB565",
+      "alternate_function": "UnusedDB17:0 pins11–28 low,RDX31 high; unusedRGB7–10 fixed validrail; output29SDO/35TE open;NC1,42–45",
+      "owner": "Trusted render adapter; display traffic never establishes local consent by itself",
+      "power_domain": "ModuleVDD2.5–3.3V normal inputVIHmaxVDD; separate current-controlled backlight15mAtyp/25mAmax,10.8–13.6V@15mA",
+      "reset_and_straps": "IM3:0=0110;active-lowRESX/CSX. Module factoryEXTC/internalpower and externaldefaultoff not proved.",
+      "peripheral_and_master_access": "CPU-only write subset; no DMA,RGB,TE,readback,CABC orNVprogramming selected",
+      "interface_limits": "Conditional ceiling5MHz; exacthostphase/divider/finalhold, actualedge/rail/load anderror policy still required",
+      "competing_use": "U585SPI1 kit LED/mux and proposedcontrol branches remain in configuration-review; no directPB6/GPIO9→LEDbacklight connection",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp4–6,8;nativep4,12,14"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp11,26,33–35,40–42,63–64,112–116,129–130,136–138,239–241,247"
+        },
+        {
+          "document": "nhd-molex-connector",
+          "locator": "Selected productidentity/contact metadata only"
+        }
+      ],
+      "status": "Conditional paper mapping only; C02 remains open; no fixture/wiring/panel admitted",
+      "unknown": "Module factory/startup/internalpower,normal kitlogicrail margin,contact fixture/defaultoff,current source andpoweredoffIO. Exactconnector drawing andactualorientation H02/H04."
+    },
+    {
+      "id": "P-TWOHOST-UI-EXACT",
+      "candidate": "U585AII6QU/D01kitandS3WROOM1N8R8/DevKitC1v1.1;customVIQwitnessdistinct",
+      "function": "ExactUI/control/USB/TCPP/conditionalattachpinmap",
+      "source_table": "pin-electrical-contract.md",
+      "alternate_function": "U585SPI1AF5/I2C2PH4/5AF4;S3SPI2GPIO11/12IOmux4;softwareCS/DC/reset/blanking",
+      "owner": "Singletrustedfirmware;noexternalmaker/UI/secretsharing",
+      "status": "Source-boundconditionalcontractonly",
+      "unknown": "C03/C04/C09systemlifetime/receivedidentity/effectiveownersandallpre-usequalificationgates",
+      "evidence": [
+        {
+          "document": "u585-ds",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        },
+        {
+          "document": "s3-module",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        },
+        {
+          "document": "s3-devkitc1-schematic",
+          "locator": "H01-C91/C92/C93 selectedsource scopes"
+        }
+      ]
+    }
+  ],
+  "errata": [
+    {
+      "id": "E-S3-CACHE126",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3 CACHE-126"
+      },
+      "affected_revision": "v0.0/v0.1/v0.2",
+      "configuration": "CPU access during cache writeback",
+      "documented_mitigation": "Disable local interrupts and freeze other CPU cache as documented; vendor SDK versions contain workaround",
+      "driver_or_probe_implication": "Pin and inspect chosen SDK path; exercise simultaneous UI/USB/CPU traffic",
+      "residual_limit": "No silicon fix listed; application DMA/cache ownership still needed",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-S3-RTC126",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3 RTC-126"
+      },
+      "affected_revision": "all listed S3 revisions",
+      "configuration": "light-sleep wake with RTC peripheral domain down",
+      "documented_mitigation": "Keep RTC peripheral powered; IDF4.4+ workaround",
+      "driver_or_probe_implication": "Power numbers must use actual workaround",
+      "residual_limit": "Sleep current cannot be inferred from ideal marketing mode",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-S3-ANALOG160",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3.3 ANALOG-160, printed p.7 (PDF page9)"
+      },
+      "affected_revision": "all listed S3 revisions",
+      "configuration": "Damaging condition: BIAS_SLEEP=0 AND PD_CUR=1; may be triggered with ULP and/or touch during Light-sleep or Deep-sleep",
+      "documented_mitigation": "Avoid/disable that conjunction in sleep software. Espressif reports this configuration disabled in ESP-IDF v4.4.2+ and v5.0+; verify the selected implementation.",
+      "driver_or_probe_implication": "Pinned IDF v6.1 rtc_sleep.c selected branches/assertions and rtc.h defaults correspond to avoidance (see s3-idf-sleep/s3-idf-rtc-header). Exact chosen callers, assertion configuration and any Rust/custom path remain unqualified. Never exercise the damaging condition as a physical test.",
+      "residual_limit": "Affected v0.0/v0.1/v0.2; permanent chip damage possible under the forbidden condition; no silicon fix scheduled.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-S3-USB4289",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3 USB-OTG-4289"
+      },
+      "affected_revision": "early lots; some v0.2 fixed",
+      "configuration": "USB-OTG download eFuse preprogrammed",
+      "documented_mitigation": "Use documented alternative programming path; identify lot/eFuse",
+      "driver_or_probe_implication": "Do not infer USB ROM recovery from revision number alone",
+      "residual_limit": "Preprogrammed fuse not reversible; USB Serial/JTAG is separate",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-S3-ADC183",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3 ADC-183"
+      },
+      "affected_revision": "all listed S3 revisions",
+      "configuration": "ADC2 digital-controller/DMA use",
+      "documented_mitigation": "Use RTC controller for ADC2",
+      "driver_or_probe_implication": "Entropy/SAR ownership and expansion ADC choices must agree",
+      "residual_limit": "Not a generic ADC2 DMA workaround",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-S3-LCD239",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3 LCD-239"
+      },
+      "affected_revision": "all listed S3 revisions",
+      "configuration": "LCD_CAM RGB divider1 or 8080 FIFO lookahead configuration",
+      "documented_mitigation": "Avoid documented failing clock/lookahead settings",
+      "driver_or_probe_implication": "Conditional only if LCD_CAM promoted; SPI panel does not exercise this controller",
+      "residual_limit": "No display throughput claim from untested mode",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-S3-RMT176",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3 RMT-176"
+      },
+      "affected_revision": "all listed S3 revisions",
+      "configuration": "RMT configured idle level",
+      "documented_mitigation": "Enable IDLE_OUT_EN",
+      "driver_or_probe_implication": "Do not copy an RGB/backlight waveform without driver check",
+      "residual_limit": "Not relevant to a GPIO-only implementation",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-S3-TOUCH100",
+      "evidence": {
+        "document": "s3-es",
+        "locator": "§3.7 TOUCH-100, printed p.10 (PDF page12)"
+      },
+      "affected_revision": "all listed S3 revisions",
+      "configuration": "First two TOUCH_SCAN_DONE_INT interrupts have undefined raw data",
+      "documented_mitigation": "Skip the first two TOUCH_SCAN_DONE_INT interrupts, then disable and stop using those interrupts, as specified by the erratum.",
+      "driver_or_probe_implication": "Do not reduce the workaround to discarding two samples. A later touch path must choose and qualify an appropriate alternative; physical-button input does not require this interrupt path.",
+      "residual_limit": "Affected v0.0/v0.1/v0.2; no fix scheduled; no touch implementation admitted.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-P4-ROM764",
+      "evidence": {
+        "document": "p4-es",
+        "locator": "ROM-764"
+      },
+      "affected_revision": "v3.0, fixed v3.1",
+      "configuration": "ROM secure-boot cache handling",
+      "documented_mitigation": "Vendor workaround disables secure boot",
+      "driver_or_probe_implication": "Reject that revision/configuration if secure boot required",
+      "residual_limit": "Cannot treat disabling required protection as accepted compromise",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-P4-ROM770",
+      "evidence": {
+        "document": "p4-es",
+        "locator": "ROM-770"
+      },
+      "affected_revision": "v3.1, fixed v3.2",
+      "configuration": "secure-download flash power path",
+      "documented_mitigation": "Documented alternative power/maintenance approach",
+      "driver_or_probe_implication": "Record board flash power switching and exact ROM/tool configuration",
+      "residual_limit": "No generic recovery guarantee",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-P4-ROM816",
+      "evidence": {
+        "document": "p4-es",
+        "locator": "ROM-816"
+      },
+      "affected_revision": "v3.2",
+      "configuration": "rom_download_xpd_on fuse / repeated power sequencing",
+      "documented_mitigation": "Complete POR after operation and current tool handling",
+      "driver_or_probe_implication": "No fuse operation authorized in H01; future exact procedure",
+      "residual_limit": "No fix scheduled in reviewed erratum",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-P4-ECDSA836837",
+      "evidence": {
+        "document": "p4-es",
+        "locator": "ECDSA_DS-836/837"
+      },
+      "affected_revision": "ECDSA_DS-836: v3.0/v3.1/v3.2; ECDSA_DS-837: v0.0/v1.0/v1.3",
+      "configuration": "ECDSA secure-boot signature validation",
+      "documented_mitigation": "Use RSA_DS secure boot",
+      "driver_or_probe_implication": "Include invalid signature components in future boot-negative fixtures",
+      "residual_limit": "No scheduled silicon fix established; not a general statement about software BIP340",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-P4-MSPI749750751",
+      "evidence": {
+        "document": "p4-es",
+        "locator": "MSPI-749/750/751"
+      },
+      "affected_revision": "v3.0, fixed v3.1",
+      "configuration": "startup, unaligned DMA or clock ratios",
+      "documented_mitigation": "Dummy read/watchdog; 4-byte alignment; documented clock-ratio restriction respectively",
+      "driver_or_probe_implication": "Bind exact driver and silicon; do not merge mitigations into one unspecified patch",
+      "residual_limit": "External-memory stress remains required",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-P4-APM560",
+      "evidence": {
+        "document": "p4-es",
+        "locator": "APM-560"
+      },
+      "affected_revision": "early revisions through v3.0, fixed v3.1",
+      "configuration": "blocked unauthorized AHB access",
+      "documented_mitigation": "Reset/recovery per erratum",
+      "driver_or_probe_implication": "Access denial can still stall valid memory clients; availability test required",
+      "residual_limit": "Blocked access is not proof of continued UI responsiveness",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U5G9-PC13",
+      "evidence": {
+        "document": "u5g9-es",
+        "locator": "§2.2.1"
+      },
+      "affected_revision": "Rev Z, LQFP only",
+      "configuration": "PC13 transitions while LSE crystal used",
+      "documented_mitigation": "Avoid toggling PC13; bypass/BGA conditions differ",
+      "driver_or_probe_implication": "UM3223§7.6.1 has LSE crystal and§8.4 blue button on PC13 in LQFP144 DK2. Do not inherit that combination as a qualified input/clock proposal; avoid toggling PC13 with affected LSE path. No extra port or wiring approval.",
+      "residual_limit": "No workaround restores unrestricted LQFP PC13 with LSE crystal",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U5G9-EXTI",
+      "evidence": {
+        "document": "u5g9-es",
+        "locator": "§2.2.9"
+      },
+      "affected_revision": "Rev Z",
+      "configuration": "EXTI_LOCKR lock",
+      "documented_mitigation": "No workaround listed; privilege configuration remains writable",
+      "driver_or_probe_implication": "Do not claim the lock freezes privilege ownership",
+      "residual_limit": "Initial one trusted image does not establish hostile app isolation",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U5G9-ECC",
+      "evidence": {
+        "document": "u5g9-es",
+        "locator": "§2.2.10"
+      },
+      "affected_revision": "Rev Z/documentation error",
+      "configuration": "RAMCFG ECC monitoring",
+      "documented_mitigation": "Enable corresponding RAMCFG interrupt or NMI for flags/addresses; NVIC handling separately controlled",
+      "driver_or_probe_implication": "Polling-only code can miss diagnostic state",
+      "residual_limit": "Complete ECC init/test policy still needed",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U5G9-VBAT",
+      "evidence": {
+        "document": "u5g9-es",
+        "locator": "§2.2.11"
+      },
+      "affected_revision": "Rev Z",
+      "configuration": "separate VBAT/VDD and partial VBAT brownout with monitoring off",
+      "documented_mitigation": "Enable monitoring or meet documented discharge/reinitialization conditions",
+      "driver_or_probe_implication": "Include backup domain in boot/recovery and power-cut plan",
+      "residual_limit": "Backup/tamper state may be unpredictable; no retained-secret assurance",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U5G9-DSI",
+      "evidence": {
+        "document": "u5g9-es",
+        "locator": "§§2.9.1–2.9.3 p.19, bodies read"
+      },
+      "affected_revision": "Rev Z",
+      "configuration": "RevZ DSI automatic clock lane, EoT and HS contention indications",
+      "documented_mitigation": "Automatic clock-lane control must be disabled; video needs continuous clock, and command-mode clock transitions obey the documented no-transfer/HS conditions. Do not rely on the false EoT/HS contention error indications.",
+      "driver_or_probe_implication": "Check exact DSI driver/state transitions and panel mode before promotion.",
+      "residual_limit": "Body reading only; no DSI implementation or physical link qualification.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-PENDING",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "Rev12 summary plus selected bodies listed in manual register; not cover-only anymore"
+      },
+      "affected_revision": "X 0x2001, W 0x3001, U 0x3007; received unknown",
+      "configuration": "Any selected U585 host configuration",
+      "documented_mitigation": "No blanket sign-off: selected USB/SPI/memory/SAES/watchdog/UCPD bodies read; remaining applicable system/clock/retention/I2C and current RM remain.",
+      "driver_or_probe_implication": "Gate host admission with current manual review",
+      "residual_limit": "Current native ES and RM now obtained. Selected core/system and existing peripheral bodies read; remaining exact host subset, proposed revision/clock/policy and driver correspondence still open.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U5G9-SAES",
+      "evidence": {
+        "document": "u5g9-es",
+        "locator": "§2.10.1 p.20"
+      },
+      "affected_revision": "RevZ/documentation error",
+      "configuration": "BHK or DHUK XOR BHK key transfer (KEYSEL010/100)",
+      "documented_mitigation": "The specified single read of TAMP_BKPxR must be ascending, with register count determined by key size.",
+      "driver_or_probe_implication": "Verify selected secure transfer implementation, not a generic AES feature label.",
+      "residual_limit": "No qualified key lifecycle or physical-resistance claim.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-USB",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§§2.25.2–2.25.5 pp.38–40; applicability Table3 p.5"
+      },
+      "affected_revision": "X/W/U",
+      "configuration": "Device CPU-FIFO transfers, zero-length packets and ID/reset interrupts",
+      "documented_mitigation": "Use documented one-packet transfer scheduling and staggered NAK/enable ZLP handling; account for hidden/shared ID interrupt behavior.",
+      "driver_or_probe_implication": "Exact pinned Rust start_in_transfer combines CNAK/EPENA, including control ZLP;20/15AHB-cycle workaround not established. Selected current RM and source correspondence in u585-otg-source-review.md; remaining multipacket/interrupt/bounds work open.",
+      "residual_limit": "Selected current RM/source reading does not qualify an adapter, effective binary or complete device configuration. No physical failure asserted; host-only section2.25.1 remains excluded.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false,
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Selected current RM/actual Rust device path reviewed; ZLP workaround mismatch and remaining source gates recorded."
+        }
+      ]
+    },
+    {
+      "id": "E-U585-SPI",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§§2.23.1–2.23.7 pp.35–37"
+      },
+      "affected_revision": "X/W/U",
+      "configuration": "SPI CRC-disabled receive, mode faults, completion and conditional slave/autonomous modes",
+      "documented_mitigation": "Preserve documented CRC-size default for affected receive; poll mode fault; preserve final clock/data interval before disabling.",
+      "driver_or_probe_implication": "Current RM selected SPI1 body and exact candidate source now compared in u585-spi-review.md. Finite/simplex proposal differs from enhanced Embassy full-duplex/TSIZE0 path; deadlines, valid IFCR masks, mode-fault polling and final signal hold remain required. Excluded slave/RDY/autonomous modes retain explicit disable controls.",
+      "residual_limit": "No panel/SE bus timing or complete driver qualification.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-IWDG",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§§2.18.1–2.18.2 p.30"
+      },
+      "affected_revision": "X/W/U",
+      "configuration": "Stop-mode early wake and backup-domain reset",
+      "documented_mitigation": "Early interrupt cannot wake specified Stop modes although reset remains functional; backup reset stops LSI and needs the documented bounded handling and security attribution.",
+      "driver_or_probe_implication": "Watchdog recovery contract must bind clock/reset domain and retained state.",
+      "residual_limit": "No uninterrupted watchdog or hostile-app-isolation assurance.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-UCPD-RD",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§2.26.4 p.41 and Table3 p.5"
+      },
+      "affected_revision": "X only; W/U not affected per summary",
+      "configuration": "UCPD sink Rd, supply and temperature",
+      "documented_mitigation": "No workaround listed; stated in-range envelope is 3.0–3.6V and -10 to 90°C.",
+      "driver_or_probe_implication": "Exact allowed revision and operating envelope matter before selecting MCU UCPD for the 5V sink.",
+      "residual_limit": "No USB normative or physical conformance qualification; PD transmit and source-only limits are separate.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-USBRESET",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§2.2.15 pp.12–13; Table3 p.2"
+      },
+      "affected_revision": "X only; W/U not applicable",
+      "configuration": "OTG_FS and DCMI/PSSI reset/overlap",
+      "documented_mitigation": "Use the documented peripheral/core reset combinations for the simultaneous-use case; avoid resetting the coupled peripheral while USB is active.",
+      "driver_or_probe_implication": "Include this condition in exact proposed allowed-revision/configuration requirements before documentary sign-off.",
+      "residual_limit": "Not a literal register-write recipe; exact driver/reset policy must be reviewed.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-STOP2RESET",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§2.2.22 pp.14–15; Table3 p.3"
+      },
+      "affected_revision": "W only; X/U not applicable",
+      "configuration": "Stop2 with LDO and one or more RAM domains powered down",
+      "documented_mitigation": "Keep the specified SRAM domains powered during Stop2, or exclude that configuration. Affected state needs a power-on sequence for recovery.",
+      "driver_or_probe_implication": "Include this condition in exact proposed allowed-revision/configuration requirements before documentary sign-off.",
+      "residual_limit": "IWDG/NRST/BOR is not guaranteed recovery in that affected state; no physical power-cycle performed.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-LPENTRY",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§2.2.26 p.16; Table3 p.3"
+      },
+      "affected_revision": "X/W; U not applicable",
+      "configuration": "Low-power entry with asynchronous wake, flash reads/prefetch/latency",
+      "documented_mitigation": "Prevent other-master flash reads during entry; apply documented prefetch/latency/entry restrictions.",
+      "driver_or_probe_implication": "Include this condition in exact proposed allowed-revision/configuration requirements before documentary sign-off.",
+      "residual_limit": "Partial workaround depends on configuration; no clock/latency recipe approved.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-MSIPLL",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§2.2.27 p.16; Table3 p.3"
+      },
+      "affected_revision": "X/W/U",
+      "configuration": "MSI PLL auto-calibrated mode",
+      "documented_mitigation": "Documented interrupt recovery disables then reenables PLL mode; relock takes about600µs–1ms.",
+      "driver_or_probe_implication": "Include this condition in exact proposed allowed-revision/configuration requirements before documentary sign-off.",
+      "residual_limit": "Partial workaround, not uninterrupted calibrated frequency.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-PC13LSE",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§2.2.1 p.7; Table3 p.2"
+      },
+      "affected_revision": "X/W/U; LQFP/UFQFPN packages",
+      "configuration": "PC13 transitions with LSE crystal",
+      "documented_mitigation": "No workaround; avoid PC13 transitions on the affected crystal/package path. Bypass and WLCSP/UFBGA differ.",
+      "driver_or_probe_implication": "Include this condition in exact proposed allowed-revision/configuration requirements before documentary sign-off.",
+      "residual_limit": "Exact input/expansion allocation remains mandatory.",
+      "reviewer": "/root/h01_author",
+      "physical_validation": false
+    },
+    {
+      "id": "E-U585-I2C-CONTROL",
+      "evidence": {
+        "document": "u585-es",
+        "locator": "§§2.20.1–3pp32–33;Table3p4"
+      },
+      "affected_revision": "X/W/U: sampling P; controller BERR and target timeout A",
+      "configuration": "I2C clock/setup and controller BERR; target SMBus timeout excluded",
+      "documented_mitigation": "Minimum kernel4/10/20MHz for250/100/50ns setup; clear spurious controller BERR; apply target-timeout reset sequence if that mode is ever admitted.",
+      "driver_or_probe_implication": "Bounded polling TCPP short-control policy is in u585-i2c-ucpd-review.md; stock clock-minimum assertions and unbounded soft_reset do not prove the exact adapter.",
+      "residual_limit": "No actual I2C waveform, deadline driver or bus-recovery qualification.",
+      "reviewer": "/root/h01_sol",
+      "physical_validation": false
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "D-S3-RTC",
+      "source": "s3-trm",
+      "locators": [
+        "p.403 table",
+        "p.404 narrative",
+        "p.578/693 corroborating range"
+      ],
+      "issue": "RTC slow RAM narrative address differs from table.",
+      "disposition": "Do not use conflicting prose as address source; no RTC secret arena admitted. Resolve with exact register/software mapping before use."
+    },
+    {
+      "id": "D-S3-EFUSE",
+      "source": "s3-trm",
+      "locators": [
+        "§5.3 coding restrictions",
+        "p.420 programming procedure"
+      ],
+      "issue": "Generic retry instruction conflicts with one-shot RS-coded block restrictions.",
+      "disposition": "No raw fuse recipe. Use validated vendor flow plus current guidance and concrete later authorization; blocks are irreversible."
+    },
+    {
+      "id": "D-S3-DOWNLOAD",
+      "source": "s3-trm",
+      "locators": [
+        "chapter8 secure-download description"
+      ],
+      "issue": "Plaintext read wording conflicts with read-not-allowed wording.",
+      "disposition": "Pin ROM command allowlist and exact secure-download SDK/tool behavior; no confidentiality claim from wording alone."
+    },
+    {
+      "id": "D-S3-USBREG",
+      "source": "s3-trm",
+      "locators": [
+        "§32.3.6 device DMA tables/examples"
+      ],
+      "issue": "IN DMA address field names DOEP while direction suggests DIEP; OUT example also names DIEPTSIZ.",
+      "disposition": "Pinned usb_struct.h confirms direction-specific software fields; selected global low-level helpers are host-oriented and do not qualify the device path. TRM §32.5 p.1242 limits comprehensive IP register access. Exact locked device driver, selected mode and any required normative semantics remain open; no DMA isolation claim from headers."
+    },
+    {
+      "id": "D-S3-BOOTUPDATE",
+      "source": "s3-boot-sdk/s3-ota-sdk",
+      "locators": [
+        "secure boot background",
+        "OTA unsafe updates"
+      ],
+      "issue": "Secure-boot page says second-stage bootloader cannot OTA-update while current OTA describes unsafe bootloader update.",
+      "disposition": "Specify exact SDK release/configured updater and interruption/recovery semantics; do not advertise bootloader A/B atomicity."
+    },
+    {
+      "id": "D-S3-PMS",
+      "source": "s3-trm",
+      "locators": [
+        "§15.3/15.4 peripheral-master list"
+      ],
+      "issue": "Narrative count and enumerated peripheral masters differ; USB master relationship cannot be inferred from GDMA text.",
+      "disposition": "Enumerate every enabled master for selected path and verify permissions; no hostile-app isolation claim."
+    },
+    {
+      "id": "D-U5G9-REV",
+      "source": "u5g9-ds",
+      "locators": [
+        "Rev5 primary PDF",
+        "stale Rev4 search snippets"
+      ],
+      "issue": "Different revision/page/package information.",
+      "disposition": "Rev5 current primary extraction wins; exact original and package detail remain open."
+    },
+    {
+      "id": "D-TS1303-FLASH",
+      "source": "ref-ts1303",
+      "locators": [
+        "U535CCT6 symbol versus devkit README capacity"
+      ],
+      "issue": "Exact MCU designation implies 256KiB, unlike 512KiB README claim.",
+      "disposition": "Reference bridge capability must use exact part datasheet; no Board host choice inherited."
+    },
+    {
+      "id": "D-S3-XTSENABLE",
+      "source": "s3-trm",
+      "locators": [
+        "§§23.4.6–23.4.7 p.913",
+        "SPI_BOOT_CRYPT_CNT field p.433"
+      ],
+      "issue": "XTS prose refers to first or third bit, whereas the eFuse field defines encryption from odd versus even population count.",
+      "disposition": "Use the precise field definition as the documentary counterpart and require exact maintained implementation correspondence; do not convert ambiguous prose into a bit-OR or fuse recipe."
+    },
+    {
+      "id": "D-S3-SPIORDER",
+      "source": "s3-trm",
+      "locators": [
+        "Tables30.5-9/10 footnotes pp.1127–1128",
+        "Table30.5-5 p.1114",
+        "register30.6 p.1158"
+      ],
+      "issue": "Command/address table footnotes give 0:LSB/1:MSB while the general bit-order table and register description give 0:MSB/1:LSB for one-bit mode.",
+      "disposition": "Record agreement of table30.5-5 and register description, but do not sign off a driver or wire format without chosen-source correspondence and later bounded transfer evidence."
+    },
+    {
+      "id": "D-U585-USB",
+      "source": "u585-es",
+      "locators": [
+        "§2.25.2 p.38",
+        "§§2.25.4–2.25.5 pp.39–40"
+      ],
+      "issue": "Remaining: text compares packet count with packet-size field; hidden-interrupt note says two distinct register steps can be a single write. Earlier mode-status naming question is resolved.",
+      "disposition": "RM0456 Rev7 §72.15.1 p.3164 explicitly defines GOTGCTL.CURMOD bit21, supporting ES0499§2.25.5; GINTSTS.CMOD also exists. Do not keep that resolved subquestion as a blocker. Remaining wording and exact driver mitigation need separate reconciliation; no external inquiry sent.",
+      "resolution_evidence": {
+        "document": "u5-rm7",
+        "locator": "§72.15.1 p.3164; §72.5.2 p.3141"
+      }
+    },
+    {
+      "id": "D-U5-RNG-CED",
+      "source": "nist-e11-public-use/nist-e116-public-use/u5-rm7",
+      "locators": [
+        "E11 configuration table",
+        "E116v1.2 p.5",
+        "RM§48.7.1 p.1916",
+        "AN4230Rev14 Table3"
+      ],
+      "issue": "Both public-use texts say bit5 is set to detect slow RNG clock; current RM makes CED active-low, and AN4230 configuration leaves it cleared.",
+      "disposition": "Host requirement uses active-low detector enable from current RM; never silently invert it. Reconcile public-use wording before a certificate-reuse claim; no external inquiry sent. Raw-noise and RNG_VERR statements do not expand the public RM register map."
+    },
+    {
+      "id": "D-DISPLAY-MODULE",
+      "source": "lcd-2inch-product/lcd-2inch-module/lcd-2inch-schematic/adafruit-4311-module",
+      "locators": [
+        "Waveshare product identity/supply",
+        "linked module pp1–9",
+        "native board schematic p1",
+        "Adafruit panel pp1–13 and native revC schematic"
+      ],
+      "issue": "Waveshare controller names VW/V/V2-G4 disagree; direct VCC-to-panel net conflicts with generic5V claim and panel2.6–3.3V limit. One buffered Adafruit alternative still links V/V2-G4 and3.3Vmaximum panel; VIN-side pullups also need host compatibility.",
+      "disposition": "No display admission. Resolve exact module/controller and worst-case rail/logic margins; one additional manufacturer lead authorized for bounded triage, not a market sweep."
+    },
+    {
+      "id": "D-U585-KIT-CN",
+      "source": "u585-um2839/u585-mb1551-d01",
+      "locators": [
+        "UM2839§7.2 p16",
+        "§7.5 pp20–21",
+        "schematicD01"
+      ],
+      "issue": "Power section calls Type-C connectorCN14; USB section/schematic identifyCN1 whileCN14is Arduino header.",
+      "disposition": "Proposed transport connector isCN1; retain discrepancy, confirm received silkscreen/continuity H02."
+    },
+    {
+      "id": "D-U5-DCACHE-CACHEINV",
+      "source": "u5-rm7",
+      "locators": [
+        "§9.4.3 p385",
+        "§9.4.8 p390",
+        "§9.7.1 p395"
+      ],
+      "issue": "TAG discussion lists CACHEINV=0 as invalidation; functional command and register explicitly require one and say zero has no effect.",
+      "disposition": "Retain conflict. Initial U585 DCACHE-disabled proposal does not issue the command; any future enabled driver must follow explicit command/register contract and carry clarification item."
+    },
+    {
+      "id": "D-U585-STMOD-DEFAULT",
+      "source": "u585-mb1551-d01",
+      "locators": [
+        "native sheet7"
+      ],
+      "issue": "SPI/UART tables label UART default while selector pull-ups R10/R11 are DNF. MCU selector pins are normally analog after reset.",
+      "disposition": "No hardware-defined default established; leave expansion connectors empty and program selector before SPI; exact switch behavior remains open."
+    },
+    {
+      "id": "D-U5-GTZC-SDMMC-NAMES",
+      "source": "u5-rm7",
+      "locators": [
+        "§5.6.4 p210",
+        "§5.6.7 p218"
+      ],
+      "issue": "SDMMC2SEC/SDMMC2PRIV bit18 prose says SDMMC1; SDMMC1SEC/SDMMC1PRIV bit17 prose says SDMMC2. Field names/diagrams distinguish the two.",
+      "disposition": "Preserve the source discrepancy. Both instances have the same secure/privileged, held-reset exclusion in the initial proposal; no per-instance operation depends on the swapped prose. Future per-instance driver needs exact correspondence."
+    },
+    {
+      "id": "D-S3-DIS-USB-JTAG-PROSE",
+      "source": "s3-trm",
+      "locators": [
+        "eFuse definition p434",
+        "Table8.5-1 p538",
+        "s3-usj-jtag-guide S3 branch"
+      ],
+      "issue": "Chapter5 DIS_USB_JTAG definition calls the disabled path USB OTG-to-JTAG. Chapter8 and the current pinned JTAG guide identify USB Serial/JTAG-to-CPU JTAG and explicitly retain CDC.",
+      "disposition": "Do not conflate controllers or whole-block disable. Use the cross-checked CPU-JTAG/CDC distinction while preserving source wording discrepancy; exact owner fuse policy remains documentary/unexecuted."
+    },
+    {
+      "id": "D-U5-SPI-FLAG-REENABLE",
+      "source": "u5-rm7",
+      "locators": [
+        "§68.8.6 p2943 introduction",
+        "per-flag CRCE/OVR/UDR/EOT definitions pp2944–2945"
+      ],
+      "issue": "SPI_SR introduction says flags do not clear automatically on re-enable and require explicit IFCR; several per-flag definitions say re-enable clears them. EOT prose also mentions re-enable in both completion and clearing.",
+      "disposition": "Preserve source inconsistency. Proposal explicitly clears documented valid IFCR flags, verifies fresh state and counts submitted data; no reliance on automatic clearing or a stale completion bit. Exact selected-driver/state-machine review remains."
+    },
+    {
+      "id": "D-U585-TCPP-ADDRESS",
+      "source": "u585-um2839 / u585-tcpp03",
+      "locators": [
+        "UM2839 §7.5 pp20–21",
+        "DS13618 I2C register/address definition p12",
+        "MB1551D sheet9 I2C_ADD GND"
+      ],
+      "issue": "Kit0x68 notation is a shifted write-address byte; TCPP03 seven-bit011010x with ground strap is0x34.",
+      "disposition": "Use explicit7-bitAPIaddress0x34; no wholeI2Cadapter admission."
+    },
+    {
+      "id": "D-U585-TCPP-R8-ANNOTATION",
+      "source": "u585-mb1551-d01",
+      "locators": [
+        "Native sheet9 U8/R7/R8 enlarged region",
+        "DS13618 Table13p14"
+      ],
+      "issue": "Comment mentions2.7k sense resistance while actual R8 value is2.4k; actual2.4k matches nominal6V table.",
+      "disposition": "Actual PDF/SchDoc/PCB pin9 fullVBUS andpin11 divider agree; initial apparentpin9/11conflict withdrawn. Retain annotation discrepancy only; no board defect or exact clamp claim."
+    },
+    {
+      "id": "D-U585-AN2606-BOOT-TEXT",
+      "source": "u5-an2606",
+      "locators": [
+        "Table2 Pattern12 p35",
+        "U585 Table217 SPI3 pp503–504"
+      ],
+      "issue": "Activation row contains malformed TZEN text; unused SPI3 direction prose disagrees with its function/direction labels.",
+      "disposition": "No option-byte recipe or unused SPI3 wiring inferred. Current RM remains register authority; actual selected boot behavior still requires review."
+    },
+    {
+      "id": "D-U5-UCPD-CLOCK-METADATA",
+      "source": "u5-rm7 / u5-pac-u585ai / u5-pac-u585vi",
+      "locators": [
+        "NativeFigure38p487",
+        "SelectedPACUCPD1.rcc.kernel_clock",
+        "EmbassyUCPDconstructorHSI16comment/divider"
+      ],
+      "issue": "Current clock tree directly supplies UCPD1 from HSI16; exact generated metadata labels the kernel PCLK1, while the pinned driver assumes HSI16.",
+      "disposition": "Preserve discrepancy. Do not use metadata PCLK1 to calculate the UCPD divider; actual oscillator/clock configuration still requires review, build and H02 correspondence."
+    },
+    {
+      "id": "D-U5-UCPD-REGISTER-SEQUENCE",
+      "source": "u5-rm7",
+      "locators": [
+        "§74.5.1p3474",
+        "CFGR2p3482",
+        "TYPECEVT1statusp3488",
+        "ICRperlineclearpp3490–3491",
+        "chapter74PWR_CR3referencep3473",
+        "actualPWR_UCPDRpp458–459"
+      ],
+      "issue": "Generic sequence enables the peripheral before the analog filter, while CFGR2 writes take effect only when disabled. CC1 status prose names the CC2 clear bit, but ICR defines the CC1 clear bit. Dead-battery prose names old PWR_CR3 rather than actual UCPDR.",
+      "disposition": "Use explicit current register constraints/location, prepare configuration before releasing dead-battery termination and verify per-line status. No automatic CC/PD driver qualification."
+    },
+    {
+      "id": "D-U5-I2C-RELOAD-TIMING-TEXT",
+      "source": "u5-rm7",
+      "locators": [
+        "TCRclearTable671p2737",
+        "functionalnonzeroNBYTESp2699",
+        "ISR.TCRp2748",
+        "SDADELfunctionalexpressionp2695",
+        "shortTIMINGRexpressionp2746"
+      ],
+      "issue": "Interrupt table says TCR clears when NBYTES=0; functional/register body says nonzero. SDADEL functional path includes an additional I2CCLK term absent from the short register expression.",
+      "disposition": "Reload is excluded in the short TCPP control proposal. Timing must use the full functional path and external edge/filter/tolerance bounds, not the bare SDADEL label. No arbitrary formula or workaround claimed."
+    },
+    {
+      "id": "D-U585-TCPP-VSENSE-RANGE",
+      "source": "u585-tcpp03",
+      "locators": [
+        "Recommended conditions Table5p7",
+        "OVP threshold electrical tablep8",
+        "OVP divider Table13p14"
+      ],
+      "issue": "Table5 groups Vsense with a2.7–5.5V recommended range, while the functional divider/threshold uses about1.16V at nominal trip.",
+      "disposition": "Preserve source inconsistency; no silent correction of the recommended range and no final TCPP electrical qualification from the example alone."
+    },
+    {
+      "id": "D-U585-OTG-ZLP-SOURCE",
+      "source": "u585-es / u5-embassy-otg-lib",
+      "locators": [
+        "ES0499§2.25.3p39",
+        "start_in_transfer and control accept selected source"
+      ],
+      "issue": "Current X/W/U erratum requires split SNAK/CNAK/EPENA and20/15AHB-cycle waits for ZLP; selected source combines CNAK/EPENA and control accept uses ZLP.",
+      "disposition": "Source configuration mismatch, no reproduced failure. Require exact bounded workaround before selecting this adapter."
+    },
+    {
+      "id": "D-U585-OTG-VBUS-OVERRIDE",
+      "source": "u5-embassy-otg-lib / u5-rm7",
+      "locators": [
+        "Config/default lines541–588",
+        "config_v2v3 lines1068–1090",
+        "CID reset/writabilityp3187"
+      ],
+      "issue": "Generic software-override option is not honored in the reset-CID0x3000 branch: BVAL is forced true when hardware detection is disabled.",
+      "disposition": "Do not use defaults or that option as a kit sensing implementation. CID is writable; source reset value is not received identity. PF14ADC/TCPP sensing and power policy remain open."
+    },
+    {
+      "id": "D-U5-NVIC-BANKING",
+      "source": "u5-rm7 / u5-pm0264",
+      "locators": [
+        "RM22p912 blanket banking sentence",
+        "PM4.2pp176–181 field-specific NVIC definitions"
+      ],
+      "issue": "RM broadly calls NVIC registers banked; current core manual says external enable/pending/active/IPR registers are not banked and are filtered by ITNS.",
+      "disposition": "Use field-specific definitions and explicit secure ITNS/access policy; do not treat a nonsecure zero read as secure readback. Banked system masks and SysTick are separate."
+    },
+    {
+      "id": "D-U5-CORE-VECTOR-TEXT",
+      "source": "u5-pm0264",
+      "locators": [
+        "Vector section2.4.4pp32–33",
+        "VTOR introductionp189",
+        "NVIC4.2.10.1p182",
+        "ISER/ISPR definitionspp177–179"
+      ],
+      "issue": "VTOR section describes secure/nonsecure banks but register introduction says not banked; pending paragraph names set-enable while explicit registers separate enabling and force-pending. Generic vector figure labels and implementation placeholders are not the U585 mapping.",
+      "disposition": "Preserve inconsistency. Single-image proposal uses secure vector base only; explicit RM/PAC positive IRQ map and named register operations, no nonsecure-isolation or generic480-IRQ claim."
+    },
+    {
+      "id": "D-NHD-INIT-CORRESPONDENCE",
+      "source": "nhd-24-module /nhd-ili9341v",
+      "locators": [
+        "modulephysicalpp15–16",
+        "controllerpp90,103,109,180,197,206,240"
+      ],
+      "issue": "The module example sends two C0 bytes where the controller defines one, omits post-SLPOUT quiet time, and gives different gamma/inversion comments. CB AVDD code02 means5.8V, while other sections limit AVDD to5.5V. The module internal EXTC/factory enable state is unproved.",
+      "disposition": "C02 remains open and the example unqualified. The CB/CF absence inference is withdrawn after listp89 and bodiespp197–199. Neither copying the example nor assuming factory defaults resolves internal power."
+    },
+    {
+      "id": "D-NHD-RESET-RETENTION",
+      "source": "nhd-24-module /nhd-ili9341v",
+      "locators": [
+        "controllerp116RAMWRdefault",
+        "controllerp233resettable",
+        "controllerpp219–220powerbody",
+        "modulenativephysicalp14powerdiagram"
+      ],
+      "issue": "Hardware GRAM repair-data in the reset table differs from the RAMWR no-clear description. Power-down text says reset released while the module diagram names the falling edge.",
+      "disposition": "No secret-erasure claim. Blank/full rewrite and a conservative interval are required. Actual power/blanking policy remains unresolved; do not derive a shorter interval."
+    },
+    {
+      "id": "D-NHD-CONTROLLER-TABLE-TEXT",
+      "source": "nhd-ili9341v",
+      "locators": [
+        "p129MADCTLdescription/figurelabels",
+        "p157RTNAtable",
+        "pp184–185VCOMnVMbody/default",
+        "p206F2heading/table"
+      ],
+      "issue": "MV is row/column exchange but a figure calls it vertical refresh; RTNA has a duplicate code; VCOM nVM reset body0 differs from default1; F2 section header saysF6 while command bits/list sayF2.",
+      "disposition": "Use named fields and the explicit used-command list. Do not infer a new refresh rate or VCOM factory state. Standard render commands alone do not repair unresolved module startup/power."
+    },
+    {
+      "id": "D-U5-MSI-STOP-RANGE",
+      "source": "u5-rm7",
+      "locators": [
+        "pp516–517MSISRANGE/MSIKRANGEdefinitions",
+        "range0/1/2tablepp490,516–517"
+      ],
+      "issue": "Stop-wake note calls range2 24MHz,while field table defines range1=24MHz andrange2=16MHz.",
+      "disposition": "Preserve difference;no inheritedStop-wake/deadlineconversion. ProposedfixedRun tuple requires reinitialization/freshreview afterclockstatechange."
+    },
+    {
+      "id": "D-NDK-X2-TOLERANCE-UNIT",
+      "source": "u585-x2-ndk-spec /u585-x2-ndk-product /u585-mb1551-design",
+      "locators": [
+        "NDKPDFp2tolerancerow",
+        "officialproductfrequencytable",
+        "nativekitX2MFRparameter"
+      ],
+      "issue": "PDF±20frequencytolerancerowhas°Cunit;officialproduct saysppm. StandardCLvariant/agingfields do notestablishexactkitEXS00A-MU01499 totalerror.",
+      "disposition": "Usecross-sourceunitcorrespondence only;100ppm referencebudget remains unsatisfiedcondition,not a measuredboardguarantee. No internal-onlylink accessed."
+    },
+    {
+      "id": "D-USB-RPD-LOWER",
+      "source": "usb2-resistors",
+      "locators": [
+        "Explicitreplacementtextpp1–3andtablep5",
+        "Nativep4Figure7-20/21labels"
+      ],
+      "issue": "Replacementtext/tableminimumRPD14.25kΩversusnativefigurelabels14.75kΩ;maximum24.80kΩagrees.",
+      "disposition": "Preservedifference;usewidertablerange14.25–24.80kΩforengineeringbudgets,notunreadfigureinferenceorameasuredPHYclaim."
+    },
+    {
+      "id": "D-S3-SAR-PATTERN-EXAMPLE",
+      "source": "s3-trm /s3-idf-rng-adc-ll",
+      "locators": [
+        "NativeTRM1471Figure39.3-4",
+        "NativeTRM1472example39.3-9",
+        "adc_ll_digi_set_pattern_table"
+      ],
+      "issue": "Firstpatternfigureplacescmd0inbits23:18,matchingLLslot0write;exampletextcallsbits5:0cmd0. ADC2slot1/length1sourcecorrespondenceisnotresolvedbyselectedDIGADC1text.",
+      "disposition": "Preservemanualdifference/exactsourcewrites;noSDKdefectorguessedfix. ReservebothSARunitsandrequireexactsource/ownership/readbackjustificationbeforeentropyuse;no newADCdriver."
+    },
+    {
+      "id": "D-S3-STATIC-LINKER-COMMENT",
+      "source": "s3-idf-memory-ld /s3-idf-boot-memory-ld",
+      "locators": [
+        "Appintroductory403B9000comment/activeSRAM_IRAM_END403CB700",
+        "Same-pinbootloaderloaderstartarithmetic/assert403CB700"
+      ],
+      "issue": "Introductoryappmemorycommentcalls403B9000–403E0000startup-onlywhileactiveconstantendsstaticat403CB700.",
+      "disposition": "Preserveboth. Directreferencedbootloaderexplicitlypermitsappstaticup toloaderstartandasserts403CB700;selectedconstantcorrespondencesupported,actualreceivedbootloader/generatedmapandROMreservedstatesstillH02/C04gates."
+    },
+    {
+      "id": "D-S3-PMS-I2S1-LOCK-SUMMARY",
+      "source": "s3-trm",
+      "locators": [
+        "Table15.8-1p704",
+        "Register15.14p723"
+      ],
+      "issue": "Lock-summaryrowcoveringI2S1usesI2S0_CONSTRAIN_1asitsleftlabel;I2S1registerbodygivesdistinctI2S1_CONSTRAIN_0lock.",
+      "disposition": "Useexactper-registerI2S1lockdefinition,notblindsummarycopy;noI2Sfeatureselected,allDMApermissionfieldsdenied. Otherunusedsummaryrowsnotgenerallyrepaired."
+    },
+    {
+      "id": "D-U585-OUT-XFRSIZ-64-68",
+      "source": "u5-rm7 /u5-embassy-otg-lib",
+      "locators": [
+        "Native3269OUTformula",
+        "3270completion",
+        "3228–3229XFRSIZbytefield",
+        "Pinnedarm_out1835"
+      ],
+      "issue": "MPS64/n1formulaadds4=>68;driverarms64;describedfullpacketdecrementwith68leaves4whilecompletionrequires0andPKTCNT0orshortpacket.",
+      "disposition": "Unsatisfiedsource-semanticblocker;neitherchoicequalified. CoordinatorpermitsfiniteC06reading/triageonly,nocriterionwaiver. No dependentenumeration/operationH02untilcorrectsourceorevaluatedseparatelyreviewedfinitepublicdatadiagnosticwithidentifiedbench/resourcelimitsresolvesit."
+    },
+    {
+      "id": "D-U585-OUTPKTERR-MASK-RESERVED",
+      "source": "u5-rm7",
+      "locators": [
+        "DOEPMSKbit8p3210",
+        "DOEPINTbit8reservedp3224/native3223"
+      ],
+      "issue": "MaskregisterdefinesOUTPKTERRMbit8butstatusregisterreservesbit8.",
+      "disposition": "Keepmask0;donotinventpacketerrorstatus. Useonlydefinedsourceflags/checkedbounds;no comprehensiveerrorvisibilityclaim."
+    },
+    {
+      "id": "D-USB-SETADDRESS-ZERO-TEXT",
+      "source": "usb2-base",
+      "locators": [
+        "Printed257introductoryline",
+        "Printed257Default/Addressstatetable"
+      ],
+      "issue": "IntroductorylinecallsSetAddress0undefinedwhilefollowingstatetablesexplicitlydefinestateretention/transitionforzero.",
+      "disposition": "Preservedifference;useexplicitstatetableasdocumentaryrequirement,no broadundefined-inputsuccess. PinnedDAD-beforeacceptonwirecorrespondenceremainsunprovenanddependentusegated."
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "D-U585-SMPS100-I2C2-DBCC-CORRECTION",
+      "status": "recorded-adverse-source-correction",
+      "description": "PH4/PH5andPB11notexposed100SMPS. PB13/PB14AF4exists;PB14isDBCC2control,kitCC2isPB15. Initialdraftphysicalconflict/alertinferencewithdrawn;PE8FLGn/PD13IANAprovednative9. Additionalfunction/resetpolicyandactualcustomallocationremain;no replacement/customBOMselected.",
+      "claim": "H01-C91",
+      "closure_owner": "H01/H02/H04exactconfiguration"
+    },
+    {
+      "id": "D-KIT-WIFI-ENABLE-PULLUP",
+      "status": "recorded-adverse-source-correction",
+      "description": "WholeCHIP_ENnetfloatinginferencewithdrawn;exactM1BPsourceinternalnominal100kPU+10nF/active-low. Noexternalholdlow remains true;nominalmathnotPOR/RF/offcurrentproof.",
+      "claim": "H01-C92",
+      "closure_owner": "H01/H02/H04exactconfiguration"
+    },
+    {
+      "id": "D-S3-BOD-RESET-SELECTOR",
+      "status": "unsatisfied-source-property",
+      "document": "s3-trm",
+      "description": "TRM1.8p576bodyBROWN_OUT_RST_SEL0Chip/1SystemvsRegister10.51p6231Chip/0System. Neitherpolarityqualified;mode1notselectedtoevade.",
+      "engineering_consequence": "H02STOPdependentoperationuntilcorrectapplicablesourceorreviewedevaluatedsafefinitediagnostic;no currentdiagnosticauthorization.",
+      "claim": "H01-C95",
+      "closure_owner": "H01sourceassessment/H02qualifiedbehavior"
+    },
+    {
+      "id": "D-S3-EFUSE-COUNTER-HELPER",
+      "status": "source-to-requirement-gap",
+      "documents": [
+        "s3-idf-efuse-api",
+        "s3-idf-efuse-fields"
+      ],
+      "description": "UnboundedDAMAGED_READINGretry/read-writeerrorreturnsignored/default4vsrequired16counterfield;successlog/tripleequalvaluesnotcommitproof. Noexecutedfailure/upstreamvulnerabilityclaim.",
+      "engineering_consequence": "Beforedependentoperationrequireeffectiveboundederror-preservingfullsourcepath/status/freshreadback;no blind reprogramretry;noeFuseoperationauthorized.",
+      "claim": "H01-C99",
+      "closure_owner": "H02completeeffectivehelper/bootpathqualification"
+    },
+    {
+      "id": "D-U585-ATTACH-EN-LIFETIME",
+      "status": "unsatisfied-source-property",
+      "claim": "H01-C101",
+      "description": "TCPP3.3VmodeENmin2.97/rise<50usnotprovenbyU19/GPIO2.8175floor;nativeCN1datadirectMCU/TCPPonlyCCVBUSgates;normalI2C13msnotautonomouspullupremovalwithreset/clockloss. Nofixtureexpansionorconnectedhostadmission.",
+      "closure_owner": "H01admissionnegative/H02exactsafeapplicablesource/implementationbeforedependentuse"
+    },
+    {
+      "id": "D-U585-UM-CN14-LABEL",
+      "status": "recorded-source-correspondence",
+      "claim": "H01-C100",
+      "description": "UM2839p16namesTypeCCN14butnativeUSBsheet9CN1andmanualexpansionheaderCN14. UseexactnativeCN1identity;nophysicaldefectinferred.",
+      "closure_owner": "H01sourceidentity/H02receivedunit"
+    },
+    {
+      "id": "D-G9-DK2-PC13-LSE-NATIVE",
+      "status": "source-correspondence/avoid-for-future-admission",
+      "claim": "H01-C103",
+      "documents": [
+        "u5g9-mb1918-c01",
+        "u5g9-es"
+      ],
+      "description": "Native2/3/4/9B2USER_BUTTONhierarchicalwirePC13pad7+X1crystalPC14/15pads8/9matchesES0595LQFPinput/outputtransitionlimitation. Ignoringbuttonsoftwaredoesnotpreventphysicaltransition. Noactualfailure/newport/alternateclockselected.",
+      "closure_owner": "H04exactfuturecontrol/referencechoicebeforeanypromotion"
+    }
+  ]
+}

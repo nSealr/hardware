@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "scope": "pre-implementation manual/register specification",
+  "author": "/root/h01_author",
+  "reviewer": "/root",
+  "candidate_commit": "e10dd2426146e0aa3bbcf04af6a9b1bb59f7e868",
+  "repository": "nSealr/hardware",
+  "observed_utc": "2026-10-18T17:25:04.639687+00:00",
+  "verdict": "pass",
+  "bindings": [
+    {
+      "path": "docs/restart/H01/brief.md",
+      "sha256": "89f5e3487d669e1555bf07f8207ddc8cf783f554b72a7f02785fffd5deccf5e8"
+    },
+    {
+      "path": "docs/restart/H01/input-notes.json",
+      "sha256": "75b54942af4cace291f3f60f234ccb35b02a45b831a6961d2b26b8a8ad39a7b0"
+    }
+  ],
+  "reviewed": [
+    "All six canonical H01 criteria are retained with exact part/document/revision/section/hash/errata/access and actually-read scope, separate host admission, SE gaps and H04 selected-design work.",
+    "Bounded U585/S3 host comparison plus reasoned U5G9 UI/RAM/package/toolchain document triage and conditional alternatives; no selection from a reference BOM, prior decision or universal security score.",
+    "Private historical research is reused only by source/section correspondence; original private histories/manuals are not republished wholesale. Public register is original analysis and metadata/links with applicable notices.",
+    "Independent generic Board/SDK and four Signer release paths, actual owner/debug/secret lifecycle, trusted UI/DMA/expansion boundaries and entropy/provider limits are preserved.",
+    "No physical availability, manual-completeness, native cryptographic capability, qualified silicon fix, PCB correctness or fabrication claim; final substantive independent review and actual affected hardware CI required."
+  ],
+  "additional_source_review": [
+    {
+      "url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf",
+      "observation": "Official family manual lists U585 DS13086/ES0499 and U5G DS14102/ES0595. Search extraction was Rev6; it does not close the current Rev7 delta."
+    },
+    {
+      "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32u575-585/documentation.html",
+      "observation": "Official index also exposes applicable security-bulletin/advisory leads (including TN1474, TN1489 and SA0055); triage current applicability as part of the existing security/errata review."
+    },
+    {
+      "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32u5g9zj.html",
+      "observation": "Official product table distinguishes exact package/order variants; family/board model labels alone are insufficient."
+    }
+  ],
+  "implementation_authorization": "Proceed only with approved docs/restart/H01 register/analysis and bounded README status/navigation scope. Try original PDF retrieval/native text rendering where the web reader has a size limit; record actual original version and all failures. Do not bypass account/restricted access or treat stale search extraction as current manual proof.",
+  "source_hash_checks": 15,
+  "limits": "Specification approval only; no register implementation acceptance, component freeze, bench measurement, PCB/layout/order or production operation."
+}

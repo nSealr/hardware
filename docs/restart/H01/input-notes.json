@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "phase": "specification_preparation_only",
+  "recorded_utc": "2026-10-18T17:20:03.699017+00:00",
+  "author": "/root/h01_author",
+  "brief_approval": "pending_coordinator_exact_candidate_review",
+  "implementation_started": false,
+  "input_commits": {
+    "nSealr/nsealr": "7b5553685dac56029a4379be12054154b6b5e0b5",
+    "nSealr/hardware": "340697d6713a671e9e01b0dc874ec999ab071601"
+  },
+  "task_graph": {
+    "repository": "nSealr/nsealr",
+    "path": "docs/restart/work-items.json",
+    "revision": 11,
+    "sha256": "119aeeb2f1cb32a6990cc5aeaa6aa2dc4934820e9ed1b0679db1cd382d2acff3",
+    "recorded_H01_status": "ready",
+    "depends_on": [
+      "P01"
+    ],
+    "required_resources": [],
+    "requires_physical_evidence": false,
+    "scope": [
+      "MCU candidates",
+      "SE candidates",
+      "power/display/USB/expansion"
+    ],
+    "acceptance": [
+      "For every candidate record exact part/package/silicon, official document ID/revision/date/URL/hash and relevant errata.",
+      "Triage viable alternatives. Read and sign off the sections required for each admitted MCU feasibility probe; record selected-design review work that must close before H04.",
+      "Identify unavailable/restricted documentation and unsupported features before freezing a part.",
+      "No full-manual-review claim is made from a link inventory.",
+      "Treat openness and reproducible developer access to exact API/errata/update terms as selection criteria. An inaccessible SE manual is an unresolved gate for selecting that SE, not a reason to block unrelated MCU/USB/display research.",
+      "Close the register/triage milestone with complete host-relevant review and explicit unresolved SE documents if necessary; do not represent that as part selection. Mandatory selected-SE documents remain hard gates in H02S/H04, allowing independent host bench work."
+    ],
+    "required_evidence": [
+      "manual register",
+      "option comparison",
+      "pin and errata ledger"
+    ]
+  },
+  "dependency_snapshot": [
+    {
+      "id": "R00",
+      "status": "integrated",
+      "candidate_commits": {
+        "nSealr/nsealr": "6133f28632ca1245e8f8c42cd85307a9d3b7887f"
+      }
+    },
+    {
+      "id": "P01",
+      "status": "integrated",
+      "candidate_commits": {
+        "nSealr/nsealr": "df4cff34b4733aaac04db9b176db7c4edfc256d8"
+      }
+    },
+    {
+      "id": "S02",
+      "status": "integrated",
+      "candidate_commits": {
+        "nSealr/nsealr": "61641047d13b5bb265246b181edc38f4dc2073e7"
+      }
+    },
+    {
+      "id": "E01",
+      "status": "integrated",
+      "candidate_commits": {
+        "nSealr/nsealr": "89943be5a52ce43058d446da640b5fb550a124d3"
+      }
+    },
+    {
+      "id": "A01",
+      "status": "integrated",
+      "candidate_commits": {
+        "nSealr/nsealr": "51a0d2a88618fc73fd0263b3122359bc2c7a85e3"
+      }
+    },
+    {
+      "id": "O01",
+      "status": "integrated",
+      "candidate_commits": {
+        "nSealr/nsealr": "b040f03a203c61e54e272c3f8bee028c9ee083cf"
+      }
+    }
+  ],
+  "canonical_reads": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "bb2487e1ddf719f2c49621bc6018b6505beb1d9145805e3a157d9bab37c45020",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/AGENTS.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/README.md",
+      "sha256": "84ff28271341348f7f82da12ccac2920dfb534a1dac222cd665b16201bc025ea",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/README.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/work-items.json",
+      "sha256": "119aeeb2f1cb32a6990cc5aeaa6aa2dc4934820e9ed1b0679db1cd382d2acff3",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/work-items.json",
+      "reading": "Selected H01/H02/H02S/H03/H04 task objects, dependency states/candidates, graph metadata and full resource registry; no full graph/evidence audit."
+    },
+    {
+      "path": "docs/restart/architecture.md",
+      "sha256": "855730fb0a801f411616869ffc01640eb46522d7bb27bf63747fa2fa7f290b2e",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/architecture.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/pcb-development.md",
+      "sha256": "f77c209d2c5be4d114bcc111598d88e7b83e2049dde4c20a2c79bb5d6f3f2fa6",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/pcb-development.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/validation.md",
+      "sha256": "e9c4d8ab8dd247481aa3eefcf8a269e6d3e3f9be088251539ebf77ef9bdc3296",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/validation.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/development.md",
+      "sha256": "e47d96d5350ff9a60c7b53efb5005e09e9e4e99dddb81f20371bbfd8fe88dee9",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/development.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/execution.md",
+      "sha256": "22c6bc2e97d420ba2b7f41ada1969b513ca9c967af801040ee104df556ab9d69",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/execution.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/implementation/P01/requirements.md",
+      "sha256": "f8635e2941895b7d4043e769c9b73e2064036b1358e5f4266854b074a9b81326",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/implementation/P01/requirements.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/implementation/P01/threat-models.md",
+      "sha256": "ebf8d5a821eb4843d7b961840a4b21cc74a2997dfa5b9e15f0cc6907586ffee0",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/implementation/P01/threat-models.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/implementation/P01/brief.md",
+      "sha256": "5d5d2c000cb4bc01404ea82b0162ac1119c0830996491ed6cbd4f6dbe886c874",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/implementation/P01/brief.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/implementation/P01/result.json",
+      "sha256": "765515c815cf2a5b369207c5e27d47d3bda4f21ca2395a538db4a620c97c93f7",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/implementation/P01/result.json",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/implementation/S02/secret-flow.md",
+      "sha256": "067030391a583560d95d78f9f768afa093fee3f6a65ae489b18be774e7324cba",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/implementation/S02/secret-flow.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/implementation/S02/entropy-contract.md",
+      "sha256": "a0883cbd920b85ab1db71e619b2c503d7a84137761ab60d8913e5353c9ce0916",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/implementation/S02/entropy-contract.md",
+      "reading": "full text"
+    },
+    {
+      "path": "docs/restart/implementation/S02/crypto-selection.md",
+      "sha256": "6f02f64a24e5747f63d25b81a472dc5e257055f4fbb853587113b1c355bd7f56",
+      "url": "https://github.com/nSealr/nsealr/blob/7b5553685dac56029a4379be12054154b6b5e0b5/docs/restart/implementation/S02/crypto-selection.md",
+      "reading": "full text"
+    }
+  ],
+  "hardware_baseline": {
+    "README.md": {
+      "sha256": "aee6ee7bead9617902361bf6c9cbf8065cd5010fe0259d6c2698d03bfa1490ce",
+      "finding": "Active navigation still references specs/five-family and S3 QR taxonomy; proposed bounded refresh only after brief approval."
+    },
+    "Makefile": {
+      "sha256": "059b4275ba28c0066da1d7bc335007697e014571123036c145f6a725a5d8db89",
+      "reading": "full text"
+    },
+    "scripts/verify_repo.py": {
+      "sha256": "35a1a9545e915ff794f00d3a5f48bffdda68f1cb3de1c77e9a4db33c35cd0824",
+      "finding": "Uses checkout directory basename as repository identity; isolated worktree named h01 will expect MIT, whereas hardware has CERN OHL. Do not weaken the check."
+    }
+  },
+  "scope": {
+    "worktree": "/home/tux/nsealr/.restart-tools/goal/h01",
+    "branch": "restart/h01-manuals",
+    "preparation_writable_paths": [
+      "docs/restart/H01/brief.md",
+      "docs/restart/H01/input-notes.json"
+    ],
+    "proposed_after_approval_paths": [
+      "docs/restart/H01/",
+      "README.md (bounded navigation/status only)"
+    ],
+    "coordinator_owned": [
+      "nSealr/nsealr docs/restart/work-items.json",
+      "canonical integration/review metadata"
+    ],
+    "preserved_read_only": [
+      "canonical/source checkouts",
+      "historical private research and original downloads"
+    ],
+    "excluded": [
+      "component selection or freeze",
+      "PCB/schematic/layout production work",
+      "orders/fabrication",
+      "bench measurements",
+      "irreversible fuse/provisioning",
+      "production secrets"
+    ]
+  },
+  "specialist_configuration_check": {
+    "requested_model": "gpt-6-astra",
+    "requested_reasoning_effort": "xhigh",
+    "codex_cli": "0.162.1",
+    "local_models_cache_advertises_model_and_effort": true,
+    "limit": "Availability check only; not an independent runtime attestation."
+  },
+  "historical_reuse_check": {
+    "cohort": "2026-10-18 hardware readiness source evidence",
+    "source_register_sha256": "958c5e075c4fd0b2e4774bbc41dc7a7b4578d65dfa3d13a3dcb95ff86eb7922c",
+    "historical_review_sha256": "29cdbe02424fbc1e9de4a6e88dfae3df86476c78b524873524ee0894b53fd0ca",
+    "downloaded_original_hashes_recomputed": 75,
+    "mismatches": 0,
+    "full_manual_re_read_claim": false,
+    "all_originals_redistributed": false,
+    "scope": "Public preparation retains only necessary metadata, primary-source links and new paraphrased analysis. Private history and originals stay private. Earlier October 13 register text was read to locate gaps; its complete original set was not reverified or re-reviewed in preparation. Reverify each earlier original before substantive reuse.",
+    "canonical_correspondence": [
+      {
+        "path": "docs/restart/pcb-development.md",
+        "historically_reviewed_sha256": "f77c209d2c5be4d114bcc111598d88e7b83e2049dde4c20a2c79bb5d6f3f2fa6",
+        "current_sha256": "f77c209d2c5be4d114bcc111598d88e7b83e2049dde4c20a2c79bb5d6f3f2fa6",
+        "same_bytes": true,
+        "disposition": "Reuse only the relevant source/planning scope; no device qualification."
+      },
+      {
+        "path": "docs/restart/validation.md",
+        "historically_reviewed_sha256": "e9c4d8ab8dd247481aa3eefcf8a269e6d3e3f9be088251539ebf77ef9bdc3296",
+        "current_sha256": "e9c4d8ab8dd247481aa3eefcf8a269e6d3e3f9be088251539ebf77ef9bdc3296",
+        "same_bytes": true,
+        "disposition": "Reuse only the relevant source/planning scope; no device qualification."
+      },
+      {
+        "path": "docs/restart/work-items.json",
+        "historically_reviewed_sha256": "1b0381ac0b098c478e30d27d622bef62c6f1e208780f63b45b98a743d68daa1c",
+        "current_sha256": "119aeeb2f1cb32a6990cc5aeaa6aa2dc4934820e9ed1b0679db1cd382d2acff3",
+        "same_bytes": false,
+        "disposition": "Historical approval does not cover the new bytes; current revision 11 task and accepted P01 requirements govern this brief."
+      },
+      {
+        "path": "docs/restart/development.md",
+        "historically_reviewed_sha256": "e47d96d5350ff9a60c7b53efb5005e09e9e4e99dddb81f20371bbfd8fe88dee9",
+        "current_sha256": "e47d96d5350ff9a60c7b53efb5005e09e9e4e99dddb81f20371bbfd8fe88dee9",
+        "same_bytes": true,
+        "disposition": "Reuse only the relevant source/planning scope; no device qualification."
+      },
+      {
+        "path": "docs/restart/product-contract.md",
+        "historically_reviewed_sha256": "324a3f87dcfb12acbb589669a2f4819971e15adcf9c40900862300127b1d2510",
+        "current_sha256": "c6ff778a21e1983e5c447d235b58c22cdc94685671ebef8b4cee618cb93467ae",
+        "same_bytes": false,
+        "disposition": "Historical approval does not cover the new bytes; current revision 11 task and accepted P01 requirements govern this brief."
+      }
+    ],
+    "upstream_pin_rechecks": [
+      {
+        "repository": "trezor/trezor-hardware",
+        "observed_default_branch_head": "f469f4ca0bed731f505f270636a3a459d2f3b931",
+        "committed_utc": "2026-01-08T12:14:53Z",
+        "same_as_preserved_pin": true,
+        "method": "Read-only GitHub commits API, per_page=1; 2026-10-18"
+      },
+      {
+        "repository": "trezor/trezor-firmware",
+        "observed_default_branch_head": "5fdc180b99bd763c3d18411bba686909875eb337",
+        "committed_utc": "2026-10-16T17:38:19Z",
+        "same_as_preserved_pin": true,
+        "method": "Read-only GitHub commits API, per_page=1; 2026-10-18"
+      },
+      {
+        "repository": "tropicsquare/tropic01",
+        "observed_default_branch_head": "90747cac7c0261408c0ca767d272894f481f2cf2",
+        "committed_utc": "2026-09-25T11:48:38Z",
+        "same_as_preserved_pin": true,
+        "method": "Read-only GitHub commits API, per_page=1; 2026-10-18"
+      },
+      {
+        "repository": "tropicsquare/devboards",
+        "observed_default_branch_head": "5457ca1e0534df59e5587dba332f30014d7874dc",
+        "committed_utc": "2026-02-26T15:52:08Z",
+        "same_as_preserved_pin": true,
+        "method": "Read-only GitHub commits API, per_page=1; 2026-10-18"
+      },
+      {
+        "repository": "tropicsquare/libtropic",
+        "observed_default_branch_head": "9085ea5387a8a1d5a946c7e4f633c7134e4909a7",
+        "committed_utc": "2026-10-02T09:50:27Z",
+        "same_as_preserved_pin": true,
+        "method": "Read-only GitHub commits API, per_page=1; 2026-10-18"
+      }
+    ],
+    "fresh_original_receipts": [
+      {
+        "source_id": "tropic01/doc/security_advisories/ODR_TR01_SA_2026012900_1v0.pdf",
+        "url": "https://raw.githubusercontent.com/tropicsquare/tropic01/90747cac7c0261408c0ca767d272894f481f2cf2/doc/security_advisories/ODR_TR01_SA_2026012900_1v0.pdf",
+        "sha256": "299fa8f07ad0611cdc2a56b24d46ead257fe42dca9c3d96cd38b3384c598f1ad",
+        "bytes": 109967,
+        "preparation_remote_retrieval": "HTTP 200; original bytes fetched in memory with Python urllib on 2026-10-18 and SHA-256 matched the preserved original",
+        "original_redistributed": false,
+        "scope": "Advisory affected-product table revisited; T310 remains listed; no exploit or remediation qualification."
+      },
+      {
+        "source_id": "devboards/TROPIC01_USB_Devkit/PCB/TS1303/ts1303_schematics.pdf",
+        "url": "https://raw.githubusercontent.com/tropicsquare/devboards/5457ca1e0534df59e5587dba332f30014d7874dc/TROPIC01_USB_Devkit/PCB/TS1303/ts1303_schematics.pdf",
+        "sha256": "6d5d751e6d2934b8d6c505dec84830e26a760e961f2768bf4360d57da2f2f2fe",
+        "bytes": 271360,
+        "preparation_remote_retrieval": "HTTP 200; original bytes fetched in memory with Python urllib on 2026-10-18 and SHA-256 matched the preserved original",
+        "original_redistributed": false,
+        "scope": "Inherited one-page visual review for host/SPI/GPO/power/connector paths; this preparation verified byte correspondence and did not repeat visual or electrical qualification."
+      },
+      {
+        "source_id": "devboards/TROPIC01_Arduino_Shield/TS1401/ts1401_schematics.pdf",
+        "url": "https://raw.githubusercontent.com/tropicsquare/devboards/5457ca1e0534df59e5587dba332f30014d7874dc/TROPIC01_Arduino_Shield/TS1401/ts1401_schematics.pdf",
+        "sha256": "3d9108969d0c61bffa376392345642d16abc9d0d07dee70b4e93959c47172afe",
+        "bytes": 137265,
+        "preparation_remote_retrieval": "HTTP 200; original bytes fetched in memory with Python urllib on 2026-10-18 and SHA-256 matched the preserved original",
+        "original_redistributed": false,
+        "scope": "Inherited one-page visual review for host/SPI/GPO/power/connector paths; this preparation verified byte correspondence and did not repeat visual or electrical qualification."
+      },
+      {
+        "source_id": "devboards/TROPIC01_Raspberry_Pi_Shield/TS1501/ts1501_schematics.pdf",
+        "url": "https://raw.githubusercontent.com/tropicsquare/devboards/5457ca1e0534df59e5587dba332f30014d7874dc/TROPIC01_Raspberry_Pi_Shield/TS1501/ts1501_schematics.pdf",
+        "sha256": "76095194b2a4ac7034fe79f46b761145792b75d983d4f2b5bab5a37b18199437",
+        "bytes": 111505,
+        "preparation_remote_retrieval": "HTTP 200; original bytes fetched in memory with Python urllib on 2026-10-18 and SHA-256 matched the preserved original",
+        "original_redistributed": false,
+        "scope": "Inherited one-page visual review for host/SPI/GPO/power/connector paths; this preparation verified byte correspondence and did not repeat visual or electrical qualification."
+      },
+      {
+        "source_id": "devboards/TROPIC01_Mini_Board/TS1702/TS1702_schematic.pdf",
+        "url": "https://raw.githubusercontent.com/tropicsquare/devboards/5457ca1e0534df59e5587dba332f30014d7874dc/TROPIC01_Mini_Board/TS1702/TS1702_schematic.pdf",
+        "sha256": "e08c79d3f76b87278b773e52145146e2795ebfaebb0af9ffd9b775fa933c5aff",
+        "bytes": 63565,
+        "preparation_remote_retrieval": "HTTP 200; original bytes fetched in memory with Python urllib on 2026-10-18 and SHA-256 matched the preserved original",
+        "original_redistributed": false,
+        "scope": "Inherited one-page visual review for host/SPI/GPO/power/connector paths; this preparation verified byte correspondence and did not repeat visual or electrical qualification."
+      }
+    ]
+  },
+  "primary_web_checks": [
+    {
+      "id": "st-rm0456",
+      "url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf",
+      "date": "2026-10-18",
+      "method": "Web original open plus official-domain search",
+      "result": "Original open rejected by reader size limit greater than 10 MiB. Official cover extraction identifies RM0456 Rev 7, March 2026, 3651 pages.",
+      "original_sha256": null,
+      "reading": "cover/index only",
+      "remaining": "Relevant Rev 6 to Rev 7 delta and used-register sections remain mandatory before host-probe admission."
+    },
+    {
+      "id": "nxp-se051",
+      "url": "https://www.nxp.com/products/SE051",
+      "date": "2026-10-18",
+      "method": "Web official catalogue and direct API/errata link clicks",
+      "result": "Catalogue lists AN12543 Rev 4.5 (2024-03-27), SE051-ERRATASHEET Rev 1.1 (2023-11-30), AN13030 Rev 2.7 (2026-07-09), AN13015 Rev 1.4 (2026-01-09), AN12907 Rev 1.2 (2023-11-23). API/middleware/personalization entries identify account requirements. API/errata link opens returned tool errors.",
+      "original_sha256": null,
+      "reading": "catalogue access/revision entries and update-authority overview only",
+      "remaining": "No API/errata content or developer update/distribution terms established; H02S/H04 gate remains."
+    },
+    {
+      "id": "esp-s3-security",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/security/security.html",
+      "observed_version": "6.1",
+      "version_locator_for_implementation": "https://docs.espressif.com/projects/esp-idf/en/v6.1/esp32s3/security/security.html",
+      "date": "2026-10-18",
+      "reading": "Selected memory-protection, flash/external-RAM encryption, debug/UART-download and update/anti-rollback overview sections",
+      "original_sha256": null,
+      "remaining": "Exact TRM/errata, silicon, SDK configuration, cross-master/UI/DMA and owner-lifecycle review. SDK overview is not isolation proof."
+    },
+    {
+      "id": "esp-p4-security",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32p4/security/security.html",
+      "observed_version": "6.1",
+      "version_locator_for_implementation": "https://docs.espressif.com/projects/esp-idf/en/v6.1/esp32p4/security/security.html",
+      "date": "2026-10-18",
+      "reading": "Selected key-manager, memory-protection, debug/download and update overview sections",
+      "original_sha256": null,
+      "remaining": "Do not transfer ECDSA/peripheral key-manager properties to BIP340 or Nostr ECDH; exact TRM/silicon/SDK and physical proof remain."
+    },
+    {
+      "id": "nxp-mcxn947",
+      "url": "https://www.nxp.com/products/MCX-N94-N54-N53-N52-N24",
+      "date": "2026-10-18",
+      "reading": "Selected feature/package table and documentation-access index",
+      "original_sha256": null,
+      "result": "One bounded alternative screen. Catalogue lists datasheet Rev 8.2 (2026-06-11), reference manual Rev 7.0 (2025-12-17), security reference manual Rev 6.0 (2025-10-29); both manuals are account-required.",
+      "remaining": "Index metadata is not a reference/security manual review. No MCU admission or new bench port."
+    },
+    {
+      "id": "st-u5g9zj",
+      "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32u5g9zj.html",
+      "date": "2026-10-18",
+      "original_sha256": null,
+      "reading": "Selected memory/graphics/power features and exact package/order table; manufacturer overview only",
+      "result": "U5G9ZJ is explicitly included in document-level triage. Package table distinguishes STM32U5G9ZJT6Q LQFP144 from STM32U5G9ZJJ6Q UFBGA144; family marketing claims are not exact pin availability.",
+      "remaining": "DS14102/ES0595/current RM0456 section and exact OPN/power/pin/toolchain review. No selected architecture or physical sample."
+    },
+    {
+      "id": "st-u5g9-kit",
+      "url": "https://www.st.com/en/evaluation-tools/stm32u5g9j-dk1.html",
+      "date": "2026-10-18",
+      "original_sha256": null,
+      "reading": "Kit description/features and schematic-resource index",
+      "result": "Kit documentation identifies STM32U5G9NJH6Q in TFBGA216 and VDD 1.8 V design, distinct from U5G9ZJ candidate packages.",
+      "remaining": "Actual board revision, drawings and driver/UI/memory/power validation before any kit probe."
+    },
+    {
+      "id": "st-u5g9-datasheet",
+      "url": "https://www.st.com/resource/en/datasheet/stm32u5g9zj.pdf",
+      "date": "2026-10-18",
+      "original_sha256": null,
+      "reading": "PDF locator opened; no substantive datasheet review in preparation",
+      "result": "Initial web open reported 348 pages; revision searches returned no match and a follow-up cover open timed out. No document revision inferred.",
+      "remaining": "Archive authorized original, verify exact cover/revision and review candidate sections during approved H01 implementation."
+    }
+  ],
+  "acceptance_plan": [
+    {
+      "index": 0,
+      "planned_artifacts": [
+        "manual-register.json",
+        "manual-register.md",
+        "pin-errata-ledger.json"
+      ],
+      "required_review": "Every admitted candidate resolves exact ordering/package/power/silicon applicability; original source identity, revision, retrieval/hash and errata recorded. Unknown received hardware stays unknown."
+    },
+    {
+      "index": 1,
+      "planned_artifacts": [
+        "option-comparison.md",
+        "review-coverage.md",
+        "probe-plan.md"
+      ],
+      "required_review": "Complete all host-probe-relevant sections for admitted U5/S3 configurations and bounded triage alternatives. Record selected-design work due before H04; no silent comparator deletion."
+    },
+    {
+      "index": 2,
+      "planned_artifacts": [
+        "manual-register.json",
+        "review-coverage.md"
+      ],
+      "required_review": "Inaccessible/restricted/unread documents and unsupported features have an explicit blocking consequence and next owner/action."
+    },
+    {
+      "index": 3,
+      "planned_artifacts": [
+        "manual-register.json",
+        "review-coverage.md"
+      ],
+      "required_review": "Full versus selected versus inherited/index/unread scope is honest; download/hash does not stand in for reading."
+    },
+    {
+      "index": 4,
+      "planned_artifacts": [
+        "option-comparison.md",
+        "review-coverage.md"
+      ],
+      "required_review": "Exact API/errata/update and developer distribution access participates in selection; SE gaps do not block independent host work."
+    },
+    {
+      "index": 5,
+      "planned_artifacts": [
+        "review-coverage.md",
+        "probe-plan.md",
+        "result.json",
+        "handoff.md"
+      ],
+      "required_review": "H01 host-relevant review can close with explicit SE gaps but no part selection; selected-SE mandatory documents remain H02S/H04 hard gates. Distinct final review of exact candidate required."
+    }
+  ],
+  "physical_resource_snapshot": {
+    "date": "2026-10-18",
+    "source_graph_revision": 11,
+    "entries": {
+      "accessible_kit": "unknown",
+      "pi_kit": "unknown",
+      "p4_kit": "unknown",
+      "host_bench": "unknown",
+      "se_bench": "unknown",
+      "bench_instruments": "unknown",
+      "physical_operator": "unknown",
+      "panel_power_samples": "unknown",
+      "sacrificial_units": "unknown",
+      "evt_assemblies": "unknown",
+      "dvt_assemblies": "unknown",
+      "external_lab": "unknown",
+      "participants": "unknown",
+      "support_capacity": "unknown",
+      "independent_developer": "unknown",
+      "provisioning_operator": "unknown"
+    },
+    "inventory_request": "Coordinator has asked maintainer; no response available to this preparation.",
+    "measured_evidence": []
+  },
+  "preparation_checks": [
+    {
+      "command": "git status --short and git rev-parse HEAD on canonical main and hardware source",
+      "result": "Clean; both match pinned input commits."
+    },
+    {
+      "command": "Python SHA-256 verification of downloaded entries in preserved source register",
+      "result": "75 matches; 0 mismatches. No manuals reread through this check."
+    },
+    {
+      "command": "Read-only GitHub commits API for five pinned primary repositories",
+      "result": "All five current default-branch heads match preserved pins."
+    },
+    {
+      "command": "Python urllib fresh retrieval and SHA-256 of advisory and four TROPIC schematic PDFs",
+      "result": "Five HTTP 200 responses; all match preserved original hashes."
+    },
+    {
+      "command": "Python JSON parse; exact six acceptances and coverage indices; canonical input SHA-256 correspondence; 16-resource snapshot consistency",
+      "result": "pass",
+      "exit_code": 0,
+      "recorded_utc": "2026-10-18T17:21:43.480850+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "platform": "Linux-6.12.101+deb13-amd64-x86_64-with-glibc2.41"
+      }
+    }
+  ],
+  "limits": [
+    "This file records specification preparation, not an H01 acceptance result manifest.",
+    "No physical resource or manual selection gap was closed by a metadata or hash check.",
+    "Preparation web extractions are not archived original documents; original_sha256 is null when no matching original receipt was created.",
+    "An independent final implementation review and coordinator graph/integration actions remain required."
+  ],
+  "coordinator_scope_steering": {
+    "date": "2026-10-18",
+    "direction": "Explicit U5G9 document-level UI/RAM/package/power/toolchain triage alongside U585; no automatic selection and no new bench port required.",
+    "incorporated": true
+  }
+}

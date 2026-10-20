@@ -1,0 +1,627 @@
+{
+  "scope": "Byte/reference correspondence only; substantive review is separate; H01 incomplete.",
+  "candidate": "6f95cc298c5a8108d5c0bdaedfd53e7b81b130ed",
+  "source": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+  "python": "3.13.5",
+  "metadata": [
+    {
+      "path": "docs/restart/H01/result.json",
+      "sha256": "63e99a811fc527e0da9b7fb8f3f4bcb67b6ab8a45f74dbb3b2390d6b1bcfa07b",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/handoff.md",
+      "sha256": "8475e8fa0c9f33aac01edeb8d9e0ed4556f9f4b97f2e6ef8cca9fd79f7130d78",
+      "match": true
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "artifacts",
+      "path": "README.md",
+      "sha256": "44e65289753dd800c66c6db7d967ae3f8000d12bd2a082ffecaa2d857720b650",
+      "bytes": 2710,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/brief.md",
+      "sha256": "89f5e3487d669e1555bf07f8207ddc8cf783f554b72a7f02785fffd5deccf5e8",
+      "bytes": 18448,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/claims.json",
+      "sha256": "1e0459588b7cb40e27163598c69bf14b5920881207ddcf62587e9c344dc65858",
+      "bytes": 29605,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/errata-correction.md",
+      "sha256": "e9b32c00ebe125fcf12aab95224fb361ca66f6c2dbcf3a092aefc8d4a1e76004",
+      "bytes": 1955,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/host-subset-notes.md",
+      "sha256": "35ef14b30c6057ddf382a1515e0f98a11f4526884a4d25504c12d2f5806495cd",
+      "bytes": 11095,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/dk2-retrieval.json",
+      "sha256": "6af7075283b32f618ac1b426ab7db995227f98d24869a5879fb8ce6223e0bc14",
+      "bytes": 773,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/drawing-correspondence.json",
+      "sha256": "a7ff23a3ce2e44358669915f3a240963b9558e624faeb89fdcd5b38b37569598",
+      "bytes": 1182,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/evidence-correspondence.json",
+      "sha256": "30ecdf2eb6bdc1e13d5fd071c54cf46c7f88db075e78e7a0a396fcf62483ed54",
+      "bytes": 31499,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/logs/html-source-check.json",
+      "sha256": "6e719521230d764cb40d03d82dcc0b1b3d3ee00b49a98b2b64939aa6c142aec7",
+      "bytes": 845,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/probes/check_evidence.py",
+      "sha256": "7d12f4d0f7614ae7814f2a04e37dcaad59e60906da7725e04e5e298a9877c20f",
+      "bytes": 6470,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/report.md",
+      "sha256": "aff49a9b71244a4b7f459ad983055d7b12428438c65f65f17c7bbb033e9877e3",
+      "bytes": 19082,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/independent-review/review.json",
+      "sha256": "dae32ac9c27ad348a3ff3e07fea54a4cca50ae67881eabc34803ff60b86fd49b",
+      "bytes": 19069,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/input-notes.json",
+      "sha256": "75b54942af4cace291f3f60f234ccb35b02a45b831a6961d2b26b8a8ad39a7b0",
+      "bytes": 27778,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/manual-register.json",
+      "sha256": "607f4a16d2c6e59c329fcb8fb2cd9f81c3884aa87d1a5729397456f1423bbdeb",
+      "bytes": 120775,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/manual-register.md",
+      "sha256": "978ad01e723f612feb9bdacd7d5dc908fc286f64a385c5749a98aa6235093dfc",
+      "bytes": 8183,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/option-comparison.md",
+      "sha256": "d04c20cdef516539f5d05d2bb8f5f2b14a7ba71854af921e8cd7d5c6c5a9a3f7",
+      "bytes": 15758,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "sha256": "71c88aaa0f3b1c1939024e48908150a0cadcb37dc332228a7c2387b4cd7b18e4",
+      "bytes": 52743,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/probe-plan.md",
+      "sha256": "b9c977f546ea37c1aa881551bac4ab76d3699e7f5a34a6b1434f53aa121d3570",
+      "bytes": 9489,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/review-coverage.md",
+      "sha256": "6896259a0ac51bc10462a39d38a5f778e3ba03845ae765663a5ba212aa05078f",
+      "bytes": 9767,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/review-response.md",
+      "sha256": "a0f64bcec3370961cb058c345842e1b1eb27f236be56cae1aab5ec783a8f1baa",
+      "bytes": 3168,
+      "match": true
+    },
+    {
+      "kind": "artifacts",
+      "path": "docs/restart/H01/spec-review.json",
+      "sha256": "9700d170688af1fcb1096c18d173164feb0751ccce0156b1bb369b3524eeb93d",
+      "bytes": 3194,
+      "match": true
+    },
+    {
+      "kind": "verification_artifacts",
+      "path": "docs/restart/H01/checks/ci-6b45f6f.log",
+      "sha256": "3f7ae2db7a4116851dbdee90055c4cef2596ab01372132089465dab82f34f45f",
+      "bytes": 788,
+      "match": true
+    },
+    {
+      "kind": "verification_artifacts",
+      "path": "docs/restart/H01/checks/followup-integrity.json",
+      "sha256": "929176475d926c9692338c613519c8a6302addca1c83264b9fca7f93033f6c65",
+      "bytes": 12771,
+      "match": true
+    }
+  ],
+  "affected_originals": [
+    {
+      "id": "s3-trm",
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
+      "bytes": 15215232,
+      "match": true
+    },
+    {
+      "id": "s3-es",
+      "sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500",
+      "bytes": 628997,
+      "match": true
+    },
+    {
+      "id": "p4-es",
+      "sha256": "76c8e48cfc7248fc85b449da3bdce5ff402d19a3d763c36751ca1f09a1dff049",
+      "bytes": 145290,
+      "match": true
+    },
+    {
+      "id": "ti-tps63802",
+      "sha256": "be07deca1231c5493957bc64c2dc1cad5543bff330e49ae41caf3286fd80dca6",
+      "bytes": 2466159,
+      "match": true
+    },
+    {
+      "id": "s3-idf-random",
+      "sha256": "45b8381aef1a2e7bd9e42fc198c6b0a8644ae7eb28c1dc56bc1b561178e7b5bd",
+      "bytes": 4621,
+      "match": true
+    },
+    {
+      "id": "s3-idf-boot-random",
+      "sha256": "ec501ea8fccaccdc11514415f77931d7c22381e396d8315834ac03447e666071",
+      "bytes": 2701,
+      "match": true
+    },
+    {
+      "id": "s3-idf-sleep",
+      "sha256": "88b35f6a99ee7aec939055a9e1da5b1583c8a9cee904d0baaeebefac66b67993",
+      "bytes": 14105,
+      "match": true
+    },
+    {
+      "id": "s3-idf-rtc-header",
+      "sha256": "d9b1f31947556b96e24566a30a57b116d11b4b2c95d138b5dbe8af74c26fbdc8",
+      "bytes": 35802,
+      "match": true
+    },
+    {
+      "id": "s3-idf-usb-struct",
+      "sha256": "4887739d8aaf4b849e4cd77cd505617ad6b8c2059de0f6a0d92bbde013ed44d1",
+      "bytes": 6351,
+      "match": true
+    },
+    {
+      "id": "s3-idf-usb-ll",
+      "sha256": "2696e26ae119ff22f85defda74884ae5d8c4138798985374c191755b4ad63739",
+      "bytes": 35485,
+      "match": true
+    },
+    {
+      "id": "s3-usb-component",
+      "sha256": "e467e6ae1d679263b2439aa7a9d41a1695a29e809e410c2a14b982ab90915d39",
+      "bytes": 653,
+      "match": true
+    },
+    {
+      "id": "s3-usb-config",
+      "sha256": "85e10f8f3ea61dbd3d75d324f88393f7994535de1fd192789a5f01d78bfc2557",
+      "bytes": 10529,
+      "match": true
+    },
+    {
+      "id": "s3-usb-device",
+      "sha256": "6c9259a905910a50b476fa7027700769592ed9d1b414a6a3f7b2710ff1db85c8",
+      "bytes": 13593,
+      "match": true
+    },
+    {
+      "id": "u5g9-dk2",
+      "sha256": null,
+      "match": null,
+      "scope": "Web-only reading; no original hash inferred."
+    },
+    {
+      "id": "u5g9-um3223",
+      "sha256": null,
+      "match": null,
+      "scope": "Web-only reading; no original hash inferred."
+    }
+  ],
+  "prior_source_identities": [
+    {
+      "id": "u5-rm7",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u585-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u585-es",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u5g9-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u5g9-es",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u5a5-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u5a5-es",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-module",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-trm",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-es",
+      "identity_unchanged": true
+    },
+    {
+      "id": "p4-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "p4-es",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-tn1489",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-sa0055",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-ar2026-005",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-rng-sdk",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-boot-sdk",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-flash-sdk",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-ota-sdk",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-board",
+      "identity_unchanged": true
+    },
+    {
+      "id": "s3-usb-sdk-current",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-tn1474",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ti-bq24074",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ti-bq25628",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ti-tps63802",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ti-tusb320lai",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-mcxn947-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-se051-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-se051-config",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-se051-errata",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-se05x-api",
+      "identity_unchanged": true
+    },
+    {
+      "id": "optiga-m-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "tropic-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "tropic-api",
+      "identity_unchanged": true
+    },
+    {
+      "id": "tropic-pin",
+      "identity_unchanged": true
+    },
+    {
+      "id": "tropic-pairing",
+      "identity_unchanged": true
+    },
+    {
+      "id": "tropic-advisory",
+      "identity_unchanged": true
+    },
+    {
+      "id": "tropic-catalog",
+      "identity_unchanged": true
+    },
+    {
+      "id": "diodes-ap2112",
+      "identity_unchanged": true
+    },
+    {
+      "id": "optiga-m-manual",
+      "identity_unchanged": true
+    },
+    {
+      "id": "optiga-m-releases",
+      "identity_unchanged": true
+    },
+    {
+      "id": "optiga-m-i2c",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-sems-update",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-host-binding",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-pins-STM32U585VITx",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-pins-STM32U585VITxQ",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTx",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-pins-STM32U5A5VJTxQ",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-u5-rm6-jp",
+      "identity_unchanged": true
+    },
+    {
+      "id": "st-h5-98864_en",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-i2c-spec",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ref-safe7-main",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ref-ts1303",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ref-ts1401",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ref-ts1501",
+      "identity_unchanged": true
+    },
+    {
+      "id": "ref-ts1702",
+      "identity_unchanged": true
+    },
+    {
+      "id": "embassy-stm32-cargo",
+      "identity_unchanged": true
+    },
+    {
+      "id": "embassy-stm32-lib",
+      "identity_unchanged": true
+    },
+    {
+      "id": "esp-hal-cargo",
+      "identity_unchanged": true
+    },
+    {
+      "id": "esp-rust-book",
+      "identity_unchanged": true
+    },
+    {
+      "id": "esp-classic-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "h573-ds",
+      "identity_unchanged": true
+    },
+    {
+      "id": "h573-es",
+      "identity_unchanged": true
+    },
+    {
+      "id": "mcxn947-rm",
+      "identity_unchanged": true
+    },
+    {
+      "id": "mcxn947-security-rm",
+      "identity_unchanged": true
+    },
+    {
+      "id": "nxp-se051-current-index",
+      "identity_unchanged": true
+    },
+    {
+      "id": "usb-c-normative",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u5g9-opn",
+      "identity_unchanged": true
+    },
+    {
+      "id": "u5g9-kit",
+      "identity_unchanged": true
+    }
+  ],
+  "prior_review_preserved": [
+    {
+      "path": "docs/restart/H01/independent-review/logs/dk2-retrieval.json",
+      "sha256": "6af7075283b32f618ac1b426ab7db995227f98d24869a5879fb8ce6223e0bc14",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/drawing-correspondence.json",
+      "sha256": "a7ff23a3ce2e44358669915f3a240963b9558e624faeb89fdcd5b38b37569598",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/evidence-correspondence.json",
+      "sha256": "30ecdf2eb6bdc1e13d5fd071c54cf46c7f88db075e78e7a0a396fcf62483ed54",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/html-source-check.json",
+      "sha256": "6e719521230d764cb40d03d82dcc0b1b3d3ee00b49a98b2b64939aa6c142aec7",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/probes/check_evidence.py",
+      "sha256": "7d12f4d0f7614ae7814f2a04e37dcaad59e60906da7725e04e5e298a9877c20f",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/report.md",
+      "sha256": "aff49a9b71244a4b7f459ad983055d7b12428438c65f65f17c7bbb033e9877e3",
+      "match": true
+    },
+    {
+      "path": "docs/restart/H01/independent-review/review.json",
+      "sha256": "dae32ac9c27ad348a3ff3e07fea54a4cca50ae67881eabc34803ff60b86fd49b",
+      "match": true
+    }
+  ],
+  "pdf_text_correspondence": [
+    {
+      "id": "s3-es",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "sha256": "9d5fc1bb115f818fb9ff92e655823e8a1d1be7300c435889469d41b352a8f19b",
+      "match": true
+    },
+    {
+      "id": "s3-trm",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "sha256": "2e0c0f12eb615808484b4663ce9200f74dd3c757e49f2a882fcc1ff5b4282e3d",
+      "match": true
+    },
+    {
+      "id": "ti-tps63802",
+      "command": "pdftotext -layout ORIGINAL -",
+      "exit_code": 0,
+      "sha256": "25ab3ad5a13c6c607269d1fb84cb61864467241f05f73ac6a73792086de40e80",
+      "match": true
+    }
+  ],
+  "brief_input_unchanged": true,
+  "source_unique": true,
+  "dangling_references": [],
+  "host_admissions": [],
+  "selected_components": [],
+  "counts": {
+    "sources": 81,
+    "claims": 27,
+    "pins": 25,
+    "errata": 25,
+    "contradictions": 11
+  }
+}

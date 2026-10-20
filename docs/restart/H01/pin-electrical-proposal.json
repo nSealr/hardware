@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "source_checkpoint": "efc087d0d9bb0c2cd1f9f936e46b565c56d56fe0",
+  "date": "2026-10-20",
+  "status": "Conditionalsource/pin/electricalrequirements;nohostorfixtureadmission",
+  "author": "/root/h01_sol",
+  "source_table": "pin-electrical-contract.md",
+  "host_identities": {
+    "U585kit": "B-U585I-IOT02A/MB1551-U585AI-D01/U13AII6QU/UFBGA169,proposedU0x3007",
+    "U585custom_witness": "STM32U585VIT6Q/LQFP100SMPS,notcompleteBOM/pin-equivalentkit",
+    "S3kit": "ESP32-S3-DevKitC-1-N8R8/v1.1/WROOM-1-N8R8,proposedsiliconv0.2;actualROM/unitunknown"
+  },
+  "panel_fixture": {
+    "rail_nominal_V": 3.0,
+    "total_relative_error": 0.02,
+    "rail_range_V": [
+      2.94,
+      3.06
+    ],
+    "logic_high_ratio_range": [
+      0.9,
+      1.0
+    ],
+    "logic_low_ratio_range": [
+      0,
+      0.1
+    ],
+    "logic_current_source_limit_mA_at3V": 15,
+    "backlight_nominal_mA": 15,
+    "backlight_max_mA": 25,
+    "backlight_forward_V_at15mA": [
+      10.8,
+      13.6
+    ],
+    "rise_fall_max_ns": 15,
+    "U585_OSPEEDR_binary": "01",
+    "U585_HSLV": false,
+    "U585_total_pad_load_max_pF_condition": 30,
+    "parts_or_implementation_selected": false,
+    "startup_internalpower_factory_evidence_satisfied": false
+  },
+  "contacts": {
+    "count": 6,
+    "pullup_ohm": 10000,
+    "pullup_relative_tolerance": 0.01,
+    "closed_path_max_ohm": 100,
+    "fixture_leakage_magnitude_max_A": 1e-06,
+    "high_min_VDD_ratio": 0.9,
+    "low_max_VDD_ratio": 0.1,
+    "internalpulls_or_output_or_alternateowners_allowed": false
+  },
+  "comparison": {
+    "noTouch_rawDB": true,
+    "fullframe_pixels": 76800,
+    "RGB565_bytes_per_pixel": 2,
+    "fullframe_bytes": 153600,
+    "U585_nominal_SPI_Hz": 3000000,
+    "S3_nominal_SPI_Hz": 2500000,
+    "U585_fullframe_wire_s": 0.4096,
+    "S3_fullframe_wire_s": 0.49152,
+    "partial_rectangle_pixels": [
+      240,
+      32
+    ],
+    "U585_partial_wire_s": 0.04096,
+    "S3_partial_wire_s": 0.049152,
+    "dated_raw_module_indication_USD": 19.58,
+    "indication_date": "2026-10-20",
+    "complete_BOM_cost_or_quote": false,
+    "headroom_or_target_fit_proven": false,
+    "hostile_app_isolation": false,
+    "two_SE_pair_or_third_selected": false
+  },
+  "prerequisite_failures": [
+    "U585OUT64/68unsatisfiedsourceproperty",
+    "RawDBstartup/internalpower/factory-state",
+    "FixedUSJdescriptors/lifecycle/attachunselected",
+    "Actualreferences/clock/binary/IRQ/ownership/fixtureandphysicalqualification"
+  ],
+  "not_run": [
+    "Build/link/API/registerwrites",
+    "Physicalwiring/power/USB/fault/RF/currentmeasurement",
+    "Fuses/flash/productionsecrets/provisioning"
+  ],
+  "custom_package_conditions": [
+    "PC4/5absent",
+    "PH4/5absent",
+    "PB11absent",
+    "PB13/14AF4I2C2alternativeunselected;PB14DBCC2controlnotkitCC2PB15;additionalfunction/resetpolicyrequired"
+  ],
+  "withdrawn_private_draft": [
+    "PB14physicalCC2conflictfalse",
+    "PB4TCPPalertfalse;nativePE8FLGn/PD13IANA"
+  ]
+}

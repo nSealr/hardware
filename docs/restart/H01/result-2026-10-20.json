@@ -1,0 +1,577 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "record_kind": "CurrentfiniteC01-C10source/requirement/negative-outcomepackage;notacceptanceorpartselection",
+  "recorded_utc": "2026-10-20T14:56:42.071559+00:00",
+  "author": "/root/h01_sol",
+  "model_policy": "gpt-6.1-sol/xhigh;noAstraescalation",
+  "source_repository": "nSealr/hardware",
+  "research_branch": "restart/h01-manuals",
+  "research_checkpoint": "732663024e5fde3a5ee73a2525769d88a99795de",
+  "delivery_branch": "restart/h01-delivery-2026-10-20",
+  "integration_base_commit": "b48229d47ea93ef552ccdf4521aab6b37880fe96",
+  "integration_base_tree": "b5cf9556a05a0cfaef4288cc784d990fcef94523",
+  "immutable_input_commits": {
+    "nSealr/hardware": "340697d6713a671e9e01b0dc874ec999ab071601",
+    "nSealr/nsealr": "7b5553685dac56029a4379be12054154b6b5e0b5"
+  },
+  "canonical_acceptance_source": {
+    "commit": "1620ab19d3fbcaf3438a76a5817d266babe30511",
+    "path": "plan/work-items.json",
+    "blob": "b2174521976f7b331e4cc7b58cffad7484f3d088",
+    "bytes": 532507,
+    "sha256": "b3df60b763a29ab2d39c596d018896a3a2c7be82e4d611fe3225c01653b86023",
+    "revision": 18
+  },
+  "canonical_acceptance_assessment": [
+    {
+      "index": 0,
+      "exact_text": "For every candidate record exact part/package/silicon, official document ID/revision/date/URL/hash and relevant errata.",
+      "author_status": "partial_exact_identity_unknowns_retained",
+      "evidence": [
+        "manual-register.json",
+        "pin-electrical-contract.md",
+        "option-comparison.md",
+        "g9-comparison-review.md"
+      ],
+      "final_milestone_pass_claimed": false
+    },
+    {
+      "index": 1,
+      "exact_text": "Triage a few coherent platform alternatives against Signer, standalone display/input/expansion and generic key-operation workloads, the touchscreen preference and a concrete two-SE study. Read and sign off the sections required for each admitted MCU feasibility probe; record selected-design review work that must close before H04. Preserve useful existing source work without calling it a product selection.",
+      "author_status": "partial_triage_and_signed_negative_outcomes_no_probe_admission",
+      "evidence": [
+        "option-comparison.md",
+        "host-review-outcomes.md",
+        "g9-comparison-review.md",
+        "closure-checklist.md"
+      ],
+      "final_milestone_pass_claimed": false
+    },
+    {
+      "index": 2,
+      "exact_text": "Identify unavailable/restricted documentation and unsupported features before freezing a part.",
+      "author_status": "documented_gaps_no_freeze",
+      "evidence": [
+        "manual-register.json",
+        "pin-errata-ledger.json",
+        "host-review-outcomes.md"
+      ],
+      "final_milestone_pass_claimed": false
+    },
+    {
+      "index": 3,
+      "exact_text": "No full-manual-review claim is made from a link inventory.",
+      "author_status": "documented_actual_selected_vs_full_scope",
+      "evidence": [
+        "manual-register.json",
+        "manual-register.md",
+        "claims.json"
+      ],
+      "final_milestone_pass_claimed": false
+    },
+    {
+      "index": 4,
+      "exact_text": "Treat openness and reproducible developer access to exact API/errata/update terms as selection criteria. An inaccessible SE manual is an unresolved gate for selecting that SE, not a reason to block unrelated MCU/USB/display research.",
+      "author_status": "documented_access_gates_and_independent_research",
+      "evidence": [
+        "option-comparison.md",
+        "review-coverage.md",
+        "probe-plan.md"
+      ],
+      "final_milestone_pass_claimed": false
+    },
+    {
+      "index": 5,
+      "exact_text": "Close the register/triage milestone with complete host-relevant review and explicit unresolved SE documents if necessary; do not represent that as part selection. Mandatory selected-SE documents remain hard gates in H02S/H04, allowing independent host bench work.",
+      "author_status": "not_claimed_met_mandatory_host_properties_unsatisfied",
+      "evidence": [
+        "host-review-outcomes.md",
+        "probe-plan.md",
+        "power-attach-lifetime-contract.md",
+        "u585-usb-endpoint-contract.md"
+      ],
+      "final_milestone_pass_claimed": false
+    }
+  ],
+  "status": "Finite source packet assembled;mandatory host properties UNSATISFIED;no host admission/H01 closure;integratedchecks/distinctfinalreviewpending",
+  "host_admissions": [],
+  "selected_components": [],
+  "physical_or_provisioning_actions_authorized": false,
+  "document_count": 210,
+  "claim_count": 105,
+  "host_review_outcomes": [
+    {
+      "id": "U585",
+      "kind": "Completepaperrequirementswithqualifiedexclusionsandunfulfilledobligations;notworkingqualifiedsystem",
+      "probe_admitted": false,
+      "source_outcome_signer": "/root/h01_sol",
+      "date": "2026-10-20",
+      "rows": [
+        {
+          "id": "package_supply_clock_reset_electrical",
+          "status": "SOURCE_ASSESSED_UNSATISFIED",
+          "evidence": [
+            "pin-electrical-contract.md",
+            "system-runtime-contract.md",
+            "power-attach-lifetime-contract.md"
+          ],
+          "related_claims": [
+            "H01-C91",
+            "H01-C92",
+            "H01-C93",
+            "H01-C95",
+            "H01-C96",
+            "H01-C100",
+            "H01-C101"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "boot_owner_update_rollback",
+          "status": "REQUIREMENTS_RECORDED_PRE_USE_STOP",
+          "evidence": [
+            "owner-update-contract.md",
+            "owner-update-proposal.json"
+          ],
+          "related_claims": [
+            "H01-C97",
+            "H01-C98",
+            "H01-C99"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "memory_ECC_cache_protection_buses_DMA",
+          "status": "REQUIREMENTS_RECORDED_PRE_USE_STOP",
+          "evidence": [
+            "memory-ownership-contract.md",
+            "memory-ownership-proposal.json",
+            "u585-initialization.md",
+            "u585-peripheral-manifest.json"
+          ],
+          "related_claims": [
+            "H01-C84",
+            "H01-C85"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "USB_display_input_GPIO_IRQ_time",
+          "status": "SOURCE_ASSESSED_UNSATISFIED",
+          "evidence": [
+            "u585-usb-endpoint-contract.md",
+            "s3-usj-contract.md",
+            "s3-attach-contract.md",
+            "s3-spi-input-contract.md",
+            "panel-subset-review.md",
+            "system-runtime-contract.md"
+          ],
+          "related_claims": [
+            "H01-C78",
+            "H01-C79",
+            "H01-C86",
+            "H01-C87",
+            "H01-C88",
+            "H01-C89",
+            "H01-C90",
+            "H01-C93",
+            "H01-C96",
+            "H01-C101"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "entropy_health_crypto_backend",
+          "status": "CONDITIONAL_DOCUMENTARY_ALLOCATION_STRICT_PRE_USE_STOP",
+          "evidence": [
+            "entropy-contract-review.md",
+            "memory-ownership-contract.md"
+          ],
+          "related_claims": [
+            "H01-C82",
+            "H01-C83",
+            "H01-C84"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "power_brownout_NV_reset_defaults",
+          "status": "SOURCE_ASSESSED_UNSATISFIED_ATTACH_LIFETIME",
+          "evidence": [
+            "system-runtime-contract.md",
+            "owner-update-contract.md",
+            "power-attach-lifetime-contract.md"
+          ],
+          "related_claims": [
+            "H01-C95",
+            "H01-C97",
+            "H01-C99",
+            "H01-C100",
+            "H01-C101",
+            "H01-C102"
+          ],
+          "qualified_functionality_or_physical_result": false
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "kind": "Completepaperrequirementswithqualifiedexclusionsandunfulfilledobligations;notworkingqualifiedsystem",
+      "probe_admitted": false,
+      "source_outcome_signer": "/root/h01_sol",
+      "date": "2026-10-20",
+      "rows": [
+        {
+          "id": "package_supply_clock_reset_electrical",
+          "status": "REQUIREMENTS_RECORDED_PRE_USE_GATES",
+          "evidence": [
+            "pin-electrical-contract.md",
+            "system-runtime-contract.md",
+            "power-attach-lifetime-contract.md"
+          ],
+          "related_claims": [
+            "H01-C91",
+            "H01-C92",
+            "H01-C93",
+            "H01-C95",
+            "H01-C96",
+            "H01-C100",
+            "H01-C101"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "boot_owner_update_rollback",
+          "status": "REQUIREMENTS_RECORDED_CHECKED_COMMIT_UNPROVEN",
+          "evidence": [
+            "owner-update-contract.md",
+            "owner-update-proposal.json"
+          ],
+          "related_claims": [
+            "H01-C97",
+            "H01-C98",
+            "H01-C99"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "memory_ECC_cache_protection_buses_DMA",
+          "status": "REQUIREMENTS_RECORDED_PRE_USE_STOP",
+          "evidence": [
+            "memory-ownership-contract.md",
+            "memory-ownership-proposal.json",
+            "u585-initialization.md",
+            "u585-peripheral-manifest.json"
+          ],
+          "related_claims": [
+            "H01-C84",
+            "H01-C85"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "USB_display_input_GPIO_IRQ_time",
+          "status": "SOURCE_ASSESSED_DESCRIPTOR_STATUS_ATTACH_UNKNOWN",
+          "evidence": [
+            "u585-usb-endpoint-contract.md",
+            "s3-usj-contract.md",
+            "s3-attach-contract.md",
+            "s3-spi-input-contract.md",
+            "panel-subset-review.md",
+            "system-runtime-contract.md"
+          ],
+          "related_claims": [
+            "H01-C78",
+            "H01-C79",
+            "H01-C86",
+            "H01-C87",
+            "H01-C88",
+            "H01-C89",
+            "H01-C90",
+            "H01-C93",
+            "H01-C96",
+            "H01-C101"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "entropy_health_crypto_backend",
+          "status": "REQUIREMENTS_RECORDED_STRICT_PRE_USE_STOP",
+          "evidence": [
+            "entropy-contract-review.md",
+            "memory-ownership-contract.md"
+          ],
+          "related_claims": [
+            "H01-C82",
+            "H01-C83",
+            "H01-C84"
+          ],
+          "qualified_functionality_or_physical_result": false
+        },
+        {
+          "id": "power_brownout_NV_reset_defaults",
+          "status": "SOURCE_ASSESSED_UNSATISFIED_BOD_AND_UNQUALIFIED_ATTACH",
+          "evidence": [
+            "system-runtime-contract.md",
+            "owner-update-contract.md",
+            "power-attach-lifetime-contract.md"
+          ],
+          "related_claims": [
+            "H01-C95",
+            "H01-C97",
+            "H01-C99",
+            "H01-C100",
+            "H01-C101",
+            "H01-C102"
+          ],
+          "qualified_functionality_or_physical_result": false
+        }
+      ]
+    }
+  ],
+  "first_resolving_sources_and_finite_evidence_gates": "host-review-outcomes.md;notnewsource/experiment/taskauthorization",
+  "G9_decision": "RetainexistinghigherUI/RAMH04comparison;deferpromotion/selection/noadditionalport",
+  "preserved_historical_bindings": [
+    {
+      "path": "docs/restart/H01/brief.md",
+      "original_binding_commit": "732663024e5fde3a5ee73a2525769d88a99795de",
+      "bytes": 18448,
+      "sha256": "89f5e3487d669e1555bf07f8207ddc8cf783f554b72a7f02785fffd5deccf5e8",
+      "status": "Historicalbytespreserved/notreboundtocurrentcandidate"
+    },
+    {
+      "path": "docs/restart/H01/input-notes.json",
+      "original_binding_commit": "732663024e5fde3a5ee73a2525769d88a99795de",
+      "bytes": 27778,
+      "sha256": "75b54942af4cace291f3f60f234ccb35b02a45b831a6961d2b26b8a8ad39a7b0",
+      "status": "Historicalbytespreserved/notreboundtocurrentcandidate"
+    },
+    {
+      "path": "docs/restart/H01/spec-review.json",
+      "original_binding_commit": "732663024e5fde3a5ee73a2525769d88a99795de",
+      "bytes": 3194,
+      "sha256": "9700d170688af1fcb1096c18d173164feb0751ccce0156b1bb369b3524eeb93d",
+      "status": "Historicalbytespreserved/notreboundtocurrentcandidate"
+    },
+    {
+      "path": "docs/restart/H01/result.json",
+      "original_binding_commit": "732663024e5fde3a5ee73a2525769d88a99795de",
+      "bytes": 13218,
+      "sha256": "5c10be2874d6eb6eb194f1c71259a95f3197fb7aef79b085064ee8a601b7836e",
+      "status": "Historicalbytespreserved/notreboundtocurrentcandidate"
+    },
+    {
+      "path": "docs/restart/H01/handoff.md",
+      "original_binding_commit": "732663024e5fde3a5ee73a2525769d88a99795de",
+      "bytes": 6726,
+      "sha256": "2f8d26bdedd671e1d91e47639192bf049c3cfdac5293a4e3c177dc8ac76a5240",
+      "status": "Historicalbytespreserved/notreboundtocurrentcandidate"
+    }
+  ],
+  "reused_distinct_review": {
+    "commit": "2bd030b6a88d87428540ef4a0eaf59efb68d53d7",
+    "kind": "Selected C04 source pre-read while author completes C09/C10; no final H01 review or admission",
+    "candidate": "aa383dfd253171f0d06325aeab1d2a6310cdce39",
+    "candidate_bindings": [
+      {
+        "commit": "aa383dfd253171f0d06325aeab1d2a6310cdce39",
+        "path": "docs/restart/H01/owner-update-contract.md",
+        "mode": "100644",
+        "blob": "f0c92ca5a23da393ee24d213557abcd638831d53",
+        "bytes": 21475,
+        "sha256": "9a5ff45b8f17134415ac3297da3615d5a32dab632ec3a60f210c2efc902831fd"
+      },
+      {
+        "commit": "aa383dfd253171f0d06325aeab1d2a6310cdce39",
+        "path": "docs/restart/H01/owner-update-proposal.json",
+        "mode": "100644",
+        "blob": "a46105a9ce5593653cc3370df1546501a657a7ff",
+        "bytes": 7301,
+        "sha256": "16d7b9b44729cc2e76f44f9c99bc21205904c390d768246edf3dc991b685276b"
+      }
+    ],
+    "remaining_scope": "SelectedC04only,notfinalH01revieworhostadmission"
+  },
+  "checks": {
+    "source_integrity": {
+      "result": "PASS",
+      "record": "checks/c10-source-bindings-2026-10-20.json",
+      "scope": "Selectedsurface/metadata/requirements/sourcebindingsonly;notacceptance"
+    },
+    "integrated_make_ci": "Notrunyetonthiscontentcandidate",
+    "canonical_plan_validator": {
+      "result": "PASS",
+      "record": "checks/c10-canonical-plan-2026-10-20.json",
+      "source_commit": "1620ab19d3fbcaf3438a76a5817d266babe30511",
+      "tasks": 47,
+      "scope": "Readonlystructureonly/coreworktreeunchanged"
+    },
+    "final_distinct_exact_candidate_review": "Pending",
+    "hosted_PR_main_CI": "Rootowned/notobservedorclaimedbythisauthor"
+  },
+  "artifacts": [
+    {
+      "path": "README.md",
+      "bytes": 3406,
+      "sha256": "c6156bdce41c98f9d41ecc5ffc1f294581f699d8ccdd902bb3f2f4be99f1c0aa"
+    },
+    {
+      "path": "docs/restart/H01/host-review-outcomes.md",
+      "bytes": 17297,
+      "sha256": "cfefab1c3a7f229c98863e6f76784a6dc40d1e74397c6197a8e027662be07acd"
+    },
+    {
+      "path": "docs/restart/H01/handoff-2026-10-20.md",
+      "bytes": 4554,
+      "sha256": "dd43263b486832f778c61dc59c1ca1e24aa4204e0ec75f08739489ee08bdd3c0"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 17075,
+      "sha256": "3e9abfdb6f5bbb0b0ffb8cfeeebe88158c2f5073a64ddaee1e9bd58b7351fa26"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 27357,
+      "sha256": "6bbab0d0e01aaa1fd8876cee14a93488b3d26199509c1c694d44ccf93895744a"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 23698,
+      "sha256": "d5cf411c4247cc424441cfbb54b39d1bd1fe0ada060530c6c0205beff37e07c2"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 20025,
+      "sha256": "dfc3a35fae6939b1641b0157851d37622be1936e3f015212ac5e51bb13d3a555"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 407839,
+      "sha256": "895e69b969e1ed7c8587b96d9a351080e058173733683601ac7d02df4694e047"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 167157,
+      "sha256": "b698a2b8d2c041b79cab58c4afb7b4990f8d1440d586dc90bddaefd9250b6d2a"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 83782,
+      "sha256": "4829b84b109cab6752a6fe7e27d04b072f30f306d74b76d0a2c03b89da86b924"
+    },
+    {
+      "path": "docs/restart/H01/option-comparison.md",
+      "bytes": 25973,
+      "sha256": "6e2c7386d6cdba85177dd227408557c63f58f85b24e24440ce027acb60c0966a"
+    },
+    {
+      "path": "docs/restart/H01/probe-plan.md",
+      "bytes": 11617,
+      "sha256": "d222e705fad04d2311e65a14cc536d8ecb779a937783143364f4e434bd01efb9"
+    },
+    {
+      "path": "docs/restart/H01/g9-comparison-review.md",
+      "bytes": 14032,
+      "sha256": "49fd79e1c9a45c351cbccedb16ddeeea3dffb866e0b2ddfdd844a53bbbadac6a"
+    },
+    {
+      "path": "docs/restart/H01/g9-comparison-proposal.json",
+      "bytes": 6260,
+      "sha256": "b4b54498c155723423052257023c99d61668d6b12bbc24de89ffa5e8ab44b7b5"
+    },
+    {
+      "path": "docs/restart/H01/power-attach-lifetime-contract.md",
+      "bytes": 17439,
+      "sha256": "20f9e3cf6ef525e58ca758671725c1c6f7fac01e10b0ef22c4bf19bfea3c9fa6"
+    },
+    {
+      "path": "docs/restart/H01/power-attach-lifetime-proposal.json",
+      "bytes": 6118,
+      "sha256": "0a07c90bb746f99d1f5d85486a4cf627a2903e664d466a74bce35aef5236aa5d"
+    },
+    {
+      "path": "docs/restart/H01/owner-update-contract.md",
+      "bytes": 21475,
+      "sha256": "9a5ff45b8f17134415ac3297da3615d5a32dab632ec3a60f210c2efc902831fd"
+    },
+    {
+      "path": "docs/restart/H01/owner-update-proposal.json",
+      "bytes": 7301,
+      "sha256": "16d7b9b44729cc2e76f44f9c99bc21205904c390d768246edf3dc991b685276b"
+    },
+    {
+      "path": "docs/restart/H01/memory-ownership-contract.md",
+      "bytes": 15180,
+      "sha256": "9a148884351bacaa54ea7b611b9f7f3c57ac94a49edc2c414a7f504089108eb7"
+    },
+    {
+      "path": "docs/restart/H01/memory-ownership-proposal.json",
+      "bytes": 6850,
+      "sha256": "f854ac1ae044f38f325c23421e560d8f030570fb97fd01bb0057edd13af17d5f"
+    },
+    {
+      "path": "docs/restart/H01/system-runtime-contract.md",
+      "bytes": 18322,
+      "sha256": "704b801d42864943925ffc35d71ce61fa95ab56830cb0ad4e8ad94f1a2688ce5"
+    },
+    {
+      "path": "docs/restart/H01/system-runtime-proposal.json",
+      "bytes": 7271,
+      "sha256": "52157c4371346e4245cf2028241f4fad652f6f455b317f950691f4b21b331ff8"
+    },
+    {
+      "path": "docs/restart/H01/panel-subset-review.md",
+      "bytes": 14533,
+      "sha256": "ed5119b1d78895aadd32bc49474cb86d581f3075a3547056495c3e0e6cac7dc0"
+    },
+    {
+      "path": "docs/restart/H01/entropy-contract-review.md",
+      "bytes": 16437,
+      "sha256": "39c5523016219fba7458f910a9b703d1191830eccd09c1e6ab8a7d4c33487087"
+    },
+    {
+      "path": "docs/restart/H01/u585-usb-endpoint-contract.md",
+      "bytes": 12613,
+      "sha256": "28eb34b426ea4e162deffda7cb9ffeb48a4479e165ca7cb394a904e559520997"
+    },
+    {
+      "path": "docs/restart/H01/u585-usb-proposal.json",
+      "bytes": 5526,
+      "sha256": "b22bfe70682a884e6422f802f22e3f7835c94881d891e7b8baa3cf9ea8a6316f"
+    },
+    {
+      "path": "docs/restart/H01/s3-usj-contract.md",
+      "bytes": 13470,
+      "sha256": "d38d1a035f6643b2e5b1d34009299d0ad86e93830f5a9324261d2a00d46b3fdf"
+    },
+    {
+      "path": "docs/restart/H01/s3-attach-contract.md",
+      "bytes": 13147,
+      "sha256": "fbb5c56f3cfe5f5eab21b30f0e28f4b2b6230b1c29a454d49a72956a50c95fe2"
+    },
+    {
+      "path": "docs/restart/H01/s3-spi-input-contract.md",
+      "bytes": 11318,
+      "sha256": "de74812184b39dbc33264872674831e8ef2a6b884945cddfd790fa34e6da3e4c"
+    },
+    {
+      "path": "docs/restart/H01/s3-spi-input-proposal.json",
+      "bytes": 5922,
+      "sha256": "dc4e4448b59520f9e9f82104fe17c856173dc09aa63f3ea0356a5f18f0971858"
+    }
+  ],
+  "limits": [
+    "No nominal/reference/certificate/API/sourcecount/conditionalproposalpromotedtoqualifiedfunctionality",
+    "No targetbuild/register/fuse/RDP/flash/keys/connection/energizing/panel/internalpower/physicalmeasurement",
+    "No source/host/driver/clock/DRBG/componentmarket/SE/platformgateexpansion",
+    "Pi/P4/commercialESP32/softwareindependent;rootownsgraph/integration/nextscope",
+    "Originals/manuals/codeextractions/renders/privatehelpersnotpublished"
+  ],
+  "next_steps": [
+    "Finishrequiredintegratedchecksandbindactualcontentcandidate",
+    "Distinctexact-candidatefinaldeliveryreview,thenrootnormalprotectedintegrationifaccepted",
+    "Rootdecidesnextboundedsource/diagnosticscopeformandatoryunsatisfiedproperties;noauthorwaiver"
+  ]
+}

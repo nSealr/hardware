@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "reviewer": "/root/h01_substance_review",
+  "recorded_utc": "2026-10-18T18:58:02.790336+00:00",
+  "repository": "nSealr/hardware",
+  "review_branch": "review/h01-followup",
+  "candidate_commit": "6f95cc298c5a8108d5c0bdaedfd53e7b81b130ed",
+  "source_commit": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+  "material_correction_commit": "16a7d4bfaa9b144581ae06fb67424718ffb10482",
+  "approved_brief_commit": "e10dd2426146e0aa3bbcf04af6a9b1bb59f7e868",
+  "approval_original_commit": "8041bac701f32aa289f6cfba019a7baaac04403e",
+  "verdict": "pass_limited",
+  "scope": "Material R1/R2/R3 corrections and affected bounded research statements; never whole-H01 acceptance or host/part/driver/probe admission.",
+  "whole_H01_acceptance": false,
+  "H01_status": "incomplete",
+  "host_admissions": [],
+  "selected_components": [],
+  "required_findings": [],
+  "prior_findings": [
+    {
+      "id": "H01-IR-R1",
+      "status": "closed_for_documentation",
+      "basis": "Original S3 errata1.3 section3.3 and limited pinned sleep/default source correspondence."
+    },
+    {
+      "id": "H01-IR-R2",
+      "status": "closed_for_documentation",
+      "basis": "Original S3 errata1.3 section3.7 full named interrupt workaround."
+    },
+    {
+      "id": "H01-IR-R3",
+      "status": "closed_for_wording",
+      "basis": "Coverage/probe/handoff separate proposed identity conditions from received-unit checks and preserve non-vacuous completion."
+    }
+  ],
+  "prior_review": {
+    "original_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+    "preserved_by": "f713951208a4df3632f470c664358f275ab6e256",
+    "unchanged": true,
+    "applies_to": "d5d75306a082215453d329e31ca9c11d6effa80d",
+    "verdict_remains": "request_changes"
+  },
+  "reviewer_locator_correction": {
+    "prior_report": "independent-review/report.md next-reading table",
+    "prior_locator": "S3 TRM32.4 register-path wording",
+    "correct_locator": "32.5 printed1242 register documentation NDA boundary;32.4 is OTG/HNP/SRP",
+    "prior_report_not_modified": true
+  },
+  "affected_claims_checked": [
+    "H01-C03",
+    "H01-C07",
+    "H01-C10",
+    "H01-C11",
+    "H01-C23",
+    "H01-C25",
+    "H01-C26",
+    "H01-C27"
+  ],
+  "new_contradictions_checked": [
+    "D-S3-XTSENABLE",
+    "D-S3-SPIORDER",
+    "D-U585-USB"
+  ],
+  "changed_existing_contradiction_checked": "D-S3-USBREG",
+  "blocking_claims": [
+    {
+      "claim": "H01-C01",
+      "unchanged": true,
+      "status": "blocking-document-gap",
+      "fresh_review": "Gate and unchanged source identity checked; prior substantive review inherited."
+    },
+    {
+      "claim": "H01-C16",
+      "unchanged": true,
+      "status": "blocking-selection-gap",
+      "fresh_review": "Gate and unchanged source identity checked; prior substantive review inherited."
+    },
+    {
+      "claim": "H01-C19",
+      "unchanged": true,
+      "status": "blocking-selection-gap",
+      "fresh_review": "Gate and unchanged source identity checked; prior substantive review inherited."
+    }
+  ],
+  "source_readings": [
+    {
+      "document": "s3-es",
+      "revision": "1.3",
+      "url": "https://documentation.espressif.com/esp-chip-errata/en/latest/esp32s3/esp-chip-errata-en-master-esp32s3.pdf",
+      "original_sha256": "8f349bdd0b4e9bca24e49d777ac3b416ff2d2c48253a49653162e84f4b484500",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Applicability and complete bodies of sections3.3 and3.7, printed pages7 and10; no re-review of other unchanged bodies."
+    },
+    {
+      "document": "s3-trm",
+      "revision": "1.8",
+      "url": "https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf",
+      "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
+      "reading_origin": "fresh retained original/text",
+      "independent_scope": "Printed433;481-482;GPIO4-7/10-13 rows on493 with494 legend; selected interrupt/mux/status/wakeup fields on507-515 and519-520;672-679 functional watchdog body;908-914 and916-918 XTS text/registers;1114 and1124-1128 SPI tables/footnotes;1141 CS timing;1158 bit-order fields;1242 section32.5. Register-page samples and extracted text, no full manual or timing-drawing visual inspection."
+    },
+    {
+      "document": "s3-idf-sleep",
+      "revision": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hw_support/port/esp32s3/rtc_sleep.c",
+      "original_sha256": "88b35f6a99ee7aec939055a9e1da5b1583c8a9cee904d0baaeebefac66b67993",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Lines136-235, especially159-172 defaults and218-229 assertions/application; remaining callers/full sequence unread."
+    },
+    {
+      "document": "s3-idf-rtc-header",
+      "revision": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hw_support/port/esp32s3/include/soc/rtc.h",
+      "original_sha256": "d9b1f31947556b96e24566a30a57b116d11b4b2c95d138b5dbe8af74c26fbdc8",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Lines105-133 paired monitor/sleep constants; not full header."
+    },
+    {
+      "document": "s3-idf-random",
+      "revision": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hw_support/hw_random.c",
+      "original_sha256": "45b8381aef1a2e7bd9e42fc198c6b0a8644ae7eb28c1dc56bc1b561178e7b5bd",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Full123-line file, including bringup configuration guard and complete esp_random/esp_fill_random bodies."
+    },
+    {
+      "document": "s3-idf-boot-random",
+      "revision": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/bootloader_support/src/bootloader_random_esp32s3.c",
+      "original_sha256": "ec501ea8fccaccdc11514415f77931d7c22381e396d8315834ac03447e666071",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Full83-line file, both functions and secondary-clock comment; no HAL call-chain qualification."
+    },
+    {
+      "document": "s3-idf-usb-struct",
+      "revision": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/soc/esp32s3/register/soc/usb_struct.h",
+      "original_sha256": "4887739d8aaf4b849e4cd77cd505617ad6b8c2059de0f6a0d92bbde013ed44d1",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Full121-line file; IN/OUT field and offset witness only."
+    },
+    {
+      "document": "s3-idf-usb-ll",
+      "revision": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hal_usb/esp32s3/include/hal/usb_dwc_ll.h",
+      "original_sha256": "2696e26ae119ff22f85defda74884ae5d8c4138798985374c191755b4ad63739",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Lines45-320: global interrupt/context, DMA/slave control, force-host, reset/flush and interrupt handling. Other functions unreviewed; not selected device driver."
+    },
+    {
+      "document": "s3-usb-component",
+      "revision": "fc9bead300f82484eace377d5dea2f3e11163206",
+      "url": "https://raw.githubusercontent.com/espressif/esp-usb/fc9bead300f82484eace377d5dea2f3e11163206/device/esp_tinyusb/idf_component.yml",
+      "original_sha256": "e467e6ae1d679263b2439aa7a9d41a1695a29e809e410c2a14b982ab90915d39",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Complete manifest; lower-bounded underlying TinyUSB dependency."
+    },
+    {
+      "document": "s3-usb-config",
+      "revision": "fc9bead300f82484eace377d5dea2f3e11163206",
+      "url": "https://raw.githubusercontent.com/espressif/esp-usb/fc9bead300f82484eace377d5dea2f3e11163206/device/esp_tinyusb/include/tusb_config.h",
+      "original_sha256": "85e10f8f3ea61dbd3d75d324f88393f7994535de1fd192789a5f01d78bfc2557",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "Lines61-145 device speed/slave/DMA/cache/alignment guards; no preprocessing or target build."
+    },
+    {
+      "document": "s3-usb-device",
+      "revision": "fc9bead300f82484eace377d5dea2f3e11163206",
+      "url": "https://raw.githubusercontent.com/espressif/esp-usb/fc9bead300f82484eace377d5dea2f3e11163206/device/esp_tinyusb/tinyusb.c",
+      "original_sha256": "6c9259a905910a50b476fa7027700769592ed9d1b414a6a3f7b2710ff1db85c8",
+      "reading_origin": "fresh retained original",
+      "independent_scope": "tinyusb_driver_install lines272-350; helpers/callees not qualified."
+    },
+    {
+      "document": "p4-es",
+      "revision": "1.4",
+      "url": "https://documentation.espressif.com/esp-chip-errata/en/latest/esp32p4/esp-chip-errata-en-master-esp32p4.pdf",
+      "original_sha256": "76c8e48cfc7248fc85b449da3bdce5ff402d19a3d763c36751ca1f09a1dff049",
+      "reading_origin": "fresh retained original/text",
+      "independent_scope": "Sections3.12-3.13 complete bodies and revision applicability; unchanged other bodies inherit prior review."
+    },
+    {
+      "document": "u585-es",
+      "revision": "Rev 12",
+      "url": "https://www.st.com/resource/en/errata_sheet/es0499-stm32u575xx-and-stm32u585xx-device-errata-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "reading_origin": "fresh official web PDF extraction",
+      "independent_scope": "Cover and applicability summary;2.2.15-2.2.25 bodies and2.2.26 through principal conditions/workaround;2.15.1;2.18.1-2.18.2;2.23.1-2.23.7;2.25.1-2.25.5;2.26.1-2.26.4. Selected surrounding text only, no full errata sign-off."
+    },
+    {
+      "document": "u5g9-es",
+      "revision": "ES0595 Rev 4",
+      "url": "https://www.st.com/resource/en/errata_sheet/es0595-stm32u5fxxx-and-stm32u5gxxx-device-errata-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "reading_origin": "fresh official web PDF extraction",
+      "independent_scope": "Sections2.9.1-2.9.3 and2.10.1 complete bodies; surrounding2.11-2.13 text available and read, no blanket peripheral review. Prior exact RevZ applicability inherited."
+    },
+    {
+      "document": "u5g9-ds",
+      "revision": "DS14102 Rev 5",
+      "url": "https://www.st.com/resource/en/datasheet/stm32u5g9nj.pdf",
+      "original_sha256": null,
+      "reading_origin": "fresh official web PDF extraction",
+      "independent_scope": "Rev5 section3.5;3.9.1 supply/sequence;3.19-3.20 including continuation;3.41-3.42;section7 ordering and section9 revision history. No original bytes or visual package diagram acquired. Initial ZJ line-open failure and stale Rev4 search snippet were superseded by current NJ-URL primary extraction."
+    },
+    {
+      "document": "u5g9-dk2",
+      "revision": "Current feature page snapshot",
+      "url": "https://estore.st.com/en/stm32u5g9j-dk2-cpn.html",
+      "original_sha256": null,
+      "reading_origin": "fresh official web technical feature body",
+      "independent_scope": "Exact ZJT6Q/LQFP144,3.3V,RGB800x480 and sink-only UCPD feature list. No electrical/schematic review or commercial availability guarantee."
+    },
+    {
+      "document": "u5g9-um3223",
+      "revision": "Rev2, November2025",
+      "url": "https://www.st.com/resource/en/user_manual/um3223-discovery-kit-with-stm32u5g9zj-mcu-stmicroelectronics.pdf",
+      "original_sha256": null,
+      "reading_origin": "inherited prior independent review",
+      "independent_scope": "Prior cover/sections1-2 only. New author section7.5 indexed-excerpt scope remains index-only; no fresh full manual/connector/power reading."
+    },
+    {
+      "document": "ti-tps63802",
+      "revision": "SLVSEU9D",
+      "url": "https://www.ti.com/lit/ds/symlink/tps63802.pdf",
+      "original_sha256": "be07deca1231c5493957bc64c2dc1cad5543bff330e49ae41caf3286fd80dca6",
+      "reading_origin": "fresh retained original/text",
+      "independent_scope": "SLVSEU9D sections9.3.3-9.3.10 printed11-12 including reverse-energy and PG conditions; no new schematic/waveform inspection."
+    },
+    {
+      "document": "ref-safe7-main",
+      "revision": "Pinned repository revision in URL; drawing revision identified in option comparison",
+      "url": "https://raw.githubusercontent.com/trezor/trezor-hardware/f469f4ca0bed731f505f270636a3a459d2f3b931/electronics/trezor_safe_7/ts7_main_rev_d_sch.pdf",
+      "original_sha256": "f772fe1f33a294683abfd9a8f64dc728598a6d12d9f02b043afe2a0b7e8bda61",
+      "reading_origin": "inherited prior independent review",
+      "independent_scope": "Prior original physical13 visual observation only; no fresh visual or whole-product review."
+    }
+  ],
+  "future_admission_observations": [
+    {
+      "id": "F1",
+      "severity": "nonblocking_research_followup",
+      "source": "s3-idf-random",
+      "locator": "lines48-60",
+      "action": "Explicitly exclude bringup-bypass fixed-pattern configuration in eventual target entropy contract; qualify actual source-state/fallibility adapter."
+    },
+    {
+      "id": "F2",
+      "severity": "nonblocking_research_followup",
+      "source": "s3-idf-usb-ll",
+      "locator": "lines250-289",
+      "action": "Global/host reset/flush loops have no local timeout. Trace selected device implementation and recovery separately; do not assume these helpers are used."
+    },
+    {
+      "id": "F3",
+      "severity": "nonblocking_research_followup",
+      "source": "u585-es",
+      "locator": "Table3;2.2.15,2.2.22,2.2.26",
+      "action": "Carry revision-specific reset/low-power system effects into allowed-revision matrix; these remain in existing incomplete subset gate."
+    }
+  ],
+  "integrity": {
+    "command": "python3 docs/restart/H01/independent-review-followup/probes/check_bindings.py",
+    "exit_code": 0,
+    "source_artifacts": 21,
+    "verification_artifacts": 2,
+    "new_originals": 9,
+    "affected_prior_originals": 4,
+    "old_source_identities": 70,
+    "preserved_review_files": 7,
+    "fresh_text_extractions": 3,
+    "meaning": "Correspondence only, distinct from source reading."
+  },
+  "idf_v6_1_tag_verification": {
+    "command": "git ls-remote https://github.com/espressif/esp-idf.git refs/tags/v6.1 'refs/tags/v6.1^{}'",
+    "exit_code": 0,
+    "tag_object": "4dc1c65503e98e9a6b4c3c5646237280ba79829b",
+    "peeled_commit": "fff9895c82d744c7237be8847347bdd1b07c6643"
+  },
+  "ci": {
+    "author_exact_source": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+    "preserved_reported_tests": 43,
+    "independently_rerun": false,
+    "old_basename_failure_preserved": true,
+    "scope": "Existing repository tooling only; no manual or hardware qualification."
+  },
+  "actions_performed": {
+    "candidate_source_modified": false,
+    "old_review_modified": false,
+    "canonical_graph_modified": false,
+    "CAD_modified": false,
+    "target_built": false,
+    "physical_operation": false,
+    "external_inquiry": false,
+    "purchase": false,
+    "production_secret_used": false,
+    "irreversible_operation": false
+  },
+  "open_gates": [
+    "Current RM0456 Rev7 original/relevant delta and mandatory U5/S3 comparison",
+    "Exact proposed host/package/revision/configuration and remaining required register/driver subset",
+    "Selected SE exact command/errata/access/update/remediation",
+    "USB normative/current/electrical and exact panel/power/expansion",
+    "U5G9 exact pad/AF/rail/current-RM ownership/driver/license/workload",
+    "H02 received identity/resources and execution checks; not H01 ownership prerequisite"
+  ],
+  "review_limits": [
+    "No whole81-source or full-manual rereview",
+    "No exact target build or maintained-device-driver qualification",
+    "No successful retained original hash for web-only ST reads",
+    "No fresh package/schematic visual review",
+    "No repeated RM retrieval or new restricted-SE/remediation acquisition"
+  ],
+  "report": {
+    "path": "docs/restart/H01/independent-review-followup/report.md",
+    "sha256": "6b20a32f262feb4011a9b386832dcab803bedacef52acaa9a07660ada581dc18"
+  }
+}

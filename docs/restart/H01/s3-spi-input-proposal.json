@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "status": "Finite conditional SPI/input source requirements; no selected USB/driver/display or physical admission",
+  "retained_tuple": "WROOM-1-N8R8 /DevKitC-1v1.1 proposed,not identified from user inventory",
+  "SPI": {
+    "instance": "SPI2",
+    "pins": {
+      "SCLK": {
+        "GPIO": 12,
+        "header": "J1.18",
+        "function": "IO_MUX4"
+      },
+      "MOSI": {
+        "GPIO": 11,
+        "header": "J1.17",
+        "function": "IO_MUX4"
+      },
+      "software_CS": {
+        "GPIO": 10,
+        "header": "J1.16",
+        "function": "GPIO"
+      },
+      "DC": {
+        "GPIO": 13,
+        "header": "J1.19",
+        "function": "GPIO"
+      },
+      "reset": {
+        "GPIO": 14,
+        "header": "J1.20",
+        "function": "GPIO"
+      },
+      "external_blanking": {
+        "GPIO": 9,
+        "header": "J1.15",
+        "function": "GPIO"
+      }
+    },
+    "source": "PLL_F80M_CLK",
+    "MST_CLK_SEL": 1,
+    "CLKDIV_PRE": 0,
+    "CLKCNT_N": 31,
+    "CLKCNT_H": 15,
+    "CLKCNT_L": 31,
+    "CLK_EQU_SYSCLK": 0,
+    "nominal_source_Hz": 80000000,
+    "nominal_SCLK_Hz": 2500000,
+    "reference_error_ppm_proposed": 100,
+    "reference_only_propagated_range_Hz": [
+      2499750,
+      2500250
+    ],
+    "reference_condition_met": false,
+    "complete_PLL_or_edge_accuracy_guarantee": false,
+    "mode": 0,
+    "CK_IDLE_EDGE": 0,
+    "CK_OUT_EDGE": 0,
+    "WR_BIT_ORDER": 0,
+    "data_lines": 1,
+    "SDR": true,
+    "automatic_CMD_ADDR_DUMMY_MISO_enabled": false,
+    "DOUTDIN_SIO_QPI_OPI_multiline_DTR_segmented_slave_enabled": false,
+    "DMA_TX_RX_enabled": false,
+    "GDMA_EDMA_enabled": false,
+    "MOSI_HIGHPART": 0,
+    "hardware_CS_pins_enabled": false,
+    "CS_policy": "SoftwareCS/DCstablewholephase;clearfreshdone,finiteUPDATEthenUSR;freshTRANS_DONEandUSR0beforequalifiedmin1usfinalguard/CSchange;internaldoneisnotphysicalCS/panelacceptance",
+    "CPU_buffer_bytes": 64,
+    "chunk_bytes_min": 1,
+    "chunk_bytes_max": 64,
+    "MS_DATA_BITLEN_max": 511,
+    "word_access_bytes": 4,
+    "backing": "Alignedinitializedownedbufferroundup4;commandatleast4bytes,tailpadded;private/publicrowsdistinct512Bwith480active",
+    "polling_only": true,
+    "SPI_interrupt_enables": 0,
+    "captured_event_bits_checked": [
+      0,
+      1,
+      12,
+      17,
+      18
+    ],
+    "captured_event_mask": "0x61003",
+    "TRANS_DONE_bit": 12,
+    "IRQ_clear": "CaptureddefinedCLRbits,noallones/RAW-RMW;unexpectedmasterorDMAeventfaults",
+    "chunk_max_us_proposed": 1000,
+    "chunk_poll_cap_proposed": 8192,
+    "row_active_bytes": 480,
+    "row_chunk_count": 8,
+    "row_max_us_proposed": 10000,
+    "CS_DC_guard_min_us_proposed": 1,
+    "measured_latency_or_driver_conformance": false,
+    "failure": "Invalidatewholependingreview/row;qualifieddefault-offblanking;boundedreset/stopandownedbufferFIFOverwrite;unqualifieduntilreinit,no partialrow/consent/erasureclaim",
+    "driver_queue_size_cap": 1,
+    "queued_transfer_API_selected": false,
+    "allocated_driver_queues_count_against_C05_runtime": true
+  },
+  "controls": {
+    "GPIOs": [
+      4,
+      5,
+      6,
+      7,
+      17,
+      18
+    ],
+    "GPIO_mask": "0x600f0",
+    "headers": [
+      "J1.4",
+      "J1.5",
+      "J1.6",
+      "J1.7",
+      "J1.10",
+      "J1.11"
+    ],
+    "separate_consent_GPIO": 18,
+    "selection_GPIO": 17,
+    "fixture_status_GPIO_reserved": 8,
+    "interrupt_mode": "ANYEDGE,CPU0only,ordinarylevel1,noNMI/wake/sleep/filterfeature",
+    "exact_CPU_line_reservation": "C03system/fault/watchdogtable;actualallocator/mapH02",
+    "ISR_snapshots_max": 1,
+    "ISR_callbacks_max": 6,
+    "ISR_max_us_proposed": 50,
+    "ISR_actions": "SelectedcapturedstatusW1TCandchange/invalidationlatchonly;noapproval/display/USB/crypto/log/allocation",
+    "shared_core_interrupt_control": true,
+    "CPU1_required": "Heldreset/clockgated;noindependentGPIOowner",
+    "idle_render_scan_interval_max_us_proposed": 1000,
+    "stable_release_ms_proposed": 20,
+    "stable_press_ms_proposed": 20,
+    "input_enabled_required": true,
+    "output_internal_pulls_unused_routes_disabled_required": true,
+    "hold_release_required": true,
+    "get_level_zero_without_input_is_valid_contact_proof": false,
+    "ownership_conflict_warning_is_success": false,
+    "flood_or_lost_edges": "Noapproval;coalesce/maskintofailedreview,readfreshlevels;edgeISRnotcounter",
+    "backend_race": "Latchedge/cancel/attach/sourcechangeandrecheckbeforeoutput;trustedpostrenderdebounceflowaloneauthorizesexpectedpress",
+    "measured_latency_or_recovery_usability": false
+  },
+  "C07_transport_disposition": {
+    "OTG": "DeferredrequiredcomprehensiveIPsemanticsNDA-bound",
+    "fixed_USJ_CDC": "Retainedunselectedpubliccontract;descriptors/current/selfpower/GET_STATUScaptureandrefusalgateindependent",
+    "whole_kit_bus_powered_selected": false,
+    "external_attach_fixture_selected": false,
+    "GPIO_SOFT_reset_timeout_is_physical_unplug_proof": false,
+    "C04_remaining": "Effectiveconsole/bootlog/ownerfuses/debug-vswholeCDC/updateauthority",
+    "C03_remaining": "Supply/reset/watchdog/systemIRQ/startup/clock/referenceconditions",
+    "C01_C02_C09_remaining": "Exactpadrailreset/conditionaldisplay/attachandfixturelifetimeobligations"
+  },
+  "H02_required": [
+    "Exactpinnedmodifiedfinitepath/effectivefeatures/generatedmap/ownership/callchain",
+    "No unboundedpolling_start/lock/UPDATE/endcleanup path",
+    "Alignedpaddedtailsand64bytecontrollerlimit",
+    "GPIOinput/mux/holds/anyedgeack/cancel/bounce/stuck/flood tests",
+    "Actualclock/SPIwaveform/rowcomplete/publicandsecretbufferseparation",
+    "Allprerequisitestopsbeforedependentoperation"
+  ],
+  "not_run": [
+    "Targetbuild",
+    "SPI/GPIO/USB/entropyAPIcall",
+    "Anyregisterwrite",
+    "Physicalwaveform/fault/fixture/enumerationtest",
+    "Identity/fuse/flash/provisioning/energizing"
+  ]
+}

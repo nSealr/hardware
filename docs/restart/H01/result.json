@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "record_kind": "incomplete research candidate handoff; not acceptance",
+  "recorded_utc": "2026-10-18T19:16:04.745069+00:00",
+  "author": "/root/h01_author",
+  "source_repository": "nSealr/hardware",
+  "source_commit": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+  "branch": "restart/h01-manuals",
+  "input_main_commit": "7b5553685dac56029a4379be12054154b6b5e0b5",
+  "input_hardware_commit": "340697d6713a671e9e01b0dc874ec999ab071601",
+  "approved_brief_commit": "e10dd2426146e0aa3bbcf04af6a9b1bb59f7e868",
+  "approval_original_commit": "8041bac701f32aa289f6cfba019a7baaac04403e",
+  "status": "incomplete; current original retrieval closed and selected body/driver research advanced; fresh affected review requested",
+  "host_admissions": [],
+  "selected_components": [],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "44e65289753dd800c66c6db7d967ae3f8000d12bd2a082ffecaa2d857720b650",
+      "bytes": 2710
+    },
+    {
+      "path": "docs/restart/H01/brief.md",
+      "sha256": "89f5e3487d669e1555bf07f8207ddc8cf783f554b72a7f02785fffd5deccf5e8",
+      "bytes": 18448
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "sha256": "7a288f1c2c4513c0cb1d38f19ca31bcd703406868d182d3e4b0e71bdb2c995ae",
+      "bytes": 33765
+    },
+    {
+      "path": "docs/restart/H01/current-manual-notes.md",
+      "sha256": "f16029e531a43b69dda90f7f2925f13e0225c74b4c8f53f1f401abe56e5f5924",
+      "bytes": 14764
+    },
+    {
+      "path": "docs/restart/H01/errata-correction.md",
+      "sha256": "e9b32c00ebe125fcf12aab95224fb361ca66f6c2dbcf3a092aefc8d4a1e76004",
+      "bytes": 1955
+    },
+    {
+      "path": "docs/restart/H01/host-subset-notes.md",
+      "sha256": "67eedb4016d546029da0bb986885027deaff2a114c8c640fe62c07c786de3d7d",
+      "bytes": 11587
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/logs/bindings.json",
+      "sha256": "9f7572bed1bc1082b343b9c73a905226dce2f5820e81ce14aabd34461059db5e",
+      "bytes": 15806
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/probes/check_bindings.py",
+      "sha256": "6c4bd41406ed78c924fedf73a738cd700deed393e8a9d7c24fe7a2446b7321d5",
+      "bytes": 5814
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/report.md",
+      "sha256": "6b20a32f262feb4011a9b386832dcab803bedacef52acaa9a07660ada581dc18",
+      "bytes": 11893
+    },
+    {
+      "path": "docs/restart/H01/independent-review-followup/review.json",
+      "sha256": "9218d863d8b557d69956d88bb300a23db1930b6ab0d0c26cf93ffdca461bfe88",
+      "bytes": 16435
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/dk2-retrieval.json",
+      "sha256": "6af7075283b32f618ac1b426ab7db995227f98d24869a5879fb8ce6223e0bc14",
+      "bytes": 773
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/drawing-correspondence.json",
+      "sha256": "a7ff23a3ce2e44358669915f3a240963b9558e624faeb89fdcd5b38b37569598",
+      "bytes": 1182
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/evidence-correspondence.json",
+      "sha256": "30ecdf2eb6bdc1e13d5fd071c54cf46c7f88db075e78e7a0a396fcf62483ed54",
+      "bytes": 31499
+    },
+    {
+      "path": "docs/restart/H01/independent-review/logs/html-source-check.json",
+      "sha256": "6e719521230d764cb40d03d82dcc0b1b3d3ee00b49a98b2b64939aa6c142aec7",
+      "bytes": 845
+    },
+    {
+      "path": "docs/restart/H01/independent-review/probes/check_evidence.py",
+      "sha256": "7d12f4d0f7614ae7814f2a04e37dcaad59e60906da7725e04e5e298a9877c20f",
+      "bytes": 6470
+    },
+    {
+      "path": "docs/restart/H01/independent-review/report.md",
+      "sha256": "aff49a9b71244a4b7f459ad983055d7b12428438c65f65f17c7bbb033e9877e3",
+      "bytes": 19082
+    },
+    {
+      "path": "docs/restart/H01/independent-review/review.json",
+      "sha256": "dae32ac9c27ad348a3ff3e07fea54a4cca50ae67881eabc34803ff60b86fd49b",
+      "bytes": 19069
+    },
+    {
+      "path": "docs/restart/H01/input-notes.json",
+      "sha256": "75b54942af4cace291f3f60f234ccb35b02a45b831a6961d2b26b8a8ad39a7b0",
+      "bytes": 27778
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "sha256": "e2d4f3faa28a403a86c44ef48fe2ee194a016d64b94524510b6ed4d3c7f3f2bf",
+      "bytes": 136502
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "sha256": "445e802f8089e03159ab4c9f55ffc98de296d935f41321ffccdc8a766fc643f6",
+      "bytes": 8688
+    },
+    {
+      "path": "docs/restart/H01/option-comparison.md",
+      "sha256": "e674810963b4fafa080c78ca950d5ae68e5bc61d701ddbe9208e897907f6572d",
+      "bytes": 16352
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "sha256": "5da139704b2487c45966976f4a001d99b77212c36a3beaff91e3dc14585c4c6e",
+      "bytes": 57457
+    },
+    {
+      "path": "docs/restart/H01/probe-plan.md",
+      "sha256": "74ed5f0d56b96a5da56b9e8f109729de3cace2515ca2a8f4ecbaa47cad385eb0",
+      "bytes": 10032
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "sha256": "06499c9a9d9f8b553d596c55d8553dd24f45b03bee9dac77469a4d87e12c5c15",
+      "bytes": 10266
+    },
+    {
+      "path": "docs/restart/H01/review-response.md",
+      "sha256": "e59066152e606542b51996bbd79b23ea3f8decd740b3269e795877f7bb6a6180",
+      "bytes": 3752
+    },
+    {
+      "path": "docs/restart/H01/spec-review.json",
+      "sha256": "9700d170688af1fcb1096c18d173164feb0751ccce0156b1bb369b3524eeb93d",
+      "bytes": 3194
+    }
+  ],
+  "acceptance_status": [
+    {
+      "index": 0,
+      "status": "partial exact identity/source record; unknown OPN/revision/access explicitly recorded"
+    },
+    {
+      "index": 1,
+      "status": "incomplete; no vacuous pass from zero admissions"
+    },
+    {
+      "index": 2,
+      "status": "gaps recorded; no freeze"
+    },
+    {
+      "index": 3,
+      "status": "selected/index/inherited/unread distinctions recorded"
+    },
+    {
+      "index": 4,
+      "status": "developer-access criterion and independent research maintained"
+    },
+    {
+      "index": 5,
+      "status": "not met; complete host-relevant review remains open"
+    }
+  ],
+  "checks": [
+    {
+      "command": "JSON parse, unique IDs and claim/pin/errata source references",
+      "result": "pass",
+      "scope": "record integrity only"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass",
+      "scope": "source commit whitespace"
+    },
+    {
+      "command": "make ci in /goal/h01",
+      "result": "failed",
+      "reason": "existing basename-derived verifier expects MIT for directory h01"
+    },
+    {
+      "command": "make ci in exact detached /goal/h01-ci/hardware",
+      "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+      "result": "pass",
+      "tests": 43,
+      "scope": "unchanged existing repo verification/test/compile/validation; no manual/electrical proof"
+    },
+    {
+      "command": "python3 /home/tux/nsealr/firmware/scripts/validate_restart_plan.py",
+      "main_commit": "f2ef70f522af4977e15f81554a8c6eadcdbe8097",
+      "graph_revision": 13,
+      "result": "pass, 47 tasks",
+      "scope": "read-only structural reconciliation; not canonical input replacement"
+    },
+    {
+      "command": "Author inline JSON/ID/reference/hash/commit correspondence checks",
+      "source_commit": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+      "result": "pass",
+      "scope": "21 exact source artifacts; 70 old source identities unchanged; 9 new original byte hashes; approved brief/input unchanged; no substantive or hardware inference",
+      "record": "docs/restart/H01/checks/followup-integrity.json"
+    },
+    {
+      "command": "make ci in exact detached /goal/h01-ci/hardware",
+      "source_commit": "6b45f6f79e1888bdf2ec6680d14dd951b7019327",
+      "result": "pass",
+      "exit_code": 0,
+      "tests": 43,
+      "scope": "Existing repo verification/test/compile/validation only; no manual/electrical/target proof",
+      "log": "docs/restart/H01/checks/ci-6b45f6f.log"
+    },
+    {
+      "command": "Author inline source/reference/original/artifact/review correspondence checks",
+      "source_commit": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+      "result": "pass",
+      "record": "docs/restart/H01/checks/current-manual-integrity.json",
+      "scope": "26 source artifacts;75 old source identities unchanged;6 null original hashes resolved;9 new source identities;15 new/resolved retained original hashes;11 preserved review files; approved brief/inputs unchanged. No manual-completeness inference."
+    },
+    {
+      "command": "make ci in owned isolated h01-ci/hardware",
+      "source_commit": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+      "result": "pass",
+      "exit_code": 0,
+      "tests": 43,
+      "log": "docs/restart/H01/checks/ci-4d50d15.log",
+      "scope": "Existing repository test/verification/compile/validation only; no target build or manual/electrical proof."
+    }
+  ],
+  "remaining_gates": [
+    "Remaining current RM0456Rev7 used security/boot/update/owner/flash/options, GTZC/RAM/ECC/GPIO/DMA/PWR and selected peripheral bodies; relevant content delta is not closed by history index",
+    "Exact proposed host/package/allowed-revision/clock/configuration and driver sign-off; mandatory U5/S3 comparison retained; zero hosts is not a pass",
+    "S3 kit/module electrical/schematic match, GPIO/SPI transaction/error driver and boot/update/flash/clear policy; actual TinyUSB lock/configuration and bounded ISR/reset/flush policy",
+    "S3 TRM§32.5 normative selected-IP access/questions; no hardware isolation proof from headers or CPU-FIFO source predicate",
+    "U585 exact current AF/electrical and remaining used errata bodies; product entropy configuration preservation/real deadlines and actual fallible adapter",
+    "U5G9 pad/AF/rail/GTZC/cache/master allocation, graphics driver/license/workload; DK2 PC13/LSE conflict, exact schematic/BOM/board revision if promoted",
+    "Selected SE API/errata/update/access/advisory qualification; no waiver from independent host progress",
+    "Current USB normative clauses and exact power/panel/expansion requirements",
+    "H02 actual received identities and physical resources/measurements; no owned-kit prerequisite for H01 documentary proposal",
+    "Distinct affected source/manual-substance review of the new candidate"
+  ],
+  "physical_work_performed": false,
+  "target_build_performed": false,
+  "irreversible_operation_performed": false,
+  "production_secret_used": false,
+  "canonical_graph_modified": false,
+  "independent_review": {
+    "status": "fresh affected review requested from coordinator",
+    "candidate_source": "4d50d155c994e8e770d2b868c371cc04b646ad35",
+    "prior_request_changes_preserved": true,
+    "prior_limited_pass_preserved": true,
+    "required_focus": "Current native RM/AN/NIST and driver substance: exact reading boundaries, CED conflict, configuration persistence/time bounds, U585 revision constraints and resolved CURMOD, S3 actual device path, G9 package/DK2 PC13/LSE; not record counts."
+  },
+  "prior_review": {
+    "source_commit": "19362fc9a12bed43070c56642b4a932f1bc6a545",
+    "handoff_commit": "d5d75306a082215453d329e31ca9c11d6effa80d",
+    "review_original_commit": "5186b7207fa397ceb4cd237d710d8adc163c6eb0",
+    "review_cherry_pick": "f713951208a4df3632f470c664358f275ab6e256",
+    "verdict": "request_changes",
+    "correction_commit": "16a7d4bfaa9b144581ae06fb67424718ffb10482",
+    "response_path": "docs/restart/H01/review-response.md",
+    "affected_recheck": "R1/R2/R3 wording and bounded source corrections received limitedPASS at6f95; new substantive candidate not covered."
+  },
+  "verification_artifacts": [
+    {
+      "path": "docs/restart/H01/checks/ci-6b45f6f.log",
+      "sha256": "3f7ae2db7a4116851dbdee90055c4cef2596ab01372132089465dab82f34f45f",
+      "bytes": 788,
+      "scope": "Verification metadata retained separately; current check/log generated after source commit."
+    },
+    {
+      "path": "docs/restart/H01/checks/followup-integrity.json",
+      "sha256": "929176475d926c9692338c613519c8a6302addca1c83264b9fca7f93033f6c65",
+      "bytes": 12771,
+      "scope": "Verification metadata retained separately; current check/log generated after source commit."
+    },
+    {
+      "path": "docs/restart/H01/checks/ci-4d50d15.log",
+      "sha256": "3f7ae2db7a4116851dbdee90055c4cef2596ab01372132089465dab82f34f45f",
+      "bytes": 788,
+      "scope": "Verification metadata retained separately; current check/log generated after source commit."
+    },
+    {
+      "path": "docs/restart/H01/checks/current-manual-integrity.json",
+      "sha256": "bdce08f5b5787cc42f8bb520d5d46a38b45701eb00e845c4582814f1efa04330",
+      "bytes": 13440,
+      "scope": "Verification metadata retained separately; current check/log generated after source commit."
+    }
+  ],
+  "followup_review": {
+    "original_commit": "2f9ea3a18d8fb18e3fbaa8f58b6272102f83b9c2",
+    "import_commit": "88a8c09",
+    "reviewed_candidate": "6f95cc298c5a8108d5c0bdaedfd53e7b81b130ed",
+    "verdict": "limited_pass; H01 incomplete",
+    "preservation": "All4 files byte-exact; copied before new source changes; old review also preserved."
+  }
+}
