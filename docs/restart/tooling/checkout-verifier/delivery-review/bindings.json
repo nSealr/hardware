@@ -1,0 +1,440 @@
+{
+  "recorded_utc": "2026-10-20T11:20:07.232125+00:00",
+  "candidate": "d407d8ec93d5c43aa0045390c80bfcfcf64c9854",
+  "candidate_tree": "c0ba9482a24c00824c7ff3293d1442b781ae5a19",
+  "reviewed_source": "0f83844a4da43dc79c2befba82e40934858250c5",
+  "original_review": "26585a1d640726771f1409625f82f82016bf7c25",
+  "original_review_tree_equal": true,
+  "base": "340697d6713a671e9e01b0dc874ec999ab071601",
+  "exact_proof_copies": [
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/.gitignore",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "6ec598617b1723f063d04c7a1ad50605cd233893",
+      "bytes": 14,
+      "sha256": "cb605c14fd8e70648b69c78bebcae79c59fc0a9fbe7346e39f3282d70be3537d"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/artifact-manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "f85d4e588c6230a459dfb950c0b868aa4ef411a0",
+      "bytes": 9303,
+      "sha256": "eddf514c4cedee8fe73ffeafddfc934cb707b38a7751e24788ebd4a9bd72fbe8"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/baseline-false-pass-reproduced.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "92f6fdd42efe76c6632bd516c2293785fcefb197",
+      "bytes": 54,
+      "sha256": "696260df10646bd19f877b3b509c278966a5dee6bf14eb873a1553ab9fa84ef4"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/baseline-valid-hardware-renamed.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "c86507c4dbb468d7959fb96b1192afae6c7b504f",
+      "bytes": 61,
+      "sha256": "f0c401cc67580b4a83cef41d320c9364d06e04d70898ec541c7989abd2655ca9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/bytecode-ignore.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "794cfbc0691cb838d06f24ba81c1222da6e4a0cd",
+      "bytes": 159,
+      "sha256": "70e6ba3d6eeff9a45381a98f461c2d0569107feeada6d4e21ffccd995746bfb9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-0.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "59a0c8fdab8cd29942a7057250c207f8f8a82c7a",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-1.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "59a0c8fdab8cd29942a7057250c207f8f8a82c7a",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-2.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "59a0c8fdab8cd29942a7057250c207f8f8a82c7a",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-name-3.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "59a0c8fdab8cd29942a7057250c207f8f8a82c7a",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-wrong-license-and-missing-kit.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "dddbddd48f5e201a763f0a909316c4cf92881425",
+      "bytes": 116,
+      "sha256": "9b8bf293e5a5604dd9c3904db884eb91da14ecdd40b95bfdb0bfcfa47c220b6d"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/candidate-wrong-license.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "9c189f705c002ec11dc78ed6ed2f97faa888698f",
+      "bytes": 76,
+      "sha256": "59f0091740050219e24aef9b6659b0704fb8d5574473242379e688df04902dd5"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/commands.json",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "2c5095de311d6e19aa8fac71c1f77f6dc833cb31",
+      "bytes": 24808,
+      "sha256": "75a807ac1a01d89061352a2f29ce80e0145fd0b86c85440d10e15280cdc48483"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-0.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "beaf7b1401215dd9b480fdf014403260e66b96a7",
+      "bytes": 39,
+      "sha256": "dbbcca380ac045cd1a9510d22d6d47243f947686fc1aa4d41810d06a8c83c337"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-1.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "5d973a023ce27b29f1353638ed804544044f542b",
+      "bytes": 40,
+      "sha256": "384b0c79ce3ca818624a9a791325fb99b478a7f468526a033cbddcec54556b25"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-2.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "1e89a8a26ae9376a1869334451225dcbc3de8002",
+      "bytes": 39,
+      "sha256": "3cc4587d2d40febc5c3e8cf319c7f9312ebd0aa70a2de45e597ba585c6db3535"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-3.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "792ec2e18d9345606a6d6e2aca107bdd5721a20b",
+      "bytes": 46,
+      "sha256": "9a0308186a27fb3c8cf32f85447e423ab4c722f854bda9828a0ac9c5c2c33feb"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-4.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "19860757675f039add441d27a457908f07e97534",
+      "bytes": 43,
+      "sha256": "d93a2a7233356ee771b50d402ea7f42b7988b0978c89be47db70571aafcfcc47"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-5.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "e93eb4a3fa2dddb63c9186787c55ac0f8d1ffb61",
+      "bytes": 45,
+      "sha256": "ed211c1cba20fe0322b91b5408c58f281d7898ec6cbb48bba6ca415709156a9d"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-6.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "b7e433c1791bc076032c11d1c5ac106046dc1aac",
+      "bytes": 237,
+      "sha256": "275e770b55d2c5e9ca4759d0f674f98a357e1d272e056a13c1847043b55332a9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/directory-missing-7.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "9d49a90626213f0d47ba94e14a4618572bbb36a4",
+      "bytes": 43,
+      "sha256": "48c3d740485d4d74dadfbcb850a3f28c81809abd127358917da58d85fbcd7ce9"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/existing-ci-exact-candidate.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "c6a94825b053f2315ac86aabb43baac3dba7aa61",
+      "bytes": 788,
+      "sha256": "7abc5518e82633806d9a40cd989375cbc323dc73cada5cb27b292c0f219dd6e0"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-0.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "7a524d3816207880e83b8be411a004aaf442dd00",
+      "bytes": 40,
+      "sha256": "4f3eca978c27d6c69f4092dd73155b857af0a7e03b5e82c6f8bc01319ac28420"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-1.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "316b568576b2daecfaff00280ddff60f7da61ad6",
+      "bytes": 38,
+      "sha256": "cc0d8b09ccd10e8cc68f8d4bfda707dec15a13432bb93fa0684adf6ef2f6f4e2"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-2.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "85d18789ca144d9fd2e23c4b87d77cd6d7a6e146",
+      "bytes": 39,
+      "sha256": "329697a2038729c00c6cce7134fccc77c2b1f6ac87ad0eb86908b3a05b6ba774"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-3.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "b6ef3816a524abcd8de6cac6f9c8f60e144060ce",
+      "bytes": 54,
+      "sha256": "a306d001bcff1629083dfe01f25e857ed269beebc4fcfe36dc233432f75bc8a2"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-4.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "1b9410f72d3c43d363159a6bd497f71e5eb551d3",
+      "bytes": 51,
+      "sha256": "35d9107f178da11ea84999b97d40159dc8a35ca3ef731654355643c23fe82402"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-5.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "329b1b5ade654addb029e61c607b1bbfd8608134",
+      "bytes": 46,
+      "sha256": "2674a7abf1e565ef1f285bfad7ca55c439da62dd350f1ac7a738d0a8f6a58613"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-6.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "c7000a12bb44eaa42aa1c6ff886702c6b9d3ab3b",
+      "bytes": 46,
+      "sha256": "d078e7d3ffe88de80f273bc9939f502bab471f1d1f3e8a12dbf1bccc22547fe8"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-7.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "fe8b78dd25a6b5675e94563a88967bde601a8799",
+      "bytes": 54,
+      "sha256": "025b603c7962fa67fa546a688711c7acea7db8bb458560d679278093328554b0"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-directory-8.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "c20880876d64e1a33f8026198576d97363690696",
+      "bytes": 55,
+      "sha256": "24483f32c0286097a3134912d3120c01bb2fe8a050f79aeb492084db4790259c"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-0.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "947f6cc8e018dba2f043d93014c3be2f30932645",
+      "bytes": 86,
+      "sha256": "89110ada83803461317421a0ee6f5991a3b39e582a6996182a44e56f752284a6"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-1.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "62c7ee72424cd4d9dca56ad8307470b86f50c02f",
+      "bytes": 112,
+      "sha256": "50485164c85c7f237ba67e0b18a962f40f5ebef929b604f297d56ac81fecb94b"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-2.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "2e8fd291332bc83ad98e587812742256c24214db",
+      "bytes": 37,
+      "sha256": "64bdfae5c8b41664ed052d9a2b70a908da5f593fd5dcef0f30f2e0ed6ee8c996"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-3.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "cdf62c66d982822bfbf4a4f80ab2962ec12aefa1",
+      "bytes": 52,
+      "sha256": "ed7423fe9b7c1fba45477172757aa50b85b0cb4f9693bb927e0e4f2ff9126869"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-4.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "7bad273d2dc14a5fd53e0d78b64ebb1712f0e013",
+      "bytes": 49,
+      "sha256": "8db1114e4abccb923eb8ba3e4b180805d14871a907897712082fd2b543249411"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-5.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "7ceac8e66d12466d4bd9d31dde1463bc4940ec61",
+      "bytes": 44,
+      "sha256": "fe8392dd6f2c84c43193e9316b423e1b19a3334a5b2bc71493767a9b58cee79c"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-6.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "1d8ab49b0c8fd303fb8f4f1cb0dbbceb8c2ad2d9",
+      "bytes": 44,
+      "sha256": "b8e670b086f66598a1f7152491c749c4ad5d18d1dd9b0ed5e996f84c6513a539"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-7.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "dd97f0ac7c82d74ae7356d34376488ad894e0df7",
+      "bytes": 52,
+      "sha256": "b7d725553345ff49b71c3fa5be358e032647fe79e6b66e64a6ac7011d2ba1e0f"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/file-empty-8.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "505a364c7e6057ff4540350e64e27913898fb298",
+      "bytes": 53,
+      "sha256": "f7b8dcf97437adc3f5058c9f111211c2af886971f4a4f476a5b528fb10bf2aa0"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/probe.py",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "06b745894c4ac446341ade3cd258d20a6ac7c76a",
+      "bytes": 6233,
+      "sha256": "9416983d6ad26bed7bd871fe0bc35aed9c876489dbdeb35d27831d22fd409055"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/readme-no-license-heading.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "7012687c6c37dacc582829587a51b1e132b84cbc",
+      "bytes": 48,
+      "sha256": "70059f2778862ab336e86077da4d0ea8b2d9da7da5b92df77848eb7136775dcb"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "1d4055b34eaf9ddca8596927f62a537ef8b6141f",
+      "bytes": 5848,
+      "sha256": "3d40f245b8716392c8363f3c579337cc57a2826d07bd32210339cf767b860dd5"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/restored-positive.log",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "59a0c8fdab8cd29942a7057250c207f8f8a82c7a",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/independent-review/result.json",
+      "mode": "100644",
+      "kind": "blob",
+      "blob": "a83402ab49114e1846fb7fc0d36f502d10a74e0d",
+      "bytes": 725,
+      "sha256": "68c072f069d5221d711e31d3b0f8329fb4729ccf6f13fb7071c2ea885a06dfeb"
+    }
+  ],
+  "tail_added_files": 44,
+  "independent_manifest_members": 43,
+  "author_manifest_members": 12,
+  "all_source_manifests_log_hashes_and_dependency_closure_verified": true,
+  "original_independent_recorded_executions": 37,
+  "original_existing_CI_tests": 43,
+  "unchanged_product_and_author_evidence": true,
+  "base_diff_only_tooling_and_scoped_evidence": true,
+  "privacy": {
+    "all_candidate_changes_UTF8_regular_files": true,
+    "scanned_categories": [
+      "credential_token",
+      "private_key_block",
+      "private_workspace_path"
+    ],
+    "findings": [],
+    "manual_assessment": "All additions are public verifier code/probes, JSON evidence, text logs and reports. No private/manual/CAD/runtime-object material appended; local public-tool execution paths are not private source intake."
+  },
+  "final_hosted_jobs": [
+    {
+      "id": 117760762302,
+      "run_id": 39156521275,
+      "head_sha": "d407d8ec93d5c43aa0045390c80bfcfcf64c9854",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nSealr/hardware/actions/runs/39156521275/job/117760762302",
+      "completed_at": "2026-10-18T18:57:26Z"
+    },
+    {
+      "id": 117760749613,
+      "run_id": 39156516948,
+      "head_sha": "d407d8ec93d5c43aa0045390c80bfcfcf64c9854",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nSealr/hardware/actions/runs/39156516948/job/117760749613",
+      "completed_at": "2026-10-18T18:57:23Z"
+    }
+  ],
+  "API_captures": [
+    {
+      "path": "checks/job-117760762302.json",
+      "bytes": 2020,
+      "sha256": "15ce413354c4acc61f32d5528eaf7e3a3faafea6e46c5aa94610ab42c550196e"
+    },
+    {
+      "path": "checks/run-39156521275.json",
+      "bytes": 12534,
+      "sha256": "4f6adc79097273e0e4b70293d1662d4885d2d0961ab92569b853ac4499598891"
+    },
+    {
+      "path": "checks/job-117760749613.json",
+      "bytes": 2020,
+      "sha256": "f250f7a580fe0f0593d8bc3ba3ff59b8da4cac05e120c53622248e0ae86836c6"
+    },
+    {
+      "path": "checks/run-39156516948.json",
+      "bytes": 12531,
+      "sha256": "9cf6144882891154c6fd7fb8e1b6e5ce21b2112a8c00596f8987bf66efcce257"
+    }
+  ],
+  "new_positive_check": {
+    "command": [
+      "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+      "-B",
+      "scripts/verify_repo.py"
+    ],
+    "cwd": "/home/tux/nsealr/.restart-tools/goal/hardware-verifier-delivery-review",
+    "exit_code": 0,
+    "log": "checks/final-candidate-positive.log",
+    "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1",
+    "python_sha256": "eaaa308032c4aa063df5880c4c293cd458b4629d503fbc2c03ec163d71f7f790"
+  },
+  "inspection_correction": "An initial read-only JSON summary assumed the author-manifest artifacts key also existed in the independent manifest and raised KeyError: artifacts. Its actual files schema was inspected and all43 entries plus self were validated. No source/evidence change or product/test failure.",
+  "not_repeated": "Unchanged37 recorded CLI/CI executions and43 existing tests; exact source/tree/copy identity plus actual final hosted CI establish delivery continuity.",
+  "main_unchanged": true,
+  "author_branch_not_mutated": true,
+  "limits": "Final delivery review of repository tooling only. No H01/component/manual/electronic/PCB/physical claim, A02 acceptance or merge permission."
+}

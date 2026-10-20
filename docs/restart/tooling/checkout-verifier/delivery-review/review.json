@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task": "Hardware PR1 final delivery review only",
+  "reviewer": "/root/a02_sol",
+  "implementation_author": "/root",
+  "distinct_from_implementation_author": true,
+  "prior_substantive_reviewer": "/root/s03_security_review",
+  "model_policy": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "basis": "Latest explicit parent/maintainer default; no escalation or subdelegation"
+  },
+  "recorded_utc": "2026-10-20T11:19:17.445512+00:00",
+  "repository": "nSealr/hardware",
+  "PR": 1,
+  "candidate_commit": "d407d8ec93d5c43aa0045390c80bfcfcf64c9854",
+  "candidate_tree": "c0ba9482a24c00824c7ff3293d1442b781ae5a19",
+  "base_commit": "340697d6713a671e9e01b0dc874ec999ab071601",
+  "reviewed_source": "0f83844a4da43dc79c2befba82e40934858250c5",
+  "original_independent_review": "26585a1d640726771f1409625f82f82016bf7c25",
+  "verdict": "PASS_final_delivery_repository_tooling_only",
+  "findings": [],
+  "checks": {
+    "final_tree_equals_original_independent_review_tree": true,
+    "proof_only_tail_added_files": 44,
+    "all_44_original_copy_modes_blobs_bytes_sha256_verified": true,
+    "independent_manifest_dependency_closure": "43 entries plus manifest itself; all37 recorded execution log identities and exits agree",
+    "author_manifest_artifacts_verified": 12,
+    "all_production_and_author_evidence_unchanged_from_reviewed0f": true,
+    "source_identity_and_all_reproducer_ancestry_pins_coherent": true,
+    "final_hosted_CI_jobs": [
+      {
+        "id": 117760762302,
+        "run_id": 39156521275,
+        "head_sha": "d407d8ec93d5c43aa0045390c80bfcfcf64c9854",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nSealr/hardware/actions/runs/39156521275/job/117760762302",
+        "completed_at": "2026-10-18T18:57:26Z"
+      },
+      {
+        "id": 117760749613,
+        "run_id": 39156516948,
+        "head_sha": "d407d8ec93d5c43aa0045390c80bfcfcf64c9854",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nSealr/hardware/actions/runs/39156516948/job/117760749613",
+        "completed_at": "2026-10-18T18:57:23Z"
+      }
+    ],
+    "actual_final_verifier_positive_exit": 0,
+    "candidate_changes_privacy_scope_checked": true,
+    "API_capture_privacy_check_findings": []
+  },
+  "semantic_assessment": "The final tail changes no verifier, .gitignore, tests, recipes or CI input. The fixed hardware requirements remain unconditional: nine nonempty file requirements, all eight directories, CERN marker and README License heading apply independently of checkout folder name. is_file avoids treating required document directories as files. Removed unrelated taxonomy/helper has no current consumer. Bytecode-only ignore leaves source visible. This is a baseline structure/marker gate, not license authenticity or electronic qualification.",
+  "evidence": "bindings.json and its exact CI API captures; audit.py reproduces only the final-delivery integrity/API/positive checks",
+  "not_repeated": "Unchanged original37 recorded CLI/CI executions and43 existing tests. Existing substantive review is retained as historical evidence; final hosted jobs independently bind exact d407.",
+  "limits": [
+    "Exact candidate only; changes require affected review.",
+    "Distinct agents share a GitHub identity; no external certification is claimed.",
+    "No H01/manual/component/electrical/PCB/physical qualification, product release or task closure.",
+    "No mutation of author branch/PR, canonical main, source graph, live CAD or manufacturing inputs.",
+    "Parent retains protected integration and A02 source-freeze gate ownership; this report performs no merge or waiver."
+  ]
+}

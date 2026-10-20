@@ -1,0 +1,60 @@
+{
+  "candidate_commit": "d407d8ec93d5c43aa0045390c80bfcfcf64c9854",
+  "scope": "All current final-delivery reviewer files except this manifest itself; containing reviewer commit binds it. No author/source/main mutation.",
+  "files": [
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/audit.py",
+      "mode": "100644",
+      "bytes": 8981,
+      "sha256": "5e618420bb6ea8042a7642b1355fe49c73941331f6ca8e8824746d3bb98c3e5c"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/bindings.json",
+      "mode": "100644",
+      "bytes": 17737,
+      "sha256": "1aa571f300e0e1a565349d68a4377856f80619c0d11eae8f21d1693afd81d460"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/checks/final-candidate-positive.log",
+      "mode": "100644",
+      "bytes": 45,
+      "sha256": "b7bf118b490d6e2f628794da50272fc6c9f792a48e6967291d06dc0a7a017cf1"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/checks/job-117760749613.json",
+      "mode": "100644",
+      "bytes": 2020,
+      "sha256": "f250f7a580fe0f0593d8bc3ba3ff59b8da4cac05e120c53622248e0ae86836c6"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/checks/job-117760762302.json",
+      "mode": "100644",
+      "bytes": 2020,
+      "sha256": "15ce413354c4acc61f32d5528eaf7e3a3faafea6e46c5aa94610ab42c550196e"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/checks/run-39156516948.json",
+      "mode": "100644",
+      "bytes": 12531,
+      "sha256": "9cf6144882891154c6fd7fb8e1b6e5ce21b2112a8c00596f8987bf66efcce257"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/checks/run-39156521275.json",
+      "mode": "100644",
+      "bytes": 12534,
+      "sha256": "4f6adc79097273e0e4b70293d1662d4885d2d0961ab92569b853ac4499598891"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/report.md",
+      "mode": "100644",
+      "bytes": 2699,
+      "sha256": "54d4c3e4ace4fa03a1b61e3a32442cc0c850cbf00e0d1a89041ce36cb0595d2f"
+    },
+    {
+      "path": "docs/restart/tooling/checkout-verifier/delivery-review/review.json",
+      "mode": "100644",
+      "bytes": 3739,
+      "sha256": "ea05f6378abcd6cf10327faa0a586212b623622fe46ac23bcd9258e88132b049"
+    }
+  ]
+}
