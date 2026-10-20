@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "author": "/root/h01_sol",
+  "base_commit": "4d3fa674e8f6cbb0c484dba914d9c63063ad893f",
+  "result": "PASS focusedsource/reference/pin-cost/capacity-integrityonly;G9promotionDEFERRED",
+  "checks": [
+    "UniqueIDs/claimrefs",
+    "Elevenaffectedoriginalhashes/bytes",
+    "Eightnewnative-viewhashesandactualmanualscope",
+    "Exact12pincomparisonpadbounds/distinctness/RGB33GPIOarithmetic",
+    "BankedSRAM/ECC/framebuffer/bandwidthpointandMPCBBgranularityarithmetic",
+    "Nonpromotion/nonsecureGPU/private-renderer-negativeconstraints",
+    "Affectedlocallinks/gitdiffcheck"
+  ],
+  "document_count": 210,
+  "claim_count": 105,
+  "affected_originals": [
+    {
+      "id": "u5g9-ds",
+      "bytes": 4310781,
+      "sha256": "89bf1f0a9c367372a721c1e0ebfdd7f5731456f7d35463e290bbfc487ace6176"
+    },
+    {
+      "id": "u5g9-es",
+      "bytes": 1502594,
+      "sha256": "c717275ccc1fcda1d06c3d64fc9ca7c8fd758c612bc2dc0e5a0059a3a4e9392b"
+    },
+    {
+      "id": "u5g9-um3223",
+      "bytes": 3424472,
+      "sha256": "2640fcef38954942c6b30efc605bcca265c0b07f666eb5eef0530e2094049af6"
+    },
+    {
+      "id": "u5g9-mb1918-c01",
+      "bytes": 2511501,
+      "sha256": "65c90d6af3771e4cd1539598883039f850b794f4c6cc117c7dca5309000f9bd2"
+    },
+    {
+      "id": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "id": "embassy-stm32-cargo",
+      "bytes": 104211,
+      "sha256": "55631e05bcf036ce3bf657912353900489e2376f3121e7858d0e00bdced5e775"
+    },
+    {
+      "id": "embassy-stm32-lib",
+      "bytes": 34386,
+      "sha256": "6f8843e578a23d0d8f6fdd6be31b0e3ad846c17e3ab93fb9ec438611e59301be"
+    },
+    {
+      "id": "u5-embassy-gpu2d",
+      "bytes": 5648,
+      "sha256": "2423b0bffa5cb2abe1d344c7aeee1c7bfa9d5d77f64f24807e2d793b8cfe55fd"
+    },
+    {
+      "id": "u5-embassy-ltdc",
+      "bytes": 31426,
+      "sha256": "88b603a52a0c48cfc7be720d86180789e4e574f084553aac9bbf9a50df849f47"
+    },
+    {
+      "id": "u5-embassy-gfxmmu",
+      "bytes": 7652,
+      "sha256": "047bbcfbd5cf305bf37e978fbd5da732bab9e78f5a93508a87d3d5ff62ab0c0f"
+    },
+    {
+      "id": "st-opla",
+      "bytes": 43549,
+      "sha256": "0809c990f7a3b971bc9517e20d93c3da880b46d30505409c47f61b371703d2a0"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/g9-comparison-review.md",
+      "bytes": 14032,
+      "sha256": "49fd79e1c9a45c351cbccedb16ddeeea3dffb866e0b2ddfdd844a53bbbadac6a"
+    },
+    {
+      "path": "docs/restart/H01/g9-comparison-proposal.json",
+      "bytes": 6260,
+      "sha256": "b4b54498c155723423052257023c99d61668d6b12bbc24de89ffa5e8ab44b7b5"
+    },
+    {
+      "path": "docs/restart/H01/option-comparison.md",
+      "bytes": 25973,
+      "sha256": "6e2c7386d6cdba85177dd227408557c63f58f85b24e24440ce027acb60c0966a"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 26819,
+      "sha256": "ebbe995fed614aef9901979da2cf7d829804239aef22f97e3b7d508be43eb364"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 22395,
+      "sha256": "5c16bf76b17453c8b74914f217be9b5dda05242c89a7c0a3808b2157a737c2dd"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 20025,
+      "sha256": "dfc3a35fae6939b1641b0157851d37622be1936e3f015212ac5e51bb13d3a555"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 407839,
+      "sha256": "895e69b969e1ed7c8587b96d9a351080e058173733683601ac7d02df4694e047"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 167157,
+      "sha256": "b698a2b8d2c041b79cab58c4afb7b4990f8d1440d586dc90bddaefd9250b6d2a"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 83782,
+      "sha256": "4829b84b109cab6752a6fe7e27d04b072f30f306d74b76d0a2c03b89da86b924"
+    }
+  ],
+  "private_receipt_sha256": "db2ad1606d3b2996ee587b7fb2f6d30ca59c77fef2918c4ff7661ff6b14754f2",
+  "limits": "Finitecomparativecapacity/sourceonly;nomemorymap/fit/performance/rail/clock/optical/PC13failure/graphicsmaster/privateUI/cost/manufacturingproof. G9notpromoted/noadditionalhostport. BothpaperhostUNSATISFIED/C10six-row/canonicalcriteria/currentmain/distinctreviewremain;historicalreviewbindingsunchanged.",
+  "prior_check_failure": "Initialprivateoriginalfilenameglobmissedretainedst-opla-response;explicitmappingcorrected,noinput/source/thresholdchange",
+  "not_run": [
+    "Build/link/API/registerwrites",
+    "Target/clock/USB/UI/power/physicaltests",
+    "CI"
+  ]
+}

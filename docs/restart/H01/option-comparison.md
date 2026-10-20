@@ -253,3 +253,25 @@ layout qualification have not been performed.
 The distinct review found Safe7's display sheet (physical page13) has title-block
 revision **C**. File naming, per-sheet revisions and firmware revision mappings
 must be recorded independently before reusing a particular circuit.
+
+
+## Finite G9 comparison outcome, 20 October 2026
+
+The [G9 source/pin/master comparison](g9-comparison-review.md) and
+[decision](g9-comparison-proposal.json) supersede the open-ended G9 reading
+statements above for their exact selected scope. Native MB1918 sheets2/3/4/9
+prove B2 reaches PC13 while X1 is an LSE crystal; ES0595 prevents inheriting it
+as an unaffected LQFP control/reference combination. The RGB/touch path costs
+33 GPIOs plus shared NRST, with actual baseline pin conflicts. Bank capacities
+support a concrete larger-framebuffer question, not free3MiB or measured fit.
+GPU2D traffic/DCACHE2 remain nonsecure despite secure control registers; private
+scanout and complete source/build/driver/license/fault/optical evidence remain
+required. Maintained pinned Rust modules exist, with exact unbounded/error/
+completion limits; no all-Rust mandate or external middleware license is inferred.
+
+Retain the already mandatory G9 comparison for H04 because the new touch/SDK/
+recovery preference has a material memory/UI rationale; defer promotion, MCU/
+panel selection and any port until exact power/pins/SE/expansion/master/privacy/
+clock/fit/module/quality/manufacturing/cost gates close. Exact G9/custom-BOM cost
+is unknown. This does not freeze the old no-touch baseline, add a component
+market search, relax S04/physical gates or impede independent software/Pi work.

@@ -382,3 +382,15 @@ The new source is only the installed S3 regulator (206 entries total); claims
 H01-C100–C102 preserve mandatory U585 EN/autonomous-data-removal **UNSATISFIED**
 and S3 descriptor/status/fixture unknowns. Finite source triage does not satisfy
 the power/interface criteria or authorize target/connection/write activity.
+
+
+The [finite G9 comparison](g9-comparison-review.md) and
+[decision record](g9-comparison-proposal.json) finish the bounded C10 package/
+rail/pin/graphics-master/source/license assessment. The native MB1918 hierarchy
+proves the PC13/B2–X1 crystal correspondence; three selected pinned graphics
+modules narrow their actual guarantees. The210-source inventory and claims
+H01-C103–C105 support retaining a higher-UI/RAM comparison while **deferring
+promotion**. No G9 port, private graphics claim, selected touchscreen, actual
+clock/current/performance/cost or new MCU/panel/SE scope follows. C10 still
+requires the two-host six-row outcome, current-main reconciliation/checks and
+distinct final review; conditional/unsatisfied host properties remain.

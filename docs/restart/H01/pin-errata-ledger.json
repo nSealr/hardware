@@ -1676,6 +1676,17 @@
       "claim": "H01-C100",
       "description": "UM2839p16namesTypeCCN14butnativeUSBsheet9CN1andmanualexpansionheaderCN14. UseexactnativeCN1identity;nophysicaldefectinferred.",
       "closure_owner": "H01sourceidentity/H02receivedunit"
+    },
+    {
+      "id": "D-G9-DK2-PC13-LSE-NATIVE",
+      "status": "source-correspondence/avoid-for-future-admission",
+      "claim": "H01-C103",
+      "documents": [
+        "u5g9-mb1918-c01",
+        "u5g9-es"
+      ],
+      "description": "Native2/3/4/9B2USER_BUTTONhierarchicalwirePC13pad7+X1crystalPC14/15pads8/9matchesES0595LQFPinput/outputtransitionlimitation. Ignoringbuttonsoftwaredoesnotpreventphysicaltransition. Noactualfailure/newport/alternateclockselected.",
+      "closure_owner": "H04exactfuturecontrol/referencechoicebeforeanypromotion"
     }
   ]
 }

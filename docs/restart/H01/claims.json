@@ -2639,6 +2639,93 @@
       "required_negative_case": "Missingfirmware/currentlimit/watchdog/I2C/reset/suspend/cellabsent/empty/cutoff/reverseenergy/thermalrestartandwriteinterruptionmustnotexceedpermissionorcontinueoldoperation;noLiFePO4/thirdchain/marketingcurrentguarantee.",
       "closure_owner": "H01C10admissionresult/H02H03beforedependentuse;H04selection",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C103",
+      "claim": "Exact G9 package/pad/rail costs and the native DK2 PC13/LSE chain support a bounded comparison, not another port or unaffected reference.",
+      "status": "documented-selected",
+      "applicability": "FiniteG9comparativeevidence/deferpromotion;noG9benchportorqualifiedUI",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        },
+        {
+          "document": "u5g9-es",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        },
+        {
+          "document": "u5g9-um3223",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        },
+        {
+          "document": "u5g9-mb1918-c01",
+          "locator": "g9-comparison-review.md identities/pins/nativePC13;DS32–35/Fig9–10/AFusedrows131–147/OPNtable;ES2.2.1p5;UM7.6.1/8.4/Table10;native2/3/4/5/7/9"
+        }
+      ],
+      "engineering_consequence": "ZJT6QLQFP144SMPSvsZJJ6QUFBGA144notDK1equivalent;baselinePE13/15/12andPE7/PD15collidewithDK2RGB. RGB24+timing4+control2+touch3=33GPIO+sharedNRST,50pinconnector. Native2/3/4/9chainB2USER_BUTTONtoPC13pad7andX1crystalPC14/15pads8/9confirmsLQFPerratum;softwareignoredoesnotpreventphysicaltoggling. Exact3.3/USB/IO2/DSI11/SMPSrailcostsandsupplysequencingnotfreepins.",
+      "open_assumption": "Noactualreceivedsilicon/clock/rail/pin/kit/PBC/cost/assemblyqualification;nofullcustomprivateSE/expansionmaporDSIpanel. Nativecircuitcorrespondenceonly,nomeasuredLSEfailure/boarddefect. Noexternalbuttonpulldowninvented.",
+      "required_negative_case": "StockB2withX1/PC13transitionsorwrongpackage/rail/pad/newSPIonfittedRGBmustnotgrantvalidreference/consentorusableport;noDK1sourceinheritance.",
+      "closure_owner": "H01C10comparison/H04beforefuturepromotion;H02/H03physicalqualificationonlyifseparatelyadmitted",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C104",
+      "claim": "G9 banked memory has a concrete UI capacity advantage, while GPU2D traffic/cache and display master ownership require separate private-frame proof.",
+      "status": "documented-selected",
+      "applicability": "FiniteG9comparativeevidence/deferpromotion;noG9benchportorqualifiedUI",
+      "evidence": [
+        {
+          "document": "u5g9-ds",
+          "locator": "g9-comparison-review.md memory/masters;DS3.5p27;RM2.1.7/8p132/Table10p159/GTZCselected205–210/DCACHE9.3p383"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "g9-comparison-review.md memory/masters;DS3.5p27;RM2.1.7/8p132/Table10p159/GTZCselected205–210/DCACHE9.3p383"
+        }
+      ],
+      "engineering_consequence": "Banklist3024KiBbeforeECCreservationnotfree3MiB;SRAM3ECC256+512=768KiB,backupseparate. Two800x480RGB565frames1500KiB,capacitycomparisonnotactualcontiguousallocation/fit;hypothetical60Hzactivepixelread46.08MB/snotthroughputproof. GPUtrafficnonsecure/DCACHE2noTZdespitecontrolSECfields;privatebuffers/rowsnotacceptedthere. LTDC/GFXMMUmaster/backing/securityseparatemustbespecifiedifpromoted.",
+      "open_assumption": "NoG9allocation/completebackend/stack/SDKfit/scanoutprivatepixel/bus/clock/timing/mastermanifestoropticalqualification;C05U585manifestcannotbeinherited. No hostileapporsecuregraphicspromotion.",
+      "required_negative_case": "GPUcommand/texture/framecopies/privatepixels,wrongaliases/retainedcache/master/fault/stalegeneration/failedtransfermustnotleaksecretsorgrantconsent;memoryheadline/APIflagcannotstandforphysicalrendercompletion.",
+      "closure_owner": "H01C10comparison/H04beforefuturepromotion;H02/H03physicalqualificationonlyifseparatelyadmitted",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C105",
+      "claim": "Pinned maintained graphics modules and declared license support a finite G9 source comparison but do not qualify an integrated private touch renderer.",
+      "status": "documented-selected",
+      "applicability": "FiniteG9comparativeevidence/deferpromotion;noG9benchportorqualifiedUI",
+      "evidence": [
+        {
+          "document": "embassy-stm32-cargo",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "embassy-stm32-lib",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "u5-embassy-gpu2d",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "u5-embassy-ltdc",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "u5-embassy-gfxmmu",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        },
+        {
+          "document": "st-opla",
+          "locator": "g9-comparison-review.md source/license/decision;Cargo1–10/158–227/1990;libmodulegates;GPUcomplete1–162/LTDC1–5+640–805/GFXMMU95–259"
+        }
+      ],
+      "engineering_consequence": "DeclaredG9feature+graphicsmodules/0.6.0MITORApache2.0refutesunsupportedabsenceinferencebutnotbuildproof. LTDCheaderH735test/rawpointer/controllerflags/noawaitdeadline/Dropempty;GPUwaitignoresseparatesystemerror/hookexternalNemaGFXownership;GFXMMUsynchronouscachewaitsunbounded. RetainexistingG9higherUI/RAMH04comparisonforconcretetouch/SDKworkload,deferpromotionuntilmaster/pin/rail/driver/license/fit/module/manufacturing/costgatesclose.",
+      "open_assumption": "NoG9build/commandgenerator/ISA/vendorbinary/NemaGFXterms/ABI/transitiveSDKlicenseorFTOclearance. NoallRustrequirementornewdriver/host/MCU/panelmarketlead. Actuallatency/quality/energy/costunestablished.",
+      "required_negative_case": "Missingflag/errorhook/busfault/unboundedcacheloop/timeout/Drop/staleframe/licenseorplatformmismatchmustnotbeacceptedbyAPI/modulepresence;nosecuritydowngradetoclaimfasterUI.",
+      "closure_owner": "H01C10comparison/H04beforefuturepromotion;H02/H03physicalqualificationonlyifseparatelyadmitted",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }
