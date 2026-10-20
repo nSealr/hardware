@@ -141,3 +141,17 @@ decision and unselected two-SE composition hypotheses. No chip/panel is selected
 no new market sweep or task tracker is opened, and S04/manufacturing/owner/physical
 gates are unchanged. C03/C04/C09 and the final G9/six-row packet remain incomplete;
 there is no hardware result or completed H01 acceptance at this checkpoint.
+
+
+## Subsequent finite C03/C04 system and owner checkpoint
+
+The [system table](system-runtime-contract.md) records active supply/watchdog/IRQ
+and finite startup guards; the S3 brownout selector contradiction remains an
+unsatisfied source property, and RC-slow min/max/clock-loss timing is unproved.
+The [owner/update table](owner-update-contract.md) records exact protections,
+root/floor authority and interrupted-update stops for both paper hosts. Newly
+registered counter helpers distinguish unbounded/error-losing stock behavior
+from required bounded checked commitment; no helper/fuse/flash call executed.
+These are documentary proposals, not a persistent vault, qualified transport,
+boot chain, clock, entropy provider, protected device or completed H01 row.
+C09 and final G9/six-row integration/review remain.

@@ -1650,6 +1650,18 @@
       "engineering_consequence": "H02STOPdependentoperationuntilcorrectapplicablesourceorreviewedevaluatedsafefinitediagnostic;no currentdiagnosticauthorization.",
       "claim": "H01-C95",
       "closure_owner": "H01sourceassessment/H02qualifiedbehavior"
+    },
+    {
+      "id": "D-S3-EFUSE-COUNTER-HELPER",
+      "status": "source-to-requirement-gap",
+      "documents": [
+        "s3-idf-efuse-api",
+        "s3-idf-efuse-fields"
+      ],
+      "description": "UnboundedDAMAGED_READINGretry/read-writeerrorreturnsignored/default4vsrequired16counterfield;successlog/tripleequalvaluesnotcommitproof. Noexecutedfailure/upstreamvulnerabilityclaim.",
+      "engineering_consequence": "Beforedependentoperationrequireeffectiveboundederror-preservingfullsourcepath/status/freshreadback;no blind reprogramretry;noeFuseoperationauthorized.",
+      "claim": "H01-C99",
+      "closure_owner": "H02completeeffectivehelper/bootpathqualification"
     }
   ]
 }

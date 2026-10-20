@@ -360,3 +360,15 @@ and reset policies; S3 lifecycle/XTS/SPI/USB normative and software boundary
 resolution; complete proposed kit and display identities/electrical wiring;
 G9 ZJ pad/rail/AF/graphics ownership and driver/license comparison. The existing
 six-row sign-off remains open while this work proceeds.
+
+
+The [finite C04 owner/update contract](owner-update-contract.md) and
+[proposal](owner-update-proposal.json) now bind developer/owner/update/recovery
+authority, exact U585 protections/journal/slots/destructive owner replacement
+and S3 key purposes/shared locks/fixed roots/finite floor/app-only OTA. Three
+selected pinned sources are newly registered (205 entries total); claims
+H01-C97–C99 include the exact unbounded/unchecked eFuse-helper correspondence.
+A log, outer success or equal reads is not a checked floor commit. Required
+bounded error-preserving effective source/config/map/fit and every pre-use
+power/entropy/display/USB/custody gate remain. No provisioning, implemented
+boot/update, persistent vault, irreversible action or complete host signoff follows.

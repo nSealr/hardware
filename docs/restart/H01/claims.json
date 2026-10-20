@@ -2445,6 +2445,81 @@
       "required_negative_case": "Fault/masked/deniedinput/staleedge/readwrap/cachefault/sharedIRQ/sourcecollision/clockchangecannotgrantconsentorcontinueoutput. Noallonesclear/NMIpromotion/implicitbroadHALinit/externalmakerowner ornewtimerfeature.",
       "closure_owner": "H01C04/C09/C10andH02/H03effective/physicalqualification",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C97",
+      "claim": "U585 paper owner boot, floor journal and destructive owner replacement have exact protection/reset requirements, not an implemented verified boot.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC04hostrequirements;notqualifiedfunctionality/custody/provisioning",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "owner-update-contract.md U585;RM3.10.1/T21–22/7.3.1/7.5.3/current7.6.2HDPWRPSECMWBOOT/OEMfields"
+        },
+        {
+          "document": "u5-an2606",
+          "locator": "owner-update-contract.md U585;RM3.10.1/T21–22/7.3.1/7.5.3/current7.6.2HDPWRPSECMWBOOT/OEMfields"
+        }
+      ],
+      "engineering_consequence": "TZEN1/RDP1/BOOT_LOCK1/secureentryC000000,64bitseparateOEMcredentialsLOCK1;2MiBmap/root256KiBWRP0..31/HDP0..33includes2journalpages,640KiBdistinctlinkedslots. RaisedfloorverifiedBEFOREactivation,nobelowfloorfallback;destructiveRDP1to0newownerwithOTP/optionssurvival;noROMGoownerresume.",
+      "open_assumption": "Acceptedk256rawBIP340paperverifier/manifest/journal/completeRAMtransition/map/fit/updatepathunimplementedandunaudited. Persistentidentity/PINvaultnotinvented;D02/S04gatebeforeuse. C09rail/writepermissionandH02interruptionsrequired.",
+      "required_negative_case": "Badslot/target/version/signature,ambiguousfloor/ECC/tornGC/onlycopyerase,hiddenrootentry,ROMlog/Go,missingOEM,retainedOTP/optionsmustnotauthorizeidentityorrollback.",
+      "closure_owner": "H01C09/C10andH02/D02/S04/H02S/K01beforedependentuse",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C98",
+      "claim": "S3 paper owner security state keeps CDC/debug/download distinctions and finite immutable-root/counter limits explicit.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC04hostrequirements;notqualifiedfunctionality/custody/provisioning",
+      "evidence": [
+        {
+          "document": "s3-trm",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-efuse-table-csv",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-boot-sdk",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-ota-sdk",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        },
+        {
+          "document": "s3-idf-flash-encrypt",
+          "locator": "owner-update-contract.md exactowner/root/key/WR_DIS/OTAtables;TRM412–414/435–436;CSVselectedsharedlock/keyrows;versionedSBv2/OTAsections;commonhelper410–458"
+        }
+      ],
+      "engineering_consequence": "XTS256exact2keys/purposes2+3notAES1284;publicSBdigestsWPnotRD;3independentpreloadedroots/all3signfixedloader,aggressiverevocationavailabilitycostexplicit. Requireddebug/allROMdownload/printsdisabledwhilewholeUSJ0,groups2/18/19distinct,group18notlockedwhile16floorbitsneedupdates. Fixedboot/PT,nounsafeOTA;publicpendingverifybeforeVALID/floorreadback/reset/secretload.",
+      "open_assumption": "Noactualfuse/firstboot/provisioning/map/PT/enforcement/build/keys/rollbackqualification;C07CDCnotselected. Immutablefiniteownerrootsetdoesnotpromisearbitrarynewpostlockowner;16bumpsnotunlimited,loss/exhaustioncanretireunit.",
+      "required_negative_case": "Wrong/missingXTSkeyhalf/bothkeytypes,readprotecteddigest,emptyunrevokedroot,sharedgroupmislock,automaticfuseburn,consolewriter,belowfloorpending/fallbackorunsafePTupdatemustrefusewithoutsecretload.",
+      "closure_owner": "H01C09/C10andH02/D02/S04/H02S/K01beforedependentuse",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C99",
+      "claim": "Pinned S3 counter helpers do not establish bounded error-preserving read or successful floor commitment.",
+      "status": "documented-selected",
+      "applicability": "FiniteconditionalC04hostrequirements;notqualifiedfunctionality/custody/provisioning",
+      "evidence": [
+        {
+          "document": "s3-idf-efuse-api",
+          "locator": "owner-update-contract.md helperadversefinding;API1–92/fieldhelpers1–112(selected44–95)"
+        },
+        {
+          "document": "s3-idf-efuse-fields",
+          "locator": "owner-update-contract.md helperadversefinding;API1–92/fieldhelpers1–112(selected44–95)"
+        }
+      ],
+      "engineering_consequence": "Blob/countretryDAMAGED_READINGwithoutfinitecap;biterrorcanbecomefalseassertsoff. Counterdefault4requires16explicit,ignoresblobread/writereturns;outerESP_OK/log/tripleequalcountsnotcheckedcommit. Requireboundederror-preservingexactcoding/synchronization/reload/status/freshfloorreadbackbeforesecretuse;neverblindlyreburnalreadysetbits.",
+      "open_assumption": "Completeutility/HAL/caller/effectiveconfig/source-remedypathnotreviewedorimplemented;precisesource-to-requirementgapnotexecutedfailure/upstreamvulnerabilityfinding. Anydependentowner/counteroperationstopsuntilqualified;noeFuseoperationauthorized.",
+      "required_negative_case": "Damaged/error/zero/misreadfloor,truncatedfield,partialburn,noncanonicalbitpattern,writefailure/hang,assertsdisabledorfalsezeroownerfieldmustnotgrantsecurestateorloadsecrets.",
+      "closure_owner": "H01C09/C10andH02/D02/S04/H02S/K01beforedependentuse",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

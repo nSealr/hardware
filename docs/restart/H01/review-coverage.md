@@ -209,3 +209,15 @@ they cannot change these substantive statuses. Physical claims remain for H02,
 H02S and H03 representative setups, H04 design review, and H08/H09 actual
 assemblies. No measured capacity, entropy quality, energy, timing, fault resistance
 or PCB behavior is established here.
+
+
+The [finite C04 owner/update contract](owner-update-contract.md) and
+[proposal](owner-update-proposal.json) now bind developer/owner/update/recovery
+authority, exact U585 protections/journal/slots/destructive owner replacement
+and S3 key purposes/shared locks/fixed roots/finite floor/app-only OTA. Three
+selected pinned sources are newly registered (205 entries total); claims
+H01-C97–C99 include the exact unbounded/unchecked eFuse-helper correspondence.
+A log, outer success or equal reads is not a checked floor commit. Required
+bounded error-preserving effective source/config/map/fit and every pre-use
+power/entropy/display/USB/custody gate remain. No provisioning, implemented
+boot/update, persistent vault, irreversible action or complete host signoff follows.

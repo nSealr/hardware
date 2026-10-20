@@ -195,3 +195,15 @@ Claims H01-C95/C96 bind conditional source/count/ownership requirements. No new
 original, native drawing, timer/driver/clock lead, build or physical result is
 claimed. Monitors below3V and an unbounded RC clock range receive no unsupported
 valid-rail or timed-reset guarantee; all six complete host rows remain open.
+
+
+The [finite C04 owner/update contract](owner-update-contract.md) and
+[proposal](owner-update-proposal.json) now bind developer/owner/update/recovery
+authority, exact U585 protections/journal/slots/destructive owner replacement
+and S3 key purposes/shared locks/fixed roots/finite floor/app-only OTA. Three
+selected pinned sources are newly registered (205 entries total); claims
+H01-C97–C99 include the exact unbounded/unchecked eFuse-helper correspondence.
+A log, outer success or equal reads is not a checked floor commit. Required
+bounded error-preserving effective source/config/map/fit and every pre-use
+power/entropy/display/USB/custody gate remain. No provisioning, implemented
+boot/update, persistent vault, irreversible action or complete host signoff follows.
