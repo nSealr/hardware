@@ -1565,6 +1565,38 @@
       ],
       "issue": "Lock-summaryrowcoveringI2S1usesI2S0_CONSTRAIN_1asitsleftlabel;I2S1registerbodygivesdistinctI2S1_CONSTRAIN_0lock.",
       "disposition": "Useexactper-registerI2S1lockdefinition,notblindsummarycopy;noI2Sfeatureselected,allDMApermissionfieldsdenied. Otherunusedsummaryrowsnotgenerallyrepaired."
+    },
+    {
+      "id": "D-U585-OUT-XFRSIZ-64-68",
+      "source": "u5-rm7 /u5-embassy-otg-lib",
+      "locators": [
+        "Native3269OUTformula",
+        "3270completion",
+        "3228–3229XFRSIZbytefield",
+        "Pinnedarm_out1835"
+      ],
+      "issue": "MPS64/n1formulaadds4=>68;driverarms64;describedfullpacketdecrementwith68leaves4whilecompletionrequires0andPKTCNT0orshortpacket.",
+      "disposition": "Unsatisfiedsource-semanticblocker;neitherchoicequalified. CoordinatorpermitsfiniteC06reading/triageonly,nocriterionwaiver. No dependentenumeration/operationH02untilcorrectsourceorevaluatedseparatelyreviewedfinitepublicdatadiagnosticwithidentifiedbench/resourcelimitsresolvesit."
+    },
+    {
+      "id": "D-U585-OUTPKTERR-MASK-RESERVED",
+      "source": "u5-rm7",
+      "locators": [
+        "DOEPMSKbit8p3210",
+        "DOEPINTbit8reservedp3224/native3223"
+      ],
+      "issue": "MaskregisterdefinesOUTPKTERRMbit8butstatusregisterreservesbit8.",
+      "disposition": "Keepmask0;donotinventpacketerrorstatus. Useonlydefinedsourceflags/checkedbounds;no comprehensiveerrorvisibilityclaim."
+    },
+    {
+      "id": "D-USB-SETADDRESS-ZERO-TEXT",
+      "source": "usb2-base",
+      "locators": [
+        "Printed257introductoryline",
+        "Printed257Default/Addressstatetable"
+      ],
+      "issue": "IntroductorylinecallsSetAddress0undefinedwhilefollowingstatetablesexplicitlydefinestateretention/transitionforzero.",
+      "disposition": "Preservedifference;useexplicitstatetableasdocumentaryrequirement,no broadundefined-inputsuccess. PinnedDAD-beforeacceptonwirecorrespondenceremainsunprovenanddependentusegated."
     }
   ]
 }

@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "date": "2026-10-20",
+  "status": "Generic endpoint/source requirements only; OUT property unsatisfied; no enumeration/driver/class admission",
+  "source_reading_and_triage_C06_complete": true,
+  "required_OUT_semantics_satisfied": false,
+  "OUT_XFRSIZ_choice": null,
+  "OUT_blocker": {
+    "source": "RM0456Rev7native3269;3270;3228–29 /Embassy69006a4arm_out",
+    "MPS_bytes": 64,
+    "packets": 1,
+    "printed_formula_result": 68,
+    "pinned_driver_result": 64,
+    "selected_result": null,
+    "H02_stop": "No dependent enumeration/operation. Correct applicable source or evaluated dedicated diagnostics must resolve semantic property. Diagnostic procedure separately reviewed with identified bench/publicdata/bufferFIFO/abortinterruptcounter bounds; no current diagnostic authorized."
+  },
+  "endpoint_schema": {
+    "EP0_MPS": 64,
+    "bulk_IN_address": "0x81",
+    "bulk_OUT_address": "0x01",
+    "bulk_MPS": 64,
+    "other_endpoints_inactive": true,
+    "class_subclass_protocol": null,
+    "VID_PID_release_strings": null,
+    "class_selection_or_CDC_Bridge_compatibility_claim": false,
+    "H02_identity_gate": "Choose lawful identity and read chosen class requirements before enumeration; no inheritedS3CDC descriptors or T01implementedtransportclaim"
+  },
+  "FIFO_words": {
+    "total_implemented": 320,
+    "Rx": {
+      "start": 0,
+      "depth": 96
+    },
+    "EP0_IN": {
+      "start": 96,
+      "depth": 16
+    },
+    "EP1_IN": {
+      "start": 112,
+      "depth": 16
+    },
+    "allocated_total": 128,
+    "unallocated": 192,
+    "RM_two_active_OUT_formula": 35,
+    "two_packet_engineering_allowance": 52,
+    "measured_margin": false
+  },
+  "software_caps": {
+    "USB_total_bytes_from_C05": 4096,
+    "SETUP_saved_slots": 3,
+    "SETUP_saved_bytes": 24,
+    "control_response_bytes": 256,
+    "packet_MPS_bytes": 64,
+    "OUT_stage_storage_min_bytes_without_transfer_selection": 68,
+    "IRQ_max_status_pops": 4,
+    "IRQ_max_payload_bytes": 256,
+    "IRQ_max_us_proposed": 200,
+    "service_interval_max_us_proposed": 1000,
+    "standard_request_active_work_max_ms_proposed": 40,
+    "recovery_total_max_ms_proposed": 20,
+    "Rx_flush_each_max_ms_strict": 10,
+    "Rx_flush_retries_max": 1,
+    "SDIS_hold_min_us_proposed": 2000,
+    "PHY_reset_sync_guard_min_us_proposed": 1,
+    "ZLP_each_guard_min_us_proposed": 1,
+    "measured_latency_or_fit": false
+  },
+  "bit_sets": {
+    "GINTSTS_device_defined_W1C": {
+      "bits": [
+        31,
+        30,
+        28,
+        27,
+        23,
+        21,
+        20,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        3,
+        1
+      ],
+      "mask": "0xd8b0fc0a"
+    },
+    "GINTMSK_proposed_base": {
+      "bits": [
+        31,
+        23,
+        19,
+        18,
+        13,
+        12,
+        11,
+        10,
+        4,
+        2,
+        1
+      ],
+      "mask": "0x808c3c16"
+    },
+    "DIEPINT_defined_W1C": {
+      "bits": [
+        13,
+        11,
+        6,
+        5,
+        4,
+        3,
+        1,
+        0
+      ],
+      "mask": "0x287b"
+    },
+    "DOEPINT_defined_W1C": {
+      "bits": [
+        13,
+        12,
+        5,
+        4,
+        3,
+        1,
+        0
+      ],
+      "mask": "0x303b"
+    },
+    "DIEPMSK_proposed_base": {
+      "bits": [
+        5,
+        3,
+        1,
+        0
+      ],
+      "mask": "0x2b"
+    },
+    "DOEPMSK_proposed_base": {
+      "bits": [
+        12,
+        5,
+        3,
+        1,
+        0
+      ],
+      "mask": "0x102b"
+    },
+    "DIEPMSK_control_overrun_add": {
+      "bits": [
+        4
+      ],
+      "mask": "0x10"
+    },
+    "DOEPMSK_control_overrun_add": {
+      "bits": [
+        4
+      ],
+      "mask": "0x10"
+    },
+    "DAINTMSK_EP0_EP1": {
+      "bits": [
+        17,
+        16,
+        1,
+        0
+      ],
+      "mask": "0x30003"
+    },
+    "GOTGINT_device_defined_W1C": {
+      "bits": [
+        18,
+        17,
+        9,
+        8,
+        2
+      ],
+      "mask": "0x60304"
+    }
+  },
+  "interrupt_rules": [
+    "Captured applicable W1C only,notallonesorstatusRMW",
+    "RO FIFOlevelsserviced;DAINTsummaryackactualendpointsource",
+    "INEPNE/globalNAKeffectivecommandlifetimepreserved",
+    "CIDSCHGMmasked,noID/HNP/SRP/LPM/iso/hostfeature",
+    "TXFEpollingpathmasked;EP0overrunITTXFE/OTEPDISdynamicphaseonly",
+    "DOEPMSKbit8notenabledbecauseDOEPINTbit8reserved",
+    "EERRonlysoftdisconnectrecovery;budget/fault/resetinvalidatesepoch"
+  ],
+  "TCPP_only": {
+    "mode": "Hibernate conditional proposal",
+    "EN": "PB5valid3.3Vlogic;rise<50us;noexternalhold-lowexistsonthekit",
+    "address_7bit": "0x34",
+    "register0_proposed": "0x08",
+    "register1_ack_required": "0x08",
+    "register2_VBUS_OK_bit": 5,
+    "VBUS_UVLO_threshold_V": [
+      1.9,
+      2.9
+    ],
+    "poll_interval_max_ms_proposed": 10,
+    "readback_status_group_max_ms_proposed": 2,
+    "SDIS_BVAL_invalid_action_max_ms_proposed": 1,
+    "normal_software_reaction_max_ms_proposed": 13,
+    "ADC4_UCPD_selected": false,
+    "physical_unplug_or_autonomous_failure_or_wholeport_qualification": false,
+    "unknown_status_behavior": "Refuseattach/immediateepochinvalid;neveruseoff/I2Cfailurezeroasvalidstatus",
+    "C03_C09_remaining": "ActualENrail/readvalidity/reset/clockloss/independentfailure/supply/attach/suspend/inrush/backfeed/current"
+  },
+  "not_run": [
+    "Enumeration",
+    "Targetbuild/driverchange",
+    "Anyregisterwrite",
+    "Diagnostic/physicaltest",
+    "Fuse/flash/provisioning/energizing"
+  ]
+}

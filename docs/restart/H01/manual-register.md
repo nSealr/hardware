@@ -165,3 +165,9 @@ does not copy private working histories. Repository heads checked during
 preparation still matched the pinned TROPIC/Safe7 sources; later Infineon/NXP
 repository checks likewise matched. This is a dated currentness check, not a
 promise that vendor documentation will never change.
+
+The [U585 endpoint/control table](u585-usb-endpoint-contract.md) records the
+finite C06 reading, four new native register/formula views and selected USB2
+standard-request/endpoint and applicable errata text. The195-source inventory
+does not grow in this increment. OUT64/68 remains an unsatisfied source
+property; source triage is not a completed criterion, driver or USB admission.

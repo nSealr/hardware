@@ -130,3 +130,10 @@ representative H02/H02S/H03 evidence and manufacturing/recovery constraints befo
 any design selection. H08/H09 repeat applicable claims on actual assemblies; a
 devkit result does not qualify a custom layout. The coordinator owns task-state
 updates and resource acceptance.
+
+The later [U585 endpoint table](u585-usb-endpoint-contract.md) adds a hard
+source-semantic OUT64/68 stop before dependent enumeration/operation. Any
+dedicated diagnostic to discriminate those hypotheses requires a separately
+reviewed finite procedure, identified bench, public data, buffer/FIFO limits and
+abort/interrupt/counter policy. It is not the ordinary driver probe above and
+no such procedure or experiment is authorized/executed by this source table.

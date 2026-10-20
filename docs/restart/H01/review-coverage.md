@@ -62,6 +62,13 @@ polling SysTick requirements. Its final handler/priority/clock/deadline tuple
 remains unselected. The [finite closure checklist](closure-checklist.md) now
 limits the remaining work to ten explicit H01 items, with H02/H04 work separate.
 
+The [finite U585 endpoint/control table](u585-usb-endpoint-contract.md) closes
+its selected reading/triage only. RM3269's OUT formula68 versus the pinned
+driver64 remains an **unsatisfied interface property**, not a supported
+conditional mode. No dependent enumeration/normal probe is admitted; class/IDs,
+address on-wire correspondence and short-IN/errata/effective-adapter conditions
+remain explicit before use. C03/C09 still bind complete TCPP/attach lifetime.
+
 ## Host review sign-off matrix
 
 [The finite entropy/crypto table](entropy-contract-review.md) supersedes the

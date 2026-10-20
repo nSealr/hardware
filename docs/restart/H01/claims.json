@@ -2078,6 +2078,93 @@
       "applicability": "ConditionalH01papercontract;no targetcapacity/security/physicalqualification",
       "closure_owner": "H01 documentary / H02 effectivebuildandphysicalgates",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C86",
+      "claim": "U585 generic EP0/bulk control/FIFO/interrupt requirements are finite, without selecting a class/identity/driver or admitting enumeration.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Selecteddeviceendpoint/control/register/modelbody3204–3230,3274–3278,3282;native3173/3218/3223"
+        },
+        {
+          "document": "u585-es",
+          "locator": "2.25pp38–40"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "Printed52–53;225–228;245–263selected;267–271"
+        },
+        {
+          "document": "usb2-errata2000",
+          "locator": "Selected9–10,12–13"
+        },
+        {
+          "document": "usb2-errata2002",
+          "locator": "p2bcdUSB0200"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "Selectedactualcontrol/arm/IRQpath;2195–2250"
+        }
+      ],
+      "engineering_consequence": "GenericEP0MPS64+EP1bulkINOUTMPS64,96+16+16FIFOwordswithin320,explicitdefinedW1Csets/childsourceack,40msactivecontrol/20msrecovery/4pop256B200usIRQqualificationcaps. ExactSETUP/wLength/state/halt/toggle/status/addressrulesandZLP20/15AHBsteps;noalloneswrites/stockwarncontinue/USBcopy-as-completion. ClassVIDPIDunselected;lawfulidentityandchosenclasssourcegateH02,noS3CDCinheritanceorT01transportimplementationclaim.",
+      "open_assumption": "OUTsemanticblockerandaddress-onwire/shortIN-errata/effectivedriver/time/clock/attachconditionsunresolved. Noenumeration,measuredcapacity/latency/USBcomplianceorwholehostrowadmission.",
+      "required_negative_case": "Malformedrecipient/state/length/endpoint/status/hostflood/fault/deadline/resetmustrefusewithoutunsafeBCNTslice,unboundedIRQ,partialframe/consent,reexecutionorweakfallback.",
+      "status": "documented-selected",
+      "applicability": "FiniteH01sourcecontract/triage;explicitunsatisfiedproperties,noUSBqualification",
+      "closure_owner": "H01 unresolvedsourceproperties / H02 pre-usegates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C87",
+      "claim": "The current U585 non-isochronous OUT model has an unresolved64/68 transfer-size correspondence that remains an unsatisfied interface property.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Native3269formula;3270completionconditions;3228–3229bytefields"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "1282/1595/1835XFRSIZ=MPS×packets"
+        }
+      ],
+      "engineering_consequence": "ForMPS64/n1printedformula68versuspinneddriver64;neitherselected/supported/qualifiedbydeduction. FiniteC06reading/triagemaycompletebutrequiredcriterionremainsunsatisfied. H02STOPbeforedependentOUTenumeration/operation. Correctapplicablemanufacturersourceorevaluateddedicateddiagnosticevidenceneeded.",
+      "open_assumption": "Notprovenhostimpossibilityorobserveddriver/hardwarebug. No sourceformulaedit,newclass/driver/IPlead,normalprobeassumingconformanceorautomaticmeasurementwaiver. Anyfinitepublicdatadiagnosticfirstneedsreviewedprocedure/identifiedbench/bufferFIFO/abortIRQcounterlimits.",
+      "required_negative_case": "Do notaccept64or68asconformantbecausefieldfits,allocationislargeorvendorcodeusesit;no pendingauthorityorrealidentityinunqualifieddiagnostics.",
+      "status": "documented-selected",
+      "applicability": "FiniteH01sourcecontract/triage;explicitunsatisfiedproperties,noUSBqualification",
+      "closure_owner": "H01 unresolvedsourceproperties / H02 pre-usegates",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C88",
+      "claim": "The retained TCPP-only Hibernate sensing proposal has exact mode/gate/readback and finite normal-software validity limits, with independent lifetime/electrical gates still open.",
+      "evidence": [
+        {
+          "document": "u585-tcpp03",
+          "locator": "Tables11/12pp11;Figure11p12;priorEN/UVLOtext8–14"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "DCTLSDIS3206–3207;currentI2Csubset"
+        },
+        {
+          "document": "usb2-base",
+          "locator": "Priorpower/source/pullupandcurrentstateclauses"
+        },
+        {
+          "document": "usb-typec-r2p5",
+          "locator": "PriorUSB2-onlydefault-powersinkanddisconnectthreshold40msclauses"
+        }
+      ],
+      "engineering_consequence": "ProposeENPB5valid3.3/rise<50us,Hibernate0x08,GDCopen/GDPoff,reg1ack0x08,reg2VBUS_OKbit5freshvalidI2C. Poll10ms+statusgroup2ms+SDIS/BVALinvalid1ms=>13msnormalreactioncap;noADC4/UCPD/PD/faultrecovery. Unknown/stale/off/readfailureinvalidatesepoch/refusesattach.",
+      "open_assumption": "NoENdefault/powered-offIO/autonomousclockloss/portcurrent/inrush/backfeed/suspendorphysicalunplugproof. C03/C09bindactualpermissiblesupply/lifetime;stockforcedtrueBVALnotconformant.",
+      "required_negative_case": "I2Cfailure/ENoff/modegateidentitymismatch/fault/stalestatuscannotbevalidzeroread/physicaldetachclaim;actualpullupmustdisconnectunderqualifiedfailurepolicy,no retainedconsent.",
+      "status": "documented-selected",
+      "applicability": "FiniteH01sourcecontract/triage;explicitunsatisfiedproperties,noUSBqualification",
+      "closure_owner": "H01 unresolvedsourceproperties / H02 pre-usegates",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

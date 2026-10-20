@@ -64,6 +64,15 @@ functional/register body and errata reading, with the pinned enhanced-SPI
 driver and exact U585VI metadata. Completion/hold, transient IOLOCK, flag-clear
 wording and unbounded driver waits remain explicit adapter/configuration gates.
 
+The [finite U585 EP0/bulk table](u585-usb-endpoint-contract.md) completes the
+selected endpoint/control/IN/error reading and records exact FIFO/IRQ/control
+bounds and the TCPP-only mode/readback proposal. The native OUT64/68 conflict
+is an **unsatisfied source-semantic blocker**, with neither transfer mode
+qualified and no dependent enumeration/normal probe admitted. Class/VID/PID
+remain unselected; H02 lawful identity/class-source review and any separately
+reviewed diagnostic procedure are explicit gates. This triage does not close
+the unsatisfied H01 interface criterion.
+
 ## Scope and identities
 
 The two comparable workloads use CPU-driven SPI graphics, six physical controls,
