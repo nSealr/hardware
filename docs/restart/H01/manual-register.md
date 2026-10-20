@@ -113,6 +113,14 @@ This is neither an effective build nor a completed power/descriptor/lifecycle
 contract. Fixed CDC and the conditional external attach fixture remain
 unselected; original code/manuals and the native register render stay private.
 
+[Conditional S3 attach/descriptor correspondence](s3-attach-contract.md) adds
+selected current USB normative and exact kit/module/electrical reading, keeping
+180 documents and79 claims. Thresholds, GPIO8 status and autonomous isolation
+are proposed fixture requirements; the descriptor/status gate can still reject
+self-power. Three new private native ECN renders resolve selected redlines
+and preserve the resistor figure/table discrepancy. No new component lead or
+physical result is introduced.
+
 [Existing Newhaven panel correspondence](panel-subset-review.md) adds the
 current breakout product/specification and the raw module's recommended
 connector identity,167 entries/69 claims. The breakout is a different

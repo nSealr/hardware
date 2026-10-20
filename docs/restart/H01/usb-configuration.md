@@ -15,6 +15,15 @@ has an additional JTAG interface and separate lifecycle gates; it is not
 silently covered by the single-data-interface proposal above. Its public
 register availability does not close driver/error, VBUS or power requirements.
 
+The later [conditional S3 attach contract](s3-attach-contract.md) specifies one
+external fixture interface within the coordinator's bounded scope. It keeps
+upstream VBUS away from kit power and requires autonomous data isolation,
+but does not select parts or a permissible self-powered transport. Exact fixed
+descriptor power capability and device-status source reporting remain an
+independent admission gate; an external fixture cannot rewrite them. The
+whole-kit bus-powered alternative remains unmeasured rather than declared
+failed. Suspend must preserve pull-up/resume behavior; disconnect is distinct.
+
 ## Normative power and connection requirements
 
 The primary source is USB2.0, 27 April 2000, as distributed in USB-IF's

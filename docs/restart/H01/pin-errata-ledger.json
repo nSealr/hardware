@@ -1524,6 +1524,16 @@
       ],
       "issue": "PDF±20frequencytolerancerowhas°Cunit;officialproduct saysppm. StandardCLvariant/agingfields do notestablishexactkitEXS00A-MU01499 totalerror.",
       "disposition": "Usecross-sourceunitcorrespondence only;100ppm referencebudget remains unsatisfiedcondition,not a measuredboardguarantee. No internal-onlylink accessed."
+    },
+    {
+      "id": "D-USB-RPD-LOWER",
+      "source": "usb2-resistors",
+      "locators": [
+        "Explicitreplacementtextpp1–3andtablep5",
+        "Nativep4Figure7-20/21labels"
+      ],
+      "issue": "Replacementtext/tableminimumRPD14.25kΩversusnativefigurelabels14.75kΩ;maximum24.80kΩagrees.",
+      "disposition": "Preservedifference;usewidertablerange14.25–24.80kΩforengineeringbudgets,notunreadfigureinferenceorameasuredPHYclaim."
     }
   ]
 }

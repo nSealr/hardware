@@ -173,7 +173,10 @@ isolation must cover unpowered, power-rise, reset, boot and clock-loss states;
 a GPIO and a correctly running firmware loop cannot cover a default PHY
 pull-up while that loop is absent. Include upstream backfeed and data/power
 isolation, leaving exact implementation/parts and measurements as H02 gates.
-No fixture is yet specified or selected by this increment.
+The subsequent [conditional attach contract](s3-attach-contract.md) now makes
+one finite proposed external interface reviewable; no implementation or parts
+are selected, connected or qualified. Its descriptor/status refusal gate is
+independent of its threshold/isolation requirements.
 
 Fixed descriptors remain independent: finish the existing public source
 scope, enumerate missing identity/current fields and require exact

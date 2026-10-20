@@ -121,6 +121,14 @@ coordinator permits one conditional external J4 attach-fixture assessment,
 not a new host/port/driver, selected fixture or electrical waiver. Both paper
 host configurations and all six signoffs remain incomplete.
 
+[S3 attach/descriptor correspondence](s3-attach-contract.md) adds the finite
+conditional fixture thresholds, power/default/isolation and source-status
+requirements, plus the exact received-unit descriptor/status capture and
+refusal gate. It records newly read USB power/status/configuration bodies and
+selected native ECN redlines. No captured response, fixture implementation,
+permissible self-power mode or USB compliance follows. The fixed descriptor
+and actual source must agree before this route can be selected.
+
 | Gate | Actual unresolved evidence | Owner/action |
 | --- | --- | --- |
 | G01 current U5 manual | **Original retrieval closed**: current3651-page Rev7 native PDF rehashed. Selected masters/reset/clock/RNG/USB and history read. Remaining required current body and relevant delta are open. | H01: complete the used current sections, exact configuration and driver correspondence. Do not repeat solved retrievals or replace mandatory U5/S3 comparison. |

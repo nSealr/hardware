@@ -327,13 +327,22 @@
       "original_sha256": "2d5a7cb7fd559d8d972bd88db32669c0196d23f22d7afaafb0f63d099b589a3f",
       "original_bytes": 1098115,
       "access": "public URL; downloaded",
-      "reading": "Cover and revision history read; detailed package/electrical reading pending.",
+      "reading": "Cover and revision history read; detailed package/electrical reading pending. Author /root/h01_sol,2026-10-20: pp64–65 electricalsupply/normal/DCtable andfootnotes read/reread forconditionalfixtureGPIOlevels. Table5-4conditions3.3V/25°C/highimpedanceload remainexplicit. Unusedp63radio andp66ADC/RFtext incidentallyread,not selectedfeatures or guarantees.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
       "remaining": "Complete required host subset or document-only triage as specified by approved brief; later physical gates remain.",
-      "reviewed_on": "2026-10-18",
-      "related_claims": []
+      "reviewed_on": "2026-10-20",
+      "related_claims": [
+        "H01-C78"
+      ],
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: pp64–65 electricalsupply/normal/DCtable andfootnotes read/reread forconditionalfixtureGPIOlevels. Table5-4conditions3.3V/25°C/highimpedanceload remainexplicit. Unusedp63radio andp66ADC/RFtext incidentallyread,not selectedfeatures or guarantees."
+        }
+      ]
     },
     {
       "id": "s3-module",
@@ -347,7 +356,7 @@
       "original_sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435",
       "original_bytes": 1280501,
       "access": "public URL; downloaded",
-      "reading": "Selected sections specified below read; remaining interface/application diagrams not reviewed.",
+      "reading": "Selected sections specified below read; remaining interface/application diagrams not reviewed. Author /root/h01_sol,2026-10-20: pp10–11 selectedpinlayout/table reread;GPIO8modulepad12/alternatefunctions corresponded. p29typicalmodemsleepcurrent reread,not a minimum/maximumsuspendbound. p18unusedI2C/I2Stext incidental,notnewperipheralscope.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -357,9 +366,17 @@
         "pp.9–18 §§2–4.5, 5.1–5.2.1.3; pinout p.10 visually inspected",
         "pp.27–30 §§6.1–6.5 electrical/current/flash"
       ],
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "related_claims": [
-        "H01-C05"
+        "H01-C05",
+        "H01-C78"
+      ],
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: pp10–11 selectedpinlayout/table reread;GPIO8modulepad12/alternatefunctions corresponded. p29typicalmodemsleepcurrent reread,not a minimum/maximumsuspendbound. p18unusedI2C/I2Stext incidental,notnewperipheralscope."
+        }
       ]
     },
     {
@@ -420,7 +437,8 @@
         "H01-C45",
         "H01-C47",
         "H01-C75",
-        "H01-C77"
+        "H01-C77",
+        "H01-C79"
       ],
       "review_events": [
         {
@@ -2391,7 +2409,7 @@
       "original_sha256": "f116b5d9f1fdce126e9a63d8450388eb11295d8322d831502fbc9729442b72e4",
       "original_bytes": 134287,
       "access": "Public official original, retained privately",
-      "reading": "Both native pages visually reviewed: block diagram and full schematic; sheet2 dated2022-11-30 v1.1. Module/header/power/USB/auto-program nets traced; no continuity measurement. Author /root/h01_sol,2026-10-20: native sheet2 visually reread for existingtwo diode-ORedpowerpaths,bridge/sharedrail,regulator/LED/reset branches. No newS3sensing/clock/supply selection.",
+      "reading": "Both native pages visually reviewed: block diagram and full schematic; sheet2 dated2022-11-30 v1.1. Module/header/power/USB/auto-program nets traced; no continuity measurement. Author /root/h01_sol,2026-10-20: native sheet2 visually reread for existingtwo diode-ORedpowerpaths,bridge/sharedrail,regulator/LED/reset branches. No newS3sensing/clock/supply selection. Author /root/h01_sol,2026-10-20: nativecurrentv1.1sheet2visuallyreread forJ1.12GPIO8,J1.21VCC5V/J1.22GND,J2/D1andJ4/D7ORpaths,bridge/reset/regulator/LEDloads. Originalhashf116b5d9...matched;sheet1historicaldateApril13doesnotreplacecurrentsheet2Nov30. No continuity/injection/current/fixtureproof.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -2405,10 +2423,16 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: native sheet2 visually reread for existingtwo diode-ORedpowerpaths,bridge/sharedrail,regulator/LED/reset branches. No newS3sensing/clock/supply selection."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: nativecurrentv1.1sheet2visuallyreread forJ1.12GPIO8,J1.21VCC5V/J1.22GND,J2/D1andJ4/D7ORpaths,bridge/reset/regulator/LEDloads. Originalhashf116b5d9...matched;sheet1historicaldateApril13doesnotreplacecurrentsheet2Nov30. No continuity/injection/current/fixtureproof."
         }
       ],
       "related_claims": [
-        "H01-C77"
+        "H01-C77",
+        "H01-C78"
       ]
     },
     {
@@ -2813,18 +2837,46 @@
       "original_sha256": "31528541e9d829b1401fd0c747829012c56e6d6d6b12d8f1591ff4cb6549b73b",
       "original_bytes": 171397,
       "access": "Public official original, retained privately",
-      "reading": "Complete6page extracted text; dead/weak-battery redline ambiguity not visually resolved and excluded from initial kit proposal. Normal powered-device1s and preconnect100ms requirements read.",
+      "reading": "Complete6page extracted text; dead/weak-battery redline ambiguity not visually resolved and excluded from initial kit proposal. Normal powered-device1s and preconnect100ms requirements read. Author /root/h01_sol,2026-10-20: completepreviouslyread6pageECN text reread inboundedparts; nativepp4–5 newlyvisuallyread for replacementfigure/redlines andthreshold0.8–4.0V. Δt7unconfiguredafter1srequiresISUSP;not an indefiniteactiveunitloadallowance. Weak/deadbattery500mAprovision retainedunused,no batteryfeatureadmission.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
       "member": "usb_20_20250603/usb_20_20240927/usb_20_20240927/Connect Timing ECN.pdf",
       "archive": "usb2-20250603-archive.zip",
       "archive_sha256": "5fe9c53c04033818af396e8852b3acbca5c3a76ba92fab549fd81cd0ea7b3692",
       "pages": 6,
-      "extracted_text_sha256": "c6890aa9d849b625aa1c8d11348c5a55434f05baf4382441cdb72501b3ae505d"
+      "extracted_text_sha256": "c6890aa9d849b625aa1c8d11348c5a55434f05baf4382441cdb72501b3ae505d",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: completepreviouslyread6pageECN text reread inboundedparts; nativepp4–5 newlyvisuallyread for replacementfigure/redlines andthreshold0.8–4.0V. Δt7unconfiguredafter1srequiresISUSP;not an indefiniteactiveunitloadallowance. Weak/deadbattery500mAprovision retainedunused,no batteryfeatureadmission."
+        }
+      ],
+      "native_visual_reviews": [
+        {
+          "private_render": "sol-usb-connect4.png",
+          "page": "native4replacementconnectfigure",
+          "bytes": 193029,
+          "sha256": "e198b2895e5ce5cc3e916fa9fb031a0f84cd12126e98c14f1c830381cd479470",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        },
+        {
+          "private_render": "sol-usb-connect5.png",
+          "page": "native5coloredredline/threshold",
+          "bytes": 446931,
+          "sha256": "769f535c64992a7d48258473ce5d385f3284ef0339d62d68e87cf45533fa40c9",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        }
+      ],
+      "related_claims": [
+        "H01-C78"
+      ]
     },
     {
       "id": "usb2-capacitance",
@@ -2909,18 +2961,38 @@
       "original_sha256": "7d54e297fd8b79706a37912a899d20dca08d01861b940f4ebe2c11498d492e51",
       "original_bytes": 135192,
       "access": "Public official original, retained privately",
-      "reading": "Retrieved and hash-pinned; body not reviewed in this checkpoint.",
+      "reading": "Retrieved and hash-pinned; body not reviewed in this checkpoint. Author /root/h01_sol,2026-10-20: all5pageECNtext read; nativep4newlyvisuallychecked. Figure7-20/21labels14.75kΩminimum versus explicitreplacementtable/text14.25kΩ preservedasdifference;budgetwidertablerange14.25–24.80kΩ. No fixture/PHYterminationmeasurement.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
       "member": "usb_20_20250603/usb_20_20240927/usb_20_20240927/resistor_ecn.pdf",
       "archive": "usb2-20250603-archive.zip",
       "archive_sha256": "5fe9c53c04033818af396e8852b3acbca5c3a76ba92fab549fd81cd0ea7b3692",
       "pages": 5,
-      "extracted_text_sha256": "b57ea1a454d721f37e7bd75453a50ed3a914e1100e5dece99213ddfab98a40d4"
+      "extracted_text_sha256": "b57ea1a454d721f37e7bd75453a50ed3a914e1100e5dece99213ddfab98a40d4",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: all5pageECNtext read; nativep4newlyvisuallychecked. Figure7-20/21labels14.75kΩminimum versus explicitreplacementtable/text14.25kΩ preservedasdifference;budgetwidertablerange14.25–24.80kΩ. No fixture/PHYterminationmeasurement."
+        }
+      ],
+      "native_visual_reviews": [
+        {
+          "private_render": "sol-usb-resistors4.png",
+          "page": "native4figures7-20/21/22andHScontext",
+          "bytes": 264477,
+          "sha256": "f360d981ee598c5839171cd783d6b846db092aa335243e87f04ba07415832cb2",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        }
+      ],
+      "related_claims": [
+        "H01-C78"
+      ]
     },
     {
       "id": "usb2-suspend",
@@ -2933,12 +3005,12 @@
       "original_sha256": "1e3375761a72c37eebd198e48bccf528a4bd153bc56cc124e1f88c72722d5019",
       "original_bytes": 71263,
       "access": "Public official original, retained privately",
-      "reading": "Complete2page ECN text;2.5mA non-ICUSB limit and unchanged averaging obligations.",
+      "reading": "Complete2page ECN text;2.5mA non-ICUSB limit and unchanged averaging obligations. Author /root/h01_sol,2026-10-20: completepreviouslyread2pageECNreread;2.5mA/nonhub andunchangedaveraging/peakrules retained. No measuredcurrent.",
       "full_manual_review": true,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
       "member": "usb_20_20250603/usb_20_20240927/usb_20_20240927/Suspend Current ECN.pdf",
       "archive": "usb2-20250603-archive.zip",
@@ -2946,7 +3018,15 @@
       "pages": 2,
       "extracted_text_sha256": "f8717ae19ee9623df53bb91b813d47f520caf0fd45eee8e99b2674a11cb79a44",
       "related_claims": [
-        "H01-C77"
+        "H01-C77",
+        "H01-C78"
+      ],
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: completepreviouslyread2pageECNreread;2.5mA/nonhub andunchangedaveraging/peakrules retained. No measuredcurrent."
+        }
       ]
     },
     {
@@ -2984,18 +3064,28 @@
       "original_sha256": "9ea1f49b46f295e71e175d950ffaebd9edfd82f831787c40e74c2486d7773767",
       "original_bytes": 49944,
       "access": "Public official original, retained privately",
-      "reading": "Complete5page ECN text;5.50V maximum replaces5.25V; no inference that unchanged suspend rows override separate Suspend ECN.",
+      "reading": "Complete5page ECN text;5.50V maximum replaces5.25V; no inference that unchanged suspend rows override separate Suspend ECN. Author /root/h01_sol,2026-10-20: priorcompleteVBUSMaxECNreading reused for5.50Vsupersession;no newbodyclaim.",
       "full_manual_review": true,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
       "remaining": "See configuration-review.md and usb-configuration.md; host rows remain incomplete.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
       "member": "usb_20_20250603/usb_20_20240927/usb_20_20240927/USB 2.0 ECN VBUS Max Limit.pdf",
       "archive": "usb2-20250603-archive.zip",
       "archive_sha256": "5fe9c53c04033818af396e8852b3acbca5c3a76ba92fab549fd81cd0ea7b3692",
       "pages": 5,
-      "extracted_text_sha256": "ee7cc7a238068bfe6877a7fd9835c2c2b2cb6b545a6259cceb6fb5a7876e2c64"
+      "extracted_text_sha256": "ee7cc7a238068bfe6877a7fd9835c2c2b2cb6b545a6259cceb6fb5a7876e2c64",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: priorcompleteVBUSMaxECNreading reused for5.50Vsupersession;no newbodyclaim."
+        }
+      ],
+      "related_claims": [
+        "H01-C78"
+      ]
     },
     {
       "id": "usb2-base",
@@ -3008,7 +3098,7 @@
       "original_sha256": "d39698a33486c399124af92bd02e4f978fd9a836b5cf4e52e6e4633eb1d89f61",
       "original_bytes": 5983789,
       "access": "Public official original, retained privately",
-      "reading": "Physicalpp198–207/printed170–179: selected §7.2 power and start7.3; base values require ECNs. No complete controller/protocol review claimed. Author /root/h01_sol,2026-10-20: physicalpp169–170,178 /printed141–142,150 text newlyread:FS/LS pullup control,selectedreceiverlimits andconnecttiming withunusedHScontext. No newnativefigures. CurrentECNsupersessions retained. Author /root/h01_sol,2026-10-20: additionally physicalpp187–188 /printed159–160§§7.1.10–7.1.13 textread withunusedHScontext,includingFS-onlyfrequency±0.25% allsourcesandconsecutive/pairedsourcejitter±2/±1ns. Figuretextonly,notnewnativevisual.",
+      "reading": "Physicalpp198–207/printed170–179: selected §7.2 power and start7.3; base values require ECNs. No complete controller/protocol review claimed. Author /root/h01_sol,2026-10-20: physicalpp169–170,178 /printed141–142,150 text newlyread:FS/LS pullup control,selectedreceiverlimits andconnecttiming withunusedHScontext. No newnativefigures. CurrentECNsupersessions retained. Author /root/h01_sol,2026-10-20: additionally physicalpp187–188 /printed159–160§§7.1.10–7.1.13 textread withunusedHScontext,includingFS-onlyfrequency±0.25% allsourcesandconsecutive/pairedsourcejitter±2/±1ns. Figuretextonly,notnewnativevisual. Author /root/h01_sol,2026-10-20: selected text/table bodies printed141,150–151,154–156,170–171,175–182,188,242§9.1.1.2,254–256§9.4.5 throughendpointHaltparagraph,264–266§9.6.3 read/reread. Physicaloffset+28. Notcompleteeverypage:printed158bitstufffigure andunusedHS/LS/hub/testcontext encountered;no newnativebasewaveform/eye/figureaudit. Power-sourcecapability/status/bMaxPower units,3/10ms suspend,pullup-removal10s andwidecurrent/edge/termination constraints corresponded.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; public metadata, links and original analysis only.",
@@ -3030,12 +3120,19 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: additionally physicalpp187–188 /printed159–160§§7.1.10–7.1.13 textread withunusedHScontext,includingFS-onlyfrequency±0.25% allsourcesandconsecutive/pairedsourcejitter±2/±1ns. Figuretextonly,notnewnativevisual."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: selected text/table bodies printed141,150–151,154–156,170–171,175–182,188,242§9.1.1.2,254–256§9.4.5 throughendpointHaltparagraph,264–266§9.6.3 read/reread. Physicaloffset+28. Notcompleteeverypage:printed158bitstufffigure andunusedHS/LS/hub/testcontext encountered;no newnativebasewaveform/eye/figureaudit. Power-sourcecapability/status/bMaxPower units,3/10ms suspend,pullup-removal10s andwidecurrent/edge/termination constraints corresponded."
         }
       ],
       "related_claims": [
         "H01-C73",
         "H01-C71",
-        "H01-C77"
+        "H01-C77",
+        "H01-C78",
+        "H01-C79"
       ]
     },
     {
@@ -3218,7 +3315,8 @@
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [
         "H01-C46",
-        "H01-C75"
+        "H01-C75",
+        "H01-C79"
       ],
       "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
     },
@@ -3240,7 +3338,9 @@
       "reviewed_on": "2026-10-20",
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
-      "related_claims": [],
+      "related_claims": [
+        "H01-C79"
+      ],
       "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
     },
     {
@@ -3366,7 +3466,8 @@
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [
-        "H01-C75"
+        "H01-C75",
+        "H01-C79"
       ],
       "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
       "review_events": [
@@ -3643,7 +3744,9 @@
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [
-        "H01-C77"
+        "H01-C77",
+        "H01-C78",
+        "H01-C79"
       ],
       "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
       "review_events": [
