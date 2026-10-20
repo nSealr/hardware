@@ -49,6 +49,13 @@ the pinned I2C source. The UCPD constructor enables DMA requests and NVIC;
 it is not equivalent to the proposed no-PD/no-DMA configuration. Final control,
 clock, reset, low-power and interrupt policy remains open.
 
+[U585 OTG source correspondence](u585-otg-source-review.md) adds selected
+current CPU-FIFO, state/reset/interrupt and actual Rust device-path reading.
+The ZLP erratum, effective USB time feature, failure propagation, buffer bounds
+and VBUS override behavior prevent selecting the candidate driver now.
+Remaining endpoint/control/model, interrupt/time-base and normative work remain;
+this advances a subset and does not sign any complete host row.
+
 ## Host review sign-off matrix
 
 “Selected reviewed” below signs only the stated reading, not a complete probe or

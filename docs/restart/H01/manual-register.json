@@ -23,7 +23,7 @@
       "original_sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c",
       "original_bytes": 73588589,
       "access": "Public official original retrieved; author independently rehashed coordinator retrieval",
-      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json. Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt. Author /root/h01_sol,2026-10-20: fresh text pp2687–2699,2709–2719,2735–2737 (only initial DMA paragraph on2737),2739–2753;pp3459–3463,3472–3475,3478–3490;p3491 before74.8.8;pp458–459 before10.10.13. Encountered partial PD/DMA text is not full protocol review. Native Figure38p487 visually inspected, selected HSI16→UCPD1 and I2C paths; not complete clock/electrical validation. Selected UCPD1EN definitionp565 reread. No new visual register-bit diagram review. I2C target/SMBus/autonomous functional bodies, full DMA/PD algorithms and register maps unread.",
+      "reading": "Current cover; pp.129–134 §§2.1–2.2 start; pp.483–485 §§11.1–11.3 and11.4 start; p.492 §§11.4.4–11.4.5 and surrounding calibration; pp.501–504 §§11.4.18–11.4.24 selected; complete chapter48 functional/register text pp.1903–1919; pp.3135–3137 §§72.2–72.3; p.3141 §72.6 and surrounding HNP/SRP; p.3164 §72.15.1; pp.3170–3175 TRDT/reset/selected GINTSTS text; pp.3238–3240 core/device initialization plus surrounding host text; pp.3261–3266 device reset/endpoint/setup/FIFO plus surrounding host text; p.3637 revision history. Diagrams text-extracted, not all visually inspected. Subsequent current body review: pp150–194;195–212;276–286 and287 beforeTable50;291–305,307–330,342–350;401–415;483–486,488,493–496,497–500,505–508. Figure38 p487 was truncated in extraction and is not a complete visual review. See configuration-review.md for substantive findings. Already completed before explicit pause: pp540–547 RCC reset registers; pp366–373 ICACHE functional text. ICACHE register continuation and DCACHE are not covered by that increment. See pause-reading-notes.md. Resumed author /root/h01_resume, 2026-10-20: pp374–380 before register-map summary; pp382–399 before register-map summary; pp622–641 before register-map summary; pp2562–2574. Functional/register and encountered table text read; no new visual diagram review. Prior pp540–547 reset-register text reread for exclusions. See resume-source-notes.md. Author /root/h01_sol, 2026-10-20: extracted text pp213–219;220–222 before §5.6.11;256–259 before §5.8.6;260–263 before §5.9.4;272–274 before §5.11.5;548–569 before §11.8.37;587–595 before §11.8.48. Wide register-map summaries excluded; no new visual diagram review. Reread pp129–134,199,204–212,540–547 for device/master/lock/reset correspondence. See u585-initialization.md and u585-peripheral-manifest.json. Author /root/h01_sol,2026-10-20: extracted text pp2903–2927;p2928 before §68.5;pp2929–2931;pp2933–2947;p2948 before §68.8.11. Selected functional/register/table body; diagrams text-extracted, not newly visually reviewed. TI/CRC algorithm bodies and unused register-map summary excluded. See u585-spi-review.md; proposed CPU-SPI adapter remains unselected/unbuilt. Author /root/h01_sol,2026-10-20: fresh text pp2687–2699,2709–2719,2735–2737 (only initial DMA paragraph on2737),2739–2753;pp3459–3463,3472–3475,3478–3490;p3491 before74.8.8;pp458–459 before10.10.13. Encountered partial PD/DMA text is not full protocol review. Native Figure38p487 visually inspected, selected HSI16→UCPD1 and I2C paths; not complete clock/electrical validation. Selected UCPD1EN definitionp565 reread. No new visual register-bit diagram review. I2C target/SMBus/autonomous functional bodies, full DMA/PD algorithms and register maps unread. Author /root/h01_sol,2026-10-20: fresh text pp3133–3134,3138–3140,3142–3144,3150–3153,3155–3158,3168–3169,3179–3182,3186–3187,3267–3271; pp3170–3175 reread. Adjacent host/isochronous and extracted figure text encountered, no complete unused-mode algorithms or new native OTG/bit-layout visual review. Existing core/device initialization reading remains at its earlier stated scope. Remaining endpoint/model, control/bounds/IN/error and interrupt/time-base correspondence open; p3269 alignment expression not adopted as qualified tuple.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -44,7 +44,10 @@
         "H01-C49",
         "H01-C54",
         "H01-C56",
-        "H01-C57"
+        "H01-C57",
+        "H01-C58",
+        "H01-C60",
+        "H01-C61"
       ],
       "extracted_text_sha256": "70f8b6c3b77f939c6a49000edb1d296a1f7f326e3e314be48234bd2c4ad833d3",
       "extracted_text_bytes": 18823134,
@@ -81,6 +84,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: fresh text pp2687–2699,2709–2719,2735–2737 (only initial DMA paragraph on2737),2739–2753;pp3459–3463,3472–3475,3478–3490;p3491 before74.8.8;pp458–459 before10.10.13. Encountered partial PD/DMA text is not full protocol review. Native Figure38p487 visually inspected, selected HSI16→UCPD1 and I2C paths; not complete clock/electrical validation. Selected UCPD1EN definitionp565 reread. No new visual register-bit diagram review. I2C target/SMBus/autonomous functional bodies, full DMA/PD algorithms and register maps unread."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: fresh text pp3133–3134,3138–3140,3142–3144,3150–3153,3155–3158,3168–3169,3179–3182,3186–3187,3267–3271; pp3170–3175 reread. Adjacent host/isochronous and extracted figure text encountered, no complete unused-mode algorithms or new native OTG/bit-layout visual review. Existing core/device initialization reading remains at its earlier stated scope. Remaining endpoint/model, control/bounds/IN/error and interrupt/time-base correspondence open; p3269 alignment expression not adopted as qualified tuple."
         }
       ],
       "drawing_review": [
@@ -141,7 +149,7 @@
       "original_sha256": "52dac38c801ae72c42ebffd39296ddf7c80ae378cd555f1a1d1baf49daf86a56",
       "original_bytes": 2246742,
       "access": "Public official native PDF retrieved and rehashed; cover/revision confirmed",
-      "reading": "Fresh primary PDF cover/applicability and complete summaries pp.1–6; selected bodies §§2.2.20–2.2.26 pp.14–16, §2.15.1 p.28, §§2.17–2.18 pp.29–30, §2.23 pp.35–37, §§2.25–2.26 pp.38–41. Surrounding text read only where returned; not all core/system/clock/retention/I2C or full errata body. USB wording contradictions retained in ledger. Native original follow-up: all core/system body text pp.7–16 (§2.1.1 and §§2.2.1–2.2.27), with X/W/U summary pp.2–3. §2.3.1 beginning read, not its complete workaround. Author /root/h01_sol,2026-10-20: reread SPI §§2.23.1–2.23.7 pp35–37 and Table3 applicability p5 against current RM selected body and candidate driver; no physical qualification. Author /root/h01_sol,2026-10-20: fresh I2C §§2.20.1–3 pp32–33 and GPIO§2.4.1p17; UCPD§2.26pp40–41 reread. Selected applicability p4I2C,p5UCPD,p3GPIOchecked: GPIO filter current issue and UCPD Rd/Rp tolerance defects are X-only, not W/U. All remaining negative/reserved/configuration limits preserved.",
+      "reading": "Fresh primary PDF cover/applicability and complete summaries pp.1–6; selected bodies §§2.2.20–2.2.26 pp.14–16, §2.15.1 p.28, §§2.17–2.18 pp.29–30, §2.23 pp.35–37, §§2.25–2.26 pp.38–41. Surrounding text read only where returned; not all core/system/clock/retention/I2C or full errata body. USB wording contradictions retained in ledger. Native original follow-up: all core/system body text pp.7–16 (§2.1.1 and §§2.2.1–2.2.27), with X/W/U summary pp.2–3. §2.3.1 beginning read, not its complete workaround. Author /root/h01_sol,2026-10-20: reread SPI §§2.23.1–2.23.7 pp35–37 and Table3 applicability p5 against current RM selected body and candidate driver; no physical qualification. Author /root/h01_sol,2026-10-20: fresh I2C §§2.20.1–3 pp32–33 and GPIO§2.4.1p17; UCPD§2.26pp40–41 reread. Selected applicability p4I2C,p5UCPD,p3GPIOchecked: GPIO filter current issue and UCPD Rd/Rp tolerance defects are X-only, not W/U. All remaining negative/reserved/configuration limits preserved. Author /root/h01_sol,2026-10-20: selected OTG_FS §2.25 body pp38–40 and Table3p5 reread against actual pinned Rust device source. ZLP20/15AHB-cycle workaround differs from its combined CNAK/EPENA write. No physical failure asserted.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -150,7 +158,8 @@
       "related_claims": [
         "H01-C49",
         "H01-C54",
-        "H01-C56"
+        "H01-C56",
+        "H01-C60"
       ],
       "extracted_text_sha256": "8a6d428743f3510a45101951a3fe88f71a875190b9025433d83f6f13b5ebca82",
       "extracted_text_bytes": 207048,
@@ -165,6 +174,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: fresh I2C §§2.20.1–3 pp32–33 and GPIO§2.4.1p17; UCPD§2.26pp40–41 reread. Selected applicability p4I2C,p5UCPD,p3GPIOchecked: GPIO filter current issue and UCPD Rd/Rp tolerance defects are X-only, not W/U. All remaining negative/reserved/configuration limits preserved."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: selected OTG_FS §2.25 body pp38–40 and Table3p5 reread against actual pinned Rust device source. ZLP20/15AHB-cycle workaround differs from its combined CNAK/EPENA write. No physical failure asserted."
         }
       ]
     },
@@ -1479,14 +1493,22 @@
       "original_sha256": "55631e05bcf036ce3bf657912353900489e2376f3121e7858d0e00bdced5e775",
       "original_bytes": 104211,
       "access": "Public original bytes rehashed",
-      "reading": "Package version and exact stm32u585vi/u5a5vj/u5g9zj/h573 feature entries; other features not exhaustively reviewed.",
+      "reading": "Package version and exact stm32u585vi/u5a5vj/u5g9zj/h573 feature entries; other features not exhaustively reviewed. Author /root/h01_sol,2026-10-20: USB path-dependency lines170–171 and selected features/time lines320–376 read. STM32 time feature does not forward USB dependency embassy-time handshake feature; no effective binary feature graph.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Private snapshot; links/hash/paraphrase only",
       "remaining": "Exact selected toolchain/target/configuration, dependency licenses, build and implementation/manual correspondence remain.",
-      "reviewed_on": "2026-10-18",
+      "reviewed_on": "2026-10-20",
       "related_claims": [
-        "H01-C50"
+        "H01-C50",
+        "H01-C59"
+      ],
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: USB path-dependency lines170–171 and selected features/time lines320–376 read. STM32 time feature does not forward USB dependency embassy-time handshake feature; no effective binary feature graph."
+        }
       ]
     },
     {
@@ -2272,7 +2294,8 @@
       "related_claims": [
         "H01-C41",
         "H01-C52",
-        "H01-C53"
+        "H01-C53",
+        "H01-C61"
       ]
     },
     {
@@ -3783,6 +3806,98 @@
       "remaining": "Full package-electrical/AF and manifest/driver/build correspondence remain; not a whole PAC audit.",
       "related_claims": [
         "H01-C57"
+      ]
+    },
+    {
+      "id": "u5-embassy-otg-wrapper",
+      "manufacturer": "Embassy project",
+      "document_id": "Embassy STM32 usb/otg.rs",
+      "revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "document_date": null,
+      "candidate_scope": "Existing U585 candidate USB FS device dependency only; no selected adapter or effective build",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/src/usb/otg.rs",
+      "retrieved_utc": "2026-10-20T10:29:03.017714+00:00",
+      "original_sha256": "e57725161f2cc11b00c1e220d6f440ba7e29e6bb9f41842e957b4fc50c565129",
+      "original_bytes": 39110,
+      "access": "Public immutable source original retained privately",
+      "reading": "Selected lines1–99,273–490,540–640: FS constructor, wrapper bus initialization/disable/traits, U5 FS constants. Remaining HS/ULPI/host and other-family paths not fully reviewed.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; public metadata and original analysis only",
+      "remaining": "Complete current device/errata/bounds, clock/sensing/reset/interrupt/deadline and effective feature correspondence; no whole-host signoff.",
+      "related_claims": [
+        "H01-C58",
+        "H01-C59",
+        "H01-C61"
+      ]
+    },
+    {
+      "id": "u5-embassy-otg-lib",
+      "manufacturer": "Embassy project",
+      "document_id": "Embassy USB Synopsys OTG src/lib.rs",
+      "revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "document_date": null,
+      "candidate_scope": "Existing U585 candidate USB FS device dependency only; no selected adapter or effective build",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-usb-synopsys-otg/src/lib.rs",
+      "retrieved_utc": "2026-10-20T10:29:02.976559+00:00",
+      "original_sha256": "3dbdf15f42083923820714de5cfdd47493214f419be42e95b5dde549ccee02ce",
+      "original_bytes": 80956,
+      "access": "Public immutable source original retained privately",
+      "reading": "Selected lines1–226,541–588,815–1055,1068–1235,1240–1545,1620–1675,1870–1950,2010–2143,2195–2245. IRQ/defaults/waits/init/reset/poll, selected buffer/abort/transfer/ZLP paths. Remaining allocation/transfer/host and generated register source not completely reviewed.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; public metadata and original analysis only",
+      "remaining": "Complete current device/errata/bounds, clock/sensing/reset/interrupt/deadline and effective feature correspondence; no whole-host signoff.",
+      "related_claims": [
+        "H01-C59",
+        "H01-C60",
+        "H01-C61"
+      ]
+    },
+    {
+      "id": "u5-embassy-otg-cargo",
+      "manufacturer": "Embassy project",
+      "document_id": "Embassy USB Synopsys OTG Cargo.toml",
+      "revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "document_date": null,
+      "candidate_scope": "Existing U585 candidate USB FS device dependency only; no selected adapter or effective build",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-usb-synopsys-otg/Cargo.toml",
+      "retrieved_utc": "2026-10-20T10:29:03.029312+00:00",
+      "original_sha256": "62b8c851d2add220b5f591be929e45580393a57144a522e3cfab7cab52d4169d",
+      "original_bytes": 2778,
+      "access": "Public immutable source original retained privately",
+      "reading": "Complete manifest read: version0.4.0, declared MIT OR Apache-2.0, optional independent embassy-time and host features. No dependency-wide license or effective feature/build audit.",
+      "full_manual_review": true,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; public metadata and original analysis only",
+      "remaining": "Complete current device/errata/bounds, clock/sensing/reset/interrupt/deadline and effective feature correspondence; no whole-host signoff.",
+      "related_claims": [
+        "H01-C59"
+      ]
+    },
+    {
+      "id": "u5-embassy-usb-mod",
+      "manufacturer": "Embassy project",
+      "document_id": "Embassy STM32 usb/mod.rs",
+      "revision": "69006a4158aa6d605ad8506ade0f2f79159131e3",
+      "document_date": null,
+      "candidate_scope": "Existing U585 candidate USB FS device dependency only; no selected adapter or effective build",
+      "url": "https://raw.githubusercontent.com/embassy-rs/embassy/69006a4158aa6d605ad8506ade0f2f79159131e3/embassy-stm32/src/usb/mod.rs",
+      "retrieved_utc": "2026-10-20T10:29:03.044450+00:00",
+      "original_sha256": "5303c6780e05dadc4519052ad06323d9ffa1d2e3783d690b83ef68e284ad3942",
+      "original_bytes": 6054,
+      "access": "Public immutable source original retained privately",
+      "reading": "Complete source read, selected U5 common clock/supply/IRQ/RCC path traced; other-family branches encountered but not hardware-qualified. U5 supply-ready loop is unbounded.",
+      "full_manual_review": true,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; public metadata and original analysis only",
+      "remaining": "Complete current device/errata/bounds, clock/sensing/reset/interrupt/deadline and effective feature correspondence; no whole-host signoff.",
+      "related_claims": [
+        "H01-C59"
       ]
     }
   ],

@@ -1,0 +1,104 @@
+{
+  "task": "H01",
+  "author": "/root/h01_sol",
+  "recorded_utc": "2026-10-20T10:35:35.459788+00:00",
+  "base_commit": "b773eb60b37781435a2c6243163abc78e3e88806",
+  "scope": "Selected U585 OTG CPU-FIFO/current state/reset and exact candidate Rust source; remaining device model/bounds/interrupt/time and all host signoffs open",
+  "checks": {
+    "json_ids_references": "All H01 JSON parsed;163 unique document IDs;61 unique claims; valid references and unique ledger IDs",
+    "affected_originals": "4 new and3 existing source/native originals rehashed; lengths matched",
+    "call_path": "Inspected wrapper uses RCC reset; public core_soft_reset method not conflated with selected actual call path",
+    "whitespace": "git diff --check passed"
+  },
+  "not_repeated": [
+    "unchanged source inventory",
+    "unchanged hardware CI",
+    "target build",
+    "physical tests"
+  ],
+  "private_reading_receipt": {
+    "name": "u585-otg-2026-10-20-reading.json",
+    "bytes": 2529,
+    "sha256": "a8387490a21834c6842f6e85b9a5f4dcac434030f8613991ea53480c8495ddd3"
+  },
+  "original_correspondence": [
+    {
+      "document": "u5-embassy-otg-wrapper",
+      "bytes": 39110,
+      "sha256": "e57725161f2cc11b00c1e220d6f440ba7e29e6bb9f41842e957b4fc50c565129"
+    },
+    {
+      "document": "u5-embassy-otg-lib",
+      "bytes": 80956,
+      "sha256": "3dbdf15f42083923820714de5cfdd47493214f419be42e95b5dde549ccee02ce"
+    },
+    {
+      "document": "u5-embassy-otg-cargo",
+      "bytes": 2778,
+      "sha256": "62b8c851d2add220b5f591be929e45580393a57144a522e3cfab7cab52d4169d"
+    },
+    {
+      "document": "u5-embassy-usb-mod",
+      "bytes": 6054,
+      "sha256": "5303c6780e05dadc4519052ad06323d9ffa1d2e3783d690b83ef68e284ad3942"
+    },
+    {
+      "document": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "document": "u585-es",
+      "bytes": 2246742,
+      "sha256": "52dac38c801ae72c42ebffd39296ddf7c80ae378cd555f1a1d1baf49daf86a56"
+    },
+    {
+      "document": "embassy-stm32-cargo",
+      "bytes": 104211,
+      "sha256": "55631e05bcf036ce3bf657912353900489e2376f3121e7858d0e00bdced5e775"
+    }
+  ],
+  "review_status": "Affected distinct review required; prior reviews/results retain original bindings; no complete documentary row or host admission",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/u585-otg-source-review.md",
+      "bytes": 9961,
+      "sha256": "c6ed65d7c45d8d649aed730de7ccff53d4c7d2400468c6ec30a37211d40f52fb"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 18204,
+      "sha256": "60e00c4b2bca9a03d8e76226e5ab8fe063083927e96ace63adad1dd82df87a48"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 13876,
+      "sha256": "230afcc19fecf132e587c850c22a4dfc90efdf8b9526fb3d16582bf9d698d7c3"
+    },
+    {
+      "path": "docs/restart/H01/usb-configuration.md",
+      "bytes": 7793,
+      "sha256": "3023abad2a610fa5626fb9c067920e9a958364b35c6894d35f2516cb059c83ba"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 11851,
+      "sha256": "886e8ae9711315e4faaff37e30a6d0f8e122d9d96b09046d2a37b42b34b13c76"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 258823,
+      "sha256": "208d5a665aa5c2ecf44b18675dda1a8173d77b3e7b0f63675eb44b4528dad435"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 74438,
+      "sha256": "72a3e5571f12c7a9e4c9359ef2bdbac3f1b2690d11dc2e9e79366cc9cd0d3e4c"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 68666,
+      "sha256": "2ec5cca3b9f94cb147673a987363e77f3fd34e3bde01dfb241d1e3ab3f866ea2"
+    }
+  ]
+}

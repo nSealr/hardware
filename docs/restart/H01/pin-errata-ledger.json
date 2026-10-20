@@ -966,10 +966,17 @@
       "affected_revision": "X/W/U",
       "configuration": "Device CPU-FIFO transfers, zero-length packets and ID/reset interrupts",
       "documented_mitigation": "Use documented one-packet transfer scheduling and staggered NAK/enable ZLP handling; account for hidden/shared ID interrupt behavior.",
-      "driver_or_probe_implication": "Exact driver check required; record ambiguous register/packet wording in D-U585-USB, without inventing a register-write procedure.",
-      "residual_limit": "No current RM or target-binary correspondence; host-only §2.25.1 does not apply to a device-only proposal.",
+      "driver_or_probe_implication": "Exact pinned Rust start_in_transfer combines CNAK/EPENA, including control ZLP;20/15AHB-cycle workaround not established. Selected current RM and source correspondence in u585-otg-source-review.md; remaining multipacket/interrupt/bounds work open.",
+      "residual_limit": "Selected current RM/source reading does not qualify an adapter, effective binary or complete device configuration. No physical failure asserted; host-only section2.25.1 remains excluded.",
       "reviewer": "/root/h01_author",
-      "physical_validation": false
+      "physical_validation": false,
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Selected current RM/actual Rust device path reviewed; ZLP workaround mismatch and remaining source gates recorded."
+        }
+      ]
     },
     {
       "id": "E-U585-SPI",
@@ -1376,6 +1383,27 @@
       ],
       "issue": "Table5 groups Vsense with a2.7–5.5V recommended range, while the functional divider/threshold uses about1.16V at nominal trip.",
       "disposition": "Preserve source inconsistency; no silent correction of the recommended range and no final TCPP electrical qualification from the example alone."
+    },
+    {
+      "id": "D-U585-OTG-ZLP-SOURCE",
+      "source": "u585-es / u5-embassy-otg-lib",
+      "locators": [
+        "ES0499§2.25.3p39",
+        "start_in_transfer and control accept selected source"
+      ],
+      "issue": "Current X/W/U erratum requires split SNAK/CNAK/EPENA and20/15AHB-cycle waits for ZLP; selected source combines CNAK/EPENA and control accept uses ZLP.",
+      "disposition": "Source configuration mismatch, no reproduced failure. Require exact bounded workaround before selecting this adapter."
+    },
+    {
+      "id": "D-U585-OTG-VBUS-OVERRIDE",
+      "source": "u5-embassy-otg-lib / u5-rm7",
+      "locators": [
+        "Config/default lines541–588",
+        "config_v2v3 lines1068–1090",
+        "CID reset/writabilityp3187"
+      ],
+      "issue": "Generic software-override option is not honored in the reset-CID0x3000 branch: BVAL is forced true when hardware detection is disabled.",
+      "disposition": "Do not use defaults or that option as a kit sensing implementation. CID is writable; source reset value is not received identity. PF14ADC/TCPP sensing and power policy remain open."
     }
   ]
 }

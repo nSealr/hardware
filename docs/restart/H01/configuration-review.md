@@ -225,6 +225,10 @@ register/body and exact source/metadata correspondence. Native clock-tree
 inspection confirms the HSI16 UCPD branch; the metadata's PCLK1 kernel label
 is retained as a discrepancy. The blocking I2C API needs explicit byte-count,
 deadline-feature and bounded recovery correspondence before selection.
+The [U585 OTG source review](u585-otg-source-review.md) subsequently adds
+selected CPU-FIFO/state/reset and actual Rust path correspondence. Its ZLP,
+deadline/failure, buffer-bound and VBUS requirements remain unmet; no USB
+adapter or complete host configuration is selected by that source increment.
 
 New current-RM reading: pp150–194 (§§2.3.4,3,4); pp195–212 (GTZC introduction,
 implementation, functional body and selected secure configuration registers);

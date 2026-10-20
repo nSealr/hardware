@@ -69,6 +69,13 @@ explicit S3 documentary dependency wherever the chosen path needs those
 semantics. U585's public RM must be used to complete its own device path;
 similar IP naming does not transfer normative guarantees between chips.
 
+The [selected U585 OTG source review](u585-otg-source-review.md) now binds
+current CPU-FIFO and device-state text to the actual candidate Rust wrapper and
+dependency. Its separate optional handshake feature, warning-only timeout
+continuation, ZLP-enable sequence and forced BVAL defaults do not establish
+the required bounded adapter or kit sensing policy. The U585 source path is
+distinct from the S3 TinyUSB path; neither is admitted by analogy.
+
 Actual new reading: Type-C2.5 pp153,180–184,198–201,210–212,218–219,224–232,
 243–246,251–252 (selected body, not visual review of every figure). USB2 base
 physical pp198–207 / printed170–179, with unrelated hub context encountered;

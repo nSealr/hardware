@@ -84,6 +84,12 @@ register/body and native clock-tree reading distinguishes actual counted
 completion, deadline features, revision-specific trimming and the HSI16/PCLK1
 metadata discrepancy. A source count is not a complete configuration signoff.
 
+[U585 OTG source correspondence](u585-otg-source-review.md) adds4 existing
+candidate dependency originals,163 total entries and61 claims. CPU FIFO/endpoint
+facts correspond, while effective time features, warning-only recovery, ZLP
+erratum handling and software VBUS behavior remain unqualified. Remaining
+endpoint/control/interrupt/time-base reading and distinct review stay open.
+
 Every retained claim points to a locator and an owner in [claims.json](claims.json).
 The [pin/errata ledger](pin-errata-ledger.json) retains adverse findings and
 contradictions, including S3 RTC address/provisioning/download/USB register

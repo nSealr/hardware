@@ -1218,6 +1218,114 @@
       "status": "documented-selected",
       "closure_owner": "H01 documentary / H02 implementation and measurement",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C58",
+      "claim": "Current U585 OTG_FS selected architecture is a CPU-driven FIFO device path, distinct from the family HS DMA controller.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "§§72.1,72.4 pp3133–3139;device endpoints pp3143–3144;FIFO allocation pp3152–3156;GAHBCFG p3168"
+        },
+        {
+          "document": "u5-embassy-otg-wrapper",
+          "locator": "FS constructor lines60–96; U5 constants lines540–640"
+        }
+      ],
+      "applicability": "U575/U585 chapter72 and exact existing U585 FS wrapper candidate",
+      "engineering_consequence": "CPU32-bit FIFO accesses,320-word dedicated FIFO and six endpoint slots correspond. GAHBCFG bits6:1 are reserved; do not copy HS DMA configuration or infer arbitrary SRAM DMA from generic reset-field wording. Exact FIFO/buffer/endpoint tuple and source bounds remain required.",
+      "open_assumption": "Remaining endpoint/current-model and complete master/driver/build correspondence is not signed. No throughput or capacity measurement.",
+      "required_negative_case": "HS API naming, generic AHB-master text or empirical FIFO allowance must not qualify a DMA path, buffer bound or complete U585 device configuration.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C59",
+      "claim": "Pinned U585 USB wait limits and failure behavior depend on separate features and actual call paths.",
+      "evidence": [
+        {
+          "document": "u5-embassy-usb-mod",
+          "locator": "U5 common setup supply-ready wait, complete file"
+        },
+        {
+          "document": "u5-embassy-otg-wrapper",
+          "locator": "Bus::init/disable lines273–490"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "IRQ lines1–226; wait/flush/abort lines815–1055; reset/poll lines1158–1455"
+        },
+        {
+          "document": "u5-embassy-otg-cargo",
+          "locator": "Complete manifest optional embassy-time feature/default empty"
+        },
+        {
+          "document": "embassy-stm32-cargo",
+          "locator": "time feature lines364–376 and dependency lines170–171"
+        }
+      ],
+      "applicability": "Exact Embassy69006a4158aa6d605ad8506ade0f2f79159131e3 source; no resolved binary",
+      "engineering_consequence": "Supply-ready, wrapper AHB-idle and forced-mode waits are unbounded. Flush/abort helpers get10ms only with USB dependency embassy-time, otherwise infinite; STM32 time does not forward it. Timeout warns then continues. IRQ/critical-section timer progress and one overall failure budget remain required.",
+      "open_assumption": "Public core_soft_reset method is not conflated with actual wrapper RCC-reset path. No physical hang, exploit or target feature graph asserted.",
+      "required_negative_case": "A finite local timeout, warning log or outer task deadline must not count as successful quiescence/recovery or preempt synchronous IRQ work.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C60",
+      "claim": "Pinned U585 OTG zero-length IN source does not establish the current erratum workaround.",
+      "evidence": [
+        {
+          "document": "u585-es",
+          "locator": "§2.25.3p39;Table3p5;related TxFIFO§2.25.2pp38–39"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "start_in_transfer lines2031–2060;IN write/copy lines2088–2143;control accept lines2208–2230"
+        },
+        {
+          "document": "u5-rm7",
+          "locator": "Current device and reset/flush selected text in u585-otg-source-review.md"
+        }
+      ],
+      "applicability": "U585 X/W/U device IN ZLP, including control accept; no hardware failure observation",
+      "engineering_consequence": "Erratum requires SNAK/CNAK split with20/15 AHB-cycle delays around EPENA. Selected source sets CNAK and EPENA together for zero length too. Require exact workaround and bounded transfer/error policy before selection. Protected one-packet FIFO write is useful correspondence for separate corruption erratum, not a full device signoff.",
+      "open_assumption": "Remaining multipacket, reserved masks, endpoint/control/error and current source correspondence open. No reproduced upstream bug or physical qualification.",
+      "required_negative_case": "An API returning after FIFO copy, or combined zero-length endpoint enable, must not prove successful/erratum-compliant host delivery or permit local consent.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C61",
+      "claim": "U585 USB software VBUS defaults and CID branch selection do not implement the kit sensing policy.",
+      "evidence": [
+        {
+          "document": "u5-rm7",
+          "locator": "Peripheral states pp3142–3143;GCCFG/CID pp3186–3187"
+        },
+        {
+          "document": "u5-embassy-otg-lib",
+          "locator": "Config/defaults lines541–588;config_v2v3 lines1068–1090;power events lines1370–1415"
+        },
+        {
+          "document": "u5-embassy-otg-wrapper",
+          "locator": "CID routing lines390–409"
+        },
+        {
+          "document": "u585-mb1551-d01",
+          "locator": "Sheet9 PF14 analog sensing and power topology"
+        }
+      ],
+      "applicability": "RM CID reset0x3000 source value, not an actual received-unit measurement",
+      "engineering_consequence": "CID is writable and is not immutable identity. Default detection/override are off. Under reset0x3000 branch, hardware detection off forces B-session valid true even when generic software override requested. Require explicit PF14 ADC/TCPP sensing and attach/removal policy; second kit supply defeats VBUS-absent-implies-off assumption.",
+      "open_assumption": "No sensing/controller/host choice or physical unplug proof. Exact clock/supply/bounds/connection timing remain unqualified.",
+      "required_negative_case": "Forced BVAL, reset, timeout or writable CID must not be treated as physical plug state, valid power, immutable silicon identity or a completed sensing configuration.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }
