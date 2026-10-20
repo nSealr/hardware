@@ -95,6 +95,14 @@ conditional/document screens; none silently replaces a failed main comparator.
 
 ## Open gates and next actions
 
+[Existing Newhaven panel correspondence](panel-subset-review.md) now records
+the raw DB module's selected mechanical, pin, electrical, command and reset
+body. The distinct AF/ST7789VI breakout is deferred for the present common
+four-wire/DC/backlight subset. C02 still needs exact module startup/internal
+power, rail margin, fixture and effective host timing correspondence; no panel
+or documentary host row is signed. Required H02 visible-render/failure evidence
+is separate from these remaining H01 source/configuration decisions.
+
 | Gate | Actual unresolved evidence | Owner/action |
 | --- | --- | --- |
 | G01 current U5 manual | **Original retrieval closed**: current3651-page Rev7 native PDF rehashed. Selected masters/reset/clock/RNG/USB and history read. Remaining required current body and relevant delta are open. | H01: complete the used current sections, exact configuration and driver correspondence. Do not repeat solved retrievals or replace mandatory U5/S3 comparison. |

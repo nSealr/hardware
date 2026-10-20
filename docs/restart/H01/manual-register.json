@@ -2936,13 +2936,53 @@
       "extracted_text_sha256": "df152300861d8ce696257313f0bafa7a66f0593d74576f596b0cdd2e3467d6c5",
       "pages": 17,
       "access": "Public official original retained privately",
-      "reading": "All 17 pages extracted text read; timing diagrams absent from extraction. Native physical p12 four-wire timing and p14 reset/power diagrams visually read; mechanical p4 not visually reviewed.",
+      "reading": "All 17 pages extracted text read; timing diagrams absent from extraction. Native physical p12 four-wire timing and p14 reset/power diagrams visually read; mechanical p4 not visually reviewed. Author /root/h01_sol,2026-10-20: reread physicalpp1,3–9,15–16. Native physicalp4 mechanical andp12 four-wire/p14 reset-power visually reviewed; headingspp10–14 text encountered. Rear/contact orientation,45-contact pin mapping,2.5–3.3V VDD andcurrent-driven four-seriesLED source bounds recorded. Existing moduleexample is not accepted as startup proof.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "No original, extraction or manufacturer drawing redistributed; public links, metadata and original analysis only.",
-      "remaining": "Exact fixture/breakout correspondence, controller reset footnotes, rails/I/O/backlight compatibility and remaining selected command body unresolved.",
-      "reviewed_on": "2026-10-18",
-      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound"
+      "remaining": "C02 exact module/factory startup and internal-power contradictions,normal logic-rail margin underC03/C09,default-off backlight/contact fixture; no panel/driver admission. See panel-subset-review.md. H02 actual orientation/render/blanking/clock/error evidence and H04 fixture drawing remain.",
+      "reviewed_on": "2026-10-20",
+      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: reread physicalpp1,3–9,15–16. Native physicalp4 mechanical andp12 four-wire/p14 reset-power visually reviewed; headingspp10–14 text encountered. Rear/contact orientation,45-contact pin mapping,2.5–3.3V VDD andcurrent-driven four-seriesLED source bounds recorded. Existing moduleexample is not accepted as startup proof."
+        }
+      ],
+      "native_visual_reviews": [
+        {
+          "private_render": "sol-nhd-db-mechanical.png",
+          "page": "physical4mechanical",
+          "bytes": 393146,
+          "sha256": "a049120dbef1b8b8bce90ef0f5aa7db31ac1903770aae22110c66c87804d5821",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        },
+        {
+          "private_render": "sol-nhd-db-fourwire.png",
+          "page": "physical12fourwire",
+          "bytes": 674400,
+          "sha256": "034ba8825e5f826ee50b63a4a57d1dca77cfe1170d21bb6443c5d880483c4f5e",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        },
+        {
+          "private_render": "sol-nhd-db-reset.png",
+          "page": "physical14resetpower",
+          "bytes": 546343,
+          "sha256": "2bdb86666845522549564a89c2a94b2230dc95c80c6728287ebcd9858e656a90",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        }
+      ],
+      "related_claims": [
+        "H01-C65",
+        "H01-C66",
+        "H01-C67",
+        "H01-C68",
+        "H01-C69"
+      ]
     },
     {
       "id": "nhd-ili9341v",
@@ -2957,13 +2997,26 @@
       "extracted_text_sha256": "0668bb7fc78bcf6033ddd37722e7a993281ad70d6407cbbfc78913bf46a45b0a",
       "pages": 249,
       "access": "Public official original retained privately",
-      "reading": "Actual pp33–35 serial interface and pp107–108 inversion commands only. 0x21 is inversion ON, contrary to the module example comment.",
+      "reading": "Actual pp33–35 serial interface and pp107–108 inversion commands only. 0x21 is inversion ON, contrary to the module example comment. Author /root/h01_sol,2026-10-20: selected cover/contents locators only; fulltextpp11,26,33–35,40–42,63–64,86–90,92,102–104,106,109–116,129–130,136–138,157–158,166–170,180–185,197–199,206,219–220,233–235,239–241,247. p65 unusedparallel format andp238NVflowtitle encountered only. Firstcombined output truncatedafterp102;pp103–116 reread in smaller outputs. Figuretext read, no new nativecontrollerfigurevisual. CB/CFabsence inference from case-sensitive lookup withdrawn: listp89 andbodiespp197–199 prove presence. Unusedcommands/interfaces/NVprogramming/CABC remain outside subset.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "No original, extraction or manufacturer drawing redistributed; public links, metadata and original analysis only.",
-      "remaining": "Remaining used commands, reset/power timing, module configuration and driver correspondence not reviewed.",
-      "reviewed_on": "2026-10-18",
-      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound"
+      "remaining": "C02 exact module/factory startup and internal-power contradictions,normal logic-rail margin underC03/C09,default-off backlight/contact fixture; no panel/driver admission. See panel-subset-review.md. H02 actual orientation/render/blanking/clock/error evidence and H04 fixture drawing remain.",
+      "reviewed_on": "2026-10-20",
+      "retrieval_method": "curl-cffi 0.15.0 Chrome HTTP/2; verified TLS; public unauthenticated URL; 45 s and 96 MiB bound",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: selected cover/contents locators only; fulltextpp11,26,33–35,40–42,63–64,86–90,92,102–104,106,109–116,129–130,136–138,157–158,166–170,180–185,197–199,206,219–220,233–235,239–241,247. p65 unusedparallel format andp238NVflowtitle encountered only. Firstcombined output truncatedafterp102;pp103–116 reread in smaller outputs. Figuretext read, no new nativecontrollerfigurevisual. CB/CFabsence inference from case-sensitive lookup withdrawn: listp89 andbodiespp197–199 prove presence. Unusedcommands/interfaces/NVprogramming/CABC remain outside subset."
+        }
+      ],
+      "related_claims": [
+        "H01-C66",
+        "H01-C67",
+        "H01-C68",
+        "H01-C69"
+      ]
     },
     {
       "id": "u585-tcpp03",
@@ -3947,6 +4000,81 @@
         "H01-C62",
         "H01-C63",
         "H01-C64"
+      ]
+    },
+    {
+      "id": "nhd-breakout-product",
+      "manufacturer": "Newhaven Display",
+      "document_id": "NHD-2.4-CTXP-BREAKOUT product identity",
+      "revision": "Current product body retrieved2026-10-20; page not versioned",
+      "candidate_scope": "Existing bounded lead assessed and deferred for proposed common four-wire/DC/backlight subset; not raw DB/ILI9341V assembly",
+      "url": "https://newhavendisplay.com/tft-breakout-module-with-2-4-inch-ips-tft-display/",
+      "retrieved_utc": "2026-10-20T10:51:22.990838+00:00",
+      "original_sha256": "2fb26eec6bbc5aedeea7173288bcfb0f41c4b81ea0a881c0f2d64771df215e63",
+      "original_bytes": 320809,
+      "access": "Public official original retained privately",
+      "reading": "Web product identity/features selected bodylines609–663; integrated AF-CTXP/ST7789VI, levelshifting/backlight/microSD and3.3–5V marketing statements only. Not wholeHTMLscript or supplied-controller review.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Original/extraction/native renders private; URLs/hash and original paraphrased analysis only",
+      "remaining": "No ST7789VI driver/controller or further display pursuit; no common-panel admission. Actual fixture/assembly not identified.",
+      "related_claims": [
+        "H01-C65"
+      ]
+    },
+    {
+      "id": "nhd-breakout-spec",
+      "manufacturer": "Newhaven Display",
+      "document_id": "NHD-2.4-CTXP-BREAKOUT specification",
+      "revision": "Rev1,2026-03-19; drawing initial2025-11-11",
+      "candidate_scope": "Existing bounded lead assessed and deferred for proposed common four-wire/DC/backlight subset; not raw DB/ILI9341V assembly",
+      "url": "https://newhavendisplay.com/content/specs/NHD-2.4-CTXP-BREAKOUT.pdf",
+      "retrieved_utc": "2026-10-20T10:51:24.188764+00:00",
+      "original_sha256": "1f6786753c7c3465025e79892f4a842c4c011c90634afefbd749bfa2e61b352f",
+      "original_bytes": 1906633,
+      "access": "Public official original retained privately",
+      "reading": "Native physicalpp1–7 extractedtext including unused parallelheading and drawingtext; nativephysicalp5 pin/interface table visuallyinspected. Remainingtiming/example/controller bodies unread after deferral. pdftotext font-type warnings,exit0.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Original/extraction/native renders private; URLs/hash and original paraphrased analysis only",
+      "remaining": "No ST7789VI driver/controller or further display pursuit; no common-panel admission. Actual fixture/assembly not identified.",
+      "related_claims": [
+        "H01-C65"
+      ],
+      "pages": 12,
+      "extracted_text_sha256": "72bfe2e70e79727ffdef8bf7ce88b3b6d3dd16ca30c0d52fb88026d4c4bbae16",
+      "native_visual_reviews": [
+        {
+          "private_render": "sol-nhd-breakout-pins.png",
+          "page": "physical5pininterface",
+          "bytes": 314193,
+          "sha256": "14e3cce57843233a61bf5e8fc4c9ba52b0ca4065acddb3d2d85c191712133cc8",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "nhd-molex-connector",
+      "manufacturer": "Molex",
+      "document_id": "512964594 /0512964594 product identity",
+      "revision": "Unversioned product body retrieved2026-10-20",
+      "candidate_scope": "Connector already recommended by existing rawDBmodule; selected contact identity only,no fixture/component admission",
+      "url": "https://www.molex.com/en-us/products/part-detail/512964594",
+      "retrieved_utc": "2026-10-20T10:58:04.480680+00:00",
+      "original_sha256": "bb0144b638755eaa01cc7af77a41918667a1a6cd8d3b157d8161dd8ea2845e5e",
+      "original_bytes": 138124,
+      "access": "Official public HTML retained privately; normalized web body includes limited-information text, embedded product metadata says published. Neither is exact drawing/availability evidence.",
+      "reading": "Web normalized selected physical/electrical/identity/limited-information body lines46–140; original retained for identity only, not whole HTML script review. Selected native HTML JSON-LD PropertyValue contact,description,published,actuator,circuits,mating,height,pitch,current andvoltage fields read; identity/orientation match the selected normalized body.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Private original; selected factual paraphrase/hash/URL public only",
+      "remaining": "Exact salesdrawing guessedURL was inaccessible via web; no official connector drawing obtained. No further lead or outreach. Exactinstalledcontact/pin1/acceptedtail/fixturedrawing remains H02/H04gate.",
+      "related_claims": [
+        "H01-C66"
       ]
     }
   ],

@@ -1401,6 +1401,119 @@
       "status": "documented-selected",
       "closure_owner": "H01 documentary / H02 implementation and measurement",
       "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C65",
+      "claim": "The existing Newhaven CTXP breakout differs from the raw DB/ILI9341V panel and does not document the proposed separate D/C and backlight contract.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp4–6,8 controller/pin/interface/rail identity"
+        },
+        {
+          "document": "nhd-breakout-product",
+          "locator": "Selected identity/features body integratedAF-CTXP/ST7789VI"
+        },
+        {
+          "document": "nhd-breakout-spec",
+          "locator": "physicalpp3–6; nativep5pin/interface table"
+        }
+      ],
+      "applicability": "Existing common U585/S3 modest SPI panel lead only",
+      "engineering_consequence": "Defer the breakout for the current four-wire/DC/backlight subset: its current specification documents three-wire SPI and BLK no-connect. Do not inherit raw DB power or commands. No new controller, driver or panel pursuit.",
+      "open_assumption": "This is documentary deferral, not proof that every undocumented mode is physically impossible. The raw panel remains unadmitted.",
+      "required_negative_case": "A matching 2.4-inch/CTXP name or integrated regulator/backlight must not transfer commands, LED requirements or pin mapping across assemblies.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C66",
+      "claim": "The raw DB panel requires exact 45-contact orientation, normal logic-rail margin and a separate controlled-current backlight.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp4–6,8; nativep4mechanical"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp11,26,239–241 pin/electricallimits"
+        },
+        {
+          "document": "nhd-molex-connector",
+          "locator": "Selected officialproduct identity/physical/electricalbody"
+        }
+      ],
+      "applicability": "Conditional raw NHD-2.4-240320DB-CTXP four-wire interface-I proposal",
+      "engineering_consequence": "IM3:0=0110; pin32 clock,30 data,33 DC,34 CS,6 reset; unused DB low/RDX high. Module VDD max3.3V and VIH maxVDD require worst-case kit rail/I/O bounds; nominal3.3V does not prove margin. LEDA40/LEDK41 need current control,15mA typical/25mA maximum,10.8–13.6V at15mA; no direct MCU drive.",
+      "open_assumption": "Module internal VDDI/VCI/factory straps, connector sales drawing, fixture orientation, rails/current driver/default-off and unpowered I/O remain unresolved. No available bench supply inferred.",
+      "required_negative_case": "Installed connector orientation, a12V source or an MCU backlight drive must not be inferred from rear view/nominal VF or energized before powered-off/injection proof.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C67",
+      "claim": "Raw ILI9341V four-wire rendering requires explicit edge, byte, pixel, window and final wire completion correspondence.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "nativephysicalp12fourwiretiming"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp33–35,40–42,63–64,112–116,129–130,136–138,247"
+        }
+      ],
+      "applicability": "Write-only8bit CPU render proposal; no TE/readback/DMA",
+      "engineering_consequence": "Bind rising capture/falling change and MSB first; RGB565 high byte first; explicit MADCTL/COLMOD/window and complete pixels. Full image153600bytes and row480bytes are calculated only. Partial-parameter failure restarts the whole command. CS/FIFO flags alone are not a complete frame or authenticated visible pixels.5MHz is a conditional ceiling, not a selected clock.",
+      "open_assumption": "Actual host mode/divider/first-bit/hold/errata, memory bounds, time backend, temperature/load and optical render remain H01 configuration/H02 evidence gaps.",
+      "required_negative_case": "Partial byte/pixel, unexpected reset, timeout or stale screen invalidates pending consent. Do not resume at an assumed GRAM address or treat wire byte count as readback.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C68",
+      "claim": "Raw panel reset, sleep and display-off do not establish GRAM erasure or an immediately valid screen.",
+      "evidence": [
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp92,102–104,110–111,116,219–220,233–235"
+        },
+        {
+          "document": "nhd-24-module",
+          "locator": "nativephysicalp14reset/powerdiagram"
+        }
+      ],
+      "applicability": "Proposed review/consent startup, cancel and reset policy",
+      "engineering_consequence": "Respect10us RESX low,5ms quiet and120ms sleep/reset intervals; use a conservative120ms recovery when state is unknown. Reset/off/sleep do not replace blanking and full rewrite. Explicit format/orientation and released controls are required.",
+      "open_assumption": "p233 repair-data versus p116 HW no-clear, power-down reset released versus falling-edge wording, external blanking and unpowered I/O remain unresolved. No zeroization or optical result.",
+      "required_negative_case": "Reset,28h or10h with a retained screen must not preserve consent or count as secret-image erasure.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
+    },
+    {
+      "id": "H01-C69",
+      "claim": "The raw DB module example is not yet a complete source-consistent startup recipe for the linked ILI9341V.",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp15–16example"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp11,86–90,103,109,157–158,166–169,180–185,197–199,206,240"
+        }
+      ],
+      "applicability": "Exact existing module/controller startup correspondence; C02 open",
+      "engineering_consequence": "CB/CF are present and read; the initial absence inference is withdrawn. Preserve C0 extra-byte, B6 partial-write, post-SLPOUT delay, gamma-comment and CB AVDD5.8V versus5.5V restriction differences. Factory/EXTC enable and internal power must match the module before selecting either the example or a standard-command/defaults alternative.",
+      "open_assumption": "Exact module factory/startup/power resolution or a coordinator scope decision is required. No new panel/controller or outreach. Copying the example and assuming factory defaults are not admitted.",
+      "required_negative_case": "Disabled factory commands treated as NOP, retained settings, missing quiet time or an unreviewed rail code must not count as known successful panel initialization.",
+      "status": "documented-selected",
+      "closure_owner": "H01 documentary / H02 implementation and measurement",
+      "reviewer": "/root/h01_sol"
     }
   ]
 }

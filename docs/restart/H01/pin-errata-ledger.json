@@ -660,6 +660,49 @@
       ],
       "status": "feasibility witness only; no netlist or wiring approval",
       "unknown": "Full exact package/AF/rail/graphics chapter and current RM; physical assembly/manufacturing choice"
+    },
+    {
+      "id": "P-NHD-DB-SPI",
+      "candidate": "NHD-2.4-240320DB-CTXP raw45-contact module; not AF/ST7789VI breakout",
+      "package_pads": {
+        "2": "IM0 low",
+        "3": "IM1 high",
+        "4": "IM2 high",
+        "5": "IM3 low",
+        "6": "RESX",
+        "30": "SDI/SDA",
+        "32": "SCL",
+        "33": "D/CX",
+        "34": "CSX",
+        "36/37": "VDD",
+        "38/39": "GND",
+        "40": "LEDA",
+        "41": "LEDK"
+      },
+      "function": "Conditional four-wire interfaceI CPU write-only SPI, MSB first,RGB565",
+      "alternate_function": "UnusedDB17:0 pins11–28 low,RDX31 high; unusedRGB7–10 fixed validrail; output29SDO/35TE open;NC1,42–45",
+      "owner": "Trusted render adapter; display traffic never establishes local consent by itself",
+      "power_domain": "ModuleVDD2.5–3.3V normal inputVIHmaxVDD; separate current-controlled backlight15mAtyp/25mAmax,10.8–13.6V@15mA",
+      "reset_and_straps": "IM3:0=0110;active-lowRESX/CSX. Module factoryEXTC/internalpower and externaldefaultoff not proved.",
+      "peripheral_and_master_access": "CPU-only write subset; no DMA,RGB,TE,readback,CABC orNVprogramming selected",
+      "interface_limits": "Conditional ceiling5MHz; exacthostphase/divider/finalhold, actualedge/rail/load anderror policy still required",
+      "competing_use": "U585SPI1 kit LED/mux and proposedcontrol branches remain in configuration-review; no directPB6/GPIO9→LEDbacklight connection",
+      "evidence": [
+        {
+          "document": "nhd-24-module",
+          "locator": "physicalpp4–6,8;nativep4,12,14"
+        },
+        {
+          "document": "nhd-ili9341v",
+          "locator": "pp11,26,33–35,40–42,63–64,112–116,129–130,136–138,239–241,247"
+        },
+        {
+          "document": "nhd-molex-connector",
+          "locator": "Selected productidentity/contact metadata only"
+        }
+      ],
+      "status": "Conditional paper mapping only; C02 remains open; no fixture/wiring/panel admitted",
+      "unknown": "Module factory/startup/internalpower,normal kitlogicrail margin,contact fixture/defaultoff,current source andpoweredoffIO. Exactconnector drawing andactualorientation H02/H04."
     }
   ],
   "errata": [
@@ -1426,6 +1469,40 @@
       ],
       "issue": "VTOR section describes secure/nonsecure banks but register introduction says not banked; pending paragraph names set-enable while explicit registers separate enabling and force-pending. Generic vector figure labels and implementation placeholders are not the U585 mapping.",
       "disposition": "Preserve inconsistency. Single-image proposal uses secure vector base only; explicit RM/PAC positive IRQ map and named register operations, no nonsecure-isolation or generic480-IRQ claim."
+    },
+    {
+      "id": "D-NHD-INIT-CORRESPONDENCE",
+      "source": "nhd-24-module /nhd-ili9341v",
+      "locators": [
+        "modulephysicalpp15–16",
+        "controllerpp90,103,109,180,197,206,240"
+      ],
+      "issue": "The module example sends two C0 bytes where the controller defines one, omits post-SLPOUT quiet time, and gives different gamma/inversion comments. CB AVDD code02 means5.8V, while other sections limit AVDD to5.5V. The module internal EXTC/factory enable state is unproved.",
+      "disposition": "C02 remains open and the example unqualified. The CB/CF absence inference is withdrawn after listp89 and bodiespp197–199. Neither copying the example nor assuming factory defaults resolves internal power."
+    },
+    {
+      "id": "D-NHD-RESET-RETENTION",
+      "source": "nhd-24-module /nhd-ili9341v",
+      "locators": [
+        "controllerp116RAMWRdefault",
+        "controllerp233resettable",
+        "controllerpp219–220powerbody",
+        "modulenativephysicalp14powerdiagram"
+      ],
+      "issue": "Hardware GRAM repair-data in the reset table differs from the RAMWR no-clear description. Power-down text says reset released while the module diagram names the falling edge.",
+      "disposition": "No secret-erasure claim. Blank/full rewrite and a conservative interval are required. Actual power/blanking policy remains unresolved; do not derive a shorter interval."
+    },
+    {
+      "id": "D-NHD-CONTROLLER-TABLE-TEXT",
+      "source": "nhd-ili9341v",
+      "locators": [
+        "p129MADCTLdescription/figurelabels",
+        "p157RTNAtable",
+        "pp184–185VCOMnVMbody/default",
+        "p206F2heading/table"
+      ],
+      "issue": "MV is row/column exchange but a figure calls it vertical refresh; RTNA has a duplicate code; VCOM nVM reset body0 differs from default1; F2 section header saysF6 while command bits/list sayF2.",
+      "disposition": "Use named fields and the explicit used-command list. Do not infer a new refresh rate or VCOM factory state. Standard render commands alone do not repair unresolved module startup/power."
     }
   ]
 }

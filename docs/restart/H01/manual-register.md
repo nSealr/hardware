@@ -97,6 +97,15 @@ not a completed host. The [finite closure checklist](closure-checklist.md)
 fixes the remaining ten H01 work items and separates later H02/H04 evidence.
 
 Every retained claim points to a locator and an owner in [claims.json](claims.json).
+
+[Existing Newhaven panel correspondence](panel-subset-review.md) adds the
+current breakout product/specification and the raw module's recommended
+connector identity,167 entries/69 claims. The breakout is a different
+AF/ST7789VI assembly and is deferred for the common four-wire/DC/backlight
+proposal. Raw DB/ILI9341V command/reset/mechanical reading does not resolve
+its startup/internal-power, normal rail margin or fixture requirements. The
+initial private CB/CF absence inference is withdrawn after actual list/body
+reading. C02 and all six host signoff rows remain open.
 The [pin/errata ledger](pin-errata-ledger.json) retains adverse findings and
 contradictions, including S3 RTC address/provisioning/download/USB register
 wording, XTS-enable and SPI-bit-order discrepancies, current U585 USB wording,

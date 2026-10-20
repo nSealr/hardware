@@ -105,6 +105,15 @@ debounce/timing limits and local recovery usability remain H02 measured gates.
 
 ## Display source contradiction and bounded alternative
 
+The subsequent [existing Newhaven panel review](panel-subset-review.md) keeps
+the raw DB/ILI9341V module distinct from the current AF/ST7789VI breakout.
+The latter is deferred for the common four-wire/DC/backlight proposal.
+The raw panel's selected command, mechanical and timing sources are now read,
+but module startup/internal-power contradictions, normal rail margin and a
+compatible default-off backlight/contact fixture remain open. The backlight
+control row above is conditional; it is not a direct connection to LEDA/LEDK.
+No panel, driver or complete screen/consent policy is admitted by that reading.
+
 Waveshare SKU17344 was examined as the modest SPI lead. Its product page names
 ST7789VW, its documentation names ST7789V, and the linked module drawing names
 ST7789V2-G4. The board schematic (SHA256
