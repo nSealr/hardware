@@ -121,6 +121,13 @@ self-power. Three new private native ECN renders resolve selected redlines
 and preserve the resistor figure/table discrepancy. No new component lead or
 physical result is introduced.
 
+[S3 clock/time correspondence](s3-clock-time-review.md) adds8 exact pinned
+clock/SYSTIMER source originals,188 entries and81 claims. Selected current
+clock/timer body and native register/reference-module reading make the
+conditional CPU160/APB80/PLL480 and UNIT1 polling tuple reviewable. Finite
+snapshot/PLL remedies and reference/PHY/effective-feature conditions remain;
+no stock source or actual clock is qualified.
+
 [Existing Newhaven panel correspondence](panel-subset-review.md) adds the
 current breakout product/specification and the raw module's recommended
 connector identity,167 entries/69 claims. The breakout is a different

@@ -141,6 +141,14 @@ and actual source must agree before this route can be selected.
 
 ## The six unchanged H01 acceptances
 
+[S3 clock/time correspondence](s3-clock-time-review.md) and its
+[conditional tuple](s3-clock-proposal.json) add exact fixed clock and UNIT1
+polling requirements. Stock PLL and snapshot waits remain unbounded; a source
+default or shared `esp_timer` timestamp is not a fallible deadline. Reference,
+PLL/PHY, effective owner/features, supply/startup and IRQ conditions remain
+required, followed by H02 actual implementation and measurement. No timer or
+host signoff is closed by this source increment.
+
 | Index | Required outcome | Evidence and present status |
 | --- | --- | --- |
 | 0 | Exact part/package/silicon and official document identity/revision/date/URL/hash/errata for every candidate. | [Register](manual-register.json), [options](option-comparison.md), [pin/errata ledger](pin-errata-ledger.json). **Partial**: exact leads are separated, but some proposed order suffixes/allowed-revision sets and original identities remain open. Received identity is a later H02 check, not an H01 ownership prerequisite. |

@@ -356,7 +356,7 @@
       "original_sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435",
       "original_bytes": 1280501,
       "access": "public URL; downloaded",
-      "reading": "Selected sections specified below read; remaining interface/application diagrams not reviewed. Author /root/h01_sol,2026-10-20: pp10–11 selectedpinlayout/table reread;GPIO8modulepad12/alternatefunctions corresponded. p29typicalmodemsleepcurrent reread,not a minimum/maximumsuspendbound. p18unusedI2C/I2Stext incidental,notnewperipheralscope.",
+      "reading": "Selected sections specified below read; remaining interface/application diagrams not reviewed. Author /root/h01_sol,2026-10-20: pp10–11 selectedpinlayout/table reread;GPIO8modulepad12/alternatefunctions corresponded. p29typicalmodemsleepcurrent reread,not a minimum/maximumsuspendbound. p18unusedI2C/I2Stext incidental,notnewperipheralscope. Author /root/h01_sol,2026-10-20: nativep39WROOM-1Figure8-1 clock/reference/rail schematic visuallyread.40MHz±10ppmisreferenceannotationwithTBDcrystalcaps,not completefactoryaging/temperatureproof. Nativep40WROOM-1Ufigurewasincidentallyviewedafterlocatorcheck,not substitutedforretainedWROOM-1/N8R8. No factoryrail/fusechange ornewmodulelead.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -369,13 +369,29 @@
       "reviewed_on": "2026-10-20",
       "related_claims": [
         "H01-C05",
-        "H01-C78"
+        "H01-C78",
+        "H01-C81"
       ],
       "review_events": [
         {
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: pp10–11 selectedpinlayout/table reread;GPIO8modulepad12/alternatefunctions corresponded. p29typicalmodemsleepcurrent reread,not a minimum/maximumsuspendbound. p18unusedI2C/I2Stext incidental,notnewperipheralscope."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: nativep39WROOM-1Figure8-1 clock/reference/rail schematic visuallyread.40MHz±10ppmisreferenceannotationwithTBDcrystalcaps,not completefactoryaging/temperatureproof. Nativep40WROOM-1Ufigurewasincidentallyviewedafterlocatorcheck,not substitutedforretainedWROOM-1/N8R8. No factoryrail/fusechange ornewmodulelead."
+        }
+      ],
+      "native_visual_reviews": [
+        {
+          "private_render": "sol-s3-module-clock39.png",
+          "page": "native39WROOM-1Figure8-1/referenceclock",
+          "bytes": 298137,
+          "sha256": "ac50a417f9611415ae3138b3e20b8bcedb974dc04fb7ffaeebffadd29ddbe986",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
         }
       ]
     },
@@ -391,7 +407,7 @@
       "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
       "original_bytes": 15215232,
       "access": "public URL; downloaded",
-      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted. Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction.",
+      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted. Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction. Author /root/h01_sol,2026-10-20: pp526–533 and634–639functionaltext/tablebodies reread; freshselectedregisterbodypp640–645,649–652. Alarm/UNIT0/HSunusedcontextencountered,not newalarmfeature. Native641CONFand644UNIT1OP/load layout newlyvisuallychecked. No fullclocktree/register-summary/remainingalarmbodyreview. ProposedexclusiveUNIT1polling/freshVALID/finiteguardandfixedRun tuple in s3-clock-time-review.md remainunqualified.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -438,7 +454,9 @@
         "H01-C47",
         "H01-C75",
         "H01-C77",
-        "H01-C79"
+        "H01-C79",
+        "H01-C80",
+        "H01-C81"
       ],
       "review_events": [
         {
@@ -450,6 +468,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: pp526–533 and634–639functionaltext/tablebodies reread; freshselectedregisterbodypp640–645,649–652. Alarm/UNIT0/HSunusedcontextencountered,not newalarmfeature. Native641CONFand644UNIT1OP/load layout newlyvisuallychecked. No fullclocktree/register-summary/remainingalarmbodyreview. ProposedexclusiveUNIT1polling/freshVALID/finiteguardandfixedRun tuple in s3-clock-time-review.md remainunqualified."
         }
       ],
       "native_visual_reviews": [
@@ -458,6 +481,22 @@
           "page": "TRM1.8 native1258 MISC/MEMbitlayout",
           "bytes": 114082,
           "sha256": "8bd3af8a8065cf4020b4931fef7d097b37f7cfcf4610de5df669c03f89e736c8",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        },
+        {
+          "private_render": "sol-s3-systimer641.png",
+          "page": "native641CONFfields/reset",
+          "bytes": 173615,
+          "sha256": "8f8f47a3a18d8a0268f4feb646f8ce7c0a7b56b88463713b8071b4412402062a",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
+        },
+        {
+          "private_render": "sol-s3-systimer644.png",
+          "page": "native644UNIT1OP/load",
+          "bytes": 125709,
+          "sha256": "59b2135400f40360bc5351013308546c6035df4da38466ca73b856904eb5835c",
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20"
         }
@@ -4650,6 +4689,190 @@
         "H01-C76"
       ],
       "license": "HeaderSPDX Apache-2.0 ORMIT; chiphelpersApache-2.0; upstreamterms preserved, originals not republished."
+    },
+    {
+      "id": "s3-idf-rtc-clk",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hw_support/port/esp32s3/rtc_clk.c",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hw_support/port/esp32s3/rtc_clk.c",
+      "retrieved_utc": "2026-10-20T11:56:18.171302+00:00",
+      "original_sha256": "3adb34f0454574ade87ff328bf4ef1881a5d02fec1d635ee439bb01b1dc055a0",
+      "original_bytes": 15243,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Selectedlines1–48,174–318,377–424read;CPU/PLLcalibration/setfreq/consumer/defaultsleep paths. OtherLSI/LSE/RTCsource bodies not newlyread. Internalanalogwrites are softwarebehavior,not publicPLLtimingguarantees.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C81"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
+    },
+    {
+      "id": "s3-idf-rtc-clk-init",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hw_support/port/esp32s3/rtc_clk_init.c",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hw_support/port/esp32s3/rtc_clk_init.c",
+      "retrieved_utc": "2026-10-20T11:56:18.407189+00:00",
+      "original_sha256": "cddacd19e57246e2697a0a25a822597c163a2bf8ce24d2de74dfcacaf6d9dab0",
+      "original_bytes": 2993,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Entire78lineclockinit source read;slow/fastbootentropycontext included, no newRTCmode selected.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C81"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
+    },
+    {
+      "id": "s3-idf-systimer-ll",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hal_systimer/esp32s3/include/hal/systimer_ll.h",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hal_systimer/esp32s3/include/hal/systimer_ll.h",
+      "retrieved_utc": "2026-10-20T11:56:18.635098+00:00",
+      "original_sha256": "b32c2ab6044d6b6815353b4f435835553f5b0a857fa4c4f4236007abeb8b8801",
+      "original_bytes": 7552,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "CompleteLLsource read;no-opclockselector/fixeddivider,busreset/clock,counter/snapshot/stall/alarms/IRQ helpers. OnlyUNIT1polling selectedforassessment;unusedalarmstextreadnotadmitted.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C80"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
+    },
+    {
+      "id": "s3-idf-esp-timer",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_timer/src/esp_timer_impl_systimer.c",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_timer/src/esp_timer_impl_systimer.c",
+      "retrieved_utc": "2026-10-20T11:56:18.855102+00:00",
+      "original_sha256": "1470fb34d1d8d0fb1028ea6a31ef0d82321fd2f374d4adaa6d65048c1962d739",
+      "original_bytes": 9736,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Completeesp_timerSYSTIMERimplementationsource read,includingone/multipleISRfeaturebranches andsharedUnit0set/advance/stall/startup/deinit. No effectivefeature/link/wholeFreeRTOSownershipproof.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C80"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
+    },
+    {
+      "id": "s3-idf-cpu-kconfig",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_system/port/soc/esp32s3/Kconfig.cpu",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_system/port/soc/esp32s3/Kconfig.cpu",
+      "retrieved_utc": "2026-10-20T11:56:19.083026+00:00",
+      "original_sha256": "a45bed3b3cebabc8c986eb80dab2634d555a7f82d46fdd0c10618e63d033a2b0",
+      "original_bytes": 741,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "CompleteS3CPUfrequencyKconfigread;160defaultand80/240/FPGA40choices;only160proposal.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C81"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
+    },
+    {
+      "id": "s3-idf-xtal-kconfig",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hw_support/port/esp32s3/Kconfig.xtal",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hw_support/port/esp32s3/Kconfig.xtal",
+      "retrieved_utc": "2026-10-20T11:56:19.459965+00:00",
+      "original_sha256": "2511e2c823e7e3417e6539cad5f7085d8d87418c6fd812c37ed49615fe4c6fa2",
+      "original_bytes": 557,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "CompleteS3XTALKconfigread;40MHzchoice/defaultmustmatchactualmodule.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C81"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
+    },
+    {
+      "id": "s3-idf-systimer-hal",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hal_systimer/systimer_hal.c",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hal_systimer/systimer_hal.c",
+      "retrieved_utc": "2026-10-20T11:57:34.890422+00:00",
+      "original_sha256": "cf7b02bf85cd56a4114cabf950311b3625c3fa23f9fe5b7cdba3ceb4f2181664",
+      "original_bytes": 7329,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "CompleteHALsource read;unboundedVALIDandLO/HIretry,alarmbranches andsharedclockdeinit;onlyUNIT1falliblepollingrequirementsproposed,notimplemented.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C80"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
+    },
+    {
+      "id": "s3-idf-clk-tree-ll",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/esp_hal_clock/esp32s3/include/hal/clk_tree_ll.h",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3clock/SYSTIMERsourcecorrespondence,nonewtimer/driver/host",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/esp_hal_clock/esp32s3/include/hal/clk_tree_ll.h",
+      "retrieved_utc": "2026-10-20T11:58:48.888340+00:00",
+      "original_sha256": "4469f33c03b5ca6755201b70e470bdd843abad334fbba470410431de3e4901dc",
+      "original_bytes": 26598,
+      "access": "Officialpublicpinnedsource retainedprivately",
+      "reading": "Selectedlines63–91,272–523read:BBPLLenable/disable/frequency/config/calibration andCPUsource/dividerfields.32MHz/320MHzbranches encounteredunused. RemainingRTC/slow-clock/MSPItuning/helpersunread;no newanalogtuningfeature.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originalcode/manuals/rendersprivate;publicidentity/hash/originalparaphraseonly",
+      "remaining": "Boundedstartup/fallibletimer/clockreference/supply/reset/IRQ/effectivefeature/binary andcompletehostcontracts;no executedhelper/targetbuild orqualification.",
+      "related_claims": [
+        "H01-C81"
+      ],
+      "license": "SourceSPDXApache-2.0wherepresent;Kconfigupstreamtermsretained,no separatefilegrantinferred;originalsnotrepublished."
     }
   ],
   "retrieval_attempts": [

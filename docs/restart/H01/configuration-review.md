@@ -18,6 +18,13 @@ and RCC reset/clock correspondence. They account for the real U585 DMA2D master
 and distinguish OTG fields from the USB fields reserved on that device. Final
 clock values, fault/interrupt masks and selected driver paths remain open.
 
+The later [S3 clock/time correspondence](s3-clock-time-review.md) makes a fixed
+CPU160/APB80/PLL480 and separate SYSTIMER UNIT1 polling proposal explicit.
+It records unbounded PLL/snapshot loops and required finite remedies, rather
+than qualifying stock startup. The [calculation tuple](s3-clock-proposal.json)
+keeps reference/PHY and effective-feature conditions unsatisfied; no actual
+clock or completed time/host contract is inferred.
+
 The same-kit [S3 USB Serial/JTAG source assessment](s3-usb-serial-assessment.md)
 examines a fixed CDC alternative under the existing host scope. It is not
 selected: stock receive-loss/reset/error, console ownership and lifecycle

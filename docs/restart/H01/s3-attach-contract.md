@@ -65,6 +65,11 @@ implementation and prove them before the topology is usable.
 | Connection/startup | With VBUS/local rail valid, the complete permitted boot/attach path must be ready to enumerate within1 s of session-valid crossing. No secrets load until exact received identity/lifecycle, clocks, exclusive writers, input release and fresh session checks succeed. Do not extend that deadline through a chain of individually bounded waits. |
 | Suspend/resume | For the conditional self-powered route retain the compliant fixed controller's required APB/PLL clocks and pull-up during suspend; exclude S3 light/deep sleep and remote-wakeup generation. Stop application requests and invalidate consent after the bounded no-activity policy. Respond to host resume/reset without granting an old request/approval. Port draw remains bounded independently of CPU/LED/display current. Actual bus behavior and timing require H02 evidence; this policy does not prove the controller's descriptor/status is suitable. |
 
+The subsequent [S3 clock/time proposal](s3-clock-time-review.md) records the
+selected polling timer/clock requirements and unbounded stock-read remedy.
+It does not establish the maximum1 ms observation interval or a qualified
+clock; that bound includes all scheduling and execution overhead.
+
 The proposed threshold/error values,1 ms limits,0.50 mA and1 µA allocations
 are reviewable engineering requirements. They are deliberately separate from
 the manufacturer and USB limits that constrain them. No comparator, switch,
