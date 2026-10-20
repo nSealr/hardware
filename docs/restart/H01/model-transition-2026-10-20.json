@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task": "H01",
+  "record_kind": "Model-transition checkpoint; not pause, acceptance, or complete host review",
+  "recorded_utc": "2026-10-20T09:29:29.506947+00:00",
+  "author": "/root/h01_resume",
+  "requested_successor_model": "gpt-6.1-sol",
+  "requested_reasoning_effort": "xhigh",
+  "source_checkpoint": "edfa379ca9ffd40c58a11698beb8b4a2f9807288",
+  "branch": "restart/h01-manuals",
+  "status": "incomplete; no host/panel/component/wiring/physical admission",
+  "source_artifacts": [
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 44735,
+      "sha256": "a1051cd39b6d1750572f19dbcdd4432e70f301ec69e7354d2efa70499b9c2ea9"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 15949,
+      "sha256": "4db6103ca22551e29a15788f5b54feecb4c4d9c304264b8df55340115008cc4c"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 186855,
+      "sha256": "e60bfcb00845690e04b3a2c001e6717acc97a6a9c86de90926c9f4f034b14d6e"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 9838,
+      "sha256": "feb4c60f355a2aa2286ea447eebc987c913656916c7fed924d5a7c1ff23fa98e"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 59884,
+      "sha256": "537978ee0ab9b937f42525d3853792be300f6da7b99e899672908e9afdad4787"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 11544,
+      "sha256": "44af07b8a32e8e2cc5230b538453480d963b5389e634698dbdbb87b48a880aea"
+    },
+    {
+      "path": "docs/restart/H01/resume-source-notes.md",
+      "bytes": 9623,
+      "sha256": "e798344531add40ba750d707ef2364d21e4fbe08c96853ad0ef36b82041aa88a"
+    }
+  ],
+  "private_receipts": [
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/resume-2026-10-20-reading.json",
+      "bytes": 2106,
+      "sha256": "d3e238475815656ed35b11def9da8a6266875e700ccff21573cbb9d80a245454"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-private/resume_source_increment.py",
+      "bytes": 8365,
+      "sha256": "cac1c614182a274d0df136e9a277752812e81102abca4a28e87557275626eadc"
+    }
+  ],
+  "checks": {
+    "json_parse_unique_ids_claim_document_refs": "pass",
+    "affected_original_sha256_and_bytes": "pass: u5-rm7, u585-um2839, u585-mb1551-d01",
+    "new_native_render_sha256": "pass: sheets4,7,13,14",
+    "git_diff_check": "pass at source checkpoint; metadata checked before commit",
+    "full_ci_target_physical_tests": "not rerun for documentary model-transition checkpoint; no changed executable implementation",
+    "independent_review": "required for new source content; latest historical review does not cover it"
+  },
+  "processes": "No active H01 tool sessions, child agents, fetch/render/parser/probe/tests or scheduled automation.",
+  "metadata_commit": "Containing Git commit identifies this handoff; exact pushed receipt reported to coordinator and kept privately."
+}
