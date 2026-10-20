@@ -24,6 +24,14 @@ selected: stock receive-loss/reset/error, console ownership and lifecycle
 behavior still need a bounded adapter and exact configuration. OTG's earlier
 NDA boundary is retained; no controller substitution or USB-row signoff occurs.
 
+The later [S3 fixed-CDC contract](s3-usj-contract.md) finishes selected public
+IRQ/header and security-helper correspondence, including the different scopes
+of JTAG, whole CDC and shared write locks. Its finite stream/reset/writer
+requirements remain unimplemented. Clock, descriptor/current and the exact
+attach/suspend arrangement still prevent selection. One conditional external
+J4 attach-fixture assessment is now within scope; no fixture is specified,
+selected or authorized for connection by that allocation.
+
 [U585 SPI correspondence](u585-spi-review.md) now adds selected current
 functional/register body and errata reading, with the pinned enhanced-SPI
 driver and exact U585VI metadata. Completion/hold, transient IOLOCK, flag-clear

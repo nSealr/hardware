@@ -374,7 +374,7 @@
       "original_sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
       "original_bytes": 15215232,
       "access": "public URL; downloaded",
-      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted.",
+      "reading": "Selected technical sections read; exact scope below, not a full manual review. Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted. Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction.",
       "full_manual_review": false,
       "reviewer": "/root/h01_author",
       "original_distribution": "Not redistributed; manufacturer retains copyright; links/hash/analysis only.",
@@ -418,13 +418,30 @@
         "H01-C26",
         "H01-C27",
         "H01-C45",
-        "H01-C47"
+        "H01-C47",
+        "H01-C75",
+        "H01-C77"
       ],
       "review_events": [
         {
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: chapter33 functional text/tables pp1243–1254 and register field bodies pp1256–1268; no new diagram or complete register-summary bit-layout review. Selected eFuse definitions pp434–435, ROM-output/JTAG Tables8.3-2/8.5-1 pp537–538 and SYSTEM USB_DEVICE_RST field body p834 reread. See s3-usb-serial-assessment.md; fixed CDC alternative not selected/admitted."
+        },
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: reread selected chapter33 pp1243–1248,1250–1254,1256–1260,1267–1268 functional/register bodies; only nativep1258 MISC/MEM bit layout newly visually checked. MEM_PDbit0/reset0 andMEM_CLK_ENbit1/reset1 agree with pinnedheaders; neither is erasure proof. Earlier private text-layout reading was tentative and corrected bynativevisual,not a public sourcecontradiction."
+        }
+      ],
+      "native_visual_reviews": [
+        {
+          "private_render": "sol-s3-usj-mem1258.png",
+          "page": "TRM1.8 native1258 MISC/MEMbitlayout",
+          "bytes": 114082,
+          "sha256": "8bd3af8a8065cf4020b4931fef7d097b37f7cfcf4610de5df669c03f89e736c8",
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20"
         }
       ]
     },
@@ -2389,6 +2406,9 @@
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20: native sheet2 visually reread for existingtwo diode-ORedpowerpaths,bridge/sharedrail,regulator/LED/reset branches. No newS3sensing/clock/supply selection."
         }
+      ],
+      "related_claims": [
+        "H01-C77"
       ]
     },
     {
@@ -2924,7 +2944,10 @@
       "archive": "usb2-20250603-archive.zip",
       "archive_sha256": "5fe9c53c04033818af396e8852b3acbca5c3a76ba92fab549fd81cd0ea7b3692",
       "pages": 2,
-      "extracted_text_sha256": "f8717ae19ee9623df53bb91b813d47f520caf0fd45eee8e99b2674a11cb79a44"
+      "extracted_text_sha256": "f8717ae19ee9623df53bb91b813d47f520caf0fd45eee8e99b2674a11cb79a44",
+      "related_claims": [
+        "H01-C77"
+      ]
     },
     {
       "id": "usb2-dcr",
@@ -3011,7 +3034,8 @@
       ],
       "related_claims": [
         "H01-C73",
-        "H01-C71"
+        "H01-C71",
+        "H01-C77"
       ]
     },
     {
@@ -3193,7 +3217,8 @@
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [
-        "H01-C46"
+        "H01-C46",
+        "H01-C75"
       ],
       "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
     },
@@ -3253,14 +3278,21 @@
       "original_sha256": "74eb43afb57eabdadcff2d755cf564b7c4e0c26f7a38636472e59b40f75aa264",
       "original_bytes": 2041,
       "access": "Public manufacturer original/source bytes, retained privately",
-      "reading": "Complete driver Kconfig.",
+      "reading": "Complete driver Kconfig. Author /root/h01_sol,2026-10-20: completefile reread,including USJenable/default/automaticlight-sleep limits;no feature activated.",
       "full_manual_review": false,
       "reviewer": "/root/h01_sol",
       "reviewed_on": "2026-10-20",
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [],
-      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
+      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: completefile reread,including USJenable/default/automaticlight-sleep limits;no feature activated."
+        }
+      ]
     },
     {
       "id": "s3-usj-cmake",
@@ -3274,14 +3306,23 @@
       "original_sha256": "2ef1aa21de4d0a4cf39ad6b54f0f7ce00fb65e128d5803886f0dcfe85bc9f104",
       "original_bytes": 1329,
       "access": "Public manufacturer original/source bytes, retained privately",
-      "reading": "Complete component CMake compile/link conditions.",
+      "reading": "Complete component CMake compile/link conditions. Author /root/h01_sol,2026-10-20: completefile reread;VFS/SOFmonitor forcedlink conditions corresponded,not an effectivebinary.",
       "full_manual_review": false,
       "reviewer": "/root/h01_sol",
       "reviewed_on": "2026-10-20",
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
-      "related_claims": [],
-      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
+      "related_claims": [
+        "H01-C77"
+      ],
+      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: completefile reread;VFS/SOFmonitor forcedlink conditions corresponded,not an effectivebinary."
+        }
+      ]
     },
     {
       "id": "s3-usj-vfs",
@@ -3318,14 +3359,23 @@
       "original_sha256": "252be11c4cd7d9c050459a237f413fc312d27b3881817a877a45a1b78e9facf8",
       "original_bytes": 10965,
       "access": "Public manufacturer original/source bytes, retained privately",
-      "reading": "Complete ESP32-S3 low-level header.",
+      "reading": "Complete ESP32-S3 low-level header. Author /root/h01_sol,2026-10-20: complete previouslyread370lineLL reread for knowninterruptset/FIFOaccess/boundedcallerlength/ZLP/reset/routing/clock helpers. No executedregisteroperation.",
       "full_manual_review": false,
       "reviewer": "/root/h01_sol",
       "reviewed_on": "2026-10-20",
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
-      "related_claims": [],
-      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
+      "related_claims": [
+        "H01-C75"
+      ],
+      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: complete previouslyread370lineLL reread for knowninterruptset/FIFOaccess/boundedcallerlength/ZLP/reset/routing/clock helpers. No executedregisteroperation."
+        }
+      ]
     },
     {
       "id": "s3-usj-hal",
@@ -3360,14 +3410,21 @@
       "original_sha256": "48e41bde6b681db9afd764be656544b8079081c6a40fe8a953f320d4b13ea105",
       "original_bytes": 5648,
       "access": "Public manufacturer original/source bytes, retained privately",
-      "reading": "Complete bootloader console source, including no-console and USB branches.",
+      "reading": "Complete bootloader console source, including no-console and USB branches. Author /root/h01_sol,2026-10-20: completepreviouslyreadfile reread; no-consoleROMchannel removal occurs afterROMboot,not coldROM suppression.",
       "full_manual_review": false,
       "reviewer": "/root/h01_sol",
       "reviewed_on": "2026-10-20",
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [],
-      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
+      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: completepreviouslyreadfile reread; no-consoleROMchannel removal occurs afterROMboot,not coldROM suppression."
+        }
+      ]
     },
     {
       "id": "s3-usj-boot-console-loader",
@@ -3486,14 +3543,23 @@
       "original_sha256": "867aa5bd776a4a4c76d457752d157a325829b97a7c8f2c2a26782c96a41a9017",
       "original_bytes": 66074,
       "access": "Public manufacturer original/source bytes, retained privately",
-      "reading": "Retrieved only; limited locator search, no body review.",
+      "reading": "Retrieved only; limited locator search, no body review. Author /root/h01_sol,2026-10-20: selectedlines990–1012,1110–1165,1220–1320 read for JTAG/download/securitychoices/sharedwriteprotection/automaticfirstboot effects. Other previously retrieved Kconfigbody remains unread.",
       "full_manual_review": false,
       "reviewer": "/root/h01_sol",
       "reviewed_on": "2026-10-20",
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
-      "related_claims": [],
-      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
+      "related_claims": [
+        "H01-C76"
+      ],
+      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: selectedlines990–1012,1110–1165,1220–1320 read for JTAG/download/securitychoices/sharedwriteprotection/automaticfirstboot effects. Other previously retrieved Kconfigbody remains unread."
+        }
+      ]
     },
     {
       "id": "s3-usj-gdb-kconfig",
@@ -3570,14 +3636,23 @@
       "original_sha256": "db253af9f7e5ffe98e51c811447cdc17dab99f105cd4265a612f7510fc37cb6a",
       "original_bytes": 8293,
       "access": "Public manufacturer original/source bytes, retained privately",
-      "reading": "Complete pinned USB Serial/JTAG console guide source; target-generic branches distinguished. Versioned rendered ESP32-S3 v6.1 page also read.",
+      "reading": "Complete pinned USB Serial/JTAG console guide source; target-generic branches distinguished. Versioned rendered ESP32-S3 v6.1 page also read. Author /root/h01_sol,2026-10-20: complete previouslyreadguide reread; S3light/deepsleep/clock/hostbuffering distinctions retained,not a suspendcompliance proof.",
       "full_manual_review": false,
       "reviewer": "/root/h01_sol",
       "reviewed_on": "2026-10-20",
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
-      "related_claims": [],
-      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
+      "related_claims": [
+        "H01-C77"
+      ],
+      "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished.",
+      "review_events": [
+        {
+          "reviewer": "/root/h01_sol",
+          "date": "2026-10-20",
+          "scope": "Author /root/h01_sol,2026-10-20: complete previouslyreadguide reread; S3light/deepsleep/clock/hostbuffering distinctions retained,not a suspendcompliance proof."
+        }
+      ]
     },
     {
       "id": "s3-usj-jtag-guide",
@@ -3642,7 +3717,8 @@
       "original_distribution": "Not redistributed; public source URL/hash and original paraphrased analysis only.",
       "remaining": "Same-kit alternative remains unselected. Exact bounded adapter, lifecycle/build/driver/kit power and independent review gates in s3-usb-serial-assessment.md.",
       "related_claims": [
-        "H01-C47"
+        "H01-C47",
+        "H01-C77"
       ],
       "license": "Apache-2.0 source-file SPDX where present; documentation/source files retain upstream terms; originals not republished."
     },
@@ -4333,6 +4409,144 @@
       "related_claims": [
         "H01-C74"
       ]
+    },
+    {
+      "id": "s3-idf-secure-boot-chip",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/bootloader_support/src/esp32s3/secure_boot_secure_features.c",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3same-kit fixedCDC/lifecycle source correspondence;unselected",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/bootloader_support/src/esp32s3/secure_boot_secure_features.c",
+      "retrieved_utc": "2026-10-20T11:39:25.275620+00:00",
+      "original_sha256": "4e09d2262d2f136e742bb4fd0acffa3489c775565df5a41f1c8285f34cd22cc9",
+      "original_bytes": 2270,
+      "access": "Official public pinned source retained privately",
+      "reading": "Complete chipsecure-feature source read; other firstbootcallers/provisioning order not proved. No helperexecution.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originals/code/extracts private;public URL/hash/originalparaphrase only",
+      "remaining": "C03/C04/C07/C09 exacthost/clock/stream/lifecycle/powerclosure;effectivefeatures/linkedbinary/provisioning andH02negativeevidence remain. No driver/transport selection or fuseexecution.",
+      "related_claims": [
+        "H01-C76"
+      ],
+      "license": "HeaderSPDX Apache-2.0 ORMIT; chiphelpersApache-2.0; upstreamterms preserved, originals not republished."
+    },
+    {
+      "id": "s3-usj-reg",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/soc/esp32s3/register/soc/usb_serial_jtag_reg.h",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3same-kit fixedCDC/lifecycle source correspondence;unselected",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/soc/esp32s3/register/soc/usb_serial_jtag_reg.h",
+      "retrieved_utc": "2026-10-20T11:39:25.500050+00:00",
+      "original_sha256": "bf1a92f6521e1274ad4f12fb767796b96ff772958cfc86339f66808c0e16d482",
+      "original_bytes": 42379,
+      "access": "Official public pinned source retained privately",
+      "reading": "Selectedlines1–127,202–451,650–732 read for FIFO/RAW/enable/clear/CONF0/outcount/MISC/MEM/DATE. Incidentaltestregisterstart encountered,not used. Remainingtest/JTAG/endpoints not selected. No entireheader claim.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originals/code/extracts private;public URL/hash/originalparaphrase only",
+      "remaining": "C03/C04/C07/C09 exacthost/clock/stream/lifecycle/powerclosure;effectivefeatures/linkedbinary/provisioning andH02negativeevidence remain. No driver/transport selection or fuseexecution.",
+      "related_claims": [
+        "H01-C75"
+      ],
+      "license": "HeaderSPDX Apache-2.0 ORMIT; chiphelpersApache-2.0; upstreamterms preserved, originals not republished."
+    },
+    {
+      "id": "s3-usj-struct",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/soc/esp32s3/register/soc/usb_serial_jtag_struct.h",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3same-kit fixedCDC/lifecycle source correspondence;unselected",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/soc/esp32s3/register/soc/usb_serial_jtag_struct.h",
+      "retrieved_utc": "2026-10-20T11:39:25.743663+00:00",
+      "original_sha256": "ddd27fb9b51e480184fef20084e4061d00e091dcf047c791f902aa2d5153598c",
+      "original_bytes": 16739,
+      "access": "Official public pinned source retained privately",
+      "reading": "Selectedlines1–125,202–259 read for FIFO32bitaccess/IRQ/conf0/outcount/MISC/MEM. OtherJTAG/test/endpointstructures not selected.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originals/code/extracts private;public URL/hash/originalparaphrase only",
+      "remaining": "C03/C04/C07/C09 exacthost/clock/stream/lifecycle/powerclosure;effectivefeatures/linkedbinary/provisioning andH02negativeevidence remain. No driver/transport selection or fuseexecution.",
+      "related_claims": [
+        "H01-C75"
+      ],
+      "license": "HeaderSPDX Apache-2.0 ORMIT; chiphelpersApache-2.0; upstreamterms preserved, originals not republished."
+    },
+    {
+      "id": "s3-efuse-table-csv",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/efuse/esp32s3/esp_efuse_table.csv",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3same-kit fixedCDC/lifecycle source correspondence;unselected",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/efuse/esp32s3/esp_efuse_table.csv",
+      "retrieved_utc": "2026-10-20T11:39:25.970430+00:00",
+      "original_sha256": "cdbede45a9fa5f21d0948723e27b07f493e437bae3e35ff40148f00b46c248a6",
+      "original_bytes": 26731,
+      "access": "Official public pinned source retained privately",
+      "reading": "Selectedlines1–65,128–182 read; header warning/context and exactsharedWR/debug/USB/download/rollback fields only. Othercoding/key/calibrationfields not newly reviewed.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originals/code/extracts private;public URL/hash/originalparaphrase only",
+      "remaining": "C03/C04/C07/C09 exacthost/clock/stream/lifecycle/powerclosure;effectivefeatures/linkedbinary/provisioning andH02negativeevidence remain. No driver/transport selection or fuseexecution.",
+      "related_claims": [
+        "H01-C76"
+      ],
+      "license": "Generated upstream table; upstream terms retained, original not republished; no independent file-license grant inferred."
+    },
+    {
+      "id": "s3-efuse-table-header",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/efuse/esp32s3/include/esp_efuse_table.h",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3same-kit fixedCDC/lifecycle source correspondence;unselected",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/efuse/esp32s3/include/esp_efuse_table.h",
+      "retrieved_utc": "2026-10-20T11:39:26.202905+00:00",
+      "original_sha256": "127967c7e661f3411557d19c6ff1e6a1089d84b4552bf1384fb2b549d1b8a9fa",
+      "original_bytes": 18558,
+      "access": "Official public pinned source retained privately",
+      "reading": "Selectedlines1–100 and exactsearched USB/JTAG/PHYaliases/declarations in162–223 read. Remaininggeneratedheader not reviewed.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originals/code/extracts private;public URL/hash/originalparaphrase only",
+      "remaining": "C03/C04/C07/C09 exacthost/clock/stream/lifecycle/powerclosure;effectivefeatures/linkedbinary/provisioning andH02negativeevidence remain. No driver/transport selection or fuseexecution.",
+      "related_claims": [
+        "H01-C76"
+      ],
+      "license": "HeaderSPDX Apache-2.0 ORMIT; chiphelpersApache-2.0; upstreamterms preserved, originals not republished."
+    },
+    {
+      "id": "s3-idf-flash-encrypt-chip",
+      "manufacturer": "Espressif",
+      "document_id": "ESP-IDF components/bootloader_support/src/esp32s3/flash_encryption_secure_features.c",
+      "revision": "v6.1 / fff9895c82d744c7237be8847347bdd1b07c6643",
+      "document_date": null,
+      "candidate_scope": "ExistingS3same-kit fixedCDC/lifecycle source correspondence;unselected",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/fff9895c82d744c7237be8847347bdd1b07c6643/components/bootloader_support/src/esp32s3/flash_encryption_secure_features.c",
+      "retrieved_utc": "2026-10-18T18:36:18.244252+00:00",
+      "original_sha256": "5c76dafd30747b3087346904907bb48749ec65822f50986c1a8a13a4dc04a87f",
+      "original_bytes": 2318,
+      "access": "Official public pinned source retained privately",
+      "reading": "Complete chipsecure-feature source read. Previouslyretained2026-10-18original rehashed,not mistaken for the earlier404esp32s3/flash_encrypt.c path. Otherfirstbootcallers/provisioning order notproved; no helperexecution.",
+      "full_manual_review": false,
+      "reviewer": "/root/h01_sol",
+      "reviewed_on": "2026-10-20",
+      "original_distribution": "Originals/code/extracts private;public URL/hash/originalparaphrase only",
+      "remaining": "C03/C04/C07/C09 exacthost/clock/stream/lifecycle/powerclosure;effectivefeatures/linkedbinary/provisioning andH02negativeevidence remain. No driver/transport selection or fuseexecution.",
+      "related_claims": [
+        "H01-C76"
+      ],
+      "license": "HeaderSPDX Apache-2.0 ORMIT; chiphelpersApache-2.0; upstreamterms preserved, originals not republished."
     }
   ],
   "retrieval_attempts": [

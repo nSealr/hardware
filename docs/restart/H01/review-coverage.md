@@ -111,6 +111,16 @@ calling the stock init bounded or the fitted reference qualified. The existing
 self-powered/TCPP Hibernate path remains conditional. No six-row signoff or
 completed U585/S3 paper tuple follows from this increment.
 
+[S3 fixed-CDC contract correspondence](s3-usj-contract.md) adds selected pinned
+register/structure, security-helper and eFuse-table reading. The public IRQ
+field set and finite FIFO/stream/reset requirements are explicit, with no
+stock-driver conformance or FIFO-erasure inference. JTAG-only disable and
+whole-CDC disable remain separate, including shared-lock order requirements.
+C07 still needs clock, descriptor/current and attach/suspend closure; the
+coordinator permits one conditional external J4 attach-fixture assessment,
+not a new host/port/driver, selected fixture or electrical waiver. Both paper
+host configurations and all six signoffs remain incomplete.
+
 | Gate | Actual unresolved evidence | Owner/action |
 | --- | --- | --- |
 | G01 current U5 manual | **Original retrieval closed**: current3651-page Rev7 native PDF rehashed. Selected masters/reset/clock/RNG/USB and history read. Remaining required current body and relevant delta are open. | H01: complete the used current sections, exact configuration and driver correspondence. Do not repeat solved retrievals or replace mandatory U5/S3 comparison. |

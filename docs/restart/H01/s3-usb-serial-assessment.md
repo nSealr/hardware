@@ -6,6 +6,12 @@ the same host, native USB connector and GPIO19/20; it adds no bench port.
 **This alternative is not selected or admitted.** The earlier OTG/CPU-FIFO
 proposal and its comprehensive-register NDA boundary remain recorded.
 
+The subsequent [fixed-CDC contract under review](s3-usj-contract.md) binds the
+public interrupt fields, finite FIFO service, exclusive stream/reset
+requirements and exact S3 security-helper/shared-lock correspondence. It
+retains the clock/power/descriptor gate and records the coordinator's bounded
+external-attach-fixture assessment scope; it does not select the alternative.
+
 ## Public hardware contract
 
 ESP32-S3 TRM v1.8 chapter33 pp1243–1254 provides the functional body for a

@@ -106,6 +106,13 @@ or complete host. The coordinator's conditional display milestone allocation
 is recorded in [panel-subset-review.md](panel-subset-review.md), retaining the
 exact module-evidence H02 stop and mandatory H01 external interface limits.
 
+[S3 fixed-CDC contract correspondence](s3-usj-contract.md) adds6 exact pinned
+source originals,180 entries and77 claims. Public FIFO/IRQ fields and selected
+owner-security helper/shared-lock behavior now have exact reading scopes.
+This is neither an effective build nor a completed power/descriptor/lifecycle
+contract. Fixed CDC and the conditional external attach fixture remain
+unselected; original code/manuals and the native register render stay private.
+
 [Existing Newhaven panel correspondence](panel-subset-review.md) adds the
 current breakout product/specification and the raw module's recommended
 connector identity,167 entries/69 claims. The breakout is a different
