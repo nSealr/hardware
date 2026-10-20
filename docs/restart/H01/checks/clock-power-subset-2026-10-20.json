@@ -1,0 +1,197 @@
+{
+  "task": "H01",
+  "author": "/root/h01_sol",
+  "recorded_utc": "2026-10-20T11:30:09.019468+00:00",
+  "base_commit": "e35d009605173b09a2040f6eeb30c3bd7a744a02",
+  "scope": "SelectedU585clock/power/CRS/I2Ccalculationandpinnedstartup correspondence;C02coordinatormilestoneallocation;not completehost orclock/fixturequalification",
+  "checks": {
+    "json_ids_references": "AllH01JSONparsed;174uniquedocumentIDs;74uniqueclaims;validclaimreferencesanduniqueledgerIDs",
+    "source_originals": "18affectedoriginalhashes/lengthsmatch",
+    "native_render": "Nativepower14hash/lengthmatch;selectedX2receiptboundstoexistingarchive",
+    "arithmetic": "Clockenvelope,VOS/flash/SRAMceiling,SPIprescaler,SysTickpolarity/wrap,CRSfields/conditionalerrorandI2Cendpointinequalitiesrecomputed",
+    "whitespace": "git diff --check passed"
+  },
+  "not_repeated": [
+    "unchangedsourceinventory",
+    "historicalhardwareCI",
+    "targetbuild",
+    "physicaltests"
+  ],
+  "calculation_details": {
+    "crs_candidate_relative_bound_percent_with_engineering_guard": 0.20201919999998097,
+    "i2c_endpoint_results": [
+      {
+        "kernel_hz": 45000000,
+        "low_us": 6.0,
+        "high_us": 5.333333333333334,
+        "setup_us": 1.4666666666666666,
+        "sdadel_lower_bound": 1.3749999999999998,
+        "sdadel_upper_bound": 16.845833333333335
+      },
+      {
+        "kernel_hz": 51000000,
+        "low_us": 5.294117647058824,
+        "high_us": 4.705882352941177,
+        "setup_us": 1.2941176470588236,
+        "sdadel_lower_bound": 1.6249999999999998,
+        "sdadel_upper_bound": 19.180833333333336
+      }
+    ],
+    "physical_guarantee": false
+  },
+  "private_reading_receipt": {
+    "name": "clock-power-subset-2026-10-20-reading.json",
+    "bytes": 5310,
+    "sha256": "884a7747e3d4a00dae352106deba07908c68c3e0e6a17c3abf503ddf741db026"
+  },
+  "original_correspondence": [
+    {
+      "document": "u5-rm7",
+      "bytes": 73588589,
+      "sha256": "6edaaaae0c5d57c58ffc3a576d44e7b62e8d9cd0e495e8f61bab688226fc327c"
+    },
+    {
+      "document": "u585-ds",
+      "bytes": 4842120,
+      "sha256": "6483871075d4889d39356648a9c1f1fb34f48dce2ce3e8c5a8d73a73f7e935e3"
+    },
+    {
+      "document": "u585-um2839",
+      "bytes": 3299835,
+      "sha256": "00b3650d881649661574b3889062545cb4e74450ef15991c68b2e74fffe8ddf3"
+    },
+    {
+      "document": "u585-mb1551-d01",
+      "bytes": 6198100,
+      "sha256": "040d70dc5da0e6ef0d0e5cfe33abfbffdfe4b01cbb9d5348ec20679752ebe221"
+    },
+    {
+      "document": "u585-mb1551-design",
+      "bytes": 22018475,
+      "sha256": "c48391854b70c934a78971fe6baa3882bf974075eed4c4f2846ba15b4ce14a4b"
+    },
+    {
+      "document": "s3-devkitc1-schematic",
+      "bytes": 134287,
+      "sha256": "f116b5d9f1fdce126e9a63d8450388eb11295d8322d831502fbc9729442b72e4"
+    },
+    {
+      "document": "u585-tcpp03",
+      "bytes": 1928352,
+      "sha256": "adea648fe44d721b65d731ca80cc7c0d37e90d815074141c810ba8fb8765d4ae"
+    },
+    {
+      "document": "usb2-base",
+      "bytes": 5983789,
+      "sha256": "d39698a33486c399124af92bd02e4f978fd9a836b5cf4e52e6e4633eb1d89f61"
+    },
+    {
+      "document": "usb-typec-r2p5",
+      "bytes": 15750907,
+      "sha256": "6636cd61387a2f78b0fa96c8ea86ccc0f39ec59f98821cdb57b206d31445a328"
+    },
+    {
+      "document": "nxp-i2c-spec",
+      "bytes": 750958,
+      "sha256": "dc91f00f65584e06ef36e26c93bf9d91a95fb3c8a1830a9223e53caf678b36af"
+    },
+    {
+      "document": "embassy-stm32-lib",
+      "bytes": 34386,
+      "sha256": "6f8843e578a23d0d8f6fdd6be31b0e3ad846c17e3ab93fb9ec438611e59301be"
+    },
+    {
+      "document": "u585-x2-ndk-product",
+      "bytes": 103268,
+      "sha256": "1ddd5c891859c4afbc879515a2ff1b8bb6a21bdf8f203f4f60e91f77d3bfd6d5"
+    },
+    {
+      "document": "u585-x2-ndk-spec",
+      "bytes": 331988,
+      "sha256": "43df032f51a106e849331a25aac84671043254e70ae0f7008c65905a744a6fbb"
+    },
+    {
+      "document": "u585-st1l05",
+      "bytes": 1126654,
+      "sha256": "6432b2813c8c290a70f36f78491750fa2dd056cc5c9866d0c2c2df8d7006816a"
+    },
+    {
+      "document": "u5-embassy-rcc-u5",
+      "bytes": 24705,
+      "sha256": "1857e99b9c886b4d63a2205e7357a629e22375b54b13ea654d65208c335e77d7"
+    },
+    {
+      "document": "u5-embassy-rcc-hsi48",
+      "bytes": 2512,
+      "sha256": "3a0e78f12e7360a1d9310e4f27fc390cc3a5e39ff554fe226f87b6bc1258e873"
+    },
+    {
+      "document": "u5-embassy-rcc-mod",
+      "bytes": 26227,
+      "sha256": "7d0a7280c6218e92ba178ccb61df386a55aef3a57309f8c95779079a1872c7c2"
+    },
+    {
+      "document": "u5-embassy-rcc-bd",
+      "bytes": 13780,
+      "sha256": "f0fa757acc59b768b316c3ae94117db528bbf8363a7417d2dad66b832abf93e0"
+    }
+  ],
+  "review_status": "Allsixdocumentaryrows/bothpaperhosttuples incomplete;distinctexactcandidatereviewrequired;historicalevidencenotrebound.FinalC10CIusesroot-suppliedintegratedcandidate/currentverifier,notexternalROOTagainstthistree.",
+  "artifacts": [
+    {
+      "path": "docs/restart/H01/u585-clock-power-review.md",
+      "bytes": 17960,
+      "sha256": "472be21b93ae382482e1d4221ce3b2e24ca4705af673e13cfc2e4d8917b41c8d"
+    },
+    {
+      "path": "docs/restart/H01/u585-clock-proposal.json",
+      "bytes": 3490,
+      "sha256": "122b7e89a6a53be824eb435d8dd500d620438d0b3650caf169667b547aaac27f"
+    },
+    {
+      "path": "docs/restart/H01/panel-subset-review.md",
+      "bytes": 14533,
+      "sha256": "ed5119b1d78895aadd32bc49474cb86d581f3075a3547056495c3e0e6cac7dc0"
+    },
+    {
+      "path": "docs/restart/H01/closure-checklist.md",
+      "bytes": 9535,
+      "sha256": "1d24d492ea749d80b3735ce057b1c492f449cfc3de972ef0773afadcde7c18c7"
+    },
+    {
+      "path": "docs/restart/H01/configuration-review.md",
+      "bytes": 19589,
+      "sha256": "b1c7caab44a0e87a085f7298977f26020ebf198c0f2fec698a512794378dc27a"
+    },
+    {
+      "path": "docs/restart/H01/usb-configuration.md",
+      "bytes": 8511,
+      "sha256": "acb3f9762064a9365cc0d2cf3109eed1b75a5df396f94f6f9660e22dfd0fda99"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.md",
+      "bytes": 13351,
+      "sha256": "da2d4bc3bc43e14064b625215f7e6efd58a7729013ed1a0d64cafd720af2096e"
+    },
+    {
+      "path": "docs/restart/H01/review-coverage.md",
+      "bytes": 15323,
+      "sha256": "a75b0b4b9f16189bc4e781e7087fc3f994e5045938fb89445b91e4baf00f1099"
+    },
+    {
+      "path": "docs/restart/H01/manual-register.json",
+      "bytes": 289296,
+      "sha256": "565cdac9859686cb24578f7f9189ca99f883e17f4cc03d3e70909ea5ad1229e9"
+    },
+    {
+      "path": "docs/restart/H01/claims.json",
+      "bytes": 96794,
+      "sha256": "545c5075a2cc24b8465568f532653c2b483e3d2409237688ee82147b89c466ea"
+    },
+    {
+      "path": "docs/restart/H01/pin-errata-ledger.json",
+      "bytes": 75371,
+      "sha256": "0335c5263c19186660006083360732d69f281c7628d17053aa2ef48a874fb5d3"
+    }
+  ]
+}

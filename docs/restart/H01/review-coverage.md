@@ -103,6 +103,14 @@ power, rail margin, fixture and effective host timing correspondence; no panel
 or documentary host row is signed. Required H02 visible-render/failure evidence
 is separate from these remaining H01 source/configuration decisions.
 
+[U585 clock/power correspondence](u585-clock-power-review.md) adds selected
+CRS, existing regulator/crystal and pinned Rust startup reading. The
+[calculation proposal](u585-clock-proposal.json) makes the MSIS drift envelope,
+latency, SPI/I2C and short-deadline conversions reviewable. Source gaps prevent
+calling the stock init bounded or the fitted reference qualified. The existing
+self-powered/TCPP Hibernate path remains conditional. No six-row signoff or
+completed U585/S3 paper tuple follows from this increment.
+
 | Gate | Actual unresolved evidence | Owner/action |
 | --- | --- | --- |
 | G01 current U5 manual | **Original retrieval closed**: current3651-page Rev7 native PDF rehashed. Selected masters/reset/clock/RNG/USB and history read. Remaining required current body and relevant delta are open. | H01: complete the used current sections, exact configuration and driver correspondence. Do not repeat solved retrievals or replace mandatory U5/S3 comparison. |

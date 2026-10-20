@@ -6,6 +6,27 @@ fixture, supply, startup sequence or display driver is admitted. This finishes
 selected source correspondence for the already authorized Newhaven lead; it
 does not open another display/controller search.
 
+## Coordinator milestone allocation, 20 October 2026
+
+After this source checkpoint, the coordinator permitted a **conditional
+factory-default-only paper display contract** for the H01 register/host-triage
+milestone. It is an interface and qualification specification, not a valid
+startup assertion, selected/admitted display or permission to energize it.
+Normal external rail, logic-level, current, blanking and contact limits, and
+all host decisions, must still close from source in H01. The two complete host
+paper configurations must contain the unfulfilled display obligations; they
+cannot be described as two proven working systems.
+
+The unsatisfied exact-module prerequisite remains startup, internal-power and
+factory-state evidence for this DB assembly. **H02 stops before any operation
+requiring that assumption** until exact supplier/module evidence is obtained.
+Controlled physical checks may use only known safe supported limits; blind
+internal-power experimentation is prohibited. Without the evidence the module
+stays unqualified and any replacement needs separate coordinator-approved
+scope. No new lead, outreach or H04 selection/freeze follows. This allocates
+the documentary question to the proper gate; it changes none of H01's six
+acceptances and waives no security or electrical limit.
+
 ## Two different assemblies
 
 The raw **NHD-2.4-240320DB-CTXP** specifies ILI9341V and links the retained
@@ -162,11 +183,12 @@ An initial case-sensitive lookup missedCB/CF and led to a private message
 suggesting absence. That reading is **withdrawn**: command-list/body reading
 proves their presence. It is not a public-document access blocker.
 
-The remaining documentary decision is finite: bind a valid factory/module
-startup and internal-power assumption to this exactDB assembly, resolve normal
+The remaining external documentary decision is finite: resolve normal
 logic-rail margin underC03/C09, and specify a compatible default-off backlight/
-contact fixture. A minimal standard-command-only sequence with factory defaults
-is an alternative to assess, **not established module operation**. Do not
+contact fixture. The factory/module startup/internal-power question remains
+the named unsatisfied prerequisite under the coordinator allocation above.
+A minimal standard-command-only sequence with factory defaults is a conditional
+contract, **not established module operation**. Do not
 silently discard required factory settings, copy the contradictory example,
 or assert the linked controller alone qualifies the glass assembly. The exact
 source blocker is reported to the coordinator; no further panel/controller

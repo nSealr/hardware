@@ -242,6 +242,12 @@ The [U585 interrupt/core-time review](u585-interrupt-review.md) adds a selected
 IRQ map and secure masking/SysTick limits. It promotes no excluded peripheral.
 The [finite closure checklist](closure-checklist.md) is the remaining H01 work
 list; later received-unit, adapter execution and design measurements stay separate.
+The [clock/power correspondence](u585-clock-power-review.md) and
+[calculation tuple](u585-clock-proposal.json) add a conditional MSIS48/VOS3,
+drift-aware latency/SPI/I2C/short-deadline proposal and the already fitted
+LSE/CRS alternative. The pinned Rust startup does not implement its bounded
+waits, flash margin or LSE-CRS policy. Exact reference, supply/TCPP/USB and S3
+counterparts remain open; this is not a complete configuration or working kit.
 
 New current-RM reading: pp150–194 (§§2.3.4,3,4); pp195–212 (GTZC introduction,
 implementation, functional body and selected secure configuration registers);

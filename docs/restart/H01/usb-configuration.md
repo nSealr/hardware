@@ -56,6 +56,16 @@ early-STOP and recovery gaps prevent selecting the stock adapter as that policy.
 UCPD sink trimming and configuration lifetime are revision-specific; source,
 PD, FRS, VCONN and DMA remain excluded proposals.
 
+The later [clock/power review](u585-clock-power-review.md) assesses the existing
+TCPP-only Hibernate/self-powered alternative: internal dead-battery Rd and
+valid I2C VBUS_OK could support default-power USB2 sink detection without ADC4
+or UCPD. Mode/EN validity, supply selection, gate/readback/reset, bounded polling,
+actual pull-up detach and port-current/capacitance/reverse-current limits remain
+to bind. Its threshold correspondence is not a physical-unplug, unpowered-rail
+or completed USB qualification claim, and it does not supply sensing to S3 J4.
+HSI48/CRS needs the actual reference/error policy; SYNCOK includes errors below
+3×FELIM and the stock clock helper's USB-SOF flag cannot express the proposal.
+
 ## Controller and software boundary still being closed
 
 The existing TinyUSB source review found unbounded core-reset/FIFO-flush loops,

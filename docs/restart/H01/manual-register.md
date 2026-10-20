@@ -98,6 +98,14 @@ fixes the remaining ten H01 work items and separates later H02/H04 evidence.
 
 Every retained claim points to a locator and an owner in [claims.json](claims.json).
 
+[U585 clock/power correspondence](u585-clock-power-review.md) records the
+existing kit's U19/X2 and pinned RCC dependency sources,174 document entries
+and74 claims. Its [conditional calculation tuple](u585-clock-proposal.json)
+does not establish an actual clock, bounded stock startup, permitted USB supply
+or complete host. The coordinator's conditional display milestone allocation
+is recorded in [panel-subset-review.md](panel-subset-review.md), retaining the
+exact module-evidence H02 stop and mandatory H01 external interface limits.
+
 [Existing Newhaven panel correspondence](panel-subset-review.md) adds the
 current breakout product/specification and the raw module's recommended
 connector identity,167 entries/69 claims. The breakout is a different

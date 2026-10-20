@@ -1503,6 +1503,27 @@
       ],
       "issue": "MV is row/column exchange but a figure calls it vertical refresh; RTNA has a duplicate code; VCOM nVM reset body0 differs from default1; F2 section header saysF6 while command bits/list sayF2.",
       "disposition": "Use named fields and the explicit used-command list. Do not infer a new refresh rate or VCOM factory state. Standard render commands alone do not repair unresolved module startup/power."
+    },
+    {
+      "id": "D-U5-MSI-STOP-RANGE",
+      "source": "u5-rm7",
+      "locators": [
+        "pp516–517MSISRANGE/MSIKRANGEdefinitions",
+        "range0/1/2tablepp490,516–517"
+      ],
+      "issue": "Stop-wake note calls range2 24MHz,while field table defines range1=24MHz andrange2=16MHz.",
+      "disposition": "Preserve difference;no inheritedStop-wake/deadlineconversion. ProposedfixedRun tuple requires reinitialization/freshreview afterclockstatechange."
+    },
+    {
+      "id": "D-NDK-X2-TOLERANCE-UNIT",
+      "source": "u585-x2-ndk-spec /u585-x2-ndk-product /u585-mb1551-design",
+      "locators": [
+        "NDKPDFp2tolerancerow",
+        "officialproductfrequencytable",
+        "nativekitX2MFRparameter"
+      ],
+      "issue": "PDF±20frequencytolerancerowhas°Cunit;officialproduct saysppm. StandardCLvariant/agingfields do notestablishexactkitEXS00A-MU01499 totalerror.",
+      "disposition": "Usecross-sourceunitcorrespondence only;100ppm referencebudget remains unsatisfiedcondition,not a measuredboardguarantee. No internal-onlylink accessed."
     }
   ]
 }
