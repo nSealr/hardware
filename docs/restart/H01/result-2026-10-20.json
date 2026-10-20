@@ -94,7 +94,7 @@
       "final_milestone_pass_claimed": false
     }
   ],
-  "status": "Finite source packet assembled;mandatory host properties UNSATISFIED;no host admission/H01 closure;integratedchecks/distinctfinalreviewpending",
+  "status": "FiniteC01-C10source/requirements/negative-outcomepackageassembled;requiredlocalintegratedchecksPASS;mandatoryhostpropertiesUNSATISFIED/noadmission;distinctfinalreview/rootdecisionpending",
   "host_admissions": [],
   "selected_components": [],
   "physical_or_provisioning_actions_authorized": false,
@@ -399,7 +399,17 @@
       "record": "checks/c10-source-bindings-2026-10-20.json",
       "scope": "Selectedsurface/metadata/requirements/sourcebindingsonly;notacceptance"
     },
-    "integrated_make_ci": "Notrunyetonthiscontentcandidate",
+    "integrated_make_ci": {
+      "result": "PASS",
+      "source_commit": "85c77cc9c46a73724b4f7234026de559755e914c",
+      "source_tree": "a1d796c9861aacd78a4106f4b7496ff33e527cd6",
+      "record": "checks/ci-c10-85c77cc.json",
+      "log": "checks/ci-c10-85c77cc.log",
+      "test_count": 43,
+      "scope": "Actualintegratedhardwarecontentcandidate/currentreviewedverifier;notmanual/electrical/USB/target/admissionproof",
+      "worktree_clean_before_and_after": true,
+      "final_hosted_delivery_CI": "Rootowned/notobservedbythisauthor"
+    },
     "canonical_plan_validator": {
       "result": "PASS",
       "record": "checks/c10-canonical-plan-2026-10-20.json",
@@ -423,13 +433,13 @@
     },
     {
       "path": "docs/restart/H01/handoff-2026-10-20.md",
-      "bytes": 4554,
-      "sha256": "dd43263b486832f778c61dc59c1ca1e24aa4204e0ec75f08739489ee08bdd3c0"
+      "bytes": 5219,
+      "sha256": "3274e2f596c104e682a4e84ace1b0de0f6320c77d94ee41ee785e5c273242edc"
     },
     {
       "path": "docs/restart/H01/closure-checklist.md",
-      "bytes": 17075,
-      "sha256": "3e9abfdb6f5bbb0b0ffb8cfeeebe88158c2f5073a64ddaee1e9bd58b7351fa26"
+      "bytes": 17164,
+      "sha256": "e58e6ae1c58aa4086ecf8b946557b9547c7fd3517ce4797671c356d35f26a47a"
     },
     {
       "path": "docs/restart/H01/configuration-review.md",
@@ -438,8 +448,8 @@
     },
     {
       "path": "docs/restart/H01/review-coverage.md",
-      "bytes": 23698,
-      "sha256": "d5cf411c4247cc424441cfbb54b39d1bd1fe0ada060530c6c0205beff37e07c2"
+      "bytes": 23770,
+      "sha256": "f7dcbca19941cf593b2c96e6597aebd844813a2bf075e70f29625aab5a7ab72d"
     },
     {
       "path": "docs/restart/H01/manual-register.md",
@@ -570,8 +580,16 @@
     "Originals/manuals/codeextractions/renders/privatehelpersnotpublished"
   ],
   "next_steps": [
-    "Finishrequiredintegratedchecksandbindactualcontentcandidate",
-    "Distinctexact-candidatefinaldeliveryreview,thenrootnormalprotectedintegrationifaccepted",
+    "Distinctexact-candidatefinaldeliveryreview;rootnormalprotecteddelivery/actualhostedCIifaccepted",
     "Rootdecidesnextboundedsource/diagnosticscopeformandatoryunsatisfiedproperties;noauthorwaiver"
+  ],
+  "proof_status_metadata_since_local_ci_head": [
+    "docs/restart/H01/checks/ci-c10-85c77cc.json",
+    "docs/restart/H01/checks/ci-c10-85c77cc.log",
+    "docs/restart/H01/checks/c10-source-bindings-2026-10-20.json",
+    "docs/restart/H01/handoff-2026-10-20.md",
+    "docs/restart/H01/closure-checklist.md",
+    "docs/restart/H01/review-coverage.md",
+    "docs/restart/H01/result-2026-10-20.json"
   ]
 }

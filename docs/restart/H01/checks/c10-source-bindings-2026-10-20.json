@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task": "H01",
-  "recorded_utc": "2026-10-20T14:58:11.857897+00:00",
+  "recorded_utc": "2026-10-20T15:01:10.076052+00:00",
   "author": "/root/h01_sol",
   "result": "PASS selected-surface/source/reference/manifestintegrityonly;noH01acceptanceorhostadmission",
   "integration_base_commit": "b48229d47ea93ef552ccdf4521aab6b37880fe96",
@@ -23,7 +23,7 @@
     "RootC04reviewfilesandbothaa383dfC04blobsbyteidentical",
     "Currentartifactdigestmanifestandaffectedlinks/gitdiffcheck"
   ],
-  "JSON_file_count": 55,
+  "JSON_file_count": 58,
   "base_files_preserved_outside_scope_count": 138,
   "preserved_historical_paths": [
     "docs/restart/H01/brief.md",
@@ -63,13 +63,13 @@
     },
     {
       "path": "docs/restart/H01/handoff-2026-10-20.md",
-      "bytes": 4554,
-      "sha256": "dd43263b486832f778c61dc59c1ca1e24aa4204e0ec75f08739489ee08bdd3c0"
+      "bytes": 5219,
+      "sha256": "3274e2f596c104e682a4e84ace1b0de0f6320c77d94ee41ee785e5c273242edc"
     },
     {
       "path": "docs/restart/H01/closure-checklist.md",
-      "bytes": 17075,
-      "sha256": "3e9abfdb6f5bbb0b0ffb8cfeeebe88158c2f5073a64ddaee1e9bd58b7351fa26"
+      "bytes": 17164,
+      "sha256": "e58e6ae1c58aa4086ecf8b946557b9547c7fd3517ce4797671c356d35f26a47a"
     },
     {
       "path": "docs/restart/H01/configuration-review.md",
@@ -78,8 +78,8 @@
     },
     {
       "path": "docs/restart/H01/review-coverage.md",
-      "bytes": 23698,
-      "sha256": "d5cf411c4247cc424441cfbb54b39d1bd1fe0ada060530c6c0205beff37e07c2"
+      "bytes": 23770,
+      "sha256": "f7dcbca19941cf593b2c96e6597aebd844813a2bf075e70f29625aab5a7ab72d"
     },
     {
       "path": "docs/restart/H01/manual-register.md",
