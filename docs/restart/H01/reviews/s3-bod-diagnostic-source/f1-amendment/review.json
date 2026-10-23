@@ -1,0 +1,150 @@
+{
+  "verdict": "PASS_F1_SOURCE_CONFIG_AMENDMENT_ONLY",
+  "findings": [],
+  "addressed_findings": [
+    "F1 from original b6dba74 source review; original old-input verdict remains unchanged"
+  ],
+  "reviewer": "/root/sdk_dependency_probe, distinct from diagnostic author",
+  "recorded_utc": "2026-10-23T18:48:04.691417+00:00",
+  "candidate": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "candidate_tree": "3c084479c57b2977eee37a39d1cbd3d8bb171c71",
+  "parent": "73d574cad6f45e10ab6d34809ea7b5fe3355ec3f",
+  "scope": "Only removal of inapplicable TEE default and explicit N/A expectation metadata; no source/configure campaign or broader runtime/physical review.",
+  "verification": {
+    "exact_delta": "2modified+1added; only default, current expectation, amendment",
+    "other_parent_postimages_exact": 325,
+    "candidate_bindings": [
+      {
+        "role": "defaults",
+        "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+        "mode": "100644",
+        "blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+        "bytes": 178,
+        "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c"
+      },
+      {
+        "role": "expectations",
+        "path": "docs/restart/H01/s3-bod-build-expectations.json",
+        "mode": "100644",
+        "blob": "8f819719db02874cf2331d45e2d3fcfac7fb94d2",
+        "bytes": 5877,
+        "sha256": "196972159f4e5110a30a03aab1c2043c22dbe0948caad551b78c953001f9d4c5"
+      },
+      {
+        "role": "amendment",
+        "path": "docs/restart/H01/s3-bod-tee-default-amendment.json",
+        "mode": "100644",
+        "blob": "aae97702fc1a1f0076092db47d058948ad7c8345",
+        "bytes": 3692,
+        "sha256": "ad8aa04a6fd7c566a769c9aedab8c889bb47c5a4fa3bbe2d01ca6dba47baa678"
+      }
+    ],
+    "four_input_comparison_to_11047": [
+      {
+        "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+        "before_sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+        "after_sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+        "unchanged": true
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+        "before_sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+        "after_sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+        "unchanged": true
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/main/main.c",
+        "before_sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+        "after_sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+        "unchanged": true
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+        "before_sha256": "a9ed9e362d1d733ffffd566cf2f1003ef95bc1d9686574efc4dce90fdc449831",
+        "after_sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+        "unchanged": false
+      }
+    ],
+    "default_change": "Only the single inapplicable TEE line removed; no other default changed.",
+    "expectation_change": "Only role clarification, removal of required TEE=n and explicit inapplicable_config metadata; all other expectation fields exact.",
+    "pinned_Kconfig": {
+      "commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "path": "components/esp_tee/Kconfig.projbuild",
+      "range": [
+        1,
+        7
+      ],
+      "git_blob": "929c9ebbcfd9a72fc555a82b73be8d0ac8ded856",
+      "sha256": "3b35aea5005811d1e450b4864f677f91f9d9f0d1e2d1c5f3610ac5bbdcefa9ea",
+      "property": "The menu is conditional on C6/H2/C5/C61, not S3; SECURE_ENABLE_TEE is not an applicable S3 default. This does not qualify a hardware/ROM security property."
+    },
+    "original_warning": {
+      "commit": "73d574cad6f45e10ab6d34809ea7b5fe3355ec3f",
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure.stderr.log",
+      "sha256": "5778d0d1acedc3913c71db0c89fc52a6819c253eb3decc0288ee92fdde690703",
+      "line": 8,
+      "verbatim": "NOTE: unknown kconfig symbol 'SECURE_ENABLE_TEE' assigned to 'n' in /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-02/project/sdkconfig.defaults",
+      "current_postimage_exact": true
+    },
+    "original_expectation": {
+      "commit": "db1a2fc8a48b40effbcaeed8961dafe9a574cea7",
+      "parent_checkpoint": "73d574cad6f45e10ab6d34809ea7b5fe3355ec3f",
+      "sha256": "aca0dc8043669520606835efd48c43decd5ce4348f0201c65a219cf3bca1e8a6",
+      "historical_bytes_preserved": true
+    },
+    "prior_CHANGES_REQUESTED_review": {
+      "commit": "b6dba74c330e31706918d7e68dfa4dc45a5d4825",
+      "path": "docs/restart/H01/reviews/s3-bod-diagnostic-source/review.json",
+      "sha256": "fc2a1be3afc3594db73d580bd2ad4141be11fe1e9e5ef1f5eb213b6b763d9157",
+      "verdict": "CHANGES_REQUESTED_source_config_only_NOT_BUILD_OR_DEVICE_QUALIFICATION",
+      "preserved_as_original_source_qualified_receipt": true
+    },
+    "prior_evidence_reuse": {
+      "vendor_bindings": 18,
+      "old_input_bindings": 4,
+      "blocker_bindings": 49,
+      "role": "Reuse as historical source2680/11047 and SDKfff proof; old hashes/configure output are not relabelled as the amended input."
+    },
+    "new_configure_on_amended_input": false,
+    "bootloader_header_build_proof_transferred": false,
+    "historical_blocker_manifest_unchanged": true
+  },
+  "amendment_sha256": "ad8aa04a6fd7c566a769c9aedab8c889bb47c5a4fa3bbe2d01ca6dba47baa678",
+  "not_proven": [
+    "effective generated configuration for amended input",
+    "bootloader configuration/components/source closure",
+    "complete generated-source/header/dependency closure",
+    "diagnostic app or bootloader compile/link",
+    "selector1/invalid-selector/disassembly/CI execution",
+    "physical register effects/arming/reset polarity/security/safety/Board qualification"
+  ],
+  "historical_evidence_policy": "Old default, original independent expectation, raw configure warning, old blocker and b6 CHANGES_REQUESTED remain exact source-qualified history. Changed inputs receive no borrowed configure/build proof.",
+  "TRM_status": {
+    "body576": "UNSATISFIED competing hypothesis",
+    "register623": "UNSATISFIED competing hypothesis",
+    "selected_polarity": null
+  },
+  "new_operations": {
+    "configure": 0,
+    "build": 0,
+    "tests": 0,
+    "source_fetch": 0,
+    "CI": 0,
+    "device_or_register": 0,
+    "author_source_mutations": 0
+  },
+  "CI_policy": {
+    "review_only_skip_marker": true,
+    "review_marker_may_propagate_to_final_candidate": false,
+    "future_final_candidate_must_run_normal_required_checks_and_CI": true,
+    "checks_or_criteria_relaxed": false
+  },
+  "report": {
+    "path": "docs/restart/H01/reviews/s3-bod-diagnostic-source/f1-amendment/affected-report.md",
+    "bytes": 3201,
+    "sha256": "e946503c2002802b11ceb026cf4521d3f637d690f481c533db133f8ff700e13a"
+  },
+  "whitespace_check_exit_code": 0,
+  "publication": "One ordinary review-branch push after local commit; explicit outcome kept separately, no retry or author-branch push.",
+  "acceptance_limit": "F1 resolved at source level only; no build, execution, host/physical or release admission."
+}
