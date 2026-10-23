@@ -1,0 +1,1 @@
+WARNING: The following issue occurred while accessing the ESP-IDF version file in the Python environment: [Errno 2] No such file or directory: '/tmp/nsealr-h01-portable-smoke-01/tools/python-env/idf_version.txt'. (Diagnostic information. It can be ignored.)

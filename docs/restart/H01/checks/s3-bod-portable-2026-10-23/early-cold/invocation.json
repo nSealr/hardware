@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "diagnostics/s3-bod-selector/tools/build_gate.py",
+    "--mode",
+    "smoke",
+    "--work-dir",
+    "/tmp/nsealr-h01-portable-smoke-01",
+    "--cache-dir",
+    "/tmp/nsealr-h01-portable-cold/assets"
+  ],
+  "input_lock_sha256": "0fc7bf81e8ebcbceb60f276f274d24cf0ee9b49b5d5468fd4960785be80fc08a",
+  "bwrap": {
+    "path": "/usr/bin/bwrap",
+    "sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+    "version": "bubblewrap 0.12.0"
+  },
+  "scope": "Compile-only; no devices, keys, firmware execution or physical qualification"
+}

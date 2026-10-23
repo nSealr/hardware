@@ -1,0 +1,10 @@
+Looking in links: /tmp/nsealr-h01-portable-smoke-01/wheels
+Processing /tmp/nsealr-h01-portable-cold/assets/esptool-5.6.0.tar.gz
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: esptool
+  Building wheel for esptool (pyproject.toml): started
+  Building wheel for esptool (pyproject.toml): finished with status 'done'
+  Created wheel for esptool: filename=esptool-5.6.0-py3-none-any.whl size=661051 sha256=f1b21fac1ab919cb577b28f250d5bd48a6b9aa8ee49add3ee71517cb54f5eb03
+  Stored in directory: /tmp/nsealr-h01-portable-smoke-01/pip-cache/wheels/c6/68/4a/0e64644d32f39457a2f00b1a3fd2bd4c1fe3e2ac523b22e3bf
+Successfully built esptool

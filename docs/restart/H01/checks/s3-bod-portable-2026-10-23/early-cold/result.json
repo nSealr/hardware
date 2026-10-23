@@ -1,0 +1,50 @@
+{
+  "status": "PASS_EARLY_MODE0_COMPILE_LINK_ONLY_FINAL_GATE_PENDING",
+  "result": {
+    "mode": 0,
+    "configure_exit": 0,
+    "build_exit": 0,
+    "actual_flags": {
+      "IDF_TARGET": "esp32s3",
+      "FREERTOS_UNICORE": true,
+      "ESP_DEFAULT_CPU_FREQ_MHZ_160": true,
+      "ESP_BROWNOUT_DET": false,
+      "SECURE_BOOT": false,
+      "SECURE_FLASH_ENC_ENABLED": false
+    },
+    "artifacts": [
+      {
+        "path": "/tmp/nsealr-h01-portable-smoke-01/build0/s3_bod_selector.elf",
+        "bytes": 3088680,
+        "sha256": "d1b293371124940cc1d93e21dba41802c42c6a407c6cabbabd2332320c997e0a"
+      },
+      {
+        "path": "/tmp/nsealr-h01-portable-smoke-01/build0/s3_bod_selector.bin",
+        "bytes": 138448,
+        "sha256": "197af61bb9a79b60e9938758df3078187a9607ce7c608f007522aa5ae41e8d0a"
+      },
+      {
+        "path": "/tmp/nsealr-h01-portable-smoke-01/build0/s3_bod_selector.map",
+        "bytes": 2878191,
+        "sha256": "bac3e95616656f69d9a7643730c661fd597bc6f2370afbb71df15e5a68c24280"
+      },
+      {
+        "path": "/tmp/nsealr-h01-portable-smoke-01/build0/bootloader/bootloader.elf",
+        "bytes": 620528,
+        "sha256": "0cb8223b75787efa9f0874ed8f57b48ec85c9c2c01a6ead72b078037ea2576da"
+      },
+      {
+        "path": "/tmp/nsealr-h01-portable-smoke-01/build0/bootloader/bootloader.bin",
+        "bytes": 21072,
+        "sha256": "d9d3ad9d3bb0bf8d7f8ad68c1a6516626d55d2f2a876d82200b3624c7797a2a6"
+      },
+      {
+        "path": "/tmp/nsealr-h01-portable-smoke-01/build0/bootloader/bootloader.map",
+        "bytes": 588498,
+        "sha256": "b208adc369cfe90ec2a6c8f1b53c29043aff3fec436db385db3c2ec43eda5f4d"
+      }
+    ],
+    "source_correspondence": "Fresh SDK/project and mandatory namespace checks; complete automatic dependency closure check follows in final gate."
+  },
+  "physical_qualification": false
+}
