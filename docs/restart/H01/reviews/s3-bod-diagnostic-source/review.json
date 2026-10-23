@@ -1,0 +1,271 @@
+{
+  "verdict": "CHANGES_REQUESTED_source_config_only_NOT_BUILD_OR_DEVICE_QUALIFICATION",
+  "reviewer": "/root/sdk_dependency_probe distinct from diagnostic author",
+  "recorded_utc": "2026-10-23T18:39:09.456047+00:00",
+  "review_boundary": "Static source/config/manual correspondence on frozen11047 inputs at2680; no configure, build, fetch, test, CI, device or author-source mutation.",
+  "candidate_checkpoint": "2680cb7f0dc6950832f4c01ab57bfbb1bdf0a07a",
+  "candidate_tree": "83af5731421ccf2642bdb3d8f1f6aed679b1740a",
+  "probe_source": "11047b805039e01dbb73e7c08d4b6a8016090fcd",
+  "findings": [
+    {
+      "id": "F1",
+      "priority": "P2",
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "line": 6,
+      "title": "Inapplicable TEE default is not an honored S3 configuration requirement",
+      "support": "At pinned fff, components/esp_tee/Kconfig.projbuild:1-5 scopes SECURE_ENABLE_TEE to ESP32C6/H2/C5/C61, excluding ESP32S3. The required_config entry currently asks n; root additionally reports isolated configure exit0 with this symbol unknown. A successful configure with that warning cannot count this requirement as applied or as security assurance.",
+      "related_expectation": {
+        "path": "docs/restart/H01/s3-bod-build-expectations.json",
+        "field": "required_config.CONFIG_SECURE_ENABLE_TEE",
+        "expected": "n",
+        "source_status": "inapplicable/unrecognized for this S3 minimal configuration; not verified n"
+      },
+      "next_action_before_build": "Remove the inapplicable default from the S3 project; explicitly amend the current expectation/status to N/A for this pinned target while preserving the original frozen expectation/candidate and unmodified configure warning in its existing owner evidence. Do not substitute SDK/target or a speculative security option. Review that limited change before build."
+    }
+  ],
+  "source_and_retained_evidence": {
+    "probe_inputs": [
+      {
+        "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+        "bytes": 669,
+        "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08"
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+        "bytes": 159,
+        "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe"
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/main/main.c",
+        "bytes": 3314,
+        "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60"
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+        "bytes": 216,
+        "sha256": "a9ed9e362d1d733ffffd566cf2f1003ef95bc1d9686574efc4dce90fdc449831"
+      }
+    ],
+    "SDK_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "SDK_tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+    "vendor_source_bindings": [
+      {
+        "path": "components/soc/esp32s3/register/soc/rtc_cntl_reg.h",
+        "mode": "100644",
+        "blob": "eace0e90d2ecd931921b9dc199e7b2ffdcb65b58",
+        "bytes": 179086,
+        "sha256": "37a0ec8e80e9531b83407de1fdd101ea0be1bb90b680d1b126b44e8484883e29"
+      },
+      {
+        "path": "components/soc/esp32s3/register/soc/gpio_reg.h",
+        "mode": "100644",
+        "blob": "c8dbd2d5e0d20a6bad9dd25e7c3f0f2c1c5f7de2",
+        "bytes": 384226,
+        "sha256": "2a6618c112bceb25291b5a215ab6140560cff033ed169c92dfd765683f0a980e"
+      },
+      {
+        "path": "components/soc/esp32s3/register/soc/efuse_reg.h",
+        "mode": "100644",
+        "blob": "d523fb3a2af906119015c41ab5e7840d006f38aa",
+        "bytes": 123522,
+        "sha256": "792765ec37f90b54ce6099fde5e77ac964e9a935a12db0f13dc292f1df2c8748"
+      },
+      {
+        "path": "components/esp_system/startup_funcs.c",
+        "mode": "100644",
+        "blob": "96c61a275bcb06cc16979192b483e5b98a5dba7e",
+        "bytes": 4220,
+        "sha256": "2f435ad551301fa0098d8020bb8f81967930562bfc5ba39dd027373514a774dc"
+      },
+      {
+        "path": "components/esp_hw_support/power_supply/brownout.c",
+        "mode": "100644",
+        "blob": "6dc655dfc7821f85df3f7f7f62a826b5374fb783",
+        "bytes": 4241,
+        "sha256": "21963bd750cbea47f9043da09de431a17c9eba7fd656741da171572c1e5d9a94"
+      },
+      {
+        "path": "components/esp_hw_support/power_supply/port/esp32s3/Kconfig.power",
+        "mode": "100644",
+        "blob": "d8a3d5ac1053fe76c3f9a14f30b541422cac5843",
+        "bytes": 2543,
+        "sha256": "ea107c5dd3f597d75c9b7cd20767a166e50dca6408f6a81d0fd0529ef8052058"
+      },
+      {
+        "path": "components/esp_hal_pmu/esp32s3/include/hal/brownout_ll.h",
+        "mode": "100644",
+        "blob": "aab4b8afe73c2cde6ece2a155fea55ef1da22b7c",
+        "bytes": 3428,
+        "sha256": "c9b4c8902d22b488cdc329392d2ffb374c9ecb5573030e4dc5c8afd4d0055718"
+      },
+      {
+        "path": "components/esp_hal_pmu/brownout_hal.c",
+        "mode": "100644",
+        "blob": "615559957bb93a7c2671943717c8abe0bb3600d3",
+        "bytes": 779,
+        "sha256": "2bc9499ffe99d4d0cf0f4de490d7d0dd76a18225532674ec1d61b0e441bf4d66"
+      },
+      {
+        "path": "components/hal/include/hal/psdet_types.h",
+        "mode": "100644",
+        "blob": "ff2cd3ceff68182e413beff863b1bf88953a4f3b",
+        "bytes": 484,
+        "sha256": "8d55716a2f4ba5abb659107d72a771d8bb41e2635224ba55dd6471d027652f8e"
+      },
+      {
+        "path": "tools/tools.json",
+        "mode": "100644",
+        "blob": "9018d6ba9ef130f314b80c98a741b104a994eb66",
+        "bytes": 47183,
+        "sha256": "039337e5ee2511f97d112aedb98125945625a4dd9ffb67e0cbb094edcdd298b2"
+      },
+      {
+        "path": "components/soc/esp32s3/include/soc/soc.h",
+        "mode": "100644",
+        "blob": "8588770c3cfba9c994230c453dacc2a1bd2ffce3",
+        "bytes": 10754,
+        "sha256": "5d71f9f79c73aad220e7436d17837eb678b476d9d5601a680e5eddf628e30caa"
+      },
+      {
+        "path": "components/soc/esp32s3/register/soc/reg_base.h",
+        "mode": "100644",
+        "blob": "52cc301c3e8ba7ebdd9ec3b00063bd49c01578c0",
+        "bytes": 3651,
+        "sha256": "c6df84d3d98549b89c36811ebf3c664316823c8901ead27bb98b5350774aec46"
+      },
+      {
+        "path": "components/soc/esp32s3/include/soc/soc_caps.h",
+        "mode": "100644",
+        "blob": "4bb5460b35095444bdf8806305667991e5ea6cb4",
+        "bytes": 25529,
+        "sha256": "843a2ae552eef850442bc748fcf3f807626b25d34eada462805bc24f827ba96e"
+      },
+      {
+        "path": "components/soc/CMakeLists.txt",
+        "mode": "100644",
+        "blob": "9ba726fe800d490aa11306d453bcd79346a6008a",
+        "bytes": 2796,
+        "sha256": "8100dd4385d3ba1760e6828ce174d14efb82d893c42b88583e058808925adb82"
+      },
+      {
+        "path": "tools/cmake/project.cmake",
+        "mode": "100644",
+        "blob": "3be09b24d6edafa5d17808430a34f08037dfe591",
+        "bytes": 50099,
+        "sha256": "60c7ae13ba2e89928e33624f52b3bcb4c8913ecec8e63519c3c266b98d490cbc"
+      },
+      {
+        "path": "tools/cmake/build.cmake",
+        "mode": "100644",
+        "blob": "1def8e5690e91dee1154ecadebda8e7891131908",
+        "bytes": 42467,
+        "sha256": "fbbb7669a9cde78e1209e001b4c8bc67aae074f19c2e8b6bd06a478e368963ea"
+      },
+      {
+        "path": "components/esp_tee/Kconfig.projbuild",
+        "mode": "100644",
+        "blob": "929c9ebbcfd9a72fc555a82b73be8d0ac8ded856",
+        "bytes": 8386,
+        "sha256": "3b35aea5005811d1e450b4864f677f91f9d9f0d1e2d1c5f3610ac5bbdcefa9ea"
+      },
+      {
+        "path": "components/esp_hw_support/CMakeLists.txt",
+        "mode": "100644",
+        "blob": "5fdc7704ab3be8bb2f49fffa164cc7f047c33878",
+        "bytes": 8718,
+        "sha256": "971fd4aa529c3938d1d77ebf7bc81e3dd475482b4539ae3a96aa5dfde4e8ee49"
+      }
+    ],
+    "primary_manual": {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/current-trm.pdf",
+      "url": "https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf",
+      "revision": "1.8",
+      "bytes": 15215232,
+      "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
+      "scope": "Retained primary only, no fetch. Existing506/623 text read for field mapping/access; no new native diagram or polarity resolution."
+    },
+    "blocker_evidence_reused": {
+      "result": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/result.json",
+      "result_sha256": "70d70a73fcb7e2b93a70cd9a5b28ceed5ad47ec011b6ea710dabfbe948141e74",
+      "manifest": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/artifact-manifest.json",
+      "manifest_sha256": "d6ad209c1f02f2f3ce59304126373b19d69cad5a249c2d69f20a59b71c53644b",
+      "member_bindings_verified": 49,
+      "role": "Exact historical acquisition/configure RED checkpoint before compile/link; not changed or treated as product compile failure."
+    },
+    "historical_validation_reused": {
+      "source": "85c77cc9c46a73724b4f7234026de559755e914c",
+      "recorded_role": "43tests/validators and existing Makefile/workflow remain byte-identical to hardware7645554; last historical43PASS remains on85c77cc. No new make ci claimed on blocked source.",
+      "Makefile_workflows_scripts_tests_unchanged": true,
+      "new_test_invocations": 0,
+      "new_diagnostic_coverage_or_build_claim": false
+    }
+  },
+  "consistent_source_observations": [
+    {
+      "id": "selector-input-and-SDK-API",
+      "result": "Source consistent; not executed",
+      "detail": "CMake rejects missing/nonliteral0/1 before SDK include and pins HEADfff. Target compile definition feeds C guard and actual masked bit27 expression. Pinned project.cmake supports include/build-property/project and MINIMAL_BUILD; soc component exposes target register/include paths."
+    },
+    {
+      "id": "real-register-write",
+      "result": "Source consistent with explicit RMW risk",
+      "detail": "Target REG_WRITE is volatile uint32 full-word assignment at0x600080e8; helper is called by app_main, followed by memw and volatile read. Arithmetic changes only mask0x08000000 relative captured before. It still re-emits all captured RW/reserved/RO/WO positions and is not atomic or physically neutral."
+    },
+    {
+      "id": "field-access-and-clear",
+      "result": "Source consistent; no hardware inference",
+      "detail": "ROdetector31, WOcounterclear29, RWselector27, reserved3:0; no W1C field in this BOD word. ObservedWO1 refuses helper, WO0 is not state/safety proof. Separate RTCinterruptclear register and SDK ISR effects do not establish reset polarity."
+    },
+    {
+      "id": "reset-and-strap",
+      "result": "Source consistent; no bench witness",
+      "detail": "Raw RESET_STATE CPU causes RO5:0/11:6, no clearing/normalizing. ExistingTRM506: GPIO46strapbit2,GPIO0bit3; liveGPIO46 fromIN1bit14 is separate. eFuseprintRO7:6 guard rejects01/10, permits00/11, no fuse write or newGPIO8/GPIO46 authority."
+    },
+    {
+      "id": "startup-and-ISR",
+      "result": "Conditional SDK path only",
+      "detail": "Known CONFIG_ESP_BROWNOUT_DET=n suppresses esp_brownout_init call, not ROM/hardware. S3 USE_INTR defaults n; brownout.c can still be compiled dueSOC_BOD_SUPPORTED. Optional ISR clear/callback/stopothercore/hint/software_reset is not a polarity witness. NonISR HAL config touches enables/reset/threshold/otherfields; CHIP0/SYSTEM1 enum values do not resolve conflicting TRM."
+    },
+    {
+      "id": "no-arming-tag",
+      "result": "Software intent only",
+      "detail": "README defines not_armed_by_this_probe as no new arming configuration requested. Whole-word write still echoes enable/reset controls; no guarantee disarmed/safe/no physical effect follows from tag, guard or readback."
+    }
+  ],
+  "coordinator_reported_supplemental_observation": {
+    "source": "Root task update,2026-10-23; raw configure remains owned by B01 and was not reopened/reviewed here.",
+    "observation": "One isolated configure completed exit0 and stderr reports CONFIG_SECURE_ENABLE_TEE unknown. No product compilation; bootloader config and complete header closure unavailable.",
+    "preservation": "Keep original unmodified warning with the configure owner evidence; do not count it as an honored n value or relabel configure success as build/physical success.",
+    "this_review_configure_invocations": 0
+  },
+  "TRM_hypotheses": {
+    "body576": "0chip/1system remains competing UNSATISFIED source hypothesis",
+    "register623": "1chip/0system remains competing UNSATISFIED source hypothesis",
+    "selected_polarity": null,
+    "source_only_review_resolves_physical_meaning": false
+  },
+  "required_next_action": "Correct F1 under explicit bounded source/config amendment before build, preserve original frozen expectation/candidate and warning, obtain affected review. This review author applies no correction.",
+  "not_qualified": [
+    "Compilation/link and ELF/map/app/bootloader binaries",
+    "generated sdkconfig and complete header/link closure",
+    "effective register write/readback, startup or ISR exclusion",
+    "ROM/hardware arming state, reset scope or polarity",
+    "rail/pin/strap/undervoltage/physical safety",
+    "selected MCU/Board support, H01 criteria or release"
+  ],
+  "new_executions": {
+    "configure": 0,
+    "build": 0,
+    "fetch": 0,
+    "tests": 0,
+    "hosted_CI": 0,
+    "device_or_register": 0
+  },
+  "report": {
+    "path": "docs/restart/H01/reviews/s3-bod-diagnostic-source/report.md",
+    "bytes": 6447,
+    "sha256": "0bd2e88809c157ef1956cacea1213b9138d2cfee04cb07544d96462dbc47af2f"
+  },
+  "whitespace_check_exit_code": 0,
+  "publication_at_freeze": "At most one ordinary review-branch push, using [skip ci] for the existing push-triggered hardware workflow because this review author is not authorized to start CI. Exact push stdout/stderr/exit retained separately; no retry or author-branch push."
+}
