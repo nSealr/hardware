@@ -266,8 +266,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
-    since = (now - timedelta(minutes=10)).strftime('%Y-%m-%d %H:%M:%S UTC')
-    until = now.strftime('%Y-%m-%d %H:%M:%S UTC')
+    since = (now - timedelta(minutes=10)).strftime('%Y-%m-%d %H:%M:%S')
+    until = now.strftime('%Y-%m-%d %H:%M:%S')
     result = {
         'role': 'freshhostobservation_notproof_of_failedVM/isolation',
         'observed_at_utc': now.isoformat(),
@@ -285,7 +285,7 @@ def main():
     }
     logs = {}
     for label, argv in (
-        ('journal', ['journalctl', '--no-pager', '--kernel', '--output=short-iso', '--since=' + since, '--until=' + until, '--lines=65', '--grep=DENIED|audit\\(']),
+        ('journal', ['journalctl', '--no-pager', '-k', '--output=short-iso', '--since=' + since, '--until=' + until, '--lines=65', '--grep=DENIED|audit\\(']),
         ('dmesg', ['dmesg', '--time-format=iso', '--since', since, '--until', until]),
     ):
         record = read_command(argv)
