@@ -1,5 +1,25 @@
 # S3 BOD selector — compile-only source checkpoint
 
+## Current compile/link experiment, 23 October 2026
+
+The four F1-corrected inputs at `e9849a8ae2833b96e0d4ce92978ee48e2087f30c`
+have now produced real selector0/1 ELF/bin/map sets and a true selector2
+CMake-guard rejection under separately admitted isolated commands. The
+[current proof packet](../../docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/README.md)
+records exact sources, actual dependency/producer correspondence, disassembly,
+warnings and limits. Independent review/delivery gates remain pending; no
+firmware/device execution or polarity/host/safety qualification follows.
+The configured `esp_brownout_init` call/optional ISR are excluded, while the
+registered startup wrapper and flash brownout hooks remain; ROM/hardware are
+unknown. Existing43 tests are separate from the cross-build, which is not yet
+wired into CI. Use the source-bound command receipts, not the historical bare
+commands below, to understand the actual executed isolation/tool configuration.
+
+## Historical blocked checkpoint2680
+
+The following observations and unexecuted command forms describe the original
+blocked source checkpoint; its Git identity and original proof are preserved.
+
 Root admission: `9e9aea04e0c71e089b1fc8af8d488effe8ba3134`.
 The independent [expectations](../../docs/restart/H01/s3-bod-build-expectations.json)
 were committed before this C source. ESP-IDF must be exactly

@@ -79,5 +79,8 @@
     "idf_py_exit": 2,
     "guard": "CMakeLists.txt:4 literal BOD_RST_SEL rejection before SDK project include",
     "product_compile_or_link": false
-  }
+  },
+  "exit": 2,
+  "started_unix": 1792782946.5965934,
+  "duration_seconds": 0.8214612007141113
 }
