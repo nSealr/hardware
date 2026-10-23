@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "make",
+    "ci"
+  ],
+  "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable",
+  "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+  "exit": 0,
+  "seconds": 0.1358759729191661,
+  "stdout_sha256": "f4475e319aad6455b95f807e62217d89de4209331271e37639f630cea1a23d37",
+  "stderr_sha256": "93a746f17ddf40d31e9b9c8d9ba27bd6c1f2240a3e7da5567cada8d3515dfa49"
+}

@@ -1,0 +1,28 @@
+{
+  "full": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "bb0e7db1ff6687acc02ce3ad8aa23093ce0d93ad"
+    ],
+    "exit": 2,
+    "output_lines": 1
+  },
+  "authored-source": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "bb0e7db1ff6687acc02ce3ad8aa23093ce0d93ad",
+      "--",
+      "diagnostics",
+      "Makefile",
+      ".github/workflows"
+    ],
+    "exit": 0,
+    "output_lines": 0
+  }
+}

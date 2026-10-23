@@ -1,0 +1,448 @@
+{
+  "tool_asset_files": 16522,
+  "packages": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "wheel_sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "library_members_verified": 6,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "boolean-py",
+      "version": "5.0",
+      "wheel_sha256": "ef28a70bd43115208441b53a045d1549e2f0ec6e3d08a9d142cbc41c1938e8d9",
+      "library_members_verified": 9,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "wheel_sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "library_members_verified": 11,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "wheel_sha256": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf",
+      "library_members_verified": 30,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "wheel_sha256": "3d31298449090ab8d47b7b1b2a555ff73cac7ed438a08b7ac160980c7ebed649",
+      "library_members_verified": 20,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "click",
+      "version": "8.4.2",
+      "wheel_sha256": "e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76",
+      "library_members_verified": 21,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "construct",
+      "version": "2.10.70",
+      "wheel_sha256": "c80be81ef595a1a821ec69dc16099550ed22197615f4320b57cc9ce2a672cb30",
+      "library_members_verified": 15,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.0",
+      "wheel_sha256": "82148ec5bddac30b51a5b3c1945075f896fa022cb93f8e4a01e9f6ee95292c5f",
+      "library_members_verified": 119,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-coredump",
+      "version": "1.17.2",
+      "wheel_sha256": "376d594d565fede658481d3780ed5623b9b993592078dfcf75fecbab53901a70",
+      "library_members_verified": 31,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-idf-diag",
+      "version": "0.2.0",
+      "wheel_sha256": "0a23b8ebf263231e9323fc6098c01ec4a51d6dd4ce8af7a1f766e78a91284642",
+      "library_members_verified": 17,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-idf-kconfig",
+      "version": "3.14.0",
+      "wheel_sha256": "1613adf806f2ab63c778eeb0aba7a1b248b507cb11dff99983deb248b2b12a74",
+      "library_members_verified": 55,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-idf-monitor",
+      "version": "1.10.0",
+      "wheel_sha256": "b7a328f580f771ce1c3e306f6ac7d8c2c2e54f9091fa3f60908214be072feb48",
+      "library_members_verified": 31,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-idf-sbom",
+      "version": "1.4.0",
+      "wheel_sha256": "3fa24ff1c14fca159ed85ff32241e50a23f392c606b314cd13f5b5b758f4d45f",
+      "library_members_verified": 21,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-idf-size",
+      "version": "2.3.2",
+      "wheel_sha256": "dd395d7baa2693bc0b6092a50bf4dadf31a0a8a8f0920c6da3dcde6c75b2a9ef",
+      "library_members_verified": 32,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-pylib",
+      "version": "1.2.0",
+      "wheel_sha256": "581fd31eb20db4b80519fe883eaeacf5b3c6a2c0b7cce353a7d326ae7cbd4f5f",
+      "library_members_verified": 18,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-idf-nvs-partition-gen",
+      "version": "0.1.9",
+      "wheel_sha256": "9655b81dcfac034372bc00ac301f26830619abdd622949efb70cb7f78c80ba12",
+      "library_members_verified": 7,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esp-idf-panic-decoder",
+      "version": "1.5.0",
+      "wheel_sha256": "c711abafb99efdc343e19c45b6416b14a863fbe29115fafa8264cefaab85b8ea",
+      "library_members_verified": 11,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "esptool",
+      "version": "5.6.0",
+      "wheel_sha256": "ce7a54fff8a35b3107bc0c7babc961bd306c8c55f3c791fad071a522b0ea9b47",
+      "library_members_verified": 173,
+      "origin": "sdist"
+    },
+    {
+      "name": "freertos-gdb",
+      "version": "1.0.4",
+      "wheel_sha256": "f924aa5c51318d9978afffca57bb07b979569a2c0adddacfcd931ac8d58ee53b",
+      "library_members_verified": 9,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "idf-component-manager",
+      "version": "3.1.2",
+      "wheel_sha256": "424494493b47b61ea0f7666d3018a71deecb77f21186bc8b6761b0b6f98e8f90",
+      "library_members_verified": 106,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "idf-drivers-gdb",
+      "version": "0.1.1",
+      "wheel_sha256": "aab3fbc57bfcef44332b9510c4bc16efe40d4b5db1f69f736ae397690f53f273",
+      "library_members_verified": 7,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "wheel_sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "library_members_verified": 15,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "intelhex",
+      "version": "2.3.0",
+      "wheel_sha256": "87cc5225657524ec6361354be928adfd56bcf2a3dcc646c40f8f094c39c07db4",
+      "library_members_verified": 18,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "jsonref",
+      "version": "1.1.0",
+      "wheel_sha256": "590dc7773df6c21cbf948b5dac07a72a251db28b0238ceecce0a2abfa8ec30a9",
+      "library_members_verified": 5,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "license-expression",
+      "version": "30.4.4",
+      "wheel_sha256": "421788fdcadb41f049d2dc934ce666626265aeccefddd25e162a26f23bcbf8a4",
+      "library_members_verified": 15,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "linkify-it-py",
+      "version": "2.2.0",
+      "wheel_sha256": "3adc40eb5af300b2605fcfdb968c24e1d780a90f1f2221af7c15e5111e94d443",
+      "library_members_verified": 9,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "wheel_sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a",
+      "library_members_verified": 73,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "mdit-py-plugins",
+      "version": "0.6.1",
+      "wheel_sha256": "214c82fb2ac524472ab6a5bcab1de80f73b50443e187f401bfd77efbc7c6481d",
+      "library_members_verified": 59,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "wheel_sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "library_members_verified": 10,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "wheel_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "library_members_verified": 28,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pathvalidate",
+      "version": "3.3.1",
+      "wheel_sha256": "5263baab691f8e1af96092fa5137ee17df5bdfbd6cff1fcac4d6ef4bc2e1735f",
+      "library_members_verified": 19,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.2",
+      "wheel_sha256": "fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70",
+      "library_members_verified": 477,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.13.5",
+      "wheel_sha256": "53d3ec4280b815c1e0b02edad7f9ee8fda1ba9c0865dd9c2e6e63849ce82fc1e",
+      "library_members_verified": 17,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "wheel_sha256": "076a2d2f923fd4821644f5ba89f059523da90dc9014e85f8e45a5774ca5bc6f9",
+      "library_members_verified": 15,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pyclang",
+      "version": "0.7.0",
+      "wheel_sha256": "a19d333ab02ab0df486e29fabf961b8e3748d8b5343d8170764e49f114bb8393",
+      "library_members_verified": 11,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.12",
+      "wheel_sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+      "library_members_verified": 12,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.1",
+      "wheel_sha256": "9195d967ec791692a04438115466764fb8b9a27b31f14a760437694f40d6b454",
+      "library_members_verified": 110,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.16.1",
+      "wheel_sha256": "30f5313340da4e8f1b440d1910b92a5bc3ccbb6b4ba70ec2b8395bc921f418f5",
+      "library_members_verified": 26,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.1",
+      "wheel_sha256": "93ba4e9d8210d941c200431a56b2c0400b131865947903937ed3ec5404307d2e",
+      "library_members_verified": 10,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pyelftools",
+      "version": "0.33",
+      "wheel_sha256": "f215ad5f47d3f1373a21496a6c9e0707c622840d0622f23ff7ce08678b020036",
+      "library_members_verified": 58,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pygdbmi",
+      "version": "0.11.0.0",
+      "wheel_sha256": "f7cac28e1d558927444c880ed1e65da1a5d8686121a3aac16f42fb84d3ceb60d",
+      "library_members_verified": 13,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "wheel_sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "library_members_verified": 348,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "wheel_sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+      "library_members_verified": 22,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pyserial",
+      "version": "3.5",
+      "wheel_sha256": "c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0",
+      "library_members_verified": 34,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "wheel_sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc",
+      "library_members_verified": 14,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "wheel_sha256": "ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc",
+      "library_members_verified": 23,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "reedsolo",
+      "version": "1.7.0",
+      "wheel_sha256": "2b6a3e402a1ee3e1eea3f932f81e6c0b7bbc615588074dca1dbbcdeb055002bd",
+      "library_members_verified": 5,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "wheel_sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "library_members_verified": 25,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "requests-file",
+      "version": "3.0.1",
+      "wheel_sha256": "d0f5eb94353986d998f80ac63c7f146a307728be051d4d1cd390dbdb59c10fa2",
+      "library_members_verified": 6,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "requests-toolbelt",
+      "version": "1.0.0",
+      "wheel_sha256": "cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06",
+      "library_members_verified": 39,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "wheel_sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+      "library_members_verified": 104,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "rich-click",
+      "version": "1.9.9",
+      "wheel_sha256": "365e7a9d0adb42e41ea832a0a12e02c44c079a26536dee688125eb9814f97274",
+      "library_members_verified": 29,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "ruamel-yaml",
+      "version": "0.19.1",
+      "wheel_sha256": "27592957fedf6e0b62f281e96effd28043345e0e66001f97683aa9a40c667c93",
+      "library_members_verified": 38,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "schema",
+      "version": "0.7.8",
+      "wheel_sha256": "00bd977fadc7d9521bf289850cd8a8aa5f4948f575476b8daaa5c1b57af2dce1",
+      "library_members_verified": 6,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "wheel_sha256": "ca140b45d5325a9478f880e351484f62fef15f336462e449ca0c03c873d589c2",
+      "library_members_verified": 335,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "textual",
+      "version": "8.2.8",
+      "wheel_sha256": "267375fd402dc8d981457212efa71f0e3365fd17bba144ba9bb3ed7563cb374a",
+      "library_members_verified": 267,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "tree-sitter",
+      "version": "0.26.0",
+      "wheel_sha256": "5a6b333b0282d8bb0af741f9b018bd2523d4eecb2686bf6717066a625fecfaa4",
+      "library_members_verified": 8,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "tree-sitter-c",
+      "version": "0.24.2",
+      "wheel_sha256": "5041ef67eb68ce6bc8bb0b1f8ef3a5585ce523dae0c7eec109ab0627dd75aede",
+      "library_members_verified": 11,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.5",
+      "wheel_sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c",
+      "library_members_verified": 10,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "wheel_sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+      "library_members_verified": 8,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "wheel_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "library_members_verified": 4,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "wheel_sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "library_members_verified": 41,
+      "origin": "bdist_wheel"
+    },
+    {
+      "name": "websockets",
+      "version": "17.3",
+      "wheel_sha256": "a7f391838e8adcf1f2fe71561d9e5a9f74ea7ffa5052eb2db329aac677383136",
+      "library_members_verified": 61,
+      "origin": "bdist_wheel"
+    }
+  ],
+  "wheel_body_files": 3187,
+  "scope": "Exact publisher asset bytes; esptool locally derived from authenticated sdist and pinned backend. No publisher authentication inferred from installed RECORD."
+}

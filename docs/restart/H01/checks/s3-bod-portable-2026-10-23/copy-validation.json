@@ -1,0 +1,13 @@
+{
+  "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+  "actual_checks": {
+    "stable_archive_members_including_internal_manifest": 823,
+    "every_stable_member_hash_size_and_no_extra": true,
+    "primary_metadata_members": 72,
+    "every_primary_member_hash_size_and_archive_digest": true,
+    "scoped_manifest_before_this_metadata_append_members": 85,
+    "every_original_scope_manifest_file_hash_size": true
+  },
+  "method": "Actual Python stdlib tarfile/json/hashlib validation over packaged bytes after copying; no product test or physical qualification implied. Current manifest is regenerated after these metadata-only additions.",
+  "no_runtime_source_change_since_complete_run": true
+}
