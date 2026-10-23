@@ -185,3 +185,47 @@ watchdog field prose, §13 functional675–677 reread, interrupt source/type/
 routing Tables9.3-1/2 pp540–546. No native new figure, whole register-map,
 calibration feature or general RTOS/driver audit is claimed. Older exact scope
 and source hashes remain in the register; fetched/read are distinct.
+
+## S3 BOD selector: single next-source gate, 23 October 2026
+
+Owner `/root/b01_final_review`, Sol6.1/xhigh. Input hardware
+`7645554985259222e606fdda01bb1fdd793804ee`. This is a bounded proposed
+source-resolution contract for the existing C03/S3 brownout row, not a new
+host, selected polarity, diagnostic permission or H01 closure.
+
+The retained primary TRM1.8 PDF was rehashed to
+`4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f`
+(15,215,232 bytes). Its selected text was reread: §10.3.4.4 p576 maps
+0 to Chip Reset and1 to System Reset; Register10.51 p623 reverses that map.
+This confirms the existing contradiction, not current corrected semantics.
+No manufacturer original is redistributed and no full-manual reread is claimed.
+
+One opening of the same [official public TRM URL](https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf)
+returned a web-tool size error: `(400) Content length is too large: 10485761+`.
+No new original/revision/hash was obtained. This is an extraction/tool-size
+limit, not an observed publisher access denial or a new S04 gate. The attempt
+is retained in the existing manual register; no retry, mirror, alternative
+route/model or request to the manufacturer followed.
+
+The one first resolver remains an applicable manufacturer correction that
+explicitly reconciles **both** locations for `BROWN_OUT_RST_SEL`, including
+which reset domain each value actually selects on the proposed S3 scope.
+Before another retrieval or any diagnostic is assigned, coordinator review
+must fix the exact permitted source acquisition or finite experiment; this
+checkpoint itself executes neither. A driver value, naming convention,
+unchanged1.8 paragraph or a successful compile is insufficient evidence.
+
+Independent conclusion conditions are fixed now: (a) corrected primary bytes,
+revision and applicability explicitly establish one consistent0/1 map across
+both locations, allowing only this documentary row to be reassessed; or
+(b) contradiction, ambiguous applicability, inaccessible body or absent
+correction leaves the row UNSATISFIED with selected_polarity null. Neither
+outcome admits a connected host, valid rail, threshold, received revision,
+reset waveform or physical reset scope. RAM loss under undervoltage must not
+be relabelled proof of a particular reset domain.
+
+No source build, board/flash/register/fuse write, energizing, secrets,
+purchase/outreach, SDK/Pi/CAD or canonical graph change is part of this packet.
+The original43-test `make ci` evidence stays bound to its recorded85c77cc
+content; it was not rerun or relabelled for this contract-only checkpoint.
+All other C01–C10/access/advisory/physical gates and historical reports remain.
