@@ -1,0 +1,8 @@
+Current system platform: linux-amd64
+Installing tools: xtensa-esp-elf@esp-15.2.0_20251204, ninja@1.12.1
+Installing xtensa-esp-elf@esp-15.2.0_20251204
+file xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz is already downloaded
+Extracting /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/dist/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz to /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204
+Installing ninja@1.12.1
+file ninja-linux-v1.12.1.zip is already downloaded
+Extracting /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/dist/ninja-linux-v1.12.1.zip to /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1

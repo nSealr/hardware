@@ -1,0 +1,57 @@
+[
+  {
+    "argv": [
+      "git",
+      "init",
+      "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf"
+    ],
+    "exit": 0,
+    "duration_seconds": 0.003730297088623047,
+    "stdout": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-00.stdout.log",
+    "stderr": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-00.stderr.log"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+      "remote",
+      "add",
+      "origin",
+      "https://github.com/espressif/esp-idf.git"
+    ],
+    "exit": 0,
+    "duration_seconds": 0.0009629726409912109,
+    "stdout": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-01.stdout.log",
+    "stderr": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-01.stderr.log"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+      "fetch",
+      "--depth=1",
+      "origin",
+      "fff9895c82d744c7237be8847347bdd1b07c6643"
+    ],
+    "exit": 0,
+    "duration_seconds": 6.8478357791900635,
+    "stdout": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-02.stdout.log",
+    "stderr": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-02.stderr.log"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+      "checkout",
+      "--detach",
+      "FETCH_HEAD"
+    ],
+    "exit": 0,
+    "duration_seconds": 0.8332247734069824,
+    "stdout": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-03.stdout.log",
+    "stderr": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/sdk-03.stderr.log"
+  }
+]

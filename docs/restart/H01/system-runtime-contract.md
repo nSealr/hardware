@@ -288,3 +288,11 @@ purchase/outreach, SDK/Pi/CAD or canonical graph change is part of this packet.
 The original43-test `make ci` evidence stays bound to its recorded85c77cc
 content; it was not rerun or relabelled for this contract-only checkpoint.
 All other C01–C10/access/advisory/physical gates and historical reports remain.
+
+Compile-only follow-up: root9e9aea04 admitted the tiny public C build source
+and independent expectations, not a bench. The current [probe source](../../../diagnostics/s3-bod-selector/README.md)
+is blocked before compile/link on ordinary pinned SDK Gitlink acquisition;
+the [exact failed-input evidence](checks/s3-bod-build-blocker-2026-10-23/result.json)
+preserves both configure REDs and the single failed batch. No linked artifact,
+effective generated config, new43-test PASS, source polarity or physical result
+is inferred. The earlier source-admission hashes keep their original candidates.

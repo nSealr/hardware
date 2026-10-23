@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf_tools.py",
+    "install-python-env",
+    "--features",
+    "core"
+  ],
+  "exit": 1,
+  "duration_seconds": 0.04294466972351074,
+  "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+  "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env"
+}
