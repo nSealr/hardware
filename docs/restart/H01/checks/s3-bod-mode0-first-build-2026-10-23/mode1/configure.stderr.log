@@ -1,0 +1,25 @@
+skip submodule check on internal CI
+NOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bootloader/Kconfig.projbuild:383: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bootloader/Kconfig.projbuild:423: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hw_support/./lowpower/port/esp32p4/Kconfig.p4_rev3_mspi_workaround:6: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_mm/Kconfig:20: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_system/./port/soc/esp32s3/Kconfig.memory:21: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+Loading defaults file /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/project/sdkconfig.defaults...
+NOTE: Kconfig parser version: 1
+NOTE: Kconfig defaults policy: use sdkconfig
+NOTE: Status: Finished successfully
+Traceback (most recent call last):
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/gen_gdbinit.py", line 72, in <module>
+    gdbinit_lines = generate_gdbinit_rom_add_symbols(target)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/gen_gdbinit.py", line 31, in generate_gdbinit_rom_add_symbols
+    raise OSError(
+OSError: ESP_ROM_ELF_DIR environment variable is not defined. Please try to run IDF "install" and "export" scripts.
+CMake Warning at /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/gdbinit.cmake:58 (message):
+  Error while generating esp_rom gdbinit
+Call Stack (most recent call first):
+  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/project.cmake:452 (__generate_gdbinit)
+  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/project.cmake:1101 (__project_info)
+  CMakeLists.txt:14 (project)
+
+

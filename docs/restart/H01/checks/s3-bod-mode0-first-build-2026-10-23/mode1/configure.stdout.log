@@ -1,0 +1,67 @@
+-- Found Git: /usr/bin/git (found version "2.47.3")
+-- Minimal build - ON
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- git rev-parse returned 'fatal: not a git repository (or any of the parent directories): .git'
+-- Could not use 'git describe' to determine PROJECT_VER.
+-- Building ESP-IDF components for target esp32s3
+-- KCONFIG_REPORT_VERBOSITY not set, using default
+-- Project sdkconfig file /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.bt_funcs.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_master.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_50.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_smp.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_dtm.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_test.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ble_scan.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libc.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_regi2c/esp32s3/rom.regi2c.ld
+-- Found Python3: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python (found version "3.12.15") found components: Interpreter
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
+-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS - Success
+-- Setting up mbedtls configuration
+-- Linkage type is PUBLIC
+-- App "s3_bod_selector" version: 1
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_wdt/esp32s3/rom.wdt.ld
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_system/ld/esp32s3/memory.ld.in
+--   -> Preprocessing .in script: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_system/ld/esp32s3/memory.ld.in
+-- Adding linker script /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_system/ld/esp32s3/sections.ld.in
+--   -> Preprocessing .in script: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_system/ld/esp32s3/sections.ld.in
+--   -> Applying ldgen processing: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/esp-idf/esp_system/ld/sections.ld.in
+-- Components: app_update bootloader bootloader_support cxx efuse esp_app_format esp_blockdev esp_bootloader_format esp_common esp_driver_dma esp_driver_gpio esp_hal_ana_conv esp_hal_clock esp_hal_dma esp_hal_gpio esp_hal_gpspi esp_hal_mspi esp_hal_pmu esp_hal_regi2c esp_hal_rtc_timer esp_hal_security esp_hal_systimer esp_hal_timg esp_hal_touch_sens esp_hal_uart esp_hal_usb esp_hal_wdt esp_hw_support esp_libc esp_mm esp_partition esp_pm esp_rom esp_security esp_stdio esp_system esp_timer esp_usb_cdc_rom_console esptool_py freertos hal heap log main mbedtls partition_table pthread soc spi_flash xtensa
+-- Component paths: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/app_update /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bootloader /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bootloader_support /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/cxx /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/efuse /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_app_format /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_blockdev /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_bootloader_format /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_common /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_driver_dma /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_driver_gpio /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_ana_conv /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_clock /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_dma /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_gpio /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_gpspi /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_mspi /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_pmu /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_regi2c /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_rtc_timer /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_security /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_systimer /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_timg /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_touch_sens /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_uart /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_usb /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hal_wdt /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hw_support /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_libc /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_mm /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_partition /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_pm /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_security /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_stdio /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_system /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_timer /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_usb_cdc_rom_console /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esptool_py /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/freertos /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/hal /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/heap /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/log /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/project/main /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/mbedtls /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/partition_table /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/pthread /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/soc /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/spi_flash /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/xtensa
+-- Configuring done (1.9s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build
+Executing action: reconfigure
+Running cmake in directory /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build
+Executing "cmake -G Ninja -B /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python -DESP_PLATFORM=1 -DIDF_TARGET=esp32s3 -DBOD_RST_SEL=1 -DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/sdkconfig -DCCACHE_ENABLE=False /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/project"...
