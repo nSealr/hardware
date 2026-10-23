@@ -1,28 +1,15 @@
-name: CI
+# RESEARCH REF ONLY. Never merge this replacement workflow into product.
+# This manual observer does not satisfy or replace either required PR check.
+name: H01 fresh-host read-only context
 
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
-        with:
-          persist-credentials: false
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
-        with:
-          python-version: "3.12.15"
-          check-latest: false
-      - run: make ci
-
-  s3-bod-compile:
+  observe-host-context:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
@@ -32,25 +19,19 @@ jobs:
         with:
           python-version: "3.12.15"
           check-latest: false
-      # Install only the missing host prerequisite from the runner's signed OS
-      # repositories; its resolved version/origin and actual identity are kept.
-      # Build execution stays unprivileged and every namespace check is required.
+      # Exact already-reviewed prerequisite setup; no other sudo operation.
+      # The observer records post-install state and does not execute bwrap.
       - name: Install the Ubuntu sandbox prerequisite
         run: |
           sudo apt-get update
           apt-cache policy bubblewrap
           sudo apt-get install --yes --no-install-recommends bubblewrap
           dpkg-query -W bubblewrap
-      # A missing/denied user or network namespace fails the gate; no skip or
-      # AppArmor/sysctl/privilege workaround is permitted.
-      - run: command -v git && command -v bwrap && bwrap --version
-      - run: make s3-bod-compile S3_BOD_WORK_DIR="$RUNNER_TEMP/s3-bod-run" S3_BOD_CACHE_DIR="$RUNNER_TEMP/s3-bod-assets"
+      - name: Observe allowlisted public host context without isolation attempts
+        run: python3 diagnostics/s3-bod-selector/tools/observe_host_context.py --output "$RUNNER_TEMP/h01-host-context.json"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # official v4
         if: always()
         with:
-          name: s3-bod-compile-evidence
-          path: |
-            ${{ runner.temp }}/s3-bod-run/evidence.tar.gz
-            ${{ runner.temp }}/s3-bod-run/failure.json
-            ${{ runner.temp }}/s3-bod-run/receipts/
+          name: h01-fresh-host-context
+          path: ${{ runner.temp }}/h01-host-context.json
           if-no-files-found: error
