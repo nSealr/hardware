@@ -1,0 +1,46 @@
+{
+  "verdict": "ADMITTED_compile_only_public_S3_BOD_diagnostic_NOT_BENCH",
+  "source_candidate": "c8db292e1376fc2df5874cbbf592a72bfc974b0f",
+  "source_contract": "docs/restart/H01/system-runtime-contract.md",
+  "source_contract_sha256": "118470332588f05ad9c5db09e3352f571ee4095ba79c438a028f524870dc0efb",
+  "reviewer": "/root distinct from author",
+  "purpose": "Prepare two concrete public diagnostic builds for the existing H01 C03 source contradiction; no general Rust rewrite, selected Board host, connected probe or physical admission.",
+  "source_status": "Current official TRM1.8 bytes equal archived4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f; paragraph576/register623 conflict persists. selected_polarity remains null/UNSATISFIED.",
+  "admitted_paths": [
+    "diagnostics/s3-bod-selector/ (one minimal C/ESP-IDF project, exact tool/config/build instructions and public diagnostics)",
+    "docs/restart/H01/ (only paired source/build evidence and existing C03 references/status needed for this probe)",
+    "one minimal automated build target/job for this actual diagnostic, after inspecting existing Makefile/workflows; no global CI redesign"
+  ],
+  "fixed_inputs": {
+    "ESP_IDF_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "target": "esp32s3 diagnostic only, not custom Board selection",
+    "valid_selectors": [
+      0,
+      1
+    ],
+    "invalid_selector_must_reject": true,
+    "independent_bench_hypotheses": {
+      "paragraph576": [
+        1,
+        0
+      ],
+      "register623": [
+        0,
+        1
+      ]
+    },
+    "marker": "GPIO46 strap latch, not RAM; existing knownChip/System controls and reset/rail/cause requirements remain future bench prerequisites"
+  },
+  "first_integration": "Before final packaging, build one actual linked image with pinned real vendor SDK/toolchain. Then both selector variants and unsupported-value rejection; record exact source/config/compiler/link map/ELF+binary hashes and actual generated selector field effects. Build success is not boot, reset scope, polarity or safety evidence.",
+  "conditions": [
+    "Inspect pinned vendor headers/startup/brownout handler and exact field/mask before coding. Driver behavior is implementation input, not authority resolving physical polarity. Record any software-reset/ISR/startup interference explicitly.",
+    "No register/fuse/flash/erase/monitor/energizing/device operation. No production keys, signing/enrollment, auto-provisioning or security/flash-encryption key generation. Review generated configs and linked effects; public unsigned diagnostic remains unadmitted to flash.",
+    "Keep all other fields/mode/strap owners as prescribed; report readback and raw causes in the future image. No invented threshold, chosen polarity or relaxed witness.",
+    "Pinned dependencies/toolchain actually available before dependent commands; reuse existing cache where valid. A missing/denied input stops with exact next action, never substitute latest version or bypass S04/access gates.",
+    "Preserve original hardware validator and43tests; run required localchecks on final candidate. Keep meaningful build/config failures unchanged. No tests based on documentation phrases.",
+    "Provide one reproducible command used by local and automated regression for this actual new source, without adding coordinator services or touching Pi/SDK/task graph. Root owns hosted CI only after coherent package and independent review.",
+    "Physical bench admission separately requires exact received kit/silicon/ROM/security/startup and GPIO46 load/access, rails/pad/CHIP_PU/reset evidence, safe level-tracking/off-power current/stimulus/instruments/operator. Two compiled images cannot supply these."
+  ],
+  "finish": "Coherent tiny source+two actual build artifacts/hashes+invalid-config rejection+source/config/limitations+unchanged mandatory checks, then distinct source/build review. No connected probe or hardware criterion closure.",
+  "unchanged": "All other H01/S04/advisory/access/SE/physical/manufacturing gates, task states, resources/releases; no vendor outreach/purchase/fabrication. General Rust rewrites remain deferred."
+}
