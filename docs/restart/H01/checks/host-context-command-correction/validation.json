@@ -1,0 +1,129 @@
+{
+  "role": "SOURCE_COMMAND_CORRECTION_STATIC_EVIDENCE_ONLY_NO_OBSERVER_OR_LOG_READ",
+  "source_commit": "53e2c2e713fd6bc027af3570db9ceb009063719e",
+  "parent_observed_source": "0e8621436d4cc03092eeb40986b552da2ae04998",
+  "source_path": "diagnostics/s3-bod-selector/tools/observe_host_context.py",
+  "source_sha256": "109a15eaa11dcdefaa131d156e777ef8be06f5d5c4d1f5d8a6ed869bbf93ab1d",
+  "workflow_sha256": "bb15a79b3998b76da6af904c8fa0617d89a1e935794dabc62db22236053de29e",
+  "workflow_byte_identical": true,
+  "delta": "Exactly3literal lines: --kernel becomes -k; both command-window timestamps lose unsupported trailing UTC; existing child TZ=UTC unchanged.",
+  "preserved_original_observation": {
+    "run": 40033802424,
+    "artifact": 12536560855,
+    "artifact_zip_sha256": "1f86dc76e3a877d9529d806a9ebbbb2134f36f6a54f0b6d197a37e7395d5e645",
+    "original_JSON_sha256": "afff4a6e260f776ecf4446b84da5ccbbc5fd3220416ebbfad6acc929d00b8469",
+    "role": "Original output unchanged. Both log readers failed argument parsing before access; these are NOT observed permission denials."
+  },
+  "prior_executed_static_commands": [
+    {
+      "argv": [
+        "/usr/bin/journalctl",
+        "-k",
+        "--help"
+      ],
+      "environment_override": {},
+      "stdout": "journal-help.stdout",
+      "stderr": "journal-help.stderr"
+    },
+    {
+      "argv": [
+        "/usr/bin/dmesg",
+        "--since",
+        "2026-10-23 22:18:24",
+        "--until",
+        "2026-10-23 22:28:24",
+        "--help"
+      ],
+      "environment_override": {
+        "TZ": "UTC"
+      },
+      "stdout": "dmesg-help.stdout",
+      "stderr": "dmesg-help.stderr"
+    }
+  ],
+  "command_receipt_limit": "These preserved stdout/stderr files came from the earlier allowed local help/static-argument commands. Individual exit statuses were not separately captured by that shell; do not invent them. Full help output and empty stderr are retained. No help/log/observer command is rerun for this packet.",
+  "primary_local_interfaces": [
+    {
+      "path": "/usr/share/man/man1/journalctl.1.gz",
+      "sha256": "3f8991e12b44fb171fcd53ce86e7e8b2af8dfa1d521e9bf9505f8cd5e45916dd",
+      "section": "-k, --dmesg: current-boot kernel messages; not --kernel"
+    },
+    {
+      "path": "/usr/share/man/man1/dmesg.1.gz",
+      "sha256": "5ed719fb1cb0c83cf6bca76e7e3a5482d2b6d2bdae486b722d76bc6f3cb23039",
+      "section": "--since/--until absolute times; the actual no-suffix argument was checked with --help before any log-access path"
+    }
+  ],
+  "pure_format_check": {
+    "fixed_now_UTC": "2026-10-23T22:28:24+00:00",
+    "since": "2026-10-23 22:18:24",
+    "until": "2026-10-23 22:28:24",
+    "child_TZ": "UTC",
+    "actual_assertions_passed": true
+  },
+  "unchanged_function_ASTs": [
+    {
+      "name": "unknown",
+      "AST_sha256": "a44f18f9555fbf52c68e0b0fdbb93e4dc48e1f3ed749def999274721c970c27e"
+    },
+    {
+      "name": "read_public",
+      "AST_sha256": "7c500376a8424c0490c89dfc51494c6b6cbb04017761ce259ecc93014758f680"
+    },
+    {
+      "name": "read_command",
+      "AST_sha256": "8ad4b90fae4e77ccf0a63316a8b3e6faa0dadffab1823213332ee908fcd17855"
+    },
+    {
+      "name": "binary_file",
+      "AST_sha256": "7b7700d9e48fef3a6b623240121fdbd7150e8639224e21925dd9bc679aed7dc4"
+    },
+    {
+      "name": "audit_tokens",
+      "AST_sha256": "39e79781013bb694a21b07f3a8cef5ca0f730f0a0b0d3bf2b4c305919340776a"
+    },
+    {
+      "name": "format_audit_record",
+      "AST_sha256": "cc0ea64a70cf90466dd9784503a1327f1af56956bc5fe40d647070d3be0bf0fe"
+    },
+    {
+      "name": "format_kernel_output",
+      "AST_sha256": "3c5164b259008549853f1041b9ec2806560ea67afb43688b6fff504b5306d2f4"
+    }
+  ],
+  "AUDIT_LABELS_and_AUDIT_NUMBERS_AST_exact": true,
+  "pure_formatter_proof_reuse": {
+    "source": "e2424c5117ed3793ba0ba9269dbcab057cb36ef0",
+    "receipt": "docs/restart/H01/checks/host-context-pure-correction/command.json",
+    "case_count": 8,
+    "role": "Historical actual pure execution reused by unchanged helper AST; not a new run on53e."
+  },
+  "new_observer_runs": 0,
+  "new_kernel_log_reads": 0,
+  "namespace_attempts": 0,
+  "builds": 0,
+  "hosted_runs": 0,
+  "current_proof_files": [
+    {
+      "path": "dmesg-help.stdout",
+      "bytes": 3375,
+      "sha256": "92b83225dfd6f23d6f91fab27409373ea2a67c0f05951a7ddd48d458f02cb14e"
+    },
+    {
+      "path": "dmesg-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "journal-help.stdout",
+      "bytes": 5213,
+      "sha256": "3cad27c43db1dab3cac08c26a7d09a3d1d803f38e1d85d82d510bc3fd6847851"
+    },
+    {
+      "path": "journal-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limit": "Local primary tools are not an attestation of the future runner interfaces. No isolation/security/host/hardware PASS is produced; original required product gates remain failed."
+}
