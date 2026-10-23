@@ -1,0 +1,22 @@
+{
+  "role": "Independent synthetic formatter expectations frozen before the affected parser/sentinel correction; no host observations",
+  "rejected_source": "ec175a4a9efcdc096687c6dad315fc0c8546cf4b",
+  "static_review": {
+    "commit": "0b303b281ef730fd4cf985893b0314a4632990cd",
+    "path": "docs/restart/H01/reviews/s3-bod-host-context-static-review.json",
+    "sha256": "6321edf7908300fe1331ec28ebce39138ca8075a0da6436deecf4aa6bb7e6254",
+    "role": "CHANGES_REQUESTED; static witnesses, no observer or host execution"
+  },
+  "public_control_line": "2026-10-24T00:00:00+00:00 runner kernel: audit: type=1400 audit(1792800000.100:7): apparmor=\"DENIED\" operation=\"capable\" profile=\"unprivileged_userns\" pid=123 comm=\"bwrap\" capability=12 capname=\"net_admin\"",
+  "cases": [
+    {"id": "public_control", "input": "public_control_line", "expected": "OBSERVED; exact known public fields, numeric metadata, no redactions"},
+    {"id": "64_control", "input": "public_control_line repeated64 with newline", "expected": "64records; truncated=false; OBSERVED"},
+    {"id": "65_sentinel", "input": "public_control_line repeated65 with newline", "expected": "64records retained; truncated=true; UNKNOWN; limit detected before retention"},
+    {"id": "quoted_nested_fields", "input": "2026-10-24T00:00:00+00:00 runner kernel: audit: type=1400 audit(1792800000.100:8): apparmor=\"DENIED\" name=\"/private/example capname=confidential profile=confidential\"", "expected": "UNKNOWN; no capname/profile fields promoted from name; unknown key/value retained only as hashes"},
+    {"id": "private_profile_comm", "input": "2026-10-24T00:00:00+00:00 runner kernel: audit: type=1400 audit(1792800000.100:9): apparmor=\"DENIED\" profile=\"/private/example/profile\" comm=\"/private/example/worker\"", "expected": "UNKNOWN; profile/comm values hashed/redacted; no private raw bytes in serialized result"},
+    {"id": "malformed_quote", "input": "2026-10-24T00:00:00+00:00 runner kernel: audit: type=1400 audit(1792800000.100:10): apparmor=\"DENIED\" name=\"/private/unclosed", "expected": "UNKNOWN; no partial parsed fields or raw input/error content retained"},
+    {"id": "duplicate_field", "input": "public_control_line plus capname=\"sys_admin\"", "expected": "UNKNOWN; duplicate must not replace first value silently"},
+    {"id": "path_prefix", "input": "private path prefix followed by otherwise public control body", "expected": "UNKNOWN; time_prefix=null; path prefix not retained"}
+  ],
+  "limits": "Pure formatting/parser fixtures only; no main/read_command/read_public/binary_file/observer/namespace/build/hosted execution. Workflow and all other observer source remain unchanged except necessary helpers and the65sentinel call."
+}
