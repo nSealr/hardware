@@ -1,0 +1,11 @@
+--- espidf.constraints.v6.1.upstream.txt
++++ espidf.constraints.v6.1.txt
+@@ -14,7 +14,7 @@
+ # Only binary for cryptography is here to make it work on ARMv7 architecture
+ # We do have cryptography binary on https://dl.espressif.com/pypi for ARM
+ # On https://pypi.org/ are no ARM binaries as standard now
+-cryptography>=2.1.4,<49
++cryptography==50.0.0
+ --only-binary cryptography
+ 
+ # pyparsing: Min version was set based on https://github.com/pyparsing/pyparsing/issues/482
