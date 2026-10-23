@@ -1,0 +1,7 @@
+{
+  "mode": 2,
+  "expected_configure_exit": 2,
+  "actual_configure_exit": 2,
+  "real_CMake_guard_reached": true,
+  "SDK_project_and_compiler_not_entered": true
+}

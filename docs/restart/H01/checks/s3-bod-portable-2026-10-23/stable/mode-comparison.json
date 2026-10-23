@@ -1,0 +1,14 @@
+{
+  "configs": {
+    "app": {
+      "all_values_equal": true,
+      "keys": 920
+    },
+    "bootloader": {
+      "all_values_equal": true,
+      "keys": 739
+    }
+  },
+  "only_project_input_parameter_difference": "BOD_RST_SEL 0 versus1; identical four source files",
+  "polarity": null
+}

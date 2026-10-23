@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "make",
+    "ci"
+  ],
+  "source_commit": "166922de4c561414728af94ef2a293887750b64d",
+  "source_tree": "ed75b44988804d89661f74cb44aa73f67fb80ebd",
+  "environment_overrides": {
+    "PATH": "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin:/usr/bin:/bin",
+    "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/hardware-validation-mode0-1-01"
+  },
+  "Python_resolved": "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3.12",
+  "Python_sha256": "eaaa308032c4aa063df5880c4c293cd458b4629d503fbc2c03ec163d71f7f790",
+  "original_Makefile_workflow_scripts_tests_unchanged_vs_hardware7645": true,
+  "artifact_archive_members_hash_verified": 1100,
+  "IDF_SKIP_CHECK_SUBMODULES_in_parent": null,
+  "scope": "Original hardware43 validation only, not cross-compiler/device execution or hosted CI.",
+  "exit": 0,
+  "started_unix": 1792783488.5209346,
+  "duration_seconds": 0.3215489387512207
+}

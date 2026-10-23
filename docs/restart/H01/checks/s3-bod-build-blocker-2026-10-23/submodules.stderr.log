@@ -1,0 +1,8 @@
+Submodule 'components/heap/tlsf' (https://github.com/espressif/tlsf.git) registered for path 'components/heap/tlsf'
+Submodule 'components/mbedtls/mbedtls' (https://github.com/espressif/mbedtls.git) registered for path 'components/mbedtls/mbedtls'
+Cloning into '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/heap/tlsf'...
+Cloning into '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/mbedtls/mbedtls'...
+From https://github.com/espressif/tlsf
+ * branch            2867f6883a12920b1969ff9624c0ab0e4185c2ce -> FETCH_HEAD
+From https://github.com/espressif/mbedtls
+ * branch            a2b32072ea898afc1ed5b6caf6931e36028c91d6 -> FETCH_HEAD

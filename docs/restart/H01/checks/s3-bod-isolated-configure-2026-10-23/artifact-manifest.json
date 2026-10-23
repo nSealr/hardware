@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "scope": "One stopped isolated configure, no used-source closure or build acceptance",
+  "source_parent": "2680cb7f0dc6950832f4c01ab57bfbb1bdf0a07a",
+  "self_excluded": true,
+  "member_count": 13,
+  "members": [
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/README.md",
+      "mode": "100644",
+      "bytes": 2835,
+      "sha256": "9a0702a9182039e90f929418aa2f7b3e0fdcc1467f67fceb27abe9db3291770b",
+      "git_blob": "b8ac26a413f1ce991f3eac38cd54e99fb338c34e"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/configure-command.json",
+      "mode": "100644",
+      "bytes": 4573,
+      "sha256": "c11c8bd86939c3721cc064178ae5b5027928cef4b68d1a8c280347e94a2fd616",
+      "git_blob": "1242719a3e9b3123688ec75c5b610fb38961b454"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/configure.stderr.log",
+      "mode": "100644",
+      "bytes": 508,
+      "sha256": "a57997cf8b82f7979c37c017f12125bf7f2a5de9f2dd205f4779ccc49a7469f5",
+      "git_blob": "e851a307192a97eecc37fa7bb797d0124ce8e098"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/configure.stdout.log",
+      "mode": "100644",
+      "bytes": 741,
+      "sha256": "bf7904f336f639f4985b19f92eca0a73bfc407c2daa7c0dfe0dfd2c72935ceab",
+      "git_blob": "7fe48e6c6635190745741b58bfa8a056b993d7e7"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/generated-format-inspection.json",
+      "mode": "100644",
+      "bytes": 2685,
+      "sha256": "2ee8fa985f9bd176080e3d49cd212d96d9583eef76b35e2c772dee98ffb65996",
+      "git_blob": "7ab34b216c005d58001259bda5afd0df58cbbb47"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/generated/CMakeFiles/cmake.check_cache",
+      "mode": "100644",
+      "bytes": 85,
+      "sha256": "a26189e394421da57f45706a07713c5720acd200a41711b0c0c590c3c63371c4",
+      "git_blob": "3dccd731726d7faa8b29d8d7dba3b981a53ca497"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/generated/log/idf_py_stderr_output_1806926",
+      "mode": "100644",
+      "bytes": 721,
+      "sha256": "eff7251fd15843e2038b8328ec5be46f62c18064130370982b2afb2e7a59b15c",
+      "git_blob": "396c3ed4f712cc9da67906eb68f88efc6fca82b7"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/generated/log/idf_py_stdout_output_1806926",
+      "mode": "100644",
+      "bytes": 582,
+      "sha256": "770652eec034084abbd4fda3f784337ea2d5cdf8fe79b02c37db9549da4bc4fa",
+      "git_blob": "8c3cf264349edbbd46faa4ad2828a8edf7ed172f"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/post-configure-source-check.json",
+      "mode": "100644",
+      "bytes": 5590,
+      "sha256": "e7022acb224ed061061cb93560183c7636d9cfe2e7d24b00e0095735a41c305e",
+      "git_blob": "c3e9896c1925d9853e4cf7da9ad77203e027bb63"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/preflight-and-configure.py",
+      "mode": "100644",
+      "bytes": 7822,
+      "sha256": "c4c1171f3eaab882408b5a55c759014fd43b1cea0fab8a5c481fc6999446fdf8",
+      "git_blob": "20434cb02972b5c8ea9a56682ad47236e0cd25ef"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/preflight.json",
+      "mode": "100644",
+      "bytes": 225888,
+      "sha256": "6b6e790e253098a0f28a4f045ee306daa712be38c42ebe92ebfa71c62cf497e7",
+      "git_blob": "c7576ccede13b8d23015ea29033a7c4152b2d165"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/result.json",
+      "mode": "100644",
+      "bytes": 3879,
+      "sha256": "99bf598cb7e6b3af7d91e6c6f6df98dbfb06d777bbdc3332f39ad376121cacf3",
+      "git_blob": "fcfcea86083c5b2b68f404f9ee10056fd443b994"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/whitespace.json",
+      "mode": "100644",
+      "bytes": 679,
+      "sha256": "6441a00c29fc514208378343ee67bd96942d72d2328012a750b3679d5d9989e7",
+      "git_blob": "b2d1e0cf3d9af77dbee8bfc6aab7e936e9e0fa1a"
+    }
+  ]
+}

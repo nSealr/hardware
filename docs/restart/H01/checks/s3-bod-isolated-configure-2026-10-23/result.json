@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "verdict": "STOP_CONFIGURE_INVOKER_DEVICE_ACCESS_FAILURE_NO_USED_SOURCE_CLOSURE",
+  "blocked_checkpoint_preserved": "2680cb7f0dc6950832f4c01ab57bfbb1bdf0a07a",
+  "root_admission": {
+    "commit": "d84d4de87c0682b207da609aa70d93867378a10f",
+    "path": "docs/restart/H01/s3-bod-isolated-configure-admission.json",
+    "sha256": "8621987608baecffbffe122f49180d5beefe22f120be60d796ed3f86e9d8bd1c",
+    "read_from": "Git object; root history not imported"
+  },
+  "probe_source": "11047b805039e01dbb73e7c08d4b6a8016090fcd",
+  "SDK": {
+    "commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+    "root_tracked_files_exact_before_and_after": 20727,
+    "root_file_correspondence_digest": "02a98d5290c687632e2b6db70c7823ed38e0c2d5080ab68b3dc6db2ad8fe5f33",
+    "root_untracked_nonignored_before": [],
+    "top_level_Gitlinks": 24,
+    "states": {
+      "pinned": 8,
+      "wrong_HEAD": 7,
+      "not_initialized": 9
+    },
+    "Gitlink_verification_limit": "8 pinned child HEADs have exact tracked bytes; 7 wrong-HEAD/incompletely populated children and 9 uninitialized children remain unqualified. The CMock actual wrong-HEAD tree also lists 2 nested Gitlinks; they are not a proved used closure."
+  },
+  "experiment": {
+    "configure_attempts": 1,
+    "command_receipt": "configure-command.json",
+    "exit": 2,
+    "duration_seconds": 0.8518619537353516,
+    "selector": 0,
+    "network": "bwrap separate user/network namespaces; SDK/tools/Python env/exported project read-only; no acquisition attempt or retry",
+    "observed_failure": "Git: fatal: could not open '/dev/null' for reading and writing: Permission denied; project CMakeLists.txt:10 exact-SDK guard then fails because Git returned no revision.",
+    "classification": "Author-added namespace invoker/device-access defect, before SDK CMake include; not a changed SDK pin or evidence of a missing used SDK dependency.",
+    "control_limit": "A prior bwrap /bin/true exit0 checked namespace availability only; it did not exercise device opening. Host /dev/null is a 0666 character device, major1/minor3. Root cause beyond the observed namespace/device-access boundary has not been experimentally established.",
+    "compiler_identification_probes": 0,
+    "product_compile_or_link": false,
+    "bootloader_configure": false
+  },
+  "missing_property": "No actual app/bootloader configuration or generated source/dependency descriptions exist. Therefore consumed Gitlink, CMake/Kconfig/Python/header closure is not resolved; missing or wrong-HEAD modules cannot be declared unused.",
+  "not_exercised": [
+    "App or bootloader generated configuration/components",
+    "Source/header dependency generation and complete used-input provenance",
+    "Compiler-identification probes",
+    "Any product compilation/link/selector variant/unsupported-selector check",
+    "Any physical/device/flash/erase/fuse/power/register operation"
+  ],
+  "next_step": "Coordinator disposition of the failed invoker and, only if separately admitted, a fresh zero-network configure with device access correctly available. No correction/retry was executed here; subsequent build needs separate source-bound admission.",
+  "limits": [
+    "Official skip is command-local and does not prove closure; it skips all SDK submodule checks and their HEAD reconfigure tracking.",
+    "Probe/defaults and all historical reports remain unchanged; effective SDK brownout configuration, ROM/hardware state and selector linked effects remain unproved.",
+    "No make ci43 rerun, hosted CI, polarity, host admission, H01/task closure, reproducibility or physical safety claim."
+  ],
+  "runtime_retained": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-01",
+  "active_processes": "All owned configure/preflight calls have completed."
+}

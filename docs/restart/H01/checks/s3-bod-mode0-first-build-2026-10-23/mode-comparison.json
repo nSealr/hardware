@@ -1,0 +1,45 @@
+{
+  "app_config_values_identical": 920,
+  "bootloader_config_values_identical": 739,
+  "selector0": "Actual linked AND with0xf7ffffff, register0x600080e8, store/memw/readback; called byapp_main.",
+  "selector1": "Actual linked OR with0x08000000, same register/store/memw/readback andactualapp_maincall.",
+  "startup": "The init_brownout callback remains registered, with actual disassembly entry/rsil3/rsil0/return0. Its esp_brownout_init call and optional ISR are not linked. flash_brownout hooks remain. No blanket absence of all brownout/reset code or ROM activity is inferred.",
+  "source": "Pinnedstartup_funcs.c:67-90/configfalse versus actualnm+disassembly, not a physical execution.",
+  "summary": [
+    {
+      "mode": 0,
+      "symbols": [
+        {
+          "target": "app",
+          "linked_esp_brownout_init": false,
+          "linked_optional_rtc_brownout_isr_handler": false,
+          "linked_startup_init_wrapper": true
+        },
+        {
+          "target": "bootloader",
+          "linked_esp_brownout_init": false,
+          "linked_optional_rtc_brownout_isr_handler": false,
+          "linked_startup_init_wrapper": false
+        }
+      ]
+    },
+    {
+      "mode": 1,
+      "symbols": [
+        {
+          "target": "app",
+          "linked_esp_brownout_init": false,
+          "linked_optional_rtc_brownout_isr_handler": false,
+          "linked_startup_init_wrapper": true
+        },
+        {
+          "target": "bootloader",
+          "linked_esp_brownout_init": false,
+          "linked_optional_rtc_brownout_isr_handler": false,
+          "linked_startup_init_wrapper": false
+        }
+      ]
+    }
+  ],
+  "binary_equivalence": "Not claimed; source/config/compiled selector effects and actual separate artifact hashes are recorded."
+}

@@ -1,0 +1,130 @@
+{
+  "inspection_before_this_analyzer": "Actual stdout/stderr, JSON types/keys/samples, Ninja rules and Kconfig source lines were read first. This script was written afterwards.",
+  "project_description": {
+    "type": "object",
+    "keys": [
+      "version",
+      "project_name",
+      "project_version",
+      "project_path",
+      "idf_path",
+      "build_dir",
+      "config_file",
+      "config_defaults",
+      "bootloader_elf",
+      "app_elf",
+      "app_bin",
+      "build_type",
+      "git_revision",
+      "target",
+      "rev",
+      "min_rev",
+      "max_rev",
+      "phy_data_partition",
+      "monitor_baud",
+      "monitor_toolprefix",
+      "c_compiler",
+      "config_environment",
+      "common_component_reqs",
+      "build_components",
+      "build_component_paths",
+      "build_component_info",
+      "all_component_info",
+      "gdbinit_files",
+      "debug_arguments_openocd",
+      "hints_file"
+    ],
+    "build_components": 51,
+    "build_component_info": 50,
+    "all_component_info": 147,
+    "limit": "all_component_info is a declared registry, not execution evidence"
+  },
+  "compile_commands": {
+    "type": "array",
+    "rows": 473,
+    "row_keys": [
+      "directory",
+      "command",
+      "file",
+      "output"
+    ],
+    "limit": "Planned compilation commands, not actual product compilation or preprocessor/header dependency evidence"
+  },
+  "file_API": {
+    "objects": [
+      {
+        "jsonFile": "codemodel-v2-6fd8b369b51170f3aa88.json",
+        "kind": "codemodel",
+        "version": {
+          "major": 2,
+          "minor": 7
+        }
+      },
+      {
+        "jsonFile": "cache-v2-71187dd94116a2fca68c.json",
+        "kind": "cache",
+        "version": {
+          "major": 2,
+          "minor": 0
+        }
+      },
+      {
+        "jsonFile": "cmakeFiles-v1-09b04b9f64966b127383.json",
+        "kind": "cmakeFiles",
+        "version": {
+          "major": 1,
+          "minor": 1
+        }
+      },
+      {
+        "jsonFile": "toolchains-v1-357b1054a2d22818a5d4.json",
+        "kind": "toolchains",
+        "version": {
+          "major": 1,
+          "minor": 0
+        }
+      }
+    ],
+    "CMake_input_rows": 385,
+    "input_field_sets": {
+      "path": 2,
+      "isExternal,path": 127,
+      "isCMake,isExternal,path": 232,
+      "isGenerated,path": 24
+    }
+  },
+  "config_env": {
+    "keys": [
+      "COMPONENT_KCONFIGS",
+      "COMPONENT_KCONFIGS_PROJBUILD",
+      "COMPONENT_SDKCONFIG_RENAMES",
+      "IDF_TARGET",
+      "IDF_TOOLCHAIN",
+      "IDF_VERSION",
+      "IDF_ENV_FPGA",
+      "IDF_PATH",
+      "COMPONENT_KCONFIGS_SOURCE_FILE",
+      "COMPONENT_KCONFIGS_PROJBUILD_SOURCE_FILE",
+      "KCONFIG_PROMPTLESS_NO_WARN"
+    ],
+    "Kconfig_lists": "Semicolon-delimited strings; generated kconfigs*.in use source \"absolute-path\" lines"
+  },
+  "Ninja": {
+    "format": "CMake Ninja3.31 generated rules; CMakeFiles/rules.ninja included",
+    "bootloader_configure_lines": [
+      382,
+      384,
+      385,
+      386
+    ],
+    "limit": "ExternalProject configure is a future custom command; no bootloader configuration was executed"
+  },
+  "selected_effective_config": {
+    "ESP_BROWNOUT_DET": false,
+    "SECURE_BOOT": false,
+    "SECURE_FLASH_ENC_ENABLED": false,
+    "SECURE_ENABLE_TEE": "ABSENT",
+    "FREERTOS_UNICORE": true,
+    "ESP_DEFAULT_CPU_FREQ_MHZ_160": true
+  }
+}

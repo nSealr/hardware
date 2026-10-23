@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "git",
+    "submodule",
+    "update",
+    "--init",
+    "--depth=1",
+    "components/bt/controller/lib_esp32c3_family"
+  ],
+  "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+  "exit": 0,
+  "duration_seconds": 0.8320550918579102,
+  "admission": "One exact source recovery authorized after TCP reset; no further retry loop",
+  "actual_commit": "0a08c4b32f3666003080b662a1a61794da24ff0f"
+}

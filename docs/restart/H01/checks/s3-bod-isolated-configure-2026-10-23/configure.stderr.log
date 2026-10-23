@@ -1,0 +1,6 @@
+fatal: could not open '/dev/null' for reading and writing: Permission denied
+CMake Error at CMakeLists.txt:10 (message):
+  The diagnostic requires the exact admitted ESP-IDF commit
+
+
+cmake failed with exit code 1, output of the command is in the /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-01/build/log/idf_py_stderr_output_1806926 and /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-01/build/log/idf_py_stdout_output_1806926

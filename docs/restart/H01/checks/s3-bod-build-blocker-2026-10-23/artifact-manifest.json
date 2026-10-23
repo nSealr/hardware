@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "role": "Recoverable blocked compile-only diagnostic source/input/evidence checkpoint; NOT build/link/CI/bench acceptance",
+  "input_hardware": "7645554985259222e606fdda01bb1fdd793804ee",
+  "compile_scope_review": "9e9aea04e0c71e089b1fc8af8d488effe8ba3134",
+  "expectations_commit": "db1a2fc8a48b40effbcaeed8961dafe9a574cea7",
+  "probe_source": "11047b805039e01dbb73e7c08d4b6a8016090fcd",
+  "member_count": 49,
+  "self_binding": "Manifest excluded from list and bound by checkpoint Git commit; no final linked candidate exists",
+  "files": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+      "bytes": 669,
+      "mode": "100644"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/README.md",
+      "sha256": "ea4b751c5da8786bb74be9f507fd171dc22951fef73a255c2e026e99708e26ce",
+      "bytes": 2823,
+      "mode": "100644"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+      "bytes": 159,
+      "mode": "100644"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+      "bytes": 3314,
+      "mode": "100644"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "sha256": "a9ed9e362d1d733ffffd566cf2f1003ef95bc1d9686574efc4dce90fdc449831",
+      "bytes": 216,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/python-install-02.json",
+      "sha256": "4a9f8e71ae9f62544cbfc700632bed389d3385d8eeefc3fe88f08bf315a504fb",
+      "bytes": 689,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/python-install-02.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/python-install-02.stdout.log",
+      "sha256": "5e01b6fc1fcb502a09be8d5d6b9b0f1c8c7b1f374b6011bc16bfe4a09eeb2329",
+      "bytes": 22851,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/python-install.json",
+      "sha256": "0f3436dbd08fa0cb9bf7086484bcb19960830c43c5ee335e986aad2f2f837659",
+      "bytes": 542,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/python-install.stderr.log",
+      "sha256": "c102cb64f0aa4ecaca277cfb133b62982c535863c89a650f26a887572c6fbe05",
+      "bytes": 768,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/python-install.stdout.log",
+      "sha256": "e04c83a3a152d15c3a66465f1c772f241a899db65ef142b2cf624389bc955041",
+      "bytes": 116,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/result.json",
+      "sha256": "70d70a73fcb7e2b93a70cd9a5b28ceed5ad47ec011b6ea710dabfbe948141e74",
+      "bytes": 8118,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-00.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-00.stdout.log",
+      "sha256": "b3015f6710069c0958939f211b9f9192ec4748dcbf821fb51054e88e0eb7d5c4",
+      "bytes": 118,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-01.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-02.stderr.log",
+      "sha256": "7693de3edfa6bccb7ad8e376d238f2101ea228cf0a532743d4b3aff3832a3a29",
+      "bytes": 120,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-02.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-03.stderr.log",
+      "sha256": "e8d221468f5c47089f85af71398abcb22ac6f560e156a3169ee6c5d1ea471585",
+      "bytes": 65,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-03.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-source-commands.json",
+      "sha256": "9f37492fb265b766f21f348622313c03eea7a3444696b3cc8b58ce5756ed4cf7",
+      "bytes": 1873,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-submodules-after-batch.log",
+      "sha256": "def051711fcc9a0525409b9fed1a1461d9fb76b1c4d3e6f3ed5e0daba392d1f7",
+      "bytes": 2062,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-submodules-batch.json",
+      "sha256": "eea8f3aefce55c0e780302e2ff2659d4afe4be4fb9fc7a0c6657b93cbe0b553e",
+      "bytes": 2367,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-submodules-batch.stderr.log",
+      "sha256": "bc806c6eac695785286f2495ebf20ad193173449fc52678e943de8dd4133d5d0",
+      "bytes": 7956,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-submodules-batch.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/sdk-submodules-before-batch.log",
+      "sha256": "62f44e27339d752a79594d7d44cf26464a3341f0d3e6e475e1d4f47bf92351b8",
+      "bytes": 1954,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/smoke-0-recovery.json",
+      "sha256": "7d78df4d8bf2b3c264ac8715b048049417ab7c9fe32479d85ea02676c1884da6",
+      "bytes": 1921,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/smoke-0-recovery.stderr.log",
+      "sha256": "44d1b73152ad2d3881ce9dfec9ee247b775452c40fb6781003554cc57c1a170a",
+      "bytes": 3352,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/smoke-0-recovery.stdout.log",
+      "sha256": "cf502597749585e67827dd7bbef0ea536978e44c9f4297846a85c2bc326ce52b",
+      "bytes": 1264,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/smoke-0.json",
+      "sha256": "42c41d99a05b6bd4d969b0c2ced462ce069db94754c344dcd7c321d1d55d42dd",
+      "bytes": 1902,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/smoke-0.stderr.log",
+      "sha256": "111b2bf66e236e271cecf411d382a41ea1b7ca755d134958ec0449a800282d28",
+      "bytes": 3568,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/smoke-0.stdout.log",
+      "sha256": "58aa8384cb22530043df171a5b239743ccab755bfbf68541bb674493c1f69515",
+      "bytes": 1429,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/submodule-c3-recovery.json",
+      "sha256": "83875b0e3165e40caad529d409e1037a50412168f08b949420f499b1daeef6dc",
+      "bytes": 443,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/submodule-c3-recovery.stderr.log",
+      "sha256": "d85109d339c0632d02dcbd1f394d1ff5b960986c628c22259dd511a604dcc076",
+      "bytes": 138,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/submodule-c3-recovery.stdout.log",
+      "sha256": "f98839d9bb91e0a1a063e8c787668b82b379bf08a7f591eaa752cff4991f163c",
+      "bytes": 117,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/submodules.json",
+      "sha256": "a1d215ff8f494d3e9a315e63ec5aa93775653f9c3f34d8fedc6085531e8f6a18",
+      "bytes": 208,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/submodules.stderr.log",
+      "sha256": "53df5b00256123d4a32f13db26583e5533a966269ea91add086c5a8f49c15f27",
+      "bytes": 716,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/submodules.stdout.log",
+      "sha256": "d5d7c44e39ccffe06baf07a9196f3fa4f82de6a0c96d222b9834538462425209",
+      "bytes": 194,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-downloads.json",
+      "sha256": "63fe04b75d7efd5b8dc4792ea5442510bfe6b4b7cd907823f0cd21a52558c633",
+      "bytes": 1667,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-install.json",
+      "sha256": "e7100bafdcbcf9aba22945d9dad6f0f5fd9751179e9ed343f95d21331890e0bd",
+      "bytes": 413,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-install.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-install.stdout.log",
+      "sha256": "44f59ead5aeeac25174669cdab37ddaa1765777638fe47ac251646157d5c4327",
+      "bytes": 796,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-ninja.stderr.log",
+      "sha256": "4a84155e79d09b219f08db181fcb8bc61f523bf775f8c73fb6df8324d222d39d",
+      "bytes": 397,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-ninja.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-xtensa-esp-elf.stderr.log",
+      "sha256": "f9b5d24df5c819562dab81fb7525bd9f84d921f8246ad0081d731e5abb08403b",
+      "bytes": 634,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-build-blocker-2026-10-23/tool-xtensa-esp-elf.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/s3-bod-build-expectations.json",
+      "sha256": "aca0dc8043669520606835efd48c43decd5ce4348f0201c65a219cf3bca1e8a6",
+      "bytes": 5230,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/s3-bod-build-scope-acceptance.json",
+      "sha256": "f29572ecd90e905bff9ed49bedc54433f68f49a6bab7875d781867d6a42d28b9",
+      "bytes": 4170,
+      "mode": "100644"
+    },
+    {
+      "path": "docs/restart/H01/system-runtime-contract.md",
+      "sha256": "8b665569635efda382ac4a2bab4d13fe7513b6c8d16ae3f5f3758216c6a08baf",
+      "bytes": 25428,
+      "mode": "100644"
+    }
+  ]
+}

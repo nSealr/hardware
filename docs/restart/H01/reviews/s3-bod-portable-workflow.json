@@ -1,0 +1,296 @@
+{
+  "verdict": "PASS_SCOPED_HOSTED_WORKFLOW_AND_SOURCE_PROJECTION_ONLY_PENDING_REAL_TWO_JOB_CI",
+  "candidate": "f01b79017d2f317110b3d17047a7de4c35ea1e48",
+  "tree": "2089f7e51b282895f3f18d1fd4280ac7789571c1",
+  "workflow_candidate": "bcfd7bbe47aaba8ff2eeda99047efe45a82bdcd3",
+  "workflow_sha256": "6afa6a1a93510f63ac3ad995d5b4b67c53a3d997a3ad2b3d2c848d8c8acbb07a",
+  "recorded_utc": "2026-10-23T21:36:35.997399+00:00",
+  "reviewer": "/root/a02_resume",
+  "assembly_author": "/root",
+  "findings": [],
+  "scope": "Only hosted workflow semantics/action versions/permissions/events, clean depth1 checkout, exact root source projection and final selected public review/scope imports. No controller/manual/profile re-review, cross-build,43-unit rerun, or hostedCI observation.",
+  "source_projection": {
+    "accepted_parent": "7645554985259222e606fdda01bb1fdd793804ee",
+    "original_author_candidate": "1d837e87828905642242112946588c0fb67a8399",
+    "original_author_tree": "b03c78401cf6641b6231e0fa98246c49776425d2",
+    "bcfd_changes_from_whole_author_tree": [
+      ".github/workflows/ci.yml"
+    ],
+    "author_tracked_paths": 524,
+    "final_original_postimages_exact_except_workflow_and_scope": 522,
+    "final_scope_change": "Only portable_delivery_scope_amendments added; every prior JSON value equals1d. Entire amended postimage equalsb569.",
+    "new_source_exact_SDK_review_files": 16,
+    "SDK_review_source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+    "SDK_review_manifest_members": 15,
+    "assembly_bound_imports": 17,
+    "assembly_record_sha256": "84496c649714a36dc06172dca8a0868a89da6f48d60ab977940d3dcf7801264e",
+    "scope_source": "b569f561cdc5287475d11125a6a455bb9dd3cb87",
+    "scope_sha256": "cb828d6828a7c3d7b66127aa10c4168b0b0e38e28f2ac8a9dc158b32d1ce2a97",
+    "controller_Make_tests_4project_inputs_63Pythonpins_unchanged": true,
+    "normal_parent_chain": [
+      "7645554985259222e606fdda01bb1fdd793804ee",
+      "bcfd7bbe47aaba8ff2eeda99047efe45a82bdcd3",
+      "f01b79017d2f317110b3d17047a7de4c35ea1e48"
+    ],
+    "old_research_review_scope_commits_not_ancestors": true,
+    "new_commit_messages_have_no_skip_marker": true
+  },
+  "workflow": {
+    "parsed_with": "PyYAML BaseLoader to preserve YAML on key; exact expected mappings asserted, booleans interpreted as Actions input strings.",
+    "events": {
+      "push": {
+        "branches": [
+          "main"
+        ]
+      },
+      "pull_request": "",
+      "workflow_dispatch": ""
+    },
+    "event_semantics": "Ordinary feature branch push alone does not trigger this workflow. PR opened/synchronize/reopened uses the default merge ref, regardless of branch; main pushes validate the integrated commit. Manual dispatch remains. No path filters. This is not merge_queue support.",
+    "permissions": {
+      "contents": "read"
+    },
+    "credential_semantics": "Both checkout steps disable persistence; unspecified GITHUB_TOKEN permissions are none. Public upstream assets/Git sources use existing controller paths. Artifact service authentication is separate from a repository-write grant.",
+    "jobs": {
+      "verify": {
+        "runs-on": "ubuntu-latest",
+        "steps": [
+          {
+            "uses": "actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+            "with": {
+              "persist-credentials": "false"
+            }
+          },
+          {
+            "uses": "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+            "with": {
+              "python-version": "3.12.15",
+              "check-latest": "false"
+            }
+          },
+          {
+            "run": "make ci"
+          }
+        ]
+      },
+      "s3-bod-compile": {
+        "runs-on": "ubuntu-24.04",
+        "steps": [
+          {
+            "uses": "actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+            "with": {
+              "persist-credentials": "false"
+            }
+          },
+          {
+            "uses": "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+            "with": {
+              "python-version": "3.12.15",
+              "check-latest": "false"
+            }
+          },
+          {
+            "run": "command -v git && command -v bwrap && bwrap --version"
+          },
+          {
+            "run": "make s3-bod-compile S3_BOD_WORK_DIR=\"$RUNNER_TEMP/s3-bod-run\" S3_BOD_CACHE_DIR=\"$RUNNER_TEMP/s3-bod-assets\""
+          },
+          {
+            "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "if": "always()",
+            "with": {
+              "name": "s3-bod-compile-evidence",
+              "path": "${{ runner.temp }}/s3-bod-run/evidence.tar.gz\n${{ runner.temp }}/s3-bod-run/failure.json\n${{ runner.temp }}/s3-bod-run/receipts/\n",
+              "if-no-files-found": "error"
+            }
+          }
+        ]
+      }
+    },
+    "failure_semantics": "Both jobs are independent required outcomes, with no job condition, allow-failure or skip mechanism. Missing bwrap exits before the compile step; denied user/network namespace is propagated by the unchanged controller. Always-upload is evidence collection and cannot turn a failed gate green; missing evidence files are an error.",
+    "runner_limits": "verify retains ubuntu-latest; compile is ubuntu-24.04. Neither label pins a runner image revision, bwrap binary or host policy. Actual presence, privileges and namespace policy on that hosted image remain unqualified until the real job.",
+    "Python_limits": "Exact3.12.15/check-latestfalse selects the exact version; it is not the old Python3.13 outer-host run. No change to authenticated internal Python/profile sources is inferred.",
+    "required_protected_checks": [
+      "verify",
+      "s3-bod-compile"
+    ],
+    "protection_limit": "Workflow definitions do not themselves configure branch protection. Root must require and observe both successful checks on the actual candidate and main."
+  },
+  "primary_action_sources": {
+    "recorded_utc": "2026-10-23T21:34:26.466927+00:00",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/actions/checkout/fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09/action.yml",
+        "HTTP_status": 200,
+        "bytes": 5144,
+        "sha256": "d59219cb79590abdb877deaa14e3b65a00c05318bf5a6f3b989b9162b5d08c35"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/actions/setup-python/ece7cb06caefa5fff74198d8649806c4678c61a1/action.yml",
+        "HTTP_status": 200,
+        "bytes": 2655,
+        "sha256": "a95cf5ade72699eb8a044e77a74b1e127a223759f13c42a1068bb9cf918b8830"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/actions/upload-artifact/ea165f8d65b6e75b540449e92b4886f43607fa02/action.yml",
+        "HTTP_status": 200,
+        "bytes": 3159,
+        "sha256": "29b21270ff44638a165ea12abb4481796770c629e513217af7b4df1aa3821177"
+      }
+    ]
+  },
+  "primary_release_and_semantics_sources": [
+    {
+      "url": "https://github.com/actions/checkout/releases/tag/v5.1.0",
+      "observation": "Official release points to fbc6f399; package.json still says5.0.0 and is not used as release-tag authority."
+    },
+    {
+      "url": "https://github.com/actions/setup-python/releases/tag/v6.3.0",
+      "observation": "Official release points to ece7cb06."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request",
+      "observation": "Default PR activity types and merge-ref checkout; manual dispatch default-branch workflow availability."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+      "observation": "Main push branch filter, explicit token permissions and default failure propagation."
+    }
+  ],
+  "depth1_checkout": {
+    "receipt": {
+      "recorded_utc": "2026-10-23T21:34:25.859204+00:00",
+      "scope": "Local current-final Git depth1 checkout, no cross-build or hosted Actions. Earlier bcfd read remains retained separately.",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "/home/tux/nsealr/.restart-tools/goal/h01-portable-workflow-review-runtime/shallow-final"
+          ],
+          "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-portable-workflow-review-runtime",
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "/home/tux/nsealr/hardware/.git",
+            "f01b79017d2f317110b3d17047a7de4c35ea1e48"
+          ],
+          "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-portable-workflow-review-runtime/shallow-final",
+          "exit": 0,
+          "stdout": "",
+          "stderr": "From /home/tux/nsealr/hardware/\n * branch            f01b79017d2f317110b3d17047a7de4c35ea1e48 -> FETCH_HEAD\n"
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--detach",
+            "--quiet",
+            "FETCH_HEAD"
+          ],
+          "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-portable-workflow-review-runtime/shallow-final",
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    "candidate": "f01b79017d2f317110b3d17047a7de4c35ea1e48",
+    "shallow": true,
+    "reachable_commits": 1,
+    "actual_git_directory": true,
+    "source_status": "",
+    "tracked_blob_and_owner_mode_matches": 541,
+    "old_commits_unavailable": [
+      {
+        "commit": "1d837e87828905642242112946588c0fb67a8399",
+        "exit": 128,
+        "stderr": "fatal: Not a valid object name 1d837e87828905642242112946588c0fb67a8399^{commit}\n"
+      },
+      {
+        "commit": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+        "exit": 128,
+        "stderr": "fatal: Not a valid object name 9625921c21160557f8a9ba7b704bbb65266c82d7^{commit}\n"
+      },
+      {
+        "commit": "b569f561cdc5287475d11125a6a455bb9dd3cb87",
+        "exit": 128,
+        "stderr": "fatal: Not a valid object name b569f561cdc5287475d11125a6a455bb9dd3cb87^{commit}\n"
+      },
+      {
+        "commit": "7645554985259222e606fdda01bb1fdd793804ee",
+        "exit": 128,
+        "stderr": "fatal: Not a valid object name 7645554985259222e606fdda01bb1fdd793804ee^{commit}\n"
+      }
+    ],
+    "operations_used_by_host_controller": "Current parent-repository HEAD only; SDK and three Gitlink pinned-tree checks operate on their separate freshly acquired repositories. No lookup of old author/review commits is needed to execute the root gate.",
+    "limit": "Local file-transport Git checkout only; not execution of GitHub Actions, namespace or cross-compiler. Earlier same workflowbcfd shallow receipt retained privately; final proof uses fresh f01 checkout."
+  },
+  "reused_distinct_review": {
+    "commit": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+    "path": "docs/restart/H01/reviews/s3-bod-portable/review.json",
+    "sha256": "05d5cfa4e9c9df7da4958eff16a508f844db7fc7461bd35b9c8c4588447b1e5b",
+    "verdict": "PASS_PORTABLE_CONTROLLER_AUTHENTICATED_PROFILE_AND_LOCAL_RELEASE_PATH_ONLY",
+    "meaning": "Source/profile/local release-path proof remains at exact1d. Its62.7s run is not a hosted run; its workflow exclusion is closed only by this static facet review, not by inventing hosted success."
+  },
+  "root_working_directory_error": {
+    "record": {
+      "at": "2026-10-23T21:21:50.808101+00:00",
+      "classification": "Coordinator working-directory mistake, not product/test defect",
+      "error": "After git worktree add, the same shell remained in canonical hardware checkout; git read-tree imported frozen1d into canonical index/worktree instead of new delivery checkout.",
+      "preserved": "mistaken-canonical-import.patch and mistaken-canonical-status.txt before restoration",
+      "correction": "Explicit git -C canonical read-tree HEAD restored only exact imported tree; canonical HEAD7645 and status clean. Then explicit git -C isolated delivery imported exact1d.",
+      "canonical_head": "7645554985259222e606fdda01bb1fdd793804ee",
+      "canonical_clean": true,
+      "correct_delivery_source": "1d837e87828905642242112946588c0fb67a8399",
+      "no_commit_or_push_of_mistaken_import": true
+    },
+    "runtime_evidence": {
+      "working-directory-error.json": {
+        "bytes": 827,
+        "sha256": "4e5aafd66f6f64380c5d563d15ae086ced4aff0da4ee58e984979b5be572f25a"
+      },
+      "mistaken-canonical-import.patch": {
+        "bytes": 23188852,
+        "sha256": "dc48a85464fb75435f6cc6ed503a2041a3bb1e97469c95d873d4055d1fa19999"
+      },
+      "mistaken-canonical-status.txt": {
+        "bytes": 23899,
+        "sha256": "54d8b0e49ff54525a350e739fea2b4576a6e36d62927f8284238b4c421378baa"
+      },
+      "assembly-43.log": {
+        "bytes": 788,
+        "sha256": "7abc5518e82633806d9a40cd989375cbc323dc73cada5cb27b292c0f219dd6e0"
+      },
+      "initial-import-raw-whitespace.log": {
+        "bytes": 583,
+        "sha256": "bec4f1efdfad408f3cd8e3465c35eaad98d5f2248de38e9dceccb171e3b76ca3"
+      }
+    },
+    "independent_current_observation": {
+      "canonical_HEAD": "7645554985259222e606fdda01bb1fdd793804ee",
+      "canonical_status": ""
+    },
+    "limit": "Current canonical recovery and exact isolated ancestry verified; the earlier no-push assertion is retained as the root incident record, not inferred from a new remote audit."
+  },
+  "observations": [
+    "No AGENTS.md exists in hardware checkout; parent integration instructions apply.",
+    "GitHub web tool could not render two API endpoints; release pages and pinned primary action definitions supplied the required source. No controller/platform restriction was retried or bypassed.",
+    "Original raw whitespace and historical failed collector records are copied byte-exact, not normalized."
+  ],
+  "mandatory_pending": [
+    "Normal unskipped protected PR CI: bothverify ands3-bod-compile must succeed on the actual candidate.",
+    "Actual runner bwrap/user/network namespace availability; absence/denial must fail without workaround.",
+    "Exact protected integration/tree, both resulting-main jobs and fresh main-only provenance before adoption."
+  ],
+  "physical_qualification": false,
+  "parent_criteria_closed": []
+}

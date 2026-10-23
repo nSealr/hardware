@@ -1,0 +1,1642 @@
+{
+  "archive": "configure-output.tar.gz",
+  "files": 327,
+  "members": [
+    {
+      "path": ".cmake/api/v1/query/cache-v2",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cmake/api/v1/query/cmakeFiles-v1",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cmake/api/v1/query/codemodel-v2",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cmake/api/v1/query/toolchains-v1",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cmake/api/v1/reply/cache-v2-71187dd94116a2fca68c.json",
+      "bytes": 50459,
+      "sha256": "23c248768fdccc9d10ad85cad1da5131f0c19539bff086f4b02217f9c3cf174f"
+    },
+    {
+      "path": ".cmake/api/v1/reply/cmakeFiles-v1-09b04b9f64966b127383.json",
+      "bytes": 55967,
+      "sha256": "420777994b25513f9e1e9d8693e1f32fe7f5bfa7703e07e50c28d4009bfcb5f3"
+    },
+    {
+      "path": ".cmake/api/v1/reply/codemodel-v2-6fd8b369b51170f3aa88.json",
+      "bytes": 58423,
+      "sha256": "c03a7cc66af6aa563cdc5650f969563a1de30ee72ea449d86bd9f595e66ba44a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-.-f5ebdc15457944623624.json",
+      "bytes": 154,
+      "sha256": "86e7a30b8b63ba3392582621985aeef407bddffc28967e4e9f1ebcf80cb8b8a0"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf-cf048613443dd0aa95d2.json",
+      "bytes": 234,
+      "sha256": "e828903b6e93805e87b302491fae9de6eb2dcb0af21027ccf0adb54e83cea0ab"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.app_update-6f9bee0d55663490c1ef.json",
+      "bytes": 267,
+      "sha256": "e32d7a0776c7333b649d62ba5dac6e9cc6c9a64d8eda40376390738ffb1881f1"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.bootloader-27bf1fa4ba11545a4d40.json",
+      "bytes": 267,
+      "sha256": "75af96317fd6d5f2a008024bb6f3fae304f95822408a2a3b3c89a19ca7811cab"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.bootloader_support-37a24f8948aeab25df6b.json",
+      "bytes": 283,
+      "sha256": "f94cefdc850f14b3bc5ca4330a2bec0242435a6793f47b6d8678e6c9480e06b8"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.cxx-5e9db199e5cde8ce4d2b.json",
+      "bytes": 253,
+      "sha256": "74d04494f7a93843b81af6aae1eb418de021f1855679fb6bd027aac460268b3a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.efuse-84dae1f9bc47b39df1d2.json",
+      "bytes": 257,
+      "sha256": "1cc37662a828cad52888d1fd02788c3b089daa4da9ad5c3fa36d3093b560b03a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_app_format-88b0e92f12046f97dd00.json",
+      "bytes": 275,
+      "sha256": "94cd51f3e84af2ecb961a44d58bca2265f82693af1e484c783e2881141037c49"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_blockdev-28b62da15c83a960e09b.json",
+      "bytes": 271,
+      "sha256": "de0e9caacca0fd93c7f2cef4a38f80d7371d0ac697835b84c93fa641b312de16"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_bootloader_format-1f809296b6731ae04a0f.json",
+      "bytes": 289,
+      "sha256": "c14fdd2ea649dfb2304d6e0a7dc9c160c4487602796c0f1da0cfd012e01214c1"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_common-a1564b0326e09a183be6.json",
+      "bytes": 267,
+      "sha256": "3a73686c60ad6050caf87bd58c5a6c4bbaba39efecd3606944bf6e275492027a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_driver_dma-39fa1ebf751a3984d58e.json",
+      "bytes": 275,
+      "sha256": "db3123563e69f4f60d2e4a8163910e4daee9de7c6d155c172072a73c6a98c5aa"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_driver_gpio-8e5fc5f73d7073d4d315.json",
+      "bytes": 277,
+      "sha256": "eaf2b2cb3000175cc9567720419a59ee7f4f87af951f0e9486a095bf2cb124c8"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_ana_conv-15aae9ec7f5c4c5bdc71.json",
+      "bytes": 279,
+      "sha256": "e5ad50fb3f1565a6a90ddad9e1a09409124f31ec9c09a44a3e832b3b662fc030"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_clock-89e9f41c0eefb38bdb67.json",
+      "bytes": 273,
+      "sha256": "155fda3b051ba6f8f2c9b61cc56aaa44e6ff61cd5cf8c5bbe37ed5b6ed7ab14e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_dma-f4cc0ab9aea1fc0375f9.json",
+      "bytes": 269,
+      "sha256": "2a60552f7b6d8e1b15ea0b5b9e731a6b5e667e638769683f5ef687ceec86cff2"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_gpio-0663ebbc34e2180cc05b.json",
+      "bytes": 271,
+      "sha256": "be287ebf913ceddd56a401f7f7e23d7a8f1cdf63442b79ba50e52ece593f4294"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_gpspi-ae14824e1061799e542d.json",
+      "bytes": 273,
+      "sha256": "8140b5ecabeb0ede95f90cccf2650aaa401553427df26d8d10e498cef28e01df"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_mspi-d20022141c4347af7dcd.json",
+      "bytes": 271,
+      "sha256": "9fa17ffd656962fe3891aa657db7589934fefe50101cb8ab67c032a92a758b76"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_pmu-17d0cbaf42ccabe977ad.json",
+      "bytes": 269,
+      "sha256": "24c716a483a6942316860565359bdfc2e096f833a3dcf75b05cade4a04fdfa81"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_regi2c-52a04971a60dc2ad627b.json",
+      "bytes": 275,
+      "sha256": "2def2ad58b6a1d886a70fb9a72181634f26ea6ff35a016dc412115f6321ed6ba"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_rtc_timer-76be82606e1a6f54167a.json",
+      "bytes": 281,
+      "sha256": "2c48680f6dd70dce8cfa3825f6d1ec3f33f1126ad647857edaa0cf26db5cb01e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_security-4c4c9cc3cb2ef32dc2e9.json",
+      "bytes": 279,
+      "sha256": "1ef92cbadbc4405ea4284e44bb91d624dd3a38648abccdf639f956ca30d7353b"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_systimer-f9b3ee486cb7dc275e17.json",
+      "bytes": 279,
+      "sha256": "8fd7b9a652308c433fd42499d73adb82b24d36e118f8fa5f8ad258d90813ef97"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_timg-1af57a706801c5546e0d.json",
+      "bytes": 271,
+      "sha256": "52ca0ec9e666dc25618ee4cb29fa5e2f1a1730e7fc2d7eaba8ba2254090ec24d"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_touch_sens-0ee1496be272af6b8002.json",
+      "bytes": 283,
+      "sha256": "1d36a9bdc06503d4ed364f52c8042866dccd4bfff74f0d5b7fb4f72ea33ce65b"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_uart-6f8157db3f3b9f66ae3b.json",
+      "bytes": 271,
+      "sha256": "1c6d690fd978bcb855741df3455fb984f73126ab23048c69b4c3fe79592e6747"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_usb-90f4393379413a699fc7.json",
+      "bytes": 269,
+      "sha256": "aeec4b358cfb6e5db0637e35ed16372e37ed0aeeda4cf82903d36a911c947c31"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hal_wdt-44bd99a719df56bac73c.json",
+      "bytes": 269,
+      "sha256": "0e29d05a15e62988b5bffdf5f4dcb0d9b1ea7215753d68a88607b4db08b90aeb"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hw_support-453fd10f1a4512909bef.json",
+      "bytes": 275,
+      "sha256": "c70719ca19d71732c8ce9c4efbce4e3cf18170c0445ced76bef3af484282b324"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hw_support.lowpower-3113d43bcdb630b0a51e.json",
+      "bytes": 293,
+      "sha256": "be6e42193865332880fda9a46abe1738a8235d6becbe0d7de3dfcd54a06d3084"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hw_support.modem-38aeba8a21d10ecdca4d.json",
+      "bytes": 287,
+      "sha256": "18e7ea8f34be277797ded254e78fda426214a229a496d7b0e927133646e01373"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hw_support.mspi.mspi_timing_tuning.port.esp32s3-fcd3606853b68e872b10.json",
+      "bytes": 349,
+      "sha256": "d8a62d61f4d27ba76cc7eb493a2f119d2b3132eae7dd719c5f69266fc24cec99"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_hw_support.port.esp32s3-d259bd5ff9f6b0c57c8e.json",
+      "bytes": 301,
+      "sha256": "b3b1d6d92279d29ad8c282197b0d793fed28a43dad2e62d40dd3895c986cde1e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_libc-454b60410ad1cbd99d99.json",
+      "bytes": 263,
+      "sha256": "eba064f75392db70c2990ae4c87871a27178c4a17064b511bb9094b01fa88fe0"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_libc.src.port-ebe9eb83e595e9b9cfd2.json",
+      "bytes": 281,
+      "sha256": "3f495a22abf9ab0e1e17d8bdefa644358a8d98e9cab2a5546e3d0eb429f5a7cb"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_mm-ad7c8a04a603e7564f17.json",
+      "bytes": 259,
+      "sha256": "005326a68394084afb7e9ff2fb138239e97d0865ec545525c2d059edcaf11852"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_partition-5ac0b9b635d9f875a2c1.json",
+      "bytes": 273,
+      "sha256": "15f9e05c8dbf7269a45b1a6d7730e1d091eb541e2c1ee81c9faf8182b80c94ed"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_pm-bd9ff6f411a356ed6fdd.json",
+      "bytes": 259,
+      "sha256": "0188d828bc971bda02aa6ba646f712903294746a3d07e12f50dd89bbd56e5965"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_rom-00ec50a190e5a02d641a.json",
+      "bytes": 261,
+      "sha256": "d395d88abd10468b0c03daa25282642b39a16b6d926fa4fb62de4232946b7bd4"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_security-837008d1473184efbbbe.json",
+      "bytes": 271,
+      "sha256": "b91e623cb49abb79930e79f20fd025068c7196c09851172c6439e8763ae298c8"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_stdio-0b2f4975ff8ebc7c083b.json",
+      "bytes": 265,
+      "sha256": "b4a1f7c4b2e873b710c8fc512ed3f52f66a54f3a0f4199de2fca8d137b1b7944"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_system-4ac38014b9a58bf5cb7c.json",
+      "bytes": 267,
+      "sha256": "f11ea292a61707b21925afcd1288dbccd896e2ffc52dff5281ac20a74c40ebff"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_system.port-7550090c96194bb73d0c.json",
+      "bytes": 277,
+      "sha256": "c2c3ae2c76156b9258b780de379e894aa246e08c117f3fc4fecdd983c85a7fe4"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_system.port.soc.esp32s3-ea8b5ac7d2d95cd1ff69.json",
+      "bytes": 301,
+      "sha256": "3f493a33f32934af0d137b96c57de865b7e6cfe924473073c070e1ad57c79f29"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_timer-4a646d07faef87a390cc.json",
+      "bytes": 265,
+      "sha256": "d2b657b30694e91f7f87166a8022b76db1071673171eb74c172aace097b4d105"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esp_usb_cdc_rom_console-03a71ed1660f17aaf408.json",
+      "bytes": 293,
+      "sha256": "744eb1b4758bfd178536bb13eb6a3a5c104f6283afab547a6abe12838a763deb"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.esptool_py-e90af945c9a1c47210ad.json",
+      "bytes": 267,
+      "sha256": "043b4b24e8fe6e965152ccca50dc5ae9ca03b751532efbe30b36ed8227e5e1d3"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.freertos-6b4e7becc51f45653361.json",
+      "bytes": 263,
+      "sha256": "b350e811fda35b4ca27ce716b35497d75b4ceea0bc67ec3f2852e742f1fb509d"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.hal-ae517a06e261f26c6992.json",
+      "bytes": 253,
+      "sha256": "08dff6c496ba795a7ea511b2592b5b6360ac94bef6d45eb9dcfae85cbca81dcd"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.heap-b1874039e2fdcc4ab6bb.json",
+      "bytes": 255,
+      "sha256": "9bad33dac04ec14821f8bdfb15e97180f024932d57715f2a468118647cee65ac"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.log-d5160ef6952f09128438.json",
+      "bytes": 253,
+      "sha256": "94e671b646fa78c9293cc250f42f36f8590b35ec16e71d9fd06ad660f5c1ba53"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.main-f27928b5f5a70a8f4668.json",
+      "bytes": 168,
+      "sha256": "61e5a9680e59411f8eda6c660f69747a511f4698a0644c90c39e9f826de40403"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls-3303fab956119b9cb7a1.json",
+      "bytes": 261,
+      "sha256": "dfd32d9203c6cbd1946eb8d85100067b57a9c8218eab6bcaebfdce0a92204ea9"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls-a72e3e6d378e5d6399fd.json",
+      "bytes": 277,
+      "sha256": "f30bbdf7e8d7607e5e033c0b98ac39caf33821287819cc410895d7d28b844863"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.include-b47f24bbd471deff1bcf.json",
+      "bytes": 3707,
+      "sha256": "84d43e01fbd40695ae2b94a9af0e877acbe58d628602ca9fe312877ce2593d75"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.library-b575c1f522b210f46c33.json",
+      "bytes": 1588,
+      "sha256": "43dde649731312c78913a246cb4ad950d9256ac9246d394d68e57cbea581fc52"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.pkgconfig-8dc331dd3534863c8f5d.json",
+      "bytes": 297,
+      "sha256": "4c6f0eaefe07186f6c16a0eb0921315cf76cfe47bb1a32be7f68e4d281ffca38"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto-cb51af469a59390e3f73.json",
+      "bytes": 305,
+      "sha256": "9d80617623a516f6ba2bd23d65eea4b0fa464ace08dd43e15188b0b89470ff04"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.core-8a76557d359fef84a16c.json",
+      "bytes": 1230,
+      "sha256": "fd69b4e7408fd7669e999fd343cfe990992c8f5261b2f59a2d139d692f963457"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.drivers-12a26e9e8c7f9bf8e33b.json",
+      "bytes": 321,
+      "sha256": "03868dc96cf8959cdfda57bcb59e338782fc44c9dca162f40696d28c6cdf0ab4"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.drivers.builtin-dd2d299890600ed46e70.json",
+      "bytes": 1236,
+      "sha256": "08a48d89074114afb50f29f25fecc345f047c8bd8e51561c5f28c4f032445e40"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.drivers.everest-8005c02eea0fa139bb1c.json",
+      "bytes": 955,
+      "sha256": "3d701145185697fc47996a61982379c09a0298b461408f4694663b9842bf87ab"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.drivers.p256-m-a0067670982732c26bca.json",
+      "bytes": 335,
+      "sha256": "f7173e56e91beb3d213f67b8a75103980614a5750be1fcc86b2d7282bbf643b1"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.drivers.pqcp-45e332b94fb3c9f2ffa7.json",
+      "bytes": 1224,
+      "sha256": "a2c872e5721641564f1d9d21393abc00aae1a29f861f40d38b4ffb2701f3f0e9"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.extras-edfc23d774ed48b34e2c.json",
+      "bytes": 319,
+      "sha256": "e63bab0f615ea0bbca9223fa7f417262a8dfb24c08a36276471885a965f080d3"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.include-bb793980c02110431985.json",
+      "bytes": 1248,
+      "sha256": "2afb09637638a695a28a5e4548c6ce9ff7d557891aaad48e3a9a6e2998b0e267"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.pkgconfig-5b9b7da28553c56f4e9b.json",
+      "bytes": 325,
+      "sha256": "f0fc98c177259bf2c2e6b3d74dc407a4016526da1b9cea6944ae4084c0060f32"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.platform-7c12d642795439a22db2.json",
+      "bytes": 323,
+      "sha256": "3043c24f128f48c87a025f86cd3fb98faccdea9a3bd900df815cf6814e94b6f0"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.mbedtls.mbedtls.tf-psa-crypto.utilities-5f186d7079b4ccadffca.json",
+      "bytes": 325,
+      "sha256": "c7ad2632b2584e0e72b5940f5194a72f0a07126957868df66993c4c8ea77909b"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.partition_table-4f66c1f0a01639f2374f.json",
+      "bytes": 277,
+      "sha256": "758f24e4b643b9a2962c001f31808440485fac3eb7988180c582842ed49da486"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.pthread-8b3a3ad1e9351bf34a5f.json",
+      "bytes": 261,
+      "sha256": "e43d2e03f72b0ad49ca8ef4bbd8d12e162a66a2532ffc4a77eb7566367abae73"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.soc-917e379e7158954abab7.json",
+      "bytes": 253,
+      "sha256": "fa082065bb86063117a431b2c9b026b54edaf3fe6b0af647799d2d5e8bf949fc"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.spi_flash-55b388e4576cb353f3b9.json",
+      "bytes": 265,
+      "sha256": "6f40cf286401af442a180f4a72e0968f20e2f9a03914c38523f928465a1e42a8"
+    },
+    {
+      "path": ".cmake/api/v1/reply/directory-esp-idf.xtensa-caa057845bc569e86366.json",
+      "bytes": 259,
+      "sha256": "7c66e7b7d1d345e281e57f3f02d2017ce1413555bca14095fa0202b65d5e7cf9"
+    },
+    {
+      "path": ".cmake/api/v1/reply/index-2026-10-23T18-27-56-0815.json",
+      "bytes": 1696,
+      "sha256": "201129f7e28ee8c7d880d8f671f828d0295ee274944d9196fe673082b4f2fefb"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_app_update-a41e4ff604adc9b9023a.json",
+      "bytes": 18735,
+      "sha256": "b05750b1e514cf4bee580cb06ec0eddf4cc5f0adddc765864af82ab6a91f48c0"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_bootloader_support-ec13ef0daebe44569bd5.json",
+      "bytes": 27393,
+      "sha256": "15e510e95f5cfb7936d3c630355708bd9a8b7246b2b600a4b6175bf11c3c946c"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_cxx-48973a188c7ff75dae6f.json",
+      "bytes": 15841,
+      "sha256": "5946a07bb81a5ae7ecdf4ced9d4fc5b94b4ad806c71b265d2e68a9971dd1a755"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_efuse-4569ba162b6e12b3daee.json",
+      "bytes": 21089,
+      "sha256": "e8baaf326ad778e98d8bbe97a6cbe2e6ecc16e3632f38a17f3dd05f6ef7beeb0"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_app_format-40c5470ee6353e2d5dd1.json",
+      "bytes": 15757,
+      "sha256": "cac592d2438d85e08cdce7e69cfc57ef94ce10ba71ec2d82a7143fef79c63fb6"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_bootloader_format-c49ac1f8a9bdad8d8ba6.json",
+      "bytes": 15563,
+      "sha256": "9b6a45811ae61f8e703213c88858e5327366fd213c149d0d78da45cc8c671156"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_common-cfaa1d6179140c8b7667.json",
+      "bytes": 18261,
+      "sha256": "dc9a9aab5c9402c07e1a8c11c55735e0bfc963db22f9248a801ec2786f3644ca"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_driver_dma-872c2755f37276805b03.json",
+      "bytes": 17625,
+      "sha256": "614d764c63e7ebe6befd6cdaf7a43b1fdffaf5561a95e869f7fb810154f606ae"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_driver_gpio-064bccb5db55c0b214e4.json",
+      "bytes": 16926,
+      "sha256": "689f49833e712d378ebb3eee2616dd2881d93c9694ff0d3f07f3f9ca439dda55"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_ana_conv-86374d2f3fb430e9a0ae.json",
+      "bytes": 16622,
+      "sha256": "7235f28b4ba6a7aeae498da535a90aede3227f39e4fa786dcf4fe305a34bb3b8"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_clock-526c4b167706cb5f813e.json",
+      "bytes": 15733,
+      "sha256": "215da06b9b728dbb09ef5c7cee2ebfa69a623ec2cce2ea50c4e57ce9b65db7a5"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_dma-be10bf663551b1cdda0b.json",
+      "bytes": 15842,
+      "sha256": "a8d64760dbd23689a4634d32e1db834d9d4acd310b504a317a02940842a4a328"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_gpio-ab3f1a1495defa9b1236.json",
+      "bytes": 16539,
+      "sha256": "e65a4d25e9394306993c8660a6532ba182ec3d7d3a9988025cbaa0faa095589e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_gpspi-161425b600b9b7622ac5.json",
+      "bytes": 16878,
+      "sha256": "c2ff01bc0af138ab91b6ba6b7c3c92d842d1588ac2334371f6e685dd06182b90"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_mspi-c96cff9c45395a3a2305.json",
+      "bytes": 17738,
+      "sha256": "b9c16e548362dad87e0457714edfdfbceb3e3889c32e1cd66abb88f6c0eb7655"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_pmu-525828f2bac000342b29.json",
+      "bytes": 15612,
+      "sha256": "d089786e276bb1bca509da909cea2176235c5033ae48848f39bcad28ef6b9312"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_security-bdf279b4274ecb6c43ad.json",
+      "bytes": 16878,
+      "sha256": "2b2683af9f6eb11b5359ab28ed96cc9cf20305f051b9ea5706e2d38eb5bece23"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_systimer-cbb6d7570cc5b71ebbc1.json",
+      "bytes": 15755,
+      "sha256": "3a1063f2b20956c540d4d040da2fae3fbcd5d220b32ea72ce0136c4c8fe110f2"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_timg-d9d2c785ff8873362f83.json",
+      "bytes": 15950,
+      "sha256": "2b8124c6e306cb30dc10b0962ccceaf48624ff2460912547ffc7a3925ccd8999"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_touch_sens-68eab0502fea86ea5512.json",
+      "bytes": 16528,
+      "sha256": "258b7b63e3a01e06e6e6ed36cb6c5efe809760f86d433308de4c337d6cf8969b"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_uart-6462299d686759a47133.json",
+      "bytes": 16073,
+      "sha256": "5e0a7340fdcee24003bcf2801b44966ab5c2f8d35dfe43b57c8eb71af0e39e07"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_usb-0720d2a8d1630613b087.json",
+      "bytes": 16072,
+      "sha256": "7f7d3fb5188507798effbb3261b4efb1e9f1165b16451699c7b0233e57fcf4fe"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hal_wdt-bacc641a09cb33f4622c.json",
+      "bytes": 16828,
+      "sha256": "6be38aa9909c8d6e4c0900e84e0ed4236dd1380139064f4f49c3357c35d3d091"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_hw_support-9f9120b1f2e53c253699.json",
+      "bytes": 35831,
+      "sha256": "73bae4f14902837abe7732016de4f9a444beb2cc9b93e63ff45f790017942de6"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_libc-1920e9c320d128e6b806.json",
+      "bytes": 22908,
+      "sha256": "dc45af341a48670dc96d25cc5c95f4799bb4cd6473d6223ba431c37331387701"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_mm-6c72f1c77cefb278389e.json",
+      "bytes": 17729,
+      "sha256": "691b8f94349e93b3f10efaad90462035889991b821aeee97127fc2c906b58e66"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_partition-db0a60035fe9ca81f591.json",
+      "bytes": 18903,
+      "sha256": "03708800865f257d45d242b5b8f400507e2ee130e0c59ee2b4827c43a4fd67df"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_pm-6c1b8cece17a555d1b2a.json",
+      "bytes": 16578,
+      "sha256": "8b6c286995b2d3d3105b7200a067cf4bc923120debd47d207d078b6234770306"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_rom-d23471dd4b6c759a94ec.json",
+      "bytes": 31370,
+      "sha256": "30090769090bce14ac4b70aa7ec1c7f68cf661f68c2e7cab864c8ad57813d7cb"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_security-889cba7a4ff74f242135.json",
+      "bytes": 18349,
+      "sha256": "64d2b4fc55a539bbd6b9c25864eef455125a83ea1152f5fc82510278ac3c5cfa"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_stdio-90890a9ecf588a3db16d.json",
+      "bytes": 15732,
+      "sha256": "f9d6225ad559243b2b78aa1326a98ff3898818f1406f63d244e60f281e0d1f1b"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_system-633b189ee2bc0dc8363d.json",
+      "bytes": 61608,
+      "sha256": "4d11b567c1a3923cd0b72b3ca90bbedec2f1662c2653065fff4094f83ed1c63a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_esp_timer-f6b37bd87aa00fb89517.json",
+      "bytes": 18008,
+      "sha256": "80117a839231858c64d356b21fb5ab8f8effb42c4826ce10937b3eb9a0d970e5"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_freertos-6f58f476bc227f1338bb.json",
+      "bytes": 34400,
+      "sha256": "78a326d2fc44e07436f3e0b9b3b05d4faa759961d19426e2ae7874fd4ba22791"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_hal-d036c6789810787dc856.json",
+      "bytes": 16458,
+      "sha256": "135e6463851518387d6c5b8128dc8b505b3fe2797dd38231dfed410c432c1bda"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_heap-7c01f3233125332c6d43.json",
+      "bytes": 17393,
+      "sha256": "6b03196f7e8c5b037325788fd8294f8bd3eeec2f9af2acd6add756dd504f1099"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_log-93fdf08308b378fdde2e.json",
+      "bytes": 18540,
+      "sha256": "ab4737b99637b9fed614c12e54a9e45810c7ef0872cff9185755a3a6520ad987"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_main-3c6f74e97c77df1d7f5c.json",
+      "bytes": 15312,
+      "sha256": "d86fdf5ccbb3553e8391d4a6e61d2f1b8229e136ad97a659d7fe7e8c909c5d43"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_mbedtls-9c87d5a462a73b4e9d75.json",
+      "bytes": 38744,
+      "sha256": "5ec7b7ee447a2c3dbd0042f702a13fcafa19ce30aa451fc0825af5398e659cea"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_pthread-396cc677bd267c60e5f5.json",
+      "bytes": 16309,
+      "sha256": "ef6b7a5e1b5fe313b60a326d04abbfc87c72036ec5f124744d0b71ba925b7c9a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_soc-1031f828a2b2f7cefb10.json",
+      "bytes": 16596,
+      "sha256": "941a4ec4765a544511166bacea4aa3a80109fdf46fb04c1594e2858353b9ef39"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_spi_flash-ff7676410fde6d586edc.json",
+      "bytes": 37951,
+      "sha256": "2983fd592ee600f8df56c14ab64fbdf618d5f32584ae7b9f88cd5060a2f30d60"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__idf_xtensa-f80725cbef6308429c25.json",
+      "bytes": 29240,
+      "sha256": "9c70dbf55d90c3f02795cee0b0beb19b02017a5d526a706a8aa2adf76f543a3e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-__ldgen_output_sections.ld-3cf80f2eb7d1628b84e7.json",
+      "bytes": 2092,
+      "sha256": "2a8ec50327ba7819e9caf8acd95826b5ca563012142282abc3e8f3c65a5321b8"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-_project_elf_src-2e7ebbba9a0f5fe9e1a5.json",
+      "bytes": 1477,
+      "sha256": "ae68adc5bfc3615fa300bdad531e047ad0838b906c2aea98c39ac014b58c7c81"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-app-8a4a99dcae0dcfc2df84.json",
+      "bytes": 2162,
+      "sha256": "a330b4f049bcd99de784976b488853b9bf176c38ef1bc31f9145ba63532af091"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-app-flash-72119f039227e75b8ec4.json",
+      "bytes": 1619,
+      "sha256": "5870075efb905a87f6f7e5136db54f44f6ef1c32d704f305c43e2d825c673504"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-app_check_size-6f5546fad27e71531611.json",
+      "bytes": 2111,
+      "sha256": "d4cddbc63a70381afe16faa00e96111759810eb5e5a2d9ed848a69df4f60d713"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-bootloader-78fe5394df271d6db6e6.json",
+      "bytes": 4467,
+      "sha256": "5401c0bc639ebe56d58a12fa025fe44ff6d917f0710b7bf00a340b794c3719a1"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-bootloader-flash-fb1ac2a483a512622f8e.json",
+      "bytes": 1201,
+      "sha256": "d4b3c9a62216452ce030cb3d98dc298489c93a021b2a85d41101488b79512e02"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-builtin-e7cb725766c21fa4722a.json",
+      "bytes": 33996,
+      "sha256": "4065bd2b26fb9bd33486f6de2cd5066c0914376a412f609ce66687a357307182"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-config-report-96695464aacc98dc4b3d.json",
+      "bytes": 1668,
+      "sha256": "71f9c8094d5a5e88d9e076ec0c0863fc16fda0a4d9110ba72c836c31732c423a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-confserver-a8cf0eb0904f54edfdb3.json",
+      "bytes": 1656,
+      "sha256": "48d39cab902e5b7682b529fff6a9068ae645b86a3b9d67abf7d75acdddba6266"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-custom_bundle-b825bca4f0efdf203318.json",
+      "bytes": 634,
+      "sha256": "29ba325ebe120c5435020fa9dd1f1f13df4e3b91c3f7be88974a7f454fd88350"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-dfu-4191da9637becc0ac844.json",
+      "bytes": 1548,
+      "sha256": "a0345c4e2cee5215bb8c4f12f3db242a49ce9ddd71694695da5249b2aae642cb"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-dfu-flash-76940663a34321a48d5e.json",
+      "bytes": 1429,
+      "sha256": "20324508bc8ad0983782a23eb568b86f5c40b98c8d5c11256ea71272bfa55ed4"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-dfu-list-a43f3000aa4205ed552b.json",
+      "bytes": 1425,
+      "sha256": "38fa273ea5079bdb8af79fb057787fb7d1da966f3a05986bc18f3826b91657b2"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-efuse-common-table-ce8c7b5f40db89e999a6.json",
+      "bytes": 1277,
+      "sha256": "508af532bab6b03eca19d0c4ae78f462c9fcdc2e62166ca87a2f4d2bfea79288"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-efuse-custom-table-0d1a113a31b1ae10b652.json",
+      "bytes": 637,
+      "sha256": "a669c58872bd86c8db933649d8532d172657abe207abeb65d941d0d5ac853673"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-efuse_common_table-308adc5e5a29f7bf4f09.json",
+      "bytes": 1714,
+      "sha256": "bbb023ca4c8c7b64152b046e6941f07627dc97cfa61292813adde7d57f5371a3"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-efuse_custom_table-f933f6108118f7331355.json",
+      "bytes": 1714,
+      "sha256": "5318f0dc0f1847dc21041adad89e25e88ce887704d11a5a8a31d0d307ac49df7"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-efuse_test_table-b70ce0923150510b3a6e.json",
+      "bytes": 1269,
+      "sha256": "ff54b8114dba754d2587690ff8d77816f9f703ee865ac78f5fd4ea01698c2474"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-encrypted-app-flash-e25feb35fc8a37b615f7.json",
+      "bytes": 2265,
+      "sha256": "42091f1e2e4723d3ea806d8cfafbf2a41cabd0c7d26b1854ecfe91293934c3b6"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-encrypted-bootloader-flash-6f4b533b578ef09a6fa2.json",
+      "bytes": 1892,
+      "sha256": "408cc1167c13552c8bb23b7b86b33aa94ad125dbf09ad9f8fae49a9246bd9214"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-encrypted-flash-3b821cfa9452169298b3.json",
+      "bytes": 2249,
+      "sha256": "84c14ce003f4aed53ba80e96485b581d2c489889bd51a347ffac6c943257eeff"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-encrypted-partition-table-flash-63826f452a6743866c13.json",
+      "bytes": 1826,
+      "sha256": "461b7110ef99dcfcbe3bb35bbdd60df891d856ff8af294737094ae9ef2851b4d"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-erase-flash-46ff9452fa3d60d1a6b8.json",
+      "bytes": 1691,
+      "sha256": "29fe3b78ed2adc928b1d301f7ec4dabd03cbed5395944dba0eb247fc5c4f8570"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-everest-d851d65d5eb87b511f35.json",
+      "bytes": 20651,
+      "sha256": "94aa965291300d89964b72c3d32b97369b8f485a236de19a4b8d9922a9980140"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-extras-8a4b6e9942e3c311bb7d.json",
+      "bytes": 24765,
+      "sha256": "63eecc1476c3aa73c75b98b9e4f580f038d3058bec85357139a263eb1e1574b1"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-flash-d6f575039c2bd884636e.json",
+      "bytes": 2339,
+      "sha256": "5f752fa18b21268564b7c7b88453ded7b6de34defa834a891502ccc2e2be4648"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-gen_project_binary-8520286016b41d0baa38.json",
+      "bytes": 1799,
+      "sha256": "86c52c5346033779a18452849d90fc1a1c47c4c97255d235f4d7bba013b979fa"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-gen_s3_bod_selector_binary-53ba7275919f92fec324.json",
+      "bytes": 2168,
+      "sha256": "a1304ee4d9e0f4b7771b30b93c76c498e8078af0b9971c480421af2bc1f04a7e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-lib-b3e564b9c083f34137cd.json",
+      "bytes": 1390,
+      "sha256": "24069abc2b00b1794bbea6817ddc7f61ebeb75207942d5ff0239e2a21c5451d1"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-mbedtls-10799d5a762589608e82.json",
+      "bytes": 27985,
+      "sha256": "f862fb4aa1dd391a2c2bb77577ac3473e5b2946f680c2032debcab6d4b90b92f"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-mbedtls-apidoc-ac131f1b32d2d571157a.json",
+      "bytes": 1312,
+      "sha256": "d0b4970439b9e4f439fdcb0400827e723860f30618af69df52e923786ba53425"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-mbedx509-8f5d225021f93b719aaf.json",
+      "bytes": 24829,
+      "sha256": "723acb0d89fa06f819ff14bc6776716e43eb4887a7066e1c0580107b6e067c01"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-memory_ld_in_preprocess-c164f17208b507d30ad4.json",
+      "bytes": 1918,
+      "sha256": "28b761a648dac16dfb6e4edc4a96126907f7b5475d2d89b3e019ee1a5e0bc470"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-menuconfig-f71def8cbc9ec4d1c3de.json",
+      "bytes": 1656,
+      "sha256": "9d2cef323b3df6d053970f76965d3ecaca6a7c2545f70285ffbde648799bedeb"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-merge-bin-61bed8eb76c2fc9f7771.json",
+      "bytes": 1826,
+      "sha256": "610bdcd95dd7f5145d68c5a2b106bfe0a4e5fbbede673404d8cc850515b39f6a"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-monitor-cec20d3870755e577221.json",
+      "bytes": 1784,
+      "sha256": "d926f5a53d2475a465106ffdb51d4691d03156e049a5c55c162c1e0705b931ec"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-p256-m-906ac35b527dd35948dc.json",
+      "bytes": 21136,
+      "sha256": "d87f5ff117f9a257b8b51d5175aed7f552b3d6f149a6a6a260e90fe10d38133c"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-partition-table-4ee055b2e8c779341f41.json",
+      "bytes": 1405,
+      "sha256": "52a6d2619b52a66e7dd16400dd8b67a0a127c9e7587a531e344b725879b9794b"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-partition-table-flash-03676bf404d14fea1dec.json",
+      "bytes": 1120,
+      "sha256": "66b4510e0c4615e36d3dc8c0f3591823c5835abe6cf2e2ce417ed18d68fb4e46"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-partition_table-c2b562b62007b766437e.json",
+      "bytes": 1750,
+      "sha256": "e10bdb576be77949107dad94b5f8e0d97e6a39c7ebd5033563eb8bea07265cc6"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-partition_table-flash-83b89d847635421bf604.json",
+      "bytes": 1780,
+      "sha256": "ac592004dcac14960f9825ca9e63340ff5bdf86b8f5fcea361dd36ab4fa985a5"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-partition_table_bin-07b79cfdc93865d8f708.json",
+      "bytes": 1571,
+      "sha256": "b7b253e0a0663d0bceffa4b2c50b9df165ea2f081e25db209b9edb3ff9e11e20"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-platform-39302492c309c855d265.json",
+      "bytes": 23354,
+      "sha256": "1393a429ae0f308cf49f8862f49a7d9ce983fd732355a5ca75d0dbaacdb4188d"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-pqcp-19cf0b4d3139e626a992.json",
+      "bytes": 21555,
+      "sha256": "7e95379f37062187342fd9262eb8f9f7b7128a9ff88ba08b487452437355701e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-refresh-config-a9adbdf3713253bead6b.json",
+      "bytes": 1672,
+      "sha256": "0d0d629cd75c762de50319cc53e8980689919e59d0de6ce8474e9420279971ef"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-s3_bod_selector.elf-ab50ff65f37f42878cd1.json",
+      "bytes": 72093,
+      "sha256": "525988a082d770197a2ec53337252835979286444ae7ec65e731f2fe20749dd6"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-save-defconfig-83cf7bf5f386e29e1039.json",
+      "bytes": 1672,
+      "sha256": "c99aefa973ac67f0c21e18411eb8810b32b23c3ac6c78d51455a6b8dceca2d1d"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-sections_ld_in_preprocess-1cb118c2ec9e5a20fb48.json",
+      "bytes": 1928,
+      "sha256": "023eb419d4403d7bc91e3a5b41791d59951d80fbcc27fad4c00b5e3ae30f605b"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-show-efuse-table-18109e6d2da615375aeb.json",
+      "bytes": 1269,
+      "sha256": "0332a16dd4df8540ddddabc4f4c2573504b3435e7dcd3c8882b89861d18dacbf"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-show_efuse_table-498e8a7ede01c9bfcc17.json",
+      "bytes": 1704,
+      "sha256": "a757234e8bb83ee1fe7348079b539feae50a2a674e9a96e11110742c7b0481d1"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-size-2804191d8407215ef26f.json",
+      "bytes": 1201,
+      "sha256": "078c10e33709dfa20d0a0b14cfbfadd86fc075553a7db90cea44a11a8421f9f4"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-size-components-8a43e567c3405ddac522.json",
+      "bytes": 1245,
+      "sha256": "f6a799ff553ed57492010c3f9c1b748737d785342ddabb0e9007f9944d7b5904"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-size-files-937d7ba026361e7746fb.json",
+      "bytes": 1225,
+      "sha256": "884677bdf14ddc85d5ca41689039d045d5fbde00974715c25ddc5f199d2e2e2c"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-tfpsacrypto-apidoc-5ceec5109970fb9b11f5.json",
+      "bytes": 1397,
+      "sha256": "d1a790d1312612aa7fba127d0e2679dd7d7ab434894e28a025cd10b35e0289d0"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-tfpsacrypto-b489f998b00e34e7b9d2.json",
+      "bytes": 56096,
+      "sha256": "1a9d9eb9f8c29d3f8585ee557c500da2c953a62f9884908fb2570a5dc871405e"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-uf2-956356fd4d4c987c9f0a.json",
+      "bytes": 1197,
+      "sha256": "cc2200a52219143fc7e0e484917d12d4caf2129661c0f897b70370b34a265378"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-uf2-app-a7d5a0eeefb161267beb.json",
+      "bytes": 1213,
+      "sha256": "5ca03f325353628e0cd9c2f62dc9c14f6dbafe7701bf8e79dbad6c4383ea2fa4"
+    },
+    {
+      "path": ".cmake/api/v1/reply/target-utilities-a99bc2787ba66358e9ac.json",
+      "bytes": 24093,
+      "sha256": "c39e2f0ace3cea6e069944e45888068c559f4aaa137acfd93d02826c4f3d04ed"
+    },
+    {
+      "path": ".cmake/api/v1/reply/toolchains-v1-357b1054a2d22818a5d4.json",
+      "bytes": 7562,
+      "sha256": "826b93bf6e4cc72d4985658f7ac88f8849ec73102ea5be6beeb7eb3124d311e3"
+    },
+    {
+      "path": "CMakeCache.txt",
+      "bytes": 30958,
+      "sha256": "3f24992b4f46c95e1f1f602bba01cf037c082434d7dfdac3f626da472ac440c2"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CMakeASMCompiler.cmake",
+      "bytes": 2086,
+      "sha256": "a840bacd2cab00bfa3d75680ef78fea2d4bb8c9a26d711e46823e0eb0e8a1b3b"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CMakeCCompiler.cmake",
+      "bytes": 5247,
+      "sha256": "3c43f21c6898c2af321045f732a329fc62f767bd70b4faea3f02c0b7b233ce6f"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CMakeCXXCompiler.cmake",
+      "bytes": 9198,
+      "sha256": "b0634f3a9ee98ec1fa64e85460656d818d9e4c9ca2736c7273b405cd3cc09ff4"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CMakeDetermineCompilerABI_C.bin",
+      "bytes": 9832,
+      "sha256": "2e17a82b1b3d62c0d63d2a940e35310d0f99983f44a2e91f48368edae07f15e9"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CMakeDetermineCompilerABI_CXX.bin",
+      "bytes": 9856,
+      "sha256": "1f2415b09fad4f709656624f0d5e7f9926ce931e2e0e0f7e3f9ba2591373ecef"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CMakeSystem.cmake",
+      "bytes": 510,
+      "sha256": "60129400a5a86bc28380d44111714f9cea17c2f03e096a6f5e94ed98c0f59f71"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.c",
+      "bytes": 27620,
+      "sha256": "60d0dc2f177f0317302cef41d454988d9d49759ad3e011365bd6f6c544dfd126"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CompilerIdC/a.out",
+      "bytes": 4336,
+      "sha256": "626cad3f6f650e1b5f1556a3912466ff793c3f2351f7e9b191068539d12b9b15"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+      "bytes": 28457,
+      "sha256": "911d6deb85661272b2ddc7a8e26810febd726944c61e1d9495e6a1abb11d9eff"
+    },
+    {
+      "path": "CMakeFiles/3.31.6/CompilerIdCXX/a.out",
+      "bytes": 4344,
+      "sha256": "07564ad9907af4b9d0ba7d58edcbe9dd1faa847e34269bed0ebbef32aefda4cb"
+    },
+    {
+      "path": "CMakeFiles/CMakeConfigureLog.yaml",
+      "bytes": 378003,
+      "sha256": "cf09d2ced1a71e5f08be87685f1c3699f2404d446406f618f932a36e34795f95"
+    },
+    {
+      "path": "CMakeFiles/TargetDirectories.txt",
+      "bytes": 82579,
+      "sha256": "0b41ce2365c97f79ecef250621a6118695847478ad6903ef812d26514cdb6178"
+    },
+    {
+      "path": "CMakeFiles/bootloader.dir/Labels.json",
+      "bytes": 1817,
+      "sha256": "ed2082eea55afc2077c47319bdf7b9466d0a915da2f256f6a6652904b7f10013"
+    },
+    {
+      "path": "CMakeFiles/bootloader.dir/Labels.txt",
+      "bytes": 1542,
+      "sha256": "ecd6eb44504d268d4e359343f30c0915f531878d4afc300033eceb5a3a3d9ee1"
+    },
+    {
+      "path": "CMakeFiles/clean_additional.cmake",
+      "bytes": 586,
+      "sha256": "1ff75e663b63596a4b650469af9aed7687017376954dd318a2b9f7c1911f1b1a"
+    },
+    {
+      "path": "CMakeFiles/cmake.check_cache",
+      "bytes": 85,
+      "sha256": "a26189e394421da57f45706a07713c5720acd200a41711b0c0c590c3c63371c4"
+    },
+    {
+      "path": "CMakeFiles/git-data/HEAD",
+      "bytes": 41,
+      "sha256": "5780769644465f6cc8ab9d55e8de6598f0ccffb57f6fa1e737629b1618736504"
+    },
+    {
+      "path": "CMakeFiles/git-data/grabRef.cmake",
+      "bytes": 2187,
+      "sha256": "4b8de7f039a62f1d10b5420d4624366663d447174e9dd1d67bf72b9ad78eb3a5"
+    },
+    {
+      "path": "CMakeFiles/git-data/head-ref",
+      "bytes": 41,
+      "sha256": "5780769644465f6cc8ab9d55e8de6598f0ccffb57f6fa1e737629b1618736504"
+    },
+    {
+      "path": "CMakeFiles/rules.ninja",
+      "bytes": 64521,
+      "sha256": "c38e94dc618c26060f466eb95b9095b38c1ae4fdd491e84f47503b8c18007618"
+    },
+    {
+      "path": "app-flash_args",
+      "bytes": 79,
+      "sha256": "12e2be070020c5ef7bf6025fbe496392a1d14c8fbb5c2fdb513b17df7892abf4"
+    },
+    {
+      "path": "app-flash_args.in",
+      "bytes": 116,
+      "sha256": "c4365b5130d92adb70b8cfc9303ddcca5ef81e7472fda5ae1aa910663877bbf4"
+    },
+    {
+      "path": "bootloader-flash_args",
+      "bytes": 81,
+      "sha256": "08bbb900c0de1d833a288e076652a3d537540b91e658940661ad0432330d9450"
+    },
+    {
+      "path": "bootloader-prefix/src/bootloader-stamp/bootloader-patch-info.txt",
+      "bytes": 228,
+      "sha256": "79583c16247fd8590534e74bcc506a71154848e922e09191eba1bac3695748a3"
+    },
+    {
+      "path": "bootloader-prefix/src/bootloader-stamp/bootloader-source_dirinfo.txt",
+      "bytes": 369,
+      "sha256": "0e39626cd983e916a13cef6f2105c0f3955f596397c829f6c28f33822dcf575a"
+    },
+    {
+      "path": "bootloader-prefix/src/bootloader-stamp/bootloader-update-info.txt",
+      "bytes": 263,
+      "sha256": "b50e078a94b681e3a64bc1f1a1068ffcb8e31b7db3a987433ddec824ebdc987d"
+    },
+    {
+      "path": "bootloader-prefix/tmp/bootloader-cfgcmd.txt",
+      "bytes": 610,
+      "sha256": "9991cbf46dca97b7208ee0a27b9a296b250c9afb2738d991ca87cce5182b2507"
+    },
+    {
+      "path": "bootloader-prefix/tmp/bootloader-mkdirs.cmake",
+      "bytes": 1941,
+      "sha256": "04ecd889589b5abaf4423385ea60c3df37ff85ef9679b0290d31e768cfb03c61"
+    },
+    {
+      "path": "build.ninja",
+      "bytes": 5646977,
+      "sha256": "3ed64e19a8b8ebd3c06c6784d38bcc9247bbe23c8da0064be2e2bec71bef7507"
+    },
+    {
+      "path": "cmake_install.cmake",
+      "bytes": 2529,
+      "sha256": "332711d1481d1cb3f6d053330d702fe5e9b5b79bd1d7c64d37e30b50d862e923"
+    },
+    {
+      "path": "compile_commands.json",
+      "bytes": 5069169,
+      "sha256": "27cbdb0e58ed25a69b3c850d10663bb5b46a3d2b7a68803bc29f9888ae2633c9"
+    },
+    {
+      "path": "config/kconfig_menus.json",
+      "bytes": 865892,
+      "sha256": "f0085f1d5354d5531ef3b24868c00485941edfc2ac46c18e24e13e4e2c0e3258"
+    },
+    {
+      "path": "config/sdkconfig.cmake",
+      "bytes": 77030,
+      "sha256": "fd44afe705cdc07b84e1fc1fc81db51629693e26c5a2a2be61e7c932d0cea8ad"
+    },
+    {
+      "path": "config/sdkconfig.h",
+      "bytes": 33872,
+      "sha256": "2f98a6cc3b050fe420a7c46770136ed3a3c8ae6554fe9f35c86e0da8431c11bd"
+    },
+    {
+      "path": "config/sdkconfig.json",
+      "bytes": 36081,
+      "sha256": "7cc07c68a8303331754432871de7f29565aaa75ef5e26ecdfc2d185060222240"
+    },
+    {
+      "path": "config.env",
+      "bytes": 5406,
+      "sha256": "f3b7938f19da57dededfc9448e934595003ebe774729187321d5ab95eb6271e0"
+    },
+    {
+      "path": "esp-idf/app_update/cmake_install.cmake",
+      "bytes": 1662,
+      "sha256": "30081d5500c7b870d9df3d3b04d31d1873179c280ef66e5b7fd7fc64b111193f"
+    },
+    {
+      "path": "esp-idf/bootloader/bootloader-flash_args.in",
+      "bytes": 80,
+      "sha256": "bcaeee7632133a125eb45df8185299fecdb4fb8541f117cce45357e4a6348de6"
+    },
+    {
+      "path": "esp-idf/bootloader/cmake_install.cmake",
+      "bytes": 1662,
+      "sha256": "0c04ad7e574f4ce1eb70ed885fe7cddace59f92e3399eb07bfaf3b73715f4c98"
+    },
+    {
+      "path": "esp-idf/bootloader_support/cmake_install.cmake",
+      "bytes": 1678,
+      "sha256": "12b4011a12beb9a35db897f546c6b9f7dbba38121b381a474186303e667b263f"
+    },
+    {
+      "path": "esp-idf/cmake_install.cmake",
+      "bytes": 13822,
+      "sha256": "a8022627e73d3aff088e58c1464df19900cdf8c4944e1f28b5724e0130ca1f11"
+    },
+    {
+      "path": "esp-idf/cxx/cmake_install.cmake",
+      "bytes": 1648,
+      "sha256": "071821d3949a602a73f57144557e3c4ce94aebb0f10c791099696f2f2a6ee4ae"
+    },
+    {
+      "path": "esp-idf/efuse/cmake_install.cmake",
+      "bytes": 1652,
+      "sha256": "09614db6a0698865bd66dec1ed9a33f5826347e7d6cdf2d0d2e21b7de66f8175"
+    },
+    {
+      "path": "esp-idf/esp_app_format/cmake_install.cmake",
+      "bytes": 1670,
+      "sha256": "ceaaf9f5685bd69dc174881dfa750cb597e85119799271fed117ffccdc86b87d"
+    },
+    {
+      "path": "esp-idf/esp_blockdev/cmake_install.cmake",
+      "bytes": 1666,
+      "sha256": "3d8d8fdb5861d15993488e97dd62bd042f02b420b7b0ac8848cb10af38b1e4d1"
+    },
+    {
+      "path": "esp-idf/esp_bootloader_format/cmake_install.cmake",
+      "bytes": 1684,
+      "sha256": "2083b401f93bfc53a6fc5bfba3e8308f716b7c2165b1b943516e583c4f6034cf"
+    },
+    {
+      "path": "esp-idf/esp_common/cmake_install.cmake",
+      "bytes": 1662,
+      "sha256": "f26b949d0d5369cce3512e1c818e482c78ea5c29bbbde5b26870e587e24dfb25"
+    },
+    {
+      "path": "esp-idf/esp_driver_dma/cmake_install.cmake",
+      "bytes": 1670,
+      "sha256": "483a95c6a20c6bdfa389c72c4fe6ebdb37949b6d17e87163fabc563e3d45beb1"
+    },
+    {
+      "path": "esp-idf/esp_driver_gpio/cmake_install.cmake",
+      "bytes": 1672,
+      "sha256": "3ec73abb0ef07bc5a885ddd272c7c288ac8661db005bbcacc6d127bfd0dfcd5d"
+    },
+    {
+      "path": "esp-idf/esp_hal_ana_conv/cmake_install.cmake",
+      "bytes": 1674,
+      "sha256": "ab4d6c457411ff9b699b54f5f69a6f18e8f71a0bcfcd691466c9e4fe0f4ae737"
+    },
+    {
+      "path": "esp-idf/esp_hal_clock/cmake_install.cmake",
+      "bytes": 1668,
+      "sha256": "504a172bbcd682f75c9826151eb2af14aed3e729bf4365b1a610a0631ac4a114"
+    },
+    {
+      "path": "esp-idf/esp_hal_dma/cmake_install.cmake",
+      "bytes": 1664,
+      "sha256": "a9b49ecbfdc139bd30d96e505b9c8b3d85321fea0cf8360811f0bbe1245d5a85"
+    },
+    {
+      "path": "esp-idf/esp_hal_gpio/cmake_install.cmake",
+      "bytes": 1666,
+      "sha256": "d1a0a45475d58e044d85d5d08cd35af136fb4864e06123cffdcf4cfaf289c697"
+    },
+    {
+      "path": "esp-idf/esp_hal_gpspi/cmake_install.cmake",
+      "bytes": 1668,
+      "sha256": "73a054d9b4cb149c032fe155e82f4c6ad026b8800614607a02aa944225698b94"
+    },
+    {
+      "path": "esp-idf/esp_hal_mspi/cmake_install.cmake",
+      "bytes": 1666,
+      "sha256": "262a827b9a06b0c08005edc5538323c1f3308c303efc42c56029368ec2df4980"
+    },
+    {
+      "path": "esp-idf/esp_hal_pmu/cmake_install.cmake",
+      "bytes": 1664,
+      "sha256": "01b03ed3571305835437f5ab5693dd8e23c360d799ecc51882d76e6ba51821cc"
+    },
+    {
+      "path": "esp-idf/esp_hal_regi2c/cmake_install.cmake",
+      "bytes": 1670,
+      "sha256": "e1e449f958d6c68ca69adbe9e7435cf1a79699ba9bbed4c932c414ac7bdf07a7"
+    },
+    {
+      "path": "esp-idf/esp_hal_rtc_timer/cmake_install.cmake",
+      "bytes": 1676,
+      "sha256": "d27e740858e16f3eb3dcbe5a7ed512f9683c546f1a2d4de72a86ec919625b7b7"
+    },
+    {
+      "path": "esp-idf/esp_hal_security/cmake_install.cmake",
+      "bytes": 1674,
+      "sha256": "53e3912b3c971ba1876312c804054b642145c387d72c25d9670fa7ab08421004"
+    },
+    {
+      "path": "esp-idf/esp_hal_systimer/cmake_install.cmake",
+      "bytes": 1674,
+      "sha256": "77777f652f262cab9260261efbe85a2cb91eb7041791499fd7fa473a6838dba9"
+    },
+    {
+      "path": "esp-idf/esp_hal_timg/cmake_install.cmake",
+      "bytes": 1666,
+      "sha256": "ac010219a5c8225fff5ca5f256f51299beefe1f8d94a84211125f7ef36923306"
+    },
+    {
+      "path": "esp-idf/esp_hal_touch_sens/cmake_install.cmake",
+      "bytes": 1678,
+      "sha256": "3a2a684747fbb32d6a99038d1075fde695f4db6b297acb95812776718570ef48"
+    },
+    {
+      "path": "esp-idf/esp_hal_uart/cmake_install.cmake",
+      "bytes": 1666,
+      "sha256": "17dbbb71c1b81aff390f3868cf8ddeda556e50c2ecf0821deda16b3ce592755b"
+    },
+    {
+      "path": "esp-idf/esp_hal_usb/cmake_install.cmake",
+      "bytes": 1664,
+      "sha256": "b9d5b280fcd8e281584a89e94f2661c4039ae43a81e650fa32b1a47b38ead612"
+    },
+    {
+      "path": "esp-idf/esp_hal_wdt/cmake_install.cmake",
+      "bytes": 1664,
+      "sha256": "aec456e248567a71864b82331e2f16b1a665744790f8d46cbb8aa5bb7d3a12ad"
+    },
+    {
+      "path": "esp-idf/esp_hw_support/cmake_install.cmake",
+      "bytes": 2723,
+      "sha256": "57fecaaab3fa0af9af25f9666ac89617d5735cacfeeb799480b77d6157eea646"
+    },
+    {
+      "path": "esp-idf/esp_hw_support/lowpower/cmake_install.cmake",
+      "bytes": 1688,
+      "sha256": "69db6fa284e70dde557eecad6ccc2c54dc62b76f2d3bd1a21933280db64796f8"
+    },
+    {
+      "path": "esp-idf/esp_hw_support/modem/cmake_install.cmake",
+      "bytes": 1682,
+      "sha256": "9914e6097c9b4cc318ac2143c4670ce4cdbf963db77386ed89304fa342dd53b0"
+    },
+    {
+      "path": "esp-idf/esp_hw_support/mspi/mspi_timing_tuning/port/esp32s3/cmake_install.cmake",
+      "bytes": 1744,
+      "sha256": "2b99fdd4d76139585e0173c44f34aec52d1f9bc0120bcfb2e283d5080ec2fdc7"
+    },
+    {
+      "path": "esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake",
+      "bytes": 1696,
+      "sha256": "bfbabb486cbfa17200bcc723cd14b09a8e10ff58f4e18823cf9eef1a3d77ac54"
+    },
+    {
+      "path": "esp-idf/esp_libc/cmake_install.cmake",
+      "bytes": 1908,
+      "sha256": "6a46b0b7e415fbb6650d1342d0d547491e363b9d55f7ddd6f7787ed17bafdf92"
+    },
+    {
+      "path": "esp-idf/esp_libc/src/port/cmake_install.cmake",
+      "bytes": 1676,
+      "sha256": "f4da545834b5102dda8a9ef8e2344a374ba4ab1c7f14d06d9ca26c01895fbdb2"
+    },
+    {
+      "path": "esp-idf/esp_mm/cmake_install.cmake",
+      "bytes": 1654,
+      "sha256": "82594951efc60fc0cbcaec25373d45efac25f8ac853a1ad38926b9775c47ed55"
+    },
+    {
+      "path": "esp-idf/esp_partition/cmake_install.cmake",
+      "bytes": 1668,
+      "sha256": "cbf3171af8516fce35a07bf2508cd62d5162cb20c374531e268ba9b3fceab7d7"
+    },
+    {
+      "path": "esp-idf/esp_pm/cmake_install.cmake",
+      "bytes": 1654,
+      "sha256": "de4663f56e68239e6fa719ea111df6890bc1bfdaf1980cb86cac8197db7738c6"
+    },
+    {
+      "path": "esp-idf/esp_rom/cmake_install.cmake",
+      "bytes": 1656,
+      "sha256": "c10a1d03023faf37e3cf6153719c999bf8381559ff92405bc9a701233960f8d5"
+    },
+    {
+      "path": "esp-idf/esp_security/cmake_install.cmake",
+      "bytes": 1666,
+      "sha256": "3e172f60b1ebe20bd0597043372beb80f75d0fc49a332e9b02f25f0f0c05cf43"
+    },
+    {
+      "path": "esp-idf/esp_stdio/cmake_install.cmake",
+      "bytes": 1660,
+      "sha256": "e034333aefec5c8eea7d31fe3457c2f486cdeee7bcd955effad18f7a7e04a8f0"
+    },
+    {
+      "path": "esp-idf/esp_system/cmake_install.cmake",
+      "bytes": 1910,
+      "sha256": "6513b4c50ebab3df316e56c07f3232032866bae53bcb7f4756ac058adee31410"
+    },
+    {
+      "path": "esp-idf/esp_system/port/cmake_install.cmake",
+      "bytes": 1932,
+      "sha256": "d5477d5c0d743bdfbd445c4f33c6aad1f8409a264cdc4f4b1243b681f03906a7"
+    },
+    {
+      "path": "esp-idf/esp_system/port/soc/esp32s3/cmake_install.cmake",
+      "bytes": 1696,
+      "sha256": "e27cc9d8cdc4ce33a028488117f52f0d0a06b7d15bad9ec5096478b4405b34e4"
+    },
+    {
+      "path": "esp-idf/esp_timer/cmake_install.cmake",
+      "bytes": 1660,
+      "sha256": "112cead11055ede9619f4893dd5833645b1bfa9cdd122cddfd18cd228715b35d"
+    },
+    {
+      "path": "esp-idf/esp_usb_cdc_rom_console/cmake_install.cmake",
+      "bytes": 1688,
+      "sha256": "76e0abd13f3433063000fedb69d176f5b8b9272d002a87ee6710104cadbd386d"
+    },
+    {
+      "path": "esp-idf/esptool_py/cmake_install.cmake",
+      "bytes": 1662,
+      "sha256": "d1af5296306cf39d0c2abec06ac805d7d3b671f60935bc9d0c5e843c12186d3d"
+    },
+    {
+      "path": "esp-idf/freertos/cmake_install.cmake",
+      "bytes": 1658,
+      "sha256": "56d9e3bbb494af2439b43184882b30329f8c4339bae0f06e32b46b1b8f5a36d4"
+    },
+    {
+      "path": "esp-idf/hal/cmake_install.cmake",
+      "bytes": 1648,
+      "sha256": "a44a01b0282822ac98af4df6733d9c40494684cb9450b4e54e9e4191f36b2079"
+    },
+    {
+      "path": "esp-idf/heap/cmake_install.cmake",
+      "bytes": 1650,
+      "sha256": "dc666aeceed11de38f72152c6577e99db31a36ad88ddff28af1ed9a2f8a86f1c"
+    },
+    {
+      "path": "esp-idf/log/cmake_install.cmake",
+      "bytes": 1648,
+      "sha256": "8d07b5a5003162a95c4097f79011755fa9aab3d8d20e5c49eba4e337b35300c2"
+    },
+    {
+      "path": "esp-idf/main/cmake_install.cmake",
+      "bytes": 1661,
+      "sha256": "cde642a30ce64d72257cddd36db35f9f75a31f0bfaa02a6e73fc1bc23384ae23"
+    },
+    {
+      "path": "esp-idf/mbedtls/cmake_install.cmake",
+      "bytes": 1904,
+      "sha256": "34bcde55d7011d83952a6ef942654094f06cdbfe0ebd9cb562a92b9b91606b64"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/cmake_install.cmake",
+      "bytes": 2421,
+      "sha256": "285e12b0ff5f83c4cd0fae5e28b85d8c256f9bdfb7c7e56aef20e9ca5c4e0dab"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/include/cmake_install.cmake",
+      "bytes": 4927,
+      "sha256": "54253e8542953763debd49e0e5ed462a052173778fce1be2b547b911e9b1a13b"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/library/cmake_install.cmake",
+      "bytes": 2673,
+      "sha256": "c73605e5668c9f695c65215a5a810569b5e6f530235189fa024d77abe2a94d53"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake",
+      "bytes": 1692,
+      "sha256": "3c217a81d9978e4613d2ba0e5de00046fc56dc58167d37259cd9ceadb3063680"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/cmake_install.cmake",
+      "bytes": 3023,
+      "sha256": "5d1286c52579e73c95054121031baf378946403e515785530adfef6f7f8880df"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/cmake_install.cmake",
+      "bytes": 2376,
+      "sha256": "f71328d4c1a45b5c719f4365bb36e9080b28cef9c57dff1bc6b3a62abd8e5f29"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/cmake_install.cmake",
+      "bytes": 2085,
+      "sha256": "c348d68463793ee3746cb55a5a923c39b25d665dfb940f00292e1ae7459a7890"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/cmake_install.cmake",
+      "bytes": 2541,
+      "sha256": "19e8904ea261913bfa819c51ae8d1a8df81ad34893f6416ea4304f4621d4aedd"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/cmake_install.cmake",
+      "bytes": 2085,
+      "sha256": "62d62d1de94fbe339c31a4131081eeee09c9e20c803f6c7c73336c2c3086c3d4"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/cmake_install.cmake",
+      "bytes": 1730,
+      "sha256": "e8731fe6e3e559105ea612c7413f9360816240a9a7dd2485f91b1fa0c1579ed9"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/pqcp/cmake_install.cmake",
+      "bytes": 2076,
+      "sha256": "3cd52e850fb513ea0c1aed0ebb60b0d20f64ad67d162a2ca59d36f4c91cefa09"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/cmake_install.cmake",
+      "bytes": 1714,
+      "sha256": "bbaa5df98ec4102137f5f65b5c2d5ed27403e8ed1827418db770b3fef09732fa"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/include/cmake_install.cmake",
+      "bytes": 2412,
+      "sha256": "ab3f89fd90e69611cf0c6702322e713dada5566abdaa59651646f90484f13727"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/pkgconfig/cmake_install.cmake",
+      "bytes": 1720,
+      "sha256": "4b977c303399cc187578047d8606122b0b46cf1de160970d867196113999bc3a"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/platform/cmake_install.cmake",
+      "bytes": 1718,
+      "sha256": "9dcc082a1d0dfc6e901591755eb62db6173aae4a73894d0fa8caa8f61cdbabe3"
+    },
+    {
+      "path": "esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/cmake_install.cmake",
+      "bytes": 1720,
+      "sha256": "deeb33804954354e0fcc63027f8cf9fbf80132aa8faa010548a8696703ba2536"
+    },
+    {
+      "path": "esp-idf/partition_table/cmake_install.cmake",
+      "bytes": 1672,
+      "sha256": "ddeaf0f424cf5779655b12c7930c3d7757f8b582bf079da533bd7d6633d5f041"
+    },
+    {
+      "path": "esp-idf/partition_table/partition-table-flash_args.in",
+      "bytes": 93,
+      "sha256": "86eec8fc9745236c6637608636754cc870d47d64cd5175e9a235f219ee86cea8"
+    },
+    {
+      "path": "esp-idf/pthread/cmake_install.cmake",
+      "bytes": 1656,
+      "sha256": "85a7edd167ccf3d7509c79830947dbefe863fd2315524fa9c455f04d08a97d33"
+    },
+    {
+      "path": "esp-idf/soc/cmake_install.cmake",
+      "bytes": 1648,
+      "sha256": "67f4f32e68316956fa5e3ef66a858ffd357224d877e9ed55b0fd858a84fa1eed"
+    },
+    {
+      "path": "esp-idf/spi_flash/cmake_install.cmake",
+      "bytes": 1660,
+      "sha256": "d13412af365b7a45ec17100b3c0cf7edaff976c54d16d70b7289e6ea5e83345a"
+    },
+    {
+      "path": "esp-idf/xtensa/cmake_install.cmake",
+      "bytes": 1654,
+      "sha256": "d42b5a90578666cd3b9b8fdd3d94423c2b5141cb847625c6bc32144c69dceff3"
+    },
+    {
+      "path": "flash_app_args",
+      "bytes": 79,
+      "sha256": "12e2be070020c5ef7bf6025fbe496392a1d14c8fbb5c2fdb513b17df7892abf4"
+    },
+    {
+      "path": "flash_args",
+      "bytes": 152,
+      "sha256": "a1b4f9b9dbf03aad1e9f6c11d3a1a5bc1d2a52c84219e1e7ab17242ede0776b1"
+    },
+    {
+      "path": "flash_args.in",
+      "bytes": 189,
+      "sha256": "897fb662358217f32fc4a9beb6285766e5b0f3f41a91fd1d0237ff0de3f46c91"
+    },
+    {
+      "path": "flash_bootloader_args",
+      "bytes": 81,
+      "sha256": "08bbb900c0de1d833a288e076652a3d537540b91e658940661ad0432330d9450"
+    },
+    {
+      "path": "flash_project_args",
+      "bytes": 152,
+      "sha256": "a1b4f9b9dbf03aad1e9f6c11d3a1a5bc1d2a52c84219e1e7ab17242ede0776b1"
+    },
+    {
+      "path": "flasher_args.json",
+      "bytes": 921,
+      "sha256": "3d5b6362d09a117f1b1435bd65f3bcdc717053283627093287e2ec5c31a1394f"
+    },
+    {
+      "path": "flasher_args.json.in",
+      "bytes": 997,
+      "sha256": "8a4fd405af059f7acd0686fc36af36507522fa2455b7e970cbb9f346c727f62e"
+    },
+    {
+      "path": "gdbinit/connect",
+      "bytes": 184,
+      "sha256": "4e75d695e63fdacde19f2e43fa528a5e84a380e01f8748056c7e205304b81cf0"
+    },
+    {
+      "path": "gdbinit/gdbinit",
+      "bytes": 238,
+      "sha256": "af9dc9fb7dd88e7cab5476c96e69b79d80d70064d32166c358ee3cb56c97fc16"
+    },
+    {
+      "path": "gdbinit/prefix_map",
+      "bytes": 50,
+      "sha256": "b60c86f93b8f79babb9ace8b4d88d89d3cf71c08a78b06ea04758f125ad62522"
+    },
+    {
+      "path": "gdbinit/py_extensions",
+      "bytes": 334,
+      "sha256": "66f78cd44a8850e3530edb3fd7f2d9078cde6fa52c066827c2cb555ba91e3ade"
+    },
+    {
+      "path": "gdbinit/symbols",
+      "bytes": 350,
+      "sha256": "f5b58d223e99c4ccf36a906b73a94d8cb95e8b4b08e1b14156d6b7fbbe35c76d"
+    },
+    {
+      "path": "hints.yml",
+      "bytes": 37641,
+      "sha256": "a9faf5a559d7a9edc8975c95fd5d6ed64626d515f57c247f4a3d7c117cde9b5f"
+    },
+    {
+      "path": "kconfigs.in",
+      "bytes": 2491,
+      "sha256": "0bd32ff3ceaae7206f525b411db755991969e54ac59109bc242a0c8a3df9a608"
+    },
+    {
+      "path": "kconfigs_projbuild.in",
+      "bytes": 755,
+      "sha256": "4849a0a6ce4a7127a2bc5e8dbd08a2b4e72ca838e8e13714775056e967d4bc26"
+    },
+    {
+      "path": "ldgen_libraries",
+      "bytes": 11748,
+      "sha256": "96092cfbbb57b3e677f9096c7ebf5789effc8c27abd48550fd051d1117654fec"
+    },
+    {
+      "path": "ldgen_libraries.in",
+      "bytes": 2809,
+      "sha256": "3257e137934c329eee57d638434ab8ac45d078d085107110c1ec9abee6ed883e"
+    },
+    {
+      "path": "log/idf_py_stderr_output_1810487",
+      "bytes": 3515,
+      "sha256": "9485cf2ec5459abd3fb6bb62b4c8f315167987b2ec92a93aa7b82ff0d792859c"
+    },
+    {
+      "path": "log/idf_py_stdout_output_1810487",
+      "bytes": 11686,
+      "sha256": "09b6ab58814f005e7e9a3c04cf8964ac1d0be556a3cc178aebe2c03a7a4f418c"
+    },
+    {
+      "path": "partition-table-flash_args",
+      "bytes": 94,
+      "sha256": "841b9b172ad1f289df2a9b4a56070bdc7437af732d418a53d94aee5172f29f09"
+    },
+    {
+      "path": "project_description.json",
+      "bytes": 174742,
+      "sha256": "77302b6a0d654476f7f31ef28c4fc66e7401ee1b88caeb3ef9a972ef40ac5d1d"
+    },
+    {
+      "path": "sdkconfig",
+      "bytes": 54174,
+      "sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375"
+    },
+    {
+      "path": "specs/picolibc.specs",
+      "bytes": 3114,
+      "sha256": "abf36c1f57d16d1244ee064ca9ec82180a167fac34c3dbc281ba470703a556fc"
+    },
+    {
+      "path": "toolchain/asmflags",
+      "bytes": 197,
+      "sha256": "9e986f58bedeac5befc271ca5a6416b5af68f82665cef615bed889f43be83242"
+    },
+    {
+      "path": "toolchain/cflags",
+      "bytes": 197,
+      "sha256": "9e986f58bedeac5befc271ca5a6416b5af68f82665cef615bed889f43be83242"
+    },
+    {
+      "path": "toolchain/cxxflags",
+      "bytes": 207,
+      "sha256": "5f1b0da8cc635530e2ef92fb95ee5e9bb30df4d59ee7c1ac34fd03a0b033bc32"
+    },
+    {
+      "path": "toolchain/ldflags",
+      "bytes": 24,
+      "sha256": "0882bd89337f1e7949a99b6d96b1fff733639561359a71d6f0507168ac7c42dc"
+    },
+    {
+      "path": "toolchain/toolchain-esp32s3.cmake",
+      "bytes": 101,
+      "sha256": "25323260dee4df19e35d9aed84bacdd71bb46df9165c286d060dceaa6368ac02"
+    }
+  ],
+  "scope": "Original emitted app configure files and ordinary compiler-identification probes; no product app/bootloader binary was built."
+}

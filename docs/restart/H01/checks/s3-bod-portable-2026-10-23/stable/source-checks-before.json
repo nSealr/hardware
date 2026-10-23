@@ -1,0 +1,123 @@
+[
+  {
+    "commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+    "files_verified": 20727,
+    "Gitlinks": [
+      {
+        "path": "components/bootloader/subproject/components/micro-ecc/micro-ecc",
+        "commit": "24c60e243580c7868f4334a1ba3123481fe1aa48"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32",
+        "commit": "98c6de2d5411a7297dbba00387dfca2bcc44fd18"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32c2/esp32c2-bt-lib",
+        "commit": "6a5c0b8bfca1a2e984e89431b8ebf9b521dad5ea"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32c3_family",
+        "commit": "0a08c4b32f3666003080b662a1a61794da24ff0f"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32c5/esp32c5-bt-lib",
+        "commit": "ac7885ea2fc76e56a814d10120812ccacf101f0b"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32c6/esp32c6-bt-lib",
+        "commit": "eee922eaa95770d567f0939cc3d56c712a6ecf65"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32h2/esp32h2-bt-lib",
+        "commit": "e0bb64a28b90247a349fbfc03a204df9194e40a1"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32h4/esp32h4-bt-lib",
+        "commit": "f4ce5d581a264fb5bf4c1b6ed473c45ad91f9db7"
+      },
+      {
+        "path": "components/bt/controller/lib_esp32s31/esp32s31-bt-lib",
+        "commit": "7f20740dd66ee774ffce5db0b55507892551aa31"
+      },
+      {
+        "path": "components/bt/esp_ble_audio/lib/lib",
+        "commit": "8af29109827eb9e3bc636b2a1ae6596fdfacaf4a"
+      },
+      {
+        "path": "components/bt/esp_ble_mesh/lib/lib",
+        "commit": "f6c62bfa32759da7c44459bd6b40079cce93c94b"
+      },
+      {
+        "path": "components/bt/host/nimble/nimble",
+        "commit": "139cada0ae932957fa06ba37d17e3c9c2c95c773"
+      },
+      {
+        "path": "components/cmock/CMock",
+        "commit": "eeecc49ce8af123cf8ad40efdb9673e37b56230f"
+      },
+      {
+        "path": "components/esp_coex/lib",
+        "commit": "ddc56fa524a38df3098d2f36475fbe3eefe9b4f4"
+      },
+      {
+        "path": "components/esp_phy/lib",
+        "commit": "5695f4f38108658bc4a33e4712c1ebcb34911434"
+      },
+      {
+        "path": "components/esp_wifi/lib",
+        "commit": "7cd4d7b2b4acc38aead43b029ac9409c3eba9c54"
+      },
+      {
+        "path": "components/heap/tlsf",
+        "commit": "2867f6883a12920b1969ff9624c0ab0e4185c2ce"
+      },
+      {
+        "path": "components/lwip/lwip",
+        "commit": "c6f2f878e7b0f86033214b85547d579be43351e3"
+      },
+      {
+        "path": "components/mbedtls/mbedtls",
+        "commit": "a2b32072ea898afc1ed5b6caf6931e36028c91d6"
+      },
+      {
+        "path": "components/openthread/lib",
+        "commit": "4dd715391cfb2cf4d06825a17294514024e4dc12"
+      },
+      {
+        "path": "components/openthread/openthread",
+        "commit": "b678a4f63b6f9397d1a0fa8f31e5b8e0271a4d00"
+      },
+      {
+        "path": "components/protobuf-c/protobuf-c",
+        "commit": "abc67a11c6db271bedbb9f58be85d6f4e2ea8389"
+      },
+      {
+        "path": "components/spiffs/spiffs",
+        "commit": "ad902cadceb39d0825a97e25ecb5867641f606ba"
+      },
+      {
+        "path": "components/unity/unity",
+        "commit": "bf560290f6020737eafaa8b5cbd2177c3956c03f"
+      }
+    ]
+  },
+  {
+    "commit": "24c60e243580c7868f4334a1ba3123481fe1aa48",
+    "tree": "04bf6c7cdfc11e5e30b88ca010715678a05edf58",
+    "files_verified": 31,
+    "Gitlinks": []
+  },
+  {
+    "commit": "2867f6883a12920b1969ff9624c0ab0e4185c2ce",
+    "tree": "57be726d23c34b4258d65e59302638756109db45",
+    "files_verified": 8,
+    "Gitlinks": []
+  },
+  {
+    "commit": "a2b32072ea898afc1ed5b6caf6931e36028c91d6",
+    "tree": "4558786a8d6c76e58bffa3cbee10da34781378fd",
+    "files_verified": 3551,
+    "Gitlinks": []
+  }
+]

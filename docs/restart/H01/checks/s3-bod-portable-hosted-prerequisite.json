@@ -1,0 +1,16 @@
+{
+  "status": "HOSTED_MISSING_PREREQUISITE_CORRECTED_PENDING_NEW_NORMAL_CI",
+  "failed_run": "https://github.com/nSealr/hardware/actions/runs/40028362294",
+  "failed_source": "178667079f3465981388d3986bfa7d10d4c1f18c",
+  "capture_sha256": "8ffd879702441315edf0694b4f2aec95290cb956612eb568cd795cef53683998",
+  "original_archive_members": 18,
+  "verify43": "PASS_job120670134497",
+  "compile_job": 120670134274,
+  "observed_failure": "command-vgit printed/usr/bin/git; command-vbwrap unavailable in effectivePATH and exited1. CompileMake skipped; artifact nofiles failure secondary. No namespace attempt/denial observed.",
+  "correction": "Only targeted authenticated configured-OS package provisioning for bubblewrap before unchangedguard. Version/origin recorded byAPT/dpkg; actualcontrollerrecords toolidentity andallmandatorynamespaceproperties. Crosscompiler/SDK/Python63pins andbuild execution unchanged/unprivileged.",
+  "code_candidate": "569137d366aafca1785c12260c7fa2aec1c9ab09",
+  "distinct_review_source": "9216d1281acda196fa8c2e0e704b5d5ce2b5d78b",
+  "mandatory_next": "BothnormalPRjobs mustPASSincluding realisolation andcrossbuild beforemerge; actualmainCI/coldsource remainrequired. Ifactualnamespacepolicydenies,STOPwithout privilege/sysctl/AppArmor/parameterbypass.",
+  "parent_criteria_closed": [],
+  "physical_qualification": false
+}

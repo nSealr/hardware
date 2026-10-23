@@ -1,0 +1,51 @@
+[
+  {
+    "name": "xtensa-esp-elf",
+    "version": "esp-15.2.0_20251204",
+    "asset": {
+      "sha256": "3d50f5cd5f173acfd524e07c1cd69bc99585731a415ca2e5bce879997fe602b8",
+      "size": 180530004,
+      "url": "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz"
+    },
+    "argv": [
+      "curl",
+      "--fail",
+      "--location",
+      "--proto",
+      "=https",
+      "--max-time",
+      "180",
+      "--output",
+      "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/dist/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz",
+      "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz"
+    ],
+    "exit": 0,
+    "duration_seconds": 3.277874708175659,
+    "checksum_verified": true
+  },
+  {
+    "name": "ninja",
+    "version": "1.12.1",
+    "asset": {
+      "rename_dist": "ninja-linux-v1.12.1.zip",
+      "sha256": "6f98805688d19672bd699fbbfa2c2cf0fc054ac3df1f0e6a47664d963d530255",
+      "size": 123084,
+      "url": "https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-linux.zip"
+    },
+    "argv": [
+      "curl",
+      "--fail",
+      "--location",
+      "--proto",
+      "=https",
+      "--max-time",
+      "180",
+      "--output",
+      "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/dist/ninja-linux-v1.12.1.zip",
+      "https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-linux.zip"
+    ],
+    "exit": 0,
+    "duration_seconds": 0.37195825576782227,
+    "checksum_verified": true
+  }
+]

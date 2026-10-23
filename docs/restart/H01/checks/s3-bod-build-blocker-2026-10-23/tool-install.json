@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf_tools.py",
+    "install",
+    "xtensa-esp-elf@esp-15.2.0_20251204",
+    "ninja@1.12.1"
+  ],
+  "exit": 0,
+  "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools"
+}

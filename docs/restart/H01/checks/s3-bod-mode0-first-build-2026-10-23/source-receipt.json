@@ -1,0 +1,235 @@
+{
+  "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "source_tree": "3c084479c57b2977eee37a39d1cbd3d8bb171c71",
+  "admission_commit": "b8488e00afb35c5e153278bf306fa32f354edfbd",
+  "admission_sha256": "3a82214de2799b34b2da8511ae24ca3c30a532b340166d2faff01ea951d4c080",
+  "project_inputs": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "e9afd6ded4bedd82e39d613b2e06309a78c9d4d7",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/CMakeLists.txt"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "125de1a7bdf9d321f191a70b789500f135cc521b",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/main/CMakeLists.txt"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "a378973fb584f3e8bcf10af24f36b3861aa7ed63",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/main/main.c"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/sdkconfig.defaults"
+    }
+  ],
+  "SDK_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "SDK_tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+  "tools": [
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc",
+      "sha256": "f556eb8b42ff8c0bb748243afa391a216b3482b7d3724e5c2aa6870952b76b74"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++",
+      "sha256": "f556eb8b42ff8c0bb748243afa391a216b3482b7d3724e5c2aa6870952b76b74"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump",
+      "sha256": "f556eb8b42ff8c0bb748243afa391a216b3482b7d3724e5c2aa6870952b76b74"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-readelf",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-readelf",
+      "sha256": "f556eb8b42ff8c0bb748243afa391a216b3482b7d3724e5c2aa6870952b76b74"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-nm",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-nm",
+      "sha256": "f556eb8b42ff8c0bb748243afa391a216b3482b7d3724e5c2aa6870952b76b74"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar",
+      "sha256": "f556eb8b42ff8c0bb748243afa391a216b3482b7d3724e5c2aa6870952b76b74"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1/ninja",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1/ninja",
+      "sha256": "cf10a35d13a384fed866bcd4989c7761e8556209d195cc6d2a7c0f11cc73804c"
+    },
+    {
+      "path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+      "resolved": "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3.12",
+      "sha256": "eaaa308032c4aa063df5880c4c293cd458b4629d503fbc2c03ec163d71f7f790"
+    },
+    {
+      "path": "/usr/bin/cmake",
+      "resolved": "/usr/bin/cmake",
+      "sha256": "9a2692f4d712265eb29c90c3366bfc40df400ea586b0477edabbcf3bae745dc1"
+    },
+    {
+      "path": "/usr/bin/git",
+      "resolved": "/usr/bin/git",
+      "sha256": "356db14e102d68a1a37d8a1ac577dfd678d45d46e92f468bef8b7154e7bfdc60"
+    },
+    {
+      "path": "/usr/bin/bwrap",
+      "resolved": "/usr/bin/bwrap",
+      "sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f"
+    }
+  ],
+  "original_archive_receipts": [
+    {
+      "name": "xtensa-esp-elf",
+      "version": "esp-15.2.0_20251204",
+      "asset": {
+        "sha256": "3d50f5cd5f173acfd524e07c1cd69bc99585731a415ca2e5bce879997fe602b8",
+        "size": 180530004,
+        "url": "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz"
+      },
+      "argv": [
+        "curl",
+        "--fail",
+        "--location",
+        "--proto",
+        "=https",
+        "--max-time",
+        "180",
+        "--output",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/dist/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz",
+        "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz"
+      ],
+      "exit": 0,
+      "duration_seconds": 3.277874708175659,
+      "checksum_verified": true
+    },
+    {
+      "name": "ninja",
+      "version": "1.12.1",
+      "asset": {
+        "rename_dist": "ninja-linux-v1.12.1.zip",
+        "sha256": "6f98805688d19672bd699fbbfa2c2cf0fc054ac3df1f0e6a47664d963d530255",
+        "size": 123084,
+        "url": "https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-linux.zip"
+      },
+      "argv": [
+        "curl",
+        "--fail",
+        "--location",
+        "--proto",
+        "=https",
+        "--max-time",
+        "180",
+        "--output",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/dist/ninja-linux-v1.12.1.zip",
+        "https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-linux.zip"
+      ],
+      "exit": 0,
+      "duration_seconds": 0.37195825576782227,
+      "checksum_verified": true
+    }
+  ],
+  "configure_argv": [
+    "bwrap",
+    "--unshare-user",
+    "--unshare-net",
+    "--die-with-parent",
+    "--bind",
+    "/",
+    "/",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project",
+    "--dev",
+    "/dev",
+    "--",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+    "-C",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project",
+    "-B",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build",
+    "-DIDF_TARGET=esp32s3",
+    "-DBOD_RST_SEL=0",
+    "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/sdkconfig",
+    "reconfigure"
+  ],
+  "build_argv": [
+    "bwrap",
+    "--unshare-user",
+    "--unshare-net",
+    "--die-with-parent",
+    "--bind",
+    "/",
+    "/",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project",
+    "--dev",
+    "/dev",
+    "--",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+    "-C",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project",
+    "-B",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build",
+    "-DIDF_TARGET=esp32s3",
+    "-DBOD_RST_SEL=0",
+    "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/sdkconfig",
+    "build"
+  ],
+  "environment_overrides": {
+    "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "IDF_COMPONENT_MANAGER": "0",
+    "IDF_SKIP_CHECK_SUBMODULES": "1",
+    "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/pycache",
+    "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin",
+    "IDF_PY_BUILD_JOBS": "4"
+  },
+  "job_schedule": "Official IDF_PY_BUILD_JOBS=4 controls concurrent compiler jobs only (pinned tools/idf_py_actions/tools.py:671-681); no source/config/optimization or safety threshold change.",
+  "expected_config": {
+    "IDF_TARGET": "esp32s3",
+    "ESP_BROWNOUT_DET": false,
+    "SECURE_BOOT": false,
+    "SECURE_FLASH_ENC_ENABLED": false,
+    "FREERTOS_UNICORE": true,
+    "ESP_DEFAULT_CPU_FREQ_MHZ_160": true
+  },
+  "TEE": "Inapplicable S3 symbol/default removed by F1, no disablement guarantee; old warnings remain historical.",
+  "stop": "One configure then inspected config then one ordinary mode0 build only. First failure stops; no acquisition, key/sign/provision/device, mode1, invalid-selector, CI or physical action. Full consumed-input closure remains unproved until separately analyzed."
+}

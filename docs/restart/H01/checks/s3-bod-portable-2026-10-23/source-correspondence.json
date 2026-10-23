@@ -1,0 +1,214 @@
+{
+  "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+  "source_tree": "1e30e7b266706ba9d4cb4731fbb56aae70be09f2",
+  "base_component": "bb0e7db1ff6687acc02ce3ad8aa23093ce0d93ad",
+  "unchanged_four_inputs": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+      "mode": "100644",
+      "blob": "e9afd6ded4bedd82e39d613b2e06309a78c9d4d7",
+      "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+      "original_input_source": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "unchanged_from_component": true
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+      "mode": "100644",
+      "blob": "125de1a7bdf9d321f191a70b789500f135cc521b",
+      "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+      "original_input_source": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "unchanged_from_component": true
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+      "mode": "100644",
+      "blob": "a378973fb584f3e8bcf10af24f36b3861aa7ed63",
+      "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+      "original_input_source": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "unchanged_from_component": true
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+      "mode": "100644",
+      "blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+      "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+      "original_input_source": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "unchanged_from_component": true
+    }
+  ],
+  "current_gate_sources": [
+    {
+      "path": "Makefile",
+      "mode": "100644",
+      "blob": "688ffcee223429de31c7079452c1555706d287e6",
+      "sha256": "3272da5a0d5540e8ab961c9d5a45764507f29f60b1b056f12c5947dcc6398889",
+      "bytes": 941
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "blob": "291c099d62b6edc26991e7d34c759064b5e480c8",
+      "sha256": "d4d290f495965c8382c056085cfa7a3748c3758516cd4128f638607a5e0e76f8",
+      "bytes": 1222
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/README.md",
+      "mode": "100644",
+      "blob": "3e7b9c40c5d367deb62a9fdc72ba578bd5991e6f",
+      "sha256": "737029a53fe53a92f41e7151a3ad7edcb9d264e808bff51e6801b0e1555b7e6e",
+      "bytes": 7019
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/build_gate.py",
+      "mode": "100644",
+      "blob": "a6b40624cc1375d9a37d7e5cb11b4744243a43a5",
+      "sha256": "7f0995ace0526a989404d94238094d69ee34cab46eb3410fb26bb3d815a608cf",
+      "bytes": 30967
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/cryptography-50.patch",
+      "mode": "100644",
+      "blob": "5a56e6dc69de6fe84511706d32a56fe79e539cfc",
+      "sha256": "8e2c175d741c2641cc7a31571e15bbe838b3b528aab88594c09ba41697ce15d2",
+      "bytes": 134
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/espidf.constraints.v6.1.txt",
+      "mode": "100644",
+      "blob": "9213f2a7e8894571b9fb96eed04ff539c135d42c",
+      "sha256": "f6afb482b6602c1d083b20e8f2405a0d732c248e2d67b6b3ef20f5a8439c2e41",
+      "bytes": 2515
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/espidf.constraints.v6.1.upstream.txt",
+      "mode": "100644",
+      "blob": "42fd485b2194bf45323a7ebe4621c5e5b52dbb78",
+      "sha256": "8fd2a7299a476370a1322e87a21ce0e24a9e5b8b6df4b34f0b8acb4a4b03d135",
+      "bytes": 2518
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/inputs.json",
+      "mode": "100644",
+      "blob": "276b5ab0918dc794c7e6583cf188ad48f7851e62",
+      "sha256": "9a25cbf9ce7a54c3415b4a78adea51e1a011b5d5e45e73317f1926e66174a1f6",
+      "bytes": 53175
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/python-versions.txt",
+      "mode": "100644",
+      "blob": "123998e0cba45e3eb07be7ab3af20be049ee5c08",
+      "sha256": "6cb20fa1322947a71af6b478e7605339ac9b1a160eb7ee582bc0569ac2ba9910",
+      "bytes": 1212
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/test_gate.py",
+      "mode": "100644",
+      "blob": "8ca9c46617741e711e8c4245775d5e2a821d5398",
+      "sha256": "35bc0b51342f7c7f31d716332d2059c87263e22fc7d0e69beb23485d861c0348",
+      "bytes": 5668
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/tools/verify_build.py",
+      "mode": "100644",
+      "blob": "563dc5c3ecca7cef0d29bd55326357b657df90ff",
+      "sha256": "a08f67da9c58c4b77748519256bb9afe0ddaba10654a2163000730d372043851",
+      "bytes": 14077
+    }
+  ],
+  "unchanged_original_tests_tree": "45549dd645b9dbe73d0ba2a1ec280a5bfd0d0ead",
+  "unchanged_original_scripts_tree": "3e3e78dc8040fa75e2be51e81462d9a4b3e2fc6f",
+  "normal_Make_ci_targets_byte_preserved": true,
+  "git_delta_from_component": [
+    "M\t.github/workflows/ci.yml",
+    "M\tMakefile",
+    "M\tdiagnostics/s3-bod-selector/README.md",
+    "A\tdiagnostics/s3-bod-selector/tools/build_gate.py",
+    "A\tdiagnostics/s3-bod-selector/tools/cryptography-50.patch",
+    "A\tdiagnostics/s3-bod-selector/tools/espidf.constraints.v6.1.txt",
+    "A\tdiagnostics/s3-bod-selector/tools/espidf.constraints.v6.1.upstream.txt",
+    "A\tdiagnostics/s3-bod-selector/tools/inputs.json",
+    "A\tdiagnostics/s3-bod-selector/tools/python-versions.txt",
+    "A\tdiagnostics/s3-bod-selector/tools/test_gate.py",
+    "A\tdiagnostics/s3-bod-selector/tools/verify_build.py",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/Python-profile.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-namespace-preflight.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-namespace-preflight.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-namespace-preflight.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-pip.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-pip.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-pip.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/build-esptool-wheel.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/build-esptool-wheel.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/build-esptool-wheel.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/early-summary.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/idf-python-metadata.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/idf-python-metadata.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/idf-python-metadata.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/install-profile.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/install-profile.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/install-profile.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/installed-profile.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/installed-profile.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/installed-profile.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/invocation.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/local-constraints-positive.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/local-constraints-positive.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/local-constraints-positive.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-build.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-build.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-build.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-configure.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-configure.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-configure.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-namespace-preflight.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-namespace-preflight.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-namespace-preflight.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-result.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-writer-disassembly.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-writer-disassembly.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-writer-disassembly.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/pip-check.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/pip-check.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/pip-check.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/python-version.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/python-version.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/python-version.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/result.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/source-checks-before.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/upstream-constraints-negative.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/upstream-constraints-negative.stderr",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/upstream-constraints-negative.stdout",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-01/command.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-01/disposition.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-01/evidence.tar.gz",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-01/stderr.log",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-01/stdout.log",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-02/command.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-02/disposition.json",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-02/evidence.tar.gz",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-02/stderr.log",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/final-attempt-02/stdout.log",
+    "A\tdocs/restart/H01/checks/s3-bod-portable-2026-10-23/input-capture.json"
+  ],
+  "external_source_bound_roles": [
+    {
+      "commit": "3fb1c07416c6b9595fafec566553efad464e772f",
+      "path": "docs/restart/H01/reviews/s3-bod-build/review.json",
+      "sha256": "c128a47cb9e0d0fd9d0dcbe883744312dc115c18f722871ffdbc271a92b93e38",
+      "role": "independent_original_component_review",
+      "url": "https://github.com/nSealr/hardware/blob/3fb1c07416c6b9595fafec566553efad464e772f/docs/restart/H01/reviews/s3-bod-build/review.json"
+    },
+    {
+      "commit": "b569f561cdc5287475d11125a6a455bb9dd3cb87",
+      "path": "docs/restart/H01/s3-bod-build-scope-acceptance.json",
+      "sha256": "cb828d6828a7c3d7b66127aa10c4168b0b0e38e28f2ac8a9dc158b32d1ce2a97",
+      "role": "root_corrective_profile_scope",
+      "url": "https://github.com/nSealr/hardware/blob/b569f561cdc5287475d11125a6a455bb9dd3cb87/docs/restart/H01/s3-bod-build-scope-acceptance.json"
+    }
+  ],
+  "scope": "Compile/regression delivery only; no SDK/TRM/physical/host/task acceptance is inferred."
+}

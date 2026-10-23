@@ -1,0 +1,286 @@
+{
+  "status": "PASS_EARLY_PORTABLE_MODE0_ONLY_FULL_GATE_PENDING",
+  "source_freeze": "7fe840f2e43c31669237452decff5494cee10a61",
+  "source_tree": "ec140ec470f50ddde8fe9f72732a7010b903dd3c",
+  "exact_controller_sha256": "2234ed0b13e929cabc1c53222cd747d447deb2b1e8454f11cff5724e79694b6d",
+  "actual_argv": [
+    "/usr/bin/python3",
+    "diagnostics/s3-bod-selector/tools/build_gate.py",
+    "--mode",
+    "smoke",
+    "--work-dir",
+    "/tmp/nsealr-h01-portable-smoke-01",
+    "--cache-dir",
+    "/tmp/nsealr-h01-portable-cold/assets"
+  ],
+  "source_and_tools_materialized_from_exact_primaries_not_private_goal_aliases": true,
+  "compiled_workspace": "/tmp/nsealr-h01-portable-smoke-01",
+  "publisher_metadata_profile_count": 63,
+  "profile_correction": "Locally maintained crypto50; not upstream-supported or secure-signing/provisioning qualification",
+  "strict_controls": {
+    "upstream_constraints_exit": 1,
+    "local_constraints_exit": 0,
+    "pip_check_exit": 0,
+    "namespace_preflight_exit": 0,
+    "capabilities": "CapEff=CapPrm=0; sameuid/gid;NoNewPrivs1",
+    "network": "differentnetns,solo lo,zeroIPv4routes",
+    "mounts": "SDK/tools/exportedproject RO with statvfs and actualEROFS write negative",
+    "dev_null_rw": true
+  },
+  "configure_exit": 0,
+  "configure_seconds": 2.464069990441203,
+  "build_exit": 0,
+  "build_seconds": 8.215484227053821,
+  "artifacts": [
+    {
+      "path": "/tmp/nsealr-h01-portable-smoke-01/build0/s3_bod_selector.elf",
+      "bytes": 3088680,
+      "sha256": "d1b293371124940cc1d93e21dba41802c42c6a407c6cabbabd2332320c997e0a"
+    },
+    {
+      "path": "/tmp/nsealr-h01-portable-smoke-01/build0/s3_bod_selector.bin",
+      "bytes": 138448,
+      "sha256": "197af61bb9a79b60e9938758df3078187a9607ce7c608f007522aa5ae41e8d0a"
+    },
+    {
+      "path": "/tmp/nsealr-h01-portable-smoke-01/build0/s3_bod_selector.map",
+      "bytes": 2878191,
+      "sha256": "bac3e95616656f69d9a7643730c661fd597bc6f2370afbb71df15e5a68c24280"
+    },
+    {
+      "path": "/tmp/nsealr-h01-portable-smoke-01/build0/bootloader/bootloader.elf",
+      "bytes": 620528,
+      "sha256": "0cb8223b75787efa9f0874ed8f57b48ec85c9c2c01a6ead72b078037ea2576da"
+    },
+    {
+      "path": "/tmp/nsealr-h01-portable-smoke-01/build0/bootloader/bootloader.bin",
+      "bytes": 21072,
+      "sha256": "d9d3ad9d3bb0bf8d7f8ad68c1a6516626d55d2f2a876d82200b3624c7797a2a6"
+    },
+    {
+      "path": "/tmp/nsealr-h01-portable-smoke-01/build0/bootloader/bootloader.map",
+      "bytes": 588498,
+      "sha256": "b208adc369cfe90ec2a6c8f1b53c29043aff3fec436db385db3c2ec43eda5f4d"
+    }
+  ],
+  "raw_selected_receipts": [
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/python-version.json",
+      "bytes": 447,
+      "sha256": "13b3d520f1b7cb30fbd9efd08c18a63907e820a16e25b27539714b97b57a074a"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/python-version.stdout",
+      "bytes": 54,
+      "sha256": "142e1210b79736d47d05d0f11cdf8dcac1e1ab78755b5977559649b574702ba4"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/python-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-namespace-preflight.json",
+      "bytes": 3057,
+      "sha256": "feae939954f7220e9cf58b6f190b7f7b5ef636f731a4ec9dbcf25089a1bb7dab"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-namespace-preflight.stdout",
+      "bytes": 553,
+      "sha256": "a38d514f7a7d9270d392f8ddaee992099fad882c1515b80a03b03c15606d310c"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-namespace-preflight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-pip.json",
+      "bytes": 1253,
+      "sha256": "d65c6fa4953bf999896518ef3bb209daadb3cd8b98cc1c088fcd9462e0b3cfd2"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-pip.stdout",
+      "bytes": 602,
+      "sha256": "20280408927a072b027db48dc86b601db31dd572860efdd1d030896b3075693d"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/bootstrap-pip.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/build-esptool-wheel.json",
+      "bytes": 1330,
+      "sha256": "54ca65af376b004ff1eed32794a1728f8b929bc3e910999c709539e28509dde6"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/build-esptool-wheel.stdout",
+      "bytes": 734,
+      "sha256": "a940da628307cda7aa45d1ae9f42ebe792874a8c5f1e224d08bb63af41f31eab"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/build-esptool-wheel.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/install-profile.json",
+      "bytes": 1255,
+      "sha256": "8edafb66aa5e41935907fea90a58829834ca310c61abc320d747c6f939473316"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/install-profile.stdout",
+      "bytes": 12597,
+      "sha256": "a60cc5ba53a2fb034ccd71d3364c5905d797cf6b7685d3ad8c1e9fbf957f2aa2"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/install-profile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/idf-python-metadata.json",
+      "bytes": 1213,
+      "sha256": "684af729487950571032692745c47a195485d208fa207358ef45cb181f4272de"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/idf-python-metadata.stdout",
+      "bytes": 16577,
+      "sha256": "02548e008565e33b20f2c5b30b94e2db717c0f1149d2529142160f130055caec"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/idf-python-metadata.stderr",
+      "bytes": 258,
+      "sha256": "3ff871f098826a968956447f27bf16c2d0b2123fd8aa5cf453a4758cde806fd3"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/installed-profile.json",
+      "bytes": 1289,
+      "sha256": "ddb0374da2f66c4639d0a3af1bfa5bceee60bb3df285a3b9728d3819c09c6559"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/installed-profile.stdout",
+      "bytes": 1528,
+      "sha256": "35692a9ca312e0cb92c801e4b4e6cd8c1ddfeca39b29a5f29355594229264b67"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/installed-profile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/upstream-constraints-negative.json",
+      "bytes": 1415,
+      "sha256": "130b9cf8b9d2fec62e12c0459a1b4a5266103d58a4185d28234ba322b97a4136"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/upstream-constraints-negative.stdout",
+      "bytes": 378,
+      "sha256": "bca6b95bfece5a942fc04a7b624758f17cf49c0ccfd68b0fbc1a1f3baa25d9ad"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/upstream-constraints-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/local-constraints-positive.json",
+      "bytes": 1406,
+      "sha256": "4a957e666e17667b31c4a39071cce1c88ffc6b3ec07619718c7fcde7cc7ee4d3"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/local-constraints-positive.stdout",
+      "bytes": 35,
+      "sha256": "b5264442e1552797c344aaf954d0ab8bf7cc03f6c6916a92b3af7e206d381a23"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/local-constraints-positive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/pip-check.json",
+      "bytes": 1128,
+      "sha256": "08181b3322e9b86c1d43fddcc35dddf53e17572fb4c1566f1f53c74b344c65f6"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/pip-check.stdout",
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/pip-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-namespace-preflight.json",
+      "bytes": 2918,
+      "sha256": "b05619e579df5aa9758eb6d90cf2c8812bd466d9d793160910b71c871c2d49f3"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-namespace-preflight.stdout",
+      "bytes": 511,
+      "sha256": "8a1766a64f4fd982e54a8102875bb99f2b128b9fdc6c8aafe3d66c9119920652"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-namespace-preflight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-configure.json",
+      "bytes": 1181,
+      "sha256": "f38e89e5b2115f1af809dbf27ef033decc31efb4f21f4c8ee5bfb6e8504293ca"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-configure.stdout",
+      "bytes": 8721,
+      "sha256": "ab8a90bb3223bd97238017b2cea02a9a8ae8b32aa40c59b7d86093a7b307691b"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-configure.stderr",
+      "bytes": 2357,
+      "sha256": "0c89856874082b954f581be32243307297fceb3bf8d3cb43d0e10c234e393599"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-build.json",
+      "bytes": 1175,
+      "sha256": "793e4df13525af76b67a60be09b0cf2175f858778a35d886325d91a0d4efce07"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-build.stdout",
+      "bytes": 85943,
+      "sha256": "fef25680add826517126728106ae1d54f38438ced20ac375b37ca4b1b5e83354"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-writer-disassembly.json",
+      "bytes": 1057,
+      "sha256": "ad28b901c82806f993bf28ecd7fa364ae9aac475687911ab6d22b5c184af2db1"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-writer-disassembly.stdout",
+      "bytes": 704,
+      "sha256": "baf56e513b1394b7c58231cc23779f8adc8844463c04472b38a9df341b4c849a"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/mode0-writer-disassembly.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "first_source_diff_check_note": "Generated unified patch context contains a space-only context line; preserved in7fe source. Final packaging will use zero-context one-line patch to avoid authored-whitespace noise without changing either constraints body.",
+  "retained_runtime": "/tmp/nsealr-h01-portable-smoke-01",
+  "active_processes": "All owned commands complete",
+  "limits": [
+    "Full automatic0/1/guard2/closure and original43 final-source checks pending",
+    "No hostedCI/device/flash/fuse/keys/provisioning/arming or firmware execution",
+    "No hardware/Board/polarity/host/physical/task/release qualification; originalSDK/Cinputs unchanged"
+  ]
+}

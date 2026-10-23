@@ -1,0 +1,5 @@
+--- espidf.constraints.v6.1.upstream.txt
++++ espidf.constraints.v6.1.txt
+@@ -17 +17 @@
+-cryptography>=2.1.4,<49
++cryptography==50.0.0

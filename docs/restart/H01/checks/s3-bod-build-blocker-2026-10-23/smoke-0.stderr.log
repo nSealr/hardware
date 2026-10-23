@@ -1,0 +1,30 @@
+Submodule 'components/bootloader/subproject/components/micro-ecc/micro-ecc' (https://github.com/kmackay/micro-ecc.git) registered for path 'components/bootloader/subproject/components/micro-ecc/micro-ecc'
+Cloning into '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc'...
+Submodule 'components/bt/controller/lib_esp32' (https://github.com/espressif/esp32-bt-lib.git) registered for path 'components/bt/controller/lib_esp32'
+Cloning into '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bt/controller/lib_esp32'...
+From https://github.com/espressif/esp32-bt-lib
+ * branch            98c6de2d5411a7297dbba00387dfca2bcc44fd18 -> FETCH_HEAD
+Submodule 'components/bt/controller/lib_esp32c2/esp32c2-bt-lib' (https://github.com/espressif/esp32c2-bt-lib.git) registered for path 'components/bt/controller/lib_esp32c2/esp32c2-bt-lib'
+Cloning into '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib'...
+From https://github.com/espressif/esp32c2-bt-lib
+ * branch            6a5c0b8bfca1a2e984e89431b8ebf9b521dad5ea -> FETCH_HEAD
+Submodule 'components/bt/controller/lib_esp32c3_family' (https://github.com/espressif/esp32c3-bt-lib.git) registered for path 'components/bt/controller/lib_esp32c3_family'
+Cloning into '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bt/controller/lib_esp32c3_family'...
+fatal: unable to access 'https://github.com/espressif/esp32c3-bt-lib.git/': Send failure: Connection reset by peer
+fatal: clone of 'https://github.com/espressif/esp32c3-bt-lib.git' into submodule path '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bt/controller/lib_esp32c3_family' failed
+Failed to clone 'components/bt/controller/lib_esp32c3_family'. Retry scheduled
+Cloning into '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bt/controller/lib_esp32c3_family'...
+fatal: unable to access 'https://github.com/espressif/esp32c3-bt-lib.git/': Send failure: Connection reset by peer
+fatal: clone of 'https://github.com/espressif/esp32c3-bt-lib.git' into submodule path '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bt/controller/lib_esp32c3_family' failed
+Failed to clone 'components/bt/controller/lib_esp32c3_family' a second time, aborting
+CMake Error at /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/git_submodules.cmake:48 (message):
+  Git submodule init failed for components/bt/controller/lib_esp32c3_family
+Call Stack (most recent call first):
+  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/build.cmake:158 (git_submodule_check)
+  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/build.cmake:334 (__build_get_idf_git_revision)
+  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/idf.cmake:62 (__build_init)
+  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/project.cmake:124 (include)
+  CMakeLists.txt:12 (include)
+
+
+cmake failed with exit code 1, output of the command is in the /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/smoke-0/log/idf_py_stderr_output_1791291 and /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/smoke-0/log/idf_py_stdout_output_1791291

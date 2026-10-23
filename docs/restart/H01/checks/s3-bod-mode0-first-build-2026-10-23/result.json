@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "verdict": "PASS_AUTHOR_COMPILE_LINK_SOURCE_CORRESPONDENCE_CANDIDATE_ONLY_PENDING_DISTINCT_REVIEW",
+  "source_candidate": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "SDK": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "root_first_build_admission": "b8488e00afb35c5e153278bf306fa32f354edfbd",
+  "mode1_and_selector2_authority": "Explicit coordinator extension of the STOP point after mode0/source correspondence PASS, keeping original9e9 independent obligations unchanged.",
+  "immutable_prerun_checkpoints": {
+    "first_real_build_inputs": "77055f6423ee2fd24576f5bc6ba9a4c146b2a6f6",
+    "mode0_result_and_mode1_inputs": "ac4d98614ee2d16f902abfaa62750db895119a2f",
+    "mode1_result_and_selector2_input": "69ebd0b2428343b290b04159e4b67ce4b3453737"
+  },
+  "runs": [
+    {
+      "mode": 0,
+      "configure_exit": 0,
+      "build_exit": 0,
+      "configure_seconds": 2.8751838207244873,
+      "build_seconds": 8.413514137268066,
+      "proof": "./",
+      "closure": "mode0-source-closure.json"
+    },
+    {
+      "mode": 1,
+      "configure_exit": 0,
+      "build_exit": 0,
+      "configure_seconds": 2.8880772590637207,
+      "build_seconds": 8.290840148925781,
+      "proof": "mode1/",
+      "closure": "mode1/source-closure.json"
+    },
+    {
+      "mode": 2,
+      "configure_exit": 2,
+      "seconds": 0.8214612007141113,
+      "outcome": "Expected CMakeLists.txt:4 guard, before SDK project include, no config/Ninja/product binary generated",
+      "proof": "selector2-command.json"
+    }
+  ],
+  "source_correspondence": {
+    "each_mode_actual_app_object_dependencies": 473,
+    "each_mode_actual_bootloader_object_dependencies": 124,
+    "all_VALID_every_compiled_object_covered": true,
+    "each_mode_exact_SDK_Git_file_bindings": 1436,
+    "each_mode_official_toolchain_file_bindings": 138,
+    "whole_official_compiler_package_files": 3966,
+    "SDK_root_tracked_files": 20727,
+    "pinned_children_full_tree_rechecked": 8,
+    "all24Gitlinkstates_remain_explicit": true,
+    "generated_consumed_files_per_mode": 106,
+    "host_tool_environment_inputs_per_mode": 469,
+    "Python_installed_distributions": 63,
+    "installed_RECORD_hashed_file_checks": 3311,
+    "interpretation": "Exact SDK/project/Gitlink/header bytes, generated hashes/producer identities and existing read-only tool environment for these runs. Original Git/pinned official archive checks differ from installed RECORD integrity observations; no new PyPI release authentication, syscall-complete OS trace or binary reproducibility claim."
+  },
+  "linked_effect": {
+    "mode0": "AND0xf7ffffff",
+    "mode1": "OR0x08000000",
+    "register": "0x600080e8",
+    "actual_store_barrier_readback_and_app_main_call": true,
+    "full_word_RMW_caveat": "Linked instructions express selector intent; they do not prove other physical effects/bits unchanged, atomicity, ROM state or safe rail/reset behavior."
+  },
+  "SDK_startup": "The init_brownout callback remains registered, with actual disassembly entry/rsil3/rsil0/return0. Its esp_brownout_init call and optional ISR are not linked. flash_brownout hooks remain. No blanket absence of all brownout/reset code or ROM activity is inferred.",
+  "artifacts": {
+    "bindings": "linked-artifact-bindings.json",
+    "archive": "linked-artifacts-and-configs.tar.gz",
+    "archive_sha256": "3ca6a25d1cc1376603f5d3c984e8160f15b2bf13bdac3b4bc259a9ccec4b811f",
+    "principal_artifacts": 22,
+    "archive_members": 1100,
+    "all_build_files_hashed": 2468,
+    "intermediate_object_static_library_cache": "Retained in owned runtime; hashes in build-output-inventory.json.gz"
+  },
+  "historical_evidence_preserved": [
+    "db1a2fc8a48b40effbcaeed8961dafe9a574cea7 expectations",
+    "11047b805039e01dbb73e7c08d4b6a8016090fcd original four inputs",
+    "2680cb7f0dc6950832f4c01ab57bfbb1bdf0a07a acquisition failures",
+    "59ceb746ff5e30f350453ce302f6699a487e65d8 wrapper failure",
+    "73d574cad6f45e10ab6d34809ea7b5fe3355ec3f old-input configure/warning",
+    "b6dba74c330e31706918d7e68dfa4dc45a5d4825 source CHANGES_REQUESTED",
+    "00957e214a476252e66fe6d3960b8164d9de4175 F1 affected source-only review"
+  ],
+  "remaining_checks": {
+    "local_original43": {
+      "status": "PASS",
+      "command": "make ci",
+      "tests": 43,
+      "source_commit": "166922de4c561414728af94ef2a293887750b64d",
+      "source_tree": "ed75b44988804d89661f74cb44aa73f67fb80ebd",
+      "receipt": "ci-command.json",
+      "receipt_sha256": "590f4041c3a656f2b2fea23b4af8f1bb63678225c4b432d7514a25268533102a",
+      "scope": "Unchanged hardware validators/tests, not the cross-build or physical properties."
+    },
+    "automatic_diagnostic_CI_target_job": "Not introduced by this bounded first-build experiment; original Makefile/workflow remain unchanged.",
+    "distinct_runtime_source_review": "Pending exact frozen candidate.",
+    "protected_PR_resulting_main_CI": "Future mandatory unsuppressed gates, root owned; no hosted CI started/observed here."
+  },
+  "stop_and_limits": [
+    "No further configure/build/corpus/backend or tool/source substitution after the three admitted modes.",
+    "No key generation/signing/provisioning/acquisition/device action occurred. Standard idf printed flash instructions were not executed.",
+    "No firmware execution/flash/erase/fuse/monitor/power/physical/register measurement.",
+    "No selected Board/host/polarity, no BOD safety/ROM-disarm/reset-domain conclusion; selected_polarity remainsnull.",
+    "No entropy/custody/physical/release/H01 criterion closure; exact specimen/startup/security/strap/electrical/rail/CHIP_PU/reset-controls/operator and distinct bench admission remain missing."
+  ],
+  "selected_polarity": null,
+  "parent_criteria_closed": [],
+  "active_processes": "All owned runs complete; no configure/compiler/build/tool-capture process active.",
+  "retained_runtime_paths": [
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01"
+  ]
+}

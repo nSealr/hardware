@@ -1,0 +1,8 @@
+{
+  "role": "Exact existing host producer identities reused by path/hash; fresh mode1 source/header/link and generated file hashes above, actual commands/logs/config under mode1 output tree.",
+  "mode0_producer_bindings_sha256": "dad08ce4f96bd3af156a9be2c70016e0190967d9e98ac09633b9edc513afeed8",
+  "host_rows_identical_to_mode0": 469,
+  "new_host_producers": [],
+  "reused_binder_source_sha256": "1f7c61958fd7269b67b50c2e8524465c9c356135fc93e1edb585c0a81af20d73",
+  "qualification": "No copied runtime pass, reproducibility or physical claim. Same admitted read-only Python/CMake environment and official toolchain; actual selector1 dependencies/ELF are separate."
+}

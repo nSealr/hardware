@@ -1,0 +1,25 @@
+skip submodule check on internal CI
+NOTE: /tmp/nsealr-h01-portable-smoke-01/sdk/components/bootloader/Kconfig.projbuild:383: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /tmp/nsealr-h01-portable-smoke-01/sdk/components/bootloader/Kconfig.projbuild:423: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /tmp/nsealr-h01-portable-smoke-01/sdk/components/esp_hw_support/./lowpower/port/esp32p4/Kconfig.p4_rev3_mspi_workaround:6: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /tmp/nsealr-h01-portable-smoke-01/sdk/components/esp_mm/Kconfig:20: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /tmp/nsealr-h01-portable-smoke-01/sdk/components/esp_system/./port/soc/esp32s3/Kconfig.memory:21: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+Loading defaults file /tmp/nsealr-h01-portable-smoke-01/project0/sdkconfig.defaults...
+NOTE: Kconfig parser version: 1
+NOTE: Kconfig defaults policy: use sdkconfig
+NOTE: Status: Finished successfully
+Traceback (most recent call last):
+  File "/tmp/nsealr-h01-portable-smoke-01/sdk/components/esp_rom/gen_gdbinit.py", line 72, in <module>
+    gdbinit_lines = generate_gdbinit_rom_add_symbols(target)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/nsealr-h01-portable-smoke-01/sdk/components/esp_rom/gen_gdbinit.py", line 31, in generate_gdbinit_rom_add_symbols
+    raise OSError(
+OSError: ESP_ROM_ELF_DIR environment variable is not defined. Please try to run IDF "install" and "export" scripts.
+CMake Warning at /tmp/nsealr-h01-portable-smoke-01/sdk/tools/cmake/gdbinit.cmake:58 (message):
+  Error while generating esp_rom gdbinit
+Call Stack (most recent call first):
+  /tmp/nsealr-h01-portable-smoke-01/sdk/tools/cmake/project.cmake:452 (__generate_gdbinit)
+  /tmp/nsealr-h01-portable-smoke-01/sdk/tools/cmake/project.cmake:1101 (__project_info)
+  CMakeLists.txt:14 (project)
+
+

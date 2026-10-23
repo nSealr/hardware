@@ -1,0 +1,142 @@
+{
+  "state": "EXACT_REVIEWED_PORTABLE_SOURCE_AND_PROFILE_ASSEMBLED_WITH_PINNED_HOSTED_WORKFLOW_PENDING_DISTINCT_WORKFLOW_REVIEW_AND_NORMAL_CI",
+  "accepted_base": "7645554985259222e606fdda01bb1fdd793804ee",
+  "author_candidate": "1d837e87828905642242112946588c0fb67a8399",
+  "controller_profile_review": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+  "root_workflow_candidate": "bcfd7bbe47aaba8ff2eeda99047efe45a82bdcd3",
+  "workflow_changes": [
+    "Actions SHA pins matching accepted firmware",
+    "ExactPython3.12.15/check-latestfalse",
+    "Readonlycontents and no checkoutcredentialpersistence",
+    "Main-push/PR/manual events retain requiredgates and avoid duplicatebranchpush+PR builds"
+  ],
+  "review_and_scope_postimages": [
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/artifact-manifest.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 3270,
+      "sha256": "f7d3e1dbb2eed2205641338094c109d94a28f65b76904498d817e9b94e131e8e"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/collector-red.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 1119,
+      "sha256": "3b383d7b7752ea9ccc83ad92946f047920ee711091467a6c2913086a21b7706b"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/Python-profile.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 2481,
+      "sha256": "439c7501b46b5fd8a7b32edbfe16431244e032ef64db98a67cecb17a145f0565"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/command.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 1192,
+      "sha256": "7e74fc429f1ba901edb8c93d57fdc04041b8a53d056683db1f1ebe5a7f4b1eca"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/evidence.tar.gz",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 4877394,
+      "sha256": "78f35837f1bc93556279b6aa4495c1452e4015804d30b6efd20c919ee166f7a2"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/invocation.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 851,
+      "sha256": "b6346cd3b2d78626eeec1dad9b480ca8f595c5fda1d58561c0a1d7b245b9d66c"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/make.stderr.log",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 1008,
+      "sha256": "ed8691dd08ae2a77e38f326a9af2581f0360e0a5533d8349b5360f40e4e62d21"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/make.stdout.log",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 8787,
+      "sha256": "174bbb7a73ed74bbcb9118b20d24811b5b070e55484de893fe12f829d1b4208d"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/mode-comparison.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 288,
+      "sha256": "fd00b954359bf11ef0aadea0e9c09ec752a827bf66737806baa955b5a6e79028"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/publisher-body-correspondence.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 14495,
+      "sha256": "4ecdfdfdae301f340d2bcfad84bf90df4ee383f2e20249f34949b828af163b44"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/result.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 7047,
+      "sha256": "7ef9b5ae804cca48be2b3de4661b6f696abe37573b8ff18ffdf1f609b3d843ab"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/source-checks-after.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 3875,
+      "sha256": "7f771c19c0ff3706607faaf739983f3d09f7dba69aa023933990f800aad61fd6"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/independent/source-checks-before.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 3875,
+      "sha256": "7f771c19c0ff3706607faaf739983f3d09f7dba69aa023933990f800aad61fd6"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/preflight-input-review.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 33417,
+      "sha256": "0ec89d60fc33d5a902dbacc10248cde79edf8fd7d11833835d45e00314535a6d"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/report.md",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 4797,
+      "sha256": "62aeff057cb7bf6f7c23f725fb91084aa2161808c09d96ed79e0f0818bc4f635"
+    },
+    {
+      "path": "docs/restart/H01/reviews/s3-bod-portable/review.json",
+      "source": "9625921c21160557f8a9ba7b704bbb65266c82d7",
+      "mode": "100644",
+      "bytes": 25307,
+      "sha256": "05d5cfa4e9c9df7da4958eff16a508f844db7fc7461bd35b9c8c4588447b1e5b"
+    },
+    {
+      "path": "docs/restart/H01/s3-bod-build-scope-acceptance.json",
+      "source": "b569f561cdc5287475d11125a6a455bb9dd3cb87",
+      "bytes": 8594,
+      "sha256": "cb828d6828a7c3d7b66127aa10c4168b0b0e38e28f2ac8a9dc158b32d1ce2a97"
+    }
+  ],
+  "source_qualification": "Whole1d source tree exact except declared workflow delta; source layout projected onto actual7645 ancestry without research skip-ci history. All fourCinputs/controller/63pins/SDK3Gitlinks/Make/test sources exact1d. Original91+self authorpacket and15+self reviewerpacket remain source-specific, no raw output normalized.",
+  "local43": "PASS43; sourceidentical tests/scripts and unchanged originalMake targets",
+  "mandatory_pending": [
+    "Distinct affected workflow/assembly review",
+    "Ordinaryunskipped protected PR checking BOTH verify ands3-bod-compile",
+    "ActualrewrittenGit source/mainCI/coldprovenance"
+  ],
+  "physical_qualification": false,
+  "parent_criteria_closed": []
+}
