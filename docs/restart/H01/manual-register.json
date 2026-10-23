@@ -679,6 +679,11 @@
           "reviewer": "/root/h01_sol",
           "date": "2026-10-20",
           "scope": "Author /root/h01_sol,2026-10-20 C04: RereadselectedeFuseTable5.3-1pp412–413fields/5.3-2p414keypurposes,registerfields435–436 fordownload/print/secureversion. SECURE_VERSION16bits,UART_PRINT_CONTROL11disabled,keypurpose2+3AES256vs4AES128;not32bitcounter. No newwholetable/figureaudit."
+        },
+        {
+          "reviewer": "/root/b01_final_review",
+          "date": "2026-10-23",
+          "scope": "SameofficialURLnormaldownloadauthorizedafterviewersizelimit:HTTP200/15215232B/hashidenticaltoarchivedTRM1.8. TargetedcurrentPDFtext576/623reconfirmedoppositeBROWN_OUT_RST_SELmaps. Existingprimarytext527-528,534-535andReg6.15p506readfortheproposedstrap-markerdiagnostic:rawBODcause0x0Fnotdomain-discriminating;GPIO46bit2/ChipResetlatchandGPIO0highSPIboot. ExistingUART_PRINT_CONTROLfieldrereadfornoGPIO46-dependentprinttransition. No newnativefigure/fullmanual/target/bench/admission."
         }
       ],
       "native_visual_reviews": [
@@ -6237,7 +6242,47 @@
       "new_original_sha256": null,
       "new_revision": null,
       "retry_or_alternate_route": false,
-      "scope": "Single C03 S3 BROWN_OUT_RST_SEL resolver; retained1.8 contradiction remains UNSATISFIED; no new document or claim"
+      "scope": "Single C03 S3 BROWN_OUT_RST_SEL resolver; retained1.8 contradiction remains UNSATISFIED; no new document or claim",
+      "root_authorized_normal_download_followup": {
+        "recorded_utc": "2026-10-23T17:09:43Z",
+        "command": [
+          "curl",
+          "--fail",
+          "--location",
+          "--proto",
+          "=https",
+          "--max-time",
+          "60",
+          "--output",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/current-trm.pdf",
+          "--write-out",
+          "%{http_code}\\n%{url_effective}\\n%{size_download}\\n",
+          "https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf"
+        ],
+        "curl_exit": 0,
+        "http_status": 200,
+        "final_url": "https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf",
+        "bytes": 15215232,
+        "sha256": "4484bf8a69035ec42a731c58c64ada6fbd1f1618c5559409f134d9ea083f444f",
+        "cmp_archived_primary_exit": 0,
+        "revision": "1.8; byte-identical retained original",
+        "targeted_text_extractions": [
+          {
+            "physical_printed_page": 576,
+            "pdftotext_exit": 0,
+            "bytes": 1433,
+            "sha256": "1e0dea9edd3af791d74521baa86cdbe3b08b9a0f7056a92d301d7250990f56ed"
+          },
+          {
+            "physical_printed_page": 623,
+            "pdftotext_exit": 0,
+            "bytes": 3803,
+            "sha256": "549db2c6d6eca0315ced1d2fc8f70355e7dfedda6b2532c204d9f1aeeba3235d"
+          }
+        ],
+        "result": "Currentprimarydoesnotresolvethecontradiction;stopsourcequestion;selected_polarityremainsnull.Noadditionalsource/build/bench.",
+        "metadata_preparation_observation": "First writer selected an older retrieval record without id and raised KeyError before writing JSON; corrected selector uses get(id). No source/diagnostic/expectation changed."
+      }
     }
   ],
   "reuse_policy": "Only pinned public metadata and paraphrased selected review are published. Historical private reports/working histories and manufacturer originals remain private. Rehashing confirms correspondence, not a new full read."

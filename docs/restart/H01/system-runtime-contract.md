@@ -203,17 +203,18 @@ No manufacturer original is redistributed and no full-manual reread is claimed.
 One opening of the same [official public TRM URL](https://documentation.espressif.com/esp32-s3_technical_reference_manual_en.pdf)
 returned a web-tool size error: `(400) Content length is too large: 10485761+`.
 No new original/revision/hash was obtained. This is an extraction/tool-size
-limit, not an observed publisher access denial or a new S04 gate. The attempt
-is retained in the existing manual register; no retry, mirror, alternative
-route/model or request to the manufacturer followed.
+limit, not an observed publisher access denial or a new S04 gate. That first
+attempt remains in the existing register and8937e879; no alternate route/model
+or request to the manufacturer followed.
 
-The one first resolver remains an applicable manufacturer correction that
-explicitly reconciles **both** locations for `BROWN_OUT_RST_SEL`, including
-which reset domain each value actually selects on the proposed S3 scope.
-Before another retrieval or any diagnostic is assigned, coordinator review
-must fix the exact permitted source acquisition or finite experiment; this
-checkpoint itself executes neither. A driver value, naming convention,
-unchanged1.8 paragraph or a successful compile is insufficient evidence.
+The coordinator then explicitly authorized normal file retrieval of this same
+already-admitted official URL. One `curl --fail --location --proto '=https'
+--max-time 60` download returned HTTP200,15,215,232 bytes, the same SHA256 above,
+and `cmp` against the archived primary returned0. Targeted `pdftotext -f576
+-l576 -layout` and `-f623 -l623 -layout` extractions confirmed both definitions;
+their SHA256 values are recorded with the retrieval. **Current primary bytes
+are identical and the polarity remains UNSATISFIED; the source question stops.**
+No other document/vendor route is opened and no driver is chosen as authority.
 
 Independent conclusion conditions are fixed now: (a) corrected primary bytes,
 revision and applicability explicitly establish one consistent0/1 map across
@@ -223,6 +224,64 @@ correction leaves the row UNSATISFIED with selected_polarity null. Neither
 outcome admits a connected host, valid rail, threshold, received revision,
 reset waveform or physical reset scope. RAM loss under undervoltage must not
 be relabelled proof of a particular reset domain.
+
+### Next diagnostic proposed for review, not executed or admitted
+
+Use a tiny public C probe with the already pinned ESP-IDF
+`fff9895c82d744c7237be8847347bdd1b07c6643`, not a general Rust port.
+Proposed source is `diagnostics/s3-bod-selector/main.c` with one checked
+compile-time selector0 or1; no such source/build is created by this checkpoint.
+The future project must bind that value to the actual `BROWN_OUT_RST_SEL`
+field, expose raw readback and refuse other values. Proposed compile commands:
+
+```sh
+idf.py -C diagnostics/s3-bod-selector -B build/s3-bod-0 -DIDF_TARGET=esp32s3 -DBOD_RST_SEL=0 build
+idf.py -C diagnostics/s3-bod-selector -B build/s3-bod-1 -DIDF_TARGET=esp32s3 -DBOD_RST_SEL=1 build
+```
+
+These are build-only commands after separate admission and verification of
+the pinned SDK/toolchain/configuration; no flash/monitor/erase/fuse/security
+transition is implied. No installed toolchain, target binary or safe boot path
+is claimed. Both builds use the same source/configuration except selector/test
+identity; generated code/map/readback effects and absence of auto-provisioning
+need review. No byte-equivalence/reproducibility of the binaries is assumed.
+
+The proposed public marker is **the GPIO46 strap latch**, not SRAM retention.
+The same TRM §8.1 p534 specifies sampling at Chip Reset; Reg6.15 p506 maps
+GPIO_STRAPPING bit2 to GPIO46 (RO). Table8.2-1 p535 permits SPI Boot with GPIO0=1
+and GPIO46 ignored. Preserve all other straps and their electrical owners.
+Start with GPIO46 low at a controlled initial boot, verify latched bit2=0,
+then apply an external high level and verify live input1 while the latch stays0.
+Hold GPIO0 high throughout; no flash-voltage strap or debug/boot configuration
+is changed. Read UART_PRINT_CONTROL first: GPIO46-dependent01/10 is a stop
+for this witness; require an already fixed00/11 state, without any fuse write.
+The probe records selector/readback, live input, latched marker
+and raw reset causes before/after, without authorizing a host mode or keys.
+
+Before BOD cases, the witness must distinguish an identified Chip Reset control
+from the already bounded RWDT System Reset control at valid rails. TRM7.1.4/
+Table7.1-1 pp527–528 identifies those types; a raw BOD cause0x0F alone cannot
+distinguish them. Required control outcomes are resampled latch1 for Chip Reset
+and retained latch0 for System Reset. If either control fails, stop as
+NOT_DISCRIMINATING rather than assigning a polarity.
+
+Only a separately reviewed bench procedure may then apply the same qualified
+BOD stimulus to selector0 and1, keeping mode0/other fields fixed and read back.
+Independent predictions, before observations: the p576 hypothesis yields
+after-latch `[1,0]`; the p623 hypothesis yields `[0,1]`. Any other pair,
+unconfirmed BOD cause, unintended power-down/POR/CHIP_PU transition, changed
+pad before stimulus or missing capture leaves UNSATISFIED. A matching pair
+would support only that exact received silicon/configuration, not all S3s.
+
+Bench admission still requires identified board/module/silicon/ROM/security
+state and reviewed startup path; GPIO46 accessibility/load and all straps;
+an approved current-limited supply/stimulus and independent rail/CHIP_PU/pad
+waveform capture proving the event was not power loss or uncontrolled reset;
+safe observation/isolation without presuming USB attach, powered-off I/O or
+valid operation during undervoltage. Exact levels/timing/instruments/operator
+must be fixed before energizing, not guessed here. Existing access/advisory
+gates remain. No RAM-loss inference, alternate detector mode or driver result
+can replace these controls. This is the single proposed follow-up experiment.
 
 No source build, board/flash/register/fuse write, energizing, secrets,
 purchase/outreach, SDK/Pi/CAD or canonical graph change is part of this packet.
