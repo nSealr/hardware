@@ -1,0 +1,219 @@
+{
+  "verdict": "PASS_SCOPED_MISSING_HOST_PREREQUISITE_CORRECTION_PENDING_HOSTED_EXECUTION",
+  "candidate": "569137d366aafca1785c12260c7fa2aec1c9ab09",
+  "tree": "946c532cdd7a1e62cbbb90bd0bd6319fcdfa2430",
+  "base_failed_source": "178667079f3465981388d3986bfa7d10d4c1f18c",
+  "recorded_utc": "2026-10-23T21:47:53.585335+00:00",
+  "reviewer": "/root/a02_resume",
+  "correction_author": "/root",
+  "findings": [],
+  "scope": "Bounded workflow prerequisite acquisition, actual previous capture diagnosis and privilege/provider boundary only. No local package installation, controller/source replay, cross-build, hosted query or PR action.",
+  "source_delta": {
+    "only_changed_path": ".github/workflows/ci.yml",
+    "workflow_preimage_sha256": "6afa6a1a93510f63ac3ad995d5b4b67c53a3d997a3ad2b3d2c848d8c8acbb07a",
+    "workflow_postimage_sha256": "30a6b01cfe421a0ff1dfe80c59e7d8eafb1504c0ff4465eeb8993d9c77943232",
+    "Git_mode": "100644 unchanged",
+    "other_tracked_postimages_byte_mode_exact": 541,
+    "semantic_delta": {
+      "name": "Install the Ubuntu sandbox prerequisite",
+      "run": "sudo apt-get update\napt-cache policy bubblewrap\nsudo apt-get install --yes --no-install-recommends bubblewrap\ndpkg-query -W bubblewrap\n"
+    },
+    "remove_new_step_restores_entire_previous_workflow_mapping": true,
+    "original_pinned_actions_Python_events_permissions_and_two_jobs_unchanged": true,
+    "controller_sha256": "7f0995ace0526a989404d94238094d69ee34cab46eb3410fb26bb3d815a608cf",
+    "input_lock_sha256": "9a25cbf9ce7a54c3415b4a78adea51e1a011b5d5e45e73317f1926e66174a1f6",
+    "controller_4projectinputs_63Pythonpins_SDK_compilers_Make_tests_unchanged": true
+  },
+  "actual_failed_capture": {
+    "run_id": 40028362294,
+    "source": "178667079f3465981388d3986bfa7d10d4c1f18c",
+    "run_conclusion": "failure",
+    "archive_members": 18,
+    "capture_files": {
+      "capture.json": {
+        "bytes": 4547,
+        "sha256": "8ffd879702441315edf0694b4f2aec95290cb956612eb568cd795cef53683998"
+      },
+      "run.json": {
+        "bytes": 13998,
+        "sha256": "b30c48dd70691391787a3c67a9bc9749ba6eb2d0a43a6fa8cb03104a2c765bb2"
+      },
+      "jobs.json": {
+        "bytes": 6764,
+        "sha256": "ecbb3cfd0470a7c03b343c42d61669f26b2ced59b3992f80410172745cebd6b2"
+      },
+      "logs.zip": {
+        "bytes": 22324,
+        "sha256": "7a8f95e6f96e8664819a0279842720a75074a0d9bb1730f52d4f16cac14f0798"
+      }
+    },
+    "archive_inventory": [
+      {
+        "path": "0_verify.txt",
+        "bytes": 14681,
+        "sha256": "1830def8c2bf761b8d90ae5da69a3b7c613ed35e6924eac65333240a532ef6c2"
+      },
+      {
+        "path": "verify/system.txt",
+        "bytes": 567,
+        "sha256": "29f5f11e445b31cbfeaa1def780295750fa286a3b5d930f7736f1c92f3c820c9"
+      },
+      {
+        "path": "verify/1_Set up job.txt",
+        "bytes": 2097,
+        "sha256": "2fd262a5a2a6e65b03bca124445b38daa218f57dd41437009d05c4bacc8a28b1"
+      },
+      {
+        "path": "verify/2_Run actions_checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09.txt",
+        "bytes": 8093,
+        "sha256": "c28234520df6b850c22afdc4afb8190f58e1fc4cf6bc807d4df02f91e6e16837"
+      },
+      {
+        "path": "verify/3_Run actions_setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1.txt",
+        "bytes": 661,
+        "sha256": "0ec9b392754ae032b39f263f5555a523df8eeea2979e1cb67cafdbcafe409830"
+      },
+      {
+        "path": "verify/4_Run make ci.txt",
+        "bytes": 2207,
+        "sha256": "55e2d88f5cf700052bcc39020af337a141e509dc88d470f22160889de667832f"
+      },
+      {
+        "path": "verify/7_Post Run actions_setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1.txt",
+        "bytes": 50,
+        "sha256": "e75bb49a3584610ff1a4db801e60d5eac0170b26fc69bcbe18ccca2fd1ad8f05"
+      },
+      {
+        "path": "verify/8_Post Run actions_checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09.txt",
+        "bytes": 1530,
+        "sha256": "5bcc135e5679c347cdfe572bc6d2fe66d0f4599edb71abe6f60f1c7c10275809"
+      },
+      {
+        "path": "verify/9_Complete job.txt",
+        "bytes": 61,
+        "sha256": "5227dd4f5988ffdc1a0a374067decb46f448a9e84972c666cd2bdca4a70acfaa"
+      },
+      {
+        "path": "1_s3-bod-compile.txt",
+        "bytes": 15916,
+        "sha256": "e7bedc27b0f5016c89126d4f893c671353df727df9588ef298cbeb45c9f552c9"
+      },
+      {
+        "path": "s3-bod-compile/system.txt",
+        "bytes": 574,
+        "sha256": "fcd42a7eec37de462cdbbeb207248acb096de527a37816ff9ebdcd7c78e512c2"
+      },
+      {
+        "path": "s3-bod-compile/1_Set up job.txt",
+        "bytes": 2275,
+        "sha256": "c1bf62f1638729cb1a9072e7665a458dfd5ad6a6eb901c14f6a2b2a48d4d5fec"
+      },
+      {
+        "path": "s3-bod-compile/2_Run actions_checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09.txt",
+        "bytes": 8093,
+        "sha256": "21d71d1386b6f23a3dd64435c2a04c85c634a3f5aac0b0e2257cd1fa5cdfba98"
+      },
+      {
+        "path": "s3-bod-compile/3_Run actions_setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1.txt",
+        "bytes": 661,
+        "sha256": "397b67c91ed6d6fa26af5ac4b275dd0c1585b6d175129b142b2b548068d04a22"
+      },
+      {
+        "path": "s3-bod-compile/4_Run command -v git && command -v bwrap && bwrap --version.txt",
+        "bytes": 989,
+        "sha256": "238d6c9ee22b3f2c8dc21fb7dc083cee18d073adff194f6052c4edac607b9b7d"
+      },
+      {
+        "path": "s3-bod-compile/6_Run actions_upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02.txt",
+        "bytes": 1993,
+        "sha256": "fb53064001a7939b50f7b45f2b0b9734db0445a11ee00016e2a57ae9e5a5f325"
+      },
+      {
+        "path": "s3-bod-compile/12_Post Run actions_checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09.txt",
+        "bytes": 1530,
+        "sha256": "ed0d0d09dcb556274818acc8d5e7f99d45aba1cfc841bce3e00dd17945917aa5"
+      },
+      {
+        "path": "s3-bod-compile/13_Complete job.txt",
+        "bytes": 393,
+        "sha256": "a63eda043b050fd6cb144a07a9b8b6fe6436c9663da67af9098304a49d93f188"
+      }
+    ],
+    "verify_job": {
+      "id": 120670134497,
+      "conclusion": "success",
+      "actual_tests": 43,
+      "member": "verify/4_Run make ci.txt"
+    },
+    "compile_job": {
+      "id": 120670134274,
+      "conclusion": "failure",
+      "guard_step": {
+        "name": "Run command -v git && command -v bwrap && bwrap --version",
+        "status": "completed",
+        "conclusion": "failure",
+        "number": 4,
+        "started_at": "2026-10-23T21:39:39Z",
+        "completed_at": "2026-10-23T21:39:39Z"
+      },
+      "make_step": {
+        "name": "Run make s3-bod-compile S3_BOD_WORK_DIR=\"$RUNNER_TEMP/s3-bod-run\" S3_BOD_CACHE_DIR=\"$RUNNER_TEMP/s3-bod-assets\"",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 5,
+        "started_at": "2026-10-23T21:39:39Z",
+        "completed_at": "2026-10-23T21:39:39Z"
+      },
+      "artifact_step": {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "failure",
+        "number": 6,
+        "started_at": "2026-10-23T21:39:39Z",
+        "completed_at": "2026-10-23T21:39:39Z"
+      },
+      "guard_member": "s3-bod-compile/4_Run command -v git && command -v bwrap && bwrap --version.txt",
+      "guard_raw_exact": "2026-10-23T21:39:39.6331852Z ##[group]Run command -v git && command -v bwrap && bwrap --version\n2026-10-23T21:39:39.6332520Z \u001b[36;1mcommand -v git && command -v bwrap && bwrap --version\u001b[0m\n2026-10-23T21:39:39.6657887Z shell: /usr/bin/bash -e {0}\n2026-10-23T21:39:39.6658395Z env:\n2026-10-23T21:39:39.6658762Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-23T21:39:39.6659322Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig\n2026-10-23T21:39:39.6659872Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-23T21:39:39.6660367Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-23T21:39:39.6660859Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-23T21:39:39.6661360Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib\n2026-10-23T21:39:39.6661779Z ##[endgroup]\n2026-10-23T21:39:39.6782941Z /usr/bin/git\n2026-10-23T21:39:39.6797258Z ##[error]Process completed with exit code 1.\n",
+      "artifact_failure_member": "s3-bod-compile/6_Run actions_upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02.txt",
+      "artifact_error_lines": [
+        "2026-10-23T21:39:39.8724240Z ##[error]No files were found with the provided path: /home/runner/work/_temp/s3-bod-run/evidence.tar.gz"
+      ]
+    },
+    "diagnosis": "The command-v chain prints only /usr/bin/git and exits1. bwrap is unavailable to the job PATH; bwrap --version and make/controller are not reached. The absent artifact is secondary because no build work/evidence was generated. There is no namespace/access-denial execution in this run. This does not predict the next host policy result."
+  },
+  "provider_and_privilege_review": {
+    "package_scope": "Exactly bubblewrap is requested through the runner configured OS APT sources, after index refresh. No apt upgrade/dist-upgrade, repository/key change, arbitrary download-to-shell, pip/SDK/compiler change or unauthenticated override. Required package dependencies may be installed as part of normal APT resolution; --no-install-recommends excludes recommendations.",
+    "authentication_scope": "Default APT authenticates archive Release metadata and package checksums using configured OS trust. The workflow does not opt out. This is OS-provider trust, not an independent package signature, immutable host image/version pin or proof of no unknown vulnerabilities. Actual resolved origin/version remain future job evidence.",
+    "version_scope": "Bubblewrap was admitted as a host prerequisite with observed identity, not one of the fixed63 Python or compiler/SDK artifacts and not an arbitrary0.12 version requirement. apt-cache policy and dpkg-query will report resolution/install version; unchanged controller records actual executable path/version/SHA.",
+    "privilege_boundary": "sudo applies only to apt-get update/install. The next guard, make/unit controls and controller run as the ordinary runner account; no sudo make/controller, shell-wide privilege change, namespace flag change, sysctl/AppArmor adjustment or sandbox fallback is introduced.",
+    "failure_boundary": "Default runner bash-e propagates nonzero setup commands. Existing bwrap presence/version guard remains before Make. Every mandatory controller UID/GID/capability/NoNewPrivs/network/RO/device-null check remains byte-identical. Actual missing/denied properties must stop; installation success alone is not admission.",
+    "normal_OS_package_limit": "Installation executes the distribution package manager and any normal package maintenance scripts with authorized privileges. This review does not claim the Ubuntu runner configuration or its future package execution was reproduced locally."
+  },
+  "primary_sources": [
+    {
+      "url": "https://manpages.debian.org/bookworm/apt/apt-secure.8.en.html",
+      "role": "APT publisher manual: default archive authentication, unsigned repository refusal and its trust limits; not a measurement of the future Ubuntu image."
+    },
+    {
+      "url": "https://manpages.debian.org/bookworm/apt/apt-get.8.en.html",
+      "role": "APT publisher manual: update/install semantics, dependency handling and explicit package selection."
+    }
+  ],
+  "local_manual_source_hashes": {
+    "/usr/share/man/man8/apt-get.8.gz": "817a377a54e225e4898d5a50c862954670523bb96dec6df5e98430435b3325ad",
+    "/usr/share/man/man8/apt-secure.8.gz": "67aeb491b0606997d3bc99399e2df06ba11f19b8a1f44477d688cdcbb60454f6"
+  },
+  "source_access_observation": "Three initial Ubuntu manual/package web opens timed out. Existing installed APT manuals and the upstream Debian publisher manuals supplied the bounded command semantics; no platform denial or isolation restriction was retried/bypassed.",
+  "prior_reviews_preserved": {
+    "workflow": "docs/restart/H01/reviews/s3-bod-portable-workflow.json",
+    "controller_packet": "docs/restart/H01/reviews/s3-bod-portable/",
+    "meaning": "Those original bytes remain unchanged. Earlier static host-prerequisite uncertainty is now narrowed to missing command; namespace policy remains unknown."
+  },
+  "mandatory_next": [
+    "A new ordinary full protected hosted run of BOTH verify ands3-bod-compile on the reviewed corrected source; previous compile remains FAILED/SKIPPED, never relabelled.",
+    "Inspect actual APT provider/version, installed bwrap identity and all mandatory namespace properties on Ubuntu24.04. Any real denial stops without bypass.",
+    "Actual protected main integration, both main checks and source/cold provenance remain root-owned before adoption."
+  ],
+  "physical_qualification": false,
+  "parent_criteria_closed": []
+}
