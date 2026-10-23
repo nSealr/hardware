@@ -153,6 +153,114 @@ def binary_file(path):
         return unknown(error)
 
 
+# Only these literal public labels are retained from arbitrary audit records.
+AUDIT_LABELS = {
+    'apparmor': {'DENIED', 'ALLOWED', 'AUDIT', 'STATUS', 'ERROR'},
+    'operation': {'capable', 'userns_create', 'userns'},
+    'profile': {'unconfined', 'unprivileged_userns', 'bwrap', 'bwrap-userns', 'bwrap-userns-restrict'},
+    'comm': {'bwrap', 'python', 'python3', 'python3.12', 'journalctl', 'dmesg', 'apt-get', 'dpkg', 'dpkg-query'},
+    'capname': {'net_admin', 'sys_admin', 'setpcap', 'setuid', 'setgid', 'sys_ptrace', 'sys_chroot'},
+    'requested_mask': {'r', 'w', 'rw', 'wr', 'x', 'm', 'create', 'send', 'receive'},
+    'denied_mask': {'r', 'w', 'rw', 'wr', 'x', 'm', 'create', 'send', 'receive'},
+}
+AUDIT_NUMBERS = {'pid': 2147483647, 'type': 65535, 'capability': 63}
+
+
+def audit_tokens(line):
+    """Split only at unquoted whitespace; quoted contents never become fields."""
+    tokens, start, quote, i = [], 0, None, 0
+    while i < len(line):
+        char = line[i]
+        if quote is not None:
+            if char == '\\':
+                if i + 1 == len(line):
+                    raise ValueError('Malformed audit quoting')
+                i += 2
+                continue
+            if char == quote:
+                quote = None
+        elif char in ('"', "'"):
+            quote = char
+        elif char.isspace():
+            if start < i:
+                tokens.append(line[start:i])
+            start = i + 1
+        i += 1
+    if quote is not None:
+        raise ValueError('Malformed audit quoting')
+    if start < i:
+        tokens.append(line[start:i])
+    return tokens
+
+
+def format_audit_record(line):
+    result = {'status': 'UNKNOWN', 'fields': {}, 'redacted': [], 'time_prefix': None,
+              'audit_identifier': None, 'raw_line_sha256': hashlib.sha256(line.encode()).hexdigest()}
+    if len(line) > 2048:
+        result['reason'] = 'Audit line exceeds2048characters; no raw contents retained'
+        return result
+    try:
+        tokens = audit_tokens(line)
+        if tokens and re.fullmatch(r'\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:[.,]\d{1,9})?(?:Z|[+-]\d\d:?\d\d)', tokens[0]):
+            result['time_prefix'] = tokens[0]
+        fields = {}
+        in_body = False
+        for token in tokens:
+            identifier = re.fullmatch(r'audit\(([0-9]+(?:\.[0-9]+)?:[0-9]+)\):?', token)
+            if identifier:
+                if result['audit_identifier'] is not None:
+                    raise ValueError('Duplicate audit identifier')
+                result['audit_identifier'] = identifier[1]
+                in_body = True
+                continue
+            match = re.fullmatch(r'([a-z_]{1,64})=(.+)', token)
+            if match is None:
+                if in_body:
+                    raise ValueError('Unsupported top-level audit body token')
+                continue  # timestamp/host/kernel prefixes are never retained
+            key, value = match.groups()
+            if key in fields:
+                raise ValueError('Duplicate audit key')
+            if value[0] in ('"', "'"):
+                if len(value) < 2 or value[-1] != value[0]:
+                    raise ValueError('Malformed audit value')
+                value = value[1:-1]
+            if '"' in value or "'" in value:
+                raise ValueError('Unsupported embedded audit quote')
+            fields[key] = value
+        recognized = result['time_prefix'] is not None and result['audit_identifier'] is not None and bool(fields)
+        for key, value in fields.items():
+            if key in AUDIT_LABELS and value in AUDIT_LABELS[key]:
+                result['fields'][key] = value
+            elif key in AUDIT_NUMBERS and re.fullmatch(r'0|[1-9][0-9]{0,9}', value) and int(value) <= AUDIT_NUMBERS[key]:
+                result['fields'][key] = int(value)
+            else:
+                recognized = False
+                # Unknown keys and all nonpublic/path-bearing values are hashes,
+                # never raw values, key names, argv, names or proctitle bodies.
+                result['redacted'].append({'key_sha256': hashlib.sha256(key.encode()).hexdigest(),
+                                           'value_sha256': hashlib.sha256(value.encode()).hexdigest()})
+        result['status'] = 'OBSERVED' if recognized else 'UNKNOWN'
+    except ValueError:
+        result.update(fields={}, redacted=[], status='UNKNOWN', reason='Malformed or duplicate top-level audit record')
+    return result
+
+
+def format_kernel_output(raw):
+    # Count the upstream65 sentinel BEFORE filtering/retaining64. Multiline
+    # events can conservatively reach UNKNOWN earlier; they never hide a cap.
+    lines = raw.splitlines()
+    truncated = len(lines) > 64
+    matches = [line for line in lines if re.search(r'DENIED|audit\(', line)]
+    records = [format_audit_record(line) for line in matches[:64]]
+    return {'status': 'UNKNOWN' if truncated or not records or any(row['status'] == 'UNKNOWN' for row in records) else 'OBSERVED',
+            'matching_records': records, 'retained_lines_truncated': truncated,
+            'returned_lines': len(lines),
+            'retention_role': 'Top-level audit metadata with literal public value/numeric allowlists; unknown/private data hashed, no raw argv/path/proctitle',
+            'no_matching_lines_is_not_permission_or_denial_absence_proof': True}
+
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
@@ -177,30 +285,16 @@ def main():
     }
     logs = {}
     for label, argv in (
-        ('journal', ['journalctl', '--no-pager', '--kernel', '--output=short-iso', '--since=' + since, '--until=' + until, '--lines=64', '--grep=DENIED|audit\\(']),
+        ('journal', ['journalctl', '--no-pager', '--kernel', '--output=short-iso', '--since=' + since, '--until=' + until, '--lines=65', '--grep=DENIED|audit\\(']),
         ('dmesg', ['dmesg', '--time-format=iso', '--since', since, '--until', until]),
     ):
         record = read_command(argv)
         raw = record.pop('stdout', '')
-        matches = [line for line in raw.splitlines() if re.search(r'DENIED|audit\(', line)]
-        records = []
-        for line in matches[:64]:
-            # Retain only public denial metadata; never argv/proctitle, paths,
-            # packet bodies or arbitrary kernel message text that may hold data.
-            fields = dict(re.findall(r'\b(apparmor|operation|profile|comm|capability|capname|pid|type|requested_mask|denied_mask)=("[^"\n]*"|[^\s]+)', line))
-            identifier = re.search(r'audit\(([0-9.:]+)\)', line)
-            records.append({'time_prefix': line.split(' ', 1)[0][:64],
-                            'audit_identifier': identifier[1] if identifier else None,
-                            'fields': {key: value[:256] for key, value in fields.items()},
-                            'raw_line_sha256': hashlib.sha256(line.encode()).hexdigest(),
-                            'status': 'OBSERVED' if fields and all(len(value) <= 256 for value in fields.values()) else 'UNKNOWN'})
-        record['matching_records'] = records
-        record['retained_lines_truncated'] = len(matches) > 64
-        record['retention_role'] = 'Allowlisted denial/audit metadata only; raw argv/path/proctitle/message bodies are discarded'
-        if len(matches) > 64 or any(row['status'] == 'UNKNOWN' for row in records):
+        formatted = format_kernel_output(raw)
+        if formatted.pop('status') == 'UNKNOWN':
             record['status'] = 'UNKNOWN'
+        record.update(formatted)
         record['window'] = {'since': since, 'until': until, 'role': 'fresh_host_only'}
-        record['no_matching_lines_is_not_permission_or_denial_absence_proof'] = True
         logs[label] = record
     result['unprivileged_timestamp_filtered_kernel_observations'] = logs
     result['limits'] = [
