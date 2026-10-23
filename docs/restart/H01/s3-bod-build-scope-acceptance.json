@@ -42,5 +42,63 @@
     "Physical bench admission separately requires exact received kit/silicon/ROM/security/startup and GPIO46 load/access, rails/pad/CHIP_PU/reset evidence, safe level-tracking/off-power current/stimulus/instruments/operator. Two compiled images cannot supply these."
   ],
   "finish": "Coherent tiny source+two actual build artifacts/hashes+invalid-config rejection+source/config/limitations+unchanged mandatory checks, then distinct source/build review. No connected probe or hardware criterion closure.",
-  "unchanged": "All other H01/S04/advisory/access/SE/physical/manufacturing gates, task states, resources/releases; no vendor outreach/purchase/fabrication. General Rust rewrites remain deferred."
+  "unchanged": "All other H01/S04/advisory/access/SE/physical/manufacturing gates, task states, resources/releases; no vendor outreach/purchase/fabrication. General Rust rewrites remain deferred.",
+  "portable_delivery_scope_amendments": [
+    {
+      "recorded_utc": "2026-10-23T20:31:40.280972+00:00",
+      "owner": "/root/b01_final_review",
+      "branch": "implementation/h01-s3-bod-portable",
+      "reason": "Primary package metadata reports nonwithdrawn cryptography advisories in the historical Python48.0.1 profile. The portable delivery must correct this dependency instead of silently installing it or claiming a secure tool profile.",
+      "historical_source_rule": "Old bb0e/3fb1 compile-only source and results remain dated historical evidence; no cryptographic provisioning/security qualification follows from those builds.",
+      "primary_constraints": {
+        "url": "https://dl.espressif.com/dl/esp-idf/espidf.constraints.v6.1.txt",
+        "sha256": "8fd2a7299a476370a1322e87a21ce0e24a9e5b8b6df4b34f0b8acb4a4b03d135",
+        "cryptography": "cryptography>=2.1.4,<49",
+        "fresh_body_matches_retained": true
+      },
+      "primary_correction": {
+        "url": "https://pypi.org/pypi/cryptography/50.0.0/json",
+        "observed_metadata_sha256": "4cb03a11a6a704310e9aab006acf6d4946c1543f0f8410d7188b90ec1e17f03d",
+        "version": "50.0.0",
+        "nonwithdrawn_advisories_reported": [],
+        "cffi_requirement": "cffi>=2.0.0 on non-PyPy",
+        "limits": "A dated registry observation, not proof that this or any full toolchain has no unknown vulnerabilities."
+      },
+      "primary_advisories": [
+        {
+          "url": "https://github.com/pyca/cryptography/security/advisories/GHSA-m2h6-j472-rp4c",
+          "id": "CVE-2026-69248",
+          "scope": "DNS name constraints",
+          "affected_table": "<=48.0.0",
+          "patched_table": ">=49.0.0"
+        },
+        {
+          "url": "https://github.com/pyca/cryptography/security/advisories/GHSA-jwv3-5hgf-82ww",
+          "id": "CVE-2026-69249",
+          "scope": "Repeated intermediate certificate verification work",
+          "affected_table": "<=48.0.0",
+          "patched_table": ">=49.0.0"
+        },
+        {
+          "url": "https://github.com/pyca/cryptography/security/advisories/GHSA-g6cj-pr64-35w5",
+          "id": "CVE-2026-69247",
+          "scope": "PKCS7 decryption responses",
+          "affected_table": ">=44.0.0",
+          "patched_table": "50.0.0"
+        }
+      ],
+      "uncertainty": "PyPI48.0.1 reports all three while two advisory affected tables end48.0.0. Official48.0.1 changelog describes OpenSSL4.0.1 wheel rebuild only. Do not infer unreported backports or call this discrepancy resolved; PKCS7 already requires the50 correction.",
+      "admitted_local_profile": "An explicit one-line locally maintained constraint changes only cryptography>=2.1.4,<49 to cryptography==50.0.0 atop the exact8fd Espressif text; every other constraint line stays exact. Authenticate the primary50 wheel and exact publisher/source provenance. Keep existing63 pins except cryptography; report any extra required change before adoption.",
+      "mandatory_controls": [
+        "Keep SDKfff, foure984 C/project inputs, three consumed Gitlinks and compiler/Ninja/CMake/Python versions fixed; rebind observed new Python closure rather than reusing binary claims.",
+        "Run the original strict SDK dependency checker: original8fd constraints must reject50 with that exact incompatibility, explicit corrected constraints must pass; pip check must pass. Do not disable/no-constraints/ignore version checking or hide the local compatibility change.",
+        "First actual portable mode0 before completing mode0/mode1/actualCMakeguard2 and ordinary43 tests plus mandatory unskipped automatic cross-build gate.",
+        "Preserve source-metadata/collector failures, the version discrepancy and new source/archive/wheel identities. Derived esptool wheel is not a publisher wheel.",
+        "Keep mandatory namespace/device-null/RO/capability preflight. Real platform failure stops explicitly; no privilege/sysctl/AppArmor workaround.",
+        "Distinct affected final review and protected ordinary CI remain required. This profile is locally tested compile tooling, not upstream support or secure-signing/provisioning-tool qualification."
+      ],
+      "forbidden": "No vulnerable-profile waiver, additional SDK/component roster, production keys, signing/provisioning/fuse/flash/hardware execution, fabrication or physical/parent criterion closure.",
+      "parent_criteria_closed": []
+    }
+  ]
 }

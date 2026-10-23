@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "make",
+    "s3-bod-compile",
+    "S3_BOD_WORK_DIR=/tmp/nsealr-h01-portable-review-01",
+    "S3_BOD_CACHE_DIR=/tmp/nsealr-h01-portable-cold/assets"
+  ],
+  "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable-review",
+  "frozen_candidate": "1d837e87828905642242112946588c0fb67a8399",
+  "frozen_tree": "b03c78401cf6641b6231e0fa98246c49776425d2",
+  "runtime_source": "5f732caff8d432e59af75320a3827fd6842de41d",
+  "controller_sha256": "7f0995ace0526a989404d94238094d69ee34cab46eb3410fb26bb3d815a608cf",
+  "input_lock_sha256": "9a25cbf9ce7a54c3415b4a78adea51e1a011b5d5e45e73317f1926e66174a1f6",
+  "started_utc": "2026-10-23T21:18:39.315150+00:00",
+  "work_absent_before": true,
+  "cache": "Explicit previously authenticated67publisher assets; controller verifies every checksum before fresh extraction/install. SDK+3Gitlinks fetch exact official commits into fresh work.",
+  "environment_relevant": {},
+  "outer_python_version": "Python 3.13.5",
+  "status": "COMPLETED",
+  "stdout": "make.stdout.log",
+  "stderr": "make.stderr.log",
+  "exit_code": 0,
+  "elapsed_seconds": 62.65554870851338,
+  "source_status_after": "?? docs/restart/H01/reviews/s3-bod-portable/\n"
+}
