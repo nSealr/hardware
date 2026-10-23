@@ -1,0 +1,8 @@
+{
+  "source_commit": "ec038f7a8194f5437258711353d8338be1f3694a",
+  "status": "MODE0_COMPILE_LINK_PASS_CLOSURE_VERIFIER_FAILED",
+  "cause": "Strict closure refused an installed intelhex wheel data script after mixed bootstrap/build bytecode cache included pip installation scripts. No unknown producer was accepted.",
+  "correction": "Use a separate fresh build-pycache for configure/build observations, and verify wheel data-script bodies against exact publisher members with only the explicit pip #!python-to-run-venv transformation. All other wheel bytes remain exact.",
+  "mode1_or_guard2_executed": false,
+  "evidence_tar_sha256": "d7fb34d8e824e8ec66765324938d035b616bd054c0d5f88e13c9d65313c0dafb"
+}

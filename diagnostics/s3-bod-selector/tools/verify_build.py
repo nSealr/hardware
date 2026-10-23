@@ -98,9 +98,9 @@ def digest_cached(path):
 def verify_wheels(lock, wheels, site, derived):
     """Verify installed library members against actual authenticated wheel bytes.
 
-    Pip-generated RECORD/INSTALLER/direct_url and rewritten bin scripts are not
-    publisher library bodies. They are separately hashed if actually consumed;
-    none are accepted as an unbound build input by bind_mode.
+    Pip-generated RECORD/INSTALLER/direct_url are not publisher library bodies.
+    Wheel data scripts are bound with only pip's exact #!python replacement by
+    this run's venv interpreter; the transformation is explicitly recorded.
     """
     bound, packages = {}, []
     for package in lock['Python_packages']:
@@ -113,16 +113,26 @@ def verify_wheels(lock, wheels, site, derived):
                 if name.endswith('/') or name.endswith('.dist-info/RECORD'):
                     continue
                 target_name = name
+                body = archive.read(name)
+                transformation = None
                 if '.data/' in name:
                     _, role, rest = name.split('/', 2)
-                    if role not in ('purelib', 'platlib'):
-                        continue
-                    target_name = rest
-                target = site / target_name
-                expected = hashlib.sha256(archive.read(name)).hexdigest()
-                require(target.is_file() and digest(target) == expected, 'Installed publisher library file differs: ' + str(target))
+                    if role == 'scripts':
+                        require(body.startswith(b'#!python\n'), 'Unknown wheel script transformation')
+                        interpreter = site.parents[2] / 'bin/python'
+                        target = site.parents[2] / 'bin' / rest
+                        body = ('#!' + str(interpreter) + '\n').encode() + body.split(b'\n', 1)[1]
+                        transformation = 'Exact pip #!python replacement with this venv interpreter; body otherwise byte-identical'
+                    elif role in ('purelib', 'platlib'):
+                        target = site / rest
+                    else:
+                        raise ValueError('Unresolved wheel data role: ' + role)
+                else:
+                    target = site / target_name
+                expected = hashlib.sha256(body).hexdigest()
+                require(target.is_file() and digest(target) == expected, 'Installed publisher library/script file differs: ' + str(target))
                 require(str(target) not in bound, 'Overlapping wheel library file')
-                bound[str(target)] = {'package': package['name'], 'version': package['version'], 'sha256': expected, 'archive_sha256': selected['sha256'], 'origin': 'derived_exact_sdist' if package['kind'] == 'sdist' else 'publisher_wheel'}
+                bound[str(target)] = {'package': package['name'], 'version': package['version'], 'sha256': expected, 'archive_sha256': selected['sha256'], 'wheel_member': name, 'installed_transformation': transformation, 'origin': 'derived_exact_sdist' if package['kind'] == 'sdist' else 'publisher_wheel'}
                 count += 1
         packages.append({'name': package['name'], 'version': package['version'], 'wheel_sha256': selected['sha256'], 'library_members_verified': count, 'origin': package['kind']})
     return bound, packages
@@ -175,8 +185,8 @@ def bind_mode(mode, lock, paths, work, command, sandbox):
         for path in loads:
             refs[str(absolute(path, directory))].add(label + ':actual_link_map_LOAD')
         evidence[label] = {'compile_commands': len(commands), 'VALID_actual_dependency_blocks': len(blocks), 'objects_in_execution_log': len(objects), 'CMake_inputs': len(files['inputs']), 'link_map_LOAD_rows': len(loads), 'Ninja_log_sha256': digest(directory / '.ninja_log')}
-    for cached in (work / 'pycache').rglob('*.cpython-312.pyc'):
-        path = '/' + re.sub(r'\.cpython-312\.pyc$', '.py', cached.relative_to(work / 'pycache').as_posix())
+    for cached in (work / 'build-pycache').rglob('*.cpython-312.pyc'):
+        path = '/' + re.sub(r'\.cpython-312\.pyc$', '.py', cached.relative_to(work / 'build-pycache').as_posix())
         refs[path].add('observed_import_source_subset')
     refs[str(sdk / 'tools/idf.py')].add('actual_main_script')
     refs[str(sdk / 'components/esp_rom/gen_gdbinit.py')].add('actual_optional_script_warning')

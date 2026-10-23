@@ -390,6 +390,8 @@ def main() -> int:
     dump(work / 'invocation.json', {'argv': sys.argv, 'input_lock_sha256': sha(HERE / 'inputs.json'), 'bwrap': {'path': str(Path(args.bwrap).resolve()), 'sha256': sha(Path(args.bwrap)), 'version': subprocess.check_output([args.bwrap, '--version'], text=True).strip()}, 'source_commit': subprocess.check_output(['git', '-C', str(REPO), 'rev-parse', 'HEAD'], text=True).strip(), 'host': {'uname': list(platform.uname()), 'uid': os.getuid(), 'gid': os.getgid()}, 'scope': 'Compile-only; no devices, keys, firmware execution or physical qualification'})
     try:
         paths = prepare(lock, work, cache, args.bwrap)
+        # Bootstrap imports are not evidence that the compiler/configure used them.
+        paths['env']['PYTHONPYCACHEPREFIX'] = str(work / 'build-pycache')
         # Validate all extracted publisher-tool and installed library bodies before
         # product compilation, without treating installed RECORD as authentication.
         archive_bindings = {}
