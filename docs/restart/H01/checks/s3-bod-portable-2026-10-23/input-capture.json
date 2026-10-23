@@ -1,0 +1,611 @@
+{
+  "phase": "Frozen portable early-smoke inputs before SDK/tool/profile execution",
+  "base_compile_freeze": "bb0e7db1ff6687acc02ce3ad8aa23093ce0d93ad",
+  "independent_component_review": "3fb1c07416c6b9595fafec566553efad464e772f",
+  "root_profile_amendment": {
+    "commit": "b569f561cdc5287475d11125a6a455bb9dd3cb87",
+    "path": "docs/restart/H01/s3-bod-build-scope-acceptance.json",
+    "sha256": "cb828d6828a7c3d7b66127aa10c4168b0b0e38e28f2ac8a9dc158b32d1ce2a97"
+  },
+  "all63_primary_metadata_observations": {
+    "profile_count": 63,
+    "metadata_only_before_install": true,
+    "nonwithdrawn_advisories": {},
+    "changed_version_only": {
+      "cryptography": [
+        "48.0.1",
+        "50.0.0"
+      ]
+    },
+    "source_metadata": [
+      {
+        "name": "annotated-types",
+        "version": "0.8.0",
+        "url": "https://pypi.org/pypi/annotated-types/0.8.0/json",
+        "sha256": "a6e8e5b10c8fd2f596bba53e015cd37f6279fb5cec26ce0c5e9968625be4fefa"
+      },
+      {
+        "name": "boolean-py",
+        "version": "5.0",
+        "url": "https://pypi.org/pypi/boolean-py/5.0/json",
+        "sha256": "592fa1ea048b6e5d71c019df7692387b0bb57c7504676c2809b85ab3dafc1b62"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23",
+        "url": "https://pypi.org/pypi/certifi/2026.10.23/json",
+        "sha256": "546ce90e02c152f5ff565baca6bc2a8f43c355855f637756f49a0143e312bdb2"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1",
+        "url": "https://pypi.org/pypi/cffi/2.1.1/json",
+        "sha256": "2255e530e3f80593a354e3d84a29966924d0e10309d1e3a6d50f845ab7d8df66"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2",
+        "url": "https://pypi.org/pypi/charset-normalizer/3.5.2/json",
+        "sha256": "9fda300857ae6a0486b4cd2d2fec7817ed2d45657249a6dfc0c2bbd1a44267b6"
+      },
+      {
+        "name": "click",
+        "version": "8.4.2",
+        "url": "https://pypi.org/pypi/click/8.4.2/json",
+        "sha256": "7460231d6577b1efcbbbd987ad21979770b09c4e377cbac428875ddc81812491"
+      },
+      {
+        "name": "construct",
+        "version": "2.10.70",
+        "url": "https://pypi.org/pypi/construct/2.10.70/json",
+        "sha256": "a12ea962736204b41c665935d410d8a104a3183c86345b6e929f6cf67f3a4922"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.0",
+        "url": "https://pypi.org/pypi/cryptography/50.0.0/json",
+        "sha256": "4cb03a11a6a704310e9aab006acf6d4946c1543f0f8410d7188b90ec1e17f03d"
+      },
+      {
+        "name": "esp-coredump",
+        "version": "1.17.2",
+        "url": "https://pypi.org/pypi/esp-coredump/1.17.2/json",
+        "sha256": "8eec7a58a468efc57f9474029e72791628da79639b57f14d93f6417fedf17864"
+      },
+      {
+        "name": "esp-idf-diag",
+        "version": "0.2.0",
+        "url": "https://pypi.org/pypi/esp-idf-diag/0.2.0/json",
+        "sha256": "1e69464ec8e797a18e0d6f5c991f123f4a71f6e603570dbc3732a2e9447999d8"
+      },
+      {
+        "name": "esp-idf-kconfig",
+        "version": "3.14.0",
+        "url": "https://pypi.org/pypi/esp-idf-kconfig/3.14.0/json",
+        "sha256": "11c75cfe1b0847ec2954200f4b469c0ab153c5585fa2c891d82e722d0c90b982"
+      },
+      {
+        "name": "esp-idf-monitor",
+        "version": "1.10.0",
+        "url": "https://pypi.org/pypi/esp-idf-monitor/1.10.0/json",
+        "sha256": "9d260dd34dc83bad3f4a2dfb0d4bfd2a8b37ec05b85d715fbdc968140ed1b45d"
+      },
+      {
+        "name": "esp-idf-sbom",
+        "version": "1.4.0",
+        "url": "https://pypi.org/pypi/esp-idf-sbom/1.4.0/json",
+        "sha256": "928535899206ae235d128c51d659bc0d1f15228d63ae8563e62e2afc0c2aaec8"
+      },
+      {
+        "name": "esp-idf-size",
+        "version": "2.3.2",
+        "url": "https://pypi.org/pypi/esp-idf-size/2.3.2/json",
+        "sha256": "149ac7aa04bb6b77286933ac95385f6a3bebd75c59e823204d4606d6e499b438"
+      },
+      {
+        "name": "esp-pylib",
+        "version": "1.2.0",
+        "url": "https://pypi.org/pypi/esp-pylib/1.2.0/json",
+        "sha256": "88bf8a6173c1d7f6adcdd2aece24181325b58b19f85b6ba94f34f70a8c87f3c9"
+      },
+      {
+        "name": "esp-idf-nvs-partition-gen",
+        "version": "0.1.9",
+        "url": "https://pypi.org/pypi/esp-idf-nvs-partition-gen/0.1.9/json",
+        "sha256": "24977474c4c50ad2282aa3abac7fcf3c7618686ae730b6b9f55ab74499732b7a"
+      },
+      {
+        "name": "esp-idf-panic-decoder",
+        "version": "1.5.0",
+        "url": "https://pypi.org/pypi/esp-idf-panic-decoder/1.5.0/json",
+        "sha256": "6b8dada36a52e4237bf51f700caf1ccbe920c2bca2c442b829a09b5ba7545454"
+      },
+      {
+        "name": "esptool",
+        "version": "5.6.0",
+        "url": "https://pypi.org/pypi/esptool/5.6.0/json",
+        "sha256": "8aa0de4e9d0a46d74461a3a893cec7829dfaacfc43eda405a63891de8993d7e9"
+      },
+      {
+        "name": "freertos-gdb",
+        "version": "1.0.4",
+        "url": "https://pypi.org/pypi/freertos-gdb/1.0.4/json",
+        "sha256": "049fe1ab9208c60f3fa389d90fb45bd8ad1ee149410eb4e32474c313eaed914b"
+      },
+      {
+        "name": "idf-component-manager",
+        "version": "3.1.2",
+        "url": "https://pypi.org/pypi/idf-component-manager/3.1.2/json",
+        "sha256": "2cb79a2d01ad8d30ba4b5453bd9e2060e2764974f1faba9c677c6e1a22cc8d0a"
+      },
+      {
+        "name": "idf-drivers-gdb",
+        "version": "0.1.1",
+        "url": "https://pypi.org/pypi/idf-drivers-gdb/0.1.1/json",
+        "sha256": "64d06b6fe84705ba28025de3a5b93f482ae906e6cb6a4743da39a15b1da12053"
+      },
+      {
+        "name": "idna",
+        "version": "3.20",
+        "url": "https://pypi.org/pypi/idna/3.20/json",
+        "sha256": "e7cbd26e23ce60f6cb3a151d2adf3b1b087bb8f10ac2d9d6db70fdccbf3bb041"
+      },
+      {
+        "name": "intelhex",
+        "version": "2.3.0",
+        "url": "https://pypi.org/pypi/intelhex/2.3.0/json",
+        "sha256": "59d9d1535aa163c04f3fd33f7914dcda00f44f62d56d172a71be9be1c23ff7bc"
+      },
+      {
+        "name": "jsonref",
+        "version": "1.1.0",
+        "url": "https://pypi.org/pypi/jsonref/1.1.0/json",
+        "sha256": "359440e713faba3bfafb813ef8cc4fa3a0851817aa2565abf10893c63271522d"
+      },
+      {
+        "name": "license-expression",
+        "version": "30.4.4",
+        "url": "https://pypi.org/pypi/license-expression/30.4.4/json",
+        "sha256": "b8f8e4e7ff646d265627f7e8c120f0d5e2e51a1e0fe895012336b6458f4a8777"
+      },
+      {
+        "name": "linkify-it-py",
+        "version": "2.2.0",
+        "url": "https://pypi.org/pypi/linkify-it-py/2.2.0/json",
+        "sha256": "ea26c22a4493481c1dd39ede014bdc7ef14fbecff91a6ff9de027887158cc650"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0",
+        "url": "https://pypi.org/pypi/markdown-it-py/4.2.0/json",
+        "sha256": "62affba459c80b1279b5759735f7da3e9c7d24966086ff81ec0303c94512b966"
+      },
+      {
+        "name": "mdit-py-plugins",
+        "version": "0.6.1",
+        "url": "https://pypi.org/pypi/mdit-py-plugins/0.6.1/json",
+        "sha256": "bf1153ba20342c126a212c3df62a74dd1e07e807e979cbdd4b7d8dd2772d29a0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2",
+        "url": "https://pypi.org/pypi/mdurl/0.1.2/json",
+        "sha256": "c7baac0b363d92cf55f1f3a313f4bb0564bff27343e6a0a4e9d7ff03afc8a6c7"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "url": "https://pypi.org/pypi/packaging/26.3/json",
+        "sha256": "4f190d2f0b312b3086058cee64ab4333bf3ce67fb78b4c2bdb43899049b29f4d"
+      },
+      {
+        "name": "pathvalidate",
+        "version": "3.3.1",
+        "url": "https://pypi.org/pypi/pathvalidate/3.3.1/json",
+        "sha256": "b144b6d54a2465dba1651d9cfd12eb65400b2b67081926336d9b9e933b7c3d0e"
+      },
+      {
+        "name": "pip",
+        "version": "26.2.2",
+        "url": "https://pypi.org/pypi/pip/26.2.2/json",
+        "sha256": "ebd1e77f0bdb480aa8cf26c605ad6856753becb015a3d2006228cadb40465931"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.13.5",
+        "url": "https://pypi.org/pypi/platformdirs/4.13.5/json",
+        "sha256": "4a7775097ad7e3f3ce85a79287a8f2b94c3f4a3a0800280f3046f4adeff18400"
+      },
+      {
+        "name": "psutil",
+        "version": "7.2.2",
+        "url": "https://pypi.org/pypi/psutil/7.2.2/json",
+        "sha256": "84f9d2597c3c15fe19d1ce069bfdbf25951dc423dc51d67c3979468c029b6415"
+      },
+      {
+        "name": "pyclang",
+        "version": "0.7.0",
+        "url": "https://pypi.org/pypi/pyclang/0.7.0/json",
+        "sha256": "b4004d511432f8690ea40635a42fd9a918c24c309670ff806debb5c0fb075257"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12",
+        "url": "https://pypi.org/pypi/pycparser/3.12/json",
+        "sha256": "e919b291615d54a2328a0da6128cd9d95601ad04d27cec48eeb75e0d57c3b6ad"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.1",
+        "url": "https://pypi.org/pypi/pydantic/2.14.1/json",
+        "sha256": "7413703dd60983a01d25e54730f9153c4d7a83fc788c77955b5237269cf9f071"
+      },
+      {
+        "name": "pydantic-settings",
+        "version": "2.16.1",
+        "url": "https://pypi.org/pypi/pydantic-settings/2.16.1/json",
+        "sha256": "ed92f7c49b82990ee77ed8dd20229249a65c5c195faa637a284562753cd5d995"
+      },
+      {
+        "name": "pydantic-core",
+        "version": "2.50.1",
+        "url": "https://pypi.org/pypi/pydantic-core/2.50.1/json",
+        "sha256": "e93d77eaf72dda287409887550bda890a4067311ea072bf9b274df9ce6d96804"
+      },
+      {
+        "name": "pyelftools",
+        "version": "0.33",
+        "url": "https://pypi.org/pypi/pyelftools/0.33/json",
+        "sha256": "7a41fff6e4d00a1729c127e902987d05c57fe50dd29412bedc9b7fd18be258bb"
+      },
+      {
+        "name": "pygdbmi",
+        "version": "0.11.0.0",
+        "url": "https://pypi.org/pypi/pygdbmi/0.11.0.0/json",
+        "sha256": "5bdd1c6de44fdf7358f2f5262f857eef52ebffeb66abf8e161f54710b23719cd"
+      },
+      {
+        "name": "pygments",
+        "version": "2.21.0",
+        "url": "https://pypi.org/pypi/pygments/2.21.0/json",
+        "sha256": "330104a10adc8a587e3f98f4e207557125ca0c1d489e129334da5acb2b813a03"
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.3.3",
+        "url": "https://pypi.org/pypi/pyparsing/3.3.3/json",
+        "sha256": "b851d5414eca50b38263f56c00a1fbec80383a26a3ad8e41a204b72cdeee5751"
+      },
+      {
+        "name": "pyserial",
+        "version": "3.5",
+        "url": "https://pypi.org/pypi/pyserial/3.5/json",
+        "sha256": "7d1d5b73084f2fcfc980728ef6375177f6da3f553a815977890a82b24684d8ab"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.4",
+        "url": "https://pypi.org/pypi/python-dotenv/1.2.4/json",
+        "sha256": "89701376846132aefd76202d07dad6e84febe4a426a12973004e13018af15c41"
+      },
+      {
+        "name": "pyyaml",
+        "version": "6.0.3",
+        "url": "https://pypi.org/pypi/pyyaml/6.0.3/json",
+        "sha256": "c3f35597bc2f08cc990c2a5fe57bef6687b3a3d7c61d8b0ba4cc067777eb1def"
+      },
+      {
+        "name": "reedsolo",
+        "version": "1.7.0",
+        "url": "https://pypi.org/pypi/reedsolo/1.7.0/json",
+        "sha256": "db9cf11ae49e6174eabae125aaf08cba68cd86353b5c669319c9bc80be3e5cc9"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2",
+        "url": "https://pypi.org/pypi/requests/2.34.2/json",
+        "sha256": "8622e50ffd295ed759ec793f2a009172a4ed0204bbc5e948de23111bc3d2aeae"
+      },
+      {
+        "name": "requests-file",
+        "version": "3.0.1",
+        "url": "https://pypi.org/pypi/requests-file/3.0.1/json",
+        "sha256": "cc0efcfa6302ae7e87276ea1a3f2b5799e78d71c870d2c37dd096616806f3063"
+      },
+      {
+        "name": "requests-toolbelt",
+        "version": "1.0.0",
+        "url": "https://pypi.org/pypi/requests-toolbelt/1.0.0/json",
+        "sha256": "77572be079b3e272fe239c8a0e1ae3491e90ee3c58eb63614ea4d7e5bcbc2b8e"
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0",
+        "url": "https://pypi.org/pypi/rich/15.0.0/json",
+        "sha256": "455015cb0b237a24819d91236152ad0e71b2be39a83cbe6afa0e29ea8aafa550"
+      },
+      {
+        "name": "rich-click",
+        "version": "1.9.9",
+        "url": "https://pypi.org/pypi/rich-click/1.9.9/json",
+        "sha256": "abf2a3e1cacaea89791bcbf1324e5c2a8f6be2a6f595efdbd449b0e374730919"
+      },
+      {
+        "name": "ruamel-yaml",
+        "version": "0.19.1",
+        "url": "https://pypi.org/pypi/ruamel-yaml/0.19.1/json",
+        "sha256": "0360222b1c2f139b7f098a4037384375c6c4cd56360188a0da271c2d3687eacf"
+      },
+      {
+        "name": "schema",
+        "version": "0.7.8",
+        "url": "https://pypi.org/pypi/schema/0.7.8/json",
+        "sha256": "28835dc8a91224625206b98ba63d8361b78c796572caeff9b158a935915e2252"
+      },
+      {
+        "name": "setuptools",
+        "version": "84.2.1",
+        "url": "https://pypi.org/pypi/setuptools/84.2.1/json",
+        "sha256": "d75de8ba0d3304a3d74484fb9f340edb87ef02712da4fa02a2ed92e71b0572dd"
+      },
+      {
+        "name": "textual",
+        "version": "8.2.8",
+        "url": "https://pypi.org/pypi/textual/8.2.8/json",
+        "sha256": "0ab55d653714e7dfbe32fa5888b919032737888f55e52e4692ee8868cf32dd21"
+      },
+      {
+        "name": "tree-sitter",
+        "version": "0.26.0",
+        "url": "https://pypi.org/pypi/tree-sitter/0.26.0/json",
+        "sha256": "9092685a2f892a458da47b612f842f80aff303f6fadb82261414dc644af2e699"
+      },
+      {
+        "name": "tree-sitter-c",
+        "version": "0.24.2",
+        "url": "https://pypi.org/pypi/tree-sitter-c/0.24.2/json",
+        "sha256": "d9a1b357c1c9ddebb337192c6da0357cba455c951589ef858673da3525d2f5e1"
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.5",
+        "url": "https://pypi.org/pypi/truststore/0.10.5/json",
+        "sha256": "3aa1222ab6468e1e01b751aeda8db44afca8117297c93cb497c8d27e8f37e17b"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4",
+        "url": "https://pypi.org/pypi/typing-inspection/0.4.4/json",
+        "sha256": "0605416f2f37f2df04e45360cf5ce4ca5eeca6d414bb6ddb1ec5a9893c62ac30"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0",
+        "url": "https://pypi.org/pypi/typing-extensions/4.16.0/json",
+        "sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0",
+        "url": "https://pypi.org/pypi/urllib3/2.8.0/json",
+        "sha256": "5315e7401db3cacccd0c2ce5daf81f752a9cc3614b18c37f2b79930b7159ce2f"
+      },
+      {
+        "name": "websockets",
+        "version": "17.3",
+        "url": "https://pypi.org/pypi/websockets/17.3/json",
+        "sha256": "c1edfba2f71e45b414422b59b99c2ac96549ae60d52c59a7d804ecfdf7a23d1b"
+      }
+    ]
+  },
+  "initial_crypto_question": {
+    "profile_source_commit": "bb0e7db1ff6687acc02ce3ad8aa23093ce0d93ad",
+    "profile_source_path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/producer-bindings.json",
+    "profile_sha256": "dad08ce4f96bd3af156a9be2c70016e0190967d9e98ac09633b9edc513afeed8",
+    "cryptography_profile": {
+      "name": "cryptography",
+      "version": "48.0.1",
+      "RECORD_sha256": "9b552efebfc5a4071d633b8de7c7acdbd3f6e3e2ec3c0e83dddb8ba0be9b64fa",
+      "hashed_files_verified": 118,
+      "unhashed_RECORD_or_cache_entries": 78
+    },
+    "constraint_source_url": "https://dl.espressif.com/dl/esp-idf/espidf.constraints.v6.1.txt",
+    "constraint_local_original": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/espidf.constraints.v6.1.txt",
+    "constraint_sha256": "8fd2a7299a476370a1322e87a21ce0e24a9e5b8b6df4b34f0b8acb4a4b03d135",
+    "constraint_selected_lines": [
+      [
+        13,
+        "# cryptography: Min. version was set to support all functionality of ESP-IDF"
+      ],
+      [
+        14,
+        "# Only binary for cryptography is here to make it work on ARMv7 architecture"
+      ],
+      [
+        15,
+        "# We do have cryptography binary on https://dl.espressif.com/pypi for ARM"
+      ],
+      [
+        17,
+        "cryptography>=2.1.4,<49"
+      ],
+      [
+        18,
+        "--only-binary cryptography"
+      ]
+    ],
+    "SDK_caller_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "SDK_caller": "tools/idf_tools.py:2672-2697,2849-2886",
+    "primary_version_metadata_sha256": "eb0177ac13bd74e0668aa81910ddeb553295d46533fdb6ce2468dc1aaf959d61",
+    "primary_sdist": {
+      "filename": "cryptography-48.0.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/12/45/870e7f4bef50e5f53b9f51d4428aee5290eedf58ba443f16b1ebb7ab8e66/cryptography-48.0.1.tar.gz",
+      "size": 832989,
+      "digests": {
+        "blake2b_256": "1245870e7f4bef50e5f53b9f51d4428aee5290eedf58ba443f16b1ebb7ab8e66",
+        "md5": "6e6a7f84ee84fc6f2e14b76bb03ed15f",
+        "sha256": "266f4ee051abb2f725b74ef8072b521ce1feacf685a3364fa6a6b45548db791a"
+      }
+    },
+    "changelog_archive_member": "cryptography-48.0.1/CHANGELOG.rst",
+    "changelog_sha256": "ad79cbd6cc7e85289b6b539ca868b409aa45417aa2e81f5c9be0324cb5aa67db",
+    "changelog_48_0_1_section": "6:48.0.1 - 2026-06-09\n7:~~~~~~~~~~~~~~~~~~~\n8:\n9:* Updated Windows, macOS, and Linux wheels to be compiled with OpenSSL 4.0.1.\n10:\n11:.. _v48-0-0:\n12:",
+    "statement": "Exact48.0.1 changelog lists only wheel rebuild against OpenSSL4.0.1. No declared backport of the3reported PyCA verifier/PKCS7 algorithm fixes; this is not a source-diff proof of their presence/absence. SDK<49 excludes the reported50PKCS7 fix. No supported all-fixed profile is established within the unchanged tuple.",
+    "install_or_build_of_new_profile": false,
+    "no_exploit_or_key_generation": true
+  },
+  "original_nonwithdrawn_primary_advisory_fields": [
+    {
+      "id": "GHSA-m2h6-j472-rp4c",
+      "aliases": [
+        "CVE-2026-69248",
+        "PYSEC-2026-3554"
+      ],
+      "fixed_in": [
+        "49.0.0"
+      ],
+      "withdrawn": null,
+      "link": "https://osv.dev/vulnerability/GHSA-m2h6-j472-rp4c"
+    },
+    {
+      "id": "GHSA-g6cj-pr64-35w5",
+      "aliases": [
+        "CVE-2026-69247",
+        "PYSEC-2026-3552"
+      ],
+      "fixed_in": [
+        "50.0.0"
+      ],
+      "withdrawn": null,
+      "link": "https://osv.dev/vulnerability/GHSA-g6cj-pr64-35w5"
+    },
+    {
+      "id": "GHSA-jwv3-5hgf-82ww",
+      "aliases": [
+        "CVE-2026-69249",
+        "PYSEC-2026-3553"
+      ],
+      "fixed_in": [
+        "49.0.0"
+      ],
+      "withdrawn": null,
+      "link": "https://osv.dev/vulnerability/GHSA-jwv3-5hgf-82ww"
+    },
+    {
+      "id": "PYSEC-2026-3552",
+      "aliases": [
+        "CVE-2026-69247",
+        "GHSA-g6cj-pr64-35w5"
+      ],
+      "fixed_in": [
+        "50.0.0"
+      ],
+      "withdrawn": null,
+      "link": "https://osv.dev/vulnerability/PYSEC-2026-3552"
+    },
+    {
+      "id": "PYSEC-2026-3553",
+      "aliases": [
+        "CVE-2026-69249",
+        "GHSA-jwv3-5hgf-82ww"
+      ],
+      "fixed_in": [
+        "49.0.0"
+      ],
+      "withdrawn": null,
+      "link": "https://osv.dev/vulnerability/PYSEC-2026-3553"
+    },
+    {
+      "id": "PYSEC-2026-3554",
+      "aliases": [
+        "CVE-2026-69248",
+        "GHSA-m2h6-j472-rp4c"
+      ],
+      "fixed_in": [
+        "49.0.0"
+      ],
+      "withdrawn": null,
+      "link": "https://osv.dev/vulnerability/PYSEC-2026-3554"
+    }
+  ],
+  "source_capture_errors": [
+    {
+      "stage": "wheel-only selector before SDK/install/build",
+      "error": "No compatible publisher wheel for exactesptool5.6.0; only officialsdist.",
+      "source_sha256": "2e032c8e6bf18d223bd244b8064a87f1f8a1de12cbe23cc25e695373756bd642",
+      "resolution": "Authenticate exactsdist86c7249e\u2026; primarypyproject onlysetuptools>=77; frozen84.2.1 satisfies. Localderivedwheel identity remains separate."
+    },
+    {
+      "stage": "Aggregate advisory gate before SDK/install/build",
+      "error": "Primarycryptography48.0.1 metadata reports6nonwithdrawn records =3advisories+3aliases. No vulnerableprofile installed.",
+      "source_sha256": "0223dc94bcfeda94688bdc765dbe0fb8fbee43fb30439148ac77877b710e8e9d",
+      "resolution": "Explicitrootb569 locallymaintainedcrypto50 one-lineconstraintcorrection; all62otherpackageversionsunchanged; upstreamcheckernegative/localpositive/pipcheck required."
+    },
+    {
+      "stage": "Primarychangelog selector",
+      "error": "docs/changelog.rst is an include of top-levelCHANGELOG.rst; the first section-selectorassert stopped.",
+      "resolution": "Read the exact includedprimarymember within the same verified48.0.1sourcearchive; no version/source alternative."
+    }
+  ],
+  "current_primary_capture_script_sha256": "1c67fffa8c6b82db322df1edf2cf2f0044dc2f9bdaf9eccefcb719d645a2c0c6",
+  "input_lock_sha256": "0fc7bf81e8ebcbceb60f276f274d24cf0ee9b49b5d5468fd4960785be80fc08a",
+  "constraints_upstream_sha256": "8fd2a7299a476370a1322e87a21ce0e24a9e5b8b6df4b34f0b8acb4a4b03d135",
+  "constraints_local_sha256": "f6afb482b6602c1d083b20e8f2405a0d732c248e2d67b6b3ef20f5a8439c2e41",
+  "all_other_constraints_exact": true,
+  "no_new_package_version_except_crypto50": true,
+  "publisher_signature_or_no_unknown_vulnerability_claim": false,
+  "raw_primary_capture_cache": "/tmp/nsealr-h01-portable-origins",
+  "actual_bootstrap_asset_downloads": [
+    {
+      "name": "xtensa-esp-elf",
+      "filename": "xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz",
+      "sha256": "3d50f5cd5f173acfd524e07c1cd69bc99585731a415ca2e5bce879997fe602b8",
+      "size": 180530004,
+      "url": "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz",
+      "path": "/tmp/nsealr-h01-portable-cold/assets/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz",
+      "actual_bytes": 180530004,
+      "actual_sha256": "3d50f5cd5f173acfd524e07c1cd69bc99585731a415ca2e5bce879997fe602b8",
+      "elapsed_seconds": 7.977439120411873,
+      "status": "VERIFIED_PRIMARY_PINNED_ASSET"
+    },
+    {
+      "name": "ninja",
+      "filename": "ninja-linux-v1.12.1.zip",
+      "rename_dist": "ninja-linux-v1.12.1.zip",
+      "sha256": "6f98805688d19672bd699fbbfa2c2cf0fc054ac3df1f0e6a47664d963d530255",
+      "size": 123084,
+      "url": "https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-linux.zip",
+      "path": "/tmp/nsealr-h01-portable-cold/assets/ninja-linux-v1.12.1.zip",
+      "actual_bytes": 123084,
+      "actual_sha256": "6f98805688d19672bd699fbbfa2c2cf0fc054ac3df1f0e6a47664d963d530255",
+      "elapsed_seconds": 0.27278549689799547,
+      "status": "VERIFIED_PRIMARY_PINNED_ASSET"
+    },
+    {
+      "name": "cmake",
+      "filename": "cmake-3.31.6-linux-x86_64.tar.gz",
+      "url": "https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.tar.gz",
+      "size": 55010959,
+      "sha256": "5a1133ff103c71eb5120e2cc3de922733e7d8a26a98ae716397e8676adb367bf",
+      "path": "/tmp/nsealr-h01-portable-cold/assets/cmake-3.31.6-linux-x86_64.tar.gz",
+      "actual_bytes": 55010959,
+      "actual_sha256": "5a1133ff103c71eb5120e2cc3de922733e7d8a26a98ae716397e8676adb367bf",
+      "elapsed_seconds": 3.2013455890119076,
+      "status": "VERIFIED_PRIMARY_PINNED_ASSET"
+    },
+    {
+      "name": "python",
+      "filename": "python.tar.gz",
+      "sha256": "178d3d83b6e8e99285a65d3fce9c16b87952cc5efdb4d1a0e3ff3be18ff0fc9c",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261013/cpython-3.12.15%2B20261013-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "version": "3.12.15",
+      "path": "/tmp/nsealr-h01-portable-cold/assets/python.tar.gz",
+      "actual_bytes": 34340172,
+      "actual_sha256": "178d3d83b6e8e99285a65d3fce9c16b87952cc5efdb4d1a0e3ff3be18ff0fc9c",
+      "elapsed_seconds": 1.828385359607637,
+      "status": "VERIFIED_PRIMARY_PINNED_ASSET"
+    }
+  ],
+  "physical_qualification": false,
+  "early_mode0_not_yet_executed": true
+}

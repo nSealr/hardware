@@ -1,0 +1,19 @@
+python3 -m unittest discover -s diagnostics/s3-bod-selector/tools -p test_gate.py -v
+python3 diagnostics/s3-bod-selector/tools/build_gate.py --mode full --work-dir "/tmp/nsealr-h01-portable-final-01" --cache-dir "/tmp/nsealr-h01-portable-cold/assets"
+Running sdk-init
+Running sdk-origin
+Running sdk-fetch
+Running sdk-checkout
+Running link0-init
+Running link0-origin
+Running link0-fetch
+Running link0-checkout
+Running link1-init
+Running link1-origin
+Running link1-fetch
+Running link1-checkout
+Running link2-init
+Running link2-origin
+Running link2-fetch
+Running link2-checkout
+Running bootstrap-namespace-preflight

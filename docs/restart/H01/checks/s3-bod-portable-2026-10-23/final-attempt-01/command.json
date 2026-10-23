@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "make",
+    "s3-bod-compile",
+    "S3_BOD_WORK_DIR=/tmp/nsealr-h01-portable-final-01",
+    "S3_BOD_CACHE_DIR=/tmp/nsealr-h01-portable-cold/assets"
+  ],
+  "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable",
+  "source_commit": "de77293c44350afdaad7fbabece8be358cf4c8e2",
+  "started_utc": "2026-10-23T21:07:03Z",
+  "exit": 2,
+  "seconds": 17.789578817784786,
+  "stdout_sha256": "a484a3a26390f21f42844f7b27864d6de550a2aed4d75de1721cee060fe51bde",
+  "stderr_sha256": "3cb92d8eb40ffe5883bca4f621c1fec7be3bc18e93356c87b626c3bf53a1a12d"
+}

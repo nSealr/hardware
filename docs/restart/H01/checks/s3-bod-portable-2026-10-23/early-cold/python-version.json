@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/tmp/nsealr-h01-portable-smoke-01/tools/python-runtime/python/bin/python3",
+    "-c",
+    "import sys; assert sys.version_info[:3]==(3,12,15); print(sys.version)"
+  ],
+  "cwd": null,
+  "expected_exit": 0,
+  "exit": 0,
+  "seconds": 0.008684013038873672,
+  "stdout_sha256": "142e1210b79736d47d05d0f11cdf8dcac1e1ab78755b5977559649b574702ba4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

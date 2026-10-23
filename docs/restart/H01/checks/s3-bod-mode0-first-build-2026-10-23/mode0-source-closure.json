@@ -1,0 +1,57 @@
+{
+  "status": "PASS_MODE0_BUILD_INPUT_SOURCE_CORRESPONDENCE_IN_EXACT_RECORDED_TOOL_ENVIRONMENT",
+  "project_source": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "SDK": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "actual_configure_exit": 0,
+  "actual_build_exit": 0,
+  "scope": "SDK/project/Gitlink tracked bytes; actual app+bootloader compiler/header dependency records; link-map LOAD inputs; generated file hashes and actual producer identities. Existing Python/CMake environment identities are separate from SDK Git sources.",
+  "evidence": {
+    "source-receipt.json": "362d719849cb531cef5b815f271ea82ae986b6c63e30d273fbe59c9b1accc3ec",
+    "SDK-preflight.json": "c2dd291be98423209617697d17022de1f1d8b9dd10caa3754217b471b5293ac9",
+    "SDK-post-build.json": "ff4095059ff586866233482ac540d8712a9150e3063c7a79f728df1931e5a583",
+    "mode0-input-bindings.json": "0d9f49023d47d95f429c980a2c02dedc9441fe1da0437b79ff28746800deb80e",
+    "producer-bindings.json": "dad08ce4f96bd3af156a9be2c70016e0190967d9e98ac09633b9edc513afeed8",
+    "toolchain-file-correspondence.json.gz": "d92a1eb3e0f99d8423201c06b1b14976b5d8a9c582ca9ef2e80aa168fc0aebd4",
+    "configure-command.json": "eb712e7673411938f75aaf4d1c52db2cc3d3c80b9d9f3ea1d6d4cf8a6b226cc3",
+    "build-command.json": "d2207e488e356c06d55d5b06cd98969ae35cc0b4292541571de23f755e55adbc",
+    "read-only-command-receipts.json": "1d959b9cc95b535defaf6dddce32374dfd7eeb3e488f699799261828934f5a8b"
+  },
+  "actual_objects": {
+    "app": {
+      "compile_commands": 473,
+      "actual_VALID_dependency_blocks": 473,
+      "every_compiled_object_covered": true,
+      "CMake_input_rows": 385,
+      "link_map_LOAD_rows": 240,
+      "build_components": 51
+    },
+    "bootloader": {
+      "compile_commands": 124,
+      "actual_VALID_dependency_blocks": 124,
+      "every_compiled_object_covered": true,
+      "CMake_input_rows": 305,
+      "link_map_LOAD_rows": 145,
+      "build_components": 39
+    }
+  },
+  "binding_statuses": {
+    "EXACT_DETACHED_SDK_GIT_METADATA_NOT_SOURCE_BLOB": 1,
+    "EXACT_PINNED_GIT_FILE": 1436,
+    "EXACT_OFFICIAL_TOOLCHAIN_ARCHIVE_FILE": 138,
+    "GENERATED_CONFIGURE_OUTPUT_NOT_UPSTREAM_SOURCE": 106,
+    "EXACT_FROZEN_PROJECT_FILE": 3,
+    "HOST_TOOL_OR_ENVIRONMENT_INPUT_HASH_ONLY": 469
+  },
+  "whole_official_toolchain_files": 3966,
+  "generated_rows": 106,
+  "Python_packages": 63,
+  "installed_RECORD_hashes_verified": 3311,
+  "unresolved_or_wrong_consumed_SDK_project_toolchain_inputs": [],
+  "whole_source_context": "All20727SDK-root tracked files and all8pinned child trees byte-match; no untracked child sources. SDKroot extras are only2oldpyc excluded by freshPYTHONPYCACHEPREFIX. All24Gitlinkstates remain explicit; uninitialized/wrong-HEAD modules are not admitted globally or for another configuration.",
+  "limits": [
+    "No syscall-complete OS input trace, independent reauthentication of installed Python wheel origin or binary reproducibility claim. Same admitted tool environment was read-only and its observed producers/packages/files are bound.",
+    "No firmware execution, device/flash/fuse/power, BOD polarity, ROM/hardware state, host/Board/task/release qualification.",
+    "Author source-correspondence assessment only; distinct root review and later required integration gates remain."
+  ],
+  "next_authorized_scope": "Root explicitly extended b848 STOP after this successful mode0/source-correspondence result to the already specified mode1 and true CMake selector2 rejection. No other mode/config/source/security/budget change."
+}

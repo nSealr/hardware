@@ -1,0 +1,8 @@
+{
+  "source_commit": "de77293c44350afdaad7fbabece8be358cf4c8e2",
+  "status": "CONTROLLER_CHECK_DEFECT_BEFORE_INSTALL_OR_COMPILE",
+  "cause": "Comparing parent supplementary group numbers directly with nested-user-namespace group numbers is invalid; unmapped IDs become65534. UID/GID,CapEff/Prm0 andNoNewPrivs1 were observed. No platform/SDK denial occurred.",
+  "correction": "Remove this unsupported supplementary-group equality assertion and record actual namespace group/map values. All required UID/GID/capability/NNP/network/RO assertions remain unconditional.",
+  "compile_or_link_acquired": false,
+  "evidence_tar_sha256": "317f0a39084592a89fe23eb0d9b16ff8c81f042a389c5f5e1eae3f17d5f98f88"
+}

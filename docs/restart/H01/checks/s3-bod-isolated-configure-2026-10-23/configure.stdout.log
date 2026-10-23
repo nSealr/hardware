@@ -1,0 +1,4 @@
+-- Configuring incomplete, errors occurred!
+Executing action: reconfigure
+Running cmake in directory /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-01/build
+Executing "cmake -G Ninja -B /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-01/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python -DESP_PLATFORM=1 -DIDF_TARGET=esp32s3 -DBOD_RST_SEL=0 -DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-01/build/sdkconfig -DCCACHE_ENABLE=False /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-01/project"...

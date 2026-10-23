@@ -1,0 +1,35 @@
+{
+  "actual_platform": [
+    "Linux",
+    "tux",
+    "6.12.101+deb13-amd64",
+    "#1 SMP PREEMPT_DYNAMIC Debian 6.12.101-1 (2026-08-05)",
+    "x86_64",
+    ""
+  ],
+  "bootstrap_host_prerequisites": [
+    {
+      "name": "git",
+      "path": "/usr/bin/git",
+      "sha256": "356db14e102d68a1a37d8a1ac577dfd678d45d46e92f468bef8b7154e7bfdc60",
+      "version_stdout": "git version 2.47.3",
+      "version_stderr": ""
+    },
+    {
+      "name": "bwrap",
+      "path": "/usr/bin/bwrap",
+      "sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+      "version_stdout": "bubblewrap 0.12.0",
+      "version_stderr": ""
+    },
+    {
+      "name": "python3",
+      "path": "/usr/bin/python3.13",
+      "sha256": "889c603f0d17cb54060951bcf4c4f9b8c9ebd9e52b392c70209bbb9755d797d9",
+      "version_stdout": "Python 3.13.5",
+      "version_stderr": ""
+    }
+  ],
+  "compile_interpreter": "Authenticated CPython3.12.15 extracted under the fresh task workspace; hostpython only orchestrates/bootstrap-hashes.",
+  "limit": "Host prerequisites and sandbox properties are observed, not a reproducible whole-OS profile or guaranteed compatibility across other bubblewrap/runner releases. No escalation, platform policy change or automatic fallback."
+}

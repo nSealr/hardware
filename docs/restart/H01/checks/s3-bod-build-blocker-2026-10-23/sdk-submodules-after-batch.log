@@ -1,0 +1,24 @@
+ 24c60e243580c7868f4334a1ba3123481fe1aa48 components/bootloader/subproject/components/micro-ecc/micro-ecc (v1.1)
+ 98c6de2d5411a7297dbba00387dfca2bcc44fd18 components/bt/controller/lib_esp32 (98c6de2)
+ 6a5c0b8bfca1a2e984e89431b8ebf9b521dad5ea components/bt/controller/lib_esp32c2/esp32c2-bt-lib (6a5c0b8)
+ 0a08c4b32f3666003080b662a1a61794da24ff0f components/bt/controller/lib_esp32c3_family (heads/master)
+ ac7885ea2fc76e56a814d10120812ccacf101f0b components/bt/controller/lib_esp32c5/esp32c5-bt-lib (ac7885e)
+ eee922eaa95770d567f0939cc3d56c712a6ecf65 components/bt/controller/lib_esp32c6/esp32c6-bt-lib (eee922e)
++7d65dcaeceb6700d6db473988939acd689282082 components/bt/controller/lib_esp32h2/esp32h2-bt-lib (heads/master)
++6b8bbb513413e94680af81be43816a16259d1ed6 components/bt/controller/lib_esp32h4/esp32h4-bt-lib (heads/main)
++de85ce6fb71313f6f4a508efa6af43b1be463143 components/bt/controller/lib_esp32s31/esp32s31-bt-lib (heads/main)
++2480ba6a30beba46a7b18fc1fd061e81dae03b2a components/bt/esp_ble_audio/lib/lib (heads/main)
++8b693178d76ec2578abf46aec53c2fb895b63df7 components/bt/esp_ble_mesh/lib/lib (heads/main)
++ad2542d129169cfcd12186fe8e20d2d6f82f6389 components/bt/host/nimble/nimble (heads/nimble-1.10.0-idf)
++34c26e540301bd434602aad5b6680ef51855bba1 components/cmock/CMock (heads/master)
+-ddc56fa524a38df3098d2f36475fbe3eefe9b4f4 components/esp_coex/lib
+-5695f4f38108658bc4a33e4712c1ebcb34911434 components/esp_phy/lib
+-7cd4d7b2b4acc38aead43b029ac9409c3eba9c54 components/esp_wifi/lib
+ 2867f6883a12920b1969ff9624c0ab0e4185c2ce components/heap/tlsf (2867f68)
+-c6f2f878e7b0f86033214b85547d579be43351e3 components/lwip/lwip
+ a2b32072ea898afc1ed5b6caf6931e36028c91d6 components/mbedtls/mbedtls (a2b3207)
+-4dd715391cfb2cf4d06825a17294514024e4dc12 components/openthread/lib
+-b678a4f63b6f9397d1a0fa8f31e5b8e0271a4d00 components/openthread/openthread
+-abc67a11c6db271bedbb9f58be85d6f4e2ea8389 components/protobuf-c/protobuf-c
+-ad902cadceb39d0825a97e25ecb5867641f606ba components/spiffs/spiffs
+-bf560290f6020737eafaa8b5cbd2177c3956c03f components/unity/unity

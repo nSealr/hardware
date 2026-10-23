@@ -1,0 +1,86 @@
+{
+  "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "argv": [
+    "bwrap",
+    "--unshare-user",
+    "--unshare-net",
+    "--die-with-parent",
+    "--bind",
+    "/",
+    "/",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "--ro-bind",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/project",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/project",
+    "--dev",
+    "/dev",
+    "--",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+    "-C",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/project",
+    "-B",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/build",
+    "-DIDF_TARGET=esp32s3",
+    "-DBOD_RST_SEL=2",
+    "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/build/sdkconfig",
+    "reconfigure"
+  ],
+  "environment_overrides": {
+    "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "IDF_COMPONENT_MANAGER": "0",
+    "IDF_SKIP_CHECK_SUBMODULES": "1",
+    "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/pycache",
+    "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin",
+    "IDF_PY_BUILD_JOBS": "4"
+  },
+  "project_inputs": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "e9afd6ded4bedd82e39d613b2e06309a78c9d4d7",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/project/CMakeLists.txt"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "125de1a7bdf9d321f191a70b789500f135cc521b",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/project/main/CMakeLists.txt"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "a378973fb584f3e8bcf10af24f36b3861aa7ed63",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/project/main/main.c"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "source_blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+      "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/project/sdkconfig.defaults"
+    }
+  ],
+  "independent_expectations": "db1a2fc8a48b40effbcaeed8961dafe9a574cea7:docs/restart/H01/s3-bod-build-expectations.json selectors.other",
+  "expected": {
+    "idf_py_exit": 2,
+    "guard": "CMakeLists.txt:4 literal BOD_RST_SEL rejection before SDK project include",
+    "product_compile_or_link": false
+  },
+  "exit": 2,
+  "started_unix": 1792782946.5965934,
+  "duration_seconds": 0.8214612007141113
+}

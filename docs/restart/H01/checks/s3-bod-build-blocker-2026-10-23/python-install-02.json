@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/home/tux/nsealr/.restart-tools/goal/r00/tools/baseline/.work/final/.tools/python/bin/python3",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf_tools.py",
+    "install-python-env",
+    "--features",
+    "core"
+  ],
+  "exit": 0,
+  "duration_seconds": 10.657093524932861,
+  "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+  "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+  "correction": "Created empty task-local environment directory required by pinned installer; SDK/code/version unchanged; first failure retained."
+}

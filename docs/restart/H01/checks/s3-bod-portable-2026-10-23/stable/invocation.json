@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "diagnostics/s3-bod-selector/tools/build_gate.py",
+    "--mode",
+    "full",
+    "--work-dir",
+    "/tmp/nsealr-h01-portable-final-03",
+    "--cache-dir",
+    "/tmp/nsealr-h01-portable-cold/assets"
+  ],
+  "input_lock_sha256": "9a25cbf9ce7a54c3415b4a78adea51e1a011b5d5e45e73317f1926e66174a1f6",
+  "bwrap": {
+    "path": "/usr/bin/bwrap",
+    "sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+    "version": "bubblewrap 0.12.0"
+  },
+  "source_commit": "5f732caff8d432e59af75320a3827fd6842de41d",
+  "host": {
+    "uname": [
+      "Linux",
+      "tux",
+      "6.12.101+deb13-amd64",
+      "#1 SMP PREEMPT_DYNAMIC Debian 6.12.101-1 (2026-08-05)",
+      "x86_64",
+      ""
+    ],
+    "uid": 1000,
+    "gid": 1000
+  },
+  "scope": "Compile-only; no devices, keys, firmware execution or physical qualification"
+}

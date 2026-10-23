@@ -1,0 +1,22 @@
+{
+  "status": "EXPECTED_FLAGS_RESOLVED_BEFORE_BUILD",
+  "source_receipt_sha256": "362d719849cb531cef5b815f271ea82ae986b6c63e30d273fbe59c9b1accc3ec",
+  "configure_command_sha256": "eb712e7673411938f75aaf4d1c52db2cc3d3c80b9d9f3ea1d6d4cf8a6b226cc3",
+  "sdkconfig_sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375",
+  "actual": {
+    "IDF_TARGET": "esp32s3",
+    "ESP_BROWNOUT_DET": false,
+    "SECURE_BOOT": false,
+    "SECURE_FLASH_ENC_ENABLED": false,
+    "FREERTOS_UNICORE": true,
+    "ESP_DEFAULT_CPU_FREQ_MHZ_160": true
+  },
+  "F1_symbol": "ABSENT; no unknown-symbol warning in new configure",
+  "default_Ninja_target": [
+    "default all"
+  ],
+  "default_Ninja_rule": "build all: phony bootloader s3_bod_selector.elf app esp-idf/all",
+  "inspection": "Actual config JSON/SDKconfig and generated Ninja default rule inspected before normal idf.py build. No secure boot/flash encryption configuration; default all builds firmware/images rather than flash/fuse/monitor targets.",
+  "remaining_warning": "Optional gen_gdbinit.py ESP_ROM_ELF_DIR error remains nonfatal and preserved; no debugger/ROM ELF acquisition or substitution.",
+  "limits": "SDK configured flags are not ROM/hardware-state, physical safety or complete input-closure proof."
+}

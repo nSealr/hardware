@@ -1,0 +1,30 @@
+{
+  "source": "11047b805039e01dbb73e7c08d4b6a8016090fcd",
+  "argv": [
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+    "-C",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate/diagnostics/s3-bod-selector",
+    "-B",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/smoke-0-recovery",
+    "-DIDF_TARGET=esp32s3",
+    "-DBOD_RST_SEL=0",
+    "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/smoke-0-recovery/sdkconfig",
+    "build"
+  ],
+  "exit": 2,
+  "duration_seconds": 10.61249852180481,
+  "environment": {
+    "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+    "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+    "IDF_COMPONENT_MANAGER": "0",
+    "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin"
+  },
+  "source_sha256": {
+    "diagnostics/s3-bod-selector/CMakeLists.txt": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+    "diagnostics/s3-bod-selector/sdkconfig.defaults": "a9ed9e362d1d733ffffd566cf2f1003ef95bc1d9686574efc4dce90fdc449831",
+    "diagnostics/s3-bod-selector/main/CMakeLists.txt": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+    "diagnostics/s3-bod-selector/main/main.c": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60"
+  }
+}

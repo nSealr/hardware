@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "submodule",
+    "update",
+    "--init",
+    "--depth=1",
+    "components/heap/tlsf",
+    "components/mbedtls/mbedtls"
+  ],
+  "exit": 0,
+  "duration_seconds": 5.583752632141113
+}

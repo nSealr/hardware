@@ -1,0 +1,366 @@
+{
+  "files": [
+    {
+      "member": "pypi-annotated-types-0.8.0.json",
+      "bytes": 17411,
+      "sha256": "a6e8e5b10c8fd2f596bba53e015cd37f6279fb5cec26ce0c5e9968625be4fefa"
+    },
+    {
+      "member": "pypi-boolean-py-5.0.json",
+      "bytes": 4340,
+      "sha256": "592fa1ea048b6e5d71c019df7692387b0bb57c7504676c2809b85ab3dafc1b62"
+    },
+    {
+      "member": "pypi-certifi-2026.10.23.json",
+      "bytes": 4631,
+      "sha256": "546ce90e02c152f5ff565baca6bc2a8f43c355855f637756f49a0143e312bdb2"
+    },
+    {
+      "member": "pypi-cffi-2.1.1.json",
+      "bytes": 89333,
+      "sha256": "2255e530e3f80593a354e3d84a29966924d0e10309d1e3a6d50f845ab7d8df66"
+    },
+    {
+      "member": "pypi-charset-normalizer-3.5.2.json",
+      "bytes": 202370,
+      "sha256": "9fda300857ae6a0486b4cd2d2fec7817ed2d45657249a6dfc0c2bbd1a44267b6"
+    },
+    {
+      "member": "pypi-click-8.4.2.json",
+      "bytes": 4762,
+      "sha256": "7460231d6577b1efcbbbd987ad21979770b09c4e377cbac428875ddc81812491"
+    },
+    {
+      "member": "pypi-construct-2.10.70.json",
+      "bytes": 6266,
+      "sha256": "a12ea962736204b41c665935d410d8a104a3183c86345b6e929f6cf67f3a4922"
+    },
+    {
+      "member": "pypi-cryptography-50.0.0.json",
+      "bytes": 45476,
+      "sha256": "4cb03a11a6a704310e9aab006acf6d4946c1543f0f8410d7188b90ec1e17f03d"
+    },
+    {
+      "member": "pypi-esp-coredump-1.17.2.json",
+      "bytes": 7371,
+      "sha256": "8eec7a58a468efc57f9474029e72791628da79639b57f14d93f6417fedf17864"
+    },
+    {
+      "member": "pypi-esp-idf-diag-0.2.0.json",
+      "bytes": 5689,
+      "sha256": "1e69464ec8e797a18e0d6f5c991f123f4a71f6e603570dbc3732a2e9447999d8"
+    },
+    {
+      "member": "pypi-esp-idf-kconfig-3.14.0.json",
+      "bytes": 18177,
+      "sha256": "11c75cfe1b0847ec2954200f4b469c0ab153c5585fa2c891d82e722d0c90b982"
+    },
+    {
+      "member": "pypi-esp-idf-monitor-1.10.0.json",
+      "bytes": 22714,
+      "sha256": "9d260dd34dc83bad3f4a2dfb0d4bfd2a8b37ec05b85d715fbdc968140ed1b45d"
+    },
+    {
+      "member": "pypi-esp-idf-sbom-1.4.0.json",
+      "bytes": 47063,
+      "sha256": "928535899206ae235d128c51d659bc0d1f15228d63ae8563e62e2afc0c2aaec8"
+    },
+    {
+      "member": "pypi-esp-idf-size-2.3.2.json",
+      "bytes": 5528,
+      "sha256": "149ac7aa04bb6b77286933ac95385f6a3bebd75c59e823204d4606d6e499b438"
+    },
+    {
+      "member": "pypi-esp-pylib-1.2.0.json",
+      "bytes": 29594,
+      "sha256": "88bf8a6173c1d7f6adcdd2aece24181325b58b19f85b6ba94f34f70a8c87f3c9"
+    },
+    {
+      "member": "pypi-esp-idf-nvs-partition-gen-0.1.9.json",
+      "bytes": 17343,
+      "sha256": "24977474c4c50ad2282aa3abac7fcf3c7618686ae730b6b9f55ab74499732b7a"
+    },
+    {
+      "member": "pypi-esp-idf-panic-decoder-1.5.0.json",
+      "bytes": 18392,
+      "sha256": "6b8dada36a52e4237bf51f700caf1ccbe920c2bca2c442b829a09b5ba7545454"
+    },
+    {
+      "member": "pypi-esptool-5.6.0.json",
+      "bytes": 5060,
+      "sha256": "8aa0de4e9d0a46d74461a3a893cec7829dfaacfc43eda405a63891de8993d7e9"
+    },
+    {
+      "member": "pypi-freertos-gdb-1.0.4.json",
+      "bytes": 9768,
+      "sha256": "049fe1ab9208c60f3fa389d90fb45bd8ad1ee149410eb4e32474c313eaed914b"
+    },
+    {
+      "member": "pypi-idf-component-manager-3.1.2.json",
+      "bytes": 11201,
+      "sha256": "2cb79a2d01ad8d30ba4b5453bd9e2060e2764974f1faba9c677c6e1a22cc8d0a"
+    },
+    {
+      "member": "pypi-idf-drivers-gdb-0.1.1.json",
+      "bytes": 6761,
+      "sha256": "64d06b6fe84705ba28025de3a5b93f482ae906e6cb6a4743da39a15b1da12053"
+    },
+    {
+      "member": "pypi-idna-3.20.json",
+      "bytes": 9180,
+      "sha256": "e7cbd26e23ce60f6cb3a151d2adf3b1b087bb8f10ac2d9d6db70fdccbf3bb041"
+    },
+    {
+      "member": "pypi-intelhex-2.3.0.json",
+      "bytes": 4890,
+      "sha256": "59d9d1535aa163c04f3fd33f7914dcda00f44f62d56d172a71be9be1c23ff7bc"
+    },
+    {
+      "member": "pypi-jsonref-1.1.0.json",
+      "bytes": 5016,
+      "sha256": "359440e713faba3bfafb813ef8cc4fa3a0851817aa2565abf10893c63271522d"
+    },
+    {
+      "member": "pypi-license-expression-30.4.4.json",
+      "bytes": 13562,
+      "sha256": "b8f8e4e7ff646d265627f7e8c120f0d5e2e51a1e0fe895012336b6458f4a8777"
+    },
+    {
+      "member": "pypi-linkify-it-py-2.2.0.json",
+      "bytes": 10734,
+      "sha256": "ea26c22a4493481c1dd39ede014bdc7ef14fbecff91a6ff9de027887158cc650"
+    },
+    {
+      "member": "pypi-markdown-it-py-4.2.0.json",
+      "bytes": 9233,
+      "sha256": "62affba459c80b1279b5759735f7da3e9c7d24966086ff81ec0303c94512b966"
+    },
+    {
+      "member": "pypi-mdit-py-plugins-0.6.1.json",
+      "bytes": 4850,
+      "sha256": "bf1153ba20342c126a212c3df62a74dd1e07e807e979cbdd4b7d8dd2772d29a0"
+    },
+    {
+      "member": "pypi-mdurl-0.1.2.json",
+      "bytes": 3705,
+      "sha256": "c7baac0b363d92cf55f1f3a313f4bb0564bff27343e6a0a4e9d7ff03afc8a6c7"
+    },
+    {
+      "member": "pypi-packaging-26.3.json",
+      "bytes": 5748,
+      "sha256": "4f190d2f0b312b3086058cee64ab4333bf3ce67fb78b4c2bdb43899049b29f4d"
+    },
+    {
+      "member": "pypi-pathvalidate-3.3.1.json",
+      "bytes": 15033,
+      "sha256": "b144b6d54a2465dba1651d9cfd12eb65400b2b67081926336d9b9e933b7c3d0e"
+    },
+    {
+      "member": "pypi-pip-26.2.2.json",
+      "bytes": 6683,
+      "sha256": "ebd1e77f0bdb480aa8cf26c605ad6856753becb015a3d2006228cadb40465931"
+    },
+    {
+      "member": "pypi-platformdirs-4.13.5.json",
+      "bytes": 7682,
+      "sha256": "4a7775097ad7e3f3ce85a79287a8f2b94c3f4a3a0800280f3046f4adeff18400"
+    },
+    {
+      "member": "pypi-psutil-7.2.2.json",
+      "bytes": 40819,
+      "sha256": "84f9d2597c3c15fe19d1ce069bfdbf25951dc423dc51d67c3979468c029b6415"
+    },
+    {
+      "member": "pypi-pyclang-0.7.0.json",
+      "bytes": 4715,
+      "sha256": "b4004d511432f8690ea40635a42fd9a918c24c309670ff806debb5c0fb075257"
+    },
+    {
+      "member": "pypi-pycparser-3.12.json",
+      "bytes": 12094,
+      "sha256": "e919b291615d54a2328a0da6128cd9d95601ad04d27cec48eeb75e0d57c3b6ad"
+    },
+    {
+      "member": "pypi-pydantic-2.14.1.json",
+      "bytes": 136442,
+      "sha256": "7413703dd60983a01d25e54730f9153c4d7a83fc788c77955b5237269cf9f071"
+    },
+    {
+      "member": "pypi-pydantic-settings-2.16.1.json",
+      "bytes": 5819,
+      "sha256": "ed92f7c49b82990ee77ed8dd20229249a65c5c195faa637a284562753cd5d995"
+    },
+    {
+      "member": "pypi-pydantic-core-2.50.1.json",
+      "bytes": 128266,
+      "sha256": "e93d77eaf72dda287409887550bda890a4067311ea072bf9b274df9ce6d96804"
+    },
+    {
+      "member": "pypi-pyelftools-0.33.json",
+      "bytes": 3078,
+      "sha256": "7a41fff6e4d00a1729c127e902987d05c57fe50dd29412bedc9b7fd18be258bb"
+    },
+    {
+      "member": "pypi-pygdbmi-0.11.0.0.json",
+      "bytes": 15270,
+      "sha256": "5bdd1c6de44fdf7358f2f5262f857eef52ebffeb66abf8e161f54710b23719cd"
+    },
+    {
+      "member": "pypi-pygments-2.21.0.json",
+      "bytes": 4500,
+      "sha256": "330104a10adc8a587e3f98f4e207557125ca0c1d489e129334da5acb2b813a03"
+    },
+    {
+      "member": "pypi-pyparsing-3.3.3.json",
+      "bytes": 7951,
+      "sha256": "b851d5414eca50b38263f56c00a1fbec80383a26a3ad8e41a204b72cdeee5751"
+    },
+    {
+      "member": "pypi-pyserial-3.5.json",
+      "bytes": 3704,
+      "sha256": "7d1d5b73084f2fcfc980728ef6375177f6da3f553a815977890a82b24684d8ab"
+    },
+    {
+      "member": "pypi-python-dotenv-1.2.4.json",
+      "bytes": 32947,
+      "sha256": "89701376846132aefd76202d07dad6e84febe4a426a12973004e13018af15c41"
+    },
+    {
+      "member": "pypi-pyyaml-6.0.3.json",
+      "bytes": 66402,
+      "sha256": "c3f35597bc2f08cc990c2a5fe57bef6687b3a3d7c61d8b0ba4cc067777eb1def"
+    },
+    {
+      "member": "pypi-reedsolo-1.7.0.json",
+      "bytes": 25945,
+      "sha256": "db9cf11ae49e6174eabae125aaf08cba68cd86353b5c669319c9bc80be3e5cc9"
+    },
+    {
+      "member": "pypi-requests-2.34.2.json",
+      "bytes": 6811,
+      "sha256": "8622e50ffd295ed759ec793f2a009172a4ed0204bbc5e948de23111bc3d2aeae"
+    },
+    {
+      "member": "pypi-requests-file-3.0.1.json",
+      "bytes": 3955,
+      "sha256": "cc0efcfa6302ae7e87276ea1a3f2b5799e78d71c870d2c37dd096616806f3063"
+    },
+    {
+      "member": "pypi-requests-toolbelt-1.0.0.json",
+      "bytes": 17323,
+      "sha256": "77572be079b3e272fe239c8a0e1ae3491e90ee3c58eb63614ea4d7e5bcbc2b8e"
+    },
+    {
+      "member": "pypi-rich-15.0.0.json",
+      "bytes": 20976,
+      "sha256": "455015cb0b237a24819d91236152ad0e71b2be39a83cbe6afa0e29ea8aafa550"
+    },
+    {
+      "member": "pypi-rich-click-1.9.9.json",
+      "bytes": 9640,
+      "sha256": "abf2a3e1cacaea89791bcbf1324e5c2a8f6be2a6f595efdbd449b0e374730919"
+    },
+    {
+      "member": "pypi-ruamel-yaml-0.19.1.json",
+      "bytes": 19081,
+      "sha256": "0360222b1c2f139b7f098a4037384375c6c4cd56360188a0da271c2d3687eacf"
+    },
+    {
+      "member": "pypi-schema-0.7.8.json",
+      "bytes": 38223,
+      "sha256": "28835dc8a91224625206b98ba63d8361b78c796572caeff9b158a935915e2252"
+    },
+    {
+      "member": "pypi-setuptools-84.2.1.json",
+      "bytes": 8162,
+      "sha256": "d75de8ba0d3304a3d74484fb9f340edb87ef02712da4fa02a2ed92e71b0572dd"
+    },
+    {
+      "member": "pypi-textual-8.2.8.json",
+      "bytes": 11013,
+      "sha256": "0ab55d653714e7dfbe32fa5888b919032737888f55e52e4692ee8868cf32dd21"
+    },
+    {
+      "member": "pypi-tree-sitter-0.26.0.json",
+      "bytes": 47129,
+      "sha256": "9092685a2f892a458da47b612f842f80aff303f6fadb82261414dc644af2e699"
+    },
+    {
+      "member": "pypi-tree-sitter-c-0.24.2.json",
+      "bytes": 10161,
+      "sha256": "d9a1b357c1c9ddebb337192c6da0357cba455c951589ef858673da3525d2f5e1"
+    },
+    {
+      "member": "pypi-truststore-0.10.5.json",
+      "bytes": 6734,
+      "sha256": "3aa1222ab6468e1e01b751aeda8db44afca8117297c93cb497c8d27e8f37e17b"
+    },
+    {
+      "member": "pypi-typing-inspection-0.4.4.json",
+      "bytes": 4629,
+      "sha256": "0605416f2f37f2df04e45360cf5ce4ca5eeca6d414bb6ddb1ec5a9893c62ac30"
+    },
+    {
+      "member": "pypi-typing-extensions-4.16.0.json",
+      "bytes": 5631,
+      "sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a"
+    },
+    {
+      "member": "pypi-urllib3-2.8.0.json",
+      "bytes": 9510,
+      "sha256": "5315e7401db3cacccd0c2ce5daf81f752a9cc3614b18c37f2b79930b7159ce2f"
+    },
+    {
+      "member": "pypi-websockets-17.3.json",
+      "bytes": 142959,
+      "sha256": "c1edfba2f71e45b414422b59b99c2ac96549ae60d52c59a7d804ecfdf7a23d1b"
+    },
+    {
+      "member": "pypi-cryptography-48.0.1.json",
+      "bytes": 78460,
+      "sha256": "eb0177ac13bd74e0668aa81910ddeb553295d46533fdb6ce2468dc1aaf959d61"
+    },
+    {
+      "member": "cmake-3.31.6-SHA-256.txt",
+      "bytes": 1646,
+      "sha256": "b1c5992a758cae17c8e13c7a31ae1297baa42fecddc646a2b37ab518ca70a82b"
+    },
+    {
+      "member": "cmake-release.json",
+      "bytes": 29738,
+      "sha256": "e904015272eae5db6bb11f3df34d8a646d78c37523acda3bb62199e4fbb5c2ba"
+    },
+    {
+      "member": "cryptography-source-question.json",
+      "bytes": 2801,
+      "sha256": "4be516f87f50d62aa9f214a6ca5715e156eb0031f951563fb6ef5d97ce1740f4"
+    },
+    {
+      "member": "corrected-profile-advisory-summary.json",
+      "bytes": 13604,
+      "sha256": "1c0f5c3d2d91b812e3dd02d8d6ffd0629606877af0d051909a14ad04465d2d74"
+    },
+    {
+      "member": "crypto-CHANGELOG.rst",
+      "bytes": 122394,
+      "sha256": "ad79cbd6cc7e85289b6b539ca868b409aa45417aa2e81f5c9be0324cb5aa67db"
+    },
+    {
+      "member": "freeze.py",
+      "bytes": 10521,
+      "sha256": "1c67fffa8c6b82db322df1edf2cf2f0044dc2f9bdaf9eccefcb719d645a2c0c6"
+    },
+    {
+      "member": "freeze-advisory-red.initial.py",
+      "bytes": 8690,
+      "sha256": "0223dc94bcfeda94688bdc765dbe0fb8fbee43fb30439148ac77877b710e8e9d"
+    },
+    {
+      "member": "freeze-wheel-only.initial.py",
+      "bytes": 7029,
+      "sha256": "2e032c8e6bf18d223bd244b8064a87f1f8a1de12cbe23cc25e695373756bd642"
+    }
+  ],
+  "scope": "Original dated primary release metadata/source question and collector history, preserved without refetch;64versionJSONs=63corrected+old48.0.1. No publisher authentication from installed RECORD. Changelog is exact primary sdist member; no archive re-publication of third-party manuals.",
+  "archive_sha256": "ac5fb96db9ad67e02148a3d1f468091e736758a69035613c2082cd88ac533403"
+}

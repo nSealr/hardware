@@ -1,0 +1,55 @@
+{
+  "status": "PASS_MODE1_BUILD_INPUT_SOURCE_CORRESPONDENCE_IN_SAME_RECORDED_TOOL_ENVIRONMENT",
+  "project_source": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "SDK": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "actual_configure_exit": 0,
+  "actual_build_exit": 0,
+  "evidence": {
+    "source-receipt.json": "74f0fa8378c438e3ca168f49da6ee8f19fd0878ae81f97c3299accd5176ba866",
+    "SDK-preflight.json": "c2dd291be98423209617697d17022de1f1d8b9dd10caa3754217b471b5293ac9",
+    "SDK-post-build.json": "ff4095059ff586866233482ac540d8712a9150e3063c7a79f728df1931e5a583",
+    "mode1-input-bindings.json": "6d0073a41a5c0d9ccc7161ecdac3a31c3bfd7e1371f717a8d9b5db8a12888a57",
+    "producer-reference.json": "c84e5657de3f5f7e01e5dd7cb5506ab48d1e2a8ca5bf00b7a12018760e3a575e",
+    "configure-command.json": "e0ad115d34bb63c4e5ce5e4bacbde4d41837f4e0f6952a1b3f11f469bcb988aa",
+    "build-command.json": "c658061209fee9f785be98ed23bfb7f276b3ad1102c602d9b74e5da70787c516",
+    "read-only-command-receipts.json": "dd21a2f36081b7c15e7f14bd749a894ff55eef31d203eb1c407f7eabb61976cf",
+    "toolchain-file-correspondence.json.gz": "d92a1eb3e0f99d8423201c06b1b14976b5d8a9c582ca9ef2e80aa168fc0aebd4"
+  },
+  "binding_statuses": {
+    "EXACT_DETACHED_SDK_GIT_METADATA_NOT_SOURCE_BLOB": 1,
+    "EXACT_PINNED_GIT_FILE": 1436,
+    "EXACT_OFFICIAL_TOOLCHAIN_ARCHIVE_FILE": 138,
+    "GENERATED_CONFIGURE_OUTPUT_NOT_UPSTREAM_SOURCE": 106,
+    "EXACT_FROZEN_PROJECT_FILE": 3,
+    "HOST_TOOL_OR_ENVIRONMENT_INPUT_HASH_ONLY": 469
+  },
+  "actual_objects": {
+    "app": {
+      "compile_commands": 473,
+      "actual_VALID_dependency_blocks": 473,
+      "every_compiled_object_covered": true,
+      "CMake_input_rows": 385,
+      "link_map_LOAD_rows": 240,
+      "build_components": 51
+    },
+    "bootloader": {
+      "compile_commands": 124,
+      "actual_VALID_dependency_blocks": 124,
+      "every_compiled_object_covered": true,
+      "CMake_input_rows": 305,
+      "link_map_LOAD_rows": 145,
+      "build_components": 39
+    }
+  },
+  "config_comparison": {
+    "app_values": 920,
+    "bootloader_values": 739,
+    "identical_except_selector_is_compile_macro_not_Kconfig": true
+  },
+  "unresolved_or_wrong_consumed_SDK_project_toolchain_inputs": [],
+  "limits": [
+    "No syscall-complete OS input trace, independent reauthentication of installed Python wheel origin or binary reproducibility claim. Same admitted tool environment was read-only and its observed producers/packages/files are bound.",
+    "No firmware execution, device/flash/fuse/power, BOD polarity, ROM/hardware state, host/Board/task/release qualification.",
+    "Author source-correspondence assessment only; distinct root review and later required integration gates remain."
+  ]
+}

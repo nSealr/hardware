@@ -1,0 +1,28 @@
+{
+  "full": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit": 2,
+    "stdout": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure.stderr.log:25: new blank line at EOF.\n",
+    "stderr": ""
+  },
+  "excluding_original_raw_logs": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "--",
+      ".",
+      ":(exclude)**/*.log"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "disposition": "Original stderr blank line at EOF retained. Archive preserves original generated files including their whitespace; no functional/source verdict follows."
+}

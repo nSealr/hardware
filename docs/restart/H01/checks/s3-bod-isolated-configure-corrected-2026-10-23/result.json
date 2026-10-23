@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "verdict": "CONFIGURE_PASS_AVAILABLE_INPUTS_BOUND_FULL_APP_BOOTLOADER_HEADER_CLOSURE_UNPROVED_STOP_BEFORE_BUILD",
+  "admission": {
+    "commit": "bd65d37366f6c128af43d257116cced2733fe192",
+    "path": "docs/restart/H01/s3-bod-isolated-configure-wrapper-correction.json",
+    "sha256": "78c1d118bd0537a177f4e7fa42aea9c3f015f3ec4b82bd11849e4d1fd076d9c4",
+    "read_from_Git_not_imported": true
+  },
+  "history_preserved": {
+    "prior_wrapper_failure": "59ceb746ff5e30f350453ce302f6699a487e65d8",
+    "prior_source_acquisition_blocker": "2680cb7f0dc6950832f4c01ab57bfbb1bdf0a07a",
+    "project_source": "11047b805039e01dbb73e7c08d4b6a8016090fcd"
+  },
+  "SDK": {
+    "commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+    "root_files_exact_before_and_after": 20727,
+    "Gitlinks": {
+      "pinned": 8,
+      "wrong_HEAD": 7,
+      "not_initialized": 9
+    },
+    "all_Gitlink_states_unchanged_from_59ceb": true
+  },
+  "actual_configure": {
+    "attempts_under_new_admission": 1,
+    "exit": 0,
+    "duration_seconds": 2.910524368286133,
+    "wrapper_change": "Only --dev /dev plus fresh project/build/pycache paths; root A/B controls reused, not rerun.",
+    "network": "Same unshared network namespace, no host network or acquisition; same read-only SDK/tools/environment/project bindings.",
+    "selector": 0,
+    "product_compile_or_link": false,
+    "ordinary_compiler_identification": "C/CXX compiler-ID and ABI binaries plus compiler feature probes occurred automatically during CMake configure. They are preserved/hash-bound and are not diagnostic app/bootloader binaries."
+  },
+  "available_evidence": {
+    "planned_compile_rows": 473,
+    "build_component_rows": 51,
+    "build_component_info_records": 50,
+    "declared_all_component_records_not_execution": 147,
+    "CMake_file_API_input_rows": 385,
+    "unique_CMake_input_paths": 263,
+    "binding_statuses": {
+      "SDK_UNTRACKED_INPUT": 1,
+      "EXACT_PINNED_GIT_FILE": 632,
+      "GENERATED_CONFIGURE_OUTPUT_NOT_UPSTREAM_SOURCE": 19,
+      "NOT_MATERIALIZED_OR_NOT_FILE": 2,
+      "EXACT_FROZEN_PROJECT_FILE": 3,
+      "HOST_TOOL_OR_ENVIRONMENT_INPUT_HASH_ONLY": 369
+    },
+    "Gitlink_bound_rows": {
+      "components/heap/tlsf": 1,
+      "components/mbedtls/mbedtls": 133
+    },
+    "header_search_directories_not_header_dependencies": 143,
+    "observed_Python_bytecode_source_subset": 245,
+    "SDK_metadata_input": ".git/HEAD is separately recorded as SDK_UNTRACKED_INPUT because Git metadata is not a tracked source blob; its actual text is the exact detached fff commit. This is not an untracked SDK source substitution.",
+    "archive": "configure-output.tar.gz",
+    "archive_inventory": "configure-output-inventory.json",
+    "archive_members": 327
+  },
+  "effective_app_config": {
+    "ESP_BROWNOUT_DET": false,
+    "SECURE_BOOT": false,
+    "SECURE_FLASH_ENC_ENABLED": false,
+    "FREERTOS_UNICORE": true,
+    "ESP_DEFAULT_CPU_FREQ_MHZ_160": true,
+    "SECURE_ENABLE_TEE": "ABSENT/unknown symbol warning; not proof of a disabled capability"
+  },
+  "warnings_preserved": [
+    {
+      "kind": "inapplicable default/F1",
+      "observation": "CONFIG_SECURE_ENABLE_TEE=n is unknown for this exact S3 Kconfig. Root requested a separate minimal amendment after this frozen observation; no default was changed in this configure."
+    },
+    {
+      "kind": "optional debugger artifact",
+      "observation": "esp_rom/gen_gdbinit.py raised OSError because ESP_ROM_ELF_DIR is not defined; CMake emitted a warning and still returned0. No ROM ELF/GDB tooling was acquired or substituted."
+    },
+    {
+      "kind": "other configure diagnostics",
+      "observation": "Unversioned isolated project export uses fallback project version1; SDK Git pin is exact. Hex-literal Kconfig deprecation notes remain in raw stderr."
+    }
+  ],
+  "unresolved_closure": [
+    {
+      "property": "Bootloader actual config/components/source graph",
+      "evidence": "No bootloader config, compile_commands, file-API reply or compiled artifact exists; generated Ninja merely schedules an ExternalProject configure."
+    },
+    {
+      "property": "Planned generated source bytes",
+      "paths": [
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-02/build/project_elf_src_esp32s3.c",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-02/build/x509_crt_bundle.S"
+      ],
+      "evidence": "compile_commands names them, but they are not materialized during this configure."
+    },
+    {
+      "property": "Complete actual preprocessor/header and Python/Kconfig runtime input set",
+      "evidence": "Include search paths, explicit Kconfig roots and emitted import bytecode are partial evidence, not complete header/read/native-extension traces. No dependency generation/product compilation was run."
+    }
+  ],
+  "stop": "No second configure, app/bootloader/variant build/link, unsupported-selector check, disassembly, CI, acquisition or physical operation. Proposed next source-bound experiment is recorded separately, not executed.",
+  "limits": [
+    "No missing/wrong-HEAD Gitlink is declared unused for the complete app+bootloader build.",
+    "Command-local official skip also removes automatic Gitlink HEAD tracking; later use needs fresh strict source correspondence.",
+    "SDK brownout setting excludes that configured SDK path only; ROM/hardware state and all physical register effects remain unknown.",
+    "No BOD polarity, boot/reset, hardware safety, reproducibility, host admission or H01/task closure claim.",
+    "Original43 tests/Makefile/workflow and all existing proof/source files remain unchanged; no new make ci43 result claimed."
+  ],
+  "retained_runtime": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/isolated-configure-02",
+  "active_processes": "All owned calls complete; no configure/build process remains."
+}

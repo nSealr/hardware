@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "verdict": "BLOCKED_public_SDK_Gitlink_acquisition_NO_COMPILE_OR_LINK_QUALIFICATION",
+  "root_compile_only_admission": "9e9aea04e0c71e089b1fc8af8d488effe8ba3134",
+  "independent_expectations_commit": "db1a2fc8a48b40effbcaeed8961dafe9a574cea7",
+  "probe_source": "11047b805039e01dbb73e7c08d4b6a8016090fcd",
+  "SDK_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "SDK_tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+  "source_inputs": [
+    {
+      "path": "components/soc/esp32s3/register/soc/rtc_cntl_reg.h",
+      "sha256": "37a0ec8e80e9531b83407de1fdd101ea0be1bb90b680d1b126b44e8484883e29"
+    },
+    {
+      "path": "components/soc/esp32s3/register/soc/gpio_reg.h",
+      "sha256": "2a6618c112bceb25291b5a215ab6140560cff033ed169c92dfd765683f0a980e"
+    },
+    {
+      "path": "components/soc/esp32s3/register/soc/efuse_reg.h",
+      "sha256": "792765ec37f90b54ce6099fde5e77ac964e9a935a12db0f13dc292f1df2c8748"
+    },
+    {
+      "path": "components/esp_system/startup_funcs.c",
+      "sha256": "2f435ad551301fa0098d8020bb8f81967930562bfc5ba39dd027373514a774dc"
+    },
+    {
+      "path": "components/esp_hw_support/power_supply/brownout.c",
+      "sha256": "21963bd750cbea47f9043da09de431a17c9eba7fd656741da171572c1e5d9a94"
+    },
+    {
+      "path": "components/esp_hw_support/power_supply/port/esp32s3/Kconfig.power",
+      "sha256": "ea107c5dd3f597d75c9b7cd20767a166e50dca6408f6a81d0fd0529ef8052058"
+    },
+    {
+      "path": "components/esp_hal_pmu/esp32s3/include/hal/brownout_ll.h",
+      "sha256": "c9b4c8902d22b488cdc329392d2ffb374c9ecb5573030e4dc5c8afd4d0055718"
+    },
+    {
+      "path": "components/esp_hal_pmu/brownout_hal.c",
+      "sha256": "2bc9499ffe99d4d0cf0f4de490d7d0dd76a18225532674ec1d61b0e441bf4d66"
+    },
+    {
+      "path": "components/hal/include/hal/psdet_types.h",
+      "sha256": "8d55716a2f4ba5abb659107d72a771d8bb41e2635224ba55dd6471d027652f8e"
+    },
+    {
+      "path": "tools/cmake/git_submodules.cmake",
+      "sha256": "61c5bf0b9c29df46a3b4037e62689a26aa5449397b226a8cee5bf09ef6151bfe"
+    },
+    {
+      "path": "tools/cmake/build.cmake",
+      "sha256": "fbbb7669a9cde78e1209e001b4c8bc67aae074f19c2e8b6bd06a478e368963ea"
+    },
+    {
+      "path": "tools/tools.json",
+      "sha256": "039337e5ee2511f97d112aedb98125945625a4dd9ffb67e0cbb094edcdd298b2"
+    }
+  ],
+  "probe_inputs": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "sha256": "a9ed9e362d1d733ffffd566cf2f1003ef95bc1d9686574efc4dce90fdc449831"
+    }
+  ],
+  "observed": [
+    {
+      "stage": "tool acquisition",
+      "result": "Exact vendor tools archives SHA/size verified; local GCC/ninja installed. SDK Python install first failed before dependency installation because custom empty venv path did not exist; created it, same pinned installer succeeded. Both receipts retained."
+    },
+    {
+      "stage": "smoke-0",
+      "result": "idf.py configure exit2 before compiler/link; SDK global submodule initialization failed TCP on esp32c3-bt-lib."
+    },
+    {
+      "stage": "exact C3 recovery",
+      "result": "One separately authorized same-URL shallow acquisition PASS; exact0a08c4b32f3666003080b662a1a61794da24ff0f verified."
+    },
+    {
+      "stage": "smoke-0-recovery",
+      "result": "Same probe/selector0 configure exit2 before compiler/link on esp32h2-bt-lib."
+    },
+    {
+      "stage": "one admitted serial shallow missing-Gitlink batch",
+      "result": "Exit1 with standard Git internal retries preserved; final abort esp_coex/lib. No outer retry loop. No subsequent build executed."
+    }
+  ],
+  "terminal_blocker": {
+    "path": "components/esp_coex/lib",
+    "pin": "ddc56fa524a38df3098d2f36475fbe3eefe9b4f4",
+    "url": "https://github.com/espressif/esp-coex-lib.git",
+    "error": "Send failure: Connection reset by peer",
+    "classification": "Source acquisition/transport error; not an established publisher permission denial/S04 gate",
+    "other_missing_Gitlinks": [
+      {
+        "path": "components/esp_coex/lib",
+        "pin": "ddc56fa524a38df3098d2f36475fbe3eefe9b4f4"
+      },
+      {
+        "path": "components/esp_phy/lib",
+        "pin": "5695f4f38108658bc4a33e4712c1ebcb34911434"
+      },
+      {
+        "path": "components/esp_wifi/lib",
+        "pin": "7cd4d7b2b4acc38aead43b029ac9409c3eba9c54"
+      },
+      {
+        "path": "components/lwip/lwip",
+        "pin": "c6f2f878e7b0f86033214b85547d579be43351e3"
+      },
+      {
+        "path": "components/openthread/lib",
+        "pin": "4dd715391cfb2cf4d06825a17294514024e4dc12"
+      },
+      {
+        "path": "components/openthread/openthread",
+        "pin": "b678a4f63b6f9397d1a0fa8f31e5b8e0271a4d00"
+      },
+      {
+        "path": "components/protobuf-c/protobuf-c",
+        "pin": "abc67a11c6db271bedbb9f58be85d6f4e2ea8389"
+      },
+      {
+        "path": "components/spiffs/spiffs",
+        "pin": "ad902cadceb39d0825a97e25ecb5867641f606ba"
+      },
+      {
+        "path": "components/unity/unity",
+        "pin": "bf560290f6020737eafaa8b5cbd2177c3956c03f"
+      }
+    ]
+  },
+  "not_exercised": [
+    "Actual C compilation/link and selector0 ELF/binary/map",
+    "Selector1 build/link",
+    "Unsupported-selector configure negative",
+    "Generated selector-write disassembly/ELF trace",
+    "Automated diagnostic target/job",
+    "Any startup/register/flash/erase/fuse/monitor/energizing/device operation"
+  ],
+  "next_command_after_external_acquisition_disposition": [
+    "git",
+    "-C",
+    "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+    "submodule",
+    "update",
+    "--init",
+    "--recursive",
+    "--depth=1",
+    "--jobs=1",
+    "components/bt/controller/lib_esp32h2/esp32h2-bt-lib",
+    "components/bt/controller/lib_esp32h4/esp32h4-bt-lib",
+    "components/bt/controller/lib_esp32s31/esp32s31-bt-lib",
+    "components/bt/esp_ble_audio/lib/lib",
+    "components/bt/esp_ble_mesh/lib/lib",
+    "components/bt/host/nimble/nimble",
+    "components/cmock/CMock",
+    "components/esp_coex/lib",
+    "components/esp_phy/lib",
+    "components/esp_wifi/lib",
+    "components/lwip/lwip",
+    "components/openthread/lib",
+    "components/openthread/openthread",
+    "components/protobuf-c/protobuf-c",
+    "components/spiffs/spiffs",
+    "components/unity/unity"
+  ],
+  "next_action_limit": "Command is recovery guidance only, not executed again or newly authorized by this result. Resume same exact SDK/probe only after missing inputs are available; no version/URL/IDF_SKIP_CHECK_SUBMODULES alternative. Original pinned global SDK check stays enabled.",
+  "original_validation": "43tests/validators and existing Makefile/workflow remain byte-identical to hardware7645554; last historical43PASS remains on85c77cc. No new make ci claimed on blocked source.",
+  "probe_semantics": "Source contains a real masked volatile register write, NOT read-only firmware. Defaults request exclusion of SDK brownout init/optional ISR; no generated configuration or link verifies it yet. ROM/hardware unknown. RO bit31/WO bit29 and raw context are specified; observed1 on WO bit29 refuses the source write. No threshold/arming/stimulus/alternate-mode implementation.",
+  "scope": "Only tiny C diagnostic/source proof in hardware. No SDK/Pi/canonical graph/physical task/host admission or polarity selection; all other gates preserved.",
+  "retained_runtime": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime",
+  "active_processes": "No acquisition/build process remains active; all owned subprocess calls completed.",
+  "reproducibility": "No linked artifact exists; no target/reproducibility/safety/qualification result."
+}

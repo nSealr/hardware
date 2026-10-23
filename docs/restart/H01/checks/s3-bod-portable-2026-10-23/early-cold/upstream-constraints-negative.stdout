@@ -1,0 +1,6 @@
+The following Python requirements are not satisfied:
+Requirement 'cryptography<49,>=2.1.4' was not met. Installed version: 50.0.0
+To install the missing packages, please run "install.sh"
+Diagnostic information:
+    IDF_PYTHON_ENV_PATH: /tmp/nsealr-h01-portable-smoke-01/tools/python-env
+    Python interpreter used: /tmp/nsealr-h01-portable-smoke-01/tools/python-env/bin/python

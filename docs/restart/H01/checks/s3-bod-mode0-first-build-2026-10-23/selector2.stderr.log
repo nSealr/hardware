@@ -1,0 +1,5 @@
+CMake Error at CMakeLists.txt:4 (message):
+  BOD_RST_SEL must be explicitly 0 or 1
+
+
+cmake failed with exit code 1, output of the command is in the /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/build/log/idf_py_stderr_output_1842698 and /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/selector2-rejection-01/build/log/idf_py_stdout_output_1842698

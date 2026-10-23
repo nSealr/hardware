@@ -1,0 +1,206 @@
+{
+  "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "SDK": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "archive": "linked-artifacts-and-configs.tar.gz",
+  "archive_sha256": "3ca6a25d1cc1376603f5d3c984e8160f15b2bf13bdac3b4bc259a9ccec4b811f",
+  "artifacts": [
+    {
+      "mode": 0,
+      "path": "bootloader/bootloader.bin",
+      "bytes": 21072,
+      "sha256": "ec986a383c27cc2b95a4a5e902f4a48c80fa6c35950e1327110083baf8079447",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/bootloader/bootloader.bin",
+      "archive_member": "mode0/bootloader/bootloader.bin"
+    },
+    {
+      "mode": 0,
+      "path": "bootloader/bootloader.elf",
+      "bytes": 632668,
+      "sha256": "1d242545b312f8204b2183d07c309c23b119a849717ebaabd9fd200c84b9dd17",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/bootloader/bootloader.elf",
+      "archive_member": "mode0/bootloader/bootloader.elf"
+    },
+    {
+      "mode": 0,
+      "path": "bootloader/bootloader.map",
+      "bytes": 594844,
+      "sha256": "c944e7485f78659605bca22c0a875deedc0ed10c345f381824e91300d065ab45",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/bootloader/bootloader.map",
+      "archive_member": "mode0/bootloader/bootloader.map"
+    },
+    {
+      "mode": 0,
+      "path": "bootloader/config/sdkconfig.json",
+      "bytes": 29121,
+      "sha256": "ec38df964a8c7202e79966ccbe85b781741d8293985dd4bf0c5c83fc42b938f1",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/bootloader/config/sdkconfig.json",
+      "archive_member": "mode0/bootloader/config/sdkconfig.json"
+    },
+    {
+      "mode": 0,
+      "path": "config/sdkconfig.h",
+      "bytes": 33872,
+      "sha256": "2f98a6cc3b050fe420a7c46770136ed3a3c8ae6554fe9f35c86e0da8431c11bd",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/config/sdkconfig.h",
+      "archive_member": "mode0/config/sdkconfig.h"
+    },
+    {
+      "mode": 0,
+      "path": "config/sdkconfig.json",
+      "bytes": 36081,
+      "sha256": "7cc07c68a8303331754432871de7f29565aaa75ef5e26ecdfc2d185060222240",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/config/sdkconfig.json",
+      "archive_member": "mode0/config/sdkconfig.json"
+    },
+    {
+      "mode": 0,
+      "path": "partition_table/partition-table.bin",
+      "bytes": 3072,
+      "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/partition_table/partition-table.bin",
+      "archive_member": "mode0/partition_table/partition-table.bin"
+    },
+    {
+      "mode": 0,
+      "path": "s3_bod_selector.bin",
+      "bytes": 138448,
+      "sha256": "d7b26c55a6f85eab7f7ce719cc53527b4178f09bf0a147bdd0c95ce13accd369",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/s3_bod_selector.bin",
+      "archive_member": "mode0/s3_bod_selector.bin"
+    },
+    {
+      "mode": 0,
+      "path": "s3_bod_selector.elf",
+      "bytes": 3153744,
+      "sha256": "6d2ecbef3f490c30a6b220b6d95738f862d87e26ca45d23ca4383e29b7696402",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/s3_bod_selector.elf",
+      "archive_member": "mode0/s3_bod_selector.elf"
+    },
+    {
+      "mode": 0,
+      "path": "s3_bod_selector.map",
+      "bytes": 2923335,
+      "sha256": "4ffda672276e8c6aa767e835c6b6c01050ce21309233a45204fe17e01e8c971b",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/s3_bod_selector.map",
+      "archive_member": "mode0/s3_bod_selector.map"
+    },
+    {
+      "mode": 0,
+      "path": "sdkconfig",
+      "bytes": 54174,
+      "sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/build/sdkconfig",
+      "archive_member": "mode0/sdkconfig"
+    },
+    {
+      "mode": 1,
+      "path": "bootloader/bootloader.bin",
+      "bytes": 21072,
+      "sha256": "aaeff3c04a651c8f20916b3d7f776aa6fc14b29b109cbe21ef0ec5f75e7bb3e7",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/bootloader/bootloader.bin",
+      "archive_member": "mode1/bootloader/bootloader.bin"
+    },
+    {
+      "mode": 1,
+      "path": "bootloader/bootloader.elf",
+      "bytes": 632668,
+      "sha256": "e3fd37fa82f761e85f13d0ca2405a6333acae409339b40477ff38dd5c390721d",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/bootloader/bootloader.elf",
+      "archive_member": "mode1/bootloader/bootloader.elf"
+    },
+    {
+      "mode": 1,
+      "path": "bootloader/bootloader.map",
+      "bytes": 594844,
+      "sha256": "c944e7485f78659605bca22c0a875deedc0ed10c345f381824e91300d065ab45",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/bootloader/bootloader.map",
+      "archive_member": "mode1/bootloader/bootloader.map"
+    },
+    {
+      "mode": 1,
+      "path": "bootloader/config/sdkconfig.json",
+      "bytes": 29121,
+      "sha256": "ec38df964a8c7202e79966ccbe85b781741d8293985dd4bf0c5c83fc42b938f1",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/bootloader/config/sdkconfig.json",
+      "archive_member": "mode1/bootloader/config/sdkconfig.json"
+    },
+    {
+      "mode": 1,
+      "path": "config/sdkconfig.h",
+      "bytes": 33872,
+      "sha256": "2f98a6cc3b050fe420a7c46770136ed3a3c8ae6554fe9f35c86e0da8431c11bd",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/config/sdkconfig.h",
+      "archive_member": "mode1/config/sdkconfig.h"
+    },
+    {
+      "mode": 1,
+      "path": "config/sdkconfig.json",
+      "bytes": 36081,
+      "sha256": "7cc07c68a8303331754432871de7f29565aaa75ef5e26ecdfc2d185060222240",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/config/sdkconfig.json",
+      "archive_member": "mode1/config/sdkconfig.json"
+    },
+    {
+      "mode": 1,
+      "path": "partition_table/partition-table.bin",
+      "bytes": 3072,
+      "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/partition_table/partition-table.bin",
+      "archive_member": "mode1/partition_table/partition-table.bin"
+    },
+    {
+      "mode": 1,
+      "path": "s3_bod_selector.bin",
+      "bytes": 138448,
+      "sha256": "03d4b98facb55c9355fe18f99229123d75abbe85d40ce5b3ae3c511f02ebc18e",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/s3_bod_selector.bin",
+      "archive_member": "mode1/s3_bod_selector.bin"
+    },
+    {
+      "mode": 1,
+      "path": "s3_bod_selector.elf",
+      "bytes": 3153744,
+      "sha256": "c83b1631c4a5a34b92016e1b932b5f9befbbe56ff9693c392a8c0ee66082d6bc",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/s3_bod_selector.elf",
+      "archive_member": "mode1/s3_bod_selector.elf"
+    },
+    {
+      "mode": 1,
+      "path": "s3_bod_selector.map",
+      "bytes": 2923335,
+      "sha256": "4ffda672276e8c6aa767e835c6b6c01050ce21309233a45204fe17e01e8c971b",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/s3_bod_selector.map",
+      "archive_member": "mode1/s3_bod_selector.map"
+    },
+    {
+      "mode": 1,
+      "path": "sdkconfig",
+      "bytes": 54174,
+      "sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375",
+      "preserved_in_archive": true,
+      "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode1-first-build-01/build/sdkconfig",
+      "archive_member": "mode1/sdkconfig"
+    }
+  ]
+}

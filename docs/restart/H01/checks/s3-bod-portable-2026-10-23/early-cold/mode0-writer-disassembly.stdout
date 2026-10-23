@@ -1,0 +1,21 @@
+
+/tmp/nsealr-h01-portable-smoke-01/build0/s3_bod_selector.elf:     file format elf32-xtensa-le
+
+
+Disassembly of section .iram0.vectors:
+
+Disassembly of section .iram0.text:
+
+Disassembly of section .flash.text:
+
+42004df8 <bod_probe_apply_selector>:
+42004df8:	004136        	entry	a1, 32
+42004dfb:	ee6381        	l32r	a8, 42000788 <_stext+0x768> (f7ffffff <_rtc_reserved_end+0x97efffff>)
+42004dfe:	102280        	and	a2, a2, a8
+42004e01:	ee6281        	l32r	a8, 4200078c <_stext+0x76c> (600080e8 <RTCCNTL+0xe8>)
+42004e04:	0020c0        	memw
+42004e07:	0829      	s32i.n	a2, a8, 0
+42004e09:	0020c0        	memw
+42004e0c:	0020c0        	memw
+42004e0f:	0828      	l32i.n	a2, a8, 0
+42004e11:	f01d      	retw.n

@@ -1,0 +1,9 @@
+Looking in links: /tmp/nsealr-h01-portable-smoke-01/wheels
+Processing /tmp/nsealr-h01-portable-smoke-01/wheels/pip-26.2.2-py3-none-any.whl (from -r /tmp/nsealr-h01-portable-smoke-01/bootstrap.txt (line 1))
+Processing /tmp/nsealr-h01-portable-smoke-01/wheels/setuptools-84.2.1-py3-none-any.whl (from -r /tmp/nsealr-h01-portable-smoke-01/bootstrap.txt (line 2))
+Installing collected packages: setuptools, pip
+  Attempting uninstall: pip
+    Found existing installation: pip 25.0.1
+    Uninstalling pip-25.0.1:
+      Successfully uninstalled pip-25.0.1
+Successfully installed pip-26.2.2 setuptools-84.2.1

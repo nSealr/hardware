@@ -1,0 +1,25 @@
+test_archive_file_extra_and_mode_changes_rejected (test_gate.GateControls.test_archive_file_extra_and_mode_changes_rejected) ... ok
+test_dependencies_reject_stale_missing_duplicate_and_count (test_gate.GateControls.test_dependencies_reject_stale_missing_duplicate_and_count) ... ok
+test_git_owner_execution_matches_real_git (test_gate.GateControls.test_git_owner_execution_matches_real_git) ... ok
+test_inherited_optimization_is_refused_before_acquisition (test_gate.GateControls.test_inherited_optimization_is_refused_before_acquisition) ... ok
+test_namespace_failure_is_not_a_green_skip (test_gate.GateControls.test_namespace_failure_is_not_a_green_skip) ... ok
+test_preflight_refuses_no_new_privileges_zero (test_gate.GateControls.test_preflight_refuses_no_new_privileges_zero) ... ok
+test_wrong_cached_publisher_hash_is_rejected (test_gate.GateControls.test_wrong_cached_publisher_hash_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.185s
+
+OK
+Traceback (most recent call last):
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable/diagnostics/s3-bod-selector/tools/build_gate.py", line 441, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable/diagnostics/s3-bod-selector/tools/build_gate.py", line 410, in main
+    results = [build_mode(0, lock, paths, work, args.bwrap)]
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable/diagnostics/s3-bod-selector/tools/build_gate.py", line 335, in build_mode
+    closure = verify_build.bind_mode(mode, lock, paths, work, command, lambda args: namespace(bwrap, ro, args))
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable/diagnostics/s3-bod-selector/tools/verify_build.py", line 214, in bind_mode
+    raise ValueError('Unknown/unbound producer input: ' + name)
+ValueError: Unknown/unbound producer input: /tmp/nsealr-h01-portable-final-02/tools/python-env/bin/bin2hex.py
+make: *** [Makefile:33: s3-bod-compile] Error 1

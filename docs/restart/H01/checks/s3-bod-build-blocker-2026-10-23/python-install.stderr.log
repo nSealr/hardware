@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf_tools.py", line 3529, in <module>
+    main(sys.argv[1:])
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf_tools.py", line 3519, in main
+    action_func(args)
+  File "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf_tools.py", line 2781, in action_install_python_env
+    elif os.listdir(environ_idf_python_env_path):  # show the message only if the directory is not empty
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env'
