@@ -1,0 +1,21 @@
+{
+  "stage": "Reviewer read-only archive METADATA collection",
+  "exit_code": 1,
+  "error": "Initial broad suffix selector found13 METADATA entries in setuptools wheel, including12 legitimate bundled vendor distributions; unique-count assertion failed.",
+  "correction": "Select the single top-level .dist-info/METADATA (two path components), authenticate wheel by publisher hash, then separately note bundled metadata.",
+  "bundled_metadata_observed": 12,
+  "producer_or_publisher_failure": false,
+  "new_gate_execution": false,
+  "additional_readonly_collector_errors": [
+    {
+      "error": "KeyError path in first primary metadata-index reader; row uses member.",
+      "correction": "Read member/bytes/sha256 schema; all72 and63 selected release bodies verified.",
+      "producer_failure": false
+    },
+    {
+      "error": "Exact original-workflow prefix assertion added an extra newline before comparing; original bytes were already intact.",
+      "correction": "Compare new bytes startswith exact old bytes; all old job content preserved, only new job appended.",
+      "producer_failure": false
+    }
+  ]
+}

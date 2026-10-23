@@ -1,0 +1,228 @@
+python3 -m unittest discover -s diagnostics/s3-bod-selector/tools -p test_gate.py -v
+python3 diagnostics/s3-bod-selector/tools/build_gate.py --mode full --work-dir "/tmp/nsealr-h01-portable-review-01" --cache-dir "/tmp/nsealr-h01-portable-cold/assets"
+Running sdk-init
+Running sdk-origin
+Running sdk-fetch
+Running sdk-checkout
+Running link0-init
+Running link0-origin
+Running link0-fetch
+Running link0-checkout
+Running link1-init
+Running link1-origin
+Running link1-fetch
+Running link1-checkout
+Running link2-init
+Running link2-origin
+Running link2-fetch
+Running link2-checkout
+Running bootstrap-namespace-preflight
+Running python-version
+Running venv
+Running bootstrap-pip
+Running build-esptool-wheel
+Running install-profile
+Running idf-python-metadata
+Running installed-profile
+Running upstream-constraints-negative
+Running local-constraints-positive
+Running pip-check
+Running gcc-version
+Running cmake-version
+Running ninja-version
+Running mode0-namespace-preflight
+Running mode0-configure
+Running mode0-build
+Running mode0-writer-disassembly
+Running mode0-app_main-disassembly
+Running mode0-__esp_sys_init_fn_init_brownout-disassembly
+Running mode0-symbols
+Running mode0-app-deps
+Running mode0-app-recipes
+Running mode0-bootloader-deps
+Running mode0-bootloader-recipes
+Running mode1-namespace-preflight
+Running mode1-configure
+Running mode1-build
+Running mode1-writer-disassembly
+Running mode1-app_main-disassembly
+Running mode1-__esp_sys_init_fn_init_brownout-disassembly
+Running mode1-symbols
+Running mode1-app-deps
+Running mode1-app-recipes
+Running mode1-bootloader-deps
+Running mode1-bootloader-recipes
+Running mode2-namespace-preflight
+Running mode2-configure
+{
+  "status": "PASS_PORTABLE_0_1_GUARD2_COMPILE_LINK_ONLY",
+  "results": [
+    {
+      "mode": 0,
+      "closure": {
+        "mode": 0,
+        "formats": {
+          "app": {
+            "compile_commands": 473,
+            "VALID_actual_dependency_blocks": 473,
+            "objects_in_execution_log": 473,
+            "CMake_inputs": 385,
+            "link_map_LOAD_rows": 240,
+            "Ninja_log_sha256": "09b9e0b124910d26c27b05b23e033ce421583ef4fe14ecff468b5a7c301d0e4e"
+          },
+          "bootloader": {
+            "compile_commands": 124,
+            "VALID_actual_dependency_blocks": 124,
+            "objects_in_execution_log": 124,
+            "CMake_inputs": 305,
+            "link_map_LOAD_rows": 145,
+            "Ninja_log_sha256": "fafe2e9d4480c5d25aa6b1f177636c1043b95718d101eaa3477651c21a61eac1"
+          }
+        },
+        "statuses": {
+          "GENERATED_NOT_UPSTREAM_SOURCE": 111,
+          "EXACT_FROZEN_PROJECT_FILE": 3,
+          "EXACT_DETACHED_GIT_METADATA_NOT_SOURCE": 1,
+          "EXACT_PINNED_GIT_FILE": 1436,
+          "EXACT_INSTALLED_AUTHENTICATED_WHEEL_BODY": 208,
+          "EXACT_PUBLISHER_TOOL_ASSET_FILE": 399
+        },
+        "limits": "Actual compile/header dependencies, file API, Kconfig lists, map LOAD inputs, selected recipes and observed imports with producer identities. No syscall-complete OS read trace, binary reproducibility or physical qualification."
+      },
+      "configure_exit": 0,
+      "build_exit": 0,
+      "actual_flags": {
+        "IDF_TARGET": "esp32s3",
+        "FREERTOS_UNICORE": true,
+        "ESP_DEFAULT_CPU_FREQ_MHZ_160": true,
+        "ESP_BROWNOUT_DET": false,
+        "SECURE_BOOT": false,
+        "SECURE_FLASH_ENC_ENABLED": false
+      },
+      "artifacts": [
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build0/s3_bod_selector.elf",
+          "bytes": 3090392,
+          "sha256": "88837ccc72af6285e4ed1e3fa8e5112c1fedd1045264677921e85dae0cca0f1e"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build0/s3_bod_selector.bin",
+          "bytes": 138448,
+          "sha256": "7aafc5559892bdf55d2128fe9c949bab8e5bbf9bc5ad43cd976f793281490573"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build0/s3_bod_selector.map",
+          "bytes": 2879379,
+          "sha256": "d4b2d9b821a4508162dd556339355704c365900448c42b6536b4c816e9b375a9"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build0/bootloader/bootloader.elf",
+          "bytes": 620848,
+          "sha256": "d1dd8ba89b70f044ef7fbec09a1a775215b904340433049a46b2078775c26986"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build0/bootloader/bootloader.bin",
+          "bytes": 21072,
+          "sha256": "d3575648d7dad68a3a76f7f0968e9203c69b44db308b3c4ddb54278b8a473548"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build0/bootloader/bootloader.map",
+          "bytes": 588665,
+          "sha256": "7387f2303fb480fe1af383b35f46b30d510a52719c04426c9bc66eb3f021f8ee"
+        }
+      ],
+      "source_correspondence": "Actual app and bootloader dependencies bound to pinned SDK/project/archive/wheel sources; generated producer roles separate.",
+      "SDK_init_limit": "Excluded esp_brownout_init and optional ISR, registered wrapper and flash hooks remain; ROM/hardware state unknown."
+    },
+    {
+      "mode": 1,
+      "closure": {
+        "mode": 1,
+        "formats": {
+          "app": {
+            "compile_commands": 473,
+            "VALID_actual_dependency_blocks": 473,
+            "objects_in_execution_log": 473,
+            "CMake_inputs": 385,
+            "link_map_LOAD_rows": 240,
+            "Ninja_log_sha256": "8e361eff2f99bd561cf6acf6528974d1cde3219b814399f2de814202e76c57d4"
+          },
+          "bootloader": {
+            "compile_commands": 124,
+            "VALID_actual_dependency_blocks": 124,
+            "objects_in_execution_log": 124,
+            "CMake_inputs": 305,
+            "link_map_LOAD_rows": 145,
+            "Ninja_log_sha256": "f469b75cf19a003c622a6006e16aa62690dcf43553257162f0ed69f5fd75d31f"
+          }
+        },
+        "statuses": {
+          "GENERATED_NOT_UPSTREAM_SOURCE": 111,
+          "EXACT_FROZEN_PROJECT_FILE": 3,
+          "EXACT_DETACHED_GIT_METADATA_NOT_SOURCE": 1,
+          "EXACT_PINNED_GIT_FILE": 1436,
+          "EXACT_INSTALLED_AUTHENTICATED_WHEEL_BODY": 208,
+          "EXACT_PUBLISHER_TOOL_ASSET_FILE": 399
+        },
+        "limits": "Actual compile/header dependencies, file API, Kconfig lists, map LOAD inputs, selected recipes and observed imports with producer identities. No syscall-complete OS read trace, binary reproducibility or physical qualification."
+      },
+      "configure_exit": 0,
+      "build_exit": 0,
+      "actual_flags": {
+        "IDF_TARGET": "esp32s3",
+        "FREERTOS_UNICORE": true,
+        "ESP_DEFAULT_CPU_FREQ_MHZ_160": true,
+        "ESP_BROWNOUT_DET": false,
+        "SECURE_BOOT": false,
+        "SECURE_FLASH_ENC_ENABLED": false
+      },
+      "artifacts": [
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build1/s3_bod_selector.elf",
+          "bytes": 3090392,
+          "sha256": "74a6173f4db627ddc8fddeab409ef88bf852f833e567c792ba57350ba3d289c7"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build1/s3_bod_selector.bin",
+          "bytes": 138448,
+          "sha256": "7461149cde5afb1d6dbc1f2a16e5d612cc5c174e2d2e9e315a3f1f8dd22a2019"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build1/s3_bod_selector.map",
+          "bytes": 2879379,
+          "sha256": "d4b2d9b821a4508162dd556339355704c365900448c42b6536b4c816e9b375a9"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build1/bootloader/bootloader.elf",
+          "bytes": 620848,
+          "sha256": "56757788f1c385ad866462abf4ccde21cf1d0f372c5003c26354ed96a826896b"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build1/bootloader/bootloader.bin",
+          "bytes": 21072,
+          "sha256": "ef68f009dee3bc9a9864b4aad180f57af2d82842ef6c6edb37c28fd79544bee9"
+        },
+        {
+          "path": "/tmp/nsealr-h01-portable-review-01/build1/bootloader/bootloader.map",
+          "bytes": 588665,
+          "sha256": "7387f2303fb480fe1af383b35f46b30d510a52719c04426c9bc66eb3f021f8ee"
+        }
+      ],
+      "source_correspondence": "Actual app and bootloader dependencies bound to pinned SDK/project/archive/wheel sources; generated producer roles separate.",
+      "SDK_init_limit": "Excluded esp_brownout_init and optional ISR, registered wrapper and flash hooks remain; ROM/hardware state unknown."
+    },
+    {
+      "mode": 2,
+      "expected_configure_exit": 2,
+      "actual_configure_exit": 2,
+      "real_CMake_guard_reached": true,
+      "SDK_project_and_compiler_not_entered": true
+    }
+  ],
+  "physical_qualification": false,
+  "polarity": null,
+  "upstream_Python_profile_support": false,
+  "binary_reproducibility": false
+}
+
+Portable compile gate passed (full); no device or safety qualification.

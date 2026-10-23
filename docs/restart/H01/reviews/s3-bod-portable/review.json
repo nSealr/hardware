@@ -1,0 +1,674 @@
+{
+  "candidate": "1d837e87828905642242112946588c0fb67a8399",
+  "tree": "b03c78401cf6641b6231e0fa98246c49776425d2",
+  "executed_author_source": "5f732caff8d432e59af75320a3827fd6842de41d",
+  "reviewer": "/root/sdk_dependency_probe distinct from B01 author",
+  "verdict": "PASS_PORTABLE_CONTROLLER_AUTHENTICATED_PROFILE_AND_LOCAL_RELEASE_PATH_ONLY",
+  "findings": [],
+  "resolved_source_findings": [
+    {
+      "id": "R1",
+      "source": "36772069bb0f41e30d7f1775a8c637f2e644178c",
+      "issue": "NoNewPrivs printed but not required1.",
+      "resolution": "Unconditional require1 and actual-code negative under optimize1; early observed1 remains valid."
+    },
+    {
+      "id": "R2",
+      "source": "36772069bb0f41e30d7f1775a8c637f2e644178c",
+      "issue": "Ambient PYTHONOPTIMIZE could remove assert-based preflight.",
+      "resolution": "Unconditional conditions and explicit inherited override refusal before acquisition."
+    }
+  ],
+  "prior_reviews_reused": [
+    "b6dba74c330e31706918d7e68dfa4dc45a5d4825 static",
+    "00957e214a476252e66fe6d3960b8164d9de4175 F1",
+    "3fb1c07416c6b9595fafec566553efad464e772f build/provenance"
+  ],
+  "author_packet": {
+    "manifest_sha256": "ba39e64caf53a0de915376ed98828aa372623c78265f8c2789e79afab9f96bc6",
+    "Git_frozen_members": 91,
+    "self_separately_hashed": true,
+    "result_sha256": "3cc6b80571b79c82f3d81d0ad85435650927ea1fc5b0731533975893f06972ac",
+    "internal_evidence_files": 822,
+    "internal_manifest_additional": 1,
+    "tar_entries_including_directories": 865,
+    "primary_metadata_members": 72,
+    "preserved_attempt01_preflight_failure": true,
+    "preserved_attempt02_unknown_producer_failure": true
+  },
+  "independent": {
+    "command": {
+      "argv": [
+        "make",
+        "s3-bod-compile",
+        "S3_BOD_WORK_DIR=/tmp/nsealr-h01-portable-review-01",
+        "S3_BOD_CACHE_DIR=/tmp/nsealr-h01-portable-cold/assets"
+      ],
+      "cwd": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable-review",
+      "frozen_candidate": "1d837e87828905642242112946588c0fb67a8399",
+      "frozen_tree": "b03c78401cf6641b6231e0fa98246c49776425d2",
+      "runtime_source": "5f732caff8d432e59af75320a3827fd6842de41d",
+      "controller_sha256": "7f0995ace0526a989404d94238094d69ee34cab46eb3410fb26bb3d815a608cf",
+      "input_lock_sha256": "9a25cbf9ce7a54c3415b4a78adea51e1a011b5d5e45e73317f1926e66174a1f6",
+      "started_utc": "2026-10-23T21:18:39.315150+00:00",
+      "work_absent_before": true,
+      "cache": "Explicit previously authenticated67publisher assets; controller verifies every checksum before fresh extraction/install. SDK+3Gitlinks fetch exact official commits into fresh work.",
+      "environment_relevant": {},
+      "outer_python_version": "Python 3.13.5",
+      "status": "COMPLETED",
+      "stdout": "make.stdout.log",
+      "stderr": "make.stderr.log",
+      "exit_code": 0,
+      "elapsed_seconds": 62.65554870851338,
+      "source_status_after": "?? docs/restart/H01/reviews/s3-bod-portable/\n"
+    },
+    "preflight": {
+      "bootstrap-namespace-preflight": {
+        "uid": 1000,
+        "euid": 1000,
+        "gid": 1000,
+        "egid": 1000,
+        "CapEff": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "NoNewPrivs": "1",
+        "uid_map": "      1000          0          1\n",
+        "gid_map": "      1000          0          1\n",
+        "supplementary_groups_in_namespace": [
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          1000
+        ],
+        "supplementary_groups_outer": [
+          24,
+          25,
+          27,
+          29,
+          30,
+          44,
+          46,
+          100,
+          101,
+          989,
+          1000
+        ],
+        "netns": "net:[4026532897]",
+        "outer_netns": "net:[4026531840]",
+        "interfaces": [
+          "lo"
+        ],
+        "IPv4_routes": 0,
+        "dev_null_rw": true,
+        "read_only_verified": [
+          "/tmp/nsealr-h01-portable-review-01/sdk",
+          "/tmp/nsealr-h01-portable-review-01/tools",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-portable-review/diagnostics/s3-bod-selector"
+        ]
+      },
+      "mode0-namespace-preflight": {
+        "uid": 1000,
+        "euid": 1000,
+        "gid": 1000,
+        "egid": 1000,
+        "CapEff": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "NoNewPrivs": "1",
+        "uid_map": "      1000          0          1\n",
+        "gid_map": "      1000          0          1\n",
+        "supplementary_groups_in_namespace": [
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          1000
+        ],
+        "supplementary_groups_outer": [
+          24,
+          25,
+          27,
+          29,
+          30,
+          44,
+          46,
+          100,
+          101,
+          989,
+          1000
+        ],
+        "netns": "net:[4026532897]",
+        "outer_netns": "net:[4026531840]",
+        "interfaces": [
+          "lo"
+        ],
+        "IPv4_routes": 0,
+        "dev_null_rw": true,
+        "read_only_verified": [
+          "/tmp/nsealr-h01-portable-review-01/sdk",
+          "/tmp/nsealr-h01-portable-review-01/tools",
+          "/tmp/nsealr-h01-portable-review-01/project0"
+        ]
+      },
+      "mode1-namespace-preflight": {
+        "uid": 1000,
+        "euid": 1000,
+        "gid": 1000,
+        "egid": 1000,
+        "CapEff": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "NoNewPrivs": "1",
+        "uid_map": "      1000          0          1\n",
+        "gid_map": "      1000          0          1\n",
+        "supplementary_groups_in_namespace": [
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          1000
+        ],
+        "supplementary_groups_outer": [
+          24,
+          25,
+          27,
+          29,
+          30,
+          44,
+          46,
+          100,
+          101,
+          989,
+          1000
+        ],
+        "netns": "net:[4026532898]",
+        "outer_netns": "net:[4026531840]",
+        "interfaces": [
+          "lo"
+        ],
+        "IPv4_routes": 0,
+        "dev_null_rw": true,
+        "read_only_verified": [
+          "/tmp/nsealr-h01-portable-review-01/sdk",
+          "/tmp/nsealr-h01-portable-review-01/tools",
+          "/tmp/nsealr-h01-portable-review-01/project1"
+        ]
+      },
+      "mode2-namespace-preflight": {
+        "uid": 1000,
+        "euid": 1000,
+        "gid": 1000,
+        "egid": 1000,
+        "CapEff": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "NoNewPrivs": "1",
+        "uid_map": "      1000          0          1\n",
+        "gid_map": "      1000          0          1\n",
+        "supplementary_groups_in_namespace": [
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          65534,
+          1000
+        ],
+        "supplementary_groups_outer": [
+          24,
+          25,
+          27,
+          29,
+          30,
+          44,
+          46,
+          100,
+          101,
+          989,
+          1000
+        ],
+        "netns": "net:[4026532897]",
+        "outer_netns": "net:[4026531840]",
+        "interfaces": [
+          "lo"
+        ],
+        "IPv4_routes": 0,
+        "dev_null_rw": true,
+        "read_only_verified": [
+          "/tmp/nsealr-h01-portable-review-01/sdk",
+          "/tmp/nsealr-h01-portable-review-01/tools",
+          "/tmp/nsealr-h01-portable-review-01/project2"
+        ]
+      }
+    },
+    "status_codes": {
+      "upstream-constraints-negative": 1,
+      "local-constraints-positive": 0,
+      "pip-check": 0,
+      "mode0-configure": 0,
+      "mode0-build": 0,
+      "mode1-configure": 0,
+      "mode1-build": 0,
+      "mode2-configure": 2
+    },
+    "profile": {
+      "installed": {
+        "annotated-types": "0.8.0",
+        "certifi": "2026.10.23",
+        "cffi": "2.1.1",
+        "charset-normalizer": "3.5.2",
+        "click": "8.4.2",
+        "construct": "2.10.70",
+        "cryptography": "50.0.0",
+        "esp-coredump": "1.17.2",
+        "esp-idf-diag": "0.2.0",
+        "esp-idf-kconfig": "3.14.0",
+        "esp-idf-monitor": "1.10.0",
+        "esp-idf-nvs-partition-gen": "0.1.9",
+        "esp-idf-panic-decoder": "1.5.0",
+        "esp-idf-sbom": "1.4.0",
+        "esp-idf-size": "2.3.2",
+        "esp-pylib": "1.2.0",
+        "esptool": "5.6.0",
+        "freertos-gdb": "1.0.4",
+        "idf-component-manager": "3.1.2",
+        "idf-drivers-gdb": "0.1.1",
+        "idna": "3.20",
+        "jsonref": "1.1.0",
+        "license-expression": "30.4.4",
+        "linkify-it-py": "2.2.0",
+        "markdown-it-py": "4.2.0",
+        "mdit-py-plugins": "0.6.1",
+        "mdurl": "0.1.2",
+        "packaging": "26.3",
+        "pathvalidate": "3.3.1",
+        "platformdirs": "4.13.5",
+        "psutil": "7.2.2",
+        "pyclang": "0.7.0",
+        "pycparser": "3.12",
+        "pydantic": "2.14.1",
+        "pydantic-core": "2.50.1",
+        "pydantic-settings": "2.16.1",
+        "pyelftools": "0.33",
+        "pygments": "2.21.0",
+        "pyparsing": "3.3.3",
+        "python-dotenv": "1.2.4",
+        "pyyaml": "6.0.3",
+        "requests": "2.34.2",
+        "requests-toolbelt": "1.0.0",
+        "rich": "15.0.0",
+        "rich-click": "1.9.9",
+        "ruamel-yaml": "0.19.1",
+        "textual": "8.2.8",
+        "tree-sitter": "0.26.0",
+        "tree-sitter-c": "0.24.2",
+        "truststore": "0.10.5",
+        "typing-extensions": "4.16.0",
+        "typing-inspection": "0.4.4",
+        "urllib3": "2.8.0",
+        "websockets": "17.3",
+        "boolean-py": "5.0",
+        "intelhex": "2.3.0",
+        "pygdbmi": "0.11.0.0",
+        "pyserial": "3.5",
+        "reedsolo": "1.7.0",
+        "requests-file": "3.0.1",
+        "schema": "0.7.8",
+        "pip": "26.2.2",
+        "setuptools": "84.2.1"
+      },
+      "derived": [
+        {
+          "name": "esptool",
+          "filename": "esptool-5.6.0-py3-none-any.whl",
+          "sha256": "86e0829d9d8dee8cbb95aa5b3c02c28328867e2461a6aabbede6161754265bd6",
+          "source_archive_sha256": "86c7249e9cc3a824e032ede9ba20abad057a2c49e231418cc4f02b177bb36f42",
+          "kind": "locally_built_not_publisher_wheel"
+        }
+      ],
+      "upstream_negative": "Expected original strict checker rejection",
+      "local_profile": "Locally maintained one-line corrective compatibility profile admitted by b569f561cdc5287475d11125a6a455bb9dd3cb87. Not upstream-supported or a security/reproducibility qualification; strict upstream negative/patched positive/pip check required."
+    },
+    "asset_file_count": 16522,
+    "authenticated_wheel_library_and_exact_shebang_script_bodies": 3187,
+    "closure": [
+      {
+        "mode": 0,
+        "formats": {
+          "app": {
+            "compile_commands": 473,
+            "VALID_actual_dependency_blocks": 473,
+            "objects_in_execution_log": 473,
+            "CMake_inputs": 385,
+            "link_map_LOAD_rows": 240,
+            "Ninja_log_sha256": "09b9e0b124910d26c27b05b23e033ce421583ef4fe14ecff468b5a7c301d0e4e"
+          },
+          "bootloader": {
+            "compile_commands": 124,
+            "VALID_actual_dependency_blocks": 124,
+            "objects_in_execution_log": 124,
+            "CMake_inputs": 305,
+            "link_map_LOAD_rows": 145,
+            "Ninja_log_sha256": "fafe2e9d4480c5d25aa6b1f177636c1043b95718d101eaa3477651c21a61eac1"
+          }
+        },
+        "statuses": {
+          "GENERATED_NOT_UPSTREAM_SOURCE": 111,
+          "EXACT_FROZEN_PROJECT_FILE": 3,
+          "EXACT_DETACHED_GIT_METADATA_NOT_SOURCE": 1,
+          "EXACT_PINNED_GIT_FILE": 1436,
+          "EXACT_INSTALLED_AUTHENTICATED_WHEEL_BODY": 208,
+          "EXACT_PUBLISHER_TOOL_ASSET_FILE": 399
+        },
+        "limits": "Actual compile/header dependencies, file API, Kconfig lists, map LOAD inputs, selected recipes and observed imports with producer identities. No syscall-complete OS read trace, binary reproducibility or physical qualification."
+      },
+      {
+        "mode": 1,
+        "formats": {
+          "app": {
+            "compile_commands": 473,
+            "VALID_actual_dependency_blocks": 473,
+            "objects_in_execution_log": 473,
+            "CMake_inputs": 385,
+            "link_map_LOAD_rows": 240,
+            "Ninja_log_sha256": "8e361eff2f99bd561cf6acf6528974d1cde3219b814399f2de814202e76c57d4"
+          },
+          "bootloader": {
+            "compile_commands": 124,
+            "VALID_actual_dependency_blocks": 124,
+            "objects_in_execution_log": 124,
+            "CMake_inputs": 305,
+            "link_map_LOAD_rows": 145,
+            "Ninja_log_sha256": "f469b75cf19a003c622a6006e16aa62690dcf43553257162f0ed69f5fd75d31f"
+          }
+        },
+        "statuses": {
+          "GENERATED_NOT_UPSTREAM_SOURCE": 111,
+          "EXACT_FROZEN_PROJECT_FILE": 3,
+          "EXACT_DETACHED_GIT_METADATA_NOT_SOURCE": 1,
+          "EXACT_PINNED_GIT_FILE": 1436,
+          "EXACT_INSTALLED_AUTHENTICATED_WHEEL_BODY": 208,
+          "EXACT_PUBLISHER_TOOL_ASSET_FILE": 399
+        },
+        "limits": "Actual compile/header dependencies, file API, Kconfig lists, map LOAD inputs, selected recipes and observed imports with producer identities. No syscall-complete OS read trace, binary reproducibility or physical qualification."
+      }
+    ],
+    "mode_comparison": {
+      "configs": {
+        "app": {
+          "all_values_equal": true,
+          "keys": 920
+        },
+        "bootloader": {
+          "all_values_equal": true,
+          "keys": 739
+        }
+      },
+      "only_project_input_parameter_difference": "BOD_RST_SEL 0 versus1; identical four source files",
+      "polarity": null
+    },
+    "artifact_results": {
+      "status": "PASS_PORTABLE_0_1_GUARD2_COMPILE_LINK_ONLY",
+      "results": [
+        {
+          "mode": 0,
+          "closure": {
+            "mode": 0,
+            "formats": {
+              "app": {
+                "compile_commands": 473,
+                "VALID_actual_dependency_blocks": 473,
+                "objects_in_execution_log": 473,
+                "CMake_inputs": 385,
+                "link_map_LOAD_rows": 240,
+                "Ninja_log_sha256": "09b9e0b124910d26c27b05b23e033ce421583ef4fe14ecff468b5a7c301d0e4e"
+              },
+              "bootloader": {
+                "compile_commands": 124,
+                "VALID_actual_dependency_blocks": 124,
+                "objects_in_execution_log": 124,
+                "CMake_inputs": 305,
+                "link_map_LOAD_rows": 145,
+                "Ninja_log_sha256": "fafe2e9d4480c5d25aa6b1f177636c1043b95718d101eaa3477651c21a61eac1"
+              }
+            },
+            "statuses": {
+              "GENERATED_NOT_UPSTREAM_SOURCE": 111,
+              "EXACT_FROZEN_PROJECT_FILE": 3,
+              "EXACT_DETACHED_GIT_METADATA_NOT_SOURCE": 1,
+              "EXACT_PINNED_GIT_FILE": 1436,
+              "EXACT_INSTALLED_AUTHENTICATED_WHEEL_BODY": 208,
+              "EXACT_PUBLISHER_TOOL_ASSET_FILE": 399
+            },
+            "limits": "Actual compile/header dependencies, file API, Kconfig lists, map LOAD inputs, selected recipes and observed imports with producer identities. No syscall-complete OS read trace, binary reproducibility or physical qualification."
+          },
+          "configure_exit": 0,
+          "build_exit": 0,
+          "actual_flags": {
+            "IDF_TARGET": "esp32s3",
+            "FREERTOS_UNICORE": true,
+            "ESP_DEFAULT_CPU_FREQ_MHZ_160": true,
+            "ESP_BROWNOUT_DET": false,
+            "SECURE_BOOT": false,
+            "SECURE_FLASH_ENC_ENABLED": false
+          },
+          "artifacts": [
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build0/s3_bod_selector.elf",
+              "bytes": 3090392,
+              "sha256": "88837ccc72af6285e4ed1e3fa8e5112c1fedd1045264677921e85dae0cca0f1e"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build0/s3_bod_selector.bin",
+              "bytes": 138448,
+              "sha256": "7aafc5559892bdf55d2128fe9c949bab8e5bbf9bc5ad43cd976f793281490573"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build0/s3_bod_selector.map",
+              "bytes": 2879379,
+              "sha256": "d4b2d9b821a4508162dd556339355704c365900448c42b6536b4c816e9b375a9"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build0/bootloader/bootloader.elf",
+              "bytes": 620848,
+              "sha256": "d1dd8ba89b70f044ef7fbec09a1a775215b904340433049a46b2078775c26986"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build0/bootloader/bootloader.bin",
+              "bytes": 21072,
+              "sha256": "d3575648d7dad68a3a76f7f0968e9203c69b44db308b3c4ddb54278b8a473548"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build0/bootloader/bootloader.map",
+              "bytes": 588665,
+              "sha256": "7387f2303fb480fe1af383b35f46b30d510a52719c04426c9bc66eb3f021f8ee"
+            }
+          ],
+          "source_correspondence": "Actual app and bootloader dependencies bound to pinned SDK/project/archive/wheel sources; generated producer roles separate.",
+          "SDK_init_limit": "Excluded esp_brownout_init and optional ISR, registered wrapper and flash hooks remain; ROM/hardware state unknown."
+        },
+        {
+          "mode": 1,
+          "closure": {
+            "mode": 1,
+            "formats": {
+              "app": {
+                "compile_commands": 473,
+                "VALID_actual_dependency_blocks": 473,
+                "objects_in_execution_log": 473,
+                "CMake_inputs": 385,
+                "link_map_LOAD_rows": 240,
+                "Ninja_log_sha256": "8e361eff2f99bd561cf6acf6528974d1cde3219b814399f2de814202e76c57d4"
+              },
+              "bootloader": {
+                "compile_commands": 124,
+                "VALID_actual_dependency_blocks": 124,
+                "objects_in_execution_log": 124,
+                "CMake_inputs": 305,
+                "link_map_LOAD_rows": 145,
+                "Ninja_log_sha256": "f469b75cf19a003c622a6006e16aa62690dcf43553257162f0ed69f5fd75d31f"
+              }
+            },
+            "statuses": {
+              "GENERATED_NOT_UPSTREAM_SOURCE": 111,
+              "EXACT_FROZEN_PROJECT_FILE": 3,
+              "EXACT_DETACHED_GIT_METADATA_NOT_SOURCE": 1,
+              "EXACT_PINNED_GIT_FILE": 1436,
+              "EXACT_INSTALLED_AUTHENTICATED_WHEEL_BODY": 208,
+              "EXACT_PUBLISHER_TOOL_ASSET_FILE": 399
+            },
+            "limits": "Actual compile/header dependencies, file API, Kconfig lists, map LOAD inputs, selected recipes and observed imports with producer identities. No syscall-complete OS read trace, binary reproducibility or physical qualification."
+          },
+          "configure_exit": 0,
+          "build_exit": 0,
+          "actual_flags": {
+            "IDF_TARGET": "esp32s3",
+            "FREERTOS_UNICORE": true,
+            "ESP_DEFAULT_CPU_FREQ_MHZ_160": true,
+            "ESP_BROWNOUT_DET": false,
+            "SECURE_BOOT": false,
+            "SECURE_FLASH_ENC_ENABLED": false
+          },
+          "artifacts": [
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build1/s3_bod_selector.elf",
+              "bytes": 3090392,
+              "sha256": "74a6173f4db627ddc8fddeab409ef88bf852f833e567c792ba57350ba3d289c7"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build1/s3_bod_selector.bin",
+              "bytes": 138448,
+              "sha256": "7461149cde5afb1d6dbc1f2a16e5d612cc5c174e2d2e9e315a3f1f8dd22a2019"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build1/s3_bod_selector.map",
+              "bytes": 2879379,
+              "sha256": "d4b2d9b821a4508162dd556339355704c365900448c42b6536b4c816e9b375a9"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build1/bootloader/bootloader.elf",
+              "bytes": 620848,
+              "sha256": "56757788f1c385ad866462abf4ccde21cf1d0f372c5003c26354ed96a826896b"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build1/bootloader/bootloader.bin",
+              "bytes": 21072,
+              "sha256": "ef68f009dee3bc9a9864b4aad180f57af2d82842ef6c6edb37c28fd79544bee9"
+            },
+            {
+              "path": "/tmp/nsealr-h01-portable-review-01/build1/bootloader/bootloader.map",
+              "bytes": 588665,
+              "sha256": "7387f2303fb480fe1af383b35f46b30d510a52719c04426c9bc66eb3f021f8ee"
+            }
+          ],
+          "source_correspondence": "Actual app and bootloader dependencies bound to pinned SDK/project/archive/wheel sources; generated producer roles separate.",
+          "SDK_init_limit": "Excluded esp_brownout_init and optional ISR, registered wrapper and flash hooks remain; ROM/hardware state unknown."
+        },
+        {
+          "mode": 2,
+          "expected_configure_exit": 2,
+          "actual_configure_exit": 2,
+          "real_CMake_guard_reached": true,
+          "SDK_project_and_compiler_not_entered": true
+        }
+      ],
+      "physical_qualification": false,
+      "polarity": null,
+      "upstream_Python_profile_support": false,
+      "binary_reproducibility": false
+    },
+    "archive": {
+      "path": "independent/evidence.tar.gz",
+      "bytes": 4877394,
+      "sha256": "78f35837f1bc93556279b6aa4495c1452e4015804d30b6efd20c919ee166f7a2",
+      "members": 822,
+      "self_additional": 1,
+      "all_member_bytes_SHA_verified": true
+    },
+    "whole_CI_or_original43_rerun": false,
+    "new_gate_controls": 7
+  },
+  "original43": {
+    "author_receipt": "docs/restart/H01/checks/s3-bod-portable-2026-10-23/original-ci/command.json",
+    "sha256": "860acde959ea431745ec7ecf187602bcf35ce188613030019af6851d05a76e5e",
+    "exit": 0,
+    "old_scripts_tests_and_original_Make_targets_exact": true,
+    "role": "Existing documentation validators only, not diagnostic/physical proof."
+  },
+  "group_red_disposition": {
+    "source": "de77293c44350afdaad7fbabece8be358cf4c8e2",
+    "actual_failed_embedded_line": 11,
+    "predicate": "raw inner supplementary group IDs subset raw outer IDs across user namespaces",
+    "actual_inner_groups": [
+      65534,
+      65534,
+      65534,
+      65534,
+      65534,
+      65534,
+      65534,
+      65534,
+      65534,
+      65534,
+      1000
+    ],
+    "actual_outer_groups": [
+      24,
+      25,
+      27,
+      29,
+      30,
+      44,
+      46,
+      100,
+      101,
+      989,
+      1000
+    ],
+    "actual_gid_map": "      1000          0          1\n",
+    "primary_reference": "/usr/share/man/man7/user_namespaces.7.gz, Unmapped user and group IDs",
+    "primary_reference_sha256": "42b6861b0d449447de0cf08712dc4d39168773080ff65d2f234d463f4e030a41",
+    "meaning": "Unmapped IDs represented as overflowgid65534; dropping this extra numeric predicate changes no mandatory UID/GID/cap/NNP/net/RO check or namespace/group policy. Original failure retained, no platform denial bypass."
+  },
+  "default_paths": {
+    "Make_dry_run": "Both defaults under .worktrees/",
+    "tracked_ignore": ".gitignore:1:.worktrees/",
+    "global_excludes_disabled_during_check": true,
+    "additional_default_build": false
+  },
+  "root_owned_workflow_facet": {
+    "source1d_integration_structure": "New Make target job and always-uploaded raw/evidence/failure; original verify job exact.",
+    "pending_adjustment": "Root owns immutable action pins/Python3.12.15/check-latestfalse/read-onlypermissions and distinct affected review. This source/controller verdict does not finish that hosted facet.",
+    "hosted_CI_observed_or_triggered_by_reviewer": false
+  },
+  "limits": [
+    "Dated primary metadata authenticates selected file hashes, not signatures/freshness/no unknown vulnerabilities; installed RECORD is not origin authority.",
+    "Crypto50 profile is one explicit local compatibility correction; original8fd rejects50. No upstream SDK support or security/provisioning-tool qualification.",
+    "Derived esptool wheel comes from authenticated sdist and pinned setuptools; not a publisher wheel/reproducibility proof.",
+    "Compiler dependency records, generated files and observed imports retain distinct producer roles; no syscall-complete OS trace.",
+    "Brownout wrapper/flash hooks remain; configured init/ISR exclusion does not prove ROM disarm/all-BOD absence, neutral RMW, reset domain or polarity.",
+    "No target/device/flash/fuse/monitor/key/signing/provision/power/physical action; no parent/task/release criterion closed.",
+    "Root-owned final workflow review and normal protected CI/main adoption mandatory; review skip-ci marker must not suppress final checks."
+  ],
+  "physical_qualification": false,
+  "parent_criteria_closed": []
+}
