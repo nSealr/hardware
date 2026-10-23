@@ -1,0 +1,1244 @@
+{
+  "recorded_utc": "2026-10-23T19:44:45.084123+00:00",
+  "reviewer": "/root/sdk_dependency_probe, distinct from B01 author",
+  "scope": "Frozen hardware compile/link/provenance packet only; prior static/manual source and F1 reviews remain source-specific and applicable.",
+  "candidate": "bb0e7db1ff6687acc02ce3ad8aa23093ce0d93ad",
+  "tree": "5c81f887968c90c0c03cea4a4b2bc03b78307fa9",
+  "verdict": "PASS_COMPILE_LINK_OBSERVED_SOURCE_CORRESPONDENCE_ONLY",
+  "findings": [],
+  "manifest_before_execution": {
+    "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/artifact-manifest.json",
+    "sha256": "a36c41f64986d5a4c0a63fa6d659e5ffa4b8c45a17b26ef2cbe1ce4e8bc47781",
+    "members": 101,
+    "mode_blob_bytes_sha256_all_match": true,
+    "self_excluded_and_separately_hashed": true,
+    "JSON_documents_parsed": 28,
+    "non_tar_gzip_streams_validated": 25,
+    "tar_members": 1100,
+    "tar_regular_files": 1100,
+    "tar_uncompressed_bytes": 55406049,
+    "no_absolute_traversal_duplicate_or_special_tar_members": true
+  },
+  "reused_prior_reviews": [
+    {
+      "commit": "b6dba74c330e31706918d7e68dfa4dc45a5d4825",
+      "role": "Original distinct static CHANGES_REQUESTED including F1 remains historical; no manual research repeated."
+    },
+    {
+      "commit": "00957e214a476252e66fe6d3960b8164d9de4175",
+      "role": "F1 source/config affected PASS, still source-only; new build proof is explicitly separate."
+    }
+  ],
+  "source": {
+    "C_inputs": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+    "core_project_inputs": [
+      {
+        "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+        "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+        "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+        "source_blob": "e9afd6ded4bedd82e39d613b2e06309a78c9d4d7",
+        "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/CMakeLists.txt"
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+        "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+        "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+        "source_blob": "125de1a7bdf9d321f191a70b789500f135cc521b",
+        "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/main/CMakeLists.txt"
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/main/main.c",
+        "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+        "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+        "source_blob": "a378973fb584f3e8bcf10af24f36b3861aa7ed63",
+        "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/main/main.c"
+      },
+      {
+        "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+        "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+        "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+        "source_blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+        "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/mode0-first-build-01/project/sdkconfig.defaults"
+      }
+    ],
+    "SDK_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "SDK_tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+    "SDK_root_tracked_files": 20727,
+    "SDK_pinned_children": 8,
+    "all_Gitlink_states_explicit": 24,
+    "SDK_tools_json_sha256": "039337e5ee2511f97d112aedb98125945625a4dd9ffb67e0cbb094edcdd298b2",
+    "official_archive_pins": [
+      {
+        "tool": "xtensa-esp-elf",
+        "version": "esp-15.2.0_20251204",
+        "pinned_sdk_linux_amd64_asset": {
+          "sha256": "3d50f5cd5f173acfd524e07c1cd69bc99585731a415ca2e5bce879997fe602b8",
+          "size": 180530004,
+          "url": "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz"
+        }
+      },
+      {
+        "tool": "ninja",
+        "version": "1.12.1",
+        "pinned_sdk_linux_amd64_asset": {
+          "rename_dist": "ninja-linux-v1.12.1.zip",
+          "sha256": "6f98805688d19672bd699fbbfa2c2cf0fc054ac3df1f0e6a47664d963d530255",
+          "size": 123084,
+          "url": "https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-linux.zip"
+        }
+      }
+    ],
+    "wrong_or_uninitialized_Gitlinks_not_generally_admitted": true
+  },
+  "author_artifact_checks": {
+    "principal_artifacts": 22,
+    "all_original_inventory_rows_match": 2468,
+    "archived_files_bytechecked": 1100,
+    "intermediate_runtime_files_bytechecked": 1368,
+    "configs_equal_between_modes": {
+      "app": 920,
+      "bootloader": 739
+    },
+    "archive_sha256": "3ca6a25d1cc1376603f5d3c984e8160f15b2bf13bdac3b4bc259a9ccec4b811f",
+    "closure_internal_hash_references_verified": true
+  },
+  "original_local43": {
+    "source": "166922de4c561414728af94ef2a293887750b64d",
+    "receipt_sha256": "590f4041c3a656f2b2fea23b4af8f1bb63678225c4b432d7514a25268533102a",
+    "exit_code": 0,
+    "observed_tests": 43,
+    "Makefile_scripts_tests_workflows_unchanged_vs_7645554985259222e606fdda01bb1fdd793804ee": true,
+    "reviewer_test_rerun": false,
+    "role": "Unchanged hardware validator/test evidence, not cross-build or physical proof."
+  },
+  "independent_replay": {
+    "runtime": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime",
+    "input_freeze_sha256": "39c68fea05c6a919b44e2d22940476e5dd2a5309fe284a3326aa1226d98a6bd3",
+    "mechanism": "Frozen existing execute.prepare/execute, capture-output and bind-mode0 functions reused with explicit reviewer REPO/OUT/RUN/BUILD/PROJECT globals. Mode1 uses the identical literal selector replacement from the frozen author wrapper. No new launcher, author script edit or repeated configure/build.",
+    "configure_count": 2,
+    "build_count": 2,
+    "invalid_guard_count": 1,
+    "runs": [
+      {
+        "mode": 0,
+        "configure": {
+          "source_receipt_sha256": "b97be149c66e35242b0a916e7707ebfe6bd4409ae88c332cc6daf2a009621b13",
+          "executed_wrapper_sha256": "30371c8517c7d79e52673575925f7a585a8867c2f0e1fad229c50cecf10e5a68",
+          "argv": [
+            "bwrap",
+            "--unshare-user",
+            "--unshare-net",
+            "--die-with-parent",
+            "--bind",
+            "/",
+            "/",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+            "--dev",
+            "/dev",
+            "--",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+            "-C",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+            "-B",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build",
+            "-DIDF_TARGET=esp32s3",
+            "-DBOD_RST_SEL=0",
+            "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/sdkconfig",
+            "reconfigure"
+          ],
+          "environment_overrides": {
+            "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "IDF_COMPONENT_MANAGER": "0",
+            "IDF_SKIP_CHECK_SUBMODULES": "1",
+            "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/pycache",
+            "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin",
+            "IDF_PY_BUILD_JOBS": "4"
+          },
+          "exit": 0,
+          "started_unix": 1792784232.1705818,
+          "duration_seconds": 2.911287784576416
+        },
+        "pre_build_inspection": {
+          "status": "EXPECTED_FLAGS_RESOLVED_BEFORE_BUILD",
+          "source_receipt_sha256": "b97be149c66e35242b0a916e7707ebfe6bd4409ae88c332cc6daf2a009621b13",
+          "configure_command_sha256": "3759ffba27990ff447e28ad171592652e14803d274380857c9be3fddc7c234cf",
+          "sdkconfig_sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375",
+          "actual": {
+            "IDF_TARGET": "esp32s3",
+            "ESP_BROWNOUT_DET": false,
+            "SECURE_BOOT": false,
+            "SECURE_FLASH_ENC_ENABLED": false,
+            "FREERTOS_UNICORE": true,
+            "ESP_DEFAULT_CPU_FREQ_MHZ_160": true
+          },
+          "TEE": "INAPPLICABLE_ABSENT",
+          "default_Ninja_target": [
+            "default all"
+          ],
+          "default_Ninja_rule": [
+            "build all: phony bootloader s3_bod_selector.elf app esp-idf/all"
+          ],
+          "interpretation": "Actual source/config/default ordinary build inspected before compilation; not firmware/ROM/physical state.",
+          "stderr_preserved": "skip submodule check on internal CI\nNOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bootloader/Kconfig.projbuild:383: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.\nNOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/bootloader/Kconfig.projbuild:423: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.\nNOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_hw_support/./lowpower/port/esp32p4/Kconfig.p4_rev3_mspi_workaround:6: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.\nNOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_mm/Kconfig:20: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.\nNOTE: /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_system/./port/soc/esp32s3/Kconfig.memory:21: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.\nLoading defaults file /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project/sdkconfig.defaults...\nNOTE: Kconfig parser version: 1\nNOTE: Kconfig defaults policy: use sdkconfig\nNOTE: Status: Finished successfully\nTraceback (most recent call last):\n  File \"/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/gen_gdbinit.py\", line 72, in <module>\n    gdbinit_lines = generate_gdbinit_rom_add_symbols(target)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/components/esp_rom/gen_gdbinit.py\", line 31, in generate_gdbinit_rom_add_symbols\n    raise OSError(\nOSError: ESP_ROM_ELF_DIR environment variable is not defined. Please try to run IDF \"install\" and \"export\" scripts.\nCMake Warning at /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/gdbinit.cmake:58 (message):\n  Error while generating esp_rom gdbinit\nCall Stack (most recent call first):\n  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/project.cmake:452 (__generate_gdbinit)\n  /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/cmake/project.cmake:1101 (__project_info)\n  CMakeLists.txt:14 (project)\n\n\n"
+        },
+        "build": {
+          "source_receipt_sha256": "b97be149c66e35242b0a916e7707ebfe6bd4409ae88c332cc6daf2a009621b13",
+          "executed_wrapper_sha256": "30371c8517c7d79e52673575925f7a585a8867c2f0e1fad229c50cecf10e5a68",
+          "argv": [
+            "bwrap",
+            "--unshare-user",
+            "--unshare-net",
+            "--die-with-parent",
+            "--bind",
+            "/",
+            "/",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+            "--dev",
+            "/dev",
+            "--",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+            "-C",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+            "-B",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build",
+            "-DIDF_TARGET=esp32s3",
+            "-DBOD_RST_SEL=0",
+            "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/sdkconfig",
+            "build"
+          ],
+          "environment_overrides": {
+            "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "IDF_COMPONENT_MANAGER": "0",
+            "IDF_SKIP_CHECK_SUBMODULES": "1",
+            "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/pycache",
+            "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin",
+            "IDF_PY_BUILD_JOBS": "4"
+          },
+          "exit": 0,
+          "started_unix": 1792784250.5092332,
+          "duration_seconds": 8.364521026611328
+        },
+        "source_receipt_sha256": "b97be149c66e35242b0a916e7707ebfe6bd4409ae88c332cc6daf2a009621b13",
+        "object_and_format_coverage": {
+          "app": {
+            "compile_commands": 473,
+            "actual_VALID_dependency_blocks": 473,
+            "every_compiled_object_covered": true,
+            "CMake_input_rows": 385,
+            "link_map_LOAD_rows": 240,
+            "build_components": 51
+          },
+          "bootloader": {
+            "compile_commands": 124,
+            "actual_VALID_dependency_blocks": 124,
+            "every_compiled_object_covered": true,
+            "CMake_input_rows": 305,
+            "link_map_LOAD_rows": 145,
+            "build_components": 39
+          }
+        },
+        "input_statuses": {
+          "GENERATED_CONFIGURE_OUTPUT_NOT_UPSTREAM_SOURCE": 106,
+          "EXACT_FROZEN_PROJECT_FILE": 3,
+          "EXACT_DETACHED_SDK_GIT_METADATA_NOT_SOURCE_BLOB": 1,
+          "EXACT_PINNED_GIT_FILE": 1436,
+          "EXACT_OFFICIAL_TOOLCHAIN_ARCHIVE_FILE": 138,
+          "HOST_TOOL_OR_ENVIRONMENT_INPUT_HASH_ONLY": 469
+        },
+        "whole_official_compiler_files": 3966,
+        "ninja_archive_correspondence": true,
+        "writer_disassembly": "\n/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/s3_bod_selector.elf:     file format elf32-xtensa-le\n\n\nDisassembly of section .iram0.vectors:\n\nDisassembly of section .iram0.text:\n\nDisassembly of section .flash.text:\n\n42004df8 <bod_probe_apply_selector>:\n42004df8:\t004136        \tentry\ta1, 32\n42004dfb:\tee6381        \tl32r\ta8, 42000788 <_stext+0x768> (f7ffffff <_rtc_reserved_end+0x97efffff>)\n42004dfe:\t102280        \tand\ta2, a2, a8\n42004e01:\tee6281        \tl32r\ta8, 4200078c <_stext+0x76c> (600080e8 <RTCCNTL+0xe8>)\n42004e04:\t0020c0        \tmemw\n42004e07:\t0829      \ts32i.n\ta2, a8, 0\n42004e09:\t0020c0        \tmemw\n42004e0c:\t0020c0        \tmemw\n42004e0f:\t0828      \tl32i.n\ta2, a8, 0\n42004e11:\tf01d      \tretw.n\n",
+        "startup_wrapper_disassembly": "\n/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/s3_bod_selector.elf:     file format elf32-xtensa-le\n\n\nDisassembly of section .iram0.vectors:\n\nDisassembly of section .iram0.text:\n\nDisassembly of section .flash.text:\n\n4200ac20 <__esp_sys_init_fn_init_brownout>:\n4200ac20:\t004136        \tentry\ta1, 32\n4200ac23:\t006380        \trsil\ta8, 3\n4200ac26:\t006080        \trsil\ta8, 0\n4200ac29:\t020c      \tmovi.n\ta2, 0\n4200ac2b:\tf01d      \tretw.n\n",
+        "observed_host_rows_equal_author": 469
+      },
+      {
+        "mode": 1,
+        "configure": {
+          "source_receipt_sha256": "b53a49a37eeeefa56020687e8592cdcac811f62b24b77a1d87493510ed23e3be",
+          "executed_wrapper_sha256": "30371c8517c7d79e52673575925f7a585a8867c2f0e1fad229c50cecf10e5a68",
+          "argv": [
+            "bwrap",
+            "--unshare-user",
+            "--unshare-net",
+            "--die-with-parent",
+            "--bind",
+            "/",
+            "/",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+            "--dev",
+            "/dev",
+            "--",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+            "-C",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+            "-B",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build",
+            "-DIDF_TARGET=esp32s3",
+            "-DBOD_RST_SEL=1",
+            "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/sdkconfig",
+            "reconfigure"
+          ],
+          "environment_overrides": {
+            "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "IDF_COMPONENT_MANAGER": "0",
+            "IDF_SKIP_CHECK_SUBMODULES": "1",
+            "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/pycache",
+            "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin",
+            "IDF_PY_BUILD_JOBS": "4"
+          },
+          "exit": 0,
+          "started_unix": 1792784370.7084186,
+          "duration_seconds": 2.9254584312438965
+        },
+        "pre_build_inspection": {
+          "status": "EXPECTED_FLAGS_RESOLVED_BEFORE_BUILD",
+          "source_receipt_sha256": "b53a49a37eeeefa56020687e8592cdcac811f62b24b77a1d87493510ed23e3be",
+          "configure_command_sha256": "bdce73897c9dcb6519a251fa8e4b3057be915a83663c3aa5d021236d3d837a7a",
+          "sdkconfig_sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375",
+          "actual": {
+            "IDF_TARGET": "esp32s3",
+            "ESP_BROWNOUT_DET": false,
+            "SECURE_BOOT": false,
+            "SECURE_FLASH_ENC_ENABLED": false,
+            "FREERTOS_UNICORE": true,
+            "ESP_DEFAULT_CPU_FREQ_MHZ_160": true
+          },
+          "app_config_values_equal_mode0": 920,
+          "TEE": "INAPPLICABLE_ABSENT",
+          "default_Ninja_target": [
+            "default all"
+          ],
+          "default_Ninja_rule": [
+            "build all: phony bootloader s3_bod_selector.elf app esp-idf/all"
+          ],
+          "interpretation": "Actual config/default inspected before ordinary build; no firmware/ROM/physical state."
+        },
+        "build": {
+          "source_receipt_sha256": "b53a49a37eeeefa56020687e8592cdcac811f62b24b77a1d87493510ed23e3be",
+          "executed_wrapper_sha256": "30371c8517c7d79e52673575925f7a585a8867c2f0e1fad229c50cecf10e5a68",
+          "argv": [
+            "bwrap",
+            "--unshare-user",
+            "--unshare-net",
+            "--die-with-parent",
+            "--bind",
+            "/",
+            "/",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "--ro-bind",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+            "--dev",
+            "/dev",
+            "--",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+            "-C",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+            "-B",
+            "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build",
+            "-DIDF_TARGET=esp32s3",
+            "-DBOD_RST_SEL=1",
+            "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/sdkconfig",
+            "build"
+          ],
+          "environment_overrides": {
+            "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+            "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+            "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+            "IDF_COMPONENT_MANAGER": "0",
+            "IDF_SKIP_CHECK_SUBMODULES": "1",
+            "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/pycache",
+            "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin",
+            "IDF_PY_BUILD_JOBS": "4"
+          },
+          "exit": 0,
+          "started_unix": 1792784403.4507532,
+          "duration_seconds": 8.371492624282837
+        },
+        "source_receipt_sha256": "b53a49a37eeeefa56020687e8592cdcac811f62b24b77a1d87493510ed23e3be",
+        "object_and_format_coverage": {
+          "app": {
+            "compile_commands": 473,
+            "actual_VALID_dependency_blocks": 473,
+            "every_compiled_object_covered": true,
+            "CMake_input_rows": 385,
+            "link_map_LOAD_rows": 240,
+            "build_components": 51
+          },
+          "bootloader": {
+            "compile_commands": 124,
+            "actual_VALID_dependency_blocks": 124,
+            "every_compiled_object_covered": true,
+            "CMake_input_rows": 305,
+            "link_map_LOAD_rows": 145,
+            "build_components": 39
+          }
+        },
+        "input_statuses": {
+          "GENERATED_CONFIGURE_OUTPUT_NOT_UPSTREAM_SOURCE": 106,
+          "EXACT_FROZEN_PROJECT_FILE": 3,
+          "EXACT_DETACHED_SDK_GIT_METADATA_NOT_SOURCE_BLOB": 1,
+          "EXACT_PINNED_GIT_FILE": 1436,
+          "EXACT_OFFICIAL_TOOLCHAIN_ARCHIVE_FILE": 138,
+          "HOST_TOOL_OR_ENVIRONMENT_INPUT_HASH_ONLY": 469
+        },
+        "whole_official_compiler_files": 3966,
+        "ninja_archive_correspondence": true,
+        "writer_disassembly": "\n/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/s3_bod_selector.elf:     file format elf32-xtensa-le\n\n\nDisassembly of section .iram0.vectors:\n\nDisassembly of section .iram0.text:\n\nDisassembly of section .flash.text:\n\n42004df8 <bod_probe_apply_selector>:\n42004df8:\t004136        \tentry\ta1, 32\n42004dfb:\tee6381        \tl32r\ta8, 42000788 <_stext+0x768> (8000000 <UserFrameTotalSize+0x7ffff00>)\n42004dfe:\t202280        \tor\ta2, a2, a8\n42004e01:\tee6281        \tl32r\ta8, 4200078c <_stext+0x76c> (600080e8 <RTCCNTL+0xe8>)\n42004e04:\t0020c0        \tmemw\n42004e07:\t0829      \ts32i.n\ta2, a8, 0\n42004e09:\t0020c0        \tmemw\n42004e0c:\t0020c0        \tmemw\n42004e0f:\t0828      \tl32i.n\ta2, a8, 0\n42004e11:\tf01d      \tretw.n\n",
+        "startup_wrapper_disassembly": "\n/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/s3_bod_selector.elf:     file format elf32-xtensa-le\n\n\nDisassembly of section .iram0.vectors:\n\nDisassembly of section .iram0.text:\n\nDisassembly of section .flash.text:\n\n4200ac20 <__esp_sys_init_fn_init_brownout>:\n4200ac20:\t004136        \tentry\ta1, 32\n4200ac23:\t006380        \trsil\ta8, 3\n4200ac26:\t006080        \trsil\ta8, 0\n4200ac29:\t020c      \tmovi.n\ta2, 0\n4200ac2b:\tf01d      \tretw.n\n",
+        "observed_host_rows_equal_author": 469
+      }
+    ],
+    "selector2": {
+      "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "argv": [
+        "bwrap",
+        "--unshare-user",
+        "--unshare-net",
+        "--die-with-parent",
+        "--bind",
+        "/",
+        "/",
+        "--ro-bind",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+        "--ro-bind",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+        "--ro-bind",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+        "--ro-bind",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/project",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/project",
+        "--dev",
+        "/dev",
+        "--",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin/python",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf/tools/idf.py",
+        "-C",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/project",
+        "-B",
+        "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/build",
+        "-DIDF_TARGET=esp32s3",
+        "-DBOD_RST_SEL=2",
+        "-DSDKCONFIG=/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/build/sdkconfig",
+        "reconfigure"
+      ],
+      "environment_overrides": {
+        "IDF_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+        "IDF_TOOLS_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+        "IDF_PYTHON_ENV_PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+        "IDF_COMPONENT_MANAGER": "0",
+        "IDF_SKIP_CHECK_SUBMODULES": "1",
+        "PYTHONPYCACHEPREFIX": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/pycache",
+        "PATH": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin:/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/ninja/1.12.1:/usr/bin:/bin",
+        "IDF_PY_BUILD_JOBS": "4"
+      },
+      "project_inputs": [
+        {
+          "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+          "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+          "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+          "source_blob": "e9afd6ded4bedd82e39d613b2e06309a78c9d4d7",
+          "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/project/CMakeLists.txt"
+        },
+        {
+          "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+          "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+          "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+          "source_blob": "125de1a7bdf9d321f191a70b789500f135cc521b",
+          "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/project/main/CMakeLists.txt"
+        },
+        {
+          "path": "diagnostics/s3-bod-selector/main/main.c",
+          "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+          "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+          "source_blob": "a378973fb584f3e8bcf10af24f36b3861aa7ed63",
+          "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/project/main/main.c"
+        },
+        {
+          "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+          "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+          "source_commit": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+          "source_blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+          "export": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/project/sdkconfig.defaults"
+        }
+      ],
+      "independent_expectations": "db1a2fc8a48b40effbcaeed8961dafe9a574cea7:docs/restart/H01/s3-bod-build-expectations.json selectors.other",
+      "expected": {
+        "idf_py_exit": 2,
+        "guard": "CMakeLists.txt:4 literal BOD_RST_SEL rejection before SDK project include",
+        "product_compile_or_link": false
+      },
+      "exit": 2,
+      "started_unix": 1792784463.3476367,
+      "duration_seconds": 0.8470032215118408,
+      "stderr": "CMake Error at CMakeLists.txt:4 (message):\n  BOD_RST_SEL must be explicitly 0 or 1\n\n\ncmake failed with exit code 1, output of the command is in the /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/build/log/idf_py_stderr_output_1867329 and /home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/selector2-rejection-01/build/log/idf_py_stdout_output_1867329\n"
+    },
+    "selected_artifacts": {
+      "artifacts": [
+        {
+          "mode": 0,
+          "path": "bootloader/bootloader.bin",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/bootloader/bootloader.bin",
+          "bytes": 21072,
+          "sha256": "d7f25265089f31849295779a88f3b21548f78dbd463a6962c60f7e6de0f937ec",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "bootloader/bootloader.elf",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/bootloader/bootloader.elf",
+          "bytes": 632668,
+          "sha256": "5e1db9172734376e5854b2e32334f7373010851d5f842b14f7bf7ec75ba3acf0",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "bootloader/bootloader.map",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/bootloader/bootloader.map",
+          "bytes": 594844,
+          "sha256": "0c9fcb47f90ffa5840d7c622ed154dbb870e5711460b22e6b466453bb3f0f959",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "bootloader/config/sdkconfig.json",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/bootloader/config/sdkconfig.json",
+          "bytes": 29121,
+          "sha256": "ec38df964a8c7202e79966ccbe85b781741d8293985dd4bf0c5c83fc42b938f1",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "config/sdkconfig.h",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/config/sdkconfig.h",
+          "bytes": 33872,
+          "sha256": "2f98a6cc3b050fe420a7c46770136ed3a3c8ae6554fe9f35c86e0da8431c11bd",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "config/sdkconfig.json",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/config/sdkconfig.json",
+          "bytes": 36081,
+          "sha256": "7cc07c68a8303331754432871de7f29565aaa75ef5e26ecdfc2d185060222240",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "partition_table/partition-table.bin",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "s3_bod_selector.bin",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/s3_bod_selector.bin",
+          "bytes": 138448,
+          "sha256": "46317b7ecccf6d7f8d5533cc4d29626a182169011e6b64b7a57c3ac5356c8163",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "s3_bod_selector.elf",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/s3_bod_selector.elf",
+          "bytes": 3153752,
+          "sha256": "bb8003e48f1ab8f6cd91f42f4c8221f92d0968d596bfe5a2d6edc1b1d831f1bc",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "s3_bod_selector.map",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/s3_bod_selector.map",
+          "bytes": 2923335,
+          "sha256": "a7fafc17013da31e04a101bbd08deeeba9a109916f89e9037845c7155dc26492",
+          "executed": false
+        },
+        {
+          "mode": 0,
+          "path": "sdkconfig",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/sdkconfig",
+          "bytes": 54174,
+          "sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "bootloader/bootloader.bin",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/bootloader/bootloader.bin",
+          "bytes": 21072,
+          "sha256": "1b71e1ee3acc90a5f2514d58a8fe1909d899ee0af7e1bd0d3f810cf375952874",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "bootloader/bootloader.elf",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/bootloader/bootloader.elf",
+          "bytes": 632668,
+          "sha256": "3ae3e24c60be425158cee2ef7a0ee3ddd4d5624288e14125ef12c1370e092c6b",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "bootloader/bootloader.map",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/bootloader/bootloader.map",
+          "bytes": 594844,
+          "sha256": "0c9fcb47f90ffa5840d7c622ed154dbb870e5711460b22e6b466453bb3f0f959",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "bootloader/config/sdkconfig.json",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/bootloader/config/sdkconfig.json",
+          "bytes": 29121,
+          "sha256": "ec38df964a8c7202e79966ccbe85b781741d8293985dd4bf0c5c83fc42b938f1",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "config/sdkconfig.h",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/config/sdkconfig.h",
+          "bytes": 33872,
+          "sha256": "2f98a6cc3b050fe420a7c46770136ed3a3c8ae6554fe9f35c86e0da8431c11bd",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "config/sdkconfig.json",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/config/sdkconfig.json",
+          "bytes": 36081,
+          "sha256": "7cc07c68a8303331754432871de7f29565aaa75ef5e26ecdfc2d185060222240",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "partition_table/partition-table.bin",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "s3_bod_selector.bin",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/s3_bod_selector.bin",
+          "bytes": 138448,
+          "sha256": "b984be50e10fe20856dce569bb2ff513191499323e45f73e3c3dcb9b7cb93867",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "s3_bod_selector.elf",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/s3_bod_selector.elf",
+          "bytes": 3153752,
+          "sha256": "91ae1cc369a2aaa6f00fdefd942d55b518b8b741712cb5faa804fe4555553e9a",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "s3_bod_selector.map",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/s3_bod_selector.map",
+          "bytes": 2923335,
+          "sha256": "a7fafc17013da31e04a101bbd08deeeba9a109916f89e9037845c7155dc26492",
+          "executed": false
+        },
+        {
+          "mode": 1,
+          "path": "sdkconfig",
+          "runtime_path": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/sdkconfig",
+          "bytes": 54174,
+          "sha256": "1b41aae9bb2e914ef2481fb245c13448a192ca99c2185dec7b190568ccec9375",
+          "executed": false
+        }
+      ],
+      "app_config_values_identical": 920,
+      "bootloader_config_values_identical": 739,
+      "comparison_to_author_ELF_bytes": "No binary equivalence/reproducibility claimed; each actual hash is separately bound."
+    },
+    "producer_integrity": {
+      "packages_count": 63,
+      "installed_RECORD_hashed_rows_checked": 3311,
+      "observed_host_rows_match_author": 469,
+      "selected_tools_match_author_receipt": 11,
+      "role": "Existing admitted read-only installed environment integrity observations. SDK Git, official GCC/Ninja archive checks, and generated build outputs have separate provenance. Not PyPI archive authentication or syscall-complete OS closure."
+    },
+    "producer_full_receipt_sha256": "f643d530e130c43858b8c6b01c374142c3c50892f201a9bbe0c3d6a5fe821003",
+    "startup_captures": [
+      {
+        "mode": 0,
+        "argv": [
+          "bwrap",
+          "--unshare-user",
+          "--unshare-net",
+          "--die-with-parent",
+          "--bind",
+          "/",
+          "/",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/project",
+          "--dev",
+          "/dev",
+          "--",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump",
+          "-dr",
+          "--disassemble=__esp_sys_init_fn_init_brownout",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-first-build-01/build/s3_bod_selector.elf"
+        ],
+        "exit": 0,
+        "elapsed_seconds": 0.007812033407390118,
+        "stdout_sha256": "8d9123a09cbbe46001398c9f4385c72043c5c2bb7c8b683511411b9b876acf51",
+        "stdout_gzip": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-proof/app-disassembly-init_brownout.stdout.gz",
+        "stderr": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode0-proof/app-disassembly-init_brownout.stderr.log"
+      },
+      {
+        "mode": 1,
+        "argv": [
+          "bwrap",
+          "--unshare-user",
+          "--unshare-net",
+          "--die-with-parent",
+          "--bind",
+          "/",
+          "/",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/esp-idf",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/python-env",
+          "--ro-bind",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/project",
+          "--dev",
+          "/dev",
+          "--",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump",
+          "-dr",
+          "--disassemble=__esp_sys_init_fn_init_brownout",
+          "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-first-build-01/build/s3_bod_selector.elf"
+        ],
+        "exit": 0,
+        "elapsed_seconds": 0.007264109328389168,
+        "stdout_sha256": "52076589c006673b3c3659930b1bc6e0d8f3ef8e86ae395c87f4dd5b284fc2ce",
+        "stdout_gzip": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-proof/app-disassembly-init_brownout.stdout.gz",
+        "stderr": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/mode1-proof/app-disassembly-init_brownout.stderr.log"
+      }
+    ],
+    "reviewer_binding_RED": {
+      "stage": "Reviewer reuse of bind-mode0.py after successful mode0 build/captures",
+      "error": "FileNotFoundError: reviewer RUN.parent/idf-tools/tools/ninja/1.12.1/ninja absent",
+      "effect": "No build rerun. Binder had verified SDK and official compiler archive, then stopped before final input-bindings JSON.",
+      "reason": "Reviewer placed RUN in a separate runtime; binder has one RUN.parent-relative Ninja lookup. Original author layout is consistent.",
+      "correction": "Created reviewer-runtime-only idf-tools symlink to the identical existing original tool directory. Existing bwrap commands continue to ro-bind the original tools path. No SDK/tool/source/policy changed.",
+      "runtime_alias": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-build-review-runtime/idf-tools",
+      "alias_target": "/home/tux/nsealr/.restart-tools/goal/h01-s3-bod-source-gate-runtime/idf-tools",
+      "affected_readonly_binding_repeated": true,
+      "build_repeated": false,
+      "exit_code": 1,
+      "product_failure": false,
+      "stderr_transcript": "reviewer-binding-red.stderr.log",
+      "transcript_origin": "Verbatim traceback copied from the original failed tool invocation after successful captures; no build repeated."
+    },
+    "retained_external_receipts": [
+      {
+        "path": "input-freeze.json",
+        "bytes": 2125,
+        "sha256": "39c68fea05c6a919b44e2d22940476e5dd2a5309fe284a3326aa1226d98a6bd3"
+      },
+      {
+        "path": "linked-artifacts.json",
+        "bytes": 7831,
+        "sha256": "b2570782bb8d4463e87d4f654ca3269939c559b97186a024d79317385d9a52a8"
+      },
+      {
+        "path": "mode0-proof/SDK-post-build.json",
+        "bytes": 2889,
+        "sha256": "ff4095059ff586866233482ac540d8712a9150e3063c7a79f728df1931e5a583"
+      },
+      {
+        "path": "mode0-proof/SDK-preflight.json",
+        "bytes": 225477,
+        "sha256": "c2dd291be98423209617697d17022de1f1d8b9dd10caa3754217b471b5293ac9"
+      },
+      {
+        "path": "mode0-proof/app-disassembly-app_main.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/app-disassembly-app_main.stdout.gz",
+        "bytes": 981,
+        "sha256": "b7520ff38123ebb4f1950a658fbb0946d18c3bc2b2d02fc6ebf709bc95c4a566"
+      },
+      {
+        "path": "mode0-proof/app-disassembly-bod_probe_apply_selector.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/app-disassembly-bod_probe_apply_selector.stdout.gz",
+        "bytes": 390,
+        "sha256": "85385e6d70c4e3f415051f664d9487b15e4e993e587a92cf291a3b159079dc72"
+      },
+      {
+        "path": "mode0-proof/app-disassembly-init_brownout.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/app-disassembly-init_brownout.stdout.gz",
+        "bytes": 278,
+        "sha256": "2585b46832003a85a954fa6c1d0b880e25b4523b88a35090bb67bf9bd1a67c5d"
+      },
+      {
+        "path": "mode0-proof/app-ninja-commands.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/app-ninja-commands.stdout.gz",
+        "bytes": 59718,
+        "sha256": "7ad17bf52ff155bed2e6f10a7953697887cdaf15e6da6e4343a4c2e5554a422a"
+      },
+      {
+        "path": "mode0-proof/app-ninja-deps.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/app-ninja-deps.stdout.gz",
+        "bytes": 113872,
+        "sha256": "025ff591a8f241b98fea068bff58fac54ada0add16d1c2f3fd1275ddd30cafe7"
+      },
+      {
+        "path": "mode0-proof/app-nm.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/app-nm.stdout.gz",
+        "bytes": 35162,
+        "sha256": "3c6a3646de44c0594e026ebfba9c744b5e45d4a47a05178b4d08aef8477ff1bf"
+      },
+      {
+        "path": "mode0-proof/app-readelf.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/app-readelf.stdout.gz",
+        "bytes": 362,
+        "sha256": "f15706dbfa2e3c14df2b111a74bab006f3d0dc387f12a7b38327b572c7ce32dd"
+      },
+      {
+        "path": "mode0-proof/bootloader-ninja-commands.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/bootloader-ninja-commands.stdout.gz",
+        "bytes": 14595,
+        "sha256": "a65f36b15235ee6a60ee44d42c2aa12555c75b9bbb340fa18e75d1b7edd6bae9"
+      },
+      {
+        "path": "mode0-proof/bootloader-ninja-deps.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/bootloader-ninja-deps.stdout.gz",
+        "bytes": 23746,
+        "sha256": "d552b00bf0537e9719de9c7abfc0efd5e23974b2021ba87c5fcd22f6c6dd56d5"
+      },
+      {
+        "path": "mode0-proof/bootloader-nm.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/bootloader-nm.stdout.gz",
+        "bytes": 19888,
+        "sha256": "86910af7817267b7eac509b25584298dfd9ff0510ac6e0ca31e835c846bb1a53"
+      },
+      {
+        "path": "mode0-proof/bootloader-readelf.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/bootloader-readelf.stdout.gz",
+        "bytes": 363,
+        "sha256": "7d9c0554c31dda04d78fb615a1d4d679a4ce0fbb571e330b0e9bf5cf83454732"
+      },
+      {
+        "path": "mode0-proof/build-command.json",
+        "bytes": 2764,
+        "sha256": "d7fc097dfc6ac82b29fbaa87e0b0c9a09304de92a467a63a30e28a67c38eb130"
+      },
+      {
+        "path": "mode0-proof/build.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode0-proof/build.stdout.log",
+        "bytes": 90712,
+        "sha256": "8f7c11be6d1dc38def174f8582f2009bd9a4de461f9cbb7771b4b5f121117824"
+      },
+      {
+        "path": "mode0-proof/configure-command.json",
+        "bytes": 2770,
+        "sha256": "3759ffba27990ff447e28ad171592652e14803d274380857c9be3fddc7c234cf"
+      },
+      {
+        "path": "mode0-proof/configure.stderr.log",
+        "bytes": 2792,
+        "sha256": "aa3f04b05aa73124573c833f5ae32a2e94deb37aa289d2c46798cf9a4c2c610c"
+      },
+      {
+        "path": "mode0-proof/configure.stdout.log",
+        "bytes": 11845,
+        "sha256": "f320c1d042e24bef44af22e92d0e930c4143648e07b63b7ea39fef8e4283e48e"
+      },
+      {
+        "path": "mode0-proof/manual-closure.json",
+        "bytes": 1189,
+        "sha256": "964b3424849df5fd801ddb17d07c4e34d4aecba63e8732778349886d6c81aa2d"
+      },
+      {
+        "path": "mode0-proof/mode0-input-bindings.json",
+        "bytes": 1284821,
+        "sha256": "56f35dcd6aaf2c7510dd24609ca9be76b62faa057f35adc92dbe8c416f09f25d"
+      },
+      {
+        "path": "mode0-proof/pre-build-config-inspection.json",
+        "bytes": 3718,
+        "sha256": "8b21810886ff8c1c360aa2132257b90b56ce549152a56848646b7fd9d5ee1ae7"
+      },
+      {
+        "path": "mode0-proof/read-only-command-receipts.json",
+        "bytes": 16468,
+        "sha256": "a14a728bd99a13d1f2d22f8c050684234b50c8e91ed6e0f749a7b5912dd800ef"
+      },
+      {
+        "path": "mode0-proof/selector2-command.json",
+        "bytes": 4688,
+        "sha256": "ad61c682648523539bfa8fcd3a3f76d5e504730b6f28a613caffaf07d42661fc"
+      },
+      {
+        "path": "mode0-proof/selector2.stderr.log",
+        "bytes": 414,
+        "sha256": "14744497818c0c7a12e35265025ad6afaeef8b3b42cacde0ee2668244c391498"
+      },
+      {
+        "path": "mode0-proof/selector2.stdout.log",
+        "bytes": 749,
+        "sha256": "5a038fbf7a083ca9763229fda3639032347d708e979b2eb3ba78b110282af346"
+      },
+      {
+        "path": "mode0-proof/source-receipt.json",
+        "bytes": 12695,
+        "sha256": "b97be149c66e35242b0a916e7707ebfe6bd4409ae88c332cc6daf2a009621b13"
+      },
+      {
+        "path": "mode0-proof/toolchain-file-correspondence.json.gz",
+        "bytes": 159762,
+        "sha256": "94ea5426a7a3bd0fc5ba06f5d8d19ef64248429141cc98cd3130fb01b95ebdfc"
+      },
+      {
+        "path": "mode1-proof/SDK-post-build.json",
+        "bytes": 2889,
+        "sha256": "ff4095059ff586866233482ac540d8712a9150e3063c7a79f728df1931e5a583"
+      },
+      {
+        "path": "mode1-proof/SDK-preflight.json",
+        "bytes": 225477,
+        "sha256": "c2dd291be98423209617697d17022de1f1d8b9dd10caa3754217b471b5293ac9"
+      },
+      {
+        "path": "mode1-proof/app-disassembly-app_main.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/app-disassembly-app_main.stdout.gz",
+        "bytes": 981,
+        "sha256": "097cb5b52703fc70157d7d04857e06c38b9ad04f4f9b6fb91fdaf005de8f65f6"
+      },
+      {
+        "path": "mode1-proof/app-disassembly-bod_probe_apply_selector.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/app-disassembly-bod_probe_apply_selector.stdout.gz",
+        "bytes": 394,
+        "sha256": "41950cce123af100ebe1c6dbb9584991396780060ff0bbdccde466073d2d5112"
+      },
+      {
+        "path": "mode1-proof/app-disassembly-init_brownout.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/app-disassembly-init_brownout.stdout.gz",
+        "bytes": 278,
+        "sha256": "05b9044dfa9bf2e837a3d1960b19f8e709155d94c77de932758511cd6df4df64"
+      },
+      {
+        "path": "mode1-proof/app-ninja-commands.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/app-ninja-commands.stdout.gz",
+        "bytes": 59718,
+        "sha256": "d0f781b3a77111c235ef9729c6f35552fbfc4569e1ccb7fbed924e62dfb71e3a"
+      },
+      {
+        "path": "mode1-proof/app-ninja-deps.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/app-ninja-deps.stdout.gz",
+        "bytes": 113403,
+        "sha256": "6f83f13b37015f20c19d23005193fb3d15bf1938e1e59393e87583dfbbfc4427"
+      },
+      {
+        "path": "mode1-proof/app-nm.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/app-nm.stdout.gz",
+        "bytes": 35162,
+        "sha256": "3c6a3646de44c0594e026ebfba9c744b5e45d4a47a05178b4d08aef8477ff1bf"
+      },
+      {
+        "path": "mode1-proof/app-readelf.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/app-readelf.stdout.gz",
+        "bytes": 362,
+        "sha256": "f15706dbfa2e3c14df2b111a74bab006f3d0dc387f12a7b38327b572c7ce32dd"
+      },
+      {
+        "path": "mode1-proof/bootloader-ninja-commands.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/bootloader-ninja-commands.stdout.gz",
+        "bytes": 14595,
+        "sha256": "d0ec68643ab67fb2c9d8fc093df1ecf782afeaa77ed212a731ed354d1f3a8c5b"
+      },
+      {
+        "path": "mode1-proof/bootloader-ninja-deps.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/bootloader-ninja-deps.stdout.gz",
+        "bytes": 23964,
+        "sha256": "ee27c227212077cc7b086aade85aa0b89b8048f069304f7c28879261f2688b85"
+      },
+      {
+        "path": "mode1-proof/bootloader-nm.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/bootloader-nm.stdout.gz",
+        "bytes": 19888,
+        "sha256": "86910af7817267b7eac509b25584298dfd9ff0510ac6e0ca31e835c846bb1a53"
+      },
+      {
+        "path": "mode1-proof/bootloader-readelf.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/bootloader-readelf.stdout.gz",
+        "bytes": 363,
+        "sha256": "7d9c0554c31dda04d78fb615a1d4d679a4ce0fbb571e330b0e9bf5cf83454732"
+      },
+      {
+        "path": "mode1-proof/build-command.json",
+        "bytes": 2764,
+        "sha256": "db82b8b4e32de431a17d9b4f7cb82e003aa9cb869e1e4981ee42de6644b7a54f"
+      },
+      {
+        "path": "mode1-proof/build.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "mode1-proof/build.stdout.log",
+        "bytes": 90712,
+        "sha256": "d0c73d1d096a9494760b341680fc521476426197f80f3a6a6f8b309e8a41b9f9"
+      },
+      {
+        "path": "mode1-proof/configure-command.json",
+        "bytes": 2771,
+        "sha256": "bdce73897c9dcb6519a251fa8e4b3057be915a83663c3aa5d021236d3d837a7a"
+      },
+      {
+        "path": "mode1-proof/configure.stderr.log",
+        "bytes": 2792,
+        "sha256": "a548885435d94655a5dd30f42302130a5baf2f4f79493cbe4957b484af4bea41"
+      },
+      {
+        "path": "mode1-proof/configure.stdout.log",
+        "bytes": 11845,
+        "sha256": "8eb09622e34ef9600f9e266037e4520a1aff5104d7f67bd74711b7ad369b7c7f"
+      },
+      {
+        "path": "mode1-proof/manual-closure.json",
+        "bytes": 1092,
+        "sha256": "93ca4a8bfca11fefe03b993d06796487faf9595a1ec2a9a7c6f2e077c0e4411c"
+      },
+      {
+        "path": "mode1-proof/mode0-input-bindings.json",
+        "bytes": 1284821,
+        "sha256": "6f0f383b1e80ce378ca8137eefbf230602b4ccba1d9b385db9a4ac40b30e8ecb"
+      },
+      {
+        "path": "mode1-proof/pre-build-config-inspection.json",
+        "bytes": 887,
+        "sha256": "39ed13301420865f460ee46af028db1a86978d1dfd8b6a0339f099ab7db7bb35"
+      },
+      {
+        "path": "mode1-proof/read-only-command-receipts.json",
+        "bytes": 16470,
+        "sha256": "9b515c06f6feb41a29226ae41f39e3d867c8517d2fae046328509a20bfe2825b"
+      },
+      {
+        "path": "mode1-proof/source-receipt.json",
+        "bytes": 12957,
+        "sha256": "b53a49a37eeeefa56020687e8592cdcac811f62b24b77a1d87493510ed23e3be"
+      },
+      {
+        "path": "mode1-proof/toolchain-file-correspondence.json.gz",
+        "bytes": 159762,
+        "sha256": "94ea5426a7a3bd0fc5ba06f5d8d19ef64248429141cc98cd3130fb01b95ebdfc"
+      },
+      {
+        "path": "producer-observations.json",
+        "bytes": 12542,
+        "sha256": "f643d530e130c43858b8c6b01c374142c3c50892f201a9bbe0c3d6a5fe821003"
+      },
+      {
+        "path": "reviewer-binding-red.json",
+        "bytes": 1198,
+        "sha256": "cb09e11fdfe2ca64d7d4b945bc4e2934177ec97681c1ba7cb1f921c355fb5a83"
+      },
+      {
+        "path": "reviewer-binding-red.stderr.log",
+        "bytes": 1082,
+        "sha256": "930e9d2bfdfbd11b5c0f5af319ea771a3476b64078b72d94f93d0b7b33319b91"
+      },
+      {
+        "path": "startup-capture.json",
+        "bytes": 3641,
+        "sha256": "c50d3e31806351e777f89b9b4796825a80f593a9edefa7c64984b71cc538be04"
+      }
+    ]
+  },
+  "linked_effect_assessment": {
+    "mode0": "AND 0xf7ffffff",
+    "mode1": "OR 0x08000000",
+    "address": "0x600080e8",
+    "full_word_store_memw_readback": true,
+    "app_main_calls_writer_after_guards": true,
+    "startup_wrapper_linked": true,
+    "wrapper_body": "entry; rsil3; rsil0; movi0; return",
+    "esp_brownout_init_and_optional_ISR_linked": false,
+    "flash_brownout_hooks_remain": true,
+    "meaning": "Linked intent and configured code paths only; not observed register behavior, safe RMW, ROM/hardware disarm or a polarity witness."
+  },
+  "limits": [
+    "Zero firmware/device/flash/fuse/monitor/power/register executions; no keys/signing/provisioning/download/version changes.",
+    "Both TRM meanings remain UNSATISFIED with selected_polarity null; no manual/component/polarity research repeated.",
+    "SDK Git and official GCC/Ninja archive correspondence are separate from generated outputs and installed Python RECORD observations.",
+    "469 observed host inputs and 63 distributions/3311 RECORD hashes are integrity observations, not PyPI release authentication or a syscall-complete OS-input trace.",
+    "No binary equivalence/reproducibility, ARM/Board/bench/physical/safety/task/release qualification.",
+    "Automatic diagnostic CI integration and final unsuppressed protected PR/main checks remain future root-owned work.",
+    "Any review-branch skip-ci marker applies only to this unintegrated review; it must not suppress required final candidate CI."
+  ],
+  "task_criteria_closed": 0,
+  "physical_releases": 0,
+  "selected_polarity": null,
+  "required_final_CI_run_or_skipped_by_reviewer": false,
+  "report_sha256": "a272f08ff48b0270eff491cf3fd3916262ab9abd95e895b0bf81783dc8d72afb"
+}
