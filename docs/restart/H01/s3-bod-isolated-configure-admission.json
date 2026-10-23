@@ -1,0 +1,45 @@
+{
+  "status": "ADMITTED_ONE_ISOLATED_CONFIGURE_DISCRIMINATION_ONLY_NOT_PRODUCT_BUILD",
+  "recorded_utc": "2026-10-23T18:15:07.457205+00:00",
+  "coordinator": "/root",
+  "prior_compile_only_admission": "9e9aea04e0c71e089b1fc8af8d488effe8ba3134",
+  "blocked_checkpoint": "2680cb7f0dc6950832f4c01ab57bfbb1bdf0a07a",
+  "probe_source": "11047b805039e01dbb73e7c08d4b6a8016090fcd",
+  "sdk": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "verified_source_bindings": [
+    {
+      "source": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "path": "tools/cmake/git_submodules.cmake",
+      "sha256": "61c5bf0b9c29df46a3b4037e62689a26aa5449397b226a8cee5bf09ef6151bfe"
+    },
+    {
+      "source": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "path": "tools/cmake/build.cmake",
+      "sha256": "fbbb7669a9cde78e1209e001b4c8bc67aae074f19c2e8b6bd06a478e368963ea"
+    },
+    {
+      "source": "fff9895c82d744c7237be8847347bdd1b07c6643",
+      "path": "tools/cmake/project.cmake",
+      "sha256": "60c7ae13ba2e89928e33624f52b3bcb4c8913ecec8e63519c3c266b98d490cbc"
+    }
+  ],
+  "explicit_assumption_correction": "The earlier no-skip restriction was stricter than a functional dependency: the vendor global git_submodule_check eagerly initializes every missing Gitlink before MINIMAL_BUILD and merely warns on wrong HEAD. Its absence is not proof of any used-source closure.",
+  "allowed_change": "For one isolated configure only, command-local IDF_SKIP_CHECK_SUBMODULES=1 uses the existing documented internal-CI hook. Do not modify source or global environment. This skips generic acquisition/HEAD reconfigure tracking, not an external access or product acceptance gate.",
+  "experiment": "Fresh isolated export of exact four frozen project inputs, same pinned SDK/toolchain/config; configure app and bootloader as the normal tool permits. Capture actual config, CMake component/file inputs and generated Ninja/compile descriptions before writing any new analyzer. Ordinary automatic compiler-identification probes are not product compile/link or variant proof.",
+  "required_evidence": [
+    "Preflight exact top-level SDK source/tree and all Gitlink states including missing and wrong HEAD; no non-Gitlink SDK source edits",
+    "Actual command/complete stdout-stderr/exit and generated config/component/CMake/Ninja input formats",
+    "Resolve and strictly compare actually consumed submodule Gitlink and tracked file bytes to exact pinned objects; directory presence and vendor warning are insufficient",
+    "Include configure-time CMake/Kconfig/Python and both app/bootloader inputs; identify inputs not yet enumerable until dependency generation",
+    "Preserve skipped-check loss of automatic HEAD tracking; fresh configure and explicit source correspondence are required for any later admitted build"
+  ],
+  "forbidden": [
+    "No network acquisition/retry or URL/toolchain/source substitution",
+    "No product app/bootloader/variant build or physical flash/device/rail/fuse use",
+    "No claim all excluded modules unused before resolved proof",
+    "No claim configure success proves correct build, reproducibility, BOD polarity or hardware safety"
+  ],
+  "stop": "If configure fails, input provenance is wrong, an input cannot be resolved, or tool attempts external acquisition, stop dependent work and report exact missing property/source. Further build requires separate source-bound admission, not automatic continuation.",
+  "parent_criteria_closed": [],
+  "physical_qualification": false
+}
