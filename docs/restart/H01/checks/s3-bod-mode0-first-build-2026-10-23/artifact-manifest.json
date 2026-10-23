@@ -1,0 +1,818 @@
+{
+  "schema_version": 1,
+  "scope": "Actual admitted selector0/1 compile/link/source-correspondence and selector2 guard; author candidate, no physical/task/release closure",
+  "source_candidate": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "checked_local_ci_source": "166922de4c561414728af94ef2a293887750b64d",
+  "self_excluded": true,
+  "member_count": 101,
+  "members": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "mode": "100644",
+      "bytes": 669,
+      "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+      "git_blob": "e9afd6ded4bedd82e39d613b2e06309a78c9d4d7",
+      "role": "current_source_snapshot_not_future_freeze"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/README.md",
+      "mode": "100644",
+      "bytes": 4007,
+      "sha256": "9762a76a884ba947846254fb65cd99ef9f7b485db555a514e054b59d226f0041",
+      "git_blob": "8a14c42a048dd1ea8f0d0d9dbc18bf1c02539252",
+      "role": "current_source_snapshot_not_future_freeze"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "mode": "100644",
+      "bytes": 159,
+      "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+      "git_blob": "125de1a7bdf9d321f191a70b789500f135cc521b",
+      "role": "current_source_snapshot_not_future_freeze"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "mode": "100644",
+      "bytes": 3314,
+      "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+      "git_blob": "a378973fb584f3e8bcf10af24f36b3861aa7ed63",
+      "role": "current_source_snapshot_not_future_freeze"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "mode": "100644",
+      "bytes": 178,
+      "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+      "git_blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+      "role": "current_source_snapshot_not_future_freeze"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/README.md",
+      "mode": "100644",
+      "bytes": 4711,
+      "sha256": "3fd0ae4e732b9809c66a47151de997769d2f0ea8a67e5ed69603a7040b97b3d9",
+      "git_blob": "f848f4c116812280c51a60bd8e15f004f895959c",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/SDK-post-build.json",
+      "mode": "100644",
+      "bytes": 2889,
+      "sha256": "ff4095059ff586866233482ac540d8712a9150e3063c7a79f728df1931e5a583",
+      "git_blob": "e6dde8b341c2f447c11eaee4081bac2d5d3ad196",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/SDK-preflight.json",
+      "mode": "100644",
+      "bytes": 225477,
+      "sha256": "c2dd291be98423209617697d17022de1f1d8b9dd10caa3754217b471b5293ac9",
+      "git_blob": "f3340ecc6d283ddd8a41ef8ba585d4fe4bf01be4",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-disassembly-app_main.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-disassembly-app_main.stdout.gz",
+      "mode": "100644",
+      "bytes": 984,
+      "sha256": "03245ef7f223dbe2123feae59f6caadd4c6f04f7099bf92f4848dceca1b0975a",
+      "git_blob": "71e9ec757be444b028f9ea4c8be6c206bea233f2",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-disassembly-bod_probe_apply_selector.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-disassembly-bod_probe_apply_selector.stdout.gz",
+      "mode": "100644",
+      "bytes": 393,
+      "sha256": "d29055af2b23323b16e2605426a25afc80005529460c1efeeb7f444eb477b1d0",
+      "git_blob": "0ac9c6d2366f1f85b2727f5f7fe436851d8f4e9a",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-disassembly-init_brownout.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-disassembly-init_brownout.stdout.gz",
+      "mode": "100644",
+      "bytes": 279,
+      "sha256": "8595a147af7333e193c6656ee363573d6a267bcdc39265008a983cfc0e19a07e",
+      "git_blob": "4aeb9ddde730bca1e0413f5c6aae76d47136a31f",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-ninja-commands.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-ninja-commands.stdout.gz",
+      "mode": "100644",
+      "bytes": 59697,
+      "sha256": "63169d94ab3e2fe8ff75fb1e2a65d0b44cc31cf03c603a001bbd44be50935c1c",
+      "git_blob": "2e92c9419f58e06153412c3644163f2aeebf5244",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-ninja-deps.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-ninja-deps.stdout.gz",
+      "mode": "100644",
+      "bytes": 113756,
+      "sha256": "c004afe49bb7edfddfb7b9bebb9f2aefd9f09106b0c9211c112329df4b284487",
+      "git_blob": "ba5ca2a6c141544cf8858f84a2d3d5ce338139eb",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-nm.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-nm.stdout.gz",
+      "mode": "100644",
+      "bytes": 35162,
+      "sha256": "3c6a3646de44c0594e026ebfba9c744b5e45d4a47a05178b4d08aef8477ff1bf",
+      "git_blob": "9eaf36b8bdb934472e34effe0112d061a37bc171",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-readelf.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/app-readelf.stdout.gz",
+      "mode": "100644",
+      "bytes": 363,
+      "sha256": "950d8bf79f925922a59e1efb50fd12e9f35f0e66435af8ff8985480fbc481a2c",
+      "git_blob": "8212b0e5eb9bda4c493b9c91784af1ba72b6d870",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bind-mode0.py",
+      "mode": "100644",
+      "bytes": 10905,
+      "sha256": "1f7c61958fd7269b67b50c2e8524465c9c356135fc93e1edb585c0a81af20d73",
+      "git_blob": "8c081de6e455d282f1ce1df06e3c2a833f78a1e8",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bind-producers.py",
+      "mode": "100644",
+      "bytes": 6497,
+      "sha256": "c50f3e8ba1d0f1767bed5823a0a65110102e01a4e5a7afe5f174b5c96a1c3c99",
+      "git_blob": "c9489e0c962a8984162a6cd3e859028a13bcaef2",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-ninja-commands.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-ninja-commands.stdout.gz",
+      "mode": "100644",
+      "bytes": 14583,
+      "sha256": "2118d772b0b77adf8b990642fdcd38a2cc2516d8cfd20a71be8f32a9a341597a",
+      "git_blob": "f27014f3726401608bd779f3866769b7ad1d8600",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-ninja-deps.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-ninja-deps.stdout.gz",
+      "mode": "100644",
+      "bytes": 24805,
+      "sha256": "eb64075257aca25257192157ebd4c2e33cddc5677dce348061473dce4f67fda5",
+      "git_blob": "7f45aed0ac97302e1e2b9d60853a3082dff0f6ff",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-nm.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-nm.stdout.gz",
+      "mode": "100644",
+      "bytes": 19888,
+      "sha256": "86910af7817267b7eac509b25584298dfd9ff0510ac6e0ca31e835c846bb1a53",
+      "git_blob": "b83b976dbdf07f532731b3f76feaa01f8250f1b5",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-readelf.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/bootloader-readelf.stdout.gz",
+      "mode": "100644",
+      "bytes": 363,
+      "sha256": "7d9c0554c31dda04d78fb615a1d4d679a4ce0fbb571e330b0e9bf5cf83454732",
+      "git_blob": "e276a8c8d25444c032a9160c21182c07e14d4f27",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/build-command.json",
+      "mode": "100644",
+      "bytes": 2758,
+      "sha256": "d2207e488e356c06d55d5b06cd98969ae35cc0b4292541571de23f755e55adbc",
+      "git_blob": "7487320c8a213974ca742e34673aa274c747b36b",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/build-output-inventory.json.gz",
+      "mode": "100644",
+      "bytes": 136251,
+      "sha256": "3e9d7b59f9b065b2b27eb08af04e8d859b7e3c360bc8488d6682356b78685a0e",
+      "git_blob": "b90d4ceb6863d63e3b1c6164e401d1b289d47e33",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/build.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/build.stdout.log",
+      "mode": "100644",
+      "bytes": 90694,
+      "sha256": "86c0d564b78ed3f730792d68472ac437173d487d846ee6f6c2fa449fa2eec9ad",
+      "git_blob": "547d98a64313223a8f750b4876061d8cb44b820d",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/capture-output.py",
+      "mode": "100644",
+      "bytes": 2712,
+      "sha256": "7e06ab7dc5cb334808e1393aeb7fbe56c43ec65396446188a926e9896f9e2401",
+      "git_blob": "f7e905160e1ad6e42a9721189485a56da4fcb36a",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/ci-command.json",
+      "mode": "100644",
+      "bytes": 1019,
+      "sha256": "590f4041c3a656f2b2fea23b4af8f1bb63678225c4b432d7514a25268533102a",
+      "git_blob": "020e4c6e5c34653fdacd92d35842809a3ea408f1",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/ci.stderr.log",
+      "mode": "100644",
+      "bytes": 142,
+      "sha256": "93a746f17ddf40d31e9b9c8d9ba27bd6c1f2240a3e7da5567cada8d3515dfa49",
+      "git_blob": "625c105e8eb7099d7d9da0d1982b18a96bcd8e7d",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/ci.stdout.log",
+      "mode": "100644",
+      "bytes": 646,
+      "sha256": "f4475e319aad6455b95f807e62217d89de4209331271e37639f630cea1a23d37",
+      "git_blob": "a3e5e056f192559d1fc8cff13e2a9ae7a293de1f",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/configure-command.json",
+      "mode": "100644",
+      "bytes": 2765,
+      "sha256": "eb712e7673411938f75aaf4d1c52db2cc3d3c80b9d9f3ea1d6d4cf8a6b226cc3",
+      "git_blob": "b1f45b9ca59b24ca75a383b02ec0aa35c0c07459",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/configure.stderr.log",
+      "mode": "100644",
+      "bytes": 2791,
+      "sha256": "b7c347518c403cf47e1af687ec74135c8b98525e21972de500018c8c6082a83f",
+      "git_blob": "df618d371082ed807021704f2a2260dcfc3c53dc",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/configure.stdout.log",
+      "mode": "100644",
+      "bytes": 11837,
+      "sha256": "e2af3dd1761014aafea62b72ba721dac2f9d582fecfc827563d345d6a2d1c309",
+      "git_blob": "391650069ae82ea19776c4cf26f9f3388e60a556",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/execute.py",
+      "mode": "100644",
+      "bytes": 7985,
+      "sha256": "30371c8517c7d79e52673575925f7a585a8867c2f0e1fad229c50cecf10e5a68",
+      "git_blob": "032b05a0ed6ae2d54850b7f4f4f895414c98846f",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/linked-artifact-bindings.json",
+      "mode": "100644",
+      "bytes": 9342,
+      "sha256": "8b61f27664ac6bf5500bbbe36c592fbb7bbb87eaa32cca79979067643781736c",
+      "git_blob": "28f707daa168c0d343c8c9e6b3b4ee1eb74eb614",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/linked-artifacts-and-configs.tar.gz",
+      "mode": "100644",
+      "bytes": 5128267,
+      "sha256": "3ca6a25d1cc1376603f5d3c984e8160f15b2bf13bdac3b4bc259a9ccec4b811f",
+      "git_blob": "563f8ea052778b76f0f577dd1208b38c6df16154",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode-comparison.json",
+      "mode": "100644",
+      "bytes": 1771,
+      "sha256": "f7e91bd77b3da87d9f68d04102a1a475193b8c905936e68a3e0db0ebca17a692",
+      "git_blob": "fbebb39463db70f8e4c2828d8bc81fde144405e2",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode0-input-bindings.json",
+      "mode": "100644",
+      "bytes": 1284709,
+      "sha256": "0d9f49023d47d95f429c980a2c02dedc9441fe1da0437b79ff28746800deb80e",
+      "git_blob": "397dc50264e14bece191918b1f87b4047d5b881b",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode0-source-closure.json",
+      "mode": "100644",
+      "bytes": 3535,
+      "sha256": "a85aa845b6a99962c794c26a20005884f9968f59426f80228e2701a6ae5fbb18",
+      "git_blob": "3917fd224868671f5ab4e20436477f83f5aac592",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/SDK-post-build.json",
+      "mode": "100644",
+      "bytes": 2889,
+      "sha256": "ff4095059ff586866233482ac540d8712a9150e3063c7a79f728df1931e5a583",
+      "git_blob": "e6dde8b341c2f447c11eaee4081bac2d5d3ad196",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/SDK-preflight.json",
+      "mode": "100644",
+      "bytes": 225477,
+      "sha256": "c2dd291be98423209617697d17022de1f1d8b9dd10caa3754217b471b5293ac9",
+      "git_blob": "f3340ecc6d283ddd8a41ef8ba585d4fe4bf01be4",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-disassembly-app_main.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-disassembly-app_main.stdout.gz",
+      "mode": "100644",
+      "bytes": 983,
+      "sha256": "7ff639a30cd8abe042143d387f56553599e6d8c9c0a50063b876662222f75a6a",
+      "git_blob": "6145364941a7a2d4168fa2b19e192a0d320ff714",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-disassembly-bod_probe_apply_selector.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-disassembly-bod_probe_apply_selector.stdout.gz",
+      "mode": "100644",
+      "bytes": 396,
+      "sha256": "47ccfd17d21e4478e3af65af88e14b9ac681c988a7d9f155a3995a21a44a5542",
+      "git_blob": "54e43aaeac6b173fbeaa929c9c208e0d3ebcc5aa",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-disassembly-init_brownout.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-disassembly-init_brownout.stdout.gz",
+      "mode": "100644",
+      "bytes": 279,
+      "sha256": "e0884ba133633da8b5c4afd4614c6b7b8b5d9f133b376669dcf1e0dfe4685006",
+      "git_blob": "16972c4809640c59f3b5891380c52d434e325919",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-ninja-commands.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-ninja-commands.stdout.gz",
+      "mode": "100644",
+      "bytes": 59697,
+      "sha256": "79365995ad2ffde39919b946a693cd431649c821f977a929e5afb302ba2a64bc",
+      "git_blob": "ca2fe819862e36183dba2907c7c57acb37f4dbf0",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-ninja-deps.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-ninja-deps.stdout.gz",
+      "mode": "100644",
+      "bytes": 113324,
+      "sha256": "4126046a588ce360762d3337e65bb574e1813390d66f29b94d20968310b3b0b4",
+      "git_blob": "8da103a6b5dcabd95a6e2438ed9163906ec0d323",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-nm.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-nm.stdout.gz",
+      "mode": "100644",
+      "bytes": 35162,
+      "sha256": "4c17eb80aefe5f64bf959d576626da7f2b40f7128621d18bece5c0d33a86dad6",
+      "git_blob": "8b3580e88aebffa5dafeca243b26ebdd2af1fd2e",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-readelf.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/app-readelf.stdout.gz",
+      "mode": "100644",
+      "bytes": 363,
+      "sha256": "7a97198f7d589d515f0c5c41f53c97248b457550f0fdf60829e4c44552fef3aa",
+      "git_blob": "30583a1d84da30a67d40352d9f0ea57d472ce7f0",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-ninja-commands.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-ninja-commands.stdout.gz",
+      "mode": "100644",
+      "bytes": 14583,
+      "sha256": "5b6869e69b7b168912b572367a2cc3f4d35ce3b8ceefbe9ab4068a813eece504",
+      "git_blob": "c1f319bfdae88a92e1e3ee4bcda11b87a15f9db7",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-ninja-deps.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-ninja-deps.stdout.gz",
+      "mode": "100644",
+      "bytes": 24753,
+      "sha256": "6668ff8b5a42ebff3882272c0480ce89381ba9b76173616e8aa45073c2a907b0",
+      "git_blob": "6c928b83fc4e9e857925732fa31d1093c8d31d9f",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-nm.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-nm.stdout.gz",
+      "mode": "100644",
+      "bytes": 19888,
+      "sha256": "601481ab89bc448a3dbeb1252a55dae459e38fe996462ca6d2da67ce0e00862b",
+      "git_blob": "4e844808dd5204cf01baf99f396815a2bad57b1d",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-readelf.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/bootloader-readelf.stdout.gz",
+      "mode": "100644",
+      "bytes": 363,
+      "sha256": "dafa74e1fcee55f79f12c32a05f9b927a1e857a490181df30b2e6a29fdc44f9e",
+      "git_blob": "99fa2a60208983aaff5864da688de5bd3f462576",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/build-command.json",
+      "mode": "100644",
+      "bytes": 2757,
+      "sha256": "c658061209fee9f785be98ed23bfb7f276b3ad1102c602d9b74e5da70787c516",
+      "git_blob": "5b11e740a0231af4e8d78680421d4f1f61a34fd2",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/build.stderr.log",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/build.stdout.log",
+      "mode": "100644",
+      "bytes": 90694,
+      "sha256": "62266ecd8b3e9582f9a347c7807e8f226383bd743edeb8fe52335f381f0e6987",
+      "git_blob": "2f777011f3a3f298e49b644c93ee367236b38b5b",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/configure-command.json",
+      "mode": "100644",
+      "bytes": 2765,
+      "sha256": "e0ad115d34bb63c4e5ce5e4bacbde4d41837f4e0f6952a1b3f11f469bcb988aa",
+      "git_blob": "bc2b0915709c1566c19fc299a9bd360c5c65a863",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/configure.stderr.log",
+      "mode": "100644",
+      "bytes": 2791,
+      "sha256": "115fc968d5aa887dcb219f78417658cf86f4494e57fe610012c9b394285f9a6b",
+      "git_blob": "946114db7c25f782e6ad8c79e6902b2049e7c010",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/configure.stdout.log",
+      "mode": "100644",
+      "bytes": 11837,
+      "sha256": "b09fdd87beff01a87d7c17d71b6b71a0d0c3de010d18986c54f8144f2b4a09bd",
+      "git_blob": "82e211a3b5f110b65d3feff3c44e89b4a50a2594",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/execute-mode1.py",
+      "mode": "100644",
+      "bytes": 4351,
+      "sha256": "f82149885f76b3bd4ccd1c5603e6c187f2ac55a92aa2148ae43e5ebd21001850",
+      "git_blob": "98bc061ef1d249391ec165f077422ca3215fbc4d",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/mode1-input-bindings.json",
+      "mode": "100644",
+      "bytes": 1284709,
+      "sha256": "6d0073a41a5c0d9ccc7161ecdac3a31c3bfd7e1371f717a8d9b5db8a12888a57",
+      "git_blob": "6360bd8914540df6bc2db72b728c90b38a989dbe",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/pre-build-config-inspection.json",
+      "mode": "100644",
+      "bytes": 9227,
+      "sha256": "8d1bd0edf47f34aa6f41a7bf814055eb4a995c0058c230127b4d0e1f035a1569",
+      "git_blob": "17b8608244d3afde3d62ea8bb0a4e7102e2f995d",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/producer-reference.json",
+      "mode": "100644",
+      "bytes": 668,
+      "sha256": "c84e5657de3f5f7e01e5dd7cb5506ab48d1e2a8ca5bf00b7a12018760e3a575e",
+      "git_blob": "0a4168c9875c17eb5c2112b14d31f20d56d0559b",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/read-only-command-receipts.json",
+      "mode": "100644",
+      "bytes": 16439,
+      "sha256": "dd21a2f36081b7c15e7f14bd749a894ff55eef31d203eb1c407f7eabb61976cf",
+      "git_blob": "38e7851700507e4ee9c66e77ec164c1d85ec1b94",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/source-closure.json",
+      "mode": "100644",
+      "bytes": 2724,
+      "sha256": "ef0cebb6a49108f626e8a3a9e269467ea97a253494faf1b7a14b1887c0ade07e",
+      "git_blob": "0be510ecc916c6ae97b872bc24366bd6eb5fdc67",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/source-receipt.json",
+      "mode": "100644",
+      "bytes": 13077,
+      "sha256": "74f0fa8378c438e3ca168f49da6ee8f19fd0878ae81f97c3299accd5176ba866",
+      "git_blob": "f9a525f1afafcacba759455f56a253ef9a4a40b9",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/toolchain-file-correspondence.json.gz",
+      "mode": "100644",
+      "bytes": 159762,
+      "sha256": "d92a1eb3e0f99d8423201c06b1b14976b5d8a9c582ca9ef2e80aa168fc0aebd4",
+      "git_blob": "67d876f1dcf639b6e228cf3bd67ed3161552f93c",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/package-artifacts.py",
+      "mode": "100644",
+      "bytes": 5122,
+      "sha256": "a92c4920c91805e043f2f51d236e36cadbab3cc4b350fe72cea148c0cadf041a",
+      "git_blob": "4b6d396852fdff7e98e5fce5409bb81cfc8f2b77",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/pre-build-config-inspection.json",
+      "mode": "100644",
+      "bytes": 1271,
+      "sha256": "76db31e458b4ea7a6ff6230ca18b597187760e4fcd91dec6b71abca9d419c894",
+      "git_blob": "5b6815e51036ef412e59948284b40b338eb80a71",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/producer-bindings.json",
+      "mode": "100644",
+      "bytes": 413593,
+      "sha256": "dad08ce4f96bd3af156a9be2c70016e0190967d9e98ac09633b9edc513afeed8",
+      "git_blob": "6def305be1727aa036ebb8caa7927979786c63bb",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/read-only-command-receipts.json",
+      "mode": "100644",
+      "bytes": 16438,
+      "sha256": "1d959b9cc95b535defaf6dddce32374dfd7eeb3e488f699799261828934f5a8b",
+      "git_blob": "cc6a3ad2686b415e03bf2887ce124f1eafe205d4",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/result.json",
+      "mode": "100644",
+      "bytes": 6168,
+      "sha256": "f01494c390c405da33f39295d77b2e8f11e120400309389042cf4dc2fa2caeb1",
+      "git_blob": "48b91aeb2f9c6dc1e08e5aa526b9465f14e740f2",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/selector2-command.json",
+      "mode": "100644",
+      "bytes": 4678,
+      "sha256": "c4eb63654e764382371739d9b75cf19b248224495663e6086f12b32f4759566a",
+      "git_blob": "ae69fca68c3d95dbc8703e55960fa0fa00311837",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/selector2.py",
+      "mode": "100644",
+      "bytes": 3263,
+      "sha256": "bf395a9189d490c2687d60bb616240b4a084b6e8de103e87ad0b2608622231ac",
+      "git_blob": "dd57fffecd3fd29bf63ef3eb6d17d9c9e6873be7",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/selector2.stderr.log",
+      "mode": "100644",
+      "bytes": 412,
+      "sha256": "bcd6c481498dcbd59ffbbde0e25ccf4d46e99f6c850b4085da0d96a0cbe3ccff",
+      "git_blob": "4c3842264154371266931743d7c171cd69dd93d8",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/selector2.stdout.log",
+      "mode": "100644",
+      "bytes": 745,
+      "sha256": "b866ebe450683e81b85147baec59992013750be9ffe75dbaccbedb20536feec8",
+      "git_blob": "1e1e96e0e2790255f6670ae3e747f457f24245f8",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/source-receipt.json",
+      "mode": "100644",
+      "bytes": 12680,
+      "sha256": "362d719849cb531cef5b815f271ea82ae986b6c63e30d273fbe59c9b1accc3ec",
+      "git_blob": "3eeb14182621ae743cdb2b2688ca53f166365707",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/startup-init-command-receipts.json",
+      "mode": "100644",
+      "bytes": 3451,
+      "sha256": "8c327b7dca2e303c3878b73bf33d41b52a3aad45a9f535adfff988dc37b9abd4",
+      "git_blob": "044265a372877ded5011be88e32d34db17cd60f0",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/toolchain-file-correspondence.json.gz",
+      "mode": "100644",
+      "bytes": 159762,
+      "sha256": "d92a1eb3e0f99d8423201c06b1b14976b5d8a9c582ca9ef2e80aa168fc0aebd4",
+      "git_blob": "67d876f1dcf639b6e228cf3bd67ed3161552f93c",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/whitespace.json",
+      "mode": "100644",
+      "bytes": 865,
+      "sha256": "92be23082fe4f6f7a1cce9eda24c0b3d1f2ad8649424f8224435f4edfc5fa15f",
+      "git_blob": "9483ebfbc162ff24a6f1cf057541bfa2f975dc9d",
+      "role": "task_proof"
+    },
+    {
+      "path": "docs/restart/H01/s3-bod-build-expectations.json",
+      "mode": "100644",
+      "bytes": 5877,
+      "sha256": "196972159f4e5110a30a03aab1c2043c22dbe0948caad551b78c953001f9d4c5",
+      "git_blob": "8f819719db02874cf2331d45e2d3fcfac7fb94d2",
+      "role": "current_source_snapshot_not_future_freeze"
+    }
+  ]
+}

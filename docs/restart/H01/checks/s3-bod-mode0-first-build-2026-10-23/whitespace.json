@@ -1,0 +1,28 @@
+{
+  "full": {
+    "argv": [
+      "git",
+      "diff",
+      "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "--check"
+    ],
+    "exit": 2,
+    "stdout": "docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/configure.stderr.log:24: new blank line at EOF.\ndocs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/mode1/configure.stderr.log:24: new blank line at EOF.\n",
+    "stderr": ""
+  },
+  "excluding_original_raw_logs": {
+    "argv": [
+      "git",
+      "diff",
+      "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+      "--check",
+      "--",
+      ".",
+      ":(exclude)**/*.log"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "disposition": "Original SDK/CMake/unit-test command streams remain byte-exact. Raw-log whitespace is separate from actual makeci43/configure/build/guard results. No source cleanup or lowered gate."
+}

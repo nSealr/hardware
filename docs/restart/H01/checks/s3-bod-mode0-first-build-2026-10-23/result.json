@@ -80,7 +80,16 @@
     "00957e214a476252e66fe6d3960b8164d9de4175 F1 affected source-only review"
   ],
   "remaining_checks": {
-    "local_original43": "Pending one final stable make ci; recorded separately when actually complete.",
+    "local_original43": {
+      "status": "PASS",
+      "command": "make ci",
+      "tests": 43,
+      "source_commit": "166922de4c561414728af94ef2a293887750b64d",
+      "source_tree": "ed75b44988804d89661f74cb44aa73f67fb80ebd",
+      "receipt": "ci-command.json",
+      "receipt_sha256": "590f4041c3a656f2b2fea23b4af8f1bb63678225c4b432d7514a25268533102a",
+      "scope": "Unchanged hardware validators/tests, not the cross-build or physical properties."
+    },
     "automatic_diagnostic_CI_target_job": "Not introduced by this bounded first-build experiment; original Makefile/workflow remain unchanged.",
     "distinct_runtime_source_review": "Pending exact frozen candidate.",
     "protected_PR_resulting_main_CI": "Future mandatory unsuppressed gates, root owned; no hosted CI started/observed here."
