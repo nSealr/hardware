@@ -125,5 +125,108 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   ],
-  "limit": "Local primary tools are not an attestation of the future runner interfaces. No isolation/security/host/hardware PASS is produced; original required product gates remain failed."
+  "limit": "Local primary tools are not an attestation of the future runner interfaces. No isolation/security/host/hardware PASS is produced; original required product gates remain failed.",
+  "trace_feasibility_source_only": {
+    "verdict": "STOP_UNKNOWN_NO_UNCHANGED_CONTEXT_TRACE_ESTABLISHED",
+    "scope": "Exactly the same pinned nonsetuid bwrap and runner/properties; primary-source reading only. No new tool/runtime selection or experiment.",
+    "mechanism_possible_in_principle": "Strace decodes netlink errors and follows children; this does not prove permission, a complete captured reply or equivalent untraced execution.",
+    "concrete_perturbations": [
+      "Ordinary wrapping changes direct parent/lifetime relation.",
+      "Inspected -D path requests PR_SET_PTRACER_ANY; it is not an unchanged-Yama-policy solution.",
+      "Tracing adds stops/timing and security checks; late attach may miss the operation."
+    ],
+    "missing_property": "Permitted acquisition of the failing child ACK plus point-in-time effective capabilities/LSM label while preserving original parent/lifetime/security semantics. No reviewed stock mode establishes this conjunction; actual runner ptrace policy and tracer identity remain unbound.",
+    "decision": "No -D/attach/wrapper, version/runner/privilege/policy alternative or automatic retry is admitted. No tracing command or code is added. Original failed VM attribution remains UNKNOWN.",
+    "primary_sources": [
+      {
+        "url": "https://raw.githubusercontent.com/strace/strace/686aa55405a09925a77ea0dea59a292b0fb70243/src/strace.c",
+        "source_commit": "686aa55405a09925a77ea0dea59a292b0fb70243",
+        "path": "src/strace.c",
+        "sha256": "b7cafa1ec37ccdbcf81181fd209d6063465704540b4e6d846fd6a880c24041b1",
+        "role": "Upstream source studied only, not installed/selected runner tool version",
+        "URL_kind": "Immutable upstream source reference studied, not runner executable identity",
+        "sections": [
+          "startup_child daemonized_tracer PR_SET_PTRACER_ANY before fork/exec",
+          "daemonized_tracer direct-parent rationale"
+        ]
+      },
+      {
+        "url": "https://raw.githubusercontent.com/strace/strace/686aa55405a09925a77ea0dea59a292b0fb70243/src/netlink.c",
+        "source_commit": "686aa55405a09925a77ea0dea59a292b0fb70243",
+        "path": "src/netlink.c",
+        "sha256": "a64c7ca97f8ec37725dfb9a15e52da47fd10e67327b6fbc93fde8688fba7060e",
+        "role": "Upstream source studied only, not installed/selected runner tool version",
+        "URL_kind": "Immutable upstream source reference studied, not runner executable identity",
+        "sections": [
+          "decode_nlmsgerr / PRINT_FIELD_ERR_D",
+          "NETLINK_ROUTE payload decoder selection"
+        ]
+      },
+      {
+        "url": "https://github.com/containers/bubblewrap/blob/v0.9.0/bubblewrap.c",
+        "sha256": "6a89bc9b7a794d19e2bdb1e139ab9d5bba84e807b330336f363f88f130cfeab6",
+        "role": "Previously fixed upstream0.9 body; official Ubuntu orig bytes matched and .3 patchset leaves network path unchanged",
+        "sections": [
+          "acquire_privs nonsetuid/setuid distinction and clone/loopback sequence"
+        ]
+      },
+      {
+        "url": "https://github.com/containers/bubblewrap/blob/v0.9.0/network.c",
+        "sha256": "b1cc8ea1669cf8067e0ec340b97f0b19ece5e59226b24f73db8726546324a39e",
+        "role": "Previously fixed upstream0.9 body; official Ubuntu orig bytes matched and .3 patchset leaves network path unchanged",
+        "sections": [
+          "rtnl_read_reply does not propagate ACK errno"
+        ]
+      },
+      {
+        "url": "https://man7.org/linux/man-pages/man2/ptrace.2.html",
+        "local_primary_manual": "/usr/share/man/man2/ptrace.2.gz",
+        "local_gzip_sha256": "9e5e53949ca9e6ddf89ec660c7b0e56dfc4dc8ad601786da8b252cf98f8a1b9d",
+        "sections": [
+          "automatic child tracing",
+          "access/dumpable/commoncap/LSM checks",
+          "ptrace stops"
+        ],
+        "limit": "Generic documented rules, not captured runner policy or patched kernel attestation"
+      },
+      {
+        "url": "https://man7.org/linux/man-pages/man7/user_namespaces.7.html",
+        "local_primary_manual": "/usr/share/man/man7/user_namespaces.7.gz",
+        "local_gzip_sha256": "42b6861b0d449447de0cf08712dc4d39168773080ff65d2f234d463f4e030a41",
+        "sections": [
+          "namespace-owner capability rules"
+        ],
+        "limit": "Generic documented rules, not captured runner policy or patched kernel attestation"
+      },
+      {
+        "url": "https://man7.org/linux/man-pages/man1/strace.1.html",
+        "sections": [
+          "-D direct-parent relationship",
+          "-f child following",
+          "attach/EINTR and timing limitations"
+        ],
+        "role": "Upstream project manual; installed runner strace version not observed"
+      },
+      {
+        "url": "https://docs.kernel.org/admin-guide/LSM/Yama.html",
+        "sections": [
+          "ptrace_scope",
+          "PR_SET_PTRACER allowance"
+        ],
+        "role": "Primary kernel documentation; no policy setting read or modified"
+      }
+    ],
+    "additional_primary_fetch_error": {
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v6.17/kernel/ptrace.c",
+      "result": "Web-viewer timeout; no kernel-body claim, retry or alternate route. Generic primary manuals/kernel documentation suffice to delimit the missing runtime property."
+    },
+    "new_trace_runs": 0,
+    "new_observer_runs": 0,
+    "new_host_log_reads": 0,
+    "namespace_attempts": 0,
+    "builds": 0,
+    "installs": 0,
+    "hosted_runs": 0,
+    "append_readme_sha256": "979fdb06275d61338f9765c87786f7dd23028323b37d6201c1adaa735618a142"
+  }
 }

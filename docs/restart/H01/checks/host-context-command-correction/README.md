@@ -42,3 +42,45 @@ not permission for sudo tracing, instrumentation of a replacement binary or
 platform-policy modification. No attribution experiment, second dispatch,
 observer, kernel-log read, namespace or build was implemented or executed here.
 The production PR and both failed required gates remain untouched and mandatory.
+
+## Source-only feasibility decision — STOP/UNKNOWN, 24 October
+
+Unprivileged strace has an upstream decoder for actual `NLMSG_ERROR.error` and
+can follow clone children. This establishes a possible observation mechanism,
+not its availability, permissions or neutral behavior on the captured runner.
+The pinned bwrap0.9 nonsetuid path does not establish a blanket tracing ban:
+its root-owned-namespace/anti-ptrace discussion is conditional on setuid mode.
+The existing0755/UID1001 observation is a different path. See the exact
+[bwrap source](https://github.com/containers/bubblewrap/blob/v0.9.0/bubblewrap.c#L834-L899)
+and [netlink decoder](https://github.com/strace/strace/blob/686aa55405a09925a77ea0dea59a292b0fb70243/src/netlink.c#L529-L613).
+
+The ordinary tracer wrapper changes the direct parent, relevant to the existing
+`--die-with-parent` lifetime. The documented parent-preserving `-D` is not an
+unchanged-policy solution: the inspected
+[startup source](https://github.com/strace/strace/blob/686aa55405a09925a77ea0dea59a292b0fb70243/src/strace.c#L1800-L1808)
+calls `PR_SET_PTRACER_ANY`, adjusting Yama trace authorization. It must not be
+used as a bypass. Ptrace also introduces stops/timing effects and LSM permission
+checks; late attach can miss the transaction and is not a neutral replacement.
+The [strace manual](https://man7.org/linux/man-pages/man1/strace.1.html),
+[ptrace rules](https://man7.org/linux/man-pages/man2/ptrace.2.html) and
+[kernel Yama documentation](https://docs.kernel.org/admin-guide/LSM/Yama.html)
+describe these separate constraints. No fault injection, credential adjustment,
+seccomp filter, ptrace authorization or other mode change is proposed.
+
+The exact missing property is a source-bound, permitted observation of this
+runner's failing child request/reply **and** contemporaneous effective capability/
+LSM context, while preserving the original caller/lifetime and security semantics.
+The sources do not prove that conjunction; no stock strace mode reviewed here
+provides an atomic AppArmor-label/capability snapshot at that syscall. The
+runner's relevant ptrace permission and tracer identity/version are also unbound.
+A decoded reply from a traced attempt would describe that altered observation,
+not retrospectively prove the untraced failed VM's errno or equivalent execution.
+
+Therefore STOP/UNKNOWN: no wrapper, `-D`, late attach, alternative platform or
+privilege/policy change is authorized as a way to obtain green. Existing original
+attribution evidence, if retained, remains preferable. This append contains no
+experiment implementation or runnable trace command and grants no retry.
+Only primary documentation/source was read; no trace/tool install, host/log read,
+namespace/build or dispatch occurred. The older source/proofs and production
+required failures remain preserved. [Validation](validation.json) pins the
+specific upstream source studied; it does not select/install that tool version.
