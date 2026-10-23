@@ -1,0 +1,29 @@
+{
+  "full": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit": 2,
+    "stdout": "docs/restart/H01/checks/s3-bod-isolated-configure-2026-10-23/generated/log/idf_py_stderr_output_1806926:5: new blank line at EOF.\n",
+    "stderr": ""
+  },
+  "excluding_original_raw_logs": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "--",
+      ".",
+      ":(exclude)**/*.log",
+      ":(exclude)**/generated/log/*"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "disposition": "Original idf stderr ends in a blank line; exact raw bytes preserved. No functional or build acceptance is implied."
+}
