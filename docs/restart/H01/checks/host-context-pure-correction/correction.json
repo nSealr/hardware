@@ -1,0 +1,74 @@
+{
+  "role": "AUTHOR_AFFECTED_CORRECTION_PURE_PROOF_PENDING_DISTINCT_STATIC_REVIEW",
+  "rejected_source": "ec175a4a9efcdc096687c6dad315fc0c8546cf4b",
+  "rejected_review": {
+    "commit": "0b303b281ef730fd4cf985893b0314a4632990cd",
+    "path": "docs/restart/H01/reviews/s3-bod-host-context-static-review.json",
+    "sha256": "6321edf7908300fe1331ec28ebce39138ca8075a0da6436deecf4aa6bb7e6254"
+  },
+  "expectations_commit": "60fabaa58d6c231b5e7f9d13f1d7890d40fa989f",
+  "tested_source_commit": "e2424c5117ed3793ba0ba9269dbcab057cb36ef0",
+  "source_sha256": "970e5d0b95da270d43b520b6e756b810317c836ef60b5cfda7facf3ff760fcdf",
+  "workflow_sha256": "bb15a79b3998b76da6af904c8fa0617d89a1e935794dabc62db22236053de29e",
+  "workflow_byte_identical_to_rejected_candidate": true,
+  "unchanged_original_functions": [
+    {
+      "name": "unknown",
+      "AST_sha256": "a44f18f9555fbf52c68e0b0fdbb93e4dc48e1f3ed749def999274721c970c27e",
+      "unchanged": true
+    },
+    {
+      "name": "read_public",
+      "AST_sha256": "7c500376a8424c0490c89dfc51494c6b6cbb04017761ce259ecc93014758f680",
+      "unchanged": true
+    },
+    {
+      "name": "read_command",
+      "AST_sha256": "8ad4b90fae4e77ccf0a63316a8b3e6faa0dadffab1823213332ee908fcd17855",
+      "unchanged": true
+    },
+    {
+      "name": "binary_file",
+      "AST_sha256": "7b7700d9e48fef3a6b623240121fdbd7150e8639224e21925dd9bc679aed7dc4",
+      "unchanged": true
+    }
+  ],
+  "fixes": {
+    "H01-HOST-CONTEXT-01": "Actualjournalquery65 sentinel; countreturnedlines beforefilter/retain64;65 UNKNOWN/truncated. Multiline output conservatively UNKNOWN earlier. Streamcap/commandUNKNOWN preserved.",
+    "H01-HOST-CONTEXT-02": "Only top-level quoted-token-aware keys; literal public label/mask and boundednumericallowlists; unknown key/value hashes, no raw profile/comm/path/name/proctitle. Malformed/duplicate/unsupported content UNKNOWN."
+  },
+  "pure_cases_passed": 8,
+  "observer_runs": 0,
+  "host_read_commands": 0,
+  "namespace_attempts": 0,
+  "builds": 0,
+  "hosted_runs": 0,
+  "publication": "Local unpushed; distinct affected staticPASS and root ONEdispatch remain required. ProductionPR57a/failedgates untouched.",
+  "proof_files": [
+    {
+      "path": "command.json",
+      "bytes": 489,
+      "sha256": "5868ff6ca6f867109a13282733d296ad70677b471822c6eff247ec246c4e25d0"
+    },
+    {
+      "path": "expectations.json",
+      "bytes": 2732,
+      "sha256": "736c53ee1d7aa4161a99c6d8ec8e628db5d0aaec203a83d0ebb15e39c8dedd58"
+    },
+    {
+      "path": "probe.py",
+      "bytes": 4323,
+      "sha256": "33c7bc53626eb041f67af2e8322efd98e889d247a95e63f27a60f10e3643f598"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.json",
+      "bytes": 1560,
+      "sha256": "01edcdd9b6eca5b14584db3f4e3991e05c5bc7ec03a5cdeb2191a8a487c8aea3"
+    }
+  ]
+}

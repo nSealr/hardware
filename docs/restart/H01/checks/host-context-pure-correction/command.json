@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "python3",
+    "docs/restart/H01/checks/host-context-pure-correction/probe.py"
+  ],
+  "source_commit": "e2424c5117ed3793ba0ba9269dbcab057cb36ef0",
+  "exit": 0,
+  "seconds": 0.023407605476677418,
+  "stdout_sha256": "01edcdd9b6eca5b14584db3f4e3991e05c5bc7ec03a5cdeb2191a8a487c8aea3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "Pure AST-selected functions only; no observer/main/host-read/namespace/build execution"
+}
