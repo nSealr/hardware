@@ -14,3 +14,25 @@ jobs:
         with:
           python-version: "3.12"
       - run: make ci
+
+  s3-bod-compile:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      # bubblewrap is an actual runner prerequisite, not installed as apt latest.
+      # A missing/denied user or network namespace fails the gate; no skip or
+      # AppArmor/sysctl/privilege workaround is permitted.
+      - run: command -v git && command -v bwrap && bwrap --version
+      - run: make s3-bod-compile S3_BOD_WORK_DIR="$RUNNER_TEMP/s3-bod-run" S3_BOD_CACHE_DIR="$RUNNER_TEMP/s3-bod-assets"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # official v4
+        if: always()
+        with:
+          name: s3-bod-compile-evidence
+          path: |
+            ${{ runner.temp }}/s3-bod-run/evidence.tar.gz
+            ${{ runner.temp }}/s3-bod-run/failure.json
+            ${{ runner.temp }}/s3-bod-run/receipts/
+          if-no-files-found: error

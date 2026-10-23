@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import argparse
-import email.parser
-import errno
 import hashlib
+import gzip
 import json
 import os
 from pathlib import Path
@@ -15,6 +14,9 @@ import subprocess
 import sys
 import tarfile
 import time
+import tomllib
+
+import verify_build
 import urllib.parse
 import urllib.request
 import zipfile
@@ -42,6 +44,7 @@ def command(work: Path, label: str, args: list[str], *, cwd: Path | None = None,
     receipts = work / 'receipts'
     receipts.mkdir(exist_ok=True)
     record = {'argv': args, 'cwd': str(cwd) if cwd else None, 'expected_exit': expected}
+    print('Running ' + label, flush=True)
     start = time.monotonic()
     with (receipts / (label + '.stdout')).open('wb') as stdout, (receipts / (label + '.stderr')).open('wb') as stderr:
         result = subprocess.run(args, cwd=cwd, env=env, stdout=stdout, stderr=stderr)
@@ -50,6 +53,7 @@ def command(work: Path, label: str, args: list[str], *, cwd: Path | None = None,
                    'stderr_sha256': sha(receipts / (label + '.stderr'))})
     dump(receipts / (label + '.json'), record)
     if result.returncode != expected:
+        print((receipts / (label + '.stderr')).read_text(errors='replace')[-12000:], file=sys.stderr)
         raise GateError('%s exit%d, expected%d; see %s' % (label, result.returncode, expected, receipts))
     return (receipts / (label + '.stdout')).read_bytes()
 
@@ -129,23 +133,27 @@ def namespace(bwrap: str, ro_paths: list[Path], args: list[str]) -> list[str]:
 
 PREFLIGHT = r'''
 import errno,json,os,subprocess,sys
+def require(condition):
+ if not condition: raise RuntimeError('Mandatory namespace preflight condition failed')
 expected=json.loads(sys.argv[1]); sdk,pin=expected['sdk'],expected['pin']
-assert os.getuid()==expected['uid'] and os.geteuid()==expected['euid']
-assert os.getgid()==expected['gid'] and os.getegid()==expected['egid']
+require(os.getuid()==expected['uid'] and os.geteuid()==expected['euid'])
+require(os.getgid()==expected['gid'] and os.getegid()==expected['egid'])
 status=dict(line.split(':',1) for line in open('/proc/self/status') if ':' in line)
-assert int(status['CapEff'].strip(),16)==0 and int(status['CapPrm'].strip(),16)==0
-assert os.readlink('/proc/self/ns/net')!=expected['outer_netns']
+require(int(status['CapEff'].strip(),16)==0 and int(status['CapPrm'].strip(),16)==0)
+require(status['NoNewPrivs'].strip()=='1')
+require(set(os.getgroups()).issubset(set(expected['groups'])))
+require(os.readlink('/proc/self/ns/net')!=expected['outer_netns'])
 interfaces=[line.split(':',1)[0].strip() for line in open('/proc/net/dev').read().splitlines()[2:]]
-assert interfaces==['lo'] and not open('/proc/net/route').read().splitlines()[1:]
+require(interfaces==['lo'] and not open('/proc/net/route').read().splitlines()[1:])
 with open('/dev/null','r+b',buffering=0) as stream: stream.write(b'')
-assert subprocess.check_output(['git','-C',sdk,'rev-parse','HEAD'],text=True).strip()==pin
+require(subprocess.check_output(['git','-C',sdk,'rev-parse','HEAD'],text=True).strip()==pin)
 for directory in expected['read_only']:
- assert os.statvfs(directory).f_flag & os.ST_RDONLY
+ require(os.statvfs(directory).f_flag & os.ST_RDONLY)
  target=os.path.join(directory,'.nsealr-ro-probe-%d'%os.getpid())
  try:
   with open(target,'xb'): pass
  except OSError as error:
-  assert error.errno==errno.EROFS
+  require(error.errno==errno.EROFS)
  else:
   os.unlink(target);raise AssertionError('Unexpected writable input mount')
 print(json.dumps({'uid':os.getuid(),'euid':os.geteuid(),'gid':os.getgid(),'egid':os.getegid(),'CapEff':status['CapEff'].strip(),'CapPrm':status['CapPrm'].strip(),'NoNewPrivs':status['NoNewPrivs'].strip(),'uid_map':open('/proc/self/uid_map').read(),'gid_map':open('/proc/self/gid_map').read(),'netns':os.readlink('/proc/self/ns/net'),'outer_netns':expected['outer_netns'],'interfaces':interfaces,'IPv4_routes':0,'dev_null_rw':True,'read_only_verified':expected['read_only']}))
@@ -185,7 +193,7 @@ def prepare(lock: dict, work: Path, cache: Path, bwrap: str) -> dict:
     compiler = roots['xtensa-esp-elf'] / 'xtensa-esp-elf/bin'
     ninja = roots['ninja']
     ro = [sdk, tools, PROJECT]
-    expected = {'sdk': str(sdk), 'pin': lock['SDK']['commit'], 'outer_netns': os.readlink('/proc/self/ns/net'), 'uid': os.getuid(), 'euid': os.geteuid(), 'gid': os.getgid(), 'egid': os.getegid(), 'read_only': list(map(str, ro))}
+    expected = {'sdk': str(sdk), 'pin': lock['SDK']['commit'], 'outer_netns': os.readlink('/proc/self/ns/net'), 'uid': os.getuid(), 'euid': os.geteuid(), 'gid': os.getgid(), 'egid': os.getegid(), 'groups': os.getgroups(), 'read_only': list(map(str, ro))}
     preflight_env = os.environ.copy()
     preflight_env['PYTHONPYCACHEPREFIX'] = str(work / 'preflight-pycache')
     command(work, 'bootstrap-namespace-preflight', namespace(bwrap, ro, [str(python), '-c', PREFLIGHT, json.dumps(expected)]), env=preflight_env)
@@ -206,7 +214,7 @@ def prepare(lock: dict, work: Path, cache: Path, bwrap: str) -> dict:
     venv = tools / 'python-env'
     env = os.environ.copy()
     env.update({'IDF_PATH': str(sdk), 'IDF_TOOLS_PATH': str(tools), 'IDF_PYTHON_ENV_PATH': str(venv),
-                'IDF_COMPONENT_MANAGER': '0', 'IDF_SKIP_CHECK_SUBMODULES': '1', 'IDF_PY_BUILD_JOBS': '4',
+                'PYTHON': str(venv / 'bin/python'), 'IDF_COMPONENT_MANAGER': '0', 'IDF_SKIP_CHECK_SUBMODULES': '1', 'IDF_PY_BUILD_JOBS': '4',
                 'PYTHONPYCACHEPREFIX': str(work / 'pycache'), 'TMPDIR': str(work / 'tmp'),
                 'PIP_NO_INDEX': '1', 'PIP_CONFIG_FILE': '/dev/null', 'PIP_DISABLE_PIP_VERSION_CHECK': '1',
                 'PIP_CACHE_DIR': str(work / 'pip-cache'), 'XDG_CACHE_HOME': str(work / 'cache'),
@@ -219,7 +227,7 @@ def prepare(lock: dict, work: Path, cache: Path, bwrap: str) -> dict:
     initial = [row for row in lock['Python_packages'] if row['name'] in ('pip', 'setuptools')]
     bootstrap = work / 'bootstrap.txt'
     bootstrap.write_text(''.join('%s==%s --hash=sha256:%s\n' % (row['name'], row['version'], row['sha256']) for row in initial))
-    offline_prefix = lambda args: namespace(bwrap, [sdk, roots['python'], wheels, PROJECT], args)
+    offline_prefix = lambda args: namespace(bwrap, [sdk, roots['python'], wheels, cache, PROJECT], args)
     command(work, 'bootstrap-pip', offline_prefix([str(vp), '-m', 'pip', 'install', '--no-index', '--no-deps', '--require-hashes', '-r', str(bootstrap)]), env=env)
     derived = []
     for package in lock['Python_packages']:
@@ -227,6 +235,10 @@ def prepare(lock: dict, work: Path, cache: Path, bwrap: str) -> dict:
             continue
         if package['name'] != 'esptool' or package['version'] != '5.6.0' or package['source_build']['build_system'] != {'requires': ['setuptools>=77'], 'build-backend': 'setuptools.build_meta'}:
             raise GateError('Unadmitted source-build backend/package')
+        with tarfile.open(cache / package['filename']) as archive:
+            body = archive.extractfile(package['source_build']['pyproject_path']).read()
+        if hashlib.sha256(body).hexdigest() != package['source_build']['pyproject_sha256'] or tomllib.loads(body.decode())['build-system'] != package['source_build']['build_system']:
+            raise GateError('Authenticated sdist build-system differs from admitted backend')
         destination = work / 'derived-wheels'
         destination.mkdir()
         command(work, 'build-esptool-wheel', offline_prefix([str(vp), '-m', 'pip', 'wheel', '--no-index', '--no-deps', '--no-build-isolation', '--wheel-dir', str(destination), str(cache / package['filename'])]), env=env)
@@ -251,7 +263,11 @@ def prepare(lock: dict, work: Path, cache: Path, bwrap: str) -> dict:
     command(work, 'local-constraints-positive', offline_prefix(check + [str(HERE / constraints['filename'])]), env=env)
     command(work, 'pip-check', offline_prefix([str(vp), '-m', 'pip', 'check']), env=env)
     dump(work / 'Python-profile.json', {'installed': installed, 'derived': derived, 'upstream_negative': 'Expected original strict checker rejection', 'local_profile': constraints['source']})
-    return {'sdk': sdk, 'tools': tools, 'python': vp, 'compiler': compiler, 'cmake': cmake, 'ninja': ninja, 'env': env}
+    for label, executable, expected_version in [('gcc', compiler / 'xtensa-esp32s3-elf-gcc', '15.2.0'), ('cmake', cmake / 'cmake', '3.31.6'), ('ninja', ninja / 'ninja', '1.12.1')]:
+        value = command(work, label + '-version', namespace(bwrap, [sdk, tools, PROJECT], [str(executable), '--version']), env=env).decode()
+        if expected_version not in value:
+            raise GateError('Wrong actual tool version: ' + label)
+    return {'sdk': sdk, 'tools': tools, 'python': vp, 'compiler': compiler, 'cmake': cmake, 'ninja': ninja, 'env': env, 'asset_roots': roots, 'cache': cache, 'wheels': wheels, 'derived': derived}
 
 
 def build_mode(mode: int, lock: dict, paths: dict, work: Path, bwrap: str) -> dict:
@@ -266,7 +282,7 @@ def build_mode(mode: int, lock: dict, paths: dict, work: Path, bwrap: str) -> di
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
     ro = [paths['sdk'], paths['tools'], project]
-    expected = {'sdk': str(paths['sdk']), 'pin': lock['SDK']['commit'], 'outer_netns': os.readlink('/proc/self/ns/net'), 'uid': os.getuid(), 'euid': os.geteuid(), 'gid': os.getgid(), 'egid': os.getegid(), 'read_only': list(map(str, ro))}
+    expected = {'sdk': str(paths['sdk']), 'pin': lock['SDK']['commit'], 'outer_netns': os.readlink('/proc/self/ns/net'), 'uid': os.getuid(), 'euid': os.geteuid(), 'gid': os.getgid(), 'egid': os.getegid(), 'groups': os.getgroups(), 'read_only': list(map(str, ro))}
     command(work, 'mode%d-namespace-preflight' % mode, namespace(bwrap, ro, [str(paths['python']), '-c', PREFLIGHT, json.dumps(expected)]), env=paths['env'])
     for root in (build, build / 'bootloader'):
         query = root / '.cmake/api/v1/query'
@@ -274,16 +290,31 @@ def build_mode(mode: int, lock: dict, paths: dict, work: Path, bwrap: str) -> di
         for kind in ('codemodel-v2', 'cmakeFiles-v1', 'cache-v2', 'toolchains-v1'):
             (query / kind).touch()
     args = [str(paths['python']), str(paths['sdk'] / 'tools/idf.py'), '-C', str(project), '-B', str(build), '-DIDF_TARGET=esp32s3', '-DBOD_RST_SEL=%d' % mode, '-DSDKCONFIG=' + str(build / 'sdkconfig')]
-    command(work, 'mode%d-configure' % mode, namespace(bwrap, ro, args + ['reconfigure']), env=paths['env'])
+    command(work, 'mode%d-configure' % mode, namespace(bwrap, ro, args + ['reconfigure']), env=paths['env'], expected=2 if mode == 2 else 0)
+    if mode == 2:
+        raw = (work / 'receipts/mode2-configure.stdout').read_text() + (work / 'receipts/mode2-configure.stderr').read_text()
+        if 'BOD_RST_SEL must be explicitly 0 or 1' not in raw or 'CMakeLists.txt:4' not in raw or any((build / path).exists() for path in ('build.ninja', 'sdkconfig', 'CMakeFiles/3.31.6/CompilerIdC')):
+            raise GateError('Invalid selector did not stop at the real pre-SDK CMake guard')
+        result = {'mode': 2, 'expected_configure_exit': 2, 'actual_configure_exit': 2, 'real_CMake_guard_reached': True, 'SDK_project_and_compiler_not_entered': True}
+        dump(work / 'mode2-result.json', result)
+        return result
     config = json.loads((build / 'config/sdkconfig.json').read_text())
     flags = {'IDF_TARGET': 'esp32s3', 'FREERTOS_UNICORE': True, 'ESP_DEFAULT_CPU_FREQ_MHZ_160': True, 'ESP_BROWNOUT_DET': False, 'SECURE_BOOT': False, 'SECURE_FLASH_ENC_ENABLED': False}
     if any(config.get(key) != value for key, value in flags.items()) or 'SECURE_ENABLE_TEE' in config:
         raise GateError('Unexpected diagnostic security/target configuration')
     command(work, 'mode%d-build' % mode, namespace(bwrap, ro, args + ['build']), env=paths['env'])
+    boot_config = json.loads((build / 'bootloader/config/sdkconfig.json').read_text())
+    if any(boot_config.get(key) != value for key, value in flags.items()) or 'SECURE_ENABLE_TEE' in boot_config:
+        raise GateError('Unexpected actual bootloader configuration')
     artifacts = []
     for relative in ('s3_bod_selector.elf', 's3_bod_selector.bin', 's3_bod_selector.map', 'bootloader/bootloader.elf', 'bootloader/bootloader.bin', 'bootloader/bootloader.map'):
         file = build / relative
         artifacts.append({'path': str(file), 'bytes': file.stat().st_size, 'sha256': sha(file)})
+    for item in artifacts:
+        if item['path'].endswith('.elf'):
+            header = Path(item['path']).read_bytes()[:20]
+            if header[:6] != b'\x7fELF\x01\x01' or int.from_bytes(header[18:20], 'little') != 94:
+                raise GateError('Expected real ELF32 little-endian Xtensa artifact')
     output = command(work, 'mode%d-writer-disassembly' % mode, namespace(bwrap, ro, [str(paths['compiler'] / 'xtensa-esp32s3-elf-objdump'), '-dr', '--disassemble=bod_probe_apply_selector', str(build / 's3_bod_selector.elf')]), env=paths['env']).decode()
     if '600080e8' not in output or 's32i' not in output or 'l32i' not in output or 'memw' not in output:
         raise GateError('Missing actual writer store/barrier/readback witness')
@@ -291,9 +322,50 @@ def build_mode(mode: int, lock: dict, paths: dict, work: Path, bwrap: str) -> di
         raise GateError('Selector0 clear intent differs')
     if mode == 1 and ('8000000' not in output or '\tor\t' not in output):
         raise GateError('Selector1 set intent differs')
-    result = {'mode': mode, 'configure_exit': 0, 'build_exit': 0, 'actual_flags': flags, 'artifacts': artifacts, 'source_correspondence': 'Fresh SDK/project and mandatory namespace checks; complete automatic dependency closure check follows in final gate.'}
+    elf = str(build / 's3_bod_selector.elf')
+    for symbol in ('app_main', '__esp_sys_init_fn_init_brownout'):
+        text = command(work, 'mode%d-%s-disassembly' % (mode, symbol), namespace(bwrap, ro, [str(paths['compiler'] / 'xtensa-esp32s3-elf-objdump'), '-dr', '--disassemble=' + symbol, elf]), env=paths['env']).decode()
+        if symbol == 'app_main' and '<bod_probe_apply_selector>' not in text:
+            raise GateError('Writer is not called by actual linked app_main')
+        if symbol.startswith('__esp_') and ('rsil' not in text or '\tcall' in text):
+            raise GateError('SDK brownout wrapper has unexpected linked calls')
+    names = command(work, 'mode%d-symbols' % mode, namespace(bwrap, ro, [str(paths['compiler'] / 'xtensa-esp32s3-elf-nm'), elf]), env=paths['env']).decode().splitlines()
+    exact_names = {line.split()[-1] for line in names if line.split()}
+    if {'esp_brownout_init', 'rtc_brownout_isr_handler'} & exact_names or '__esp_sys_init_fn_init_brownout' not in exact_names:
+        raise GateError('Unexpected SDK brownout init/ISR linked state')
+    closure = verify_build.bind_mode(mode, lock, paths, work, command, lambda args: namespace(bwrap, ro, args))
+    result = {'mode': mode, 'closure': closure, 'configure_exit': 0, 'build_exit': 0, 'actual_flags': flags, 'artifacts': artifacts, 'source_correspondence': 'Actual app and bootloader dependencies bound to pinned SDK/project/archive/wheel sources; generated producer roles separate.', 'SDK_init_limit': 'Excluded esp_brownout_init and optional ISR, registered wrapper and flash hooks remain; ROM/hardware state unknown.'}
     dump(work / ('mode%d-result.json' % mode), result)
     return result
+
+
+def save_evidence(work: Path) -> None:
+    """Finite source/raw/generated artifact export; excludes downloads and caches."""
+    evidence = work / 'evidence'
+    evidence.mkdir()
+    selected = [path for path in work.glob('*.json') if path.is_file()]
+    selected += [path for path in (work / 'receipts').iterdir() if path.is_file()]
+    for build in (work / 'build0', work / 'build1', work / 'build2'):
+        if not build.exists():
+            continue
+        for path in build.rglob('*'):
+            if not path.is_file() or path.is_symlink():
+                continue
+            relative = path.relative_to(build)
+            if (path.suffix in ('.elf', '.bin', '.map') or path.name in ('sdkconfig', 'sdkconfig.defaults', 'config.env', 'compile_commands.json', 'project_description.json', '.ninja_log', 'CMakeCache.txt', 'build.ninja', 'rules.ninja') or str(relative).startswith(('.cmake/api/v1/reply/', 'bootloader/.cmake/api/v1/reply/')) or path.name in ('sdkconfig.json', 'sdkconfig.h', 'sdkconfig.cmake')):
+                selected.append(path)
+    for source in sorted(set(selected)):
+        target = evidence / source.relative_to(work)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+    for source in [REPO / 'Makefile', REPO / '.github/workflows/ci.yml', *HERE.glob('*.py'), *HERE.glob('*.json'), *HERE.glob('*.txt'), *HERE.glob('*.patch')]:
+        target = evidence / 'controller-source' / source.relative_to(REPO)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+    rows = [{'path': path.relative_to(evidence).as_posix(), 'bytes': path.stat().st_size, 'sha256': sha(path)} for path in sorted(evidence.rglob('*')) if path.is_file()]
+    dump(evidence / 'manifest.json', {'files': rows, 'scope': 'Finite current command/source/config/ELF/bin/map proof. Tool archives, SDK and Python caches excluded; immutable input pins and used-file correspondence retained.'})
+    with tarfile.open(work / 'evidence.tar.gz', 'w:gz') as archive:
+        archive.add(evidence, arcname='evidence')
 
 
 def main() -> int:
@@ -308,24 +380,59 @@ def main() -> int:
         raise GateError('BLOCKED: only declared Linux x86_64 compile host is supported')
     if not args.bwrap:
         raise GateError('BLOCKED: required host bubblewrap is absent; no isolation fallback')
-    inherited = {key: os.environ[key] for key in ('CC', 'CXX', 'CFLAGS', 'CXXFLAGS', 'CPPFLAGS', 'LDFLAGS', 'CMAKE_PREFIX_PATH', 'PYTHONHOME', 'PYTHONPATH', 'IDF_PYTHON_CHECK_CONSTRAINTS') if os.environ.get(key)}
+    inherited = {key: os.environ[key] for key in ('CC', 'CXX', 'CFLAGS', 'CXXFLAGS', 'CPPFLAGS', 'LDFLAGS', 'CMAKE_PREFIX_PATH', 'PYTHONHOME', 'PYTHONPATH', 'PYTHONOPTIMIZE', 'IDF_PYTHON_CHECK_CONSTRAINTS') if os.environ.get(key)}
     if inherited:
         raise GateError('Unexpected inherited build overrides: %s' % inherited)
-    if args.mode == 'full':
-        raise GateError('Full gate implementation pending early smoke; never a green skip')
     if work.exists():
         raise GateError('Fresh empty work directory required; preserve old runs')
     work.mkdir(parents=True)
     cache.mkdir(parents=True, exist_ok=True)
     lock = json.loads((HERE / 'inputs.json').read_text())
-    dump(work / 'invocation.json', {'argv': sys.argv, 'input_lock_sha256': sha(HERE / 'inputs.json'), 'bwrap': {'path': str(Path(args.bwrap).resolve()), 'sha256': sha(Path(args.bwrap)), 'version': subprocess.check_output([args.bwrap, '--version'], text=True).strip()}, 'scope': 'Compile-only; no devices, keys, firmware execution or physical qualification'})
+    dump(work / 'invocation.json', {'argv': sys.argv, 'input_lock_sha256': sha(HERE / 'inputs.json'), 'bwrap': {'path': str(Path(args.bwrap).resolve()), 'sha256': sha(Path(args.bwrap)), 'version': subprocess.check_output([args.bwrap, '--version'], text=True).strip()}, 'source_commit': subprocess.check_output(['git', '-C', str(REPO), 'rev-parse', 'HEAD'], text=True).strip(), 'host': {'uname': list(platform.uname()), 'uid': os.getuid(), 'gid': os.getgid()}, 'scope': 'Compile-only; no devices, keys, firmware execution or physical qualification'})
     try:
         paths = prepare(lock, work, cache, args.bwrap)
-        result = build_mode(0, lock, paths, work, args.bwrap)
-        dump(work / 'result.json', {'status': 'PASS_EARLY_MODE0_COMPILE_LINK_ONLY_FINAL_GATE_PENDING', 'result': result, 'physical_qualification': False})
-        print('Actual portable mode0 build passed; final closure/0+1+guard2 gate remains pending.')
+        # Validate all extracted publisher-tool and installed library bodies before
+        # product compilation, without treating installed RECORD as authentication.
+        archive_bindings = {}
+        for asset in lock['assets']:
+            archive_bindings.update(verify_build.verify_archive(cache / asset['filename'], paths['asset_roots'][asset['name']]))
+        paths['archive_bindings'] = archive_bindings
+        wheel_bindings, package_rows = verify_build.verify_wheels(lock, paths['wheels'], paths['tools'] / 'python-env/lib/python3.12/site-packages', paths['derived'])
+        paths['wheel_bindings'] = wheel_bindings
+        dump(work / 'publisher-body-correspondence.json', {'tool_asset_files': len(archive_bindings), 'packages': package_rows, 'wheel_body_files': len(wheel_bindings), 'scope': 'Exact publisher asset bytes; esptool locally derived from authenticated sdist and pinned backend. No publisher authentication inferred from installed RECORD.'})
+        paths['git_maps'] = []
+        for root, commit in [(paths['sdk'] / link['path'], link['gitlink']) for link in lock['SDK']['Gitlinks']] + [(paths['sdk'], lock['SDK']['commit'])]:
+            mapping = {}
+            for entry in subprocess.check_output(['git', '-C', str(root), 'ls-tree', '-rz', commit]).split(b'\0'):
+                if entry:
+                    metadata, name = entry.split(b'\t', 1)
+                    mapping[name.decode()] = metadata.decode().split()
+            paths['git_maps'].append((root, commit, mapping))
+        results = [build_mode(0, lock, paths, work, args.bwrap)]
+        if args.mode == 'full':
+            results += [build_mode(1, lock, paths, work, args.bwrap), build_mode(2, lock, paths, work, args.bwrap)]
+            configs = {}
+            for label, relative in [('app', 'config/sdkconfig.json'), ('bootloader', 'bootloader/config/sdkconfig.json')]:
+                left = json.loads((work / 'build0' / relative).read_text())
+                right = json.loads((work / 'build1' / relative).read_text())
+                if left != right:
+                    raise GateError('Mode0/1 effective %s config differs' % label)
+                configs[label] = {'all_values_equal': True, 'keys': len(left)}
+            dump(work / 'mode-comparison.json', {'configs': configs, 'only_project_input_parameter_difference': 'BOD_RST_SEL 0 versus1; identical four source files', 'polarity': None})
+        post = [git_tree_check(paths['sdk'], lock['SDK']['commit'])] + [git_tree_check(paths['sdk'] / link['path'], link['gitlink']) for link in lock['SDK']['Gitlinks']]
+        dump(work / 'source-checks-after.json', post)
+        # A selected source cannot hide as an untracked SDK/Gitlink file.
+        for root, _, _ in paths['git_maps']:
+            extra = subprocess.check_output(['git', '-C', str(root), 'ls-files', '--others', '-z'])
+            if extra:
+                raise GateError('Unexpected untracked SDK/Gitlink input bytes: ' + str(root))
+        dump(work / 'result.json', {'status': 'PASS_PORTABLE_0_1_GUARD2_COMPILE_LINK_ONLY' if args.mode == 'full' else 'PASS_SMOKE_COMPILE_LINK_AND_BOUND_DEPENDENCIES_ONLY', 'results': results, 'physical_qualification': False, 'polarity': None, 'upstream_Python_profile_support': False, 'binary_reproducibility': False})
+        save_evidence(work)
+        print((work / 'result.json').read_text())
+        print('Portable compile gate passed (%s); no device or safety qualification.' % args.mode)
     except Exception as error:
         dump(work / 'failure.json', {'status': 'FAIL_OR_BLOCKED_NO_FALLBACK', 'error': repr(error), 'physical_qualification': False})
+        save_evidence(work)
         raise
     return 0
 

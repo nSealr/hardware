@@ -1043,7 +1043,7 @@
     "upstream_filename": "espidf.constraints.v6.1.upstream.txt",
     "upstream_sha256": "8fd2a7299a476370a1322e87a21ce0e24a9e5b8b6df4b34f0b8acb4a4b03d135",
     "patch_filename": "cryptography-50.patch",
-    "patch_sha256": "285dde3e60a6414de550974f6a8583d713a78aaaf90225e9adf5c255b4c97bbb",
+    "patch_sha256": "8e2c175d741c2641cc7a31571e15bbe838b3b528aab88594c09ba41697ce15d2",
     "source": "Locally maintained one-line corrective compatibility profile admitted by b569f561cdc5287475d11125a6a455bb9dd3cb87. Not upstream-supported or a security/reproducibility qualification; strict upstream negative/patched positive/pip check required."
   },
   "pin_meaning": "Working-profile versions select exact releases except admitted cryptography50 correction; publisher release metadata and distribution SHA-256 authenticate selected archive bytes. Installed RECORD is not the authority. Derived esptool wheel is a local build from authenticated sdist, not a publisher wheel. No release-signature, ecosystem freshness or reproducibility claim."

@@ -1,19 +1,66 @@
 # S3 BOD selector — compile-only source checkpoint
 
-## Current compile/link experiment, 23 October 2026
+## Portable compile gate, 23 October 2026
 
-The four F1-corrected inputs at `e9849a8ae2833b96e0d4ce92978ee48e2087f30c`
-have now produced real selector0/1 ELF/bin/map sets and a true selector2
-CMake-guard rejection under separately admitted isolated commands. The
-[current proof packet](../../docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/README.md)
-records exact sources, actual dependency/producer correspondence, disassembly,
-warnings and limits. Independent review/delivery gates remain pending; no
-firmware/device execution or polarity/host/safety qualification follows.
-The configured `esp_brownout_init` call/optional ISR are excluded, while the
-registered startup wrapper and flash brownout hooks remain; ROM/hardware are
-unknown. Existing43 tests are separate from the cross-build, which is not yet
-wired into CI. Use the source-bound command receipts, not the historical bare
-commands below, to understand the actual executed isolation/tool configuration.
+Run from a clean Linux x86_64 checkout with Python>=3.11, Git and an available
+bubblewrap supporting the mandatory user/network namespaces:
+
+```sh
+make s3-bod-compile S3_BOD_WORK_DIR=/tmp/s3-bod-new-run S3_BOD_CACHE_DIR=/tmp/s3-bod-assets
+```
+
+The work directory must not exist. The cache may contain only assets matching
+[the checked-in exact input hashes](tools/inputs.json); mismatches or interrupted
+acquisitions fail. Ordinary official downloads occur only during bootstrap.
+Build/configure run in a distinct network namespace (only lo, zero routes), with
+fresh `/dev/null`, unchanged UID/GID, zero permitted/effective capabilities,
+NoNewPrivs1 and enforced read-only SDK/tools/project mounts. Unsupported/denied
+isolation fails; there is no skip, sysctl, AppArmor or privilege workaround.
+The recorded actual bubblewrap is a host prerequisite, not part of a binary
+reproducibility guarantee. Only the tested host profile is evidenced.
+
+The target prepares exact SDKfff and its three actually consumed Gitlinks,
+Xtensa15.2.0_20251204, Ninja1.12.1, CMake3.31.6 and CPython3.12.15 from authenticated
+publisher archives. Python63 pins use62 publisher wheels and esptool5.6's exact
+publisher sdist, built offline without isolation using pinned setuptools84.2.1;
+its derived wheel is identified separately. Installed library bytes are compared
+to the actual wheel bodies. Installed RECORD is not publisher authentication.
+
+**Local corrective Python compatibility profile:** the original Espressif
+constraints8fd still require cryptography<49. The admitted one-line local patch
+pins50.0.0, with every other line and62 versions fixed. The original strict SDK
+checker must reject50, the same checker with the explicit local constraints and
+`pip check` must pass. The old48.0.1 profile is not installed: its primary metadata
+reports advisories, including PKCS7 fixed50; two affected-version tables disagree
+with PyPI48.0.1 and that discrepancy remains unresolved. This is not a claim of
+upstream support, complete dependency safety, secure signing or provisioning.
+Advisory metadata is a dated snapshot, not a fresh mandatory security audit.
+
+Both literal selectors0/1 must produce real app and bootloader ELF/bin/map sets;
+selector2 must be rejected at the real CMake guard before SDK/compiler entry.
+The gate checks effective security/target flags, all0/1 generated config values,
+actual writer/app/startup disassembly and linked init/ISR exclusion. Actual
+compiler dependencies for every object, Ninja execution logs, configure/Kconfig
+inputs, link-map LOADs and observed Python imports are bound to SDK Git blobs,
+frozen project inputs, publisher tool/wheel bytes or separately named generated
+producers. These records are not a syscall-complete file-read trace.
+
+`make ci` preserves the original43 controls. `make s3-bod-test` adds finite gate
+negative controls; the separate workflow compile job runs the full target and
+retains `evidence.tar.gz` (source/raw/config/closure/binaries), including on failure.
+The first cold mode0 [checkpoint](../../docs/restart/H01/checks/s3-bod-portable-2026-10-23/early-cold/summary.json)
+remains historical; current final-source results/review must be read separately.
+Original component [proof](../../docs/restart/H01/checks/s3-bod-mode0-first-build-2026-10-23/README.md)
+and distinct review3fb remain bound to their actual sources.
+
+No firmware or device execution occurs. The source performs a real full-word
+register write if later run: compile intent is not physical bit preservation.
+Disabling SDK `esp_brownout_init`/optional ISR does not disable ROM/hardware;
+registered startup wrapper and flash brownout hooks remain. TRM polarity stays
+unresolved, no host/Board/H01 criterion is closed, and no binary reproducibility,
+boot/reset/safety, threshold/arming, keys, flash/fuse or production qualification
+is inferred. Exact sample/startup/strap/rail/reset/operator and independent bench
+admission remain required.
 
 ## Historical blocked checkpoint2680
 
