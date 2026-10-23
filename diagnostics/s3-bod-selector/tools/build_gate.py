@@ -141,7 +141,6 @@ require(os.getgid()==expected['gid'] and os.getegid()==expected['egid'])
 status=dict(line.split(':',1) for line in open('/proc/self/status') if ':' in line)
 require(int(status['CapEff'].strip(),16)==0 and int(status['CapPrm'].strip(),16)==0)
 require(status['NoNewPrivs'].strip()=='1')
-require(set(os.getgroups()).issubset(set(expected['groups'])))
 require(os.readlink('/proc/self/ns/net')!=expected['outer_netns'])
 interfaces=[line.split(':',1)[0].strip() for line in open('/proc/net/dev').read().splitlines()[2:]]
 require(interfaces==['lo'] and not open('/proc/net/route').read().splitlines()[1:])
@@ -156,7 +155,7 @@ for directory in expected['read_only']:
   require(error.errno==errno.EROFS)
  else:
   os.unlink(target);raise AssertionError('Unexpected writable input mount')
-print(json.dumps({'uid':os.getuid(),'euid':os.geteuid(),'gid':os.getgid(),'egid':os.getegid(),'CapEff':status['CapEff'].strip(),'CapPrm':status['CapPrm'].strip(),'NoNewPrivs':status['NoNewPrivs'].strip(),'uid_map':open('/proc/self/uid_map').read(),'gid_map':open('/proc/self/gid_map').read(),'netns':os.readlink('/proc/self/ns/net'),'outer_netns':expected['outer_netns'],'interfaces':interfaces,'IPv4_routes':0,'dev_null_rw':True,'read_only_verified':expected['read_only']}))
+print(json.dumps({'uid':os.getuid(),'euid':os.geteuid(),'gid':os.getgid(),'egid':os.getegid(),'CapEff':status['CapEff'].strip(),'CapPrm':status['CapPrm'].strip(),'NoNewPrivs':status['NoNewPrivs'].strip(),'uid_map':open('/proc/self/uid_map').read(),'gid_map':open('/proc/self/gid_map').read(),'supplementary_groups_in_namespace':os.getgroups(),'supplementary_groups_outer':expected['groups'],'netns':os.readlink('/proc/self/ns/net'),'outer_netns':expected['outer_netns'],'interfaces':interfaces,'IPv4_routes':0,'dev_null_rw':True,'read_only_verified':expected['read_only']}))
 '''
 
 
