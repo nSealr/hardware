@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "role": "Independent compile/config/link expectations frozen before diagnostic source or build; no target execution",
+  "role": "Current compile/config/link expectations based on independent db1a2fc8a48b40effbcaeed8961dafe9a574cea7; F1 applicability amendment only, no target execution",
   "approval": "9e9aea04e0c71e089b1fc8af8d488effe8ba3134",
   "input_hardware": "c8db292e1376fc2df5874cbbf592a72bfc974b0f",
   "sdk_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
@@ -66,8 +66,14 @@
     "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 160,
     "CONFIG_ESP_BROWNOUT_DET": "n",
     "CONFIG_SECURE_BOOT": "n",
-    "CONFIG_SECURE_FLASH_ENC_ENABLED": "n",
-    "CONFIG_SECURE_ENABLE_TEE": "n"
+    "CONFIG_SECURE_FLASH_ENC_ENABLED": "n"
+  },
+  "inapplicable_config": {
+    "CONFIG_SECURE_ENABLE_TEE": "Not an S3 configuration input at this SDK pin; remove the inapplicable default, do not interpret its absence or the old unknown-symbol warning as proven disablement or hardware security.",
+    "source": "fff9895c82d744c7237be8847347bdd1b07c6643:components/esp_tee/Kconfig.projbuild:1-7",
+    "source_sha256": "3b35aea5005811d1e450b4864f677f91f9d9f0d1e2d1c5f3610ac5bbdcefa9ea",
+    "finding": "F1, distinct coordinator source review; original expectation and actual warning remain preserved",
+    "amendment_record": "docs/restart/H01/s3-bod-tee-default-amendment.json"
   },
   "startup_interference": {
     "default_S3_USE_INTR": "n; optional ISR path exists",

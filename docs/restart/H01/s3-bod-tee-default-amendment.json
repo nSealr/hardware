@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "F1_SOURCE_DEFAULT_APPLICABILITY_CORRECTION_ONLY_NOT_CONFIGURE_OR_BUILD_ACCEPTANCE",
+  "finding": "F1, coordinator distinct source review requested removal of the inapplicable S3 default",
+  "parent_checkpoint": "73d574cad6f45e10ab6d34809ea7b5fe3355ec3f",
+  "original_project_source": "11047b805039e01dbb73e7c08d4b6a8016090fcd",
+  "original_independent_expectations": "db1a2fc8a48b40effbcaeed8961dafe9a574cea7",
+  "original_expectations_at_parent_sha256": "aca0dc8043669520606835efd48c43decd5ce4348f0201c65a219cf3bca1e8a6",
+  "current_expectations_sha256": "196972159f4e5110a30a03aab1c2043c22dbe0948caad551b78c953001f9d4c5",
+  "source_evidence": {
+    "commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+    "path": "components/esp_tee/Kconfig.projbuild",
+    "range": [
+      1,
+      7
+    ],
+    "git_blob": "929c9ebbcfd9a72fc555a82b73be8d0ac8ded856",
+    "sha256": "3b35aea5005811d1e450b4864f677f91f9d9f0d1e2d1c5f3610ac5bbdcefa9ea",
+    "property": "The menu is conditional on C6/H2/C5/C61, not S3; SECURE_ENABLE_TEE is not an applicable S3 default. This does not qualify a hardware/ROM security property."
+  },
+  "actual_prior_warning": {
+    "commit": "73d574cad6f45e10ab6d34809ea7b5fe3355ec3f",
+    "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure.stderr.log",
+    "sha256": "5778d0d1acedc3913c71db0c89fc52a6819c253eb3decc0288ee92fdde690703",
+    "line": 8,
+    "role": "Historical observed warning from the exact unamended11047 inputs, not rerun or relabelled"
+  },
+  "current_project_inputs": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "preimage_sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+      "current_sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08",
+      "current_git_blob": "e9afd6ded4bedd82e39d613b2e06309a78c9d4d7",
+      "unchanged": true
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "preimage_sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+      "current_sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe",
+      "current_git_blob": "125de1a7bdf9d321f191a70b789500f135cc521b",
+      "unchanged": true
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "preimage_sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+      "current_sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60",
+      "current_git_blob": "a378973fb584f3e8bcf10af24f36b3861aa7ed63",
+      "unchanged": true
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "preimage_sha256": "a9ed9e362d1d733ffffd566cf2f1003ef95bc1d9686574efc4dce90fdc449831",
+      "current_sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c",
+      "current_git_blob": "ee0b09231e0b5973823f0f9d5c1d4e6a3ce31731",
+      "unchanged": false
+    }
+  ],
+  "metadata_checks": {
+    "only_default_line_removed": true,
+    "other_three_project_inputs_byte_identical": true,
+    "all_other_expectation_fields_preserved_except_role_clarification_and_applicability_metadata": true
+  },
+  "not_executed": [
+    "Any new configure or effective-config observation on the amended input",
+    "Any app/bootloader compile/link/variant/disassembly/CI",
+    "Any physical/device/register/flash/fuse/power operation"
+  ],
+  "remaining": "Distinct affected F1 review required; bootloader/header/generated-source closure and its actual future command remain at the frozen parent next-experiment.json. No new build admission, H01/host/polarity/safety claim."
+}
