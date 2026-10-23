@@ -1,0 +1,55 @@
+{
+  "status": "ADMITTED_ONE_MODE0_CONFIGURE_AND_FIRST_REAL_BUILD_AS_INPUT_CLOSURE_EXPERIMENT",
+  "recorded_utc": "2026-10-23T18:51:55.778979+00:00",
+  "coordinator": "/root",
+  "source_candidate": "e9849a8ae2833b96e0d4ce92978ee48e2087f30c",
+  "source_tree": "3c084479c57b2977eee37a39d1cbd3d8bb171c71",
+  "source_inputs": [
+    {
+      "path": "diagnostics/s3-bod-selector/CMakeLists.txt",
+      "sha256": "ab642d8501ac646eafa5a91392b0fbac4fd2dc3fe82e80ec3afac48019583b08"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/CMakeLists.txt",
+      "sha256": "6ee1c4b84c08da1a8be3ca38359ac29a2884872b8714fd5005b2b9fd7e4afabe"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/main/main.c",
+      "sha256": "c58a437f8766359a18cc3e9d8c7ea6d978d34aa004f4d49858c845a667ec0a60"
+    },
+    {
+      "path": "diagnostics/s3-bod-selector/sdkconfig.defaults",
+      "sha256": "d3ea9fc5e50ec3f831225e1d9878aefca74a58a0474f43d51b6bdc61c8d8063c"
+    }
+  ],
+  "SDK": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "distinct_static_review": "b6dba74c330e31706918d7e68dfa4dc45a5d4825",
+  "F1_source_amendment_review": "00957e214a476252e66fe6d3960b8164d9de4175",
+  "F1_review_sha256": "028f3bf98f00e35e66c2782753eeeb169823b7c587c66563277d0b821ba26593",
+  "previous_actual_configure": "73d574cad6f45e10ab6d34809ea7b5fe3355ec3f, old11047 input only; do not reuse as new-input configure",
+  "why_build_is_now_needed": "Actual configure output exposes app component/CMake/source plans but not bootloader configuration, two generated sources or preprocessed header closure. The generated Ninja command/prerequisite has been inspected; normal build materializes those actual dependencies. Configure alone cannot establish them.",
+  "sequence": [
+    "Fresh export of four exact e984 inputs; verify SDK tracked-root bytes, all Gitlink states and exact compiler/tool identities; no new dependencies or network acquisition",
+    "One fresh mode0 configure with same explicit flags/toolchain and isolated namespace, standard --dev /dev, command-local IDF_SKIP_CHECK_SUBMODULES=1; inspect actual config before compilation, sourceF1 unknown symbol must be absent and intended brownout/secureboot/encryption flags resolved as expected",
+    "One normal mode0 idf.py build, allowing its real app and bootloader configure, partition-table/generation, compile/link and binary conversion targets; no custom bypass of generated dependencies",
+    "Collect actual app+bootloader configs/component maps/CMake inputs/compile commands/Ninja dependencies and complete generated input/producer identities; inspect formats before any new analyzer",
+    "Strictly compare every consumed SDK/submodule tracked input including headers/Kconfig/CMake/Python to pinned source Gitlink/blob bytes; classify generated/toolchain/sysroot separately with actual producer pins. A present directory or vendor warning is insufficient",
+    "Bind actual ELF/bin/map/SDKconfig/tool hashes and inspect actual linked/disassembled selector0 operation and startup/ISR/config correspondence; no firmware execution or physical property inferred",
+    "STOP at first build failure or after mode0 input-closure/evidence report. Do not run mode1/unsupportedvalue/hostedCI or expand scope until root sees this smallest build result"
+  ],
+  "incomplete_source_rule": "The single provisional build exists to learn actual dependencies. An unresolved or wrong pinned consumed input means source closure FAIL/UNKNOWN, not an accepted binary. Preserve the output and exact missing source; do not fetch/substitute or claim release/reproducibility.",
+  "unchanged_environment_rules": [
+    "Same zero-network namespace and read-only SDK/tool/project sources as provenbd65; no host hardware bind or privilege override",
+    "No source/toolchain/version/policy/threshold change, no SDK component-manager download or global env mutation",
+    "If the normal build attempts key generation/signing/provisioning, an external acquisition or a physical target, stop before that action and report exact command; no production keys/fuse/flash/monitor/rails/device use",
+    "Original failures, old-source manifests/configure, F1 CHANGES_REQUESTED and correction review remain historical; new results carry new input identity",
+    "Mandatory final local/hosted integration gates remain required for a future coherent final candidate; no skip-ci marker may suppress final checks"
+  ],
+  "qualification_limits": [
+    "Mode0 compiler/tool pipeline experiment only, not board selection or host admission",
+    "Neither conflicting BOD TRM polarity selected; actual selected_polarity stays null",
+    "CONFIG brownout disabled suppresses only SDK init/ISR, not ROM state/disarm guarantee; wholeword register write remains actual intent with RMW/RO/WO caveats",
+    "No hardware safety, flash, real reset/stimulus, entropy/custody, physical or release criterion closure"
+  ],
+  "parent_criteria_closed": []
+}
