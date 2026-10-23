@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "role": "Distinct affected STATIC-ONLY review of the diagnostic formatter/sentinel correction; no observer or fixture execution by reviewer",
+  "reviewed_at_utc": "2026-10-23T22:26:14.551195+00:00",
+  "candidate": {
+    "commit": "5291ec1b9bc59ea0fab993f938cbaaf3cba3a593",
+    "tree": "c3a6cc69c853aa2cb0319c9e1913e9ca84e5d2be",
+    "branch": "research/h01-host-context",
+    "publication_at_review": "Local unpublished candidate; root owns any subsequent publication/manual dispatch"
+  },
+  "verdict": "PASS_SCOPED_STATIC_READ_ONLY_DIAGNOSTIC_CORRECTION_NOT_HOST_ADMISSION",
+  "findings": [],
+  "prior_review": {
+    "commit": "0b303b281ef730fd4cf985893b0314a4632990cd",
+    "path": "docs/restart/H01/reviews/s3-bod-host-context-static-review.json",
+    "sha256": "6321edf7908300fe1331ec28ebce39138ca8075a0da6436deecf4aa6bb7e6254",
+    "rejected_source": "ec175a4a9efcdc096687c6dad315fc0c8546cf4b",
+    "role": "Historical CHANGES_REQUESTED with two nonexecuted source witnesses; unchanged and still valid for ec175a4"
+  },
+  "source_bindings": {
+    "observer": {
+      "path": "diagnostics/s3-bod-selector/tools/observe_host_context.py",
+      "sha256": "970e5d0b95da270d43b520b6e756b810317c836ef60b5cfda7facf3ff760fcdf",
+      "matches_tested_source_commit": "e2424c5117ed3793ba0ba9269dbcab057cb36ef0"
+    },
+    "workflow": {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "bb15a79b3998b76da6af904c8fa0617d89a1e935794dabc62db22236053de29e",
+      "byte_and_mode_identical_to_rejected_candidate": true
+    }
+  },
+  "affected_scope": {
+    "candidate_paths": 551,
+    "delta_from_rejected_source": {
+      "modified_observer": 1,
+      "new_proof_files": 6,
+      "other_byte_and_mode_exact_postimages": 544
+    },
+    "unchanged_original_function_ASTs": [
+      "unknown",
+      "read_public",
+      "read_command",
+      "binary_file"
+    ],
+    "inspection": "Read complete changed formatter/tokenizer/main-call delta, entire six-file author proof, and exact Git source/proof bindings. AST comparisons parse source only; no source module or AST function was executed by reviewer."
+  },
+  "resolved_findings": [
+    {
+      "id": "H01-HOST-CONTEXT-01",
+      "resolution": "Actual journal argv requests --lines=65. format_kernel_output counts returned physical lines before matching or retaining at most64 records; >64 marks UNKNOWN/truncated. Stream overflow, timeout or nonzero command status cannot be promoted by the formatter. Multiline events may conservatively reach UNKNOWN earlier. Empty/no-matching output also remains UNKNOWN.",
+      "independent_static_reasoning": "65 ordinary matching single-line events now yield returned_lines65, retained64 and UNKNOWN. The former upstream64/len>64 mismatch is removed without increasing retained-record or stream caps.",
+      "author_pure_cases": [
+        "64_control",
+        "65_sentinel"
+      ]
+    },
+    {
+      "id": "H01-HOST-CONTEXT-02",
+      "resolution": "Quote-aware tokenization separates only unquoted whitespace. Fields require full-token key=value matching; quoted name contents cannot become separate fields. Only literal approved public labels and bounded canonical decimal numeric values are retained; every other key/value becomes hashes and UNKNOWN. Unsupported quoting, duplicate keys/identifiers and malformed body tokens yield UNKNOWN with cleared fields/redactions. Prefix text is not retained; timestamp requires the bounded timestamp grammar.",
+      "independent_static_reasoning": "The original /private profile/comm witnesses cannot enter fields because neither value is in the literal allowlist. The nested profile=confidential witness remains inside one name token and is hashed rather than promoted. Error text is constant and contains no input. Hash retention is metadata, not a claim of secrecy against guesses.",
+      "author_pure_cases": [
+        "public_control",
+        "quoted_nested_fields",
+        "private_profile_comm",
+        "malformed_quote",
+        "duplicate_field",
+        "path_prefix"
+      ]
+    }
+  ],
+  "author_evidence": {
+    "pre_correction_expectations_commit": "60fabaa58d6c231b5e7f9d13f1d7890d40fa989f",
+    "expectations_source_role": "At60fabaa the expectations exist and the observer still equals rejected ec175a4. Expectations remain byte-exact in candidate.",
+    "command": [
+      "python3",
+      "docs/restart/H01/checks/host-context-pure-correction/probe.py"
+    ],
+    "recorded_source_commit": "e2424c5117ed3793ba0ba9269dbcab057cb36ef0",
+    "recorded_exit": 0,
+    "recorded_seconds": 0.023407605476677418,
+    "recorded_cases": 8,
+    "recorded_stderr_bytes": 0,
+    "interpretation": "Author synthetic pure-function proof only; output binds current observer and expectations hashes. Read probe selects only two constant dictionaries and three pure formatter/tokenizer functions; main and host/command/binary helpers are not selected. Reviewer did not rerun it.",
+    "probe_history_limit": "probe.py is added with proof at5291, not tracked at tested observer commit e242. The receipt identifies the observer source commit, not a fully committed clean test-harness tree; no such claim is made here.",
+    "bindings": [
+      {
+        "path": "docs/restart/H01/checks/host-context-pure-correction/expectations.json",
+        "bytes": 2732,
+        "sha256": "736c53ee1d7aa4161a99c6d8ec8e628db5d0aaec203a83d0ebb15e39c8dedd58"
+      },
+      {
+        "path": "docs/restart/H01/checks/host-context-pure-correction/probe.py",
+        "bytes": 4323,
+        "sha256": "33c7bc53626eb041f67af2e8322efd98e889d247a95e63f27a60f10e3643f598"
+      },
+      {
+        "path": "docs/restart/H01/checks/host-context-pure-correction/command.json",
+        "bytes": 489,
+        "sha256": "5868ff6ca6f867109a13282733d296ad70677b471822c6eff247ec246c4e25d0"
+      },
+      {
+        "path": "docs/restart/H01/checks/host-context-pure-correction/stdout.json",
+        "bytes": 1560,
+        "sha256": "01edcdd9b6eca5b14584db3f4e3991e05c5bc7ec03a5cdeb2191a8a487c8aea3"
+      },
+      {
+        "path": "docs/restart/H01/checks/host-context-pure-correction/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/restart/H01/checks/host-context-pure-correction/correction.json",
+        "bytes": 2920,
+        "sha256": "deb11efd6205d0173cddc401ece57609348570d60c4e0d9ff32da6764232be4a"
+      }
+    ]
+  },
+  "reviewer_metadata_reader_error": {
+    "class": "Reviewer provenance assumption, not observer/product/test failure",
+    "original_exit": 1,
+    "failed_operation": [
+      "git",
+      "-C",
+      "/home/tux/nsealr/.restart-tools/goal/h01-host-context",
+      "show",
+      "e2424c5117ed3793ba0ba9269dbcab057cb36ef0:docs/restart/H01/checks/host-context-pure-correction/probe.py"
+    ],
+    "erroneous_assumption": "assert blob(tested_source, probe.py) == blob(final_candidate, probe.py): the reader incorrectly assumed the probe was already committed alongside the executed observer source.",
+    "original_error": "fatal: path 'docs/restart/H01/checks/host-context-pure-correction/probe.py' exists on disk, but not in 'e2424c5117ed3793ba0ba9269dbcab057cb36ef0'\nsubprocess.CalledProcessError: Command git show for that exact path returned non-zero exit status128.",
+    "correction": "Inspect actual tree membership and distinguish executed observer source, pre-code expectations, and subsequently packaged probe/receipts. Corrected metadata-only reader exit0 verifies seven-path delta,551 paths/544 unchanged, four AST identities, all six proof hashes, eight existing-case records and source/expectations identities. No runtime or fixture rerun and no PASS attributed to the aborted reader."
+  },
+  "reused_scope_and_limits": [
+    "The unchanged workflow is manual-only with one observe-host-context job, pinned actions/Python, contents read and no persisted checkout credential. It neither defines nor satisfies verify or s3-bod-compile, and must never be merged as production CI.",
+    "The approved APT prerequisite remains a separate privileged setup before observation. No new sudo, policy, namespace, runner, tool version or flag workaround is introduced. Actual observer command/read helpers remain exactly as statically reviewed in0b303.",
+    "This review admits the bounded diagnostic source only. Future fresh-host context, even a successful observation record, is neither failed-VM evidence nor RTM_NEWADDR causal proof, isolation PASS, build PASS, required-check success or hardware/host admission.",
+    "Production PR57a28f and its original failed captures/required checks remain unchanged. Root alone owns any one explicit manual dispatch under the already-approved scope.",
+    "No observer/main, fixture probe, host observation command, namespace attempt, build, install, hosted query, download or source edit was executed by reviewer. No process remains running from this review."
+  ]
+}
