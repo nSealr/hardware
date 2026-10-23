@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "parent": "59ceb746ff5e30f350453ce302f6699a487e65d8",
+  "scope": "Corrected one-shot configure; incomplete app/bootloader/header closure, no product build",
+  "self_excluded": true,
+  "member_count": 15,
+  "members": [
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/README.md",
+      "mode": "100644",
+      "bytes": 3334,
+      "sha256": "0a2efc98a4b09fe37591e51b93e6430c0e56340df4e957278a75e21e5ed3d363",
+      "git_blob": "66f72f50496ad374f77b520a0c5eb46387a6ba66"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/available-input-bindings.json",
+      "mode": "100644",
+      "bytes": 571470,
+      "sha256": "e338161a19f359be0c2ecc8126643e2f915e4b2b2b55c4f744bb8ce489a7da1c",
+      "git_blob": "6058764414d231a08ee624a197697f67d0250cd9"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/bind-generated-inputs.py",
+      "mode": "100644",
+      "bytes": 9072,
+      "sha256": "53694e037412f0de849291c0cdde488e08282829893ce454e49e7ce47ac385bc",
+      "git_blob": "c436d0cddc76649b5926f01729c558fc29023d72"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure-command.json",
+      "mode": "100644",
+      "bytes": 4737,
+      "sha256": "6da2ef86eda7e9fad014cbb927e64fa73e58e495fd793258312d5cad4eb9e94e",
+      "git_blob": "c41c1c64ca32d51253165d4aa971fb51e9f3fcd1"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure-corrected.py",
+      "mode": "100644",
+      "bytes": 5185,
+      "sha256": "a3f5fef55367db45416d04a78e76193d368f0805c81b0be1f8f9836f30269440",
+      "git_blob": "66ca0910075e1da69138833f6878c7b7ca057635"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure-output-inventory.json",
+      "mode": "100644",
+      "bytes": 62868,
+      "sha256": "3aabec941b1fbf19db9d8194686e518b0bfcf648bf9974a15864f0d0d9174cdf",
+      "git_blob": "e286ad5f6024f0a29299c83f1ab4c692478aa437"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure-output.tar.gz",
+      "mode": "100644",
+      "bytes": 470067,
+      "sha256": "5645c74c8767e13af3b7078aba2e9627d645da1f16c9c3755c2826fb24f84baf",
+      "git_blob": "f185c99fba311c99d11513ecc4eaa47bc4da0425"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure.stderr.log",
+      "mode": "100644",
+      "bytes": 2977,
+      "sha256": "5778d0d1acedc3913c71db0c89fc52a6819c253eb3decc0288ee92fdde690703",
+      "git_blob": "c0213813ce35c6068bbe70c8300caebf9c1a6d83"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/configure.stdout.log",
+      "mode": "100644",
+      "bytes": 11845,
+      "sha256": "0d4025294af3d81e3b8fdd53e05343c809a29eb5149120e658c88f963fa5473b",
+      "git_blob": "a8ac2fef719bebcd13c26c7a15a8e36a529173db"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/generated-format-inspection.json",
+      "mode": "100644",
+      "bytes": 3347,
+      "sha256": "b5ad51635f0b44dd1e1816795da5c8b706d63f8fea14139de77165db791bb53a",
+      "git_blob": "c90e48d80451cc9c24ea2560bb62f79b3425f475"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/next-experiment.json",
+      "mode": "100644",
+      "bytes": 2656,
+      "sha256": "3d266160f7a9df080ca6d56cf5c54865f387a8f50d68f95faa7ee0da3e69fc98",
+      "git_blob": "9ce65c20aaf115778ccb7aee6e1f7edb2c7c47ca"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/post-configure-source-check.json",
+      "mode": "100644",
+      "bytes": 5590,
+      "sha256": "e7022acb224ed061061cb93560183c7636d9cfe2e7d24b00e0095735a41c305e",
+      "git_blob": "c3e9896c1925d9853e4cf7da9ad77203e027bb63"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/preflight.json",
+      "mode": "100644",
+      "bytes": 225741,
+      "sha256": "590bd1a736b2b02d92763519b6a6b95a2bbd5e5d85c679abb3ae0890ca794bef",
+      "git_blob": "0e4a2d39b7ab4ac162f469441ff44ca498ae3c59"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/result.json",
+      "mode": "100644",
+      "bytes": 5995,
+      "sha256": "236b4c464f1144cc691dffd3b25f35f55ee2916feef3ab1aca0b6ce8abd82798",
+      "git_blob": "b797ae37c64626c682e921b001508906710647fe"
+    },
+    {
+      "path": "docs/restart/H01/checks/s3-bod-isolated-configure-corrected-2026-10-23/whitespace.json",
+      "mode": "100644",
+      "bytes": 668,
+      "sha256": "7fb3cc2ebf8a390770ba7eafb5df0ef68ab997346a02daff80a1eb78a5054eec",
+      "git_blob": "f31063eb17f34431d77e319c08bdc0828584db06"
+    }
+  ]
+}
