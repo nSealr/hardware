@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "role": "Independent compile/config/link expectations frozen before diagnostic source or build; no target execution",
+  "approval": "9e9aea04e0c71e089b1fc8af8d488effe8ba3134",
+  "input_hardware": "c8db292e1376fc2df5874cbbf592a72bfc974b0f",
+  "sdk_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "sdk_tree": "e6a5e4865e2027f1f0cef5da09f254d65c5cec22",
+  "vendor_source_inputs": [
+    {
+      "path": "components/soc/esp32s3/register/soc/rtc_cntl_reg.h",
+      "sha256": "37a0ec8e80e9531b83407de1fdd101ea0be1bb90b680d1b126b44e8484883e29"
+    },
+    {
+      "path": "components/soc/esp32s3/register/soc/gpio_reg.h",
+      "sha256": "2a6618c112bceb25291b5a215ab6140560cff033ed169c92dfd765683f0a980e"
+    },
+    {
+      "path": "components/soc/esp32s3/register/soc/efuse_reg.h",
+      "sha256": "792765ec37f90b54ce6099fde5e77ac964e9a935a12db0f13dc292f1df2c8748"
+    },
+    {
+      "path": "components/esp_system/startup_funcs.c",
+      "sha256": "2f435ad551301fa0098d8020bb8f81967930562bfc5ba39dd027373514a774dc"
+    },
+    {
+      "path": "components/esp_hw_support/power_supply/brownout.c",
+      "sha256": "21963bd750cbea47f9043da09de431a17c9eba7fd656741da171572c1e5d9a94"
+    },
+    {
+      "path": "components/esp_hw_support/power_supply/port/esp32s3/Kconfig.power",
+      "sha256": "ea107c5dd3f597d75c9b7cd20767a166e50dca6408f6a81d0fd0529ef8052058"
+    },
+    {
+      "path": "components/esp_hal_pmu/esp32s3/include/hal/brownout_ll.h",
+      "sha256": "c9b4c8902d22b488cdc329392d2ffb374c9ecb5573030e4dc5c8afd4d0055718"
+    },
+    {
+      "path": "components/esp_hal_pmu/brownout_hal.c",
+      "sha256": "2bc9499ffe99d4d0cf0f4de490d7d0dd76a18225532674ec1d61b0e441bf4d66"
+    },
+    {
+      "path": "components/hal/include/hal/psdet_types.h",
+      "sha256": "8d55716a2f4ba5abb659107d72a771d8bb41e2635224ba55dd6471d027652f8e"
+    },
+    {
+      "path": "tools/tools.json",
+      "sha256": "039337e5ee2511f97d112aedb98125945625a4dd9ffb67e0cbb094edcdd298b2"
+    }
+  ],
+  "selectors": {
+    "0": "Linked field intent: clear bit27 only in the captured raw value; no physical reset-type conclusion",
+    "1": "Linked field intent: set bit27 only in the captured raw value; no physical reset-type conclusion",
+    "other": "Actual CMake configure rejection before including the SDK project"
+  },
+  "field_expectations": {
+    "register_offset": "0xE8 from DR_REG_RTCCNTL_BASE",
+    "mask": "0x08000000",
+    "shift": 27,
+    "access": "Selector R/W; bit31 BROWN_OUT_DET RO; bit29 CNT_CLR WO; no W1C field in this pinned word",
+    "write_scope": "One explicit masked RMW of the full register. Before/after logged if later run; no guarantee other physical effects/bits are unchanged. Refuse the write when the read WO bit29 is1, avoiding replay of an observed1 strobe; a WO read is not a state/safety proof.",
+    "strap_marker_mask": "GPIO_STRAPPING bit2 (GPIO46), no RAM-loss inference"
+  },
+  "required_config": {
+    "CONFIG_IDF_TARGET": "esp32s3",
+    "CONFIG_FREERTOS_UNICORE": "y",
+    "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 160,
+    "CONFIG_ESP_BROWNOUT_DET": "n",
+    "CONFIG_SECURE_BOOT": "n",
+    "CONFIG_SECURE_FLASH_ENC_ENABLED": "n",
+    "CONFIG_SECURE_ENABLE_TEE": "n"
+  },
+  "startup_interference": {
+    "default_S3_USE_INTR": "n; optional ISR path exists",
+    "optional_ISR": "Clears interrupt, possibly invokes callback, stops other core, sets BROWNOUT hint and calls esp_rom_software_reset_system; not a polarity witness",
+    "non_ISR_init": "brownout_hal_config selects enum SYSTEM and writes threshold/reset/other fields; enum values are software intent, not authority resolving conflicting TRM",
+    "probe_choice": "Exclude SDK brownout init/ISR via config; write only selector after reporting raw context. No threshold, arming, alternate mode or stimulus. not_armed_by_this_probe does NOT mean ROM/hardware disarmed.",
+    "UART_header_disagreement": "Pinned efuse_reg.h comment mentions GPIO8; TRM1.8 says GPIO46. Only raw already-fixed00/11 is eligible in future probe; no comment chosen as hardware authority, no fuse writes."
+  },
+  "artifact_expectations": {
+    "ELF": "Real linked ELF32 Xtensa for each selector, raw link map and application/bootloader bin hashes, source/config/compiler correspondence",
+    "generated_effects": "Actual noinline function disassembly/preprocessed source and literal/address trace; compile flags/source and physical effects kept distinct",
+    "unsigned_public_only": "No secure boot/flash encryption/signing key generation/auto-provision or hardware operation; generated configs checked",
+    "binary_equivalence": "Not claimed; differing build paths/metadata and selector effects are recorded"
+  },
+  "early_smoke": "One real build/link before final packaging, then both variants/invalid-selector rejection on coherent source",
+  "bench_hypotheses": {
+    "TRM_body576": [
+      1,
+      0
+    ],
+    "TRM_register623": [
+      0,
+      1
+    ],
+    "status": "Unexecuted; polarity null/UNSATISFIED. Exact specimen/startup/security/pins/rails/CHIP_PU/knownChip-System controls/operator needed."
+  },
+  "preserve": "Original43 tests/validators and all SDK/Pi/graph/S04 gates unchanged. No flash/erase/monitor/fuse/energize or hosted CI."
+}
